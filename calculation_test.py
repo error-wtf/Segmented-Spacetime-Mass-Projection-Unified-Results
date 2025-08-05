@@ -134,6 +134,7 @@ def main():
         sys.exit(0)
 
     parser.error("Please specify --rphi <value> or --demo to run calculations.")
-
+    
 if __name__ == "__main__":
+    print("© Carmen Wrede & Lino Casu")
     main()
