@@ -19,7 +19,6 @@ The method implemented here reconstructs the **effective mass** of physical obje
 | File | Description |
 |------|-------------|
 | `segmented_full_proof.py` | Main Python script to run all results and outputs |
-| `segmented_mass_unified_results.csv` | Extended dataset of real and computed masses |
 | `README.md` | You're reading it. |
 
 ## 🚀 How to Run
