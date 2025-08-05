@@ -139,8 +139,9 @@ The `final_test.py` script confirms:
 - Mass is derived from geometric structure alone.
 - The numerical error is near machine precision.
 
+
 This is a clean and direct demonstration that mass can be reconstructed from segmented spacetime – without assumptions, without shortcuts.
----
+
 
 
   
