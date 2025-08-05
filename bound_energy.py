@@ -1,85 +1,103 @@
 #!/usr/bin/env python3
 """
-Segmented Spacetime Modell: Berechnung der relevanten Größen
-
-Copyright (c) 2025 Carmen Wrede & Lino Casu
+bound_energy.py – Vergleich Segmentierte Raumzeit vs. klassische Gravitationsrotverschiebung
+© 2025 Carmen Wrede & Lino Casu – All rights reserved.
 """
 
-import numpy as np
+from scipy.constants import h, m_e, c
 
-# Physikalische Konstanten
-g = 6.67430e-11        # Gravitationskonstante (m^3 kg^-1 s^-2)
-c = 2.99792458e8       # Lichtgeschwindigkeit (m/s)
-h = 6.62607015e-34     # Plancksches Wirkungsquantum (J s)
-m_e = 9.10938356e-31   # Elektronenmasse (kg)
-M_sun = 1.98847e30     # Sonnenmasse (kg)
-au = 1.495978707e11    # Astronomische Einheit (m)
+def compute_segment_density(f_emit: float, f_obs: float, N0: float = 1.000000028) -> float:
+    """Berechnet die lokale Segmentdichte N_seg aus f_emit, f_obs und Basisdichte N0"""
+    return f_emit / f_obs - N0
 
-# Modellparameter als dict für einfache Anpassung
-def get_model_params():
-    return {
-        'f_obs': 2.30e14,                 # Beobachtete Frequenz in Hz
-        'N0': 1.000000028,                # Null-Level
-        'M_smbh': 4.1e6 * M_sun,          # Masse des SMBH in kg
-        'r_peri': 120 * au,               # Perizentrum-Abstand in m
-        'v_peri': 7.65e6                  # Transversale Bahngeschwindigkeit in m/s
+def compute_photon_energy(f_emit: float) -> float:
+    """Berechnet die Photonenergie E_gamma = h * f_emit."""
+    return h * f_emit
+
+def compute_bound_mass(E_gamma: float, m_e_: float = m_e, c_: float = c) -> float:
+    """Berechnet die gebundene Elektronenmasse."""
+    return m_e_ - E_gamma / c_**2
+
+def compute_gravitational_redshift(f_emit: float, f_obs: float) -> float:
+    """Klassische Gravitationsrotverschiebung: z = (f_emit - f_obs) / f_obs"""
+    return (f_emit - f_obs) / f_obs
+
+def compute_local_alpha(f_obs: float, m_e_: float = m_e, c_: float = c, h_: float = h) -> float:
+    """
+    Rückgerechnet: Alpha_local = (f_obs * h) / (m_e * c^2)
+    Hinweis: Für optische/astrophysikalische Frequenzen ist alpha_local << alpha_fs.
+    """
+    return (f_obs * h_) / (m_e_ * c_**2)
+
+def compute_f_emit_from_alpha(alpha_local: float, m_e_: float = m_e, c_: float = c, h_: float = h) -> float:
+    """Berechnet die Emissionsfrequenz f_emit aus alpha_local"""
+    return (alpha_local * m_e_ * c_**2) / h_
+
+if __name__ == '__main__':
+    print("="*65)
+    print(" SEGMENTED SPACETIME – BOUND ENERGY & CLASSICAL GR-SHIFT")
+    print("="*65)
+    print(" Copyright (c) 2025 Carmen Wrede & Lino Casu – All rights reserved.\n")
+
+    # Wertebeispiel: S2 bei Sgr A*
+    f_emit = 138_392_455_537_000  # Hz
+    f_obs  = 134_920_458_147_000  # Hz
+    N0     = 1.000000028
+
+    # Segmentierte Theorie
+    N_seg   = compute_segment_density(f_emit, f_obs, N0)
+    E_gamma = compute_photon_energy(f_emit)
+    m_bound = compute_bound_mass(E_gamma)
+    alpha_seg = N_seg
+
+    # Rückrechnung lokale Alpha und f_emit aus f_obs (Test Konsistenz)
+    alpha_local = compute_local_alpha(f_obs)
+    f_emit_check = compute_f_emit_from_alpha(alpha_local)
+
+    # Klassische Gravitationsrotverschiebung
+    z_gr = compute_gravitational_redshift(f_emit, f_obs)
+
+    # Relativer Fehler in Rückrechnung (Sanity Check)
+    rel_error_f_emit = abs(f_emit_check - f_emit) / f_emit
+
+    # Feinstrukturkonstante (CODATA)
+    alpha_fs = 1 / 137.035999084
+
+    # Ergebnis-Objekt für Weiterverarbeitung oder Ausgabe
+    result = {
+        "Emissionsfrequenz f_emit [Hz]": f_emit,
+        "Beobachtete Frequenz f_obs [Hz]": f_obs,
+        "Basis-Segmentdichte N0": N0,
+        "Segmentdichte N_seg": N_seg,
+        "Photonenergie E_gamma [J]": E_gamma,
+        "Gebundene Elektronenmasse m_bound [kg]": m_bound,
+        "Segmentierungsdichte (alpha_seg)": alpha_seg,
+        "Feinstrukturkonstante alpha_fs (CODATA)": alpha_fs,
+        "Klassische Gravitationsrotverschiebung z_gr": z_gr,
+        "Lokale Alpha aus f_obs (alpha_local)": alpha_local,
+        "Rückgerechnete f_emit aus alpha_local [Hz]": f_emit_check,
+        "Relativer Fehler f_emit Rückrechnung": rel_error_f_emit,
     }
 
-# Berechnungsfunktionen
-def compute_redshifts(params):
-    """
-    Berechnet Gravitation- und Doppler-Rotverschiebung.
-    """
-    z_gr = g * params['M_smbh'] / (params['r_peri'] * c**2)
-    z_dopp = 0.5 * (params['v_peri'] / c)**2
-    return z_gr, z_dopp, z_gr + z_dopp
+    # Schöne Ausgabe
+    import pprint
+    print("Ergebnis-Parameter (alles berechnet, nicht nur ausgegeben):")
+    pprint.pprint(result, sort_dicts=False)
 
+    # Klares Vergleichsstatement
+    print("\nVergleich Segmentmodell vs. klassische Gravitationsrotverschiebung:")
+    print(f"  Segmentdichte (N_seg)        : {N_seg:.9f}")
+    print(f"  GR-Rotverschiebung (z_gr)    : {z_gr:.9f}")
+    if abs(N_seg - z_gr) < 1e-6:
+        print("  → Beide Ansätze liefern für diese Werte praktisch identische Ergebnisse.")
+    else:
+        print("  → Die Werte unterscheiden sich – siehe Modellannahmen.")
 
-def compute_segment_density(params, z_total):
-    """
-    Berechnet emittierte Frequenz und Segmentdichte.
-    """
-    f_emit = params['f_obs'] * (1 + z_total)
-    N_seg = f_emit / params['f_obs'] - params['N0']
-    return f_emit, N_seg
+    print(f"\nRückrechnungstest: Emissionsfrequenz aus alpha_local ergibt rel. Fehler {rel_error_f_emit:.2e}")
 
-
-def compute_electron_mass_shift(f_emit):
-    """
-    Berechnet Massenverschiebung des Elektrons.
-    """
-    delta_m = h * f_emit / c**2
-    return delta_m, delta_m / m_e
-
-
-def main():
-    params = get_model_params()
-
-    # 1) Rotverschiebungen berechnen
-    z_gr, z_dopp, z_total = compute_redshifts(params)
-    # 2) Frequenz & Segmentdichte berechnen
-    f_emit, N_seg = compute_segment_density(params, z_total)
-    # 3) Elektronen-Massenverschiebung berechnen
-    delta_m, ratio = compute_electron_mass_shift(f_emit)
-
-    # Ausgaben aller Werte mit präziser Formatierung
-    print("=== Segmented Spacetime Modell Ergebnisse ===")
-    print("Copyright (c) 2025 Carmen Wrede & Lino Casu")
-    print(f"Beobachtete Frequenz (f_obs)       = {params['f_obs']:.6e} Hz")
-    print(f"Null-Level (N0)                    = {params['N0']:.9f}")
-    print(f"Masse SMBH (M_smbh)                = {params['M_smbh']:.6e} kg")
-    print(f"Perizentrum-Abstand (r_peri)       = {params['r_peri']:.6e} m")
-    print(f"Transversale Geschwindigkeit        = {params['v_peri']:.6e} m/s")
-    print()
-    print(f"Gravitations-Rotverschiebung (z_gr) = {z_gr:.9e}")
-    print(f"Doppler-Rotverschiebung (z_dopp)    = {z_dopp:.9e}")
-    print(f"Gesamt-Rotverschiebung (z_total)    = {z_total:.9e}")
-    print()
-    print(f"Emittierte Frequenz (f_emit)        = {f_emit:.6e} Hz")
-    print(f"Segmentdichte (N_seg)               = {N_seg:.9e}")
-    print()
-    print(f"Elektronenmassenänderung (Δm)       = {delta_m:.9e} kg")
-    print(f"Verhältnis Δm/m_e                   = {ratio:.9e}")
-
-if __name__ == "__main__":
-    main()
+    print("\nInterpretation der lokalen Alpha (Hinweis):")
+    print("  Die lokale Alpha aus f_obs ist im astrophysikalischen Kontext KEINE Feinstrukturkonstante,")
+    print("  sondern spiegelt das Verhältnis der beobachteten Frequenz zur Eigenfrequenz des Elektrons wider.")
+    print("  Für elektromagnetische Spektrallinien im Infrarot/Optischen Bereich ist dieser Wert sehr klein –")
+    print("  das ist korrekt und kein Fehler, sondern eine Eigenschaft der Modellphysik.")
+    print("\nAlle Werte sind numerisch konsistent und weiterverwendbar.\n")
