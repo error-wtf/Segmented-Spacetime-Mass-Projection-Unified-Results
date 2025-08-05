@@ -1,101 +1,85 @@
 #!/usr/bin/env python3
 """
-bound_energy.py
+Segmented Spacetime Modell: Berechnung der relevanten Größen
 
-Modul zur Berechnung der lokalen Segmentdichte, Photonenergie
-und gebundenen Elektronenmasse im Segmented Spacetime Modell.
+Copyright (c) 2025 Carmen Wrede & Lino Casu
 """
-from scipy.constants import h, m_e, c
 
+import numpy as np
 
-def compute_segment_density(f_emit: float, f_obs: float, N0: float = 1.000000028) -> float:
+# Physikalische Konstanten
+g = 6.67430e-11        # Gravitationskonstante (m^3 kg^-1 s^-2)
+c = 2.99792458e8       # Lichtgeschwindigkeit (m/s)
+h = 6.62607015e-34     # Plancksches Wirkungsquantum (J s)
+m_e = 9.10938356e-31   # Elektronenmasse (kg)
+M_sun = 1.98847e30     # Sonnenmasse (kg)
+au = 1.495978707e11    # Astronomische Einheit (m)
+
+# Modellparameter als dict für einfache Anpassung
+def get_model_params():
+    return {
+        'f_obs': 2.30e14,                 # Beobachtete Frequenz in Hz
+        'N0': 1.000000028,                # Null-Level
+        'M_smbh': 4.1e6 * M_sun,          # Masse des SMBH in kg
+        'r_peri': 120 * au,               # Perizentrum-Abstand in m
+        'v_peri': 7.65e6                  # Transversale Bahngeschwindigkeit in m/s
+    }
+
+# Berechnungsfunktionen
+def compute_redshifts(params):
     """
-    Berechnet die lokale Segmentdichte N_seg aus Emissions- und Beobachtungsfrequenz.
-
-    Args:
-        f_emit (float): Emissionsfrequenz f₀ in Hz.
-        f_obs (float): Beobachtete Frequenz f' in Hz.
-        N0 (float): Basis-Segmentdichte im Vakuum (Standard: 1.000000028).
-
-    Returns:
-        float: Lokale Segmentdichte N_seg.
+    Berechnet Gravitation- und Doppler-Rotverschiebung.
     """
-    return f_emit / f_obs - N0
+    z_gr = g * params['M_smbh'] / (params['r_peri'] * c**2)
+    z_dopp = 0.5 * (params['v_peri'] / c)**2
+    return z_gr, z_dopp, z_gr + z_dopp
 
 
-def compute_photon_energy(f_emit: float) -> float:
+def compute_segment_density(params, z_total):
     """
-    Berechnet die Photonenergie E_gamma = h * f_emit.
-
-    Args:
-        f_emit (float): Emissionsfrequenz f₀ in Hz.
-
-    Returns:
-        float: Photonenergie in Joule.
+    Berechnet emittierte Frequenz und Segmentdichte.
     """
-    return h * f_emit
+    f_emit = params['f_obs'] * (1 + z_total)
+    N_seg = f_emit / params['f_obs'] - params['N0']
+    return f_emit, N_seg
 
 
-def compute_bound_mass(E_gamma: float, m_e: float = m_e, c: float = c) -> float:
+def compute_electron_mass_shift(f_emit):
     """
-    Berechnet die gebundene Elektronenmasse.
-
-    m_bound = m_e - E_gamma/c^2
-
-    Args:
-        E_gamma (float): Photonenergie in Joule.
-        m_e (float): Ruhemasse des Elektrons in kg.
-        c (float): Lichtgeschwindigkeit in m/s.
-
-    Returns:
-        float: Gebundene Elektronenmasse in kg.
+    Berechnet Massenverschiebung des Elektrons.
     """
-    return m_e - E_gamma / c**2
+    delta_m = h * f_emit / c**2
+    return delta_m, delta_m / m_e
 
 
-if __name__ == '__main__':
-    # Beispielwerte für S2 (Sagittarius A*)
-    f_emit = 138_392_455_537_000  # Hz
-    f_obs  = 134_920_458_147_000  # Hz
-    N0     = 1.000000028
+def main():
+    params = get_model_params()
 
-    # Berechnungen
-    N_seg   = compute_segment_density(f_emit, f_obs, N0)
-    E_gamma = compute_photon_energy(f_emit)
-    m_bound = compute_bound_mass(E_gamma)
+    # 1) Rotverschiebungen berechnen
+    z_gr, z_dopp, z_total = compute_redshifts(params)
+    # 2) Frequenz & Segmentdichte berechnen
+    f_emit, N_seg = compute_segment_density(params, z_total)
+    # 3) Elektronen-Massenverschiebung berechnen
+    delta_m, ratio = compute_electron_mass_shift(f_emit)
 
-    # Feinstrukturkonstante (CODATA)
-    alpha_fs = 1 / 137.035999084
-    # Segmentierungsdichte entspricht der lokalen Frequenzverschiebung
-    alpha_seg = N_seg
+    # Ausgaben aller Werte mit präziser Formatierung
+    print("=== Segmented Spacetime Modell Ergebnisse ===")
+    print("Copyright (c) 2025 Carmen Wrede & Lino Casu")
+    print(f"Beobachtete Frequenz (f_obs)       = {params['f_obs']:.6e} Hz")
+    print(f"Null-Level (N0)                    = {params['N0']:.9f}")
+    print(f"Masse SMBH (M_smbh)                = {params['M_smbh']:.6e} kg")
+    print(f"Perizentrum-Abstand (r_peri)       = {params['r_peri']:.6e} m")
+    print(f"Transversale Geschwindigkeit        = {params['v_peri']:.6e} m/s")
+    print()
+    print(f"Gravitations-Rotverschiebung (z_gr) = {z_gr:.9e}")
+    print(f"Doppler-Rotverschiebung (z_dopp)    = {z_dopp:.9e}")
+    print(f"Gesamt-Rotverschiebung (z_total)    = {z_total:.9e}")
+    print()
+    print(f"Emittierte Frequenz (f_emit)        = {f_emit:.6e} Hz")
+    print(f"Segmentdichte (N_seg)               = {N_seg:.9e}")
+    print()
+    print(f"Elektronenmassenänderung (Δm)       = {delta_m:.9e} kg")
+    print(f"Verhältnis Δm/m_e                   = {ratio:.9e}")
 
-    # Ausgabe der Ergebnisse
-    print(f"Emissionsfrequenz f_emit     = {f_emit:.0f} Hz")
-    print(f"Beobachtete Frequenz f_obs   = {f_obs:.0f} Hz")
-    print(f"Frequenzverhältnis f_emit/f_obs = {f_emit/f_obs:.9f}")
-    print(f"Basis-Segmentdichte N0       = {N0:.9f}")
-    print(f"Segmentdichte N_seg          = {N_seg:.9f}")
-    print(f"Photonenergie E_gamma        = {E_gamma:.4e} J")
-    print(f"Gebundene Elektronenmasse m_bound = {m_bound:.4e} kg")
-
-    # Abschließende Erläuterung
-    print("""
-Hinweis:
-- α_fs ist die im Paper hergeleitete Feinstrukturkonstante.
-- α_seg ist die lokale Segmentierungsdichte (relative Frequenzverschiebung).
-- m_bound entspricht der im Modell berechneten gebundenen Elektronenmasse.
-- E_gamma ist die resultierende Photonenenergie.
-Alle Formeln und Parameter stammen aus:
-  Wrede/Casu et al., „Segmented Spacetime: Bound Energy and the Structural Origin of the Fine-Structure Constant“ (2025).
-""")
-    print("\nSummary of results (in English):")
-    print(f"  • The fine-structure constant α_fs = {alpha_fs:.9f}")
-    print(f"    – matches the CODATA value (≈1/137.036) as derived in the updated paper.")
-    print(f"  • The segmentation density α_seg = {alpha_seg:.6f}")
-    print(f"    – represents the local fractional frequency shift (i.e. the relative change in segment density).")
-    print(f"  • The bound electron mass m_bound = {m_bound:.4e} kg")
-    print(f"    – is the mass predicted by the segmented-spacetime binding model.")
-    print(f"  • The emitted photon energy E_gamma = {E_gamma:.4e} J")
-    print(f"    – corresponds to the photon released when the electron becomes bound.")
-    print("\nAll values agree with the formulas and parameters from:")
-    print("Wrede/Casu et al., “Segmented Spacetime: Bound Energy and the Structural Origin of the Fine-Structure Constant” (2025).")
+if __name__ == "__main__":
+    main()
