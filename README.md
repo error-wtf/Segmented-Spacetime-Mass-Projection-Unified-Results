@@ -124,8 +124,11 @@ Segmented-Spacetime Roundtrip Mass Validation
 ## Objekt     M\_in \[kg]     r\_phi \[m]       M\_out \[kg]     rel. error
 
 Electron   9.1094e-31    1.0946e-57      9.1094e-31      1.10e-50
+
 Moon       7.3420e+22    8.8220e-5       7.3420e+22      1.36e-50
+
 Earth      5.9722e+24    7.1761e-3       5.9722e+24      <1e-42
+
 Sun        1.9885e+30    2.3893e+3       1.9885e+30      <1e-42
 
 ---
