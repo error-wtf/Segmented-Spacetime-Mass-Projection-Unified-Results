@@ -90,7 +90,6 @@ python calculation_test.py --demo
 
 ### Fourth Content
 
-```markdown
 ## ✅ `final_test.py` – Roundtrip Validation of Segmented-Spacetime Mass Reconstruction
 
 This script demonstrates that the segmented-spacetime model can reconstruct the rest mass of an object purely from its segmented radius – without relying on built-in constants like the Compton wavelength or classical radius.
@@ -118,7 +117,7 @@ This test directly avoids the circular logic found in other models (e.g., Michau
 
 ### Example Output
 
-```
+---
 
 Segmented-Spacetime Roundtrip Mass Validation
 
