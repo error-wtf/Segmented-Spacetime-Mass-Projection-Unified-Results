@@ -27,6 +27,7 @@ Make sure you have Python 3 installed. Then simply run:
 
 ```bash
 python segmented_full_proof.py
+````
 
 ## ⚙️ Setup with Virtual Environment
 
