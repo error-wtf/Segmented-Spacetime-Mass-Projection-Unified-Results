@@ -87,7 +87,7 @@ python calculation_test.py --rphi 1.0945634795e-57
 
 # Demo-Runde starten
 python calculation_test.py --demo
-
+````
 ### Fourth Content
 
 ## ✅ `final_test.py` – Roundtrip Validation of Segmented-Spacetime Mass Reconstruction
@@ -128,7 +128,7 @@ Moon       7.3420e+22    8.8220e-5       7.3420e+22      1.36e-50
 Earth      5.9722e+24    7.1761e-3       5.9722e+24      <1e-42
 Sun        1.9885e+30    2.3893e+3       1.9885e+30      <1e-42
 
-`---
+---
 
 ### Conclusion
 
