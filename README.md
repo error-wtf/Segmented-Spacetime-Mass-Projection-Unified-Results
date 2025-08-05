@@ -63,14 +63,6 @@ Calculates the bound‐electron mass and emitted photon energy from a local freq
 
 > Wrede/Casu et al., “Segmented Spacetime: Bound Energy and the Structural Origin of the Fine-Structure Constant” (2025).
 
-- **Fine‐structure constant** (`α_fs`): pulled from SciPy’s CODATA value and reconfirmed by the paper’s derivation.
-- **Segmentation density** (`α_seg`): computed as the relative frequency shift `(1 – f_obs / f_emit)`, representing the local change in segment density.
-- **Bound mass** (`m_bound`):  
-  \[ m_bound = \frac{h · f_emit}{α_seg · c²} \]  
-  the mass that a free electron must “lose” to become bound, per the model.
-- **Photon energy** (`E_gamma`):  
-  \[ E_γ = α_seg · m_bound · c² \]  
-  the energy of the photon emitted when the electron transitions to its bound state.
 - **Usage**:  
   ```bash
   python bound_energy.py
