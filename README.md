@@ -21,7 +21,6 @@ The method implemented here reconstructs the **effective mass** of physical obje
 | `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)` | Lizenztext: das Anti-Capitalist Software License v1.4, unter der dieses Projekt steht.             |
 | `README.md`                              | Dieses Dokument: Ein Überblick über Installation, Use-Cases und enthaltene Skripte.                |
 | `carmens_paper_test.py`                  | Unit-Test-Script, das die numerischen Ergebnisse des Segmented-Spacetime-Modells gegen Carmen et al. validiert. |
-| `compare.csv`                            | Rohdaten-Tabelle mit Referenz- und berechneten Massen zur weiteren Auswertung und Visualisierung.  |
 | `fetch_ligo.py`                          | Hilfsscript zum Herunterladen und Parsen aktueller LIGO-Daten (Schwarzes-Loch-Massen) für Benchmarking. |
 | `requirements.txt`                       | Liste aller Python-Dependencies, z. B. `pandas`, `sympy` etc.; mit `pip install -r requirements.txt` installierbar. |
 | `segmented_full_calc_proof.py`           | Vollständiges Kalkulations-Proof: Rekonstruktion aller Massen rein via Δ(M)-Modell mit ≤1 × 10⁻⁶ % Fehler. |
