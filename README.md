@@ -66,5 +66,28 @@ Calculates the bound‐electron mass and emitted photon energy from a local freq
 - **Usage**:  
   ```bash
   python bound_energy.py
+  ````
+### Third Content
+
+#### `calculation_test.py`
+
+`calculation_test.py` ist der **Schnelleinstieg** in die zirkel­freie Massen­berechnung via Segment-Radius `r_phi`.
+
+| Option / Modus                       | Beschreibung                                                                                           |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------|
+| `--rphi <wert>`                      | Gibt die Masse in Kilogramm für einen einzelnen gemessenen `r_phi`‐Wert aus.                            |
+| `--demo`                             | Führt eine Mini-Runde (Elektron, Mond, Erde, Sonne) durch und zeigt, wie präzise das Verfahren arbeitet.|
+
+**Beispiele**
+
+```bash
+# Einzelwert berechnen
+python calculation_test.py --rphi 1.0945634795e-57
+
+# Demo-Runde starten
+python calculation_test.py --demo
+
+
+  
 
 
