@@ -1,4 +1,5 @@
 # Segmented Spacetime – Mass Projection & Unified Results
+© Carmen Wrede und Lino Casu
 
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
