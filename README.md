@@ -27,7 +27,7 @@ The method implemented here reconstructs the **effective mass** of physical obje
 | `segmented_full_compare_proof.py`        | Vergleichsskript, das Segmented-Spacetime-Ergebnisse gegen alternative Modelle (GR/Fits) gegenüberstellt.                          |
 | `segmented_full_proof.py`                | One-stop Demo: erzeugt Segment-Mass-Tabelle, klassische & starke-Feld-Observablen und führt optional symbolische Gμν-Checks durch. |
 | `calculation_test.py`                    | Zirkelfreies Tool zur Massenrekonstruktion aus segmentiertem Radius `r_phi`; optional mit Demo-Tabelle für Elektron, Erde, Sonne.  |
-| `final_test.py                           | final Test                                                                                                                         |
+| `final_test.py`                          | final Test                                                                                                                         |
 
 ## Bound Energy Scripts and Validation
 
