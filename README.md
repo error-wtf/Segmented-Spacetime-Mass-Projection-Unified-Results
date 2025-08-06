@@ -29,6 +29,17 @@ The method implemented here reconstructs the **effective mass** of physical obje
 | `calculation_test.py`                    | Zirkelfreies Tool zur Massenrekonstruktion aus segmentiertem Radius `r_phi`; optional mit Demo-Tabelle für Elektron, Erde, Sonne.  |
 | `final_test.py                           | final Test                                                                                                                         |
 
+## Bound Energy Scripts and Validation
+
+| File                                         | Purpose                                                                                                                                                                                           |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bound_energy_plot_with_frequenz_shift_fix.py | High-precision comparison between segmented spacetime (with ΔM correction) and classical gravitational redshift. Calculates, exports, and plots all values for selected astrophysical test cases. |
+| bound_energy_plot.py                         | Same as above, but **without** ΔM correction. Pure numerical comparison of the models, including CSV export and plot.                                                                             |
+| bound_energy_english.py                      | English version of the bound energy calculation script – implements all core functions, model comparison and CSV export for papers/presentations.                                                 |
+| bound_energy_with_deltaM.csv                 | Exported CSV containing all calculated values from `bound_energy_plot_with_frequenz_shift_fix.py`.                                                                                                |
+
+
+
 ## 🚀 How to Run
 
 Make sure you have Python 3 installed. Then simply run:
