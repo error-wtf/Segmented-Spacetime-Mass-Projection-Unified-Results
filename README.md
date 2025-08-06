@@ -1,5 +1,5 @@
 # Segmented Spacetime – Mass Projection & Unified Results
-© Carmen Wrede und Lino Casu
+© Carmen Wrede & Lino Casu
 
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
@@ -16,18 +16,19 @@ The method implemented here reconstructs the **effective mass** of physical obje
 
 ## Contents
 
-| Datei                                    | Beschreibung                                                                                                                       |
-|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)` | Lizenztext: das Anti-Capitalist Software License v1.4, unter der dieses Projekt steht.                                           |
-| `README.md`                              | Dieses Dokument: Ein Überblick über Installation, Use-Cases und enthaltene Skripte.                                                |
-| `bound_energy`                           | Unit-Test-Script, das die numerischen Ergebnisse des Segmented-Spacetime-Modells von Carmen et al. validiert.                      |
-| `fetch_ligo.py`                          | Hilfsscript zum Herunterladen und Parsen aktueller LIGO-Daten (Schwarzes-Loch-Massen) für Benchmarking.                            |
-| `requirements.txt`                       | Liste aller Python-Dependencies, z. B. `pandas`, `sympy` etc.; mit `pip install -r requirements.txt` installierbar.                |
-| `segmented_full_calc_proof.py`           | Vollständiges Kalkulations-Proof: Rekonstruktion aller Massen rein via Δ(M)-Modell mit ≤1 × 10⁻⁶ % Fehler.                         |
-| `segmented_full_compare_proof.py`        | Vergleichsskript, das Segmented-Spacetime-Ergebnisse gegen alternative Modelle (GR/Fits) gegenüberstellt.                          |
-| `segmented_full_proof.py`                | One-stop Demo: erzeugt Segment-Mass-Tabelle, klassische & starke-Feld-Observablen und führt optional symbolische Gμν-Checks durch. |
-| `calculation_test.py`                    | Zirkelfreies Tool zur Massenrekonstruktion aus segmentiertem Radius `r_phi`; optional mit Demo-Tabelle für Elektron, Erde, Sonne.  |
-| `final_test.py`                          | final Test                                                                                                                         |
+| File                                       | Description                                                                                                                       |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)` | License text: The Anti-Capitalist Software License v1.4 under which this project is released.                                     |
+| `README.md`                                | This document: An overview of installation, use cases, and included scripts.                                                      |
+| `bound_energy`                             | Unit test script validating the numerical results of the Segmented Spacetime model by Carmen et al.                               |
+| `fetch_ligo.py`                            | Helper script for downloading and parsing current LIGO data (black hole masses) for benchmarking.                                 |
+| `requirements.txt`                         | List of all Python dependencies (e.g., `pandas`, `sympy`); can be installed via `pip install -r requirements.txt`.                |
+| `segmented_full_calc_proof.py`             | Complete calculation proof: reconstructs all masses purely via the Δ(M) model, with ≤1 × 10⁻⁶ % error.                            |
+| `segmented_full_compare_proof.py`          | Comparison script contrasting segmented spacetime results with alternative models (GR/fits).                                      |
+| `segmented_full_proof.py`                  | One-stop demo: generates the segmented mass table, classical & strong-field observables, and optionally runs symbolic Gμν checks. |
+| `calculation_test.py`                      | Non-circular tool for mass reconstruction from segmented radius `r_phi`; optionally with demo table for electron, Earth, and Sun. |
+| `final_test.py`                            | Final test                                                                                                                        |
+
 
 ## Bound Energy Scripts and Validation
 
