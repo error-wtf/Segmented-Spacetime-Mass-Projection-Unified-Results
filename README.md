@@ -124,7 +124,7 @@ This script demonstrates that the segmented-spacetime model can reconstruct the 
 - No use of Compton wavelength or predefined scale lengths.
 - The reconstruction is based only on geometry and physical constants.
 
-This test directly avoids the circular logic found in other models (e.g., Michaud), where mass is inserted via lambda_C and reappears in the result.
+This test directly avoids the circular logic found in other models, where mass is inserted via lambda_C and reappears in the result.
 
 ### Example Output
 
