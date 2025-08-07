@@ -181,7 +181,7 @@ This is a clean and direct demonstration that mass can be reconstructed from seg
 Carmen Wrede, Lino P. Casu, Bingsi (2025):  
 _Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant_  
 Preprint · August 2025 · [DOI: 10.13140/RG.2.2.35006.80969](https://www.researchgate.net/publication/394248893)
-
+---
 ## `complete-math.py` — Step-by-Step Script for Segmented Spacetime Theory
 
 This script provides a **fully commented, didactic, and transparent step-by-step demonstration** of all key calculations from the papers by Carmen Wrede & Lino Casu, implementing the “Segmented Spacetime” model:
