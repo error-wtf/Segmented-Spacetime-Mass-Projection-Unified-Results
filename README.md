@@ -220,34 +220,31 @@ This script provides a **fully commented, didactic, and transparent step-by-step
 python complete-math.py
 ````
 ---
-### Energieunterschied zwischen Emitter und Detektor – Was zeigt das Skript?
+### Why is there an energy difference between emitter and detector? (Physical explanation)
 
-Das Skript `carmen_qed_incompleteness_demo.py` zeigt, dass die klassische Annahme eines "Energieverlusts" von Photonen auf dem Weg durch das Gravitationsfeld nicht korrekt ist.  
-In der segmentierten Raumzeit (unser Modell) hängt die tatsächlich gemessene Energie am Detektor (z. B. auf der Erde) **nicht** davon ab, dass das Photon unterwegs Energie verliert, sondern davon, **wie stark die lokale Segmentierung** (die Raumstruktur am Detektor) ist.
+The script `carmen_qed_incompleteness_demo.py` demonstrates that the classical idea of a photon "losing energy" as it travels through a gravitational field is incomplete.  
+In the segmented spacetime model, the **measured energy at the detector** (e.g., on Earth) does **not** decrease because the photon "loses" energy, but because the **local segmentation** (the discrete structure of space at the detector) limits how much energy can be extracted from the photon.
 
-- Die Energie des Photons bleibt entlang der gesamten Bahn konstant.
-- Die Messinstrumente am Ziel (unsere Elektronen auf der Erde) können jedoch **nur einen Teil der ursprünglichen Energie „anzapfen“** – und zwar abhängig von der lokalen Segmentierung (N).
-- Je stärker das Gravitationsfeld und die Segmentierung am Detektionsort, desto weniger Energie kann aus dem ursprünglichen Photon „abgerufen“ werden.
-- Der scheinbare Energieverlust ist also **kein realer Energieverlust des Photons**, sondern ein **Effekt der Raumstruktur** am Detektor.
+- The photon's energy remains constant along its entire path.
+- However, our measuring instruments (the electrons on Earth) can only "tap" a **fraction of the original photon energy** – this fraction is set by the local segmentation parameter (N).
+- The stronger the gravitational field and the higher the segmentation at the detector, the less energy can be accessed from the original photon.
+- The apparent energy loss is thus **not a real energy loss of the photon itself**, but an effect of the spacetime structure at the detector.
 
-**Fazit:**  
-Der beobachtete Energieunterschied erklärt sich direkt durch unser Modell – er ist keine reale „Verlustleistung“ unterwegs, sondern ein Maß für die lokale Kopplung/Segmentierung zwischen Detektor und Photonenenergie.
+**Conclusion:**  
+The observed energy difference is directly explained by our model – it is not due to energy dissipation "on the way", but to the **local coupling/segmentation** between the photon and the detector.
 ---
 ---
 
 ## QED Incompleteness Demo (`carmen_qed_incompleteness_demo.py`)
 
-Dieses Skript demonstriert, warum die klassische Formel `E = m_e * c^2` und auch QED unvollständig sind, sobald man starke Gravitation oder segmentierte Raumzeit berücksichtigt:
+This script demonstrates why the classical formula `E = m_e * c^2` and even QED are incomplete when strong gravity or segmented spacetime are present:
 
-- Es zeigt an einem realen Beispiel (S2-Stern und Erde), wie sich die lokale Segmentierung (N) auf die tatsächlich messbare Energie und Elektronenmasse auswirkt.
-- Das Skript berechnet, wie aus der beobachteten und der emittierten Frequenz die lokale Feinstrukturkonstante (`alpha_local`) und gebundene Masse (`m_bound`) bestimmt werden können.
-- Es wird erklärt und numerisch gezeigt, warum am Detektor (z. B. auf der Erde) immer nur ein Teil der ursprünglichen Photonenenergie „angezapft“ wird.
-- Das Skript gibt alle Formeln, Zwischenschritte und Interpretationen mit aus.
+- It uses a real astrophysical example (S2 star and Earth) to show how local segmentation (N) affects the measurable energy and the local electron mass.
+- The script calculates, from observed and emitted frequencies, the local fine-structure constant (`alpha_local`) and the bound electron mass (`m_bound`).
+- It explains and numerically demonstrates why, at the detector (e.g., on Earth), only a **portion of the original photon energy** can be accessed.
+- All formulas, calculation steps, and interpretations are printed and explained.
 
-**So startest du das Skript:**
+**How to run:**
 ```bash
 python carmen_qed_incompleteness_demo.py
 ````
-  
-
-
