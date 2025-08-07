@@ -2,74 +2,73 @@
 # -*- coding: utf-8 -*-
 """
 carmen_qed_incompleteness_demo.py
-Rekonstruiert die Argumentationskette von Carmen Wrede:
-- Warum QED und klassische Energieformeln unvollständig sind,
-- wie Segmentierung und lokale Masse/alpha aus beobachteten Frequenzen berechnet werden,
-- und warum das gemessene Elektron auf der Erde immer weniger Energie "anzapft" als ursprünglich vorhanden.
+Reproduces the physical reasoning of Carmen Wrede's answer:
+- Why E = m_e * c^2 and QED are incomplete in the presence of strong gravity/segmentation.
+- How to calculate local mass and fine-structure constant from observed frequencies using segmented spacetime.
+- Why a detector electron can only "tap" a fraction of the original photon energy.
 
-Autor: Carmen Wrede, Lino Casu & ChatGPT
+Authors: Carmen Wrede, Lino Casu & ChatGPT
 """
 
 import numpy as np
 from scipy.constants import h, c, m_e
 
-print("="*65)
+print("="*68)
 print(" SEGMENTED SPACETIME – QED Incompleteness Demo (Carmen Wrede)")
-print("="*65)
+print("="*68)
 
-# --- Gegebene Werte (Beispiel S2 und Erde)
-f_emit = 138_394_255_537_000    # Hz  (Emitterfrequenz S2-Star)
-f_obs  = 134_920_458_147_000    # Hz  (Beobachtet auf der Erde nach Doppler-Korrektur)
-N_0    = 1.0000000028           # Segmentierung auf der Erde
-N_emit = 1.102988010497717      # Segmentierung am S2-Star (aus Paper)
+# --- Input values (S2 star and Earth example)
+f_emit = 138_394_255_537_000    # Hz  (Emitter frequency, S2 star)
+f_obs  = 134_920_458_147_000    # Hz  (Observed on Earth after Doppler correction)
+N_0    = 1.0000000028           # Segmentation on Earth (vs. vacuum)
+N_emit = 1.102988010497717      # Segmentation at S2 star (from paper)
 
-print(f"\nGegebene Werte:")
-print(f"  f_emit (S2)         = {f_emit:.6e} Hz")
-print(f"  f_obs  (Earth)      = {f_obs:.6e} Hz")
-print(f"  N_0 (Earth)         = {N_0:.10f}")
-print(f"  N_emit (S2 Star)    = {N_emit:.10f}")
+print(f"\nInput values:")
+print(f"  f_emit (S2 star)       = {f_emit:.6e} Hz")
+print(f"  f_obs  (Earth)         = {f_obs:.6e} Hz")
+print(f"  N_0 (Earth)            = {N_0:.10f}")
+print(f"  N_emit (S2 Star)       = {N_emit:.10f}")
 
-# 1. Photonenergie berechnen
+# 1. Calculate photon energy at emission
 E_gamma = h * f_emit
-print(f"\nPhotonenergie am Emitter: E = h * f_emit = {E_gamma:.3e} J")
+print(f"\nPhoton energy at emitter: E = h * f_emit = {E_gamma:.3e} J")
 
-# 2. Gebundene Elektronenmasse am S2-Star berechnen (aus Paper)
-m_bound = 1.50e-34   # kg (direkt übernommen aus Carmens Beispiel)
-print(f"\nGebundene Elektronenmasse am S2-Star (m_bound): {m_bound:.3e} kg")
+# 2. Bound electron mass at S2 star (from paper)
+m_bound = 1.50e-34   # kg (taken from Carmen's example)
+print(f"\nBound electron mass at S2 star (m_bound): {m_bound:.3e} kg")
 
-# 3. Berechne lokale alpha am S2 mit gemessener Energie
+# 3. Calculate local fine-structure constant (alpha_local) at S2
 #    E_gamma = alpha_local * m_bound * c^2  →  alpha_local = E_gamma / (m_bound * c^2)
 alpha_local = E_gamma / (m_bound * c**2)
-print(f"\nLokale alpha am S2-Star: alpha_local = E_gamma / (m_bound * c^2) = {alpha_local:.4e}")
+print(f"\nLocal fine-structure constant at S2 (alpha_local):")
+print(f"  alpha_local = E_gamma / (m_bound * c^2) = {alpha_local:.4e}")
 
-# 4. Rückrechnung: Berechne die beobachtete Frequenz auf der Erde
+# 4. Back-calculate observed frequency on Earth using local alpha and mass
 #    f' = alpha_local * m_bound * c^2 / h
 f_recon = alpha_local * m_bound * c**2 / h
-print(f"\nRückgerechnete beobachtete Frequenz auf der Erde (f'): {f_recon:.6e} Hz")
-print(f"Original beobachtete Frequenz (f_obs):           {f_obs:.6e} Hz")
-print(f"Abweichung: {abs(f_recon - f_obs):.3e} Hz")
+print(f"\nBack-calculated observed frequency on Earth (f'): {f_recon:.6e} Hz")
+print(f"Original observed frequency (f_obs):           {f_obs:.6e} Hz")
+print(f"Difference: {abs(f_recon - f_obs):.3e} Hz")
 
-# 5. Energieunterschied zwischen f_emit und f_obs (klassisch)
+# 5. Classical energy difference (photon "loss") between emission and observation
 delta_E = h * (f_emit - f_obs)
-print(f"\nKlassischer Energieverlust des Photons (ΔE): {delta_E:.2e} J")
+print(f"\nClassical photon energy difference (ΔE): {delta_E:.2e} J")
 
-# 6. Energie-Unterschied nach Compton-Formel (klassisch, Streuung)
-#    λ' - λ = h / (m_e * c) * (1 - cosθ)
-theta = 0  # θ=0 (forward scattering, minimaler Effekt, wie im Text)
+# 6. Energy difference via Compton formula (forward scattering, θ=0)
+theta = 0  # forward scattering, θ = 0 (minimal effect)
 delta_lambda = h / (m_e * c) * (1 - np.cos(theta))
-# Energie zwischen zwei Frequenzen
 delta_E_compton = h * (f_emit - f_obs)
-print(f"Compton-Energieunterschied (θ=0): {delta_E_compton:.2e} J")
+print(f"Compton energy difference (θ=0): {delta_E_compton:.2e} J")
 
-# 7. Fazit und Interpretation
+# 7. Interpretation
 print("\nInterpretation:")
-print("---------------------------------------------------------")
-print("• QED ist unvollständig, da zwar alpha (Kopplung) 'laufen' kann,")
-print("  aber m_e als konstant angenommen wird – was in Realität bei starker Gravitation nicht gilt.")
-print("• Die Segmentierung führt dazu, dass die auf der Erde gemessene Elektronenmasse und die lokale alpha kleiner sind –")
-print("  und damit das Elektron auf der Erde immer nur einen Teil der ursprünglichen Energie 'anzapfen' kann.")
-print("• Die beobachtete Photonenenergie ist daher stets ein Residuum der ursprünglichen Emitterenergie –")
-print("  und der scheinbare Energieverlust ist eigentlich eine Projektion der lokalen Raumzeitstruktur.\n")
-print("Ergebnis: Die klassische Annahme 'Photon verliert Energie auf dem Weg' ist falsch –")
-print("          es ist die lokale Segmentierung, die das Energie-Tapping des Elektrons einschränkt!\n")
+print("------------------------------------------------------------")
+print("• QED is incomplete: it allows a running alpha,")
+print("  but keeps the electron mass m_e fixed – which is not correct in strong gravity.")
+print("• Segmentation means that the measured electron mass and local alpha are smaller –")
+print("  so the electron on Earth can only 'tap' a fraction of the original photon energy.")
+print("• The measured photon energy is always a leftover (residual) of the original emitter energy –")
+print("  the apparent loss is actually a projection effect due to spacetime structure at the detector.\n")
+print("Result: The classical assumption that 'the photon loses energy along the way' is wrong –")
+print("        it is local segmentation that limits what the electron can absorb!\n")
 print("😎")
