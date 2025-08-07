@@ -175,21 +175,21 @@ This is a clean and direct demonstration that mass can be reconstructed from seg
 
 ## Contents of `paper.py`
 
-| Section                                      | Description                                                                                         |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| 1. Constants & Imports                       | Naturkonstanten, mathematische Bibliotheken und Initialisierung                                      |
-| 2. Effective Radius & Segmentation           | Definition und Berechnung von Segmentlänge, Segmentanzahl, effektivem Radius                        |
-| 3. Classical Self-Energy                     | Berechnung der klassischen elektromagnetischen Selbstenergie                                         |
-| 4. Structural Alpha Calculation              | Ableitung und Umkehrung der Feinstrukturkonstanten (α) aus strukturellen Parametern                 |
-| 5. Effective Radius with Fixed Alpha         | Berechnung des klassischen Elektronenradius unter festen α- und m_e-Werten                          |
-| 6. Segment Length Inversion                  | Rückrechnung der Segmentlänge ϕ aus Radius und Segmentanzahl                                        |
-| 7. Bound vs Free Energy & Rydberg Energy     | Berechnung von gebundener/ungerichteter Energie, Rydberg-Energie                                    |
-| 8. Photon Coupling Threshold                 | Berechnung der minimalen Wellenlänge und Grenzfrequenz für Photonen in segmentierter Raumzeit        |
-| 9. Example Calculation: Sagittarius A* (S2)  | Vollständige Schritt-für-Schritt-Beispielrechnung aus dem Paper, numerisch reproduziert              |
-| 10. Utility: Classical Electron Radius       | Direkter Nachweis der bekannten Werte aus α, m_e, c und e                                           |
-| 11. Utility: Rydberg Energy                  | Demonstration des Energiebereichs gebundener Elektronen                                             |
-| 12. Utility: Photon Threshold Wavelength     | Zusammenhang zwischen Feinstrukturkonstante und Photonenkopplung                                    |
-| 13. Reference Statement                      | Klare Ausgabe/Print zur Zuordnung zum Originalpaper (DOI, Autoren, Jahr, Link)                      |
+| Section                                                   | Description                                                                                                         |
+|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| 1. Constants & Imports                                    | Physical constants, mathematical libraries, and initialization                                                      |
+| 2. Effective Radius & Segmentation                        | Definition and calculation of segment length, segment count, and effective radius                                   |
+| 3. Classical Self-Energy                                  | Calculation of the classical electromagnetic self-energy                                                            |
+| 4. Structural Alpha Calculation                           | Derivation and inversion of the fine-structure constant (α) from structural parameters                              |
+| 5. Effective Radius with Fixed Alpha                      | Calculation of the classical electron radius with fixed α and m_e values                                            |
+| 6. Segment Length Inversion                               | Inversion of segment length φ from radius and segment count                                                         |
+| 7. Bound vs Free Energy & Rydberg Energy                  | Calculation of bound/free energy and Rydberg energy                                                                 |
+| 8. Photon Coupling Threshold                              | Calculation of the minimal wavelength and threshold frequency for photons in segmented spacetime                    |
+| 9. Example Calculation: Sagittarius A* (S2)               | Complete step-by-step example calculation from the paper, numerically reproduced                                    |
+|10. Utility: Classical Electron Radius                     | Direct verification of known values for α, m_e, and e                                                               |
+|11. Utility: Rydberg Energy                                | Demonstration of the energy range of bound electrons                                                                |
+|12. Utility: Photon Threshold Wavelength                   | Relationship between fine-structure constant and photon coupling                                                    |
+|13. Reference Statement                                    | Clear output/print for attribution to the original paper (DOI, authors, year, link)                                 |
 
 ---
 
