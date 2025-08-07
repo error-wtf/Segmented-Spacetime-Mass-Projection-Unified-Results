@@ -97,7 +97,6 @@ Calculates the bound‐electron mass and emitted photon energy from a local freq
   ````
 ## Third Content
 
-`calculation_test.py`
 
 `calculation_test.py` is the quick-start entry point for the **cycle-free mass calculation** via segment radius `r_phi`.
 
