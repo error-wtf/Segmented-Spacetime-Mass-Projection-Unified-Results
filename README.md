@@ -42,6 +42,7 @@ The method implemented here reconstructs the **effective mass** of physical obje
 | `segmented_spacetime_mass_validation.csv`        | CSV of segmented spacetime mass validation results                                                   |
 | `segmented_spacetime_mass_validation_full.csv`   | Full CSV of detailed segmented spacetime mass validation                                             |
 | `segmented_spacetime_mass_validation_perfect.csv`| CSV of perfect-case segmented spacetime mass validations                                             |
+| `carmen_qed_incompleteness_demo.py`              | Calculates and explains, with real astrophysical data, why only a fraction of the original photon energy is accessible at the detector in segmented spacetime; includes all computational steps and physical interpretation. |
 
 
 ## Bound Energy Scripts and Validation
