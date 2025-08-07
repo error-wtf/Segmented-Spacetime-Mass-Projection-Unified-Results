@@ -15,19 +15,33 @@ The method implemented here reconstructs the **effective mass** of physical obje
 - ✅ Symbolic check for modified Einstein tensor compatibility (`Gμν = 0`)
 
 ## Contents
+## Contents
 
-| File                                       | Description                                                                                                                       |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)` | License text: The Anti-Capitalist Software License v1.4 under which this project is released.                                     |
-| `README.md`                                | This document: An overview of installation, use cases, and included scripts.                                                      |
-| `bound_energy`                             | Unit test script validating the numerical results of the Segmented Spacetime model by Carmen et al.                               |
-| `fetch_ligo.py`                            | Helper script for downloading and parsing current LIGO data (black hole masses) for benchmarking.                                 |
-| `requirements.txt`                         | List of all Python dependencies (e.g., `pandas`, `sympy`); can be installed via `pip install -r requirements.txt`.                |
-| `segmented_full_calc_proof.py`             | Complete calculation proof: reconstructs all masses purely via the Δ(M) model, with ≤1 × 10⁻⁶ % error.                            |
-| `segmented_full_compare_proof.py`          | Comparison script contrasting segmented spacetime results with alternative models (GR/fits).                                      |
-| `segmented_full_proof.py`                  | One-stop demo: generates the segmented mass table, classical & strong-field observables, and optionally runs symbolic Gμν checks. |
-| `calculation_test.py`                      | Non-circular tool for mass reconstruction from segmented radius `r_phi`; optionally with demo table for electron, Earth, and Sun. |
-| `final_test.py`                            | Final test                                                                                                                        |
+| File                                             | Description                                                                                          |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)`       | License text for this project                                                                        |
+| `README.md`                                      | Usage guide and documentation                                                                        |
+| `bound_energy.py`                                | Calculates bound-electron mass and emitted photon energy based on local frequency shifts             |
+| `bound_energy_english.py`                        | English version of the bound energy calculation script                                               |
+| `bound_energy_plot.py`                           | Plots bound energy comparisons without ΔM correction                                                 |
+| `bound_energy_plot_with_frequenz_shift_fix.py`   | Plots bound energy comparisons with frequency shift (ΔM) correction                                  |
+| `bound_energy_results.csv`                       | CSV export of bound energy calculation results                                                       |
+| `bound_energy_with_deltaM.csv`                   | CSV export of bound energy results including ΔM corrections                                          |
+| `calculation_test.py`                            | Quick mass reconstruction tests and demos for segmented radius inputs                                |
+| `check.py`                                       | Runs internal consistency checks for the segmented spacetime model                                   |
+| `complete-math.py`                               | Step-by-step didactic demonstration of key calculations in segmented spacetime theory                |
+| `fetch_ligo.py`                                  | Fetches and preprocesses LIGO observational data for benchmarking                                    |
+| `final_test.py`                                  | Roundtrip validation tests for mass reconstruction via segmented radius                              |
+| `paper.py`                                       | Implements detailed sections and example reproductions from the Carmen Wrede & Lino Casu paper       |
+| `requirements.txt`                               | Lists Python package dependencies for reproducible setup                                             |
+| `segment_mass_results.csv`                       | CSV of computed mass inversion results from segmented mass functions                                 |
+| `segmented_full_calc_proof.py`                   | Full calculation proof routines for segmented mass inversion                                         |
+| `segmented_full_compare_proof.py`                | Comparative analysis of proof results against established benchmarks                                 |
+| `segmented_full_proof.py`                        | Main script to generate all model outputs and run symbolic checks                                    |
+| `segmented_mass.py`                              | Core library module implementing mass inversion and segmentation algorithms                          |
+| `segmented_spacetime_mass_validation.csv`        | CSV of segmented spacetime mass validation results                                                   |
+| `segmented_spacetime_mass_validation_full.csv`   | Full CSV of detailed segmented spacetime mass validation                                             |
+| `segmented_spacetime_mass_validation_perfect.csv`| CSV of perfect-case segmented spacetime mass validations                                             |
 
 
 ## Bound Energy Scripts and Validation
