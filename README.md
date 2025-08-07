@@ -182,6 +182,28 @@ Carmen Wrede, Lino P. Casu, Bingsi (2025):
 _Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant_  
 Preprint · August 2025 · [DOI: 10.13140/RG.2.2.35006.80969](https://www.researchgate.net/publication/394248893)
 
+## `complete-math.py` — Step-by-Step Script for Segmented Spacetime Theory
+
+This script provides a **fully commented, didactic, and transparent step-by-step demonstration** of all key calculations from the papers by Carmen Wrede & Lino Casu, implementing the “Segmented Spacetime” model:
+
+### What does the script do?
+
+- **Mass reconstruction** from the segmented radius using the φ/2 constant and exponential correction, with **true Newtonian decimal-precision inversion**.
+- **Calculation of the local fine-structure constant** α from a measured frequency (e.g., as in the S2/Sgr A* test), and computation of the associated bound electron mass and threshold photon wavelength.
+- **Every single calculation step is explicitly explained in the output** — including all inputs, intermediate results, mathematical formulas, and the physical meaning of each result.
+
+### Features
+
+- **Explains every formula and physical constant** directly in the printout, line by line.
+- **Reproduces the Earth mass example** from segmented radius, showing both theory and inversion.
+- **Shows how to derive α<sub>local</sub> and m<sub>bound</sub>** from a single observed frequency.
+- **Checks mathematical consistency** (e.g. α × m<sub>bound</sub> × c² / h should recover the input frequency).
+- **Ideal for reviewers, teaching, or anyone who wants to understand the model without reading the full paper**.
+
+### Usage
+
+```bash
+python complete-math.py
 
   
 
