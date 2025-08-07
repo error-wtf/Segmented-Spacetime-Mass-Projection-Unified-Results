@@ -157,6 +157,30 @@ The `final_test.py` script confirms:
 
 This is a clean and direct demonstration that mass can be reconstructed from segmented spacetime – without assumptions, without shortcuts.
 
+## Contents of `paper.py`
+
+| Section                                      | Description                                                                                         |
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| 1. Constants & Imports                       | Naturkonstanten, mathematische Bibliotheken und Initialisierung                                      |
+| 2. Effective Radius & Segmentation           | Definition und Berechnung von Segmentlänge, Segmentanzahl, effektivem Radius                        |
+| 3. Classical Self-Energy                     | Berechnung der klassischen elektromagnetischen Selbstenergie                                         |
+| 4. Structural Alpha Calculation              | Ableitung und Umkehrung der Feinstrukturkonstanten (α) aus strukturellen Parametern                 |
+| 5. Effective Radius with Fixed Alpha         | Berechnung des klassischen Elektronenradius unter festen α- und m_e-Werten                          |
+| 6. Segment Length Inversion                  | Rückrechnung der Segmentlänge ϕ aus Radius und Segmentanzahl                                        |
+| 7. Bound vs Free Energy & Rydberg Energy     | Berechnung von gebundener/ungerichteter Energie, Rydberg-Energie                                    |
+| 8. Photon Coupling Threshold                 | Berechnung der minimalen Wellenlänge und Grenzfrequenz für Photonen in segmentierter Raumzeit        |
+| 9. Example Calculation: Sagittarius A* (S2)  | Vollständige Schritt-für-Schritt-Beispielrechnung aus dem Paper, numerisch reproduziert              |
+| 10. Utility: Classical Electron Radius       | Direkter Nachweis der bekannten Werte aus α, m_e, c und e                                           |
+| 11. Utility: Rydberg Energy                  | Demonstration des Energiebereichs gebundener Elektronen                                             |
+| 12. Utility: Photon Threshold Wavelength     | Zusammenhang zwischen Feinstrukturkonstante und Photonenkopplung                                    |
+| 13. Reference Statement                      | Klare Ausgabe/Print zur Zuordnung zum Originalpaper (DOI, Autoren, Jahr, Link)                      |
+
+---
+
+**Reference:**  
+Carmen Wrede, Lino P. Casu, Bingsi (2025):  
+_Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant_  
+Preprint · August 2025 · [DOI: 10.13140/RG.2.2.35006.80969](https://www.researchgate.net/publication/394248893)
 
 
   
