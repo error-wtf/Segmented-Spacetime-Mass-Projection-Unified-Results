@@ -70,13 +70,15 @@ To keep your environment clean and reproducible, it's recommended to run this pr
 
 ### 🧰 Steps
 
-```bash
 # 1. Create virtual environment (folder name: venv)
+```
 python3 -m venv venv
-
+````
 # 2. Activate the environment
 # On Linux/macOS:
+```
 source venv/bin/activate
+````
 # On Windows:
 ```
 venv\Scripts\activate
