@@ -404,4 +404,124 @@ python segspace_final_explain.py --csv real_data_30_segmodel.csv
   Install it: `pip install pandas`.
 
 ---
+Fair. No hand-holding, no Windows fluff. Here’s a **ready-to-paste README section (English)** that assumes the reader actually knows Python. Minimal, OS-agnostic, reproducible, and focused on the three key files.
+
+---
+
+# ⚙️ Minimal setup & reproducibility (Python-first)
+
+You know Python. Here’s the shortest, deterministic path.
+
+## Environment (pick one)
+
+### (A) Plain `venv` + pinned deps (traditional)
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### (B) Conda/Mamba (if you already live there)
+
+```bash
+mamba create -n segspace python=3.11 -y
+conda activate segspace
+pip install -r requirements.txt
+```
+
+*(Optional)* If you use `uv`:
+
+```bash
+uv venv && . .venv/bin/activate
+uv pip install -r requirements.txt
+```
+
+> Tested with Python **3.10–3.11**. No system-wide installs, no sudo.
+
+---
+
+## What to run (strict vs. explain)
+
+### 1) Final tests (strict, CI-style)
+
+```bash
+python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
+```
+
+Outputs to `./out/`:
+
+* `final_test_report.txt` — human summary
+* `final_junit.xml` — CI
+* `_final_test_debug.csv` — per-row residuals
+
+### 2) Explain run (prints per-case reasoning)
+
+```bash
+python segspace_final_explain.py --csv real_data_30_segmodel.csv --prefer-z
+```
+
+Output: `./out/_explain_debug.csv`
+
+**Flag discipline**
+
+* `--csv` selects the dataset; default is auto-discovery.
+* `--prefer-z` forces the runner to use the `z` column over any `f_emit/f_obs` if both are present (prevents accidental overrides).
+
+---
+
+## The three core files
+
+* **`segspace_final_test.py`** — strict, reproducible test suite (T1–T6).
+  Requires “strong rows” for category comparisons: `a_m` (meters), `e`, `f_true_deg` (deg), `M_solar` (solar masses). GR uses `r(a,e,f_true)` as fallback if `r_emit_m` is missing.
+
+* **`segspace_final_explain.py`** — prints exactly how each quantity was sourced/derived per row: `z` (direct vs. frequency), `r_eff` (`r_emit_m` vs. `r(a,e,f_true)`), `v_pred` (vis-viva), `z_pred(seg)`, `z_GR`, `z_SR`, `z_GR×SR`, residuals, and any caveats (e.g., missing `v_los_mps`).
+
+* **`real_data_30_segmodel.csv`** — comparison data (see schema below). Use the provided locked variant for reproducible baselines if needed: `real_data_30_segmodel_LOCKED.csv`.
+
+---
+
+## CSV schema (no surprises)
+
+Header (exact order used by the runners):
+
+```
+case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,
+z,f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,
+v_los_mps,v_tot_mps,z_geom_hint,N0,source
+```
+
+Key points:
+
+* `a_m` is **meters** (not mpc).
+* If you set both `z` and (`f_emit_Hz`,`f_obs_Hz`), **frequencies win** unless you pass `--prefer-z`.
+* `z_geom_hint` can hold the pure GR part at the given radius (helps the segmented model’s split).
+* “Strong rows” = orbit mode present: `a_m`, `e`, `f_true_deg`, `M_solar`.
+
+**S2 example (2018 pericenter, measured `z`; frequencies empty):**
+
+```csv
+S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,
+0.0006671281903963041,,,,,0,,0.0003584,1.0000000028,GRAVITY 2018 Pericenter (z); orbit per table
+```
+
+---
+
+## Repro in one line
+
+```bash
+python -m venv .venv && . .venv/bin/activate \
+&& pip install -r requirements.txt \
+&& python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
+```
+
+## Common sense checks
+
+* If T4 “strong rows” are SKIP: you’re missing orbit fields (`a_m`, `e`, `f_true_deg`, `M_solar`).
+* If residuals look absurd: verify units (meters), and clear `f_emit/f_obs` when you intend to use `z`.
+* If `pandas` “not found”: you skipped `requirements.txt`.
+
+---
+
+END OF REPO
 
