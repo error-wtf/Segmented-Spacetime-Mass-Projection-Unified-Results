@@ -1,0 +1,10 @@
+case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,v_los_mps,v_tot_mps,z_geom_hint,N0,source
+S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.884300,16.0518,2018.379,0.0,0.0006671281903963,,,,,0,,0.0003584,1.0000000028,S2: z measured (2018 pericenter ~200 km/s/c); others: synthetic pericenter GR×SR
+S29_SgrA*,S-stars,4297000.0,5.237025e+14,0.728000,101.0,2025.96,0.0,0.0000711810937787,,,,,,,0.0000445,1.0000000028,synthetic pericenter GR×SR from orbit
+S38_SgrA*,S-stars,4297000.0,1.732974e+14,0.820100,19.2,2003.19,0.0,0.0003300885322974,,,,,,,0.0002036,1.0000000028,synthetic pericenter GR×SR from orbit
+S62_SgrA*,S-stars,4297000.0,1.107141e+14,0.976000,9.9,2003.33,0.0,0.0039759410662086,,,,,,,0.0023966,1.0000000028,synthetic pericenter GR×SR from orbit
+S4711_SgrA*,S-stars,4297000.0,9.263204e+13,0.768000,7.6,2010.85,0.0,0.0004798593386547,,,,,,,0.0002954,1.0000000028,synthetic pericenter GR×SR from orbit
+S4712_SgrA*,S-stars,4297000.0,5.565945e+14,0.364000,112.0,2007.12,0.0,0.0000287107237694,,,,,,,0.0000179,1.0000000028,synthetic pericenter GR×SR from orbit
+S4713_SgrA*,S-stars,4297000.0,2.473479e+14,0.351000,33.2,2003.02,0.0,0.0000630516350636,,,,,,,0.0000395,1.0000000028,synthetic pericenter GR×SR from orbit
+S4714_SgrA*,S-stars,4297000.0,1.258648e+14,0.985000,12.0,2017.29,0.0,0.0056009940879038,,,,,,,0.0033779,1.0000000028,synthetic pericenter GR×SR from orbit
+S4715_SgrA*,S-stars,4297000.0,1.776116e+14,0.247000,20.2,2008.05,0.0,0.0000755511676710,,,,,,,0.0000474,1.0000000028,synthetic pericenter GR×SR from orbit
