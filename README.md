@@ -78,9 +78,12 @@ python3 -m venv venv
 # On Linux/macOS:
 source venv/bin/activate
 # On Windows:
+```
 venv\Scripts\activate
+````
 
 # 3. Install required dependencies
+```
 pip install -r requirements.txt
 ````
 ## Second Content
@@ -403,8 +406,6 @@ python segspace_final_explain.py --csv real_data_30_segmodel.csv
 * **Pandas error**
   Install it: `pip install pandas`.
 
----
-Fair. No hand-holding, no Windows fluff. Here’s a **ready-to-paste README section (English)** that assumes the reader actually knows Python. Minimal, OS-agnostic, reproducible, and focused on the three key files.
 
 ---
 
