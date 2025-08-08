@@ -599,7 +599,6 @@ If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
 
 ---
 
-```markdown
 ## New files (content list)
 
 | File | Purpose |
@@ -608,7 +607,7 @@ If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
 | `segspace_final_test.py` | Strict CI-style suite (T1–T6), writes `final_test_report.txt`, `final_junit.xml`, `_final_test_debug.csv`, `final_failures.csv`. |
 | `segspace_final_explain.py` | Explanatory runner: prints per-case sourcing/derivation (`z` provenance, `r_eff` path, vis-viva, z-components, residuals). Writes `_explain_debug.csv`. |
 | `real_data_30_segmodel.csv` | Current S-stars comparison dataset (9 strong rows). If you set both `z` and `f_emit/f_obs`, use `--prefer-z` to ensure measured `z` is used. |
-````
+
 
 ---
 
