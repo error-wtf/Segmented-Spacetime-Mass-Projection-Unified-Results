@@ -250,3 +250,158 @@ This script demonstrates why the classical formula `E = m_e * c^2` and even QED 
 ```bash
 python carmen_qed_incompleteness_demo.py
 ````
+
+---
+
+# 📦 Final Test, Explain Run & Comparison CSV
+
+This section documents **three core files** in the repo and how to use them:
+
+* `segspace_final_test.py` — **strict, reproducible test runner**
+* `segspace_final_explain.py` — **explanatory runner** (prints per-case reasoning)
+* `real_data_30_segmodel.csv` — **comparison dataset** (alternatively: `real_data_30_segmodel_STRONG_NET.csv`)
+
+---
+
+## 🔧 Requirements
+
+* Python ≥ 3.9
+* Packages: `pandas` (and optionally `scipy`; constants fall back if missing)
+
+```bash
+pip install pandas
+```
+
+---
+
+## ✅ `segspace_final_test.py` — Final (strict) tests
+
+**Purpose:** runs tests T1–T6 and writes human/CI outputs so results are reproducible.
+
+**Run:**
+
+```bash
+# explicit CSV
+python segspace_final_test.py --csv real_data_30_segmodel.csv
+
+# auto-discovery (picks a sensible default in the working dir)
+python segspace_final_test.py
+
+# or via env var
+SEGSPACE_CSV=real_data_30_segmodel.csv python segspace_final_test.py
+```
+
+**Outputs (under `./out/`):**
+
+* `final_test_report.txt` — human-readable summary (metrics + test statuses)
+* `final_junit.xml` — CI-friendly JUnit
+* `final_failures.csv` — flat list of PASS/FAIL/SKIP with messages
+* `_final_test_debug.csv` — full per-row derived values & residuals
+
+**What is checked (high level):**
+
+* **T1** Nseg algebra consistency
+* **T2** bound-energy reconstruction (when freqs are present)
+* **T3** Seg-FIT ≈ 0
+* **T4** median |Δz| per category (**requires strong rows**)
+* **T5** physicality (e.g., $v<0.2c$)
+* **T6** S-stars comparison: Seg ≤ 1.2×GR (median |Δz|)
+
+**Important:**
+
+* A **strong row** requires **orbit mode**: `a_m` (in **meters**), `e`, `f_true_deg` (deg), and `M_solar` (in solar masses).
+* **GR** uses `r(a,e,f_true)` as fallback when `r_emit_m` is missing.
+* Observed **z** is taken **either** from `f_emit_Hz/f_obs_Hz` **or** directly from `z`. If *both* are set, **frequencies take precedence**. (If you want to force `z`, leave those frequency fields empty.)
+
+---
+
+## 🔍 `segspace_final_explain.py` — Explanatory run
+
+**Purpose:** prints, per case, exactly how values were sourced/derived:
+
+* source of **z** (direct vs. from frequencies),
+* how **r\_eff** is obtained (`r_emit_m` vs. `r(a,e,f_true)`),
+* source of **v\_pred** (vis-viva, etc., and whether it’s *strong*),
+* **z\_pred(seg)**, **z\_GR**, **z\_SR**, **z\_GR×SR**, and **Δz**,
+* notes (e.g., if `v_los_mps` is missing → SR uses transverse part only).
+
+**Run:**
+
+```bash
+python segspace_final_explain.py --csv real_data_30_segmodel.csv
+# or let it auto-discover
+python segspace_final_explain.py
+```
+
+**Output (under `./out/`):**
+
+* `_explain_debug.csv` — full per-row matrix with provenance hints
+
+---
+
+## 🗃️ `real_data_30_segmodel.csv` — Data schema & minimum fields
+
+**Header (as used by the runners):**
+
+```
+case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,v_los_mps,v_tot_mps,z_geom_hint,N0,source
+```
+
+**Key columns & units:**
+
+* `case` — identifier (e.g., `S2_SgrA*`)
+* `category` — e.g., `S-stars`, `Solar`, `WhiteDwarf`, `Lab/Geo`
+* `M_solar` — central mass in **solar masses** (e.g., Sgr A\*: \~4.3e6)
+* `a_m` — semi-major axis in **meters** (not mpc!)
+* `e` — eccentricity
+* `P_year`, `T0_year` — period (years), reference epoch
+* `f_true_deg` — true anomaly in **degrees** (pericenter = 0)
+* `z` — **observed** redshift $(\Delta\lambda/\lambda)$ **or**:
+
+  * `f_emit_Hz` and `f_obs_Hz` — then $z = f_{\rm emit}/f_{\rm obs}-1$ is computed internally
+    *(Tip: if you want to force `z`, leave the frequency fields empty.)*
+* `v_los_mps` — line-of-sight velocity (m/s), if available
+* `z_geom_hint` — optional **pure GR component** at the given $r$ (helps the Seg-PRED split)
+* `N0` — default `1.0000000028` (project convention)
+* `source` — provenance note
+
+**Example S2 row (2018 pericenter, measured z; frequencies empty):**
+
+```csv
+S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,0.0006671281903963041,,,,,0,,0.0003584,1.0000000028,GRAVITY 2018 Pericenter (z); orbit per table
+```
+
+---
+
+## 🧪 Quickstart
+
+```bash
+# 1) Put the CSV in place (or use the provided STRONG_NET variant)
+cp real_data_30_segmodel.csv .
+
+# 2) Run strict tests
+python segspace_final_test.py --csv real_data_30_segmodel.csv
+
+# 3) Run the explanatory pass
+python segspace_final_explain.py --csv real_data_30_segmodel.csv
+```
+
+---
+
+## 🩺 Troubleshooting
+
+* **T4\_pred\_S-stars = FAIL**
+  Check the S2 row:
+
+  * If `f_emit_Hz/f_obs_Hz` are set, they override `z`. → clear those fields and set `z` explicitly.
+  * Ensure `a_m` is in **meters**, `e` is correct, and `f_true_deg` matches the epoch (pericenter = 0).
+  * Optionally set `z_geom_hint` to the GR-only part at that $r$.
+
+* **No “strong rows”**
+  You’re missing orbit fields: `a_m` (m), `e`, `f_true_deg`, `M_solar`. Without those, T4 often **SKIPs**.
+
+* **Pandas error**
+  Install it: `pip install pandas`.
+
+---
+
