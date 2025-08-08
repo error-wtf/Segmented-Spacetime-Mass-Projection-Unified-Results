@@ -525,6 +525,92 @@ python -m venv .venv && . .venv/bin/activate \
 * If `pandas` “not found”: you skipped `requirements.txt`.
 
 ---
+Nice. Dann packen wir’s sauber in die README – plus eine kurze Content-Liste der neuen Files. Unten sind **zwei Copy-Blöcke**: 1) ein fertiger README-Abschnitt (Englisch), 2) eine „New files“-Tabelle.
+
+---
+
+````markdown
+# ✅ Segspace — Enhanced Tests (hint / GR×SR / Δ(M))
+
+This repository now includes a **reproducible, strict test runner** that compares the segmented-spacetime predictions against GR, SR, and GR×SR on a curated S-stars dataset.
+
+## How to run
+
+```bash
+# Recommended (forces z column over f_emit/f_obs if both present)
+python segspace_enhanced_test.py --csv real_data_30_segmodel.csv --prefer-z --seg-mode hint --plots --junit
+````
+
+### Modes
+
+* `--seg-mode hint`  → uses `z_geom_hint` (geometric GR) and mixes SR:  $(1+z_\text{seg})=(1+z_\text{hint})(1+z_\text{SR})-1$.
+* `--seg-mode grsr`  → identical to GR×SR baseline.
+* `--seg-mode deltaM` → applies a **relative** Δ(M) scaling to the geometric GR part only:
+
+  $$
+    z_{\rm GR,scaled} = z_{\rm GR}\,(1+\Delta M_{\rm frac}), \quad
+    \Delta M = (A\,e^{-\alpha\,r_s}+B)\cdot \mathrm{norm}(\log_{10}M)
+  $$
+
+  (A,B in percent; $r_s=2GM/c^2$). Example:
+
+  ```bash
+  python segspace_enhanced_test.py --csv real_data_30_segmodel.csv \
+    --prefer-z --seg-mode deltaM \
+    --deltam-A 4.0 --deltam-B 0.0 --deltam-alpha 1e-11 --plots --junit
+  ```
+
+## Current results (S-stars, 9 strong rows)
+
+Input: `real_data_30_segmodel.csv`
+SHA256: `9f4c562b8adb4afd9ddadb2e09907186304fe856e75ea9c89dad56617d5e85f9`
+
+**Median / Mean / Max |Δz|**
+
+| Model          |         Median |           Mean |            Max |
+| -------------- | -------------: | -------------: | -------------: |
+| **Seg (hint)** | **2.9078e-05** | **2.3524e-04** | **1.1407e-03** |
+| GR             |    1.26498e-04 |     5.0124e-04 |     2.2231e-03 |
+| SR             |    1.44816e-04 |     5.2014e-04 |     2.2485e-03 |
+| GR×SR          |     2.9108e-05 |     2.3526e-04 |     1.1407e-03 |
+
+Notes:
+
+* **Seg (hint)** ≈ **GR×SR** (as expected when `z_geom_hint` ≈ GR geometric part).
+* `deltaM` (with the **fixed relative** scaling) yields similar residuals; on pure S-stars (single mass scale) it does **not** outperform hint/GR×SR without broader mass diversity for calibration.
+
+## Outputs
+
+Generated under `./out/`:
+
+* `enhanced_report.txt` — summary
+* `_enhanced_debug.csv` — per-row derivations (provenance of z, r\_eff source, v\_los sanitization, z\_GR, z\_SR, z\_GR×SR, z\_seg, residuals)
+* `enhanced_junit.xml` — CI-friendly check (Seg median ≤ 1.2×GR median)
+* `hist_*.png` — residual histograms (if `--plots`)
+
+## Strong rows (requirements)
+
+A row is considered **strong** if it has orbit mode fields:
+`a_m` (meters), `e`, `f_true_deg` (deg), `M_solar` (solar masses).
+GR uses `r(a,e,f_true)` as fallback if `r_emit_m` is missing.
+If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
+
+````
+
+---
+
+```markdown
+## New files (content list)
+
+| File | Purpose |
+|---|---|
+| `segspace_enhanced_test.py` | Enhanced, reproducible test runner comparing **Seg (hint / grsr / deltaM)** vs **GR / SR / GR×SR**. Robust handling of `NaN` in `v_los_mps` (treated as 0.0), SHA256 print, optional plots & JUnit, full debug CSV. |
+| `segspace_final_test.py` | Strict CI-style suite (T1–T6), writes `final_test_report.txt`, `final_junit.xml`, `_final_test_debug.csv`, `final_failures.csv`. |
+| `segspace_final_explain.py` | Explanatory runner: prints per-case sourcing/derivation (`z` provenance, `r_eff` path, vis-viva, z-components, residuals). Writes `_explain_debug.csv`. |
+| `real_data_30_segmodel.csv` | Current S-stars comparison dataset (9 strong rows). If you set both `z` and `f_emit/f_obs`, use `--prefer-z` to ensure measured `z` is used. |
+````
+
+---
 
 END OF REPO
 
