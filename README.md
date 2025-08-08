@@ -595,7 +595,6 @@ A row is considered **strong** if it has orbit mode fields:
 GR uses `r(a,e,f_true)` as fallback if `r_emit_m` is missing.
 If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
 
-````
 
 ---
 
