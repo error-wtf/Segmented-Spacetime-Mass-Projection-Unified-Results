@@ -14,8 +14,16 @@ The method implemented here reconstructs the **effective mass** of physical obje
 - ✅ Comparison with established experimental values (e.g. electron mass, planetary bodies)
 - ✅ Reproduction of classical observables (e.g. Mercury's perihelion, black hole shadow radius)
 - ✅ Symbolic check for modified Einstein tensor compatibility (`Gμν = 0`)
+- 
+## Quick Start — best overall accuracy
 
-## Contents
+Run the hybrid pipeline (uses **hint** for S-stars, **deltaM** for all others).  
+This consistently gave the lowest median |Δz| in our comparisons.
+
+```
+python segspace_enhanced_test_better_final.py --mode hybrid
+````
+
 ## Contents
 
 | File                                             | Description                                                                                          |
