@@ -53,6 +53,9 @@ python segspace_enhanced_test_better_final.py --mode hybrid
 | `segmented_spacetime_mass_validation_perfect.csv`| CSV of perfect-case segmented spacetime mass validations                                             |
 | `carmen_qed_incompleteness_demo.py`              | Calculates and explains, with real astrophysical data, why only a fraction of the original photon energy is accessible at the detector in segmented spacetime; includes all computational steps and physical interpretation. |
 | `Segmentdichte-Analyse.py` | Calculates and visualizes the segment density profile σ(r) between the Schwarzschild radius (r_s) and the segment radius (r_phi). Shows how the segment density changes across this interval for different physical parameters, and provides both tabular and graphical output for further analysis or publication. |
+| [`estimators.md`](./estimators.md) | Defines and explains reproducible estimators that convert observations into model inputs (z_geom, r_phi, ΔM, segment density); includes SR removal, GR baselines, CV rules, robust metrics, pseudocode, and output formats. |
+| [`API.md`](./API.md)               | Documents the public API and CLI for the runners; lists function signatures, expected CSV schemas, modes (hint/deltaM/hybrid), report and debug outputs, and return types—serving as a stable reference for users and contributors. |
+
 
 ## Bound Energy Scripts and Validation
 
