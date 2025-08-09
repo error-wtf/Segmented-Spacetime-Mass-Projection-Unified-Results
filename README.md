@@ -41,22 +41,21 @@ pip install -r requirements.txt
 mkdir -p out
 
 # 4) Kernläufe (Best-Performer zuerst)
-python segspace_enhanced_test_better_final.py --mode hybrid | tee out/hybrid_stdout.txt
-python segspace_enhanced_test_better_final.py --mode hint   | tee out/hint_stdout.txt
-python segspace_enhanced_test_better_final.py --mode deltaM | tee out/deltaM_stdout.txt
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
 
 # 5) Roundtrip-/Beweis-Skripte
-python final_test.py                     | tee out/final_test_stdout.txt
-python segmented_full_proof.py           | tee out/full_proof_stdout.txt
-python segmented_full_compare_proof.py   | tee out/compare_proof_stdout.txt
-python segmented_full_calc_proof.py      | tee out/calc_proof_stdout.txt
+python final_test.py                     
+python segmented_full_proof.py           
+python segmented_full_compare_proof.py   
+python segmented_full_calc_proof.py      
 
 # 6) Bound-Energy & Plots
 python bound_energy_plot.py
 python bound_energy_plot_with_frequenz_shift_fix.py
 
-# 7) Alles einsammeln (bestehende Artefakte mitkopieren)
-cp -v *_debug.csv *_junit.xml *_report.txt *.csv *.png *.svg out/ 2>/dev/null || true
+
 ````
 ---
 
