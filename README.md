@@ -619,9 +619,9 @@ If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
 ````
 or 
 ```
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
+  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
 ````
 
 ---
