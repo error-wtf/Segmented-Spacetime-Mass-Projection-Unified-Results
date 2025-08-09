@@ -17,6 +17,12 @@ The method implemented here reconstructs the **effective mass** of physical obje
 - 
 ## Quick Start — best overall accuracy
 
+Clone the repository and move into Folder:
+```
+git clone https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+cd Segmented-Spacetime-Mass-Projection-Unified-Results
+````
+
 Run the hybrid pipeline (uses **hint** for S-stars, **deltaM** for all others).  
 This consistently gave the lowest median |Δz| in our comparisons.
 
