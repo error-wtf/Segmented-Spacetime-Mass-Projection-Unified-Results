@@ -14,7 +14,7 @@ The method implemented here reconstructs the **effective mass** of physical obje
 - ✅ Comparison with established experimental values (e.g. electron mass, planetary bodies)
 - ✅ Reproduction of classical observables (e.g. Mercury's perihelion, black hole shadow radius)
 - ✅ Symbolic check for modified Einstein tensor compatibility (`Gμν = 0`)
-- 
+
 ## Quick Start — best overall accuracy
 
 Clone the repository and move into Folder:
