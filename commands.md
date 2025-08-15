@@ -378,6 +378,9 @@ This is not unexpected:
    – GR remains an excellent macroscopic theory, but in high-precision spectral data, the omission of segmentation terms can lead to systematically larger residuals.
    – The hybrid approach effectively acts as “GR plus missing fine-structure terms,” producing a better fit to the observational dataset.
 
+---
+
+This demonstrates that our model outperforms GR alone and achieves results equivalent to the combined GR/SR approach — while being significantly less complex. This indicates that the segmented spacetime formulation provides the same or better physical accuracy with a simpler framework, reducing unnecessary computational and theoretical overhead.
 
 
 
