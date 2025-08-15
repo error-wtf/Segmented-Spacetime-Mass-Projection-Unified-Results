@@ -25,6 +25,17 @@ It contains all available commands, parameters, and examples – please check th
 This repository contains all Python scripts, datasets, and results generated as part of the research on the *Segmented Spacetime Theory*.  
 It unifies **Mass Projection**, **π–φ Bridge**, **Bound Energy**, and other calculations into a consistent framework.
 
+- **commands.md** – Example CLI commands for `segspace_all_in_one.py` with explanations of each subcommand and ready-to-run bash examples.
+
+- **API.md** – Documentation of the available functions, parameters, and expected inputs/outputs for programmatic access to the repository’s tools.
+
+- **Estimators.md** – Descriptions of the statistical and physical estimators used in the analysis, including formulas and usage notes.
+
+- **Sources.md** – Provenance of all S2/Sgr A* datasets, primary literature links, archive references, and a step-by-step reproducibility guide.
+
+- **DATA_SOURCES.md** – Overview of all datasets used in the project, their formats, origin, and any preprocessing steps applied.
+
+
 
 ## Quick Start — best overall accuracy
 
