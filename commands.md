@@ -254,6 +254,15 @@ Ratios‑CSV         : segspace_pi_bridge_out2\segspace_ratios.csv
 * Median performance staying strong shows the physics fit is still there — it’s just being buried by those outliers.
 * The gate or a classification pre-filter isn’t just a convenience, it’s necessary to keep your performance metrics honest.
 
+### Key Conclusions
+
+Strengths: For objects within the target domain (S-stars, some X-ray binaries), Δ(M) delivers significant improvements over GR — the median advantage confirms the physical consistency of the approach.
+
+Weaknesses without filter: The mean is distorted by a few extreme sources. Without an emission filter or classification step, the model is applied to unsuitable objects.
+
+Recommendation: Always use an object-based preselection or an emission filter to keep the statistics clean.
+
+Research outlook: Conduct targeted analysis of problematic S-stars (e.g., S33, S21) — phase or orbital parameters could explain the discrepancies.
 
 
 
