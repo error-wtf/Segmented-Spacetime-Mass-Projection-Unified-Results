@@ -354,6 +354,31 @@ Ratios‑CSV         : segspace_pi_bridge_out_gate_from_freq\segspace_ratios.csv
 
 ```
 
+---
+
+
+**Why GR alone performs worse than the hybrid approach**
+
+In our dataset, the pure General Relativity (GR) prediction often shows a larger deviation from the observed values than the hybrid Segmented Spacetime + GR×SR model.
+This is not unexpected:
+
+1. **GR accounts only for large-scale curvature**
+   – The standard GR redshift $z_{\mathrm{GR}}$ describes frequency shifts purely from gravitational time dilation caused by spacetime curvature.
+   – It does not include local micro-scale effects.
+
+2. **Hybrid model incorporates local segmentation effects**
+   – The hybrid $z_{\mathrm{hybrid}}$ combines GR curvature with additional terms from Special Relativity (SR) and segmented spacetime corrections.
+   – These corrections account for fine-scale spatial partitioning that affects local frequency propagation.
+
+3. **Physical implication**
+   – If the hybrid deviation is smaller than GR’s deviation, this suggests that curvature alone is insufficient at the measured scale.
+   – Local segmentation effects become non-negligible near compact or high-gravity regions, modifying the observable frequency shift.
+
+4. **Conclusion**
+   – GR remains an excellent macroscopic theory, but in high-precision spectral data, the omission of segmentation terms can lead to systematically larger residuals.
+   – The hybrid approach effectively acts as “GR plus missing fine-structure terms,” producing a better fit to the observational dataset.
+
+
 
 
 
