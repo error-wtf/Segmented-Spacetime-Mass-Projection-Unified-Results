@@ -1,71 +1,84 @@
 # Sources.md
 
-## Zweck
-Dieses Dokument beschreibt die Herkunft aller in diesem Repository verwendeten S2/Sgr A*-Daten, verweist auf Primärliteratur, Archive und Programmierschnittstellen und skizziert das Reproduktions-Vorgehen.
+## Purpose
 
-## Datenherkunft (Provenance)
-Die im Repo genutzten S2/Sgr A*-Werte wurden zunächst aus den unten verlinkten Publikationen und Archiven gescraped, lokal aufbereitet und als CSV abgelegt (z. B. `real_data_full.csv`). Die Skripte greifen derzeit nicht auf eine Live-API zu.
+This document describes the origin of all S2/Sgr A\* data used in this repository, refers to primary literature, archives, and programmatic interfaces, and outlines the reproduction procedure.
 
-Dank an: GRAVITY Collaboration (ESO), ESO Science Archive, Keck Observatory Archive, NIST Atomic Spectra Database sowie CDS-Dienste (SIMBAD/VizieR).
+## Data Provenance
+
+The S2/Sgr A\* values used in the repo were initially scraped from the publications and archives linked below, processed locally, and stored as CSV files (e.g., `real_data_full.csv`). The scripts currently do not access a live API.
+
+Acknowledgments: GRAVITY Collaboration (ESO), ESO Science Archive, Keck Observatory Archive, NIST Atomic Spectra Database, and CDS services (SIMBAD/VizieR).
 
 ---
 
-## Primärliteratur (S2/S0-2, Rotverschiebung)
-- https://www.aanda.org/articles/aa/full_html/2018/07/aa33718-18/aa33718-18.html
-- https://www.aanda.org/articles/aa/pdf/2018/07/aa33718-18.pdf
-- https://arxiv.org/abs/1807.09409
-- https://www.science.org/doi/10.1126/science.aav8137
-- https://www.science.org/cms/asset/9b318de9-5652-4b20-9eab-f6eadab49e35/pap.pdf
-- https://arxiv.org/abs/1907.10731
-- (Programm-IDs & Beobachtungsnächte) https://cds.cern.ch/record/2806198/files/2112.07478.pdf
+## Primary Literature (S2/S0-2, Redshift)
 
-## Linienphysik (Brackett-γ als Referenz für f_emit)
-- https://physics.nist.gov/PhysRefData/ASD/lines_form.html
-- https://www.nist.gov/pml/atomic-spectra-database
-- https://www.gemini.edu/observing/resources/near-ir-resources/spectroscopy/hydrogen-recombination-lines
+* [https://www.aanda.org/articles/aa/full\_html/2018/07/aa33718-18/aa33718-18.html](https://www.aanda.org/articles/aa/full_html/2018/07/aa33718-18/aa33718-18.html)
+* [https://www.aanda.org/articles/aa/pdf/2018/07/aa33718-18.pdf](https://www.aanda.org/articles/aa/pdf/2018/07/aa33718-18.pdf)
+* [https://arxiv.org/abs/1807.09409](https://arxiv.org/abs/1807.09409)
+* [https://www.science.org/doi/10.1126/science.aav8137](https://www.science.org/doi/10.1126/science.aav8137)
+* [https://www.science.org/cms/asset/9b318de9-5652-4b20-9eab-f6eadab49e35/pap.pdf](https://www.science.org/cms/asset/9b318de9-5652-4b20-9eab-f6eadab49e35/pap.pdf)
+* [https://arxiv.org/abs/1907.10731](https://arxiv.org/abs/1907.10731)
+* (Program IDs & observation nights) [https://cds.cern.ch/record/2806198/files/2112.07478.pdf](https://cds.cern.ch/record/2806198/files/2112.07478.pdf)
+
+## Line Physics (Brackett-γ as reference for f\_emit)
+
+* [https://physics.nist.gov/PhysRefData/ASD/lines\_form.html](https://physics.nist.gov/PhysRefData/ASD/lines_form.html)
+* [https://www.nist.gov/pml/atomic-spectra-database](https://www.nist.gov/pml/atomic-spectra-database)
+* [https://www.gemini.edu/observing/resources/near-ir-resources/spectroscopy/hydrogen-recombination-lines](https://www.gemini.edu/observing/resources/near-ir-resources/spectroscopy/hydrogen-recombination-lines)
 
 ## ESO Archive & Programmatic Access
-- https://archive.eso.org/
-- https://archive.eso.org/scienceportal/
-- https://archive.eso.org/cms/eso-data/programmatic-access.html
-- https://archive.eso.org/tap_obs/examples/
-- http://archive.eso.org/tap_obs
-- http://archive.eso.org/tap_cat
-- https://archive.eso.org/cms/eso-data/eso-programme-identification-code.html
-- https://www.eso.org/sci/facilities/paranal/instruments/gravity.html
+
+* [https://archive.eso.org/](https://archive.eso.org/)
+* [https://archive.eso.org/scienceportal/](https://archive.eso.org/scienceportal/)
+* [https://archive.eso.org/cms/eso-data/programmatic-access.html](https://archive.eso.org/cms/eso-data/programmatic-access.html)
+* [https://archive.eso.org/tap\_obs/examples/](https://archive.eso.org/tap_obs/examples/)
+* [http://archive.eso.org/tap\_obs](http://archive.eso.org/tap_obs)
+* [http://archive.eso.org/tap\_cat](http://archive.eso.org/tap_cat)
+* [https://archive.eso.org/cms/eso-data/eso-programme-identification-code.html](https://archive.eso.org/cms/eso-data/eso-programme-identification-code.html)
+* [https://www.eso.org/sci/facilities/paranal/instruments/gravity.html](https://www.eso.org/sci/facilities/paranal/instruments/gravity.html)
 
 ## CDS / SIMBAD / VizieR
-- https://simbad.u-strasbg.fr/simbad/sim-fbasic
-- https://simbad.unistra.fr/simbad/sim-tap
-- https://tapvizier.u-strasbg.fr/adql/
+
+* [https://simbad.u-strasbg.fr/simbad/sim-fbasic](https://simbad.u-strasbg.fr/simbad/sim-fbasic)
+* [https://simbad.unistra.fr/simbad/sim-tap](https://simbad.unistra.fr/simbad/sim-tap)
+* [https://tapvizier.u-strasbg.fr/adql/](https://tapvizier.u-strasbg.fr/adql/)
 
 ## Keck Observatory Archive (KOA)
-- https://vmkoaweb.ipac.caltech.edu/UserGuide/index.html
-- https://www.ipac.caltech.edu/project/keck-archive
-- https://github.com/KeckObservatoryArchive/PyKOA/
 
-## Projekt-Repository
-- https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results
+* [https://vmkoaweb.ipac.caltech.edu/UserGuide/index.html](https://vmkoaweb.ipac.caltech.edu/UserGuide/index.html)
+* [https://www.ipac.caltech.edu/project/keck-archive](https://www.ipac.caltech.edu/project/keck-archive)
+* [https://github.com/KeckObservatoryArchive/PyKOA/](https://github.com/KeckObservatoryArchive/PyKOA/)
+
+## Project Repository
+
+* [https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results](https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results)
 
 ---
 
-## Reproduzierbarkeit: Kurzablauf
+## Reproducibility: Short Procedure
 
-1) Referenzlinie setzen  
-Brackett-γ im Vakuum: λ0 ≈ 2.1661 µm ⇒ f_emit = c / λ0.
+1. **Set reference line**
+   Brackett-γ in vacuum: λ₀ ≈ 2.1661 µm ⇒ f\_emit = c / λ₀.
 
-2) Zeitreihen beschaffen (eine von zwei Optionen)  
-A) Aus Publikationen/Supplements: Tabellen/Plots der Radialgeschwindigkeit (RV) und Epochen aus den oben gelisteten Arbeiten.  
-B) Aus Archiven: Objektauflösung via SIMBAD (S2/S0-2). ESO/KOA nach Programm-IDs und Instrument (GRAVITY, SINFONI, NIRC2, OSIRIS) abfragen und Spektren herunterladen.
+2. **Obtain time series (one of two options)**
+   A) From publications/supplements: tables/plots of radial velocity (RV) and epochs from the works listed above.
+   B) From archives: resolve object via SIMBAD (S2/S0-2). Query ESO/KOA for program IDs and instrument (GRAVITY, SINFONI, NIRC2, OSIRIS) and download spectra.
 
-3) Vorverarbeitung  
-Linienzentrum Br-γ pro Epoche bestimmen → f_obs.  
-Rotverschiebung: z = f_emit / f_obs − 1.  
-Optional: klassische Kepler-RV subtrahieren, um den relativen GR-Zusatz z_rel zu isolieren.
+3. **Preprocessing**
+   Determine Br-γ line center per epoch → f\_obs.
+   Redshift: z = f\_emit / f\_obs − 1.
+   Optional: subtract classical Kepler RV to isolate the relative GR term z\_rel.
 
-4) CSV-Ablage (Schema-Beispiel)
-epoch, instrument, lambda0_um, f_emit_Hz, f_obs_Hz, z, source, notes
+4. **CSV storage (example schema)**
+   `epoch, instrument, lambda0_um, f_emit_Hz, f_obs_Hz, z, source, notes`
 
-## Hinweise
-- Vakuum-Wellenlängen verwenden; Unterschiede zur Luft-Wellenlänge liegen hier bei ~O(10^-3).
-- Für automatisierte Pipelines eignen sich `astroquery` (ESO/CDS) und `PyKOA` (Keck). Eine spätere Umstellung von „CSV-only“ auf „API-Fetch + Caching“ ist vorgesehen.
+## Notes
+
+* Use vacuum wavelengths; differences from air wavelengths here are on the order of \~O(10^-3).
+* For automated pipelines, `astroquery` (ESO/CDS) and `PyKOA` (Keck) are suitable. A later switch from “CSV-only” to “API fetch + caching” is planned.
+
+---
+Note on ALMA data access: Accessing ALMA data requires an authentication token, which means you must register an account. As of July 15, 2025, the access method has been switched from simple GET requests to a PROOF-based authentication system.
+
