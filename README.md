@@ -1,5 +1,5 @@
 <img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
-# Segmented Spacetime – Mass Projection & Unified Results
+### Segmented Spacetime – Mass Projection & Unified Results
 © Carmen Wrede & Lino Casu
 
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
@@ -14,6 +14,16 @@ The method implemented here reconstructs the **effective mass** of physical obje
 - ✅ Comparison with established experimental values (e.g. electron mass, planetary bodies)
 - ✅ Reproduction of classical observables (e.g. Mercury's perihelion, black hole shadow radius)
 - ✅ Symbolic check for modified Einstein tensor compatibility (`Gμν = 0`)
+
+# Segmented Spacetime – Mass Projection Unified Results
+
+**⚠️ Note:**  
+The **complete and up-to-date command reference** is explained in [`commands.md`](commands.md).  
+It contains all available commands, parameters, and examples – please check there first before running any scripts.
+
+This repository contains all Python scripts, datasets, and results generated as part of the research on the *Segmented Spacetime Theory*.  
+It unifies **Mass Projection**, **π–φ Bridge**, **Bound Energy**, and other calculations into a consistent framework.
+
 
 ## Quick Start — best overall accuracy
 
