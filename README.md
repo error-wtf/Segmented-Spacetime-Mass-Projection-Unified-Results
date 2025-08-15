@@ -27,6 +27,33 @@ It unifies **Mass Projection**, **π–φ Bridge**, **Bound Energy**, and other 
 
 ## Quick Start — best overall accuracy
 
+## 🔄 Full Execution with `run_all.py`
+
+The [`run_all.py`](./run_all.py) script runs **the entire workflow** in the correct order:  
+
+1. **Optional**: Fetch ESO Brγ data (`fetch_eso_br_gamma.py`)  
+2. **Analysis** with `segspace_enhanced_pi_bridge.py`  
+3. **Mass validation** with `segmented_all_mass_validate.py`  
+4. **Energy bounds** with `segmented_all_bound_energy.py`  
+
+---
+
+### **Run with an existing CSV file (no fetching)**
+
+If you already have a prepared CSV file (`real_data_full.csv`), you can run everything directly:  
+
+```
+python run_all.py --fetch-mode skip --csv real_data_full.csv --out-dir results --prefer-z --top 10
+```
+
+If you want to fetch your own:
+
+```
+python run_all.py --fetch-mode full --csv real_data_full.csv --out-dir results --prefer-z --top 10 --token YOUR_ESO_BEARER_TOKEN
+```
+
+---
+
 Clone the repository and move into Folder:
 ```
 git clone https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results.git
@@ -102,33 +129,6 @@ python bound_energy_plot_with_frequenz_shift_fix.py
 | `Segmentdichte-Analyse.py` | Calculates and visualizes the segment density profile σ(r) between the Schwarzschild radius (r_s) and the segment radius (r_phi). Shows how the segment density changes across this interval for different physical parameters, and provides both tabular and graphical output for further analysis or publication. |
 | [`estimators.md`](./estimators.md) | Defines and explains reproducible estimators that convert observations into model inputs (z_geom, r_phi, ΔM, segment density); includes SR removal, GR baselines, CV rules, robust metrics, pseudocode, and output formats. |
 | [`API.md`](./API.md)               | Documents the public API and CLI for the runners; lists function signatures, expected CSV schemas, modes (hint/deltaM/hybrid), report and debug outputs, and return types—serving as a stable reference for users and contributors. |
-
-# Full File List – Segmented Spacetime Mass Projection Unified Results
-
-| File / Path | Description |
-|-------------|-------------|
-| **LICENSES/ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)** | License text for the project |
-| **README.md** | Usage guide and documentation |
-| **bound_energy.py** | Calculates bound-electron mass and emitted photon energy based on local frequency shifts |
-| **bound_energy_english.py** | English version of the bound energy calculation script |
-| **bound_energy_plot.py** | Plots bound energy comparisons without ΔM correction |
-| **bound_energy_plot_with_frequenz_shift_fix.py** | Plots bound energy comparisons with frequency shift (ΔM) correction |
-| **bound_energy_results.csv** | CSV export of bound energy calculation results |
-| **bound_energy_with_deltaM.csv** | CSV export of bound energy results including ΔM corrections |
-| **calculation_test.py** | Quick mass reconstruction tests and demos for segmented radius inputs |
-| **check.py** | Runs internal consistency checks for the segmented spacetime model |
-| **complete-math.py** | Step-by-step didactic demonstration of key calculations in segmented spacetime theory |
-| **convert_results.py** | Converts results to different formats for sharing and plotting |
-| **data/eso_br_gamma.csv** | Example input dataset from ESO Br-γ measurements |
-| **data/real_data_full.csv** | Main dataset containing observational values for calculations |
-| **fetch_eso_br_gamma.py** | Fetches ESO Br-γ dataset from online sources |
-| **further-bak.py** | Intermediate calculation and derivation of redshift (z) values |
-| **fetch-emit.py** | Fetches and processes emission data for bound energy calculations |
-| **mass_projection.py** | Implements mass projection equations for segmented spacetime theory |
-| **mass_projection_plot.py** | Plots mass projection results for visual analysis |
-| **pi_bridge.py** | Connects π-based calculations with φ-based scaling for segmented spacetime |
-| **pi_bridge_plot.py** | Visualizes the π–φ bridge calculations |
-| **pi_bridge_results.csv** | CSV export of π–φ bridge calculation results |
 | **segspace_all_in_one.py** | Unified script combining multiple calculations and modes (mass, π-bridge, bounds) |
 | **segspace_enhanced_pi_bridge.py** | Enhanced π–φ bridge calculation with additional modes and export options |
 | **segspace_mass_validate.py** | Validates mass projection calculations against empirical datasets |
