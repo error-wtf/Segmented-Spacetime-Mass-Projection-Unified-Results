@@ -93,6 +93,41 @@ python bound_energy_plot_with_frequenz_shift_fix.py
 | [`estimators.md`](./estimators.md) | Defines and explains reproducible estimators that convert observations into model inputs (z_geom, r_phi, ΔM, segment density); includes SR removal, GR baselines, CV rules, robust metrics, pseudocode, and output formats. |
 | [`API.md`](./API.md)               | Documents the public API and CLI for the runners; lists function signatures, expected CSV schemas, modes (hint/deltaM/hybrid), report and debug outputs, and return types—serving as a stable reference for users and contributors. |
 
+# Full File List – Segmented Spacetime Mass Projection Unified Results
+
+| File / Path | Description |
+|-------------|-------------|
+| **LICENSES/ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)** | License text for the project |
+| **README.md** | Usage guide and documentation |
+| **bound_energy.py** | Calculates bound-electron mass and emitted photon energy based on local frequency shifts |
+| **bound_energy_english.py** | English version of the bound energy calculation script |
+| **bound_energy_plot.py** | Plots bound energy comparisons without ΔM correction |
+| **bound_energy_plot_with_frequenz_shift_fix.py** | Plots bound energy comparisons with frequency shift (ΔM) correction |
+| **bound_energy_results.csv** | CSV export of bound energy calculation results |
+| **bound_energy_with_deltaM.csv** | CSV export of bound energy results including ΔM corrections |
+| **calculation_test.py** | Quick mass reconstruction tests and demos for segmented radius inputs |
+| **check.py** | Runs internal consistency checks for the segmented spacetime model |
+| **complete-math.py** | Step-by-step didactic demonstration of key calculations in segmented spacetime theory |
+| **convert_results.py** | Converts results to different formats for sharing and plotting |
+| **data/eso_br_gamma.csv** | Example input dataset from ESO Br-γ measurements |
+| **data/real_data_full.csv** | Main dataset containing observational values for calculations |
+| **fetch_eso_br_gamma.py** | Fetches ESO Br-γ dataset from online sources |
+| **further-bak.py** | Intermediate calculation and derivation of redshift (z) values |
+| **fetch-emit.py** | Fetches and processes emission data for bound energy calculations |
+| **mass_projection.py** | Implements mass projection equations for segmented spacetime theory |
+| **mass_projection_plot.py** | Plots mass projection results for visual analysis |
+| **pi_bridge.py** | Connects π-based calculations with φ-based scaling for segmented spacetime |
+| **pi_bridge_plot.py** | Visualizes the π–φ bridge calculations |
+| **pi_bridge_results.csv** | CSV export of π–φ bridge calculation results |
+| **segspace_all_in_one.py** | Unified script combining multiple calculations and modes (mass, π-bridge, bounds) |
+| **segspace_enhanced_pi_bridge.py** | Enhanced π–φ bridge calculation with additional modes and export options |
+| **segspace_mass_validate.py** | Validates mass projection calculations against empirical datasets |
+| **plots/** | Directory containing PNG and SVG plots for bound energy, mass projection, and π–φ bridge results |
+| **tests/** | Various test scripts for internal consistency and experimental formulas |
+| **.git/** | Git version control data (commits, branches, history) |
+| **.gitattributes** | Git attributes for file handling |
+| **.gitignore** | Ignore list for Git repository |
+| **requirements.txt** | List of Python dependencies required to run the scripts |
 
 ## Bound Energy Scripts and Validation
 
