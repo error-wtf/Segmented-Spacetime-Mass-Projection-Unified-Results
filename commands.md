@@ -1,41 +1,44 @@
-# segspace_all_in_one.py — Beispiel-Commands & Erklärungen
+# segspace\_all\_in\_one.py — Example Commands & Explanations&#x20;
 
-Dieses Dokument zeigt, wie du die verschiedenen Subcommands von `segspace_all_in_one.py` benutzt.  
-Jeder Abschnitt enthält:  
-1. Eine **Erklärung**, was der Befehl macht.  
-2. Einen **fertigen Bash-Befehl** zum direkten Ausführen.  
+This document shows how to use the different subcommands of `segspace_all_in_one.py`.
+Each section contains:
+
+1. An **explanation** of what the command does.
+2. A **ready-to-use Bash command** for direct execution.&#x20;
 
 ---
 
-## 1. π-Bridge + Dataset-Evaluation
+## 1. π-Bridge + Dataset Evaluation&#x20;
 
-**Zweck:**  
-Vergleicht die Segmentations-Brücke zwischen π und den gemessenen Daten im CSV-File.  
-Mit `--seg-mode` steuerst du den Algorithmus:  
-- `hint` → einfache Segmenthinweise  
-- `deltam` → ΔM-basierte Auswertung  
-- `hybrid` → kombiniert beides  
+**Purpose:**
+Compares the segmentation bridge between π and the measured data in the CSV file.
+With `--seg-mode` you control the algorithm:
 
-Mit `--pi-source` legst du fest, woher π kommt:  
-- `chud` → Chudnovsky-Algorithmus  
-- `builtin` → Python `math.pi`  
-- `phi` → Ableitung über φ  
+* `hint` → simple segmentation hints
+* `deltam` → ΔM-based evaluation
+* `hybrid` → combines both
 
-**Beispiel-Run:**
+With `--pi-source` you define where π comes from:
+
+* `chud` → Chudnovsky algorithm
+* `builtin` → Python `math.pi`
+* `phi` → derived via φ
+
+**Example run:**&#x20;
+
 ```bash
 python segspace_all_in_one.py pi-bridge --csv real_data_full.csv \
   --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16
-````
+```
 
 ---
 
-## 2. π-Bridge mit bevorzugter z-Nutzung
+## 2. π-Bridge with Preferred z Usage&#x20;
 
-**Zweck:**
-Wie oben, aber `--prefer-z` nutzt bereits vorhandene z-Werte aus dem CSV,
-statt sie aus Emissions- und Beobachtungsfrequenzen zu berechnen.
+**Purpose:**
+Same as above, but `--prefer-z` uses existing z-values from the CSV, instead of computing them from emission and observation frequencies.
 
-**Beispiel-Run:**
+**Example run:**
 
 ```bash
 python segspace_all_in_one.py pi-bridge --csv real_data_full.csv \
@@ -44,15 +47,15 @@ python segspace_all_in_one.py pi-bridge --csv real_data_full.csv \
 
 ---
 
-## 3. π-Bridge mit Top-Liste und deaktiviertem Emissions-Gate
+## 3. π-Bridge with Top List and Disabled Emission Gate&#x20;
 
-**Zweck:**
+**Purpose:**
 
-* `--top 10` → zeigt die 10 besten Ergebnisse
-* `--no-emission-gate` → ignoriert Filter auf Emissionsdaten
-* `--out` → schreibt Ergebnisse in Datei/Ordner
+* `--top 10` → shows the 10 best results
+* `--no-emission-gate` → ignores the emission data filter
+* `--out` → writes results to file/folder
 
-**Beispiel-Run:**
+**Example run:**
 
 ```bash
 python segspace_all_in_one.py pi-bridge --csv real_data_full.csv \
@@ -62,17 +65,17 @@ python segspace_all_in_one.py pi-bridge --csv real_data_full.csv \
 
 ---
 
-## 4. Δ(M)-Massen-Validierung
+## 4. Δ(M) Mass Validation&#x20;
 
-**Zweck:**
-Berechnet aus ΔM-Werten (A, B, α) eine Validierung der Massenrelation.
+**Purpose:**
+Computes a validation of the mass relation from ΔM values (A, B, α).
 
-* `--deltam-A` → Wert A
-* `--deltam-B` → Wert B
-* `--deltam-alpha` → α-Wert
-* `--prec` → Berechnungsgenauigkeit (Nachkommastellen)
+* `--deltam-A` → value A
+* `--deltam-B` → value B
+* `--deltam-alpha` → α value
+* `--prec` → calculation precision (decimal places)
 
-**Beispiel-Run:**
+**Example run:**
 
 ```bash
 python segspace_all_in_one.py mass-validate --deltam-A 98.01 \
@@ -81,18 +84,18 @@ python segspace_all_in_one.py mass-validate --deltam-A 98.01 \
 
 ---
 
-## 5. Bound-Energy aus Frequenzpaaren
+## 5. Bound Energy from Frequency Pairs&#x20;
 
-**Zweck:**
-Berechnet die gebundene Energie aus einem CSV mit Emissions- und Beobachtungsfrequenzen.
-CSV muss die Spalten enthalten:
+**Purpose:**
+Computes the bound energy from a CSV with emission and observation frequencies.
+The CSV must contain the columns:
 `label,f_emit_Hz,f_obs_Hz`
 
-* `--pairs` → Eingabe-CSV mit Frequenzpaaren
-* `--out` → Ausgabedatei/Ordner
-* `--plot` → erzeugt zusätzlich einen Plot
+* `--pairs` → input CSV with frequency pairs
+* `--out` → output file/folder
+* `--plot` → additionally generates a plot
 
-**Beispiel-Run:**
+**Example run:**
 
 ```bash
 python segspace_all_in_one.py bound-energy --pairs freq_pairs.csv \
@@ -250,6 +253,7 @@ Ratios‑CSV         : segspace_pi_bridge_out2\segspace_ratios.csv
 * The core model works well on the target domain (S-stars, some binaries), but without the emission gate, “wrong” targets (jets, pulsars, AGN) dominate the mean error and maximum error.
 * Median performance staying strong shows the physics fit is still there — it’s just being buried by those outliers.
 * The gate or a classification pre-filter isn’t just a convenience, it’s necessary to keep your performance metrics honest.
+
 
 
 
