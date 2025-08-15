@@ -1,4 +1,5 @@
 <img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
+
 ### Segmented Spacetime – Mass Projection & Unified Results
 © Carmen Wrede & Lino Casu
 
