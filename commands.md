@@ -264,6 +264,11 @@ Recommendation: Always use an object-based preselection or an emission filter to
 
 Research outlook: Conduct targeted analysis of problematic S-stars (e.g., S33, S21) — phase or orbital parameters could explain the discrepancies.
 
+### USE THIS COMMAND:
+
+```
+python segspace_all_in_one.py pi-bridge --csv real_data_full.csv --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16 --prefer-z --top 10 --out segspace_pi_bridge_out2
+```
 
 
 
