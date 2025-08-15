@@ -155,3 +155,46 @@ The precise π computation isn’t just for show — it is used as a scaling bri
 
 Interpretation:
 The results indicate that the segmented model matches observations better than pure GR in many compact-orbit systems near massive objects (Sgr A*, M87). However, in systems dominated by non-gravitational effects (plasma, magnetic fields, radiation pressure) such as jets or pulsars, the model produces larger deviations.
+
+---
+
+**1. Where the parameters fit in the pipeline**
+
+In "hybrid" seg-mode, the script blends the ΔM mass-segmentation model with a π-based scaling bridge (from Chudnovsky).
+
+The ΔM part modifies the baseline redshift prediction from GR or GR\*SR by applying a segment density correction. This depends on:
+
+* A → percentage scaling factor (here 98.01%). This adjusts the baseline mass-dependent segment density to account for bias in the dataset. It’s like saying “we only need 98% of the classical GR mass term to match the real segment density.”
+* α → segment density decay constant (27177 1/m). This is the length-scale over which the segmentation correction changes. Small α means the segmentation effect changes slowly with distance from the mass, large α means it changes very quickly.
+* B → base offset (1.96%). This is a constant background segmentation level, even if ΔM is zero. Think of it as the ambient space-time segmentation present even without strong gravity.
+
+These are applied to the measured vs predicted z values in the ΔM calculation.
+
+The script then uses π (from Chudnovsky) in the bridge scaling:
+`z_seg = z_GR * (pi_chud / pi_geom)`
+
+That scaling is tiny but consistent — it removes small systematic offsets across the dataset.
+
+---
+
+**2. Why S-stars look good**
+
+For S-stars near Sgr A\*:
+
+* Distances (periapse) are well within the 1/α scale length.
+* At these ranges, A dominates and the exponential decay is moderate, so the segment density correction is just enough to counter GR overestimation without overshooting.
+* B stays small, so the residual background segmentation doesn’t swamp the correction.
+
+Result: dz\_seg is much smaller than dz\_base (ratios between 0.02 and 0.1).
+
+---
+
+**3. Why jets and pulsars blow up**
+
+For relativistic jets and pulsars:
+
+* The effective radius in the ΔM calculation is often large relative to 1/α. The exponential term A·e^(−αr) collapses almost entirely, leaving you with just B.
+* That means the correction stops tracking real gravitational effects and instead applies a near-constant offset to z, which mismatches systems where velocity is dominated by non-gravitational acceleration (magnetic confinement, shocks, wind).
+* Because the π-bridge still applies the same small scaling, it can’t fix the mismatch — so you get huge ratios like 3800× for the M87 jet.
+
+
