@@ -197,4 +197,74 @@ For relativistic jets and pulsars:
 * That means the correction stops tracking real gravitational effects and instead applies a near-constant offset to z, which mismatches systems where velocity is dominated by non-gravitational acceleration (magnetic confinement, shocks, wind).
 * Because the π-bridge still applies the same small scaling, it can’t fix the mismatch — so you get huge ratios like 3800× for the M87 jet.
 
+---
+
+### What the runner did
+
+* **π source**: It generated π with the Chudnovsky formula (16 series terms, 200‑digit precision). That’s just for internal math; the π timing is basically zero because it’s cached/fast.
+* **Data used**: 67 rows from `real_data_full.csv` (astrophysical objects and lines).
+* **Model compared**: Your **Segmented Spacetime** redshift model (“Seg”) in **hybrid** mode vs three baselines:
+
+  * **GR** = gravitational redshift only.
+  * **SR** = special‑relativistic Doppler/time‑dilation only.
+  * **GR\*SR** = the usual product combination of GR and SR.
+* **ΔM parameters**: The hybrid model also applies your mass‑dependent correction curve with A=98.01%, α=27177 1/m, B=1.96%. Think of that as a tunable bias that scales with effective radius/mass.
+
+### What the error numbers mean
+
+* **|Δz|** is the absolute residual between the **observed** redshift and the **model‑predicted** redshift for each data point. Smaller is better.
+* **Medians** across the set:
+
+  * GR: 1.376×10⁻⁴
+  * SR: 1.511×10⁻⁴
+  * GR\*SR: 1.890×10⁻⁴
+  * **Seg**: 1.255×10⁻⁴
+* **Performance (Seg/GR) = 0.912×**: your model’s median error is \~9% **lower** than GR’s on this dataset (values <1 mean an improvement).
+
+### How often Seg “wins”
+
+* The “Punktweise Faktoren (Seg/Baseline)” block reports per‑object error ratios and quartiles (Q1, Q2=median, Q3).
+
+  * **vs GR**: median 0.802 → Seg is better for just over half the comparable rows (29/57 = 50.9%).
+  * **vs GR\*SR**: median 1.000 → neck‑and‑neck overall (better on 29/67 = 43.3%).
+
+### Best and worst cases (intuition)
+
+* **Big wins (Seg ≪ GR)** are mostly the **S‑stars around Sgr A\*** and **EHT\_M87**. Example:
+
+  * *EHT\_M87*: Seg residual 0.00163 vs GR 0.6878 → ratio 0.00237 (massive improvement).
+  * Many S‑stars (S24, S47, S19, …) show 10–50× smaller errors with Seg.
+* **Big losses (Seg ≫ GR)** are largely **jets** and **pulsars** (3C273, 3C279, BL Lac, PSR systems). Example:
+
+  * *M87* jet\*: Seg residual 12.82 vs GR 0.00334 → ratio \~3838 (Seg badly overestimates here).
+
+Interpretation: your segmented model shines where gravitational potential and orbital geometry dominate (Sgr A\* stellar orbits, horizon‑scale imaging constraints), but it misfires on **relativistic jets and pulsar systems**, where line formation, beaming, magnetospheres, and plasma effects are the main players (not just kinematic+gravitational redshift).
+
+### The GR\*SR comparison
+
+* The “Seg vs GR\*SR” top/bottom lists tell the same story: strong wins for S‑stars and the M87 image constraint; underperformance on **X‑ray binaries** and **blazar jets** (V404 Cyg, Cyg X‑1, GRS 1915+105, PKS 1510‑089).
+
+### What the paths and flags mean
+
+* **Ratios‑CSV**: `H:\segspace_pi_bridge_out\segspace_ratios.csv` stores the per‑row Seg/baseline error ratios for further analysis/plotting.
+* **Debug‑CSV**: `H:\segspace_pi_bridge_out\segspace_pi_bridge_debug.csv` has the full per‑row diagnostics (inputs, predicted z’s, residuals, which branch—hint vs ΔM—was used).
+* Flags you passed:
+
+  * `--seg-mode hybrid` lets Seg choose between your geometry “hint” and the ΔM correction path per object.
+  * `--prefer-z` uses direct z if present, otherwise reconstructs from f\_emit/f\_obs.
+  * `--export-ratios --top 10` controls the summaries you see.
+
+### Bottom line
+
+* On this mixed astrophysical set, **Segmented Spacetime modestly beats pure GR overall** and **matches GR\*SR on median**, with **clear wins near black‑hole environments** (Sgr A\*, M87 image constraint).
+* It **underperforms on jets/pulsars**, suggesting the model shouldn’t be applied “as is” to systems dominated by non‑gravitational spectral shifts and strong plasma/EM effects.
+
+### Quick next steps to tighten it up
+
+* **Mask categories** like “jet”, “blazar”, “pulsar”, “XRB” or give them a separate branch that defaults to GR\*SR (or adds a beaming/plasma term) before applying ΔM.
+* **Retune ΔM** for sub‑classes (stellar orbits vs SMBH vs compact‑binary), e.g., different A,B,α or a mass‑dependent switching function.
+* **Audit outliers** from the worst list in the debug CSV—many will have line‑of‑sight systematics, nonthermal line formation, or incompletely modeled velocities.
+
+
+
 
