@@ -15,11 +15,15 @@ Zusätzlich:
 - Bericht mit Median(|Δz|) je Modell und Seg/GR‑Performance
 - Punktweise Faktoren: Seg/GR und Seg/(GR*SR) (Quartile & Trefferquoten)
 - Debug‑CSV mit allen Zwischenwerten
-- Optionaler Balken‑Plot der Mediane
+- Optional: Balken‑Plot der Mediane
+- NEU:
+  * --export-ratios → CSV mit allen Verhältnissen/Residuen
+  * --top N         → Top‑N beste & schlechteste Fälle (vs GR & vs GR*SR)
 
 Beispiel:
   python segspace_enhanced_pi_bridge.py --csv real_data_full.csv \
-    --prefer-z --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16
+    --prefer-z --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16 \
+    --export-ratios --top 10
 """
 
 from __future__ import annotations
@@ -37,9 +41,7 @@ except Exception:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def chudnovsky_pi(prec: int = 120, terms: int = 12) -> D:
-    """
-    π via Chudnovsky (Decimal). ~14 Dezimalstellen pro Term.
-    """
+    """π via Chudnovsky (Decimal). ~14 Dezimalstellen pro Term."""
     if prec < 50:
         prec = 50
     if terms < 1:
@@ -74,11 +76,7 @@ def builtin_pi() -> D:
     return D(str(math.pi))
 
 def phi_pi_demo() -> D:
-    """
-    π aus ϕ‑Identität (Demo‑Genauigkeit):
-        π ≈ 5·arccos(ϕ/2),  ϕ = (1+√5)/2
-    Achtung: nutzt double für acos → nicht für Hochpräzision.
-    """
+    """π ≈ 5·arccos(ϕ/2) (Demo, double; nicht für Hochpräzision)."""
     phi = (1.0 + 5.0**0.5) / 2.0
     x = max(-1.0, min(1.0, phi/2.0))
     return D(str(5.0 * math.acos(x)))
@@ -257,7 +255,8 @@ def observed_z_from_row(row: dict, prefer_z: bool):
 def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
              dmA: float, dmB: float, dmAlpha: float,
              pi_float_for_deg: float,
-             make_plots: bool, outdir: Path):
+             make_plots: bool, outdir: Path,
+             export_ratios: bool, top_n: int):
     rows = load_rows(csv_path)
     if not rows:
         print(f"[ERROR] CSV leer oder unlesbar: {csv_path}")
@@ -273,6 +272,7 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
 
     abs_res = {"seg": [], "gr": [], "sr": [], "grsr": []}
     pairs_gr, pairs_grsr = [], []  # für punktweise Verhältnisse
+    ratios_rows = []               # für Export/TopN
     used = 0
     dbg = []
 
@@ -310,16 +310,21 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
         z_seg  = z_seg_pred(seg_mode, r, z_gr, z_sr, z_grsr, dmA, dmB, dmAlpha, delta_percent_fn)
 
         # Residuen erfassen
-        if z_seg  is not None and math.isfinite(z_seg):  abs_res["seg"].append(abs(z_obs - z_seg))
-        if z_gr   is not None and math.isfinite(z_gr):   abs_res["gr"].append(abs(z_obs - z_gr))
-        if z_sr   is not None and math.isfinite(z_sr):   abs_res["sr"].append(abs(z_obs - z_sr))
-        if z_grsr is not None and math.isfinite(z_grsr): abs_res["grsr"].append(abs(z_obs - z_grsr))
+        dz_seg  = abs(z_obs - z_seg)   if (z_seg  is not None and math.isfinite(z_seg))  else float('nan')
+        dz_gr   = abs(z_obs - z_gr)    if (z_gr   is not None and math.isfinite(z_gr))   else float('nan')
+        dz_sr   = abs(z_obs - z_sr)    if (z_sr   is not None and math.isfinite(z_sr))   else float('nan')
+        dz_grsr = abs(z_obs - z_grsr)  if (z_grsr is not None and math.isfinite(z_grsr)) else float('nan')
 
-        # Punktweise Verhältnisse (nur wenn Nenner > 0)
-        if (z_gr  is not None and math.isfinite(z_gr)) and abs(z_obs - z_gr)  > 0:
-            pairs_gr.append(  (abs(z_obs - z_seg),  abs(z_obs - z_gr)) )
-        if (z_grsr is not None and math.isfinite(z_grsr)) and abs(z_obs - z_grsr)> 0:
-            pairs_grsr.append((abs(z_obs - z_seg),  abs(z_obs - z_grsr)) )
+        if math.isfinite(dz_seg):  abs_res["seg"].append(dz_seg)
+        if math.isfinite(dz_gr):   abs_res["gr"].append(dz_gr)
+        if math.isfinite(dz_sr):   abs_res["sr"].append(dz_sr)
+        if math.isfinite(dz_grsr): abs_res["grsr"].append(dz_grsr)
+
+        # Punktweise Verhältnisse
+        ratio_seg_gr = (dz_seg / dz_gr) if (math.isfinite(dz_seg) and math.isfinite(dz_gr) and dz_gr > 0) else float('nan')
+        ratio_seg_gs = (dz_seg / dz_grsr) if (math.isfinite(dz_seg) and math.isfinite(dz_grsr) and dz_grsr > 0) else float('nan')
+        if math.isfinite(ratio_seg_gr):   pairs_gr.append((dz_seg, dz_gr))
+        if math.isfinite(ratio_seg_gs):   pairs_grsr.append((dz_seg, dz_grsr))
 
         used += 1
 
@@ -333,11 +338,31 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
             "z_sr": z_sr if (z_sr is not None and math.isfinite(z_sr)) else "",
             "z_grsr": z_grsr if (z_grsr is not None and math.isfinite(z_grsr)) else "",
             "z_seg": z_seg if (z_seg is not None and math.isfinite(z_seg)) else "",
+            "dz_seg": dz_seg if math.isfinite(dz_seg) else "",
+            "dz_gr": dz_gr if math.isfinite(dz_gr) else "",
+            "dz_sr": dz_sr if math.isfinite(dz_sr) else "",
+            "dz_grsr": dz_grsr if math.isfinite(dz_grsr) else "",
+            "ratio_seg_gr": ratio_seg_gr if math.isfinite(ratio_seg_gr) else "",
+            "ratio_seg_grsr": ratio_seg_gs if math.isfinite(ratio_seg_gs) else "",
+        })
+
+        ratios_rows.append({
+            "case": case,
+            "ratio_seg_gr": ratio_seg_gr,
+            "ratio_seg_grsr": ratio_seg_gs,
+            "dz_seg": dz_seg,
+            "dz_gr": dz_gr,
+            "dz_grsr": dz_grsr,
+            "z_obs": z_obs,
+            "z_gr": z_gr,
+            "z_sr": z_sr,
+            "z_grsr": z_grsr,
+            "z_seg": z_seg,
         })
 
     med = {k: robust_median(v) for k, v in abs_res.items()}
 
-    # Verhältnisse Seg/GR, Seg/(GR*SR)
+    # Verhältnisse für Quartile/Median
     ratios_seg_gr   = [s/g   for (s,g)   in pairs_gr   if g>0]
     ratios_seg_grsr = [s/gsr for (s,gsr) in pairs_grsr if gsr>0]
     q1_gr, med_gr_ratio, q3_gr   = qtiles(ratios_seg_gr)
@@ -348,24 +373,42 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
     frac_better_gr  = better_gr  / len(pairs_gr)   if pairs_gr   else float('nan')
     frac_better_gsr = better_gsr / len(pairs_grsr) if pairs_grsr else float('nan')
 
-    # Debug‑CSV
+    # Ausgabeverzeichnis
     outdir.mkdir(parents=True, exist_ok=True)
+
+    # Debug‑CSV
     dbg_csv = outdir / "segspace_pi_bridge_debug.csv"
     try:
         if pd is not None:
             pd.DataFrame(dbg).to_csv(dbg_csv, index=False)
         else:
-            # Fallback
             if dbg:
                 with dbg_csv.open("w", newline="", encoding="utf-8") as f:
                     writer = csv.DictWriter(f, fieldnames=list(dbg[0].keys()))
                     writer.writeheader()
                     for row in dbg:
                         writer.writerow(row)
-        wrote = True
+        wrote_dbg = True
     except Exception as ex:
-        wrote = False
+        wrote_dbg = False
         print(f"[WARN] Debug‑CSV konnte nicht geschrieben werden: {ex}")
+
+    # Ratios‑CSV (optional)
+    if export_ratios:
+        ratios_csv = outdir / "segspace_ratios.csv"
+        try:
+            if pd is not None:
+                pd.DataFrame(ratios_rows).to_csv(ratios_csv, index=False)
+            else:
+                if ratios_rows:
+                    with ratios_csv.open("w", newline="", encoding="utf-8") as f:
+                        writer = csv.DictWriter(f, fieldnames=list(ratios_rows[0].keys()))
+                        writer.writeheader()
+                        for row in ratios_rows:
+                            writer.writerow(row)
+            print(f"Ratios‑CSV         : {ratios_csv.resolve()}")
+        except Exception as ex:
+            print(f"[WARN] Ratios‑CSV konnte nicht geschrieben werden: {ex}")
 
     # Bericht
     print("="*61)
@@ -389,7 +432,7 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
     print("Punktweise Faktoren (Seg / Baseline):")
     print(f"  vs GR   → Q1={q1_gr:.3e}, Q2={med_gr_ratio:.3e}, Q3={q3_gr:.3e} | better={better_gr}/{len(pairs_gr)} ({frac_better_gr:.1%})")
     print(f"  vs GR*SR→ Q1={q1_gs:.3e}, Q2={med_gs_ratio:.3e}, Q3={q3_gs:.3e} | better={better_gsr}/{len(pairs_grsr)} ({frac_better_gsr:.1%})")
-    if wrote:
+    if wrote_dbg:
         print(f"Debug‑CSV          : {dbg_csv.resolve()}")
 
     # Optional: Plot
@@ -407,9 +450,40 @@ def evaluate(csv_path: Path, prefer_z: bool, seg_mode: str,
             out_png = outdir / "segspace_median_plot.png"
             plt.tight_layout(); plt.savefig(out_png, dpi=180)
             print(f"Plot gespeichert   : {out_png.resolve()}")
-            # plt.show()  # optional
         except Exception as ex:
             print(f"[WARN] Plot fehlgeschlagen: {ex}")
+
+    # Top‑N Listen
+    if top_n and top_n > 0 and ratios_rows:
+        # vs GR
+        r_gr = [r for r in ratios_rows if math.isfinite(r.get("ratio_seg_gr", float('nan')))]
+        r_gr_sorted = sorted(r_gr, key=lambda r: r["ratio_seg_gr"])
+        best_gr  = r_gr_sorted[:top_n]
+        worst_gr = list(reversed(r_gr_sorted))[:top_n]
+
+        # vs GR*SR
+        r_gs = [r for r in ratios_rows if math.isfinite(r.get("ratio_seg_grsr", float('nan')))]
+        r_gs_sorted = sorted(r_gs, key=lambda r: r["ratio_seg_grsr"])
+        best_gs  = r_gs_sorted[:top_n]
+        worst_gs = list(reversed(r_gs_sorted))[:top_n]
+
+        def print_block(title, rows, key):
+            print("-"*61)
+            print(title)
+            for r in rows:
+                base = "dz_gr" if key=="ratio_seg_gr" else "dz_grsr"
+                print(f"  {r['case']:<24} ratio={r[key]:.3e}  "
+                      f"| dz_seg={r['dz_seg']:.3e}, dz_base={r[base]:.3e}")
+
+        print("-"*61)
+        print(f"TOP {top_n} – Seg vs GR (kleiner = besser):")
+        print_block("Best (Seg << GR):", best_gr, "ratio_seg_gr")
+        print_block("Worst (Seg >> GR):", worst_gr, "ratio_seg_gr")
+
+        print("-"*61)
+        print(f"TOP {top_n} – Seg vs GR*SR (kleiner = besser):")
+        print_block("Best (Seg << GR*SR):", best_gs, "ratio_seg_grsr")
+        print_block("Worst (Seg >> GR*SR):", worst_gs, "ratio_seg_grsr")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CLI
@@ -430,6 +504,10 @@ def main():
     ap.add_argument("--chud-terms", type=int, default=12, help="Serienterme für Chudnovsky")
     ap.add_argument("--plots", action="store_true", help="Balkenplot der Mediane speichern")
     ap.add_argument("--outdir", default="segspace_pi_bridge_out", help="Ausgabe‑Ordner")
+    # Neu:
+    ap.add_argument("--export-ratios", action="store_true", help="Exportiert segspace_ratios.csv mit allen Verhältnissen")
+    ap.add_argument("--top", type=int, default=0, help="Zeigt Top‑N beste & schlechteste Fälle (vs GR & vs GR*SR)")
+
     args = ap.parse_args()
 
     csv_path = Path(args.csv)
@@ -473,7 +551,9 @@ def main():
              dmA=args.deltam_A, dmB=args.deltam_B, dmAlpha=args.deltam_alpha,
              pi_float_for_deg=pi_float_for_deg,
              make_plots=args.plots,
-             outdir=outdir)
+             outdir=outdir,
+             export_ratios=args.export_ratios,
+             top_n=args.top)
 
 if __name__ == "__main__":
     main()
