@@ -545,8 +545,10 @@ python segspace_all_in_one_extended.py all
 
 ---
 
-Conclusion: With the above ΔM settings, the segmented-spacetime model achieves ~100× lower median |Δz| than SR and ~1,700× lower than GR/GR×SR on this dataset, with improvements that are consistent across nearly all objects and statistically decisive.
+**Conclusion:**
+With the above ΔM settings, the segmented-spacetime model achieves ~100× lower median |Δz| than SR and ~1,700× lower than GR/GR×SR on this dataset, with improvements that are consistent across nearly all objects and statistically decisive.
 
+---
 
 ### Outlier — PSR J1745–2900 (magnetar near Sgr A\*)
 
@@ -554,6 +556,7 @@ Conclusion: With the above ΔM settings, the segmented-spacetime model achieves 
 * **S2 is well reproduced** by the segmented model and is used as a reference case, not an outlier.
 * Likely cause for the outlier: strong special-relativistic Doppler dominance and the complex Galactic-center environment (line blending, scattering, variable dispersion).
 * Interpretation: a single underperformance consistent with typical measurement uncertainties for this source class, not a structural failure of the model.
+
 
 
 
