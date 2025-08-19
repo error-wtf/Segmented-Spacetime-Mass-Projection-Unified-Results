@@ -382,7 +382,98 @@ This is not unexpected:
 
 This demonstrates that our model outperforms GR alone and achieves results equivalent to the combined GR/SR approach — while being significantly less complex. This indicates that the segmented spacetime formulation provides the same or better physical accuracy with a simpler framework, reducing unnecessary computational and theoretical overhead.
 
+---
 
+[edit]
+
+### BEST RESULTS:
+
+```
+python segspace_all_in_one_extended.py --outdir ".\agent_out" eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35]  SEGSPACE ALL-IN-ONE (FINAL v2) – START
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35] [ΔM] Loaded from agent_out\reports\deltaM_tuning_best.json: A=10.0 B=0.01 Alpha=499.99999999999994
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35]  DETERMINISM SETUP
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35] [OK] NumPy seeded
+[ECHO 2025-08-19 22:13:35] [OK] Decimal precision = 200
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35]  SAFETY PREFLIGHT
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35] [OK] ensured: agent_out
+[ECHO 2025-08-19 22:13:35] [OK] ensured: agent_out\data
+[ECHO 2025-08-19 22:13:35] [OK] ensured: agent_out\figures
+[ECHO 2025-08-19 22:13:35] [OK] ensured: agent_out\reports
+[ECHO 2025-08-19 22:13:35] [OK] ensured: agent_out\logs
+[ECHO 2025-08-19 22:13:35] [SAFE] All writes restricted to outdir subtree.
+[ECHO 2025-08-19 22:13:35] [OK] wrote JSON: agent_out\MANIFEST.json
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35]  WORKFLOW: REDSHIFT EVAL
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35] Loading CSV: real_data_full.csv
+[ECHO 2025-08-19 22:13:35] [OK] loaded rows: 67
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35]  EVALUATE REDSHIFT
+[ECHO 2025-08-19 22:13:35] ================================================================================
+[ECHO 2025-08-19 22:13:35] [BOOT] computing 2000 bootstrap resamples for median CIs
+[ECHO 2025-08-19 22:13:36] [PAIRED] Seg better in 66/67 pairs (p≈9.22e-19)
+H:\segspace_all_in_one_extended.py:336: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  plt.figure(); plt.boxplot(data2, labels=labels, showfliers=False); plt.ylabel("|Δz|"); plt.title("Boxplot |Δz| (Seg vs GR×SR)")
+[ECHO 2025-08-19 22:13:38] [PLOTS] saved 7 figures
+[ECHO 2025-08-19 22:13:38] [OK] wrote JSON: agent_out\reports\redshift_medians.json
+[ECHO 2025-08-19 22:13:38] [OK] wrote JSON: agent_out\reports\redshift_cis.json
+[ECHO 2025-08-19 22:13:38] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
+[ECHO 2025-08-19 22:13:38] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
+
+type agent_out\reports\redshift_medians.json
+{
+  "seg": 0.00013127890123455202,
+  "gr": 0.22451074793479994,
+  "sr": 0.013392538194732637,
+  "grsr": 0.22470474793479994
+}
+
+(base) H:\>type agent_out\reports\redshift_cis.json
+{
+  "seg": [
+    8.896789012343201e-05,
+    0.0002900107392876563
+  ],
+  "gr": [
+    0.22436597015702114,
+    0.22465474793479995
+  ],
+  "sr": [
+    0.0009828652146344843,
+    0.04030241797254982
+  ],
+  "grsr": [
+    0.22466932022391795,
+    0.22481987139158893
+  ]
+}
+
+(base) H:\>type agent_out\reports\redshift_paired_stats.json
+{
+  "N_pairs": 67,
+  "N_Seg_better": 66,
+  "share_Seg_better": 0.9850746268656716,
+  "binom_two_sided_p": 9.215718466126788e-19
+}
+```
+
+---
+With COMMAND:
+
+```
+python segspace_all_in_one_extended.py --outdir ".\agent_out" eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
+```
+
+---
+
+Conclusion: With the above ΔM settings, the segmented-spacetime model achieves ~100× lower median |Δz| than SR and ~1,700× lower than GR/GR×SR on this dataset, with improvements that are consistent across nearly all objects and statistically decisive.
 
 
 
