@@ -468,13 +468,13 @@ type agent_out\reports\redshift_medians.json
 With COMMAND:
 
 ```
-python segspace_all_in_one_extended.py --outdir ".\agent_out" eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
 ```
 
 and 
 
 ```
-python segspace_all_in_one_extended_patched.py --outdir ".\agent_out" eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
+python segspace_all_in_one_extended_patched.py eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
 ```
 
 and then for the one and only miss the debug version
@@ -556,6 +556,7 @@ With the above ΔM settings, the segmented-spacetime model achieves ~100× lower
 * **S2 is well reproduced** by the segmented model and is used as a reference case, not an outlier.
 * Likely cause for the outlier: strong special-relativistic Doppler dominance and the complex Galactic-center environment (line blending, scattering, variable dispersion).
 * Interpretation: a single underperformance consistent with typical measurement uncertainties for this source class, not a structural failure of the model.
+
 
 
 
