@@ -477,9 +477,16 @@ and
 python segspace_all_in_one_extended_patched.py --outdir ".\agent_out" eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --paired-stats --ci 2000 --plots
 ```
 
+and then for the one and only miss the debug version
+
+```
+python segspace_all_in_one_extended_patched.py all
+```
+
 ---
 
 Conclusion: With the above ΔM settings, the segmented-spacetime model achieves ~100× lower median |Δz| than SR and ~1,700× lower than GR/GR×SR on this dataset, with improvements that are consistent across nearly all objects and statistically decisive.
+
 
 
 
