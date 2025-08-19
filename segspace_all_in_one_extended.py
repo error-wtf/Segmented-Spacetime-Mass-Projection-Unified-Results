@@ -126,13 +126,14 @@ def z_combined(z_gr: float, z_sr: float) -> float:
     return (1.0 + zgr) * (1.0 + zsr) - 1.0
 
 def z_seg_pred(mode: str, z_hint: Optional[float], z_gr: float, z_sr: float, z_grsr: float,
-               dmA: float, dmB: float, dmAlpha: float, lM: float, lo: float, hi: float) -> float:
+               dmA: float, dmB: float, dmAlpha: float,
+                       lM: float, lo: float, hi: float) -> float:
     if mode == "hint" and z_hint is not None and math.isfinite(z_hint):
         return z_combined(z_hint, z_sr)
     if mode in ("deltaM", "hybrid"):
         if mode == "hybrid" and (z_hint is not None and math.isfinite(z_hint)):
             return z_combined(z_hint, z_sr)
-        norm = 1.0 if (hi - lo) <= 0 else min(1.0, max(0.0), (lM - lo) / (hi - lo))
+        norm = 1.0 if (hi - lo) <= 0 else min(1.0, max(0.0, (lM - lo) / (hi - lo)))
         Gf = float(G); cf = float(c); M = 10.0**lM
         rs = 2.0 * Gf * M / (cf**2)
         deltaM_pct = (dmA * math.exp(-dmAlpha * rs) + dmB) * norm
@@ -196,9 +197,14 @@ def binom_test_two_sided(k: int, n: int, p: float = 0.5) -> float:
     return min(1.0, total)
 
 def evaluate_redshift(rows: List[Dict[str, Any]], prefer_z: bool, mode: str,
+                      
                       dmA: float, dmB: float, dmAlpha: float,
+                      
                       lo: Optional[float], hi: Optional[float],
+                      
                       drop_na: bool = False,
+                      dump_debug: bool = False,
+                      
                       paired_stats: bool = False,
                       n_boot: int = 0,
                       bins: int = 0,
@@ -341,6 +347,25 @@ def evaluate_redshift(rows: List[Dict[str, Any]], prefer_z: bool, mode: str,
     elif do_plots:
         echo("[PLOTS] matplotlib not available; skipping plots")
 
+    
+    # write per-row debug if requested
+    if dump_debug and out_fig_dir is not None:
+        dbg_path = (out_fig_dir.parent / "reports" / "redshift_debug.csv")
+        cols = ["case","z_source","z_obs","z_gr","z_sr","z_grsr","z_seg",
+                "dz_seg","dz_gr","dz_sr","dz_grsr","abs_seg","abs_gr","abs_sr","abs_grsr","log10M"]
+        try:
+            write_csv(dbg_path, [{k: r.get(k) for k in cols} for r in dbg])
+        except Exception as e:
+            echo(f"[WARN] failed to write debug CSV: {e}")
+        # also write a tiny JSON with rows where seg is not better
+        try:
+            outliers = [ { "case": r.get("case"), "abs_seg": r.get("abs_seg"), "abs_grsr": r.get("abs_grsr"),
+                           "z_obs": r.get("z_obs"), "z_seg": r.get("z_seg"), "z_grsr": r.get("z_grsr") }
+                         for r in dbg if finite(r.get("abs_seg")) and finite(r.get("abs_grsr")) and r["abs_seg"] >= r["abs_grsr"] ]
+            write_json(out_fig_dir.parent / "reports" / "redshift_outliers.json", outliers)
+        except Exception as e:
+            echo(f"[WARN] failed to write outliers JSON: {e}")
+
     return {"med":med,"cis":cis,"paired":paired,"bins":binned_rows,"figures":fig_paths,"dbg_rows":len(dbg)}
 
 # ───────── workflows ─────────
@@ -363,20 +388,22 @@ def workflow_validate_masses(cfg: PreflightConfig) -> int:
 
 def workflow_eval_redshift(cfg: PreflightConfig, csv_path: Path, prefer_z: bool, mode: str,
                            dmA: float, dmB: float, dmAlpha: float,
+                      
                            lo: Optional[float], hi: Optional[float],
+                      
                            drop_na: bool, paired_stats: bool, n_boot: int, bins: int, do_plots: bool,
-                           filter_complete_gr: bool) -> int:
+                           filter_complete_gr: bool, dump_debug: bool=False) -> int:
     echo_section("WORKFLOW: REDSHIFT EVAL")
     if not csv_path.exists(): echo(f"[ERR] CSV not found: {csv_path}"); return 2
     rows=load_csv(csv_path)
     res=evaluate_redshift(rows, prefer_z=prefer_z, mode=mode, dmA=dmA, dmB=dmB, dmAlpha=dmAlpha, lo=lo, hi=hi,
-                          drop_na=drop_na, paired_stats=paired_stats, n_boot=n_boot, bins=bins, do_plots=do_plots,
+                          drop_na=drop_na, dump_debug=dump_debug, paired_stats=paired_stats, n_boot=n_boot, bins=bins, do_plots=do_plots,
                           out_fig_dir=cfg.figures_dir, filter_complete_gr=filter_complete_gr)
     write_json(cfg.reports_dir/"redshift_medians.json", res.get("med", {}))
     if res.get("cis"): write_json(cfg.reports_dir/"redshift_cis.json", res["cis"])
     if res.get("paired"): write_json(cfg.reports_dir/"redshift_paired_stats.json", res["paired"])
     if res.get("bins"): write_csv(cfg.reports_dir/"redshift_binned.csv", res["bins"])
-    echo("[INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv")
+    echo("[OK] wrote medians/CI/paired; per-row debug on if --dump-debug")
     return 0
 
 def workflow_bound_energy(cfg: PreflightConfig) -> int:
@@ -418,6 +445,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub=p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("validate-masses", help="Reconstruct masses from segmented radii")
     sp=sub.add_parser("eval-redshift", help="Evaluate GR/SR/Seg models against a dataset (+stats)")
+    sp.add_argument("--config", type=Path, default=None, help="Optional JSON config file to override flags")
     sp.add_argument("--csv", type=Path, default=Path("./real_data_full.csv"))
     sp.add_argument("--prefer-z", action="store_true")
     sp.add_argument("--mode", choices=["hint","deltaM","hybrid"], default="hybrid")
@@ -432,6 +460,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--ci", type=int, default=0, help="Bootstrap N for median CIs (0=off)")
     sp.add_argument("--bins", type=int, default=0, help="Number of log10(M) bins for per-bin medians (0=off)")
     sp.add_argument("--plots", action="store_true", help="Save hist/ECDF/box plots under figures/")
+    sp.add_argument("--dump-debug", action="store_true", help="Write per-row diagnostics to reports/redshift_debug.csv")
     sp.add_argument("--filter-complete-gr", action="store_true", help="Restrict rows to those with finite GR (fair GR median)")
     sub.add_parser("bound-energy", help="Compute bound energy thresholds (α)")
     sub.add_parser("use-original", help="Load & introspect ./segspace_all_in_one.py")
@@ -441,7 +470,37 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Optional[List[str]] = None) -> int:
     echo_section("SEGSPACE ALL-IN-ONE (FINAL v2) – START")
     ap=build_parser(); args=ap.parse_args(argv)
+
+    # --- optional config overrides ---
+    if args.cmd == "eval-redshift" and getattr(args, "config", None):
+        try:
+            with open(args.config, "r", encoding="utf-8") as f:
+                conf = json.load(f)
+            # apply known keys if present
+            for k in ["prefer_z","mode","dmA","dmB","dmAlpha","lo","hi","drop_na","paired_stats","ci","bins","plots","filter_complete_gr","dump_debug","seed","prec"]:
+                if k in conf:
+                    setattr(args, k, conf[k])
+            if "csv" in conf:
+                args.csv = Path(conf["csv"])
+            echo(f"[OK] loaded config overrides from {args.config}")
+        except Exception as e:
+            echo(f"[WARN] failed to load --config: {e}")
     # --- ΔM override from file and alias normalization ---
+    
+    if args.cmd == "eval-redshift" and getattr(args, "config", None):
+        try:
+            with open(args.config, "r", encoding="utf-8") as f:
+                conf = json.load(f)
+            # apply known keys if present
+            for k in ["prefer_z","mode","dmA","dmB","dmAlpha","lo","hi","drop_na","paired_stats","ci","bins","plots","filter_complete_gr","dump_debug","seed","prec"]:
+                if k in conf:
+                    setattr(args, k, conf[k])
+            if "csv" in conf:
+                args.csv = Path(conf["csv"])
+            echo(f"[OK] loaded config overrides from {args.config}")
+        except Exception as e:
+            echo(f"[WARN] failed to load --config: {e}")
+
     if args.cmd == "eval-redshift":
         dmA, dmB, dmAlpha = args.dmA, args.dmB, args.dmAlpha
         if getattr(args, "dm_file", None):
@@ -466,8 +525,30 @@ def main(argv: Optional[List[str]] = None) -> int:
                         reports_dir=args.outdir/"reports", logs_dir=args.outdir/"logs", manifest_path=args.outdir/"MANIFEST.json")
     safety_preflight(cfg)
     # manifest
-    cfg.manifest_path.write_text(json.dumps({"generated_at": datetime.now().isoformat(timespec="seconds"),
-                                             "seed": args.seed, "prec": args.prec}, indent=2), encoding="utf-8")
+    import inspect
+    try:
+        script_path = Path(__file__)
+        script_sha = hashlib.sha256(script_path.read_bytes()).hexdigest()
+    except Exception:
+        script_sha = None
+    csv_sha = None
+    if getattr(args, "cmd", None) in ("eval-redshift","all"):
+        try:
+            csv_path = Path("./real_data_full.csv") if args.cmd=="all" else args.csv
+            if csv_path.exists():
+                csv_sha = hashlib.sha256(csv_path.read_bytes()).hexdigest()
+        except Exception:
+            csv_sha = None
+    manifest = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "seed": args.seed,
+        "prec": args.prec,
+        "cmd": args.cmd,
+        "args": {k: (str(v) if isinstance(v, Path) else v) for k,v in vars(args).items() if k not in ("__dict__",)},
+        "script_sha256": script_sha,
+        "csv_sha256": csv_sha
+    }
+    cfg.manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     echo(f"[OK] wrote JSON: {cfg.manifest_path}")
 
     if args.cmd=="validate-masses": return workflow_validate_masses(cfg)
@@ -486,7 +567,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         if csv_path.exists():
             rc=workflow_eval_redshift(cfg, csv_path, prefer_z=True, mode="hybrid", dmA=float(A), dmB=float(B), dmAlpha=float(ALPHA),
                                       lo=None, hi=None, drop_na=False, paired_stats=True, n_boot=0, bins=0, do_plots=False,
-                                      filter_complete_gr=False)
+                                      filter_complete_gr=False, dump_debug=True)
             if rc!=0: return rc
         rc=workflow_bound_energy(cfg); return rc
     echo(f"[ERR] unknown cmd: {args.cmd}"); return 2
