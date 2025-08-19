@@ -1,0 +1,10 @@
+{
+  "N_pairs": 0,
+  "N_Seg_better": 0,
+  "share_Seg_better": NaN,
+  "p_two_sided": NaN,
+  "median_abs_seg": NaN,
+  "median_abs_sr": NaN,
+  "ci95_median_abs_seg": null,
+  "ci95_median_abs_sr": null
+}
