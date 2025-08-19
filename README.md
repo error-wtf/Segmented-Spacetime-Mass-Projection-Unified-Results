@@ -39,6 +39,12 @@ It unifies **Mass Projection**, **π–φ Bridge**, **Bound Energy**, and other 
 
 ## Quick Start — best overall accuracy
 
+Quick start with:
+
+```
+python segspace_all_in_one_extended.py all
+```
+
 ## 🔄 Full Execution with `run_all.py`
 
 The [`run_all.py`](./run_all.py) script runs **the entire workflow** in the correct order:  
