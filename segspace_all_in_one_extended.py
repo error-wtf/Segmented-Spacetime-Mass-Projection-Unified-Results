@@ -421,9 +421,10 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--csv", type=Path, default=Path("./real_data_full.csv"))
     sp.add_argument("--prefer-z", action="store_true")
     sp.add_argument("--mode", choices=["hint","deltaM","hybrid"], default="hybrid")
-    sp.add_argument("--dmA", type=float, default=float(A))
-    sp.add_argument("--dmB", type=float, default=float(B))
-    sp.add_argument("--dmAlpha", type=float, default=float(ALPHA))
+    sp.add_argument("--dmA","--dm-A","--dm-a", dest="dmA", type=float, default=float(A))
+    sp.add_argument("--dmB","--dm-B","--dm-b", dest="dmB", type=float, default=float(B))
+    sp.add_argument("--dmAlpha","--dm-ALPHA","--dm-alpha", dest="dmAlpha", type=float, default=float(ALPHA))
+    sp.add_argument("--dm-file", type=Path, default=None, help="Optional JSON with keys A,B,Alpha")
     sp.add_argument("--lo", type=float, default=None)
     sp.add_argument("--hi", type=float, default=None)
     sp.add_argument("--drop-na", action="store_true", help="Drop rows where any model residual is NaN before medians/stats")
@@ -440,6 +441,26 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Optional[List[str]] = None) -> int:
     echo_section("SEGSPACE ALL-IN-ONE (FINAL v2) – START")
     ap=build_parser(); args=ap.parse_args(argv)
+    # --- ΔM override from file and alias normalization ---
+    if args.cmd == "eval-redshift":
+        dmA, dmB, dmAlpha = args.dmA, args.dmB, args.dmAlpha
+        if getattr(args, "dm_file", None):
+            try:
+                with open(args.dm_file, "r", encoding="utf-8") as f:
+                    obj = json.load(f)
+                cand = obj
+                if isinstance(obj, dict):
+                    for key in ("best_by_med_seg","best","params"):
+                        if key in obj and isinstance(obj[key], dict):
+                            cand = obj[key]; break
+                dmA = float(cand.get("A", dmA))
+                dmB = float(cand.get("B", dmB))
+                dmAlpha = float(cand.get("Alpha", dmAlpha))
+                echo(f"[ΔM] Loaded from {args.dm_file}: A={dmA} B={dmB} Alpha={dmAlpha}")
+            except Exception as e:
+                echo(f"[WARN] Failed to load --dm-file: {e}")
+        args.dmA, args.dmB, args.dmAlpha = dmA, dmB, dmAlpha
+
     setup_determinism(args.seed, args.prec)
     cfg=PreflightConfig(outdir=args.outdir, data_dir=args.outdir/"data", figures_dir=args.outdir/"figures",
                         reports_dir=args.outdir/"reports", logs_dir=args.outdir/"logs", manifest_path=args.outdir/"MANIFEST.json")
