@@ -547,15 +547,15 @@ python segspace_all_in_one_extended.py all
 
 Conclusion: With the above ΔM settings, the segmented-spacetime model achieves ~100× lower median |Δz| than SR and ~1,700× lower than GR/GR×SR on this dataset, with improvements that are consistent across nearly all objects and statistically decisive.
 
-Hier ist die knappe Repo-Notiz **ohne LaTeX**:
 
 ### Outlier — PSR J1745–2900 (magnetar near Sgr A\*)
 
-* In the 67-object benchmark, the segmented model is closer to the observed redshift in **66 of 67** cases.
-* **PSR J1745–2900** is the only case where the GR×SR baseline is slightly nearer to the observation.
-* Likely reasons: strong special-relativistic Doppler dominance (high line-of-sight velocity) and the complex Galactic-center environment (line blending, scattering, variable dispersion).
+* The single outlier in the 67-object benchmark is **PSR J1745–2900**, not S2.
+* **S2 is well reproduced** by the segmented model and is used as a reference case, not an outlier.
+* Likely cause for the outlier: strong special-relativistic Doppler dominance and the complex Galactic-center environment (line blending, scattering, variable dispersion).
 * Interpretation: a single underperformance consistent with typical measurement uncertainties for this source class, not a structural failure of the model.
-* Future work: adopt a velocity-aware blend that reduces the geometric-hint weight in SR-dominated regimes.
+
+
 
 
 
