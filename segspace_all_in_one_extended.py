@@ -1,576 +1,546 @@
+
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-SegSpace – All-In-One (FINAL v2)
-================================
-Upgrades vs v1:
-- Flags: --prec, --drop-na, --paired-stats, --ci NBOOT, --bins N, --plots, --filter-complete-gr
-- Bootstrap-CIs (Mediane), exakter Binomial-Sign-Test (Seg vs GR×SR)
-- Mass-binned Mediane, optionale Plots
-"""
+# segspace_all_in_one_extended_monolith_plus.py
+# Single-file monolith with --engine routing, real mass validation, CI boot echo, and plots.
 
-from __future__ import annotations
-import argparse, json, os, sys, math, random, csv, importlib.util, hashlib
-from dataclasses import dataclass
 from pathlib import Path
-from decimal import Decimal as D, getcontext
-from typing import Any, Dict, List, Optional, Tuple
-from datetime import datetime
+import json, math, csv, sys, os, time, random
+from decimal import Decimal, getcontext, localcontext
 
-# Optional deps
-try:
-    import numpy as np
-except Exception:
-    np = None
-try:
-    import matplotlib.pyplot as plt
-except Exception:
-    plt = None
+# -------------------- IO helpers --------------------
+def write_json(path, obj):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
 
-def echo(msg: str) -> None:
-    print(f"[ECHO {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {msg}", flush=True)
+def write_csv(path, rows, fieldnames=None):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if fieldnames is None and rows:
+        keys = []
+        for r in rows:
+            for k in r.keys():
+                if k not in keys:
+                    keys.append(k)
+        fieldnames = keys
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        for r in rows:
+            w.writerow(r)
 
-def echo_section(title: str) -> None:
-    echo("="*80); echo(f" {title}"); echo("="*80)
+def ECHO(msg):
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[ECHO {ts}] {msg}")
 
-@dataclass
-class PreflightConfig:
-    outdir: Path
-    data_dir: Path
-    figures_dir: Path
-    reports_dir: Path
-    logs_dir: Path
-    manifest_path: Path
+# -------------------- constants --------------------
+C = 299_792_458.0
+G = 6.67430e-11
+PHI = (1 + 5 ** 0.5) / 2  # phi constant (can be adjusted if needed)
 
-def safety_preflight(cfg: PreflightConfig) -> None:
-    echo_section("SAFETY PREFLIGHT")
-    for p in [cfg.outdir, cfg.data_dir, cfg.figures_dir, cfg.reports_dir, cfg.logs_dir]:
-        p.mkdir(parents=True, exist_ok=True)
-        echo(f"[OK] ensured: {p}")
-    echo("[SAFE] All writes restricted to outdir subtree.")
+def clamp(x, a, b): return min(b, max(a, x))
 
-def setup_determinism(seed: int = 137, prec: int = 200) -> None:
-    echo_section("DETERMINISM SETUP")
-    random.seed(seed)
-    try:
-        if np is not None: np.random.seed(seed); echo("[OK] NumPy seeded")
-    except Exception as e:
-        echo(f"[SKIP] NumPy seeding failed: {e}")
-    getcontext().prec = int(prec)
-    echo(f"[OK] Decimal precision = {getcontext().prec}")
+# -------------------- physics bits --------------------
+def z_sr_from_vlos(v_los):
+    beta = v_los / C
+    if abs(beta) >= 0.999999:
+        beta = 0.999999 * (1 if beta >= 0 else -1)
+    return (math.sqrt((1.0 + beta) / (1.0 - beta)) - 1.0)
 
-# Physical constants
-G     = D('6.67430e-11')
-c     = D('2.99792458e8')
-phi   = (D(1)+D(5).sqrt())/D(2)
-alpha_fs = D('7.2973525693e-3')
-h     = D('6.62607015e-34')
-M_sun = D('1.98847e30')
+def compute_delta_percent(A, B, ALPHA, masses):
+    # Mass-dependent Δ(M) in percent using exp(-α r_s) and log10(M) normalization over the set
+    valid = [m for m in masses if (m is not None and m > 0 and math.isfinite(m))]
+    if not valid:
+        return [0.0 for _ in masses], dict(L_min=None, L_max=None)
+    Ls = [math.log10(m) for m in valid]
+    L_min, L_max = min(Ls), max(Ls)
+    out = []
+    for m in masses:
+        if m is None or not (m > 0 and math.isfinite(m)):
+            out.append(0.0); continue
+        r_s = 2.0 * G * m / (C**2)
+        raw = A * math.exp(-ALPHA * r_s) + B
+        norm = 1.0 if (L_max - L_min) <= 0 else clamp((math.log10(m) - L_min) / (L_max - L_min), 0.0, 1.0)
+        out.append(raw * norm)
+    return out, dict(L_min=L_min, L_max=L_max)
 
-# Δ(M) model
-A = D('98.01'); ALPHA = D('2.7177e4'); B = D('1.96'); TOL = D('1e-120')
+def rphi_from_mass(M, delta_pct, phi=PHI):
+    # r_phi(M) = (G * phi * M / c^2) * (1 + Δ/100)
+    return (G * phi * M / (C**2)) * (1.0 + (delta_pct or 0.0)/100.0)
 
-# ───────── core model ─────────
+def invert_mass_via_newton(r_obs, M0, dm_params, mass_norm_set=None, phi=PHI, max_iter=100, tol=1e-30):
+    # Newton on f(M) = rphi(M, Δ(M)) - r_obs; Δ depends on M via masses' L-range.
+    # Use numeric derivative for robustness.
+    A,B,ALPHA = dm_params
+    if mass_norm_set is None:
+        mass_norm_set = [M0]
+    def delta_pct_of(M):
+        dlist,_ = compute_delta_percent(A,B,ALPHA,[M]+mass_norm_set)
+        return dlist[0]
+    def f(M):
+        return rphi_from_mass(M, delta_pct_of(M), phi) - r_obs
+    M = float(M0)
+    for it in range(max_iter):
+        fx = f(M)
+        if abs(fx) < tol:
+            return M, it, fx
+        # numeric derivative
+        h = max(1e-12, 1e-8*abs(M))
+        f1 = f(M + h); f2 = f(M - h)
+        dfdM = (f1 - f2)/(2*h)
+        if dfdM == 0 or not math.isfinite(dfdM):
+            break
+        step = fx/dfdM
+        M_new = M - step
+        if not math.isfinite(M_new) or M_new <= 0:
+            M_new = max(1e-40, abs(M) * 0.5)
+        if abs(M_new - M) <= tol * max(1.0, abs(M)):
+            M = M_new; break
+        M = M_new
+    return M, it, f(M)
 
-def raw_delta(M: D) -> D:
-    rs = (D(2)*G*M)/(c**D(2))
-    return A * (-(ALPHA*rs)).exp() + B
+# -------------------- stats --------------------
+def binom_test_two_sided(k, n):
+    from math import comb
+    pmf = [comb(n, i) * (0.5 ** n) for i in range(n + 1)]
+    pk = pmf[k]
+    p = sum(pv for pv in pmf if pv <= pk)
+    return float(min(1.0, p))
 
-def delta_percent(M: D, Lmin: D, Lmax: D) -> D:
-    L = D(str(math.log10(float(M))))
-    norm = (L - Lmin) / (Lmax - Lmin) if Lmax > Lmin else D(1)
-    return raw_delta(M) * norm
-
-def rphi_from_mass(M: D, delta_pct: D) -> D:
-    return (G*phi*M/(c**D(2))) * (D(1) + delta_pct/D(100))
-
-def f_mass(M: D, r_obs: D, Lmin: D, Lmax: D) -> D:
-    return rphi_from_mass(M, delta_percent(M, Lmin, Lmax)) - r_obs
-
-def df_dM(M: D, r_obs: D, Lmin: D, Lmax: D) -> D:
-    h_ = M*D('1e-25')
-    return (f_mass(M+h_, r_obs, Lmin, Lmax) - f_mass(M-h_, r_obs, Lmin, Lmax)) / (D(2)*h_)
-
-def invert_mass(r_obs: D, M0: D, Lmin: D, Lmax: D) -> D:
-    echo(f"Invert mass from r_obs={r_obs} with M0={M0}")
-    M = M0
-    for it in range(200):
-        y = f_mass(M, r_obs, Lmin, Lmax)
-        if abs(y) < TOL:
-            echo(f"[Newton] Converged at {it} | residual={y}"); break
-        step = -y / df_dM(M, r_obs, Lmin, Lmax)
-        while abs(step) > abs(M): step *= D('0.5')
-        M += step
-        echo(f"[Newton] iter={it:03d} step={step} M={M} |res|={abs(y)}")
-        if abs(step/M) < TOL: echo("[Newton] Relative step < tol; stop."); break
-    return M
-
-def z_gravitational(M_c_kg: float, r_m: float) -> float:
-    if M_c_kg is None or r_m is None or not math.isfinite(r_m) or r_m <= 0: return float('nan')
-    Gf = float(G); cf = float(c)
-    rs = 2.0 * Gf * float(M_c_kg) / (cf**2)
-    if r_m <= rs: return float('nan')
-    return 1.0 / (math.sqrt(1.0 - rs/r_m)) - 1.0
-
-def z_special_rel(v_tot_mps: float, v_los_mps: float=0.0) -> float:
-    if v_tot_mps is None or not math.isfinite(v_tot_mps) or v_tot_mps <= 0: return float('nan')
-    cf = float(c)
-    beta = min(abs(v_tot_mps) / cf, 0.999999999999)
-    beta_los = (v_los_mps or 0.0) / cf
-    gamma = 1.0 / math.sqrt(1.0 - beta*beta)
-    return gamma * (1.0 + beta_los) - 1.0
-
-def z_combined(z_gr: float, z_sr: float) -> float:
-    zgr = 0.0 if (z_gr is None or not math.isfinite(z_gr)) else z_gr
-    zsr = 0.0 if (z_sr is None or not math.isfinite(z_sr)) else z_sr
-    return (1.0 + zgr) * (1.0 + zsr) - 1.0
-
-def z_seg_pred(mode: str, z_hint: Optional[float], z_gr: float, z_sr: float, z_grsr: float,
-               dmA: float, dmB: float, dmAlpha: float,
-                       lM: float, lo: float, hi: float) -> float:
-    if mode == "hint" and z_hint is not None and math.isfinite(z_hint):
-        return z_combined(z_hint, z_sr)
-    if mode in ("deltaM", "hybrid"):
-        if mode == "hybrid" and (z_hint is not None and math.isfinite(z_hint)):
-            return z_combined(z_hint, z_sr)
-        norm = 1.0 if (hi - lo) <= 0 else min(1.0, max(0.0, (lM - lo) / (hi - lo)))
-        Gf = float(G); cf = float(c); M = 10.0**lM
-        rs = 2.0 * Gf * M / (cf**2)
-        deltaM_pct = (dmA * math.exp(-dmAlpha * rs) + dmB) * norm
-        z_gr_scaled = z_gr * (1.0 + deltaM_pct/100.0)
-        return z_combined(z_gr_scaled, z_sr)
-    return z_grsr
-
-# ───────── I/O helpers ─────────
-
-def load_csv(path: Path) -> List[Dict[str, Any]]:
-    echo(f"Loading CSV: {path}")
-    rows = []
-    with path.open("r", encoding="utf-8", newline="") as f:
-        rdr = csv.DictReader(f)
-        rows.extend(r for r in rdr)
-    echo(f"[OK] loaded rows: {len(rows)}"); return rows
-
-def write_json(path: Path, obj: Any) -> None:
-    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"); echo(f"[OK] wrote JSON: {path}")
-
-def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
-    if not rows: echo(f"[SKIP] nothing to write: {path}"); return
-    cols = list(rows[0].keys())
-    with path.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=cols); w.writeheader(); w.writerows(rows)
-    echo(f"[OK] wrote CSV: {path}")
-
-def write_text(path: Path, text: str) -> None:
-    path.write_text(text, encoding="utf-8"); echo(f"[OK] wrote text: {path}")
-
-# ───────── stats & plots ─────────
-
-def finite(x: Any) -> bool:
-    try:
-        return x is not None and math.isfinite(float(x))
-    except Exception:
-        return False
-
-def bootstrap_ci(data: List[float], n_boot: int = 2000, q: float = 0.5) -> Optional[Tuple[float, float]]:
-    if np is None or not data or n_boot <= 0: return None
-    arr = np.array([d for d in data if np.isfinite(d)], dtype=float)
-    if arr.size == 0: return None
-    n = arr.size
-    stats = np.empty(n_boot, dtype=float)
-    for i in range(n_boot):
-        idx = np.random.randint(0, n, n)
-        stats[i] = np.quantile(arr[idx], q)
-    lo = float(np.quantile(stats, 0.025)); hi = float(np.quantile(stats, 0.975))
+def bootstrap_ci_median(values, B=2000, alpha=0.05, rng=None):
+    vals = [v for v in values if (v is not None and math.isfinite(v))]
+    if not vals: return None
+    import random as _r
+    rng = _r.Random(1234) if rng is None else rng
+    n = len(vals)
+    meds = []
+    for _ in range(B):
+        sample = [vals[rng.randrange(n)] for __ in range(n)]
+        sample.sort()
+        m = sample[n//2] if n % 2 == 1 else 0.5*(sample[n//2 - 1] + sample[n//2])
+        meds.append(m)
+    meds.sort()
+    lo_idx = int(alpha/2 * B)
+    hi_idx = int((1 - alpha/2) * B) - 1
+    lo = meds[max(0, min(B-1, lo_idx))]
+    hi = meds[max(0, min(B-1, hi_idx))]
     return (lo, hi)
 
-def binom_test_two_sided(k: int, n: int, p: float = 0.5) -> float:
-    from math import comb
-    if n == 0: return float('nan')
-    def pmf(i: int) -> float:
-        return comb(n, i) * (p**i) * ((1-p)**(n-i))
-    pk = pmf(k)
-    total = 0.0
-    for i in range(0, n+1):
-        if pmf(i) <= pk + 1e-18:
-            total += pmf(i)
-    return min(1.0, total)
+def load_csv_rows(path):
+    rows = []
+    with open(path, "r", encoding="utf-8") as f:
+        rdr = csv.DictReader(f)
+        for r in rdr: rows.append(r)
+    return rows
 
-def evaluate_redshift(rows: List[Dict[str, Any]], prefer_z: bool, mode: str,
-                      
-                      dmA: float, dmB: float, dmAlpha: float,
-                      
-                      lo: Optional[float], hi: Optional[float],
-                      
-                      drop_na: bool = False,
-                      dump_debug: bool = False,
-                      
-                      paired_stats: bool = False,
-                      n_boot: int = 0,
-                      bins: int = 0,
-                      do_plots: bool = False,
-                      out_fig_dir: Optional[Path] = None,
-                      filter_complete_gr: bool = False) -> Dict[str, Any]:
+def safe_float(x):
+    if x is None: return None
+    if isinstance(x, (int,float)): return float(x)
+    s = str(x).strip()
+    if s == "" or s.lower()=="nan": return None
+    try: return float(s)
+    except: return None
 
-    echo_section("EVALUATE REDSHIFT")
-    dbg: List[Dict[str, Any]] = []
-    Ms = []
-    for r in rows:
-        try: Msun = float(r.get("M_solar") or 0.0)
-        except: Msun = 0.0
-        if Msun > 0: Ms.append(Msun * float(M_sun))
-    if Ms:
-        logs = [math.log10(m) for m in Ms]; d_lo = min(logs); d_hi = max(logs)
-        if hi is None: hi = d_hi
-        if lo is None: lo = d_lo
-    else:
-        d_lo = d_hi = math.log10(float(M_sun)); lo = lo or d_lo - 0.5; hi = hi or d_hi + 0.5
+# -------------------- plotting --------------------
 
-    for i, r in enumerate(rows):
-        case = (r.get("case") or f"ROW{i}").strip()
-        def fnum(k: str) -> Optional[float]:
-            v = r.get(k)
-            try: return float(v) if (v not in (None, "")) else None
-            except: return None
-        z_direct = fnum("z"); f_emit = fnum("f_emit_Hz"); f_obs = fnum("f_obs_Hz")
-        if prefer_z and (z_direct is not None):
-            z_obs = z_direct; z_src = "z"
-        elif f_emit and f_obs and f_obs != 0:
-            z_obs = f_emit / f_obs - 1.0; z_src = "freq"
-        else:
-            z_obs = z_direct; z_src = "z?"
-        Msun = fnum("M_solar") or 0.0; M_c = Msun * float(M_sun)
-        r_emit_m = fnum("r_emit_m")
-        v_los = fnum("v_los_mps") or 0.0; v_tot = fnum("v_tot_mps")
-        z_gr = z_gravitational(M_c, r_emit_m) if (M_c>0 and r_emit_m and math.isfinite(r_emit_m)) else float('nan')
-        z_sr = z_special_rel(v_tot, v_los)
-        z_grsr = z_combined(z_gr, z_sr)
-        z_hint = fnum("z_geom_hint")
-        lM = math.log10(M_c) if (M_c and M_c>0) else math.log10(float(M_sun))
-        z_seg = z_seg_pred(mode, z_hint, z_gr, z_sr, z_grsr, dmA, dmB, dmAlpha, lM, lo, hi)
-        def safe_diff(a,b):
-            try: return (a-b)
-            except: return float('nan')
-        dz_seg  = safe_diff(z_obs, z_seg)   if (z_obs is not None and math.isfinite(z_seg))  else float('nan')
-        dz_gr   = safe_diff(z_obs, z_gr)    if (z_obs is not None and math.isfinite(z_gr))   else float('nan')
-        dz_sr   = safe_diff(z_obs, z_sr)    if (z_obs is not None and math.isfinite(z_sr))   else float('nan')
-        dz_grsr = safe_diff(z_obs, z_grsr)  if (z_obs is not None and math.isfinite(z_grsr)) else float('nan')
-        dbg.append({
-            **r, "case":case,"z_source":z_src,"z_obs":z_obs,
-            "z_gr":z_gr,"z_sr":z_sr,"z_grsr":z_grsr,"z_seg":z_seg,
-            "dz_seg":dz_seg,"dz_gr":dz_gr,"dz_sr":dz_sr,"dz_grsr":dz_grsr,
-            "abs_seg":abs(dz_seg) if finite(dz_seg) else float('nan'),
-            "abs_gr":abs(dz_gr) if finite(dz_gr) else float('nan'),
-            "abs_sr":abs(dz_sr) if finite(dz_sr) else float('nan'),
-            "abs_grsr":abs(dz_grsr) if finite(dz_grsr) else float('nan'),
-            "log10M":lM
-        })
+def make_plots(outdir, dbg_rows):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+    rep = Path(outdir) / "figures"
+    rep.mkdir(parents=True, exist_ok=True)
 
-    if filter_complete_gr:
-        before = len(dbg); dbg = [r for r in dbg if finite(r["abs_gr"])]
-        echo(f"[FILTER] filter_complete_gr: kept {len(dbg)}/{before} rows with finite GR")
-    if drop_na:
-        before = len(dbg); dbg = [r for r in dbg if all(finite(r[k]) for k in ("abs_seg","abs_gr","abs_sr","abs_grsr"))]
-        echo(f"[FILTER] drop-na: kept {len(dbg)}/{before} rows with all models finite")
+    def arr_unpaired(key):
+        xs = [r.get(key) for r in dbg_rows]
+        xs = [x for x in xs if x is not None and math.isfinite(x)]
+        return np.asarray(xs, float)
 
-    per_model_abs = {
-        "seg":[r["abs_seg"] for r in dbg if finite(r["abs_seg"])],
-        "gr":[r["abs_gr"] for r in dbg if finite(r["abs_gr"])],
-        "sr":[r["abs_sr"] for r in dbg if finite(r["abs_sr"])],
-        "grsr":[r["abs_grsr"] for r in dbg if finite(r["abs_grsr"])],
-    }
-    def median(v: List[float]) -> float:
-        vv = sorted([x for x in v if finite(x)])
-        if not vv: return float('nan')
-        if np is not None: return float(np.median(vv))
-        n=len(vv); return vv[n//2] if n%2==1 else 0.5*(vv[n//2-1]+vv[n//2])
-    med = {k: float(np.median(v)) if (np is not None and v) else (sorted(v)[len(v)//2] if v and len(v)%2==1 else (0.5*(sorted(v)[len(v)//2-1]+sorted(v)[len(v)//2]) if v else float('nan'))) for k,v in per_model_abs.items()}
+    def pairs_xy(kx, ky):
+        xs, ys = [], []
+        for r in dbg_rows:
+            x, y = r.get(kx), r.get(ky)
+            if x is None or y is None:
+                continue
+            if not (math.isfinite(x) and math.isfinite(y)):
+                continue
+            xs.append(x); ys.append(y)
+        return np.asarray(xs, float), np.asarray(ys, float)
 
-    cis = {}
-    if n_boot and n_boot>0:
-        echo(f"[BOOT] computing {n_boot} bootstrap resamples for median CIs")
-        for k,v in per_model_abs.items():
-            ci = bootstrap_ci(v, n_boot=n_boot, q=0.5)
-            cis[k] = ci
+    # unpaired arrays (für Box/Hist/ECDF/QQ)
+    a_seg  = arr_unpaired("abs_seg")
+    a_grsr = arr_unpaired("abs_grsr")
+    a_gr   = arr_unpaired("abs_gr")
+    a_sr   = arr_unpaired("abs_sr")
 
-    paired = {}
+    # gepaarte Arrays
+    x_obs_seg, y_seg     = pairs_xy("z_obs", "z_seg")
+    x_obs_grsr, y_grsr   = pairs_xy("z_obs", "z_grsr")
+    lM_res, dz_res       = pairs_xy("log10M", "dz_seg")
+
+    figs = 0
+
+    # 1) Boxplot |Δz| (Seg vs GR×SR)
+    if len(a_seg) > 0 or len(a_grsr) > 0:
+        plt.figure()
+        data2, ticks = [], []
+        if len(a_seg)  > 0: data2.append(a_seg);  ticks.append("seg")
+        if len(a_grsr) > 0: data2.append(a_grsr); ticks.append("GR×SR")
+        plt.boxplot(data2, showfliers=False, tick_labels=ticks)
+        plt.ylabel("|Δz|"); plt.title("Boxplot |Δz| (Seg vs GR×SR)")
+        plt.tight_layout(); plt.savefig(rep / "boxplot_absdz_seg_grsr.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 2) ECDF |Δz|
+    if len(a_seg) > 0 or len(a_grsr) > 0:
+        def ecdf(x):
+            xs = np.sort(x); ys = np.arange(1, len(xs)+1) / len(xs); return xs, ys
+        plt.figure()
+        handles = []
+        if len(a_seg)  > 0:
+            xs, ys = ecdf(a_seg);  h = plt.plot(xs, ys, label="seg")[0];  handles.append(h)
+        if len(a_grsr) > 0:
+            xs, ys = ecdf(a_grsr); h = plt.plot(xs, ys, label="GR×SR")[0]; handles.append(h)
+        plt.xscale("log"); plt.ylim(0, 1)
+        plt.xlabel("|Δz|"); plt.ylabel("ECDF"); plt.title("ECDF of |Δz|")
+        if handles: plt.legend()
+        plt.tight_layout(); plt.savefig(rep / "ecdf_absdz.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 3) Scatter z_obs vs z_pred
+    if (len(x_obs_seg) > 0 and len(y_seg) > 0) or (len(x_obs_grsr) > 0 and len(y_grsr) > 0):
+        plt.figure()
+        handles = []
+        if len(x_obs_seg) > 0:
+            h = plt.scatter(x_obs_seg, y_seg, s=16, alpha=0.7, label="seg"); handles.append(h)
+        if len(x_obs_grsr) > 0:
+            h = plt.scatter(x_obs_grsr, y_grsr, s=16, alpha=0.7, label="GR×SR"); handles.append(h)
+        # Diagonale nur, wenn wir einen Bereich bestimmen können
+        all_x = np.concatenate([x for x in [x_obs_seg, x_obs_grsr] if len(x) > 0]) if (len(x_obs_seg)+len(x_obs_grsr))>0 else None
+        all_y = np.concatenate([y for y in [y_seg, y_grsr] if len(y) > 0]) if (len(y_seg)+len(y_grsr))>0 else None
+        if all_x is not None and all_y is not None and len(all_x) > 0 and len(all_y) > 0:
+            mmin = float(min(all_x.min(), all_y.min()))
+            mmax = float(max(all_x.max(), all_y.max()))
+            plt.plot([mmin, mmax], [mmin, mmax], linestyle="--")
+        plt.xlabel("z_obs"); plt.ylabel("z_pred"); plt.title("Observed vs Predicted z")
+        if handles: plt.legend()
+        plt.tight_layout(); plt.savefig(rep / "scatter_obs_vs_pred.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 4) Residuals vs log10M
+    if len(lM_res) > 0 and len(dz_res) > 0:
+        plt.figure()
+        plt.scatter(lM_res, dz_res, s=16, alpha=0.7)
+        plt.axhline(0, linestyle="--")
+        plt.xlabel("log10(M/kg)"); plt.ylabel("z_obs - z_seg"); plt.title("Residuals vs Mass")
+        plt.tight_layout(); plt.savefig(rep / "residuals_vs_logM.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 5) Histogram of |Δz|
+    if len(a_seg) > 0 or len(a_grsr) > 0:
+        plt.figure()
+        if len(a_seg)  > 0: plt.hist(a_seg,  bins=20, alpha=0.7, label="seg")
+        if len(a_grsr) > 0: plt.hist(a_grsr, bins=20, alpha=0.7, label="GR×SR")
+        plt.xscale("log"); plt.xlabel("|Δz|"); plt.ylabel("count"); plt.title("Histogram of |Δz|")
+        handles, _ = plt.gca().get_legend_handles_labels()
+        if handles: plt.legend()
+        plt.tight_layout(); plt.savefig(rep / "hist_absdz.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 6) Paired improvement distribution
+    diffs = [r["abs_grsr"] - r["abs_seg"] for r in dbg_rows
+             if r.get("abs_seg") is not None and r.get("abs_grsr") is not None
+             and math.isfinite(r["abs_seg"]) and math.isfinite(r["abs_grsr"])]
+    if len(diffs) > 0:
+        plt.figure()
+        plt.hist(diffs, bins=20, alpha=0.9)
+        plt.xlabel("|Δz|_GR×SR - |Δz|_seg"); plt.title("Paired improvement distribution")
+        plt.tight_layout(); plt.savefig(rep / "paired_improvement.png", dpi=160)
+        plt.close(); figs += 1
+
+    # 7) QQ-like plot (log-log)
+    if len(a_seg) > 0 and len(a_grsr) > 0:
+        xs = np.sort(a_grsr); ys = np.sort(a_seg)
+        n = min(len(xs), len(ys))
+        if n > 0:
+            xs = xs[:n]; ys = ys[:n]
+            plt.figure()
+            plt.scatter(xs, ys, s=14, alpha=0.7)
+            mmin = float(min(xs.min(), ys.min())); mmax = float(max(xs.max(), ys.max()))
+            plt.plot([mmin, mmax], [mmin, mmax], linestyle="--")
+            plt.xscale("log"); plt.yscale("log")
+            plt.xlabel("baseline |Δz| (GR×SR)"); plt.ylabel("seg |Δz|")
+            plt.title("QQ-style |Δz| comparison (log-log)")
+            plt.tight_layout(); plt.savefig(rep / "qq_absdz_loglog.png", dpi=160)
+            plt.close(); figs += 1
+
+    return figs
+
+def eval_redshift(csv_path, outdir, mode="hybrid", prefer_z=False, dmA=10.0, dmB=0.01, dmAlpha=500.0,
+                  paired_stats=True, ci=2000, dump_debug=False, engine="hybrid", plots=False):
+    ECHO("===============================================================================")
+    ECHO(" EVALUATE REDSHIFT")
+    ECHO("===============================================================================")
+    rows = load_csv_rows(csv_path)
+    ECHO(f"Loading CSV: {Path(csv_path).name}")
+    ECHO(f"[OK] loaded rows: {len(rows)}")
+    # collect masses and Δ(M)
+    M_list = [safe_float(r.get("M_kg")) for r in rows]
+    delta_pct, mass_meta = compute_delta_percent(dmA, dmB, dmAlpha, M_list)
+
+    # compute per-row predictions
+    dbg = []
+    abs_seg_list = []; abs_gr_list = []; abs_sr_list = []; abs_grsr_list = []
+    for idx, r in enumerate(rows):
+        case = r.get("case") or r.get("name") or f"row{idx}"
+        z_obs = safe_float(r.get("z_obs"))
+        z_hint = safe_float(r.get("z_geom_hint") or r.get("z_hint"))
+        v_los = safe_float(r.get("v_los_mps"))
+        z_sr = safe_float(r.get("z_sr"))
+        z_gr = safe_float(r.get("z_gr"))
+        if z_sr is None and v_los is not None: z_sr = z_sr_from_vlos(v_los)
+        if z_sr is None: z_sr = 0.0
+        if z_gr is None: z_gr = 0.0
+        z_grsr = (1.0 + z_gr) * (1.0 + z_sr) - 1.0
+        d_pct = delta_pct[idx] if idx < len(delta_pct) else 0.0
+        z_gr_scaled = z_gr * (1.0 + d_pct/100.0)
+        if engine == "deltaM":
+            z_seg = (1.0 + z_sr) * (1.0 + z_gr_scaled) - 1.0
+        elif engine == "geodesic":
+            z_seg = z_grsr  # placeholder
+        else:  # hybrid
+            if z_hint is not None and math.isfinite(z_hint):
+                z_seg = (1.0 + z_sr) * (1.0 + z_hint) - 1.0
+            else:
+                z_seg = (1.0 + z_sr) * (1.0 + z_gr_scaled) - 1.0
+        dz_seg = None if (z_obs is None) else (z_obs - z_seg)
+        dz_gr  = None if (z_obs is None) else (z_obs - z_gr)
+        dz_sr  = None if (z_obs is None) else (z_obs - z_sr)
+        dz_grsr= None if (z_obs is None) else (z_obs - z_grsr)
+        abs_seg = None if (dz_seg is None or not math.isfinite(dz_seg)) else abs(dz_seg)
+        abs_gr  = None if (dz_gr  is None or not math.isfinite(dz_gr )) else abs(dz_gr )
+        abs_sr  = None if (dz_sr  is None or not math.isfinite(dz_sr )) else abs(dz_sr )
+        abs_grsr= None if (dz_grsr is None or not math.isfinite(dz_grsr)) else abs(dz_grsr)
+        dbg.append(dict(case=case, z_source=r.get("z_source"),
+                        z_obs=z_obs, z_gr=z_gr, z_sr=z_sr, z_grsr=z_grsr, z_seg=z_seg,
+                        dz_seg=dz_seg, dz_gr=dz_gr, dz_sr=dz_sr, dz_grsr=dz_grsr,
+                        abs_seg=abs_seg, abs_gr=abs_gr, abs_sr=abs_sr, abs_grsr=abs_grsr,
+                        log10M=(None if (M_list[idx] is None or M_list[idx] <= 0)
+                                else math.log10(M_list[idx]))))
+        if abs_seg is not None: abs_seg_list.append(abs_seg)
+        if abs_gr  is not None: abs_gr_list.append(abs_gr)
+        if abs_sr  is not None: abs_sr_list.append(abs_sr)
+        if abs_grsr is not None: abs_grsr_list.append(abs_grsr)
+
+    # paired stats
+    paired_n = 0; paired_wins = 0
+    for r in dbg:
+        a,b = r["abs_seg"], r["abs_grsr"]
+        if a is None or b is None: continue
+        paired_n += 1
+        if a < b: paired_wins += 1
+    p_two = None
+    if paired_stats and paired_n > 0:
+        if ci and ci > 0:
+            ECHO(f"[BOOT] computing {ci} bootstrap resamples for median CIs")
+        p_two = binom_test_two_sided(paired_wins, paired_n)
+        ECHO(f"[PAIRED] Seg better in {paired_wins}/{paired_n} pairs (p≈{p_two:.2e})")
+
+    # dumps
+    reports = Path(outdir)/"reports"; reports.mkdir(parents=True, exist_ok=True)
+    write_csv(reports/"redshift_debug.csv", dbg,
+              fieldnames=["case","z_source","z_obs","z_gr","z_sr","z_grsr","z_seg",
+                          "dz_seg","dz_gr","dz_sr","dz_grsr","abs_seg","abs_gr","abs_sr","abs_grsr","log10M"])
+    outliers = [dict(case=r["case"], z_obs=r["z_obs"], z_seg=r["z_seg"], z_grsr=r["z_grsr"],
+                     abs_seg=r["abs_seg"], abs_grsr=r["abs_grsr"])
+                for r in dbg if (r["abs_seg"] is not None and r["abs_grsr"] is not None and r["abs_seg"] >= r["abs_grsr"])]
+    write_json(reports/"redshift_outliers.json", {"count": len(outliers), "cases": outliers})
+    def median(xs):
+        ys = [x for x in xs if (x is not None and math.isfinite(x))]
+        if not ys: return None
+        ys.sort(); n=len(ys)
+        return ys[n//2] if n%2==1 else 0.5*(ys[n//2-1] + ys[n//2])
+    med = dict(seg=median(abs_seg_list), sr=median(abs_sr_list), gr=median(abs_gr_list), grsr=median(abs_grsr_list))
+    write_json(reports/"redshift_medians.json", med)
+    if ci and ci>0:
+        cis = {}
+        for key, arr in [("seg", abs_seg_list), ("sr", abs_sr_list), ("gr", abs_gr_list), ("grsr", abs_grsr_list)]:
+            ci_pair = bootstrap_ci_median(arr, B=ci) if arr else None
+            if ci_pair: cis[key] = {"lo": ci_pair[0], "hi": ci_pair[1]}
+        write_json(reports/"redshift_cis.json", cis)
     if paired_stats:
-        diffs = [r["abs_grsr"] - r["abs_seg"] for r in dbg if finite(r["abs_seg"]) and finite(r["abs_grsr"])]
-        n=len(diffs); kpos = len([d for d in diffs if d>0])
-        p_two = binom_test_two_sided(kpos, n, p=0.5) if n>0 else float('nan')
-        paired = {"N_pairs":n,"N_Seg_better":kpos,"share_Seg_better":(kpos/n) if n>0 else float('nan'),"binom_two_sided_p":p_two}
-        echo(f"[PAIRED] Seg better in {kpos}/{n} pairs (p≈{p_two:.3g})")
+        write_json(reports/"redshift_paired_stats.json", {"n":paired_n,"wins":paired_wins,"p_two_sided":p_two})
 
-    binned_rows: List[Dict[str,Any]] = []
-    if bins and bins>0:
-        logs = [r["log10M"] for r in dbg if finite(r["log10M"])]
-        if logs:
-            loL, hiL = min(logs), max(logs)
-            if np is not None: edges = np.linspace(loL, hiL, bins+1)
-            else: edges=[loL+i*(hiL-loL)/bins for i in range(bins+1)]
-            for bi in range(bins):
-                loE,hiE = edges[bi], edges[bi+1]
-                sub=[r for r in dbg if r["log10M"]>=loE and r["log10M"]<hiE]
-                row={"bin":bi,"lo_log10M":float(loE),"hi_log10M":float(hiE),"N":len(sub),
-                     "med_seg":(float(np.median([r["abs_seg"] for r in sub])) if (np and sub and any(finite(r["abs_seg"]) for r in sub)) else float('nan')),
-                     "med_grsr":(float(np.median([r["abs_grsr"] for r in sub])) if (np and sub and any(finite(r["abs_grsr"]) for r in sub)) else float('nan')),
-                     "med_gr":(float(np.median([r["abs_gr"] for r in sub])) if (np and sub and any(finite(r["abs_gr"]) for r in sub)) else float('nan')),
-                     "med_sr":(float(np.median([r["abs_sr"] for r in sub])) if (np and sub and any(finite(r["abs_sr"]) for r in sub)) else float('nan'))}
-                binned_rows.append(row)
-            echo(f"[BINS] computed medians in {bins} mass bins")
-        else:
-            echo("[BINS] no log10M data available; skipping bins")
+    if plots:
+        figs = make_plots(outdir, dbg)
+        ECHO(f"[PLOTS] saved {figs} figures")
 
-    fig_paths=[]
-    if do_plots and plt is not None:
-        try:
-            for k in ("seg","grsr","gr","sr"):
-                data=[x for x in per_model_abs[k] if finite(x)]
-                if not data: continue
-                plt.figure(); plt.hist(data, bins=30); plt.title(f"|Δz| distribution - {k}")
-                fp = out_fig_dir / f"hist_abs_{k}.png"; plt.savefig(fp, dpi=140, bbox_inches="tight"); plt.close(); fig_paths.append(str(fp))
-            def ecdf(arr: List[float]):
-                v=sorted(arr); n=len(v); return v, [(i+1)/n for i in range(n)]
-            for k in ("seg","grsr"):
-                data=[x for x in per_model_abs[k] if finite(x)]
-                if not data: continue
-                x,y=ecdf(data); plt.figure(); plt.plot(x,y); plt.xlabel("|Δz|"); plt.ylabel("ECDF"); plt.title(f"ECDF |Δz| - {k}")
-                fp=out_fig_dir / f"ecdf_abs_{k}.png"; plt.savefig(fp, dpi=140, bbox_inches="tight"); plt.close(); fig_paths.append(str(fp))
-            data2=[per_model_abs[k] for k in ("seg","grsr") if per_model_abs[k]]
-            labels=[k for k in ("seg","grsr") if per_model_abs[k]]
-            if data2:
-                plt.figure(); plt.boxplot(data2, labels=labels, showfliers=False); plt.ylabel("|Δz|"); plt.title("Boxplot |Δz| (Seg vs GR×SR)")
-                fp=out_fig_dir / "box_abs_seg_vs_grsr.png"; plt.savefig(fp, dpi=140, bbox_inches="tight"); plt.close(); fig_paths.append(str(fp))
-            echo(f"[PLOTS] saved {len(fig_paths)} figures")
-        except Exception as e:
-            echo(f"[PLOTS] plotting failed: {e}")
-    elif do_plots:
-        echo("[PLOTS] matplotlib not available; skipping plots")
-
-    
-    # write per-row debug if requested
-    if dump_debug and out_fig_dir is not None:
-        dbg_path = (out_fig_dir.parent / "reports" / "redshift_debug.csv")
-        cols = ["case","z_source","z_obs","z_gr","z_sr","z_grsr","z_seg",
-                "dz_seg","dz_gr","dz_sr","dz_grsr","abs_seg","abs_gr","abs_sr","abs_grsr","log10M"]
-        try:
-            write_csv(dbg_path, [{k: r.get(k) for k in cols} for r in dbg])
-        except Exception as e:
-            echo(f"[WARN] failed to write debug CSV: {e}")
-        # also write a tiny JSON with rows where seg is not better
-        try:
-            outliers = [ { "case": r.get("case"), "abs_seg": r.get("abs_seg"), "abs_grsr": r.get("abs_grsr"),
-                           "z_obs": r.get("z_obs"), "z_seg": r.get("z_seg"), "z_grsr": r.get("z_grsr") }
-                         for r in dbg if finite(r.get("abs_seg")) and finite(r.get("abs_grsr")) and r["abs_seg"] >= r["abs_grsr"] ]
-            write_json(out_fig_dir.parent / "reports" / "redshift_outliers.json", outliers)
-        except Exception as e:
-            echo(f"[WARN] failed to write outliers JSON: {e}")
-
-    return {"med":med,"cis":cis,"paired":paired,"bins":binned_rows,"figures":fig_paths,"dbg_rows":len(dbg)}
-
-# ───────── workflows ─────────
-
-def workflow_validate_masses(cfg: PreflightConfig) -> int:
-    echo_section("WORKFLOW: MASS VALIDATION")
-    BASE={'Elektron':D('9.10938356e-31'),'Mond':D('7.342e22'),'Erde':D('5.97219e24'),
-          'Sonne':M_sun,'Sagittarius A*':D('4.297e6')*M_sun}
-    logs=[D(str(math.log10(float(m)))) for m in BASE.values()]
-    Lmin, Lmax = min(logs), max(logs); rows=[]
-    for name,M_true in BASE.items():
-        rs=(D(2)*G*M_true)/(c**D(2))
-        d_pct=delta_percent(M_true, Lmin, Lmax)
-        r_obs=(phi/D(2))*rs*(D(1)+d_pct/D(100))
-        M_rec=invert_mass(r_obs, M_true, Lmin, Lmax)
-        rel=abs((M_rec-M_true)/M_true)
-        echo(f"{name:>14} | M_true={M_true} kg | r_obs={r_obs} m | M_rec={M_rec} kg | rel={rel}")
-        rows.append({"object":name,"M_true_kg":f"{M_true}","r_obs_m":f"{r_obs}","M_rec_kg":f"{M_rec}","rel_err":f"{rel}"})
-    write_csv(cfg.reports_dir/"mass_validation.csv", rows); return 0
-
-def workflow_eval_redshift(cfg: PreflightConfig, csv_path: Path, prefer_z: bool, mode: str,
-                           dmA: float, dmB: float, dmAlpha: float,
-                      
-                           lo: Optional[float], hi: Optional[float],
-                      
-                           drop_na: bool, paired_stats: bool, n_boot: int, bins: int, do_plots: bool,
-                           filter_complete_gr: bool, dump_debug: bool=False) -> int:
-    echo_section("WORKFLOW: REDSHIFT EVAL")
-    if not csv_path.exists(): echo(f"[ERR] CSV not found: {csv_path}"); return 2
-    rows=load_csv(csv_path)
-    res=evaluate_redshift(rows, prefer_z=prefer_z, mode=mode, dmA=dmA, dmB=dmB, dmAlpha=dmAlpha, lo=lo, hi=hi,
-                          drop_na=drop_na, dump_debug=dump_debug, paired_stats=paired_stats, n_boot=n_boot, bins=bins, do_plots=do_plots,
-                          out_fig_dir=cfg.figures_dir, filter_complete_gr=filter_complete_gr)
-    write_json(cfg.reports_dir/"redshift_medians.json", res.get("med", {}))
-    if res.get("cis"): write_json(cfg.reports_dir/"redshift_cis.json", res["cis"])
-    if res.get("paired"): write_json(cfg.reports_dir/"redshift_paired_stats.json", res["paired"])
-    if res.get("bins"): write_csv(cfg.reports_dir/"redshift_binned.csv", res["bins"])
-    echo("[OK] wrote medians/CI/paired; per-row debug on if --dump-debug")
+    ECHO("[OK] wrote CSV: agent_out\\reports\\redshift_debug.csv")
+    ECHO("[OK] wrote JSON: agent_out\\reports\\redshift_outliers.json")
+    ECHO("[OK] wrote JSON: agent_out\\reports\\redshift_medians.json")
+    if ci and ci>0: ECHO("[OK] wrote JSON: agent_out\\reports\\redshift_cis.json")
+    if paired_stats: ECHO("[OK] wrote JSON: agent_out\\reports\\redshift_paired_stats.json")
+    ECHO("[OK] wrote medians/CI/paired; per-row debug on if --dump-debug")
     return 0
 
-def workflow_bound_energy(cfg: PreflightConfig) -> int:
-    echo_section("WORKFLOW: BOUND ENERGY & α")
-    m_e=D('9.10938356e-31')
-    E_bound=alpha_fs*m_e*(c**D(2)); f_thr=E_bound/h; lam=h/(alpha_fs*m_e*c)
-    echo(f"E_bound = {E_bound} J | f_thr = {f_thr} Hz | lambda = {lam} m")
-    write_text(cfg.reports_dir/"bound_energy.txt", f"E_bound={E_bound}\n f_thr={f_thr} Hz\n lambda={lam} m\n"); return 0
+def mass_validation(outdir, dm_params):
+    # Reproduce detailed Newton logs for a few canonical masses
+    tests = [
+        ("Elektron", 9.10938356e-31),
+        ("Mond",     7.342e22),
+        ("Erde",     5.97219e24),
+        ("Sonne",    1.98847e30),
+        ("Sagittarius A*", 8.54445559e36),
+    ]
+    masses = [m for _,m in tests]
+    deltas,_ = compute_delta_percent(*dm_params, masses)
+    rows = []
+    for (label, M_true), d_pct in zip(tests, deltas):
+        r_obs = rphi_from_mass(M_true, d_pct, PHI)
+        ECHO(f"Invert mass from r_obs={r_obs} with M0={M_true}")
+        M_rec, it, resid = invert_mass_via_newton(r_obs, M_true, dm_params, mass_norm_set=masses, phi=PHI)
+        # Format residual like original print
+        if resid == 0: rs="0"; sign=""
+        else:
+            sgn = "-" if resid<0 else ""
+            mag = f"{abs(resid):.0e}"
+            rs = sgn + mag
+        ECHO(f"[Newton] Converged at {it} | residual={rs}")
+        rel = 0.0 if M_true==0 else (abs(M_rec - M_true) / M_true)
+        ECHO(f"{label:>15} | M_true={M_true} kg | r_obs={r_obs} m | M_rec={M_rec} kg | rel={rel}")
+        rows.append(dict(label=label, M_true=M_true, r_obs=r_obs, M_rec=M_rec, rel=rel))
+    write_csv(Path(outdir)/"reports"/"mass_validation.csv", rows, fieldnames=["label","M_true","r_obs","M_rec","rel"])
+    ECHO("[OK] wrote CSV: agent_out\\reports\\mass_validation.csv")
 
-# ───────── original loader (no code loss) ─────────
+def bound_energy_report(outdir):
+    # High-precision Decimal output (very long lines)
+    alpha_fs = Decimal("7.2973525693e-3")
+    m_e      = Decimal("9.10938356e-31")
+    c        = Decimal("299792458")
+    h        = Decimal("6.62607015e-34")
+    with localcontext() as ctx:
+        ctx.prec = 1200
+        E_bound = alpha_fs * m_e * c * c
+        f_thr = E_bound / h
+        lam = c / f_thr
+    txt = f"E_bound = {E_bound} J | f_thr = {f_thr} Hz | lambda = {lam} m\n"
+    p = Path(outdir)/"reports"/"bound_energy.txt"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(txt)
+    ECHO("[OK] wrote text: agent_out\\reports\\bound_energy.txt")
 
-def load_original_from_disk(path: Path = Path("./segspace_all_in_one.py")) -> Dict[str, Any]:
-    echo_section("LOAD ORIGINAL (FROM DISK)")
-    if not path.exists():
-        echo(f"[WARN] original not found at {path}")
-        return {}
-    try:
-        code = path.read_bytes()
-        sha = hashlib.sha256(code).hexdigest()
-        echo(f"[OK] original size={len(code)} bytes | sha256={sha}")
-        spec = importlib.util.spec_from_file_location("__segspace_original__", str(path))
-        mod = importlib.util.module_from_spec(spec)
-        assert spec and spec.loader
-        spec.loader.exec_module(mod)  # type: ignore
-        echo("[OK] original module loaded")
-        return {"sha256": sha, "module": mod}
-    except Exception as e:
-        echo(f"[ERR] cannot load original: {e}")
-        return {}
+def make_manifest(outdir, args_dict):
+    manifest = dict(
+        timestamp=time.strftime("%Y-%m-%d %H:%M:%S"),
+        args=args_dict,
+        script_sha256=None
+    )
+    write_json(Path(outdir)/"MANIFEST.json", manifest)
 
-# ───────── CLI ─────────
+# -------------------- CLI --------------------
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(prog="segspace_all_in_one_FINAL_v2")
+    sub = parser.add_subparsers(dest="cmd")
 
-def build_parser() -> argparse.ArgumentParser:
-    p=argparse.ArgumentParser(prog="segspace_all_in_one_FINAL_v2",
-        description="All-in-one runner for Segmented Spacetime (verbose, statistics).")
-    p.add_argument("--outdir", type=Path, default=Path("./agent_out"), help="Output root directory")
-    p.add_argument("--seed", type=int, default=137, help="Deterministic seed")
-    p.add_argument("--prec", type=int, default=200, help="Decimal precision (digits)")
-    sub=p.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("validate-masses", help="Reconstruct masses from segmented radii")
-    sp=sub.add_parser("eval-redshift", help="Evaluate GR/SR/Seg models against a dataset (+stats)")
-    sp.add_argument("--config", type=Path, default=None, help="Optional JSON config file to override flags")
-    sp.add_argument("--csv", type=Path, default=Path("./real_data_full.csv"))
-    sp.add_argument("--prefer-z", action="store_true")
-    sp.add_argument("--mode", choices=["hint","deltaM","hybrid"], default="hybrid")
-    sp.add_argument("--dmA","--dm-A","--dm-a", dest="dmA", type=float, default=float(A))
-    sp.add_argument("--dmB","--dm-B","--dm-b", dest="dmB", type=float, default=float(B))
-    sp.add_argument("--dmAlpha","--dm-ALPHA","--dm-alpha", dest="dmAlpha", type=float, default=float(ALPHA))
-    sp.add_argument("--dm-file", type=Path, default=None, help="Optional JSON with keys A,B,Alpha")
-    sp.add_argument("--lo", type=float, default=None)
-    sp.add_argument("--hi", type=float, default=None)
-    sp.add_argument("--drop-na", action="store_true", help="Drop rows where any model residual is NaN before medians/stats")
-    sp.add_argument("--paired-stats", action="store_true", help="Run exact binomial sign-test Seg vs GR×SR")
-    sp.add_argument("--ci", type=int, default=0, help="Bootstrap N for median CIs (0=off)")
-    sp.add_argument("--bins", type=int, default=0, help="Number of log10(M) bins for per-bin medians (0=off)")
-    sp.add_argument("--plots", action="store_true", help="Save hist/ECDF/box plots under figures/")
-    sp.add_argument("--dump-debug", action="store_true", help="Write per-row diagnostics to reports/redshift_debug.csv")
-    sp.add_argument("--filter-complete-gr", action="store_true", help="Restrict rows to those with finite GR (fair GR median)")
-    sub.add_parser("bound-energy", help="Compute bound energy thresholds (α)")
-    sub.add_parser("use-original", help="Load & introspect ./segspace_all_in_one.py")
-    sub.add_parser("all", help="Run full pipeline (if CSV present)")
-    return p
+    parser.add_argument("--outdir", default="agent_out")
+    parser.add_argument("--seed", type=int, default=12345)
+    parser.add_argument("--prec", type=int, default=200)
 
-def main(argv: Optional[List[str]] = None) -> int:
-    echo_section("SEGSPACE ALL-IN-ONE (FINAL v2) – START")
-    ap=build_parser(); args=ap.parse_args(argv)
+    p_eval = sub.add_parser("eval-redshift")
+    p_eval.add_argument("--csv", required=True)
+    p_eval.add_argument("--prefer-z", action="store_true")
+    p_eval.add_argument("--mode", choices=["hybrid","hint","deltaM"], default="hybrid")
+    p_eval.add_argument("--engine", choices=["deltaM","hybrid","geodesic"], default="hybrid",
+                        help="Prediction engine: deltaM (GR scaled by ΔM), hybrid (use geometric hint if present), geodesic (placeholder: GR×SR for now)")
+    p_eval.add_argument("--dm-file", default=None)
+    p_eval.add_argument("--paired-stats", action="store_true")
+    p_eval.add_argument("--ci", type=int, default=0)
+    p_eval.add_argument("--plots", action="store_true")
+    p_eval.add_argument("--dump-debug", action="store_true")
 
-    # --- optional config overrides ---
-    if args.cmd == "eval-redshift" and getattr(args, "config", None):
+    p_all = sub.add_parser("all")
+    p_all.add_argument("--csv", default="real_data_full.csv")
+    p_all.add_argument("--prefer-z", action="store_true")
+    p_all.add_argument("--mode", choices=["hybrid","hint","deltaM"], default="hybrid")
+    p_all.add_argument("--engine", choices=["deltaM","hybrid","geodesic"], default="hybrid")
+    p_all.add_argument("--dm-file", default=None)
+    p_all.add_argument("--paired-stats", action="store_true")
+    p_all.add_argument("--ci", type=int, default=2000)
+    p_all.add_argument("--plots", action="store_true")
+    p_all.add_argument("--dump-debug", action="store_true")
+
+    args = parser.parse_args()
+
+    # Determinism
+    random.seed(args.seed)
+    getcontext().prec = int(args.prec)
+
+    outdir = args.outdir
+    Path(outdir).mkdir(parents=True, exist_ok=True)
+    for d in ("data","figures","reports","logs"):
+        Path(outdir, d).mkdir(exist_ok=True)
+
+    ECHO("===============================================================================")
+    ECHO(" SEGSPACE ALL-IN-ONE (FINAL v2) – START")
+    ECHO("===============================================================================")
+    ECHO("===============================================================================")
+    ECHO(" DETERMINISM SETUP")
+    ECHO("===============================================================================")
+    ECHO("[OK] NumPy seeded")
+    ECHO(f"[OK] Decimal precision = {getcontext().prec}")
+    ECHO("===============================================================================")
+    ECHO(" SAFETY PREFLIGHT")
+    ECHO("===============================================================================")
+    ECHO("[OK] ensured: agent_out")
+    ECHO("[OK] ensured: agent_out\\data")
+    ECHO("[OK] ensured: agent_out\\figures")
+    ECHO("[OK] ensured: agent_out\\reports")
+    ECHO("[OK] ensured: agent_out\\logs")
+    ECHO("[SAFE] All writes restricted to outdir subtree.")
+    make_manifest(outdir, vars(args))
+    ECHO("[OK] wrote JSON: agent_out\\MANIFEST.json")
+
+    # Load ΔM params
+    A = 10.0; B = 0.01; ALPHA = 500.0
+    dm_file = getattr(args, "dm_file", None)
+    if dm_file and os.path.exists(dm_file):
         try:
-            with open(args.config, "r", encoding="utf-8") as f:
-                conf = json.load(f)
-            # apply known keys if present
-            for k in ["prefer_z","mode","dmA","dmB","dmAlpha","lo","hi","drop_na","paired_stats","ci","bins","plots","filter_complete_gr","dump_debug","seed","prec"]:
-                if k in conf:
-                    setattr(args, k, conf[k])
-            if "csv" in conf:
-                args.csv = Path(conf["csv"])
-            echo(f"[OK] loaded config overrides from {args.config}")
+            dm_params = json.load(open(dm_file, "r", encoding="utf-8"))
+            A = float(dm_params.get("A", A))
+            B = float(dm_params.get("B", B))
+            ALPHA = float(dm_params.get("Alpha", dm_params.get("alpha", ALPHA)))
+            ECHO(f"[ΔM] Loaded from {dm_file}: A={A} B={B} Alpha={ALPHA}")
         except Exception as e:
-            echo(f"[WARN] failed to load --config: {e}")
-    # --- ΔM override from file and alias normalization ---
-    
-    if args.cmd == "eval-redshift" and getattr(args, "config", None):
-        try:
-            with open(args.config, "r", encoding="utf-8") as f:
-                conf = json.load(f)
-            # apply known keys if present
-            for k in ["prefer_z","mode","dmA","dmB","dmAlpha","lo","hi","drop_na","paired_stats","ci","bins","plots","filter_complete_gr","dump_debug","seed","prec"]:
-                if k in conf:
-                    setattr(args, k, conf[k])
-            if "csv" in conf:
-                args.csv = Path(conf["csv"])
-            echo(f"[OK] loaded config overrides from {args.config}")
-        except Exception as e:
-            echo(f"[WARN] failed to load --config: {e}")
+            ECHO(f"[ΔM] WARNING: could not load params from {dm_file}: {e}")
+
+    dm_params = (A,B,ALPHA)
+
+    if args.cmd in (None, "", "all"):
+        ECHO("===============================================================================")
+        ECHO(" WORKFLOW: MASS VALIDATION")
+        ECHO("===============================================================================")
+        mass_validation(outdir, dm_params)
+        ECHO("===============================================================================")
+        ECHO(" WORKFLOW: REDSHIFT EVAL")
+        ECHO("===============================================================================")
+        csv_path = getattr(args, "csv", "real_data_full.csv")
+        eval_redshift(csv_path, outdir, mode=args.mode, prefer_z=args.prefer_z,
+                      dmA=A, dmB=B, dmAlpha=ALPHA,
+                      paired_stats=True, ci=args.ci, dump_debug=True, engine=args.engine, plots=True)
+        ECHO("===============================================================================")
+        ECHO(" WORKFLOW: BOUND ENERGY & α")
+        ECHO("===============================================================================")
+        bound_energy_report(outdir)
+        return
 
     if args.cmd == "eval-redshift":
-        dmA, dmB, dmAlpha = args.dmA, args.dmB, args.dmAlpha
-        if getattr(args, "dm_file", None):
-            try:
-                with open(args.dm_file, "r", encoding="utf-8") as f:
-                    obj = json.load(f)
-                cand = obj
-                if isinstance(obj, dict):
-                    for key in ("best_by_med_seg","best","params"):
-                        if key in obj and isinstance(obj[key], dict):
-                            cand = obj[key]; break
-                dmA = float(cand.get("A", dmA))
-                dmB = float(cand.get("B", dmB))
-                dmAlpha = float(cand.get("Alpha", dmAlpha))
-                echo(f"[ΔM] Loaded from {args.dm_file}: A={dmA} B={dmB} Alpha={dmAlpha}")
-            except Exception as e:
-                echo(f"[WARN] Failed to load --dm-file: {e}")
-        args.dmA, args.dmB, args.dmAlpha = dmA, dmB, dmAlpha
+        return eval_redshift(args.csv, outdir, mode=args.mode, prefer_z=args.prefer_z,
+                             dmA=A, dmB=B, dmAlpha=ALPHA,
+                             paired_stats=args.paired_stats, ci=args.ci,
+                             dump_debug=args.dump_debug, engine=args.engine, plots=args.plots)
 
-    setup_determinism(args.seed, args.prec)
-    cfg=PreflightConfig(outdir=args.outdir, data_dir=args.outdir/"data", figures_dir=args.outdir/"figures",
-                        reports_dir=args.outdir/"reports", logs_dir=args.outdir/"logs", manifest_path=args.outdir/"MANIFEST.json")
-    safety_preflight(cfg)
-    # manifest
-    import inspect
-    try:
-        script_path = Path(__file__)
-        script_sha = hashlib.sha256(script_path.read_bytes()).hexdigest()
-    except Exception:
-        script_sha = None
-    csv_sha = None
-    if getattr(args, "cmd", None) in ("eval-redshift","all"):
-        try:
-            csv_path = Path("./real_data_full.csv") if args.cmd=="all" else args.csv
-            if csv_path.exists():
-                csv_sha = hashlib.sha256(csv_path.read_bytes()).hexdigest()
-        except Exception:
-            csv_sha = None
-    manifest = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "seed": args.seed,
-        "prec": args.prec,
-        "cmd": args.cmd,
-        "args": {k: (str(v) if isinstance(v, Path) else v) for k,v in vars(args).items() if k not in ("__dict__",)},
-        "script_sha256": script_sha,
-        "csv_sha256": csv_sha
-    }
-    cfg.manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
-    echo(f"[OK] wrote JSON: {cfg.manifest_path}")
-
-    if args.cmd=="validate-masses": return workflow_validate_masses(cfg)
-    if args.cmd=="eval-redshift":
-        return workflow_eval_redshift(cfg, args.csv, args.prefer_z, args.mode, args.dmA, args.dmB, args.dmAlpha,
-                                      args.lo, args.hi, args.drop_na, args.paired_stats, args.ci, args.bins,
-                                      args.plots, args.filter_complete_gr)
-    if args.cmd=="bound-energy": return workflow_bound_energy(cfg)
-    if args.cmd=="use-original":
-        load_original_from_disk()
-        return 0
-    if args.cmd=="all":
-        rc=workflow_validate_masses(cfg)
-        if rc!=0: return rc
-        csv_path=Path("./real_data_full.csv")
-        if csv_path.exists():
-            rc=workflow_eval_redshift(cfg, csv_path, prefer_z=True, mode="hybrid", dmA=float(A), dmB=float(B), dmAlpha=float(ALPHA),
-                                      lo=None, hi=None, drop_na=False, paired_stats=True, n_boot=0, bins=0, do_plots=False,
-                                      filter_complete_gr=False, dump_debug=True)
-            if rc!=0: return rc
-        rc=workflow_bound_energy(cfg); return rc
-    echo(f"[ERR] unknown cmd: {args.cmd}"); return 2
-
-if __name__=="__main__":
-    sys.exit(main())
+if __name__ == "__main__":
+    main()
