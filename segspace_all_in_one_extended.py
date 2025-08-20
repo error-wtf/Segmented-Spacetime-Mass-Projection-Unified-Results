@@ -132,12 +132,14 @@ def z_seg_pred(mode: str, z_hint: Optional[float], z_gr: float, z_sr: float, z_g
     if mode in ("deltaM", "hybrid"):
         if mode == "hybrid" and (z_hint is not None and math.isfinite(z_hint)):
             return z_combined(z_hint, z_sr)
-        norm = 1.0 if (hi - lo) <= 0 else min(1.0, max(0.0), (lM - lo) / (hi - lo))
+        norm = 1.0 if (hi - lo) <= 0 else min(1.0, max(0.0, (lM - lo) / (hi - lo)))
         Gf = float(G); cf = float(c); M = 10.0**lM
         rs = 2.0 * Gf * M / (cf**2)
         deltaM_pct = (dmA * math.exp(-dmAlpha * rs) + dmB) * norm
         z_gr_scaled = z_gr * (1.0 + deltaM_pct/100.0)
         return z_combined(z_gr_scaled, z_sr)
+    if mode == "geodesic":
+        return z_combined(z_gr, z_sr)
     return z_grsr
 
 # ───────── I/O helpers ─────────
@@ -420,7 +422,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp=sub.add_parser("eval-redshift", help="Evaluate GR/SR/Seg models against a dataset (+stats)")
     sp.add_argument("--csv", type=Path, default=Path("./real_data_full.csv"))
     sp.add_argument("--prefer-z", action="store_true")
-    sp.add_argument("--mode", choices=["hint","deltaM","hybrid"], default="hybrid")
+    sp.add_argument("--mode", choices=["hint","deltaM","hybrid", "geodesic"], default="hybrid")
     sp.add_argument("--dmA","--dm-A","--dm-a", dest="dmA", type=float, default=float(A))
     sp.add_argument("--dmB","--dm-B","--dm-b", dest="dmB", type=float, default=float(B))
     sp.add_argument("--dmAlpha","--dm-ALPHA","--dm-alpha", dest="dmAlpha", type=float, default=float(ALPHA))
