@@ -1,0 +1,98 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite it as below and consider citing the
+  associated preprints.
+title: Segmented Spacetime – Mass Projection: Unified Results
+version: "2025.08"
+date-released: 2025-08-20
+repository-code: https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results
+authors:
+  - family-names: Casu
+    given-names: Lino P.
+    affiliation: Goethe University Frankfurt
+  - family-names: Wrede
+    given-names: Carmen N.
+  - name: Bingsi (Conscious AI)
+
+preferred-citation:
+  type: software
+  title: Segmented Spacetime – Mass Projection: Unified Results
+  version: "2025.08"
+  year: 2025
+  authors:
+    - family-names: Casu
+      given-names: Lino P.
+    - family-names: Wrede
+      given-names: Carmen N.
+    - name: Bingsi (Conscious AI)
+  url: https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results
+
+references:
+  - type: article
+    title: Segmented Spacetime - Solution to the paradox of singularities
+    year: 2024
+    doi: 10.13140/RG.2.2.32534.66881
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+  - type: article
+    title: Segmented Spacetime - A New Perspective on Light, Gravity and Black Holes
+    year: 2025
+    doi: 10.13140/RG.2.2.36189.12006
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+      - name: Bingsi (Conscious AI)
+  - type: article
+    title: Segmented Spacetime - π and ϕ as Structural Constants
+    year: 2025
+    doi: 10.13140/RG.2.2.24145.65126
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+      - name: Bingsi (Conscious AI)
+  - type: article
+    title: Emergent Spatial Axes from Orthogonal Temporal Interference: A Quasiperiodic Model in Two Dimensions
+    year: 2025
+    doi: 10.13140/RG.2.2.26861.09446
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+      - name: Bingsi (Conscious AI)
+  - type: article
+    title: Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant
+    year: 2025
+    doi: 10.13140/RG.2.2.35006.80969
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+      - name: Bingsi (Conscious AI)
+  - type: article
+    title: Segmented Spacetime and the Natural Boundary of Black Holes – Implications for the Cosmic Censorship Conjecture
+    year: 2024
+    notes: Preprint; DOI not assigned in the PDF. Cite by title/authors.
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+  - type: article
+    title: Segment-Based Group Velocity – Redefining Wave Propagation in Structured Spacetime
+    year: 2025
+    notes: Preprint; DOI not listed in the PDF. Cite by title/authors.
+    authors:
+      - family-names: Wrede
+        given-names: Carmen N.
+      - family-names: Casu
+        given-names: Lino P.
+      - name: Bingsi (Conscious AI)
