@@ -65,12 +65,15 @@ Commands:
 --filter-complete-gr       Restrict to rows with finite GR (fair GR median)
 ```
 
-### Modes explained
-- **hint**: use `z_geom_hint` (if present) as the GR-like geometric piece, combine with SR.
-- **deltaM**: scale **GR** by Δ(M) and combine with SR.
-- **hybrid**: if `z_geom_hint` exists, act like **hint**, else like **deltaM**.
-- **geodesic**: combine **pure GR** and **SR** only (no ΔM scaling).  
-  \[(1+z) = (1+z_\text{GR})(1+z_\text{SR}) - 1\]
+### Modes explained (plain)
+
+- **hint**: Use the column `z_geom_hint` (if present) as the GR‑like geometric part and combine it with the SR part.
+- **deltaM**: Take the GR redshift and multiply it by a mass‑dependent scaling Δ(M). Then combine the result with SR.
+- **hybrid**: If `z_geom_hint` exists for a row, behave like **hint**; otherwise behave like **deltaM**.
+- **geodesic**: Combine pure GR and SR only (no ΔM scaling).
+
+**Combination rule used in all modes:** we combine the two parts multiplicatively and subtract 1 at the end:  
+`combined_z = (1 + z_GR) * (1 + z_SR) - 1`
 
 ### Examples
 ```bash
