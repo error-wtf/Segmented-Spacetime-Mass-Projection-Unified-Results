@@ -59,7 +59,6 @@ The method reconstructs **effective mass** and predicts **redshifts** from the p
 - Fast install: `pip install -r requirements.txt`
 - Exact snapshot: `pip install -r requirements-freeze.txt`
 - Python: 3.11.9
-- One-shot check: `python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z`
 - Artifacts (reports/JUnit) are written to `agent_out/`.
 
 ---
