@@ -43,6 +43,7 @@ Quick start with:
 
 ```
 python segspace_all_in_one_extended.py all
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
 ```
 
 ## 🔄 Full Execution with `run_all.py`
