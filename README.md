@@ -26,6 +26,21 @@ strong; our core results do not rely on that assumption and remain non-circular.
 
 ---
 
+The updated QED demo is non-circular and local. It keeps m_bound symmetric (k=0) 
+and uses a partial mapping alpha_em/alpha_det = 1 + beta*(N_emit − N0).
+
+With S2→Earth, β=0.25 reproduces the observed ratio f_emit/f_obs ≈ 1.025747 
+to ~1e−9 precision, without touching m_bound. The earlier side script assumed a 
+full 1:1 coupling (β=1), which predicts ≈1.103 and overshoots; rescuing that 
+would require an implausible ~7% shift in m_bound.
+
+So the computation was fine—the claim was too strong. Our main results do not rely 
+on alpha–N coupling anyway; they come from GR×SR plus the Schwarzschild-compatible 
+Δ(M) correction, evaluated non-circularly. The demo just shows that, if any local 
+alpha–N coupling exists, it must be small (≈25% here), not full 1:1.
+
+---
+
 ## 📌 Overview
 
 The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
