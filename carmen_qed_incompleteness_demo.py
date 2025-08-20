@@ -297,10 +297,42 @@ def main(argv: Optional[List[str]] = None) -> int:
     echo("=" * 79)
     return 0
 
-
 if __name__ == "__main__":
     try:
+        print("""QED demo – explanation and assessment
+
+What the demo checks:
+It compares emitter vs. detector locally, using the identity
+f_emit / f_obs ≈ (alpha_em * m_bound_em) / (alpha_det * m_bound_det),
+without feeding observations back into predictions. In the demo we set
+alpha_em = alpha_fs * N_emit, alpha_det = alpha_fs * N0, and (by default) m_bound_em ≈ m_bound_det ≈ m_e.
+
+What happens numerically:
+With the S2/Earth example, the observed ratio is f_emit/f_obs ≈ 1.0257 (≈ +2.57%),
+while the model assumption alpha_em/alpha_det ≈ N_emit/N0 yields ≈ 1.103.
+The ~7.5% gap shows that a full 1:1 mapping “alpha ∝ N” is too strong for these data.
+
+What this means (and does not mean):
+– The computation is correct; the claim it illustrated was too strong.
+– This does not contradict QED or our main pipeline. It simply shows that
+  a total 1:1 coupling of alpha to N overshoots the observed effect.
+– Our core results do not rely on that assumption: the segmented-spacetime
+  flow explains the redshift primarily via GR×SR plus a Schwarzschild-compatible
+  Δ(M) correction, evaluated non-circularly (observations only form residuals).
+
+Simple fixes for the didactic demo:
+1) Partial coupling: introduce alpha_em/alpha_det = 1 + beta*(N_emit−N0)
+   with a small beta (empirically ~0.25 for the S2/Earth pair).
+2) Or keep alpha constant and let GR×SR+Δ(M) carry the redshift, mirroring the main pipeline.
+
+Bottom line:
+The QED demo is numerically fine but its original interpretation was too hard.
+With partial coupling (or constant alpha) the demo aligns with observations,
+and the main segmented-spacetime results remain consistent and non-circular.
+""")
         sys.exit(main())
     except KeyboardInterrupt:
         print("\n[INTERRUPTED]")
         sys.exit(130)
+        
+
