@@ -1,21 +1,187 @@
 <img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
 
-### Segmented Spacetime – Mass Projection & Unified Results
+# Segmented Spacetime – Mass Projection & Unified Results
 © Carmen Wrede & Lino Casu
 
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
+---
+
 ## 📌 Overview
 
-The method implemented here reconstructs the **effective mass** of physical objects based on the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
+The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
 
 ### Included Features
-
 - ✅ Unified segment-based mass inversion from observed radii
-- ✅ Comparison with established experimental values (e.g. electron mass, planetary bodies)
-- ✅ Reproduction of classical observables (e.g. Mercury's perihelion, black hole shadow radius)
-- ✅ Symbolic check for modified Einstein tensor compatibility (`Gμν = 0`)
+- ✅ Validation on established values (electron, Moon, Earth, Sun, Sgr A*)
+- ✅ Redshift evaluation across **GR**, **SR**, **GR×SR**, **Segmented** (hint/ΔM/hybrid/**geodesic**)
+- ✅ Optional Δ(M) scaling with JSON parameter override
+- ✅ Bootstrap CIs, exact binomial sign test, mass-binned medians, optional plots
+- ✅ Bound energy & structural α (π–φ bridge)
 
+---
+
+## 🚀 Quick Start (best overall accuracy)
+
+```bash
+# Full pipeline (mass validation → redshift eval (hybrid) → bound energy)
+python segspace_all_in_one_extended.py all
+
+# Pure geodesic (GR×SR combination without ΔM scaling)
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
+  --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
+```
+
+> **Tip:** `--prefer-z` forces using the `z` column if both `z` and (`f_emit_Hz`,`f_obs_Hz`) are present.
+
+---
+
+## 🔧 CLI (single entry point)
+
+All major tasks live in **`segspace_all_in_one_extended.py`**.
+
+```text
+Commands:
+  validate-masses     Reconstruct masses from segmented radii
+  eval-redshift       Evaluate GR/SR/GR×SR/Seg models against a dataset (+stats)
+  bound-energy        Compute bound energy thresholds (α)
+  use-original        Load & introspect ./segspace_all_in_one.py (if present)
+  all                 Full pipeline (validate → eval-redshift (hybrid) → bound-energy)
+```
+
+### Common flags for `eval-redshift`
+```
+--csv PATH                 Dataset (default: ./real_data_full.csv)
+--prefer-z                 Prefer z column over frequency ratio
+--mode {hint,deltaM,hybrid,geodesic}
+--dmA --dmB --dmAlpha      Δ(M) parameters (floats)
+--dm-file FILE             JSON containing A,B,Alpha (auto-detects nested 'best' keys)
+--lo --hi                  Optional log10(M[kg]) window for Δ(M) normalization
+--drop-na                  Require all models finite before medians/stats
+--paired-stats             Exact binomial sign test (Seg vs GR×SR)
+--ci NBOOT                 Bootstrap for median CIs (0 = off)
+--bins N                   Mass-binned medians (log10M) (0 = off)
+--plots                    Save hist/ECDF/box under out/figures
+--filter-complete-gr       Restrict to rows with finite GR (fair GR median)
+```
+
+### Modes explained
+- **hint**: use `z_geom_hint` (if present) as the GR-like geometric piece, combine with SR.
+- **deltaM**: scale **GR** by Δ(M) and combine with SR.
+- **hybrid**: if `z_geom_hint` exists, act like **hint**, else like **deltaM**.
+- **geodesic**: combine **pure GR** and **SR** only (no ΔM scaling).  
+  \[(1+z) = (1+z_\text{GR})(1+z_\text{SR}) - 1\]
+
+### Examples
+```bash
+# Hybrid with Δ(M) params from file
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
+  --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" \
+  --ci 2000 --paired-stats --plots
+
+# Pure Δ(M) with explicit parameters
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
+  --mode deltaM --prefer-z --dmA 10 --dmB 0.01 --dmAlpha 500 \
+  --ci 2000 --paired-stats --plots
+```
+
+---
+
+## 📤 Outputs (by command)
+
+All outputs are created under **`./agent_out`**:
+
+```
+agent_out/
+  figures/
+    hist_abs_*.png, ecdf_abs_*.png, box_abs_seg_vs_grsr.png  (when --plots)
+  reports/
+    MANIFEST.json
+    mass_validation.csv
+    redshift_medians.json
+    redshift_cis.json                   (if --ci > 0)
+    redshift_paired_stats.json          (if --paired-stats)
+    redshift_binned.csv                 (if --bins > 0)
+    bound_energy.txt
+  logs/                                 (reserved)
+  data/                                 (reserved)
+```
+
+---
+
+## 📚 Dataset schema (`real_data_full.csv`)
+
+Minimum header (order not strict, names are):
+```
+case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,f_emit_Hz,f_obs_Hz,
+lambda_emit_nm,lambda_obs_nm,v_los_mps,v_tot_mps,z_geom_hint,N0,source,r_emit_m
+```
+
+- `M_solar` – central mass in **solar masses** (float)
+- `r_emit_m` – emission radius in **meters** (if absent, only GR where computable will be finite)
+- `z` – observed redshift; **or** use `f_emit_Hz`/`f_obs_Hz` to compute `z = f_emit/f_obs - 1`
+- `v_los_mps`, `v_tot_mps` – velocities (SR). If missing, SR reduces accordingly.
+- `z_geom_hint` – optional GR-only piece (used by `--mode hint` / `--mode hybrid`)
+- Use `--prefer-z` to force `z` over frequencies when both are present.
+
+---
+
+## 🧪 Mass validation
+
+Reconstructs mass from segmented radius for canonical objects.
+```bash
+python segspace_all_in_one_extended.py validate-masses
+```
+Writes: `agent_out/reports/mass_validation.csv`
+
+---
+
+## 🔬 Bound energy & structural α
+
+Computes:
+- \(E_\text{bound} = \alpha \, m_e \, c^2\)
+- Threshold frequency \(f_\text{thr} = E_\text{bound} / h\)
+- Wavelength \( \lambda = h / (\alpha\, m_e\, c) \)
+
+```bash
+python segspace_all_in_one_extended.py bound-energy
+```
+Writes: `agent_out/reports/bound_energy.txt`
+
+---
+
+## 📦 Additional utilities & papers
+
+The repo also contains supporting scripts used in the accompanying papers/presentations (bound-energy plots with and without ΔM, proof/roundtrip demos, enhanced test runners). See table in **Contents** below for a quick index.
+
+---
+
+## 📁 Contents (highlights)
+
+| File / Dir                                      | Description                                                                                          |
+|-------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| `segspace_all_in_one_extended.py`               | **Main** runner (validate masses, eval redshift, bound energy, full pipeline)                       |
+| `segspace_enhanced_test_better_final.py`        | Enhanced test runner (hint/ΔM/hybrid), JUnit & plots                                                 |
+| `final_test.py`                                 | Roundtrip validation for segmented mass reconstruction                                               |
+| `bound_energy_plot.py`                          | Bound energy comparisons (no ΔM)                                                                     |
+| `bound_energy_plot_with_frequenz_shift_fix.py`  | Bound energy comparisons (**with** ΔM)                                                               |
+| `segmented_full_calc_proof.py` / `compare_proof.py` | Proof/calculation demos                                                                             |
+| `real_data_full.csv`                            | Dataset (example)                                                                                    |
+| `requirements.txt`                              | Dependencies                                                                                         |
+| `plots/`, `tests/`                              | Optional visualization/tests                                                                          |
+
+---
+
+## 🧰 Environment & reproducibility
+
+```bash
+# Python venv (recommended)
+python -m venv .venv
+. .venv/Scripts/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+---
 # Segmented Spacetime – Mass Projection Unified Results
 
 **⚠️ Note:**  
