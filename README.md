@@ -183,7 +183,7 @@ pip install -r requirements.txt
 
 ---
 
-### ADDITIONAL INFORMATIONS
+# ADDITIONAL INFORMATIONS
 
 **⚠️ Note:**  
 The **complete and up-to-date command reference** is explained in [`commands.md`](commands.md).  
