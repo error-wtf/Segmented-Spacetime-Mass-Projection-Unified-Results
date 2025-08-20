@@ -182,7 +182,8 @@ pip install -r requirements.txt
 ```
 
 ---
-# Segmented Spacetime – Mass Projection Unified Results
+
+### ADDITIONAL INFORMATIONS
 
 **⚠️ Note:**  
 The **complete and up-to-date command reference** is explained in [`commands.md`](commands.md).  
