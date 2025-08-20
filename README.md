@@ -7,6 +7,11 @@ This repository provides a full Python-based implementation and verification of 
 
 ---
 
+To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-agnostic data hygiene: rows are only included if GR, SR, GR*SR and SSZ can all be computed (complete orbital elements or measured r_emit, plausible velocities, r > r_s, etc.). We use robust statistics (median, MAD) and identical kinematic fixes across all models, so corrections do not privilege our Model. Observations z_obs are never fed back into our model predictions; they are used only to form residuals. Despite this conservative filtering, our model achieves dramatically lower median errors than GR/SR on the paired sample, effectively absorbing the gravitational redshift uncertainty within a single flow via the Schwarzschild-compatible Δ(M) term. A pure geodesic GR/SR baseline on the same rows confirms the gain is due to modeling, not cherry-picking.
+
+
+---
+
 ## 📌 Overview
 
 The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
