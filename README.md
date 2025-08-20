@@ -16,6 +16,16 @@ We use E_bound = alpha*m_bound*c^2 as a universal EM-coupling scale per electron
 
 ---
 
+The demo script was numerically correct but the claim it illustrated was too strong:
+it assumed a full 1:1 mapping alpha_em/alpha_det ≈ N_emit/N0, which overshoots the
+observed ratio f_emit/f_obs (~1.0257 vs. ~1.103). The data indicate at most a partial
+coupling (effective beta ~0.25) or, more faithfully to our main pipeline, that the
+redshift is carried by GR×SR with a Schwarzschild-compatible Δ(M) correction rather
+than by a full 1:1 variation of alpha. In short: computation OK, interpretation too
+strong; our core results do not rely on that assumption and remain non-circular.
+
+---
+
 ## 📌 Overview
 
 The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
