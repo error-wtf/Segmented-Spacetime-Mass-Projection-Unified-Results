@@ -12,6 +12,10 @@ To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-
 
 ---
 
+We use E_bound = alpha*m_bound*c^2 as a universal EM-coupling scale per electron (~3.73 keV for m_bound ~ m_e). This is not an atomic binding energy (e.g., 1/2 * alpha^2 * m_e * c^2 ~ 13.6 eV) and not a K-edge of any element (Z-dependent). It is a material-independent structural ceiling that provides a stable E–f–lambda reference. GR and kinematics shift observed frequencies; the scale itself remains fixed, letting us propagate redshift uncertainty within one model. This reduces residuals without feeding observations back into predictions.
+
+---
+
 ## 📌 Overview
 
 The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
