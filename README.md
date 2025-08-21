@@ -70,8 +70,7 @@ The method reconstructs **effective mass** and predicts **redshifts** from the p
 python segspace_all_in_one_extended.py all
 
 # Pure geodesic (GR×SR combination without ΔM scaling)
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
-  --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
 ```
 
 > **Tip:** `--prefer-z` forces using the `z` column if both `z` and (`f_emit_Hz`,`f_obs_Hz`) are present.
