@@ -119,14 +119,10 @@ Commands:
 ### Examples
 ```bash
 # Hybrid with Δ(M) params from file
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
-  --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" \
-  --ci 2000 --paired-stats --plots
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --ci 2000 --paired-stats --plots
 
 # Pure Δ(M) with explicit parameters
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" \
-  --mode deltaM --prefer-z --dmA 10 --dmB 0.01 --dmAlpha 500 \
-  --ci 2000 --paired-stats --plots
+python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode deltaM --prefer-z --dmA 10 --dmB 0.01 --dmAlpha 500 --ci 2000 --paired-stats --plots
 ```
 
 ---
