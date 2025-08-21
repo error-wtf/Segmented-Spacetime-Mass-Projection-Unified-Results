@@ -290,7 +290,7 @@ Run the hybrid pipeline (uses **hint** for S-stars, **deltaM** for all others).
 This consistently gave the lowest median |Δz| in our comparisons.
 
 ```
-python segspace_enhanced_test_better_final.py --mode hybrid
+python segspace_enhanced_test_better_final.py
 ````
 ---
 ```
