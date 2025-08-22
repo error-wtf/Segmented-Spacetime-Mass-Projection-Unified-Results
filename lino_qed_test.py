@@ -7,7 +7,7 @@ Didaktisches QED-Demo, NICHT zirkulär:
 Vergleicht Emitter vs. Detektor lokal und prüft
     f_emit / f_obs  ≈  (alpha_em * m_bound_em) / (alpha_det * m_bound_det)
 
-Korrektur gegenüber dem alten Nebenskript:
+Korrektur ggü. altem Nebenskript:
 - Keine 1:1-Kopplung alpha ∝ N mehr.
 - Stattdessen partielle Kopplung: alpha_em/alpha_det = 1 + beta*(N_emit - N0)
   (Default beta = 0.25). Mit --alpha-beta 0 bleibt alpha konstant.
@@ -16,7 +16,6 @@ Korrektur gegenüber dem alten Nebenskript:
 Outputs:
 - Konsolenlog (Eingaben, lokale Parameter, lhs/rhs, abs/rel diff)
 - Manifest (Konstanten und Args) unter agent_out/MANIFEST_lino_qed_test.json
-- Optionale Reports
 """
 from __future__ import annotations
 from decimal import Decimal as D, getcontext
@@ -34,9 +33,9 @@ c        = D("299792458")
 m_e      = D("9.1093837015e-31")
 alpha_fs = D("1") / D("137.035999084")
 
-OUTDIR = Path("agent_out")
+OUTDIR     = Path("agent_out")
 REPORT_DIR = OUTDIR / "reports"
-DATA_DIR = OUTDIR / "data")
+DATA_DIR   = OUTDIR / "data"
 
 def now_str() -> str:
     return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -154,7 +153,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Compute
     res = evaluate_single(f_emit, f_obs, N_emit, N0, alpha_beta, k)
 
-    # Print block (Achtung: Result ist ein Dataclass → Punktnotation!)
+    # Print block (Result ist ein Dataclass → Punktnotation!)
     lines = [
         "=== Local emitter vs. detector – non-circular parameter check ===",
         f"f_emit [Hz] : {res.f_emit}",
