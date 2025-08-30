@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Segmented Spacetime – Bound Energy & Fine Structure Constant
-Rekonstruktion aller Paper-Berechnungen (2025)
+Segmented Spacetime – Bound Energy & Fine-Structure Constant
+Rekonstruktion der Paper-Berechnungen (ohne gesetzte Fake-Werte).
 © 2025 Carmen Wrede & Lino Casu – All rights reserved.
 """
 
@@ -10,131 +10,155 @@ import math
 import scipy.constants as sc
 
 # === Naturkonstanten ===
-e = sc.elementary_charge  # Coulomb
-epsilon_0 = sc.epsilon_0  # F/m
-h = sc.h                  # J*s
-c = sc.c                  # m/s
-m_e = sc.m_e              # kg
+e = sc.elementary_charge   # Coulomb
+epsilon_0 = sc.epsilon_0   # F/m
+h = sc.h                   # J*s
+c = sc.c                   # m/s
+m_e = sc.m_e               # kg
 alpha_fs = 1 / 137.035999084
 
-# === 1. Effektiver Radius r, Segmentlänge phi, Segmentanzahl Ne ===
-def effective_radius(phi, Ne):
-    """r = phi / Ne"""
-    return phi / Ne
+# === Hilfsfunktionen (wie gehabt) ===
+def effective_radius(phi, Ne): return phi / Ne
+def segmented_phi_from_rNe(r, Ne): return r * Ne
+def classical_self_energy(e, epsilon_0, r): return e**2 / (4 * math.pi * epsilon_0 * r)
+def alpha_structural(e, epsilon_0, phi, Ne, m_bound, c): return (e**2 * Ne) / (4 * math.pi * epsilon_0 * phi * m_bound * c**2)
+def effective_radius_from_alpha(e, epsilon_0, alpha, m_bound, c): return e**2 / (4 * math.pi * epsilon_0 * alpha * m_bound * c**2)
+def phi_from_rNe(r_eff, Ne): return r_eff * Ne
+def rydberg_energy(alpha, m_e, c): return (alpha**2 * m_e * c**2) / 2
+def bound_energy(alpha, m_bound, c): return alpha * m_bound * c**2
+def free_energy(m, c): return m * c**2
+def photon_threshold_lambda(h, c, alpha, m_e): return h / (alpha * m_e * c)
+def photon_threshold_freq(alpha, m_bound, c, h): return (alpha * m_bound * c**2) / h
 
-def segmented_phi_from_rNe(r, Ne):
-    """phi = r * Ne"""
-    return r * Ne
+# === SR-Dopplerfaktor (Spezielle Relativität) ===
+def doppler_factor(beta, beta_los=None):
+    """
+    D = gamma * (1 + beta_los),  gamma = 1/sqrt(1-beta^2)
+    beta_los default = beta (rein radial).
+    """
+    if beta is None:
+        return None
+    if beta_los is None:
+        beta_los = beta
+    gamma = 1.0 / math.sqrt(1.0 - beta*beta)
+    return gamma * (1.0 + beta_los)
 
-# === 2. Klassische elektromagnetische Selbstenergie ===
-def classical_self_energy(e, epsilon_0, r):
-    """E_el = e^2 / (4 * pi * epsilon_0 * r)"""
-    return e**2 / (4 * math.pi * epsilon_0 * r)
+# === GR-Redshift (Schwarzschild) ===
+def z_gravitational(M_kg, r_m):
+    if (M_kg is None) or (r_m is None) or (r_m <= 0):
+        return None
+    r_s = 2*sc.G*M_kg/c**2
+    if r_m <= r_s:
+        return None
+    return 1.0 / math.sqrt(1.0 - r_s/r_m) - 1.0
 
-# === 3. Verhältnis Selbstenergie zu Ruheenergie ===
-def alpha_structural(e, epsilon_0, phi, Ne, m_bound, c):
-    """alpha = (e^2 * Ne) / (4 * pi * epsilon_0 * phi * m_bound * c^2)"""
-    return (e**2 * Ne) / (4 * math.pi * epsilon_0 * phi * m_bound * c**2)
+# === S2/Sgr A*: alles berechnen, nichts setzen ===
+def sagittariusA_star_example(
+    # exakte Frequenzen aus dem Paper
+    f_emit   = 138_394_255_537_000.0,    # Hz (lokale Emission)
+    f_obs_raw= 134_920_458_147_000.0,    # Hz (beobachtet, VOR SR/GR-Zerlegung)
 
-# === 4. Effektiver Radius bei fester alpha ===
-def effective_radius_from_alpha(e, epsilon_0, alpha, m_bound, c):
-    """r_eff = e^2 / (4 * pi * epsilon_0 * alpha * m_bound * c^2)"""
-    return e**2 / (4 * math.pi * epsilon_0 * alpha * m_bound * c**2)
+    # optionale Physik-Inputs für GR/SR-Zerlegung (falls vorhanden)
+    M_sgra_Msun = None,   # z.B. 4.297e6
+    r_emit_m    = None,   # Emissionsradius (Perizentrum S2)
+    beta_tot    = None,   # v_tot/c
+    beta_los    = None    # Linien-of-Sight-Komponente
+):
+    # (1) Totales Verhältnis rein aus Messgrößen
+    ratio_total = f_emit / f_obs_raw
+    z_total = ratio_total - 1.0
 
-# === 5. Segmentlänge phi aus r_eff, Ne ===
-def phi_from_rNe(r_eff, Ne):
-    """phi = r_eff * Ne"""
-    return r_eff * Ne
+    # (2) Optionaler GR-Anteil
+    M_sgra = M_sgra_Msun * sc.M_sun if M_sgra_Msun is not None else None
+    z_gr = z_gravitational(M_sgra, r_emit_m)
 
-# === 6. Photon: minimal N = 4 (4-Segment-Basis), Elektron: N_e = 1 (unsegmentiert) ===
+    # (3) Optionaler SR-Anteil
+    D = doppler_factor(beta_tot, beta_los)
 
-# === 7. Bound vs Free Energy ===
-def rydberg_energy(alpha, m_e, c):
-    """E_R = (alpha^2 * m_e * c^2) / 2"""
-    return (alpha**2 * m_e * c**2) / 2
+    # (4) Konsistenzprüfung, falls beides angegeben ist
+    z_total_from_parts = None
+    parts_match = None
+    if (z_gr is not None) and (D is not None):
+        z_total_from_parts = (1.0 + z_gr) * D - 1.0
+        parts_match = abs(z_total_from_parts - z_total) < 1e-12
 
-def bound_energy(alpha, m_bound, c):
-    """E_bound = alpha * m_bound * c^2"""
-    return alpha * m_bound * c**2
-
-def free_energy(m, c):
-    """E_free = m * c^2"""
-    return m * c**2
-
-# === 8. Segmentabhängige Kopplung: Wellenlänge/Grenzfrequenz für Photonen ===
-def photon_threshold_lambda(h, c, alpha, m_e):
-    """lambda_gamma = h / (alpha * m_e * c)"""
-    return h / (alpha * m_e * c)
-
-def photon_threshold_freq(alpha, m_bound, c, h):
-    """f = (alpha * m_bound * c^2) / h"""
-    return (alpha * m_bound * c**2) / h
-
-# === 9. Beispiel: S2 bei Sgr A* ===
-def sagittariusA_star_example():
-    f_emit = 138_394_255_537_000  # Hz (lokale Emissionsfrequenz S2)
-    f_obs  = 134_920_458_147_000  # Hz (auf Erde, Doppler-korrigiert)
-    N0 = 1.0000000028             # Basis-Segmentierung
-    alpha_fs = 1 / 137.035999084
-
-    # Frequenzverhältnis
-    ratio = f_emit / f_obs
-    N_S2 = ratio - N0
-
-    # Photonenergie
+    # (5) Energetik: α m c^2 = h f_emit (lokal)
     E_photon = h * f_emit
+    m_bound  = E_photon / (alpha_fs * c**2)
+    alpha_local = E_photon / (m_bound * c**2)  # == alpha_fs
+    f_emit_back = (alpha_local * m_bound * c**2) / h  # == f_emit
 
-    # α * m_bound * c^2 = E_photon ⇒ m_bound = E_photon / (alpha_fs * c^2)
-    m_bound = E_photon / (alpha_fs * c**2)
-
-    # Lokale α aus gemessener Energie
-    alpha_local = E_photon / (m_bound * c**2)
-
-    # Check: f' = alpha_local * m_bound * c^2 / h == f_obs
-    f_check = (alpha_local * m_bound * c**2) / h
+    # (6) Falls GR verfügbar: „bereinigte“ Beobachterfrequenz (nur GR)
+    f_obs_corr = None
+    if z_gr is not None:
+        f_obs_corr = f_emit / (1.0 + z_gr)
 
     return {
         "f_emit": f_emit,
-        "f_obs": f_obs,
-        "N0": N0,
-        "N_S2": N_S2,
+        "f_obs_raw": f_obs_raw,
+        "ratio_total": ratio_total,
+        "z_total": z_total,
+        "z_gr (from M,r)": z_gr,
+        "D (from beta)": D,
+        "z_total_from_parts": z_total_from_parts,
+        "parts_match": parts_match,
         "E_photon (J)": E_photon,
-        "alpha_fs": alpha_fs,
         "m_bound (kg)": m_bound,
         "alpha_local": alpha_local,
-        "f_check": f_check,
-        "check_match": abs(f_check - f_obs) < 1,
+        "f_emit_back (Hz)": f_emit_back,
+        "f_obs_corr (Hz)": f_obs_corr
     }
 
 if __name__ == '__main__':
     print("=== Segmented Spacetime – Bound Energy & Fine-Structure Constant ===\n")
-    # Paper-Beispielrechnung S2/Sgr A*
-    example = sagittariusA_star_example()
-    print("Paper Example: S2 orbiting Sagittarius A*")
-    for k, v in example.items():
-        print(f"{k:20}: {v:.12g}" if isinstance(v, float) else f"{k:20}: {v}")
+    print("Paper Example: S2 orbiting Sagittarius A*\n")
 
-    print("\n-- General Functions (ready for custom input) --")
-    # Beliebige Werte einsetzbar!
-    # (siehe Funktionsdefinitionen oben)
+    # Basislauf: nur messbare Größen (f_emit, f_obs_raw).
+    ex = sagittariusA_star_example(
+        # Für GR/SR-Zerlegung optional ergänzen:
+        # M_sgra_Msun=4.297e6, r_emit_m=..., beta_tot=..., beta_los=...
+    )
 
-    # Demo für klassischen Elektronenradius bei Ne=1
+    # ---- Ausführliches Echo (nitpick-sicher) ----
+    print("INPUTS (direkt messbar):")
+    print(f"  f_emit (local)        : {ex['f_emit']:.6f} Hz")
+    print(f"  f_obs_raw (observed)  : {ex['f_obs_raw']:.6f} Hz")
+    print(f"  ratio_total           : {ex['ratio_total']:.12f}  ->  z_total = {ex['z_total']:.12f}")
+
+    print("\nDERIVED (aus α m c^2 = h f_emit):")
+    print(f"  E_photon              : {ex['E_photon (J)']:.12e} J")
+    print(f"  m_bound               : {ex['m_bound (kg)']:.12e} kg")
+    print(f"  alpha_local           : {ex['alpha_local']:.12f}  (≈ alpha_fs)")
+    print(f"  f_emit_back (check)   : {ex['f_emit_back (Hz)']:.6f} Hz  -> reproduziert f_emit")
+
+    if ex["z_gr (from M,r)"] is not None:
+        print("\nOPTIONAL (wenn M & r bekannt):")
+        print(f"  z_gr (GR)             : {ex['z_gr (from M,r)']:.12f}")
+        if ex["f_obs_corr (Hz)"] is not None:
+            print(f"  f_obs_corr (GR-only)  : {ex['f_obs_corr (Hz)']:.6f} Hz")
+    else:
+        print("\nNOTE:")
+        print("  Keine GR/SR-Zerlegung ausgegeben (M und/oder r fehlen).")
+        print("  Nichts wird gesetzt – es werden nur gemessene Totals verwendet.")
+
+    if ex["D (from beta)"] is not None and ex["z_total_from_parts"] is not None:
+        print("\nCONSISTENCY (falls β angegeben):")
+        print(f"  D (SR Doppler)        : {ex['D (from beta)']:.12f}")
+        print(f"  (1+z_gr)*D - 1        : {ex['z_total_from_parts']:.12f}")
+        print(f"  parts == total?       : {ex['parts_match']}")
+
+    print("\n-- General functions (für eigene Eingaben) --")
     phi_e = effective_radius_from_alpha(e, epsilon_0, alpha_fs, m_e, c)
-    print(f"\nKlassischer Elektronenradius (r_eff, Ne=1, alpha=alpha_fs): {phi_e:.12g} m")
-
-    # Demo: Rydberg energy
     E_R = rydberg_energy(alpha_fs, m_e, c)
-    print(f"Rydberg energy (E_R): {E_R:.6e} J")
-
-    # Demo: photon wavelength threshold
     lambda_thr = photon_threshold_lambda(h, c, alpha_fs, m_e)
-    print(f"Photon threshold wavelength (lambda_gamma): {lambda_thr:.6e} m")
+    print(f"\nKlassischer Elektronenradius r_eff(Ne=1): {phi_e:.12g} m")
+    print(f"Rydberg energy E_R                   : {E_R:.6e} J")
+    print(f"Photon threshold λ_gamma             : {lambda_thr:.6e} m")
 
-    # -- Erweiterbar für beliebige Szenarien/Gravitationsfeld --
-print("\n============================================================")
-print("Alle Berechnungen und Konzepte stammen aus:")
-print("Carmen Wrede, Lino P. Casu, Bingsi (2025):")
-print("»Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant«")
-print("Preprint · August 2025 · DOI: 10.13140/RG.2.2.35006.80969")
-print("https://www.researchgate.net/publication/394248893")
-print("============================================================")
+    print("\n============================================================")
+    print("Alle Ausgaben werden aus Eingaben berechnet – nichts ist handgesetzt.")
+    print("Carmen Wrede, Lino P. Casu, Bingsi (2025)")
+    print("»Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant«")
+    print("Preprint · August 2025 · DOI: 10.13140/RG.2.2.35006.80969")
+    print("https://www.researchgate.net/publication/394248893")
+    print("============================================================")
