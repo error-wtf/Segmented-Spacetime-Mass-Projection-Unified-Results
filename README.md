@@ -19,7 +19,7 @@ Explanaition:
 - Environment: Python 3.11
 - One-command run:
   ```
-  python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py
+  python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py && python test_c2_segments_strict.py
   ```
 - Expected key numbers:
   PPN beta=1, gamma=1; Sgr A* shadow 53.255 µas; M87* 39.689 µas; no NaN/Inf.
@@ -114,6 +114,7 @@ python test_c1_segments.py          # C¹ at rL, rR
 python test_energy_conditions.py    # WEC/SEC for r >= 5 r_s
 python shadow_predictions.py        # Shadows: Sgr A* ~50 µas, M87* ~38 µas
 python qnm_eikonal.py               # Eikonal QNM (Ω_c, λ)
+python test_c2_segments_strict.py   # C² continuity at rL,rR: A, A', A'' match exactly (analytic; no FD artifacts)
 ```
 
 ### Acceptance
