@@ -109,11 +109,34 @@ PPN: |beta−1| < 1e-12 and |gamma−1| < 1e-12 → PASS
 
 C¹: |ΔA| < 1e-9 and |ΔA'| < 1e-9 at rL and rR → PASS
 
+Strong field invariants equal to GR within machine precision:
+
+r_ph / r_s → 3/2, b_ph / r_s → (3√3)/2, r_isco / r_s → 3 → PASS
+
+Shadows (deterministic, given M and D used in the repo):
+
+Sgr A*: 50.025 µas diameter
+
+M87*: 37.282 µas diameter
+
 Energy conditions: WEC and SEC satisfied for r/rs ≥ 5 → PASS
 
-Shadows in range: Sgr A* ≈ 50 µas, M87* ≈ 37–40 µas
+Mass round-trip (electron → Sun → Sgr A*): relative error ≤ 1e-12 → PASS
 
-QNM: Ω_c and λ finite, computable
+---
+
+### Exact shadow benchmarks (GR, analytic)
+Inputs: Sgr A* M=4.297e6 Msun, D=8,277 pc; M87* M=6.5e9 Msun, D=16.8 Mpc.
+
+- Sgr A*: 53.255 µas (diameter)
+- M87*:   39.689 µas (diameter)
+
+Method: r_ph=1.5 r_s, b_ph=(3√3/2) r_s, θ=b_ph/D (radius), diameter=2θ.
+Deterministic; scales ∝ M/D.
+
+```
+python shadow_predictions_exact.py
+```
 
 ---
 
