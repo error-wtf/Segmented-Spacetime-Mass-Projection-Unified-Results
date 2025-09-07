@@ -90,6 +90,33 @@ python ssz_covariant_smoketest_verbose_lino_casu.py
 
 ---
 
+## Verification & CI
+
+Reproducible checks in the repo root.
+
+### Run (local)
+```
+python test_ppn_exact.py            # PPN: beta=1, gamma=1
+python test_c1_segments.py          # C¹ at rL, rR
+python test_energy_conditions.py    # WEC/SEC for r >= 5 r_s
+python shadow_predictions.py        # Shadows: Sgr A* ~50 µas, M87* ~38 µas
+python qnm_eikonal.py               # Eikonal QNM (Ω_c, λ)
+```
+
+### Acceptance
+
+PPN: |beta−1| < 1e-12 and |gamma−1| < 1e-12 → PASS
+
+C¹: |ΔA| < 1e-9 and |ΔA'| < 1e-9 at rL and rR → PASS
+
+Energy conditions: WEC and SEC satisfied for r/rs ≥ 5 → PASS
+
+Shadows in range: Sgr A* ≈ 50 µas, M87* ≈ 37–40 µas
+
+QNM: Ω_c and λ finite, computable
+
+---
+
 To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-agnostic data hygiene: rows are only included if GR, SR, GR*SR and SSZ can all be computed (complete orbital elements or measured r_emit, plausible velocities, r > r_s, etc.). We use robust statistics (median, MAD) and identical kinematic fixes across all models, so corrections do not privilege our Model. Observations z_obs are never fed back into our model predictions; they are used only to form residuals. Despite this conservative filtering, our model achieves dramatically lower median errors than GR/SR on the paired sample, effectively absorbing the gravitational redshift uncertainty within a single flow via the Schwarzschild-compatible Δ(M) term. A pure geodesic GR/SR baseline on the same rows confirms the gain is due to modeling, not cherry-picking.
 
 
