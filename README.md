@@ -6,6 +6,22 @@
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
 ---
+## SSZ Smoketest (lino_casu)
+
+**File:** `ssz_covariant_smoketest_verbose_lino_casu.py`  
+**Purpose:** Verify the covariant SSZ metric passes standard tests with no NaN/Inf.
+
+**Model**
+- U = GM/(r c^2)
+- A(U) = 1 - 2U + 2U^2 + eps3*U^3, B = 1/A, eps3 = -24/5
+- PPN exact: beta = 1, gamma = 1 (far field matches GR; eps3 affects only strong field)
+
+**Run**
+```
+python ssz_covariant_smoketest_verbose_lino_casu.py
+```
+
+---
 
 To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-agnostic data hygiene: rows are only included if GR, SR, GR*SR and SSZ can all be computed (complete orbital elements or measured r_emit, plausible velocities, r > r_s, etc.). We use robust statistics (median, MAD) and identical kinematic fixes across all models, so corrections do not privilege our Model. Observations z_obs are never fed back into our model predictions; they are used only to form residuals. Despite this conservative filtering, our model achieves dramatically lower median errors than GR/SR on the paired sample, effectively absorbing the gravitational redshift uncertainty within a single flow via the Schwarzschild-compatible Δ(M) term. A pure geodesic GR/SR baseline on the same rows confirms the gain is due to modeling, not cherry-picking.
 
