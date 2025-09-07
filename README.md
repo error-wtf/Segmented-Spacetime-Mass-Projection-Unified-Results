@@ -6,6 +6,11 @@
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
 ---
+
+Status: Reproducible evidence of model functionality (theory + code + tests).
+Note: Not a formal proof; independent replication and peer review remain pending.
+
+---
 ## Verification Summary (Segmented Spacetime) — copy/paste
 
 **Repo:** Segmented-Spacetime-Mass-Projection-Unified-Results  
