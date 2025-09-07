@@ -18,7 +18,9 @@ Independent replication call (segmented spacetime)
 Explanaition:
 - Environment: Python 3.11
 - One-command run:
+  ```
   python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py
+  ```
 - Expected key numbers:
   PPN beta=1, gamma=1; Sgr A* shadow 53.255 µas; M87* 39.689 µas; no NaN/Inf.
 - Please report OS, CPU, Python, results.
