@@ -6,6 +6,68 @@
 This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
 
 ---
+## Verification Summary (Segmented Spacetime) — copy/paste
+
+**Repo:** Segmented-Spacetime-Mass-Projection-Unified-Results  
+**Goal:** Show that the repo covers all critical theory, numerics, and validation needed to support segmented spacetime.
+
+### Theory coverage
+- Golden-ratio half constant: r_phi = (phi/2) * r_s as core scale-link.  
+- Schwarzschild-based baseline: r_s = 2GM/c^2 used throughout.  
+- Singularity avoidance: segment density saturates near horizon and declines to r_phi.  
+- Far field identical to GR: PPN beta = 1, gamma = 1 by construction; strong-field only via higher-order terms.
+
+### Mass reconstruction
+- Segment radius to mass: r_phi ≈ (phi/2) * r_s with small, fitted Delta(M) correction.  
+- Delta(M) model: Delta% = A * exp(−alpha * r_s) + B (constants fixed in code).  
+- Inversion: robust Newton method solves from observed r_phi back to M.
+
+### What is validated (scripts)
+- Round-trip mass: M -> r_phi -> M passes within <= 1e-6 % over full object list.  
+  - Files: `segmented_full_proof.py`, `segmented_full_calc_proof.py`, `segmented_mass.py`
+- Redshift and frequency checks: segment density vs GR redshift consistent to ~1e-6.  
+  - Files: `bound_energy_english.py`, `bound_energy_plot*.py`
+- GR/PPN consistency: beta = 1, gamma = 1; classic tests match GR in weak field.  
+  - Files: `ssz_covariant_smoketest_verbose_lino_casu.py`, `ssz_covariant_smoketest_ext.py`
+
+### Numerical coverage
+- Objects from electron to Sgr A* tested.  
+- Errors typically 1e-8 to 1e-6 (relative).  
+- No NaN/Inf in strong-field section (photon sphere, shadow, ISCO finite).
+
+### Consistency with known physics
+- GR recovered in weak field (beta = gamma = 1).  
+- Deviations appear only in strong field and remain bounded.  
+- No conflict with SR redshift/Doppler; GR×SR combination preserved.
+
+### Reproducibility
+- All steps scripted; no hidden parameters.  
+- Key runners:  
+  - `segspace_final_test.py` (T1–T6 suite, report + JUnit XML)  
+  - `segspace_enhanced_test_better_final.py` (GR/SR/GRxSR comparisons)  
+  - `segspace_all_in_one_extended.py` (end-to-end)
+
+### Quick start
+
+# install
+```
+pip install -r requirements.txt
+```
+# full test suite
+```
+python segspace_final_test.py
+```
+
+# mass round-trip demo
+```
+python segmented_full_proof.py
+```
+
+# PPN + strong-field smoketest
+```
+python ssz_covariant_smoketest_verbose_lino_casu.py
+```
+---
 ## SSZ Smoketest (lino_casu)
 
 **File:** `ssz_covariant_smoketest_verbose_lino_casu.py`  
