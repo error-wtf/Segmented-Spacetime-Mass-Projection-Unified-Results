@@ -13,9 +13,9 @@ Note: Not a formal proof; independent replication and peer review remain pending
 ---
 ## Verification Summary (Segmented Spacetime) — copy/paste
 ---
-Title: Independent replication call (segmented spacetime)
+Independent replication call (segmented spacetime)
 
-Body:
+Explanaition:
 - Environment: Python 3.11
 - One-command run:
   python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py
