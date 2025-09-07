@@ -11,7 +11,7 @@ Status: Reproducible evidence of model functionality (theory + code + tests).
 Note: Not a formal proof; independent replication and peer review remain pending.
 
 ---
-## Verification Summary (Segmented Spacetime) — copy/paste
+## Verification Summary (Segmented Spacetime)
 ---
 Independent replication call (segmented spacetime)
 
