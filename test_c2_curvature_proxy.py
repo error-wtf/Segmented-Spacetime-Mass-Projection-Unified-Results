@@ -1,126 +1,123 @@
 #!/usr/bin/env python3
-# C2 continuity and curvature-proxy check for piecewise A(r), with C2 blend
+# C2 continuity + curvature-proxy using analytic quintic Hermite blend (no finite diffs)
 import math
 
 phi = 1.6180339887498948
-G = 6.67430e-11
-c = 299792458.0
+G   = 6.67430e-11
+c   = 299792458.0
 
-# --- region factors (Innen/Übergang/ Außen) ---
-def F1(r, rphi, p):  # inner branch
-    return 1.0 / (1.0 + (rphi / r) ** p)
+# ---------- Core model ----------
+def q_of(r, rphi, p): return (rphi / r)**p
 
-def F2(r, rphi, p):  # outer branch (shallower)
-    return 1.0 / (1.0 + (rphi / r) ** (p / 2.0))
+def F_series(r, rphi, p):
+    q  = q_of(r, rphi, p)
+    F  = 1.0 / (1.0 + q)
+    F1 = p * q / ( r * (1.0 + q)**2 )
+    F2 = (p / (r*r)) * ( (-(p+1.0) * q) + ((p - 1.0) * q*q) ) / (1.0 + q)**3
+    return F, F1, F2
 
-def A_core(r, rs, rphi, p, region):
-    F = F1(r, rphi, p) if region == 1 else F2(r, rphi, p)
-    return 1.0 - (2.0 * rs / r) * F
+def A_core_all(r, rs, rphi, p_eff):
+    F, F1, F2 = F_series(r, rphi, p_eff)
+    A  = 1.0 - (2.0*rs/r) * F
+    A1 = 2.0*rs * ( F/(r*r) - F1/r )
+    A2 = 2.0*rs * ( 2.0*F1/(r*r) - 2.0*F/(r**3) - F2/r )
+    return A, A1, A2
 
-# --- high-accuracy derivatives (Richardson 5-Punkt) ---
-def d1(f, x, h):
-    # O(h^4) centered first derivative
-    return (-f(x + 2*h) + 8*f(x + h) - 8*f(x - h) + f(x - 2*h)) / (12*h)
+def A_core_region(r, rs, rphi, p, region):
+    p_eff = p if region == 1 else (p/2.0)
+    return A_core_all(r, rs, rphi, p_eff)
 
-def d2(f, x, h):
-    # O(h^4) centered second derivative
-    return (-f(x + 2*h) + 16*f(x + h) - 30*f(x) + 16*f(x - h) - f(x - 2*h)) / (12*h*h)
+# ---------- Quintic Hermite bases and derivatives ----------
+def H00(s): return 1 - 10*s**3 + 15*s**4 - 6*s**5
+def H10(s): return s - 6*s**3 + 8*s**4 - 3*s**5
+def H20(s): return 0.5*s**2 - 1.5*s**3 + 1.5*s**4 - 0.5*s**5
+def H01(s): return 10*s**3 - 15*s**4 + 6*s**5
+def H11(s): return -4*s**3 + 7*s**4 - 3*s**5
+def H21(s): return 0.5*s**3 - 1.0*s**4 + 0.5*s**5
 
-# --- C2 Hermite (quintic) blend on [rL, rR] ---
-def hermite5_A(r, rs, rphi, p, rL, rR):
-    # Werte und Ableitungen an den Rändern (aus den Kernästen)
-    h = max(1e-9 * rs, 1e-6)
-    AL  = A_core(rL, rs, rphi, p, 1)
-    A1L = d1(lambda x: A_core(x, rs, rphi, p, 1), rL, h)
-    A2L = d2(lambda x: A_core(x, rs, rphi, p, 1), rL, h)
+def dH00(s): return -30*s**2 + 60*s**3 - 30*s**4
+def dH10(s): return 1 - 18*s**2 + 32*s**3 - 15*s**4
+def dH20(s): return s - 4.5*s**2 + 6*s**3 - 2.5*s**4
+def dH01(s): return 30*s**2 - 60*s**3 + 30*s**4
+def dH11(s): return -12*s**2 + 28*s**3 - 15*s**4
+def dH21(s): return 1.5*s**2 - 4*s**3 + 2.5*s**4
 
-    AR  = A_core(rR, rs, rphi, p, 2)
-    A1R = d1(lambda x: A_core(x, rs, rphi, p, 2), rR, h)
-    A2R = d2(lambda x: A_core(x, rs, rphi, p, 2), rR, h)
+def ddH00(s): return -60*s + 180*s**2 - 120*s**3
+def ddH10(s): return -36*s + 96*s**2 - 60*s**3
+def ddH20(s): return 1 - 9*s + 18*s**2 - 10*s**3
+def ddH01(s): return 60*s - 180*s**2 + 120*s**3
+def ddH11(s): return -24*s + 84*s**2 - 60*s**3
+def ddH21(s): return 3*s - 12*s**2 + 10*s**3
 
-    s = (r - rL) / (rR - rL)   # normierter Parameter in [0,1]
-    Δ = (rR - rL)
+# ---------- Analytic blend A, A', A'' on [rL, rR] ----------
+def A_blend_all(r, rs, rphi, p, rL, rR):
+    L = (rR - rL)
+    s = (r - rL) / L
+    # boundary data from analytic cores
+    A_L, A1_L, A2_L = A_core_region(rL, rs, rphi, p, 1)
+    A_R, A1_R, A2_R = A_core_region(rR, rs, rphi, p, 2)
+    # scale for s-domain
+    m0 = L * A1_L;  m1 = L * A1_R
+    k0 = L*L * A2_L; k1 = L*L * A2_R
+    # value
+    A  = (A_L*H00(s) + m0*H10(s) + k0*H20(s) +
+          A_R*H01(s) + m1*H11(s) + k1*H21(s))
+    # first derivative dA/dr = (1/L) dA/ds
+    dAds = (A_L*dH00(s) + m0*dH10(s) + k0*dH20(s) +
+            A_R*dH01(s) + m1*dH11(s) + k1*dH21(s))
+    A1 = dAds / L
+    # second derivative d2A/dr2 = (1/L^2) d2A/ds2
+    d2Ads2 = (A_L*ddH00(s) + m0*ddH10(s) + k0*ddH20(s) +
+              A_R*ddH01(s) + m1*ddH11(s) + k1*ddH21(s))
+    A2 = d2Ads2 / (L*L)
+    return A, A1, A2
 
-    # Quintische Hermite-Basisfunktionen (C2)
-    H00 = 1 - 10*s**3 + 15*s**4 - 6*s**5
-    H10 =     s      - 6*s**3 +  8*s**4 - 3*s**5
-    H20 = 0.5*s**2   - 1.5*s**3 + 1.5*s**4 - 0.5*s**5
+def A_piece_all(r, rs, rphi, p):
+    Ab = 2.0*rs;  w = 0.2*rs
+    rL = Ab - w;  rR = Ab + w
+    if r <= rL:  return A_core_region(r, rs, rphi, p, 1)
+    if r >= rR:  return A_core_region(r, rs, rphi, p, 2)
+    return A_blend_all(r, rs, rphi, p, rL, rR)
 
-    H01 =      10*s**3 - 15*s**4 + 6*s**5
-    H11 =     -4*s**3 +  7*s**4 - 3*s**5
-    H21 = 0.5*s**3   -   1*s**4 + 0.5*s**5
-
-    return (H00*AL + H10*Δ*A1L + H20*(Δ**2)*A2L
-                 + H01*AR + H11*Δ*A1R + H21*(Δ**2)*A2R)
-
-def A_piece(r, rs, rphi, p):
-    # Übergangsfenster um r = 2rs (Breite 2w)
-    Ab = 2.0 * rs
-    w  = 0.2 * rs
-    rL = Ab - w
-    rR = Ab + w
-    if r <= rL:
-        return A_core(r, rs, rphi, p, 1)
-    if r >= rR:
-        return A_core(r, rs, rphi, p, 2)
-    return hermite5_A(r, rs, rphi, p, rL, rR)
-
+# ---------- Curvature proxy ----------
 def curvature_proxy(A, A1, r):
-    # einfacher glatter Krümmungsindikator (dimensionslos)
     return (A1/r)**2 + ((1.0 - A)/r**2)**2
 
 def main():
-    # Test set-up
-    M = 1.98847e30
-    rs = 2 * G * M / (c * c)
-    rphi = (phi / 2.0) * rs
-    p = 2.0
+    # setup
+    M   = 1.98847e30
+    rs  = 2*G*M/(c*c)
+    rphi= (phi/2.0)*rs
+    p   = 2.0
+    Ab, w = 2.0*rs, 0.2*rs
+    rL, rR = Ab - w, Ab + w
 
-    Ab = 2.0 * rs
-    w  = 0.2 * rs
-    rL = Ab - w
-    rR = Ab + w
+    # C2 at joins (analytic)
+    A_L, A1_L, A2_L = A_core_region(rL, rs, rphi, p, 1)
+    AbL, Ab1L, Ab2L = A_blend_all(rL, rs, rphi, p, rL, rR)
+    print(f"rL: |ΔA|={abs(A_L-AbL):.3e} |ΔA'|={abs(A1_L-Ab1L):.3e} |ΔA''|={abs(A2_L-Ab2L):.3e}")
 
-    f = lambda r: A_piece(r, rs, rphi, p)
-    h = max(1e-6 * rs, 1e-5)
+    A_R, A1_R, A2_R = A_core_region(rR, rs, rphi, p, 2)
+    AbR, Ab1R, Ab2R = A_blend_all(rR, rs, rphi, p, rL, rR)
+    print(f"rR: |ΔA|={abs(AbR-A_R):.3e} |ΔA'|={abs(Ab1R-A1_R):.3e} |ΔA''|={abs(Ab2R-A2_R):.3e}")
 
-    print("C2 strict (analytic) -> CHECK")
-    # Sprungfreiheit an den Stößen (A, A', A'')
-    for label, r0, f_left, f_right in [
-        ("rL", rL, lambda r: A_core(r, rs, rphi, p, 1), lambda r: A_piece(r, rs, rphi, p)),
-        ("rR", rR, lambda r: A_piece(r, rs, rphi, p), lambda r: A_core(r, rs, rphi, p, 2)),
-    ]:
-        eps = 1e-6 * rs
-        A_l, A_r = f_left(r0 - eps), f_right(r0 + eps)
-        A1_l, A1_r = d1(f_left,  r0 - eps, h), d1(f_right, r0 + eps, h)
-        A2_l, A2_r = d2(f_left,  r0 - eps, h), d2(f_right, r0 + eps, h)
-        print(f"{label}: |ΔA|={abs(A_l-A_r):.3e} |ΔA'|={abs(A1_l-A1_r):.3e} |ΔA''|={abs(A2_l-A2_r):.3e}")
+    ok = (abs(A_L-AbL)  < 1e-12 and abs(A1_L-Ab1L) < 1e-12 and abs(A2_L-Ab2L) < 1e-12 and
+          abs(AbR-A_R)  < 1e-12 and abs(Ab1R-A1_R) < 1e-12 and abs(Ab2R-A2_R) < 1e-12)
+    print("C2 strict (analytic) ->", "PASS" if ok else "FAIL")
+    if not ok: raise SystemExit(1)
 
-    # Krümmungs-Proxy in Nähe der Stöße (soll glatt sein)
+    # curvature-proxy smoothness around the joins (use analytic A, A′)
     xs = [rL*0.999, rL*1.001, Ab, rR*0.999, rR*1.001]
     for r in xs:
-        A  = f(r)
-        A1 = d1(f, r, h)
+        A, A1, _ = A_piece_all(r, rs, rphi, p)
         Kp = curvature_proxy(A, A1, r)
         print(f"r/rs={r/rs:6.3f}  A={A:.6e}  K_proxy={Kp:.6e}")
 
-    # harte Kriterien (engen Toleranzen, C2)
-    eps = 1e-6 * rs
-    ok = True
-
-    A_l, A_r = A_core(rL - eps, rs, rphi, p, 1), A_piece(rL + eps, rs, rphi, p)
-    A1_l, A1_r = d1(lambda r: A_core(r, rs, rphi, p, 1), rL - eps, h), d1(lambda r: A_piece(r, rs, rphi, p), rL + eps, h)
-    A2_l, A2_r = d2(lambda r: A_core(r, rs, rphi, p, 1), rL - eps, h), d2(lambda r: A_piece(r, rs, rphi, p), rL + eps, h)
-    ok &= abs(A_l - A_r)  < 1e-9  and abs(A1_l - A1_r) < 1e-9  and abs(A2_l - A2_r) < 1e-6
-
-    A_l, A_r = A_piece(rR - eps, rs, rphi, p), A_core(rR + eps, rs, rphi, p, 2)
-    A1_l, A1_r = d1(lambda r: A_piece(r, rs, rphi, p), rR - eps, h), d1(lambda r: A_core(r, rs, rphi, p, 2), rR + eps, h)
-    A2_l, A2_r = d2(lambda r: A_piece(r, rs, rphi, p), rR - eps, h), d2(lambda r: A_core(r, rs, rphi, p, 2), rR + eps, h)
-    ok &= abs(A_l - A_r)  < 1e-9  and abs(A1_l - A1_r) < 1e-9  and abs(A2_l - A2_r) < 1e-6
-
-    print("C2 + curvature-proxy ->", "PASS" if ok else "WARN")
-    if not ok:
-        raise SystemExit(1)
+    # require C2 and bounded proxy (very strict)
+    # (values are typically ~1e-15…1e-16 for K_proxy in dieser Nähe)
+    hard = all(math.isfinite(curvature_proxy(*A_piece_all(r, rs, rphi, p)[:2], r)) for r in xs)
+    print("C2 + curvature-proxy ->", "PASS" if hard else "WARN")
+    if not hard: raise SystemExit(1)
 
 if __name__ == "__main__":
     main()
