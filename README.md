@@ -13,7 +13,6 @@ Note: Not a formal proof; independent replication and peer review remain pending
 ---
 ## Verification Summary (Segmented Spacetime)
 ---
-````markdown
 ## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
 
 Result snapshot (median |Δz|, lower is better):
