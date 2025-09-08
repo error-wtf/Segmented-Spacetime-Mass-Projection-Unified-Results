@@ -13,6 +13,52 @@ Note: Not a formal proof; independent replication and peer review remain pending
 ---
 ## Verification Summary (Segmented Spacetime)
 ---
+````markdown
+## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
+
+Result snapshot (median |Δz|, lower is better):
+- SEG (phi/2 + Delta(M)): 1.31e-4
+- SR: 1.34e-2
+- GR ≈ GR×SR: 2.25e-1
+
+Paired comparison: SEG is better in 66/67 cases (binomial two-sided p ≈ 9.2e-19).
+
+Mass bins (equal-count): In all bins SEG < GR×SR; even at very high masses SEG remains ahead.
+
+---
+
+### ▶️ One-liner (auto mode, no fits)
+```bash
+python run_all_ssz_terminal.py
+````
+
+Output: verbose terminal explanation + JSON summary
+`full_pipeline/reports/summary_full_terminal_v3.json`
+
+---
+
+### 🧰 Optional artifacts (quick sanity checks)
+
+```bash
+python run_all_ssz_terminal.py --save-raws --plots
+```
+
+* Residuals (CSV): `full_pipeline/reports/raws_full.csv`
+* Plots (ECDF/Histogram/Box): `full_pipeline/figures/`
+
+---
+
+### 🔁 Reproducibility
+
+The run prints SHA-256 hashes of:
+
+* `real_data_full.csv`
+* `segspace_all_in_one_extended.py`
+* runner script
+
+(Deterministic; no fitting. PPN far-field unchanged: beta=gamma=1.)
+
+---
 Independent replication call (segmented spacetime)
 
 Explanaition:
