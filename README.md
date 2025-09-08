@@ -13,6 +13,12 @@ Note: Not a formal proof; independent replication and peer review remain pending
 ---
 ## Verification Summary (Segmented Spacetime)
 ---
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
+)
+
+---
+
 ## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
 
 Result snapshot (median |Δz|, lower is better):
