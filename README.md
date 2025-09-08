@@ -13,9 +13,17 @@ Note: Not a formal proof; independent replication and peer review remain pending
 ---
 ## Verification Summary (Segmented Spacetime)
 ---
+Autorunner Precision Test:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
 https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
 )
+
+---
+Autorunner PPN Tests
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner_PPN.ipynb
+)
+
 
 ---
 
