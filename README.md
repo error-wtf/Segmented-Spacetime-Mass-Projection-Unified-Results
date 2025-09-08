@@ -19,13 +19,6 @@ https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Proje
 )
 
 ---
-Autorunner PPN Tests
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
-https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner_PPN.ipynb
-)
-
-
----
 
 ## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
 
