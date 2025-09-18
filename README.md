@@ -216,7 +216,7 @@ This script checks whether frequency/wavelength ratios in your dataset align wit
 ```bash
 python phi_test.py --in real_data_full_filled.csv --outdir agent_out_phi2
 python phi_bic_test.py --in real_data_full.csv --outdir out --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
-python phi_bic_test.py --in real_data_full_filled.csv --outdir out --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
+python phi_bic_test.py --in real_data_full_filled.csv --outdir out --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 0 --jitter 1e-12 --n-rand 20000
 ```
 
 ## When your columns differ
