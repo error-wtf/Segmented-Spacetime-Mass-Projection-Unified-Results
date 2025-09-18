@@ -205,6 +205,61 @@ python shadow_predictions_exact.py
 ```
 
 ---
+Here’s a clean, paste-ready README block in English:
+
+### φ-Step (Phi) Metric Test
+
+This script checks whether frequency/wavelength ratios in your dataset align with discrete φ-steps (`R ≈ φ^n`, with φ = 1.61803398875…).
+
+## Quick start
+
+```bash
+python phi_test.py --in real_data_full_filled.csv --outdir agent_out_phi2
+```
+
+## When your columns differ
+
+Provide any one of these column pairs (case-insensitive). The script will compute `ratio = f_emit/f_obs` or `1+z` internally.
+
+```bash
+# Wavelengths (λ_obs / λ_rest)
+python phi_test.py --in data.csv --outdir out --lambda-obs lambda_obs --lambda-rest lambda_rest
+
+# Frequencies (f_emit / f_obs)
+python phi_test.py --in data.csv --outdir out --f-emit f_emit --f-obs f_obs
+
+# Precomputed ratio (f_emit/f_obs)
+python phi_test.py --in data.csv --outdir out --ratio-col ratio
+
+# Redshift (z): uses 1+z
+python phi_test.py --in data.csv --outdir out --z-col z
+```
+
+Useful options:
+
+* `--tol 1e-3` Tolerance to count a row as an exact φ-step (default: `1e-3`).
+* `--title "My run"` Custom title on plots.
+
+## Outputs (in `--outdir`)
+
+* `phi_step_results.csv` – per-row results (`ratio`, `n_star`, `residual`, `abs_residual`, pass/fail).
+* `phi_step_summary.json` – summary stats (share within tolerance, median |residual|, sign test).
+* Plots:
+
+  * `phi_step_residual_hist.png` – residuals (`n* − round(n*)`) density.
+  * `phi_step_qq_uniform.png` – Q–Q vs. Uniform(−0.5, 0.5).
+  * `phi_step_residual_abs_scatter.png` – |residual| by row index.
+* `phi_step_top50.csv` – rows closest to an exact φ-step.
+
+## How to read the results
+
+* **Pass condition:** `|n* − round(n*)| ≤ tol`.
+  A sharp peak at 0 in the histogram and a flat line near 0 in the scatter plot indicate strong φ-step alignment.
+* `n* = ln(ratio)/ln(φ)` is the inferred step count.
+* Residuals are in **steps** (not percent).
+
+
+---
 
 To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-agnostic data hygiene: rows are only included if GR, SR, GR*SR and SSZ can all be computed (complete orbital elements or measured r_emit, plausible velocities, r > r_s, etc.). We use robust statistics (median, MAD) and identical kinematic fixes across all models, so corrections do not privilege our Model. Observations z_obs are never fed back into our model predictions; they are used only to form residuals. Despite this conservative filtering, our model achieves dramatically lower median errors than GR/SR on the paired sample, effectively absorbing the gravitational redshift uncertainty within a single flow via the Schwarzschild-compatible Δ(M) term. A pure geodesic GR/SR baseline on the same rows confirms the gain is due to modeling, not cherry-picking.
 
