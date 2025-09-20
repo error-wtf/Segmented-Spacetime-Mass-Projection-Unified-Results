@@ -19,6 +19,37 @@ https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Proje
 )
 
 ---
+## Technical Briefing (Scope & Internal Correctness)
+
+**What SST (projection variant) is.**  
+SST treats spacetime as a discrete segmentation and models certain observables via a **local projection** (e.g., an effective α-like factor, `α_loc`) rather than explicit metric curvature. In the code, this is a *phenomenology* designed to match weak-field tests and to generate strong-field observables for comparison.
+
+**What the code actually demonstrates (in-repo).**
+- **Weak-field parity with GR:** `ssz_covariant_smoketest_verbose_lino_casu.py` prints PPN **γ=1** and **β=1** and reproduces light deflection, Shapiro delay, and Mercury perihelion numerically equal to GR (within machine precision).  
+  _Note:_ The symbol **β** used elsewhere in SST is **not** PPN-β; the script disambiguates this.
+- **Redshift fits (curated set, n=67):** `run_all_ssz_terminal.py` evaluates an SST projection model under a documented noise model (Gaussian i.i.d., σ via MAD) and **Chauvenet** outlier rule, logs **MAE**, **ΔBIC/AIC**, and a paired **sign-test**. All seeds and file/module SHA256 are recorded in the logs.
+- **Strong-field curves:** `shadow_predictions_exact.py` outputs **parameterized shadow radii** for Sgr A* and M87* as functions of spin `a*`, inclination `i`, and simple emissivity assumptions—intended for downstream likelihood comparison (e.g., EHT pipelines), not as a final claim of agreement.
+
+**Internal consistency checks.**  
+Utility tests verify algebraic identities (e.g., escape/fall duality) to numerical tolerance and emit diagnostics to logs; runs are **deterministic** (fixed seeds) with **checksummed inputs/modules**.
+
+---
+
+## What This Repository *Is*
+
+- A **reproducible reference implementation** of the SST **projection tests** (weak-field parity, curated redshift fits) and **parameterized strong-field outputs** (shadow radii curves).
+- A **research artifact** for **independent re-runs**, ablations, and plug-in model comparisons (e.g., full EHT likelihoods performed externally).
+- A **living workspace**: issues/PRs welcome for environment pinning, CI, added datasets, and benchmark extensions.
+
+## What This Repository *Is Not*
+
+- **Not** a full field theory: no **Lagrangian/action** or derived field equations are shipped here (formal work is out of scope for this repo).
+- **Not** a claim of intrinsic variation of fundamental constants: `α_loc` is implemented as a **projection parameter for observables**, not a replacement of QED/SM.
+- **Not** an assertion about black-hole information release or “radio-emergence”: such ideas, if discussed historically, are **not executed** in these scripts.
+- **Not** a proof of EHT agreement: strong-field outputs are **inputs for comparison**, not an end-to-end validation.
+- **Not** a general-purpose cosmology/astrophysics pipeline: scope is limited to the **documented tests and data** bundled here.
+
+---
 # Complete File List (Segmented Spacetime Repository)
 
 | File / Dir                                        | Description                                                                           |         
