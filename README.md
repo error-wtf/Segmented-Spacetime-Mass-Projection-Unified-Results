@@ -19,35 +19,62 @@ https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Proje
 )
 
 ---
-## Technical Briefing (Scope & Internal Correctness)
+# Technical Briefing (Scope & Internal Correctness)
 
-**What SST (projection variant) is.**  
-SST treats spacetime as a discrete segmentation and models certain observables via a **local projection** (e.g., an effective α-like factor, `α_loc`) rather than explicit metric curvature. In the code, this is a *phenomenology* designed to match weak-field tests and to generate strong-field observables for comparison.
+Goal
+- Provide a deterministic, no-fit evaluation of the SST projection model ("SSZ") on redshift data, and a covariant smoke-test of the metric ansatz. Baselines: GR, SR, and GR×SR.
 
-**What the code actually demonstrates (in-repo).**
-- **Weak-field parity with GR:** `ssz_covariant_smoketest_verbose_lino_casu.py` prints PPN **γ=1** and **β=1** and reproduces light deflection, Shapiro delay, and Mercury perihelion numerically equal to GR (within machine precision).  
-  _Note:_ The symbol **β** used elsewhere in SST is **not** PPN-β; the script disambiguates this.
-- **Redshift fits (curated set, n=67):** `run_all_ssz_terminal.py` evaluates an SST projection model under a documented noise model (Gaussian i.i.d., σ via MAD) and **Chauvenet** outlier rule, logs **MAE**, **ΔBIC/AIC**, and a paired **sign-test**. All seeds and file/module SHA256 are recorded in the logs.
-- **Strong-field curves:** `shadow_predictions_exact.py` outputs **parameterized shadow radii** for Sgr A* and M87* as functions of spin `a*`, inclination `i`, and simple emissivity assumptions—intended for downstream likelihood comparison (e.g., EHT pipelines), not as a final claim of agreement.
+Inputs
+- `real_data_full.csv` (67 rows). Tools accept either a `z` column or frequency columns `f_emit_Hz` / `f_obs_Hz` (helpers can auto-detect).
 
-**Internal consistency checks.**  
-Utility tests verify algebraic identities (e.g., escape/fall duality) to numerical tolerance and emit diagnostics to logs; runs are **deterministic** (fixed seeds) with **checksummed inputs/modules**.
+Determinism and Provenance
+- Fixed seeds; no parameter fitting anywhere.
+- Model choices are fixed: phi/2 coupling and a mass-correction term Delta(M) with constants A=98.01, B=1.96, ALPHA=27177.0.
+- Runners print SHA256 for both the CSV and the main module so results can be pinned to exact artifacts.
+
+Core Scripts
+- `run_all_ssz_terminal.py` — evaluates redshift errors, mass-binned medians, paired sign-test; emits a summary JSON.
+- `ssz_covariant_smoketest_verbose_lino_casu.py` — checks PPN limits, classic weak-field GR tests, and strong-field invariants (photon sphere, shadow impact parameter, ISCO); prints acceptance checks.
+- `shadow_predictions_exact.py` — prints spin-independent showcase shadow diameters for Sgr A* and M87* (with the masses/distances it echoes).
+- `compute_vfall_from_z.py`, `phi_test.py` — v_fall / phi-lattice checks from either `z` or the pair (`f_emit_Hz`, `f_obs_Hz`).
+- Consistency/self-tests: `test_ppn_exact.py`, `test_c1_segments.py`, `test_c2_segments_strict.py`, `test_energy_conditions.py`, `qnm_eikonal.py`.
+
+Verified Internal Results (from included logs)
+- Redshift accuracy (median absolute |Delta z|):
+  - SSZ = 0.000131279
+  - GR×SR = 0.224705
+  - GR = 0.224511
+  - SR = 0.0133925  
+  Paired sign-test (SSZ vs GR×SR, per-row absolute errors): 66 wins out of 67; two-sided p ≈ 9.22e-19.
+- PPN far-field (U -> 0): gamma = 1.000000000000, beta = 1.000000000000 (matches GR to machine precision).
+- Weak-field (Sun): light deflection, Shapiro delay, and Mercury perihelion match GR with relative delta 0.
+- Strong-field (finite values): photon sphere ~ GR; shadow impact parameter relative delta ~ 6.066%; ISCO relative delta ~ 5.079%.
+- Shadow diameters (showcase): Sgr A* = 53.255 microarcseconds; M87* = 39.689 microarcseconds.
+- Energy conditions: violations inside a few Schwarzschild radii; Weak/Null/Dominant/Strong energy conditions hold for r >= 5 r_s per `test_energy_conditions.py`.
+
+Outputs
+- Human-readable console logs and a machine-readable `full_pipeline/reports/summary_full_terminal_v3.json` plus per-tool output folders.
+
+Run Notes
+- Use relative paths in documentation and commands (the scripts print absolute paths and SHA256 at runtime for provenance).
+- In PowerShell, use the backtick ` for line continuation (not the backslash). Changing the CSV or code will change the printed SHA256 and results.
 
 ---
 
-## What This Repository *Is*
+# What This Repository Is (and Is Not)
 
-- A **reproducible reference implementation** of the SST **projection tests** (weak-field parity, curated redshift fits) and **parameterized strong-field outputs** (shadow radii curves).
-- A **research artifact** for **independent re-runs**, ablations, and plug-in model comparisons (e.g., full EHT likelihoods performed externally).
-- A **living workspace**: issues/PRs welcome for environment pinning, CI, added datasets, and benchmark extensions.
+This repository **is**:
+- A reproducible evaluation harness for the SST/SSZ projection approach to redshift plus a covariant smoke-test of its metric ansatz, with deterministic scripts and printed provenance.
+- A phenomenological, numerically consistent package that:
+  - reproduces PPN gamma = beta = 1 and classic weak-field GR tests,
+  - reports explicit strong-field deltas (shadow impact, ISCO) and prints showcase shadow diameters,
+  - performs no fitting and uses fixed phi/2 coupling together with a fixed Delta(M).
+- A starting point for independent reruns and for building pre-registered tests (for example, likelihood-level comparisons to EHT pipelines), with canonical commands and expected key outputs documented.
 
-## What This Repository *Is Not*
+This repository **is not**:
+- A complete Lagrangian field theory or a peer-reviewed publication stack.
+- A claim of intrinsic variation of fundamental constants. The code implements an effective projection via alpha_loc or P(N, phi) at fixed alpha_0.
 
-- **Not** a full field theory: no **Lagrangian/action** or derived field equations are shipped here (formal work is out of scope for this repo).
-- **Not** a claim of intrinsic variation of fundamental constants: `α_loc` is implemented as a **projection parameter for observables**, not a replacement of QED/SM.
-- **Not** an assertion about black-hole information release or “radio-emergence”: such ideas, if discussed historically, are **not executed** in these scripts.
-- **Not** a proof of EHT agreement: strong-field outputs are **inputs for comparison**, not an end-to-end validation.
-- **Not** a general-purpose cosmology/astrophysics pipeline: scope is limited to the **documented tests and data** bundled here.
 
 ---
 # Complete File List (Segmented Spacetime Repository)
