@@ -19,6 +19,64 @@ https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Proje
 )
 
 ---
+# Complete File List (Segmented Spacetime Repository)
+
+| File / Dir                                        | Description                                                                           |         
+| ------------------------------------------------- | ------------------------------------------------------------------------------------- | 
+| `run_all.py`                                      | Top-level runner for the whole pipeline (sequential).                                 |          
+| `run_all_ssz_terminal.py`                         | Unified CLI runner for SSZ (deterministic, optional plots/CSVs).                      |          
+| `segspace_all_in_one.py`                          | All-in-one toolkit (π-bridge, mass-validate, bound-energy, etc.).                     |         
+| `segspace_all_in_one_extended.py`                 | Enhanced v2 pipeline (precision controls, bootstrap, flags).                          |          
+| `segspacetime_quick_tests.py`                     | Convenience wrapper to launch common checks quickly.                                  |          
+| `phi_test.py`                                     | φ-step residuals and summary (median residual).                                       |
+| `phi_bic_test.py`                                 | Model selection: ΔBIC (uniform vs. φ-lattice) + sign tests.                           |          
+| `compute_vfall_from_z.py`                         | Compute $v_\text{fall}$ from z/ratios; check $v_\text{esc} v_\text{fall}=c^2$.        |          
+| `test_vfall_duality.py`                           | Smoke test: $ \gamma_\mathrm{GR}(r)=\gamma_\mathrm{dual}(v_\text{fall})$ and product. |         
+| `fetch_eso_br_gamma.py`                           | Pull Br-γ spectra from ESO; generate raw/enriched CSVs.                               |          
+| `enrich_brgamma.py`                               | Clean/enrich scraped spectra (fill missing fields).                                   |         
+| `fetch_ligo.py`                                   | Retrieve LIGO GW event snippets (optional, supplemental).                             |          
+| `segmented_full_proof.py`                         | Proof/round-trip routines (core algebra path).                                        |      
+| `segmented_full_calc_proof.py`                    | Calculation trace for proofs (numerical).                                             |
+| `segmented_full_compare_proof.py`                 | Compare proof outputs vs. baselines.                                                  |          
+| `segmented_mass.py`                               | Mass inversion / round-trip utilities.                                                |         
+| `bound_energy.py`                                 | Bound-energy derivation (paper-consistent, locked mode).                              |          
+| `bound_energy_english.py`                         | Simplified bound-energy demo (single line pair).                                      |          
+| `bound_energy_plot.py`                            | Bound-energy comparisons; outputs CSV + plot.                                         |        
+| `bound_energy_plot_with_frequenz_shift_fix.py`    | Bound-energy with emission-freq shift fix.                                            |       
+| `paper.py`                                        | Reconstructs numeric example from bound-energy paper.                                 |       
+| `check.py`                                        | Quick fine-structure constant check from frequencies.                                 |         
+| `calculation_test.py`                             | Small calculation sanity tests (helpers).                                             |          
+| `complete-math.py`                                | End-to-end math trail (collated formula path).                                        |          
+| `ssz_covariant_smoketest_verbose_lino_casu.py`    | Covariant SSZ smoke test (verbose).                                                   |         
+| `ssz_covariant_smoketest_ext.py`                  | Extended covariant SSZ smoke test.                                                    |          
+| `test_ppn_exact.py`                               | PPN limit check (β=γ=1).                                                              |          
+| `test_c1_segments.py`                             | C¹ continuity at segment joins.                                                       |          
+| `test_c2_segments_strict.py`                      | Strict C² continuity at joins.                                                        |         
+| `test_energy_conditions.py`                       | Energy conditions (WEC/DEC/SEC).                                                      |          
+| `shadow_predictions_exact.py`                     | Exact shadow sizes (Sgr A\*, M87\*).                                                  |          
+| `qnm_eikonal.py`                                  | BH QNM (eikonal) cross-check.                                                         |          
+| `Segmentdichte-Analyse.py`                        | Segment density analysis σ(r).                                                        |          
+| `estimators.md`                                   | Estimators for z\_geom, r\_φ, ΔM, density (reproducibility).                          |         
+| `vergleich.py`                                    | Bar chart of median Δz across models/modes.                                           |
+| `vergleich_2.py`                                  | Updated comparison plot variant.                                                      |         
+| `real_data_full.csv`                              | Master dataset (S-stars, pulsars, AGN, …).                                            |        
+| `bound_energy_results.csv`                        | Results from bound-energy runs.                                                       |        
+| `bound_energy_with_deltaM.csv`                    | Bound-energy including Δ(M).                                                          | 
+| `segmented_spacetime_mass_validation.csv`         | Mass validation summary.                                                              | 
+| `segmented_spacetime_mass_validation_full.csv`    | Full mass validation table.                                                           | 
+| `segmented_spacetime_mass_validation_perfect.csv` | Perfect/filled validation set.                                                        |  
+| `segment_mass_results.csv`                        | Per-object mass/segment outputs.                                                      | 
+| `README.md`                                       | Project overview & quickstart.                                                        | 
+| `API.md`                                          | Public API of scripts/modules.                                                        | 
+| `commands.md`                                     | Usage guide for all-in-one tools.                                                     | 
+| `DATA_SOURCE.md`                                  | Data provenance & regeneration steps.                                                 | 
+| `Sources.md`                                      | External sources and links.                                                           | 
+| `CITATION.cff`                                    | Citation metadata.                                                                    | 
+| `requirements.txt`                                | Core dependencies.                                                                    |
+| `requirements-freeze.txt`                         | Frozen env (exact pins).                                                              |        
+| `.github/workflows/ci.yml`                        | CI workflow (GitHub Actions).                                                         |         
+
+---
 
 ## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
 
