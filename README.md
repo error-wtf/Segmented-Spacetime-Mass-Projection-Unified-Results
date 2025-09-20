@@ -3,1287 +3,149 @@
 # Segmented Spacetime – Mass Projection & Unified Results
 © Carmen Wrede & Lino Casu
 
-This repository provides a full Python-based implementation and verification of the **Segmented Spacetime Mass Projection Model**, offering a high-precision, testable alternative to traditional gravitational models.
-
----
-
 Status: Reproducible evidence of model functionality (theory + code + tests).
 Note: Not a formal proof; independent replication and peer review remain pending.
 
 ---
+
 ## Verification Summary (Segmented Spacetime)
----
-Autorunner Precision Test:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
-https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
-)
 
----
-# Technical Briefing (Scope & Internal Correctness)
-
-Goal
-- Provide a deterministic, no-fit evaluation of the SST projection model ("SSZ") on redshift data, and a covariant smoke-test of the metric ansatz. Baselines: GR, SR, and GR×SR.
-
-Inputs
-- `real_data_full.csv` (67 rows). Tools accept either a `z` column or frequency columns `f_emit_Hz` / `f_obs_Hz` (helpers can auto-detect).
-
-Determinism and Provenance
-- Fixed seeds; no parameter fitting anywhere.
-- Model choices are fixed: phi/2 coupling and a mass-correction term Delta(M) with constants A=98.01, B=1.96, ALPHA=27177.0.
-- Runners print SHA256 for both the CSV and the main module so results can be pinned to exact artifacts.
-
-Core Scripts
-- `run_all_ssz_terminal.py` — evaluates redshift errors, mass-binned medians, paired sign-test; emits a summary JSON.
-- `ssz_covariant_smoketest_verbose_lino_casu.py` — checks PPN limits, classic weak-field GR tests, and strong-field invariants (photon sphere, shadow impact parameter, ISCO); prints acceptance checks.
-- `shadow_predictions_exact.py` — prints spin-independent showcase shadow diameters for Sgr A* and M87* (with the masses/distances it echoes).
-- `compute_vfall_from_z.py`, `phi_test.py` — v_fall / phi-lattice checks from either `z` or the pair (`f_emit_Hz`, `f_obs_Hz`).
-- Consistency/self-tests: `test_ppn_exact.py`, `test_c1_segments.py`, `test_c2_segments_strict.py`, `test_energy_conditions.py`, `qnm_eikonal.py`.
-
-Verified Internal Results (from included logs)
-- Redshift accuracy (median absolute |Delta z|):
-  - SSZ = 0.000131279
-  - GR×SR = 0.224705
-  - GR = 0.224511
-  - SR = 0.0133925  
-  Paired sign-test (SSZ vs GR×SR, per-row absolute errors): 66 wins out of 67; two-sided p ≈ 9.22e-19.
-- PPN far-field (U -> 0): gamma = 1.000000000000, beta = 1.000000000000 (matches GR to machine precision).
-- Weak-field (Sun): light deflection, Shapiro delay, and Mercury perihelion match GR with relative delta 0.
-- Strong-field (finite values): photon sphere ~ GR; shadow impact parameter relative delta ~ 6.066%; ISCO relative delta ~ 5.079%.
-- Shadow diameters (showcase): Sgr A* = 53.255 microarcseconds; M87* = 39.689 microarcseconds.
-- Energy conditions: violations inside a few Schwarzschild radii; Weak/Null/Dominant/Strong energy conditions hold for r >= 5 r_s per `test_energy_conditions.py`.
-
-Outputs
-- Human-readable console logs and a machine-readable `full_pipeline/reports/summary_full_terminal_v3.json` plus per-tool output folders.
-
-Run Notes
-- Use relative paths in documentation and commands (the scripts print absolute paths and SHA256 at runtime for provenance).
-- In PowerShell, use the backtick ` for line continuation (not the backslash). Changing the CSV or code will change the printed SHA256 and results.
+Autorunner Precision Test:  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb)
 
 ---
 
-# What This Repository Is (and Is Not)
+## Technical Briefing (Scope & Internal Correctness)
 
-This repository **is**:
-- A reproducible evaluation harness for the SST/SSZ projection approach to redshift plus a covariant smoke-test of its metric ansatz, with deterministic scripts and printed provenance.
-- A phenomenological, numerically consistent package that:
-  - reproduces PPN gamma = beta = 1 and classic weak-field GR tests,
-  - reports explicit strong-field deltas (shadow impact, ISCO) and prints showcase shadow diameters,
-  - performs no fitting and uses fixed phi/2 coupling together with a fixed Delta(M).
-- A starting point for independent reruns and for building pre-registered tests (for example, likelihood-level comparisons to EHT pipelines), with canonical commands and expected key outputs documented.
+**What SST (projection variant) is.**  
+SST models spacetime as discrete segmentation and uses a local projection parameter (`α_loc`) to predict observables instead of explicit metric curvature. In this repo it is a phenomenology tuned to match weak-field tests and to generate strong-field observables for comparison.
 
-This repository **is not**:
-- A complete Lagrangian field theory or a peer-reviewed publication stack.
-- A claim of intrinsic variation of fundamental constants. The code implements an effective projection via alpha_loc or P(N, phi) at fixed alpha_0.
+**What the code actually demonstrates (in-repo).**
+- **Weak-field parity with GR:** `ssz_covariant_smoketest_verbose_lino_casu.py` yields PPN γ=1 and β=1 and reproduces light deflection, Shapiro delay, and Mercury perihelion numerically equal to GR. The symbol β used elsewhere in SST is not PPN-β; the script disambiguates this.
+- **Redshift fits (curated set, n=67):** `run_all_ssz_terminal.py` runs an SST projection with a documented noise model and Chauvenet outlier rule, logging MAE, ΔBIC/AIC, and a paired sign-test. Seeds and file/module SHA256 are recorded.
+- **Strong-field curves:** `shadow_predictions_exact.py` outputs parameterized shadow radii for Sgr A* and M87* as functions of spin and inclination for downstream EHT-style comparisons.
 
-
----
-# Complete File List (Segmented Spacetime Repository)
-
-| File / Dir                                        | Description                                                                           |         
-| ------------------------------------------------- | ------------------------------------------------------------------------------------- | 
-| `run_all.py`                                      | Top-level runner for the whole pipeline (sequential).                                 |          
-| `run_all_ssz_terminal.py`                         | Unified CLI runner for SSZ (deterministic, optional plots/CSVs).                      |          
-| `segspace_all_in_one.py`                          | All-in-one toolkit (π-bridge, mass-validate, bound-energy, etc.).                     |         
-| `segspace_all_in_one_extended.py`                 | Enhanced v2 pipeline (precision controls, bootstrap, flags).                          |          
-| `segspacetime_quick_tests.py`                     | Convenience wrapper to launch common checks quickly.                                  |          
-| `phi_test.py`                                     | φ-step residuals and summary (median residual).                                       |
-| `phi_bic_test.py`                                 | Model selection: ΔBIC (uniform vs. φ-lattice) + sign tests.                           |          
-| `compute_vfall_from_z.py`                         | Compute $v_\text{fall}$ from z/ratios; check $v_\text{esc} v_\text{fall}=c^2$.        |          
-| `test_vfall_duality.py`                           | Smoke test: γ_GR(r) = γ_dual(v_fall) and product.|         
-| `fetch_eso_br_gamma.py`                           | Pull Br-γ spectra from ESO; generate raw/enriched CSVs.                               |          
-| `enrich_brgamma.py`                               | Clean/enrich scraped spectra (fill missing fields).                                   |         
-| `fetch_ligo.py`                                   | Retrieve LIGO GW event snippets (optional, supplemental).                             |          
-| `segmented_full_proof.py`                         | Proof/round-trip routines (core algebra path).                                        |      
-| `segmented_full_calc_proof.py`                    | Calculation trace for proofs (numerical).                                             |
-| `segmented_full_compare_proof.py`                 | Compare proof outputs vs. baselines.                                                  |          
-| `segmented_mass.py`                               | Mass inversion / round-trip utilities.                                                |         
-| `bound_energy.py`                                 | Bound-energy derivation (paper-consistent, locked mode).                              |          
-| `bound_energy_english.py`                         | Simplified bound-energy demo (single line pair).                                      |          
-| `bound_energy_plot.py`                            | Bound-energy comparisons; outputs CSV + plot.                                         |        
-| `bound_energy_plot_with_frequenz_shift_fix.py`    | Bound-energy with emission-freq shift fix.                                            |       
-| `paper.py`                                        | Reconstructs numeric example from bound-energy paper.                                 |       
-| `check.py`                                        | Quick fine-structure constant check from frequencies.                                 |         
-| `calculation_test.py`                             | Small calculation sanity tests (helpers).                                             |          
-| `complete-math.py`                                | End-to-end math trail (collated formula path).                                        |          
-| `ssz_covariant_smoketest_verbose_lino_casu.py`    | Covariant SSZ smoke test (verbose).                                                   |         
-| `ssz_covariant_smoketest_ext.py`                  | Extended covariant SSZ smoke test.                                                    |          
-| `test_ppn_exact.py`                               | PPN limit check (β=γ=1).                                                              |          
-| `test_c1_segments.py`                             | C¹ continuity at segment joins.                                                       |          
-| `test_c2_segments_strict.py`                      | Strict C² continuity at joins.                                                        |         
-| `test_energy_conditions.py`                       | Energy conditions (WEC/DEC/SEC).                                                      |          
-| `shadow_predictions_exact.py`                     | Exact shadow sizes (Sgr A\*, M87\*).                                                  |          
-| `qnm_eikonal.py`                                  | BH QNM (eikonal) cross-check.                                                         |          
-| `Segmentdichte-Analyse.py`                        | Segment density analysis σ(r).                                                        |          
-| `estimators.md`                                   | Estimators for z\_geom, r\_φ, ΔM, density (reproducibility).                          |         
-| `vergleich.py`                                    | Bar chart of median Δz across models/modes.                                           |
-| `vergleich_2.py`                                  | Updated comparison plot variant.                                                      |         
-| `real_data_full.csv`                              | Master dataset (S-stars, pulsars, AGN, …).                                            |        
-| `bound_energy_results.csv`                        | Results from bound-energy runs.                                                       |        
-| `bound_energy_with_deltaM.csv`                    | Bound-energy including Δ(M).                                                          | 
-| `segmented_spacetime_mass_validation.csv`         | Mass validation summary.                                                              | 
-| `segmented_spacetime_mass_validation_full.csv`    | Full mass validation table.                                                           | 
-| `segmented_spacetime_mass_validation_perfect.csv` | Perfect/filled validation set.                                                        |  
-| `segment_mass_results.csv`                        | Per-object mass/segment outputs.                                                      | 
-| `README.md`                                       | Project overview & quickstart.                                                        | 
-| `API.md`                                          | Public API of scripts/modules.                                                        | 
-| `commands.md`                                     | Usage guide for all-in-one tools.                                                     | 
-| `DATA_SOURCE.md`                                  | Data provenance & regeneration steps.                                                 | 
-| `Sources.md`                                      | External sources and links.                                                           | 
-| `CITATION.cff`                                    | Citation metadata.                                                                    | 
-| `requirements.txt`                                | Core dependencies.                                                                    |
-| `requirements-freeze.txt`                         | Frozen env (exact pins).                                                              |        
-| `.github/workflows/ci.yml`                        | CI workflow (GitHub Actions).                                                         |         
+**Internal consistency checks.**  
+Deterministic runs with fixed seeds and checksummed inputs. Utility tests verify algebraic identities such as escape/fall duality within numerical tolerance.
 
 ---
 
-## 🔎 Quick Overview (Segmented Spacetime vs. GR/SR)
+## What This Repository *Is*
 
-Result snapshot (median |Δz|, lower is better):
-- SEG (phi/2 + Delta(M)): 1.31e-4
-- SR: 1.34e-2
-- GR ≈ GR×SR: 2.25e-1
+- A reproducible reference implementation of SST projection tests and parameterized strong-field outputs.
+- A research artifact for independent re-runs, ablations, and plug-in comparisons.
+- A living workspace for CI, datasets, and benchmark extensions.
 
-Paired comparison: SEG is better in 66/67 cases (binomial two-sided p ≈ 9.2e-19).
+## What This Repository *Is Not*
 
-Mass bins (equal-count): In all bins SEG < GR×SR; even at very high masses SEG remains ahead.
-
----
-
-### ▶️ One-liner (auto mode, no fits)
-```bash
-python run_all_ssz_terminal.py
-````
-
-Output: verbose terminal explanation + JSON summary
-`full_pipeline/reports/summary_full_terminal_v3.json`
-
----
-
-### 🧰 Optional artifacts (quick sanity checks)
-
-```bash
-python run_all_ssz_terminal.py --save-raws --plots
-```
-
-* Residuals (CSV): `full_pipeline/reports/raws_full.csv`
-* Plots (ECDF/Histogram/Box): `full_pipeline/figures/`
-
----
-
-### 🔁 Reproducibility
-
-The run prints SHA-256 hashes of:
-
-* `real_data_full.csv`
-* `segspace_all_in_one_extended.py`
-* runner script
-
-(Deterministic; no fitting. PPN far-field unchanged: beta=gamma=1.)
-
----
-Independent replication call (segmented spacetime)
-
-Explanaition:
-- Environment: Python 3.11
-- One-command run:
-  ```
-  python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py && python test_c2_segments_strict.py
-  ```
-- Expected key numbers:
-  PPN beta=1, gamma=1; Sgr A* shadow 53.255 µas; M87* 39.689 µas; no NaN/Inf.
-- Please report OS, CPU, Python, results.
-
----
-**Repo:** Segmented-Spacetime-Mass-Projection-Unified-Results  
-**Goal:** Show that the repo covers all critical theory, numerics, and validation needed to support segmented spacetime.
-
-### Theory coverage
-- Golden-ratio half constant: r_phi = (phi/2) * r_s as core scale-link.  
-- Schwarzschild-based baseline: r_s = 2GM/c^2 used throughout.  
-- Singularity avoidance: segment density saturates near horizon and declines to r_phi.  
-- Far field identical to GR: PPN beta = 1, gamma = 1 by construction; strong-field only via higher-order terms.
-
-### Mass reconstruction
-- Segment radius to mass: r_phi ≈ (phi/2) * r_s with small, fitted Delta(M) correction.  
-- Delta(M) model: Delta% = A * exp(−alpha * r_s) + B (constants fixed in code).  
-- Inversion: robust Newton method solves from observed r_phi back to M.
-
-### What is validated (scripts)
-- Round-trip mass: M -> r_phi -> M passes within <= 1e-6 % over full object list.  
-  - Files: `segmented_full_proof.py`, `segmented_full_calc_proof.py`, `segmented_mass.py`
-- Redshift and frequency checks: segment density vs GR redshift consistent to ~1e-6.  
-  - Files: `bound_energy_english.py`, `bound_energy_plot*.py`
-- GR/PPN consistency: beta = 1, gamma = 1; classic tests match GR in weak field.  
-  - Files: `ssz_covariant_smoketest_verbose_lino_casu.py`, `ssz_covariant_smoketest_ext.py`
-
-### Numerical coverage
-- Objects from electron to Sgr A* tested.  
-- Errors typically 1e-8 to 1e-6 (relative).  
-- No NaN/Inf in strong-field section (photon sphere, shadow, ISCO finite).
-
-### Consistency with known physics
-- GR recovered in weak field (beta = gamma = 1).  
-- Deviations appear only in strong field and remain bounded.  
-- No conflict with SR redshift/Doppler; GR×SR combination preserved.
-
-### Reproducibility
-- All steps scripted; no hidden parameters.  
-- Key runners:  
-  - `segspace_final_test.py` (T1–T6 suite, report + JUnit XML)  
-  - `segspace_enhanced_test_better_final.py` (GR/SR/GRxSR comparisons)  
-  - `segspace_all_in_one_extended.py` (end-to-end)
-
-### Quick start
-
-# install
-```
-pip install -r requirements.txt
-```
-# full test suite
-```
-python segspace_final_test.py
-```
-
-# mass round-trip demo
-```
-python segmented_full_proof.py
-```
-
-# PPN + strong-field smoketest
-```
-python ssz_covariant_smoketest_verbose_lino_casu.py
-```
----
-## SSZ Smoketest (lino_casu)
-
-**File:** `ssz_covariant_smoketest_verbose_lino_casu.py`  
-**Purpose:** Verify the covariant SSZ metric passes standard tests with no NaN/Inf.
-
-**Model**
-- U = GM/(r c^2)
-- A(U) = 1 - 2U + 2U^2 + eps3*U^3, B = 1/A, eps3 = -24/5
-- PPN exact: beta = 1, gamma = 1 (far field matches GR; eps3 affects only strong field)
-
-**Run**
-```
-python ssz_covariant_smoketest_verbose_lino_casu.py
-```
+- Not a full field theory. No action/Lagrangian or derived field equations are shipped.
+- Not a claim of intrinsic variation of fundamental constants. `α_loc` is a projection parameter for observables.
+- Not an assertion about black-hole information release or “radio-emergence.”
+- Not a proof of EHT agreement.
+- Not a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
 
 ---
 
 ## Verification & CI
 
-Reproducible checks in the repo root.
-
-### Run (local)
+Run (local):
 ```
 python test_ppn_exact.py            # PPN: beta=1, gamma=1
 python test_c1_segments.py          # C¹ at rL, rR
-python test_energy_conditions.py    # WEC/SEC for r >= 5 r_s
-python shadow_predictions.py        # Shadows: Sgr A* ~50 µas, M87* ~38 µas
+python test_energy_conditions.py    # WEC/SEC for r ≥ 5 r_s
+python shadow_predictions_exact.py  # Shadows: Sgr A* ~50 µas, M87* ~38 µas
 python qnm_eikonal.py               # Eikonal QNM (Ω_c, λ)
-python test_c2_segments_strict.py   # C² continuity at rL,rR: A, A', A'' match exactly (analytic; no FD artifacts)
+python test_c2_segments_strict.py   # C² continuity at joins
 ```
 
-### Acceptance
-
-PPN: |beta−1| < 1e-12 and |gamma−1| < 1e-12 → PASS
-
-C¹: |ΔA| < 1e-9 and |ΔA'| < 1e-9 at rL and rR → PASS
-
-Strong field invariants equal to GR within machine precision:
-
-r_ph / r_s → 3/2, b_ph / r_s → (3√3)/2, r_isco / r_s → 3 → PASS
-
-Shadows (deterministic, given M and D used in the repo):
-
-Sgr A*: 50.025 µas diameter
-
-M87*: 37.282 µas diameter
-
-Energy conditions: WEC and SEC satisfied for r/rs ≥ 5 → PASS
-
-Mass round-trip (electron → Sun → Sgr A*): relative error ≤ 1e-12 → PASS
-
----
+Acceptance:
+- PPN: |β−1| < 1e-12 and |γ−1| < 1e-12 → PASS
+- C¹ continuity thresholds at rL,rR → PASS
+- Strong-field invariants equal to GR within machine precision → PASS
+- Shadows: Sgr A* ≈ 50.025 µas, M87* ≈ 37.282 µas → PASS
+- Energy conditions WEC/SEC for r/rs ≥ 5 → PASS
+- Mass round-trip (electron → Sun → Sgr A*): relative error ≤ 1e-12 → PASS
 
 ### Exact shadow benchmarks (GR, analytic)
-Inputs: Sgr A* M=4.297e6 Msun, D=8,277 pc; M87* M=6.5e9 Msun, D=16.8 Mpc.
-
-- Sgr A*: 53.255 µas (diameter)
-- M87*:   39.689 µas (diameter)
-
-Method: r_ph=1.5 r_s, b_ph=(3√3/2) r_s, θ=b_ph/D (radius), diameter=2θ.
+Inputs: Sgr A* M=4.297e6 M☉, D=8 277 pc; M87* M=6.5e9 M☉, D=16.8 Mpc.  
+Method: r_ph=1.5 r_s, b_ph=(3√3/2) r_s, θ=b_ph/D, diameter=2θ.  
 Deterministic; scales ∝ M/D.
-
 ```
 python shadow_predictions_exact.py
 ```
 
 ---
 
+# v_fall from z (Duality Check)
 
-# v\_fall from z (Duality Check)
-
-This module tests the duality between escape velocity and “fall” velocity in segmented spacetime directly on your dataset.
-
-## Core idea
-
-* GR redshift: `gamma_GR = 1 / sqrt(1 - r_s/r)`
-
-* Observation: `gamma_obs = 1 + z`
-
-* Dual Lorentz form: `gamma_dual(v_fall) = 1 / sqrt(1 - (c/v_fall)^2)`
-
-* Segment duality enforces `gamma_dual(v_fall) = gamma_obs`, hence
-
-  `v_fall(z) = c / sqrt(1 - 1/(1+z)^2)`
-
-* Newton/GR link: `v_esc(r) = sqrt(2*G*M/r)` and the duality
-
-  `v_esc * v_fall = c^2`
+**Core idea**
+- GR redshift: `gamma_GR = 1 / sqrt(1 - r_s/r)`
+- Observation: `gamma_obs = 1 + z`
+- Dual Lorentz form: `gamma_dual(v_fall) = 1 / sqrt(1 - (c/v_fall)^2)`
+- Set `gamma_dual(v_fall) = gamma_obs` ⇒ `v_fall(z) = c / sqrt(1 - 1/(1+z)^2)`
+- Newton/GR link: `v_esc(r) = sqrt(2GM/r)` and `v_esc * v_fall = c^2`
 
 ## Script: `compute_vfall_from_z.py`
 
 Computes `v_fall` per row and checks:
+- phi-step residual: `abs(round( ln(1+z)/ln(phi) ) − ln(1+z)/ln(phi))`
+- Product test: if `M,r` are present, verify `(v_esc * v_fall)/c^2 ≈ 1`
 
-* phi-step residual: `abs( round( ln(1+z)/ln(phi) ) - ln(1+z)/ln(phi) )`
-* Product test (if `v_esc` can be computed from `M,r`): `(v_esc * v_fall)/c^2 ≈ 1`
+**Inputs**
+- CSV with one of: `z` or `f_emit,f_obs` (uses `1+z=f_emit/f_obs`) or `ratio=f_emit/f_obs`
+- Optional: `M,r` for the product test
 
-### Inputs
-
-CSV containing one of:
-
-* `z`, or
-* `f_emit`, `f_obs` (uses `1+z = f_emit/f_obs`), or
-* `ratio` (equal to `f_emit/f_obs`).
-
-Optional (for product test): `M`, `r` to compute `v_esc`.
-
-### Examples
-
+**Examples**
 ```bash
 # use z directly
 python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out --z-col z
 
 # use frequencies instead of z
-python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out \
-  --f-emit f_emit_Hz --f-obs f_obs_Hz
+python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out   --f-emit f_emit_Hz --f-obs f_obs_Hz
 ```
 
-### Console output (typical)
+**Console output (typical)**
+- `rows used`: after cleaning
+- `abs_residual_median`: median |phi-residual| (→0 means clearer φ-stepping)
+- `prod_rel_err_median`: median relative error of `v_esc * v_fall = c^2` (0 ⇒ exact)
 
-* `rows used`: rows remaining after cleaning
-* `abs_residual_median`: median |phi-residual| (closer to 0 ⇒ clearer phi-stepping)
-* `prod_rel_err_median`: median relative error of `v_esc * v_fall = c^2` (0 ⇒ exact)
+**Files in `--outdir`**
+- `vfall_results.csv`, `vfall_summary.json`, optional plots
 
-### Files in `--outdir`
+### Additional tests
 
-* `vfall_results.csv`: per-row `z`, `v_fall`, residuals, optional `v_esc` and product error
-* `vfall_summary.json`: key metrics (mirrors console)
-* optional plots if enabled
-
-## Additional tests
-
-### phi BIC / sign tests
-
+**phi BIC / sign tests**
 ```bash
 python phi_test.py     --in real_data_full.csv --outdir out
-python phi_bic_test.py --in real_data_full.csv --outdir out \
-  --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
+python phi_bic_test.py --in real_data_full.csv --outdir out   --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
 ```
 
-Reports median residual, ΔBIC (uniform vs. phi-lattice), and sign-test p-value.
-
-### Quick duality smoke test
-
+**Quick duality smoke test**
 ```bash
 python test_vfall_duality.py --mass Earth --r-mults 1.1,1.2,2,5,10
 ```
-
-Verifies (to machine precision) `v_esc * v_fall = c^2` and `gamma_GR(r) = gamma_dual(v_fall)`.
+Verifies `v_esc * v_fall = c^2` and `gamma_GR(r) = gamma_dual(v_fall)`.
 
 ## Interpretation
-
-* `abs_residual_median ≈ 0` → strong phi-stepping
-* `ΔBIC (uniform − lattice) >> 0` → phi-lattice strongly preferred
-* `prod_rel_err_median ≈ 0` → duality `v_esc * v_fall = c^2` holds
-
-
----
+- `abs_residual_median ≈ 0` → strong φ-stepping
+- `ΔBIC (uniform − lattice) >> 0` → φ-lattice preferred
+- `prod_rel_err_median ≈ 0` → product duality holds
 
 ### φ-Step (Phi) Metric Test
-
-This script checks whether frequency/wavelength ratios in your dataset align with discrete φ-steps (`R ≈ φ^n`, with φ = 1.61803398875…).
-
-## Quick start
-
+This checks if ratios align with discrete φ-steps (`R ≈ φ^n`). Quick start:
 ```bash
 python phi_test.py --in real_data_full_filled.csv --outdir agent_out_phi2
 python phi_bic_test.py --in real_data_full.csv --outdir out --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
 python phi_bic_test.py --in real_data_full_filled.csv --outdir out --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 0 --jitter 1e-12 --n-rand 20000
 ```
 
-## When your columns differ
-
-Provide any one of these column pairs (case-insensitive). The script will compute `ratio = f_emit/f_obs` or `1+z` internally.
-
-```bash
-# Wavelengths (λ_obs / λ_rest)
-python phi_test.py --in data.csv --outdir out --lambda-obs lambda_obs --lambda-rest lambda_rest
-
-# Frequencies (f_emit / f_obs)
-python phi_test.py --in data.csv --outdir out --f-emit f_emit --f-obs f_obs
-
-# Precomputed ratio (f_emit/f_obs)
-python phi_test.py --in data.csv --outdir out --ratio-col ratio
-
-# Redshift (z): uses 1+z
-python phi_test.py --in data.csv --outdir out --z-col z
-```
-
-Useful options:
-
-* `--tol 1e-3` Tolerance to count a row as an exact φ-step (default: `1e-3`).
-* `--title "My run"` Custom title on plots.
-
-## Outputs (in `--outdir`)
-
-* `phi_step_results.csv` – per-row results (`ratio`, `n_star`, `residual`, `abs_residual`, pass/fail).
-* `phi_step_summary.json` – summary stats (share within tolerance, median |residual|, sign test).
-* Plots:
-
-  * `phi_step_residual_hist.png` – residuals (`n* − round(n*)`) density.
-  * `phi_step_qq_uniform.png` – Q–Q vs. Uniform(−0.5, 0.5).
-  * `phi_step_residual_abs_scatter.png` – |residual| by row index.
-* `phi_step_top50.csv` – rows closest to an exact φ-step.
-
-## How to read the results
-
-* **Pass condition:** `|n* − round(n*)| ≤ tol`.
-  A sharp peak at 0 in the histogram and a flat line near 0 in the scatter plot indicate strong φ-step alignment.
-* `n* = ln(ratio)/ln(φ)` is the inferred step count.
-* Residuals are in **steps** (not percent).
-
-
----
-
-To avoid any bias in favor of Segmented Spacetime Model, we apply strict, model-agnostic data hygiene: rows are only included if GR, SR, GR*SR and SSZ can all be computed (complete orbital elements or measured r_emit, plausible velocities, r > r_s, etc.). We use robust statistics (median, MAD) and identical kinematic fixes across all models, so corrections do not privilege our Model. Observations z_obs are never fed back into our model predictions; they are used only to form residuals. Despite this conservative filtering, our model achieves dramatically lower median errors than GR/SR on the paired sample, effectively absorbing the gravitational redshift uncertainty within a single flow via the Schwarzschild-compatible Δ(M) term. A pure geodesic GR/SR baseline on the same rows confirms the gain is due to modeling, not cherry-picking.
-
-
----
-
-We use E_bound = alpha*m_bound*c^2 as a universal EM-coupling scale per electron (~3.73 keV for m_bound ~ m_e). This is not an atomic binding energy (e.g., 1/2 * alpha^2 * m_e * c^2 ~ 13.6 eV) and not a K-edge of any element (Z-dependent). It is a material-independent structural ceiling that provides a stable E–f–lambda reference. GR and kinematics shift observed frequencies; the scale itself remains fixed, letting us propagate redshift uncertainty within one model. This reduces residuals without feeding observations back into predictions.
-
----
-
-The demo script was numerically correct but the claim it illustrated was too strong:
-it assumed a full 1:1 mapping alpha_em/alpha_det ≈ N_emit/N0, which overshoots the
-observed ratio f_emit/f_obs (~1.0257 vs. ~1.103). The data indicate at most a partial
-coupling (effective beta ~0.25) or, more faithfully to our main pipeline, that the
-redshift is carried by GR×SR with a Schwarzschild-compatible Δ(M) correction rather
-than by a full 1:1 variation of alpha. In short: computation OK, interpretation too
-strong; our core results do not rely on that assumption and remain non-circular.
-
----
-
-The updated QED demo is non-circular and local. It keeps m_bound symmetric (k=0) 
-and uses a partial mapping alpha_em/alpha_det = 1 + beta*(N_emit − N0).
-
-With S2→Earth, β=0.25 reproduces the observed ratio f_emit/f_obs ≈ 1.025747 
-to ~1e−9 precision, without touching m_bound. The earlier side script assumed a 
-full 1:1 coupling (β=1), which predicts ≈1.103 and overshoots; rescuing that 
-would require an implausible ~7% shift in m_bound.
-
-So the computation was fine—the claim was too strong. Our main results do not rely 
-on alpha–N coupling anyway; they come from GR×SR plus the Schwarzschild-compatible 
-Δ(M) correction, evaluated non-circularly. The demo just shows that, if any local 
-alpha–N coupling exists, it must be small (≈25% here), not full 1:1.
-
----
-
-## 📌 Overview
-
-The method reconstructs **effective mass** and predicts **redshifts** from the principle of **space segmentation**, using a universal scaling function that links gravitational behavior across micro and macro scales.
-
-### Included Features
-- ✅ Unified segment-based mass inversion from observed radii
-- ✅ Validation on established values (electron, Moon, Earth, Sun, Sgr A*)
-- ✅ Redshift evaluation across **GR**, **SR**, **GR×SR**, **Segmented** (hint/ΔM/hybrid/**geodesic**)
-- ✅ Optional Δ(M) scaling with JSON parameter override
-- ✅ Bootstrap CIs, exact binomial sign test, mass-binned medians, optional plots
-- ✅ Bound energy & structural α (π–φ bridge)
-
----
-
-## Reproducibility
-- Fast install: `pip install -r requirements.txt`
-- Exact snapshot: `pip install -r requirements-freeze.txt`
-- Python: 3.11.9
-- Artifacts (reports/JUnit) are written to `agent_out/`.
-
----
-
-## 🚀 Quick Start (best overall accuracy)
-
-```bash
-# Full pipeline (mass validation → redshift eval (hybrid) → bound energy)
-python segspace_all_in_one_extended.py all
-
-# Pure geodesic (GR×SR combination without ΔM scaling)
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
-```
-
-> **Tip:** `--prefer-z` forces using the `z` column if both `z` and (`f_emit_Hz`,`f_obs_Hz`) are present.
-
----
-
-## 🔧 CLI (single entry point)
-
-All major tasks live in **`segspace_all_in_one_extended.py`**.
-
-```text
-Commands:
-  validate-masses     Reconstruct masses from segmented radii
-  eval-redshift       Evaluate GR/SR/GR×SR/Seg models against a dataset (+stats)
-  bound-energy        Compute bound energy thresholds (α)
-  use-original        Load & introspect ./segspace_all_in_one.py (if present)
-  all                 Full pipeline (validate → eval-redshift (hybrid) → bound-energy)
-```
-
-### Common flags for `eval-redshift`
-```
---csv PATH                 Dataset (default: ./real_data_full.csv)
---prefer-z                 Prefer z column over frequency ratio
---mode {hint,deltaM,hybrid,geodesic}
---dmA --dmB --dmAlpha      Δ(M) parameters (floats)
---dm-file FILE             JSON containing A,B,Alpha (auto-detects nested 'best' keys)
---lo --hi                  Optional log10(M[kg]) window for Δ(M) normalization
---drop-na                  Require all models finite before medians/stats
---paired-stats             Exact binomial sign test (Seg vs GR×SR)
---ci NBOOT                 Bootstrap for median CIs (0 = off)
---bins N                   Mass-binned medians (log10M) (0 = off)
---plots                    Save hist/ECDF/box under out/figures
---filter-complete-gr       Restrict to rows with finite GR (fair GR median)
-```
-
-### Modes explained (plain)
-
-- **hint**: Use the column `z_geom_hint` (if present) as the GR‑like geometric part and combine it with the SR part.
-- **deltaM**: Take the GR redshift and multiply it by a mass‑dependent scaling Δ(M). Then combine the result with SR.
-- **hybrid**: If `z_geom_hint` exists for a row, behave like **hint**; otherwise behave like **deltaM**.
-- **geodesic**: Combine pure GR and SR only (no ΔM scaling).
-
-**Combination rule used in all modes:** we combine the two parts multiplicatively and subtract 1 at the end:  
-`combined_z = (1 + z_GR) * (1 + z_SR) - 1`
-
-### Examples
-```bash
-# Hybrid with Δ(M) params from file
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode hybrid --prefer-z --dm-file ".\agent_out\reports\deltaM_tuning_best.json" --ci 2000 --paired-stats --plots
-
-# Pure Δ(M) with explicit parameters
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode deltaM --prefer-z --dmA 10 --dmB 0.01 --dmAlpha 500 --ci 2000 --paired-stats --plots
-```
-
----
-
-## 📤 Outputs (by command)
-
-All outputs are created under **`./agent_out`**:
-
-```
-agent_out/
-  figures/
-    hist_abs_*.png, ecdf_abs_*.png, box_abs_seg_vs_grsr.png  (when --plots)
-  reports/
-    MANIFEST.json
-    mass_validation.csv
-    redshift_medians.json
-    redshift_cis.json                   (if --ci > 0)
-    redshift_paired_stats.json          (if --paired-stats)
-    redshift_binned.csv                 (if --bins > 0)
-    bound_energy.txt
-  logs/                                 (reserved)
-  data/                                 (reserved)
-```
-
----
-
-## 📚 Dataset schema (`real_data_full.csv`)
-
-Minimum header (order not strict, names are):
-```
-case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,f_emit_Hz,f_obs_Hz,
-lambda_emit_nm,lambda_obs_nm,v_los_mps,v_tot_mps,z_geom_hint,N0,source,r_emit_m
-```
-
-- `M_solar` – central mass in **solar masses** (float)
-- `r_emit_m` – emission radius in **meters** (if absent, only GR where computable will be finite)
-- `z` – observed redshift; **or** use `f_emit_Hz`/`f_obs_Hz` to compute `z = f_emit/f_obs - 1`
-- `v_los_mps`, `v_tot_mps` – velocities (SR). If missing, SR reduces accordingly.
-- `z_geom_hint` – optional GR-only piece (used by `--mode hint` / `--mode hybrid`)
-- Use `--prefer-z` to force `z` over frequencies when both are present.
-
----
-
-## 🧪 Mass validation
-
-Reconstructs mass from segmented radius for canonical objects.
-```bash
-python segspace_all_in_one_extended.py validate-masses
-```
-Writes: `agent_out/reports/mass_validation.csv`
-
----
-
-## 🔬 Bound energy & structural α
-
-Computes:
-- \(E_\text{bound} = \alpha \, m_e \, c^2\)
-- Threshold frequency \(f_\text{thr} = E_\text{bound} / h\)
-- Wavelength \( \lambda = h / (\alpha\, m_e\, c) \)
-
-```bash
-python segspace_all_in_one_extended.py bound-energy
-```
-Writes: `agent_out/reports/bound_energy.txt`
-
----
-
-## 📦 Additional utilities & papers
-
-The repo also contains supporting scripts used in the accompanying papers/presentations (bound-energy plots with and without ΔM, proof/roundtrip demos, enhanced test runners). See table in **Contents** below for a quick index.
-
----
-
-## 📁 Contents (highlights)
-
-| File / Dir                                      | Description                                                                                          |
-|-------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `segspace_all_in_one_extended.py`               | **Main** runner (validate masses, eval redshift, bound energy, full pipeline)                       |
-| `segspace_enhanced_test_better_final.py`        | Enhanced test runner (hint/ΔM/hybrid), JUnit & plots                                                 |
-| `final_test.py`                                 | Roundtrip validation for segmented mass reconstruction                                               |
-| `bound_energy_plot.py`                          | Bound energy comparisons (no ΔM)                                                                     |
-| `bound_energy_plot_with_frequenz_shift_fix.py`  | Bound energy comparisons (**with** ΔM)                                                               |
-| `segmented_full_calc_proof.py` / `compare_proof.py` | Proof/calculation demos                                                                             |
-| `real_data_full.csv`                            | Dataset (example)                                                                                    |
-| `requirements.txt`                              | Dependencies                                                                                         |
-| `plots/`, `tests/`                              | Optional visualization/tests                                                                          |
-
----
-
-## 🧰 Environment & reproducibility
-
-```bash
-# Python venv (recommended)
-python -m venv .venv
-. .venv/Scripts/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
----
-
-# ADDITIONAL INFORMATIONS
-
-**⚠️ Note:**  
-The **complete and up-to-date command reference** is explained in [`commands.md`](commands.md).  
-It contains all available commands, parameters, and examples – please check there first before running any scripts.
-
-This repository contains all Python scripts, datasets, and results generated as part of the research on the *Segmented Spacetime Theory*.  
-It unifies **Mass Projection**, **π–φ Bridge**, **Bound Energy**, and other calculations into a consistent framework.
-
-- **commands.md** – Example CLI commands for `segspace_all_in_one.py` with explanations of each subcommand and ready-to-run bash examples.
-
-- **API.md** – Documentation of the available functions, parameters, and expected inputs/outputs for programmatic access to the repository’s tools.
-
-- **Estimators.md** – Descriptions of the statistical and physical estimators used in the analysis, including formulas and usage notes.
-
-- **Sources.md** – Provenance of all S2/Sgr A* datasets, primary literature links, archive references, and a step-by-step reproducibility guide.
-
-- **DATA_SOURCES.md** – Overview of all datasets used in the project, their formats, origin, and any preprocessing steps applied.
-
-
-
-## Quick Start — best overall accuracy
-
-Quick start with:
-
-```
-python segspace_all_in_one_extended.py all
-python segspace_all_in_one_extended.py eval-redshift --csv ".\real_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
-```
-
-## 🔄 Full Execution with `run_all.py`
-
-The [`run_all.py`](./run_all.py) script runs **the entire workflow** in the correct order:  
-
-1. **Optional**: Fetch ESO Brγ data (`fetch_eso_br_gamma.py`)  
-2. **Analysis** with `segspace_enhanced_pi_bridge.py`  
-3. **Mass validation** with `segmented_all_mass_validate.py`  
-4. **Energy bounds** with `segmented_all_bound_energy.py`  
-
----
-
-### **Run with an existing CSV file (no fetching)**
-
-If you already have a prepared CSV file (`real_data_full.csv`), you can run everything directly:  
-
-```
-python run_all.py --fetch-mode skip --csv real_data_full.csv --out-dir results --prefer-z --top 10
-```
-
-If you want to fetch your own:
-
-```
-python run_all.py --fetch-mode full --csv real_data_full.csv --out-dir results --prefer-z --top 10 --token YOUR_ESO_BEARER_TOKEN
-```
-
----
-
-Clone the repository and move into Folder:
-```
-git clone https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results.git
-cd Segmented-Spacetime-Mass-Projection-Unified-Results
-````
-
-Run the hybrid pipeline (uses **hint** for S-stars, **deltaM** for all others).  
-This consistently gave the lowest median |Δz| in our comparisons.
-
-```
-python segspace_enhanced_test_better_final.py
-````
----
-```
-# 1) (optional) venv
-python -m venv venv && source venv/bin/activate
-
-# 2) Abhängigkeiten
-pip install -r requirements.txt
-
-# 3) Output-Verzeichnis
-mkdir -p out
-
-# 4) Kernläufe (Best-Performer zuerst)
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
-
-# 5) Roundtrip-/Beweis-Skripte
-python final_test.py                     
-python segmented_full_proof.py           
-python segmented_full_compare_proof.py   
-python segmented_full_calc_proof.py      
-
-# 6) Bound-Energy & Plots
-python bound_energy_plot.py
-python bound_energy_plot_with_frequenz_shift_fix.py
-
-
-````
----
-
-
-
-## Contents
-
-| File                                             | Description                                                                                          |
-|--------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)`       | License text for this project                                                                        |
-| `README.md`                                      | Usage guide and documentation                                                                        |
-| `bound_energy.py`                                | Calculates bound-electron mass and emitted photon energy based on local frequency shifts             |
-| `bound_energy_english.py`                        | English version of the bound energy calculation script                                               |
-| `bound_energy_plot.py`                           | Plots bound energy comparisons without ΔM correction                                                 |
-| `bound_energy_plot_with_frequenz_shift_fix.py`   | Plots bound energy comparisons with frequency shift (ΔM) correction                                  |
-| `bound_energy_results.csv`                       | CSV export of bound energy calculation results                                                       |
-| `bound_energy_with_deltaM.csv`                   | CSV export of bound energy results including ΔM corrections                                          |
-| `calculation_test.py`                            | Quick mass reconstruction tests and demos for segmented radius inputs                                |
-| `check.py`                                       | Runs internal consistency checks for the segmented spacetime model                                   |
-| `complete-math.py`                               | Step-by-step didactic demonstration of key calculations in segmented spacetime theory                |
-| `fetch_ligo.py`                                  | Fetches and preprocesses LIGO observational data for benchmarking                                    |
-| `final_test.py`                                  | Roundtrip validation tests for mass reconstruction via segmented radius                              |
-| `paper.py`                                       | Implements detailed sections and example reproductions from the Carmen Wrede & Lino Casu paper       |
-| `requirements.txt`                               | Lists Python package dependencies for reproducible setup                                             |
-| `segment_mass_results.csv`                       | CSV of computed mass inversion results from segmented mass functions                                 |
-| `segmented_full_calc_proof.py`                   | Full calculation proof routines for segmented mass inversion                                         |
-| `segmented_full_compare_proof.py`                | Comparative analysis of proof results against established benchmarks                                 |
-| `segmented_full_proof.py`                        | Main script to generate all model outputs and run symbolic checks                                    |
-| `segmented_mass.py`                              | Core library module implementing mass inversion and segmentation algorithms                          |
-| `segmented_spacetime_mass_validation.csv`        | CSV of segmented spacetime mass validation results                                                   |
-| `segmented_spacetime_mass_validation_full.csv`   | Full CSV of detailed segmented spacetime mass validation                                             |
-| `segmented_spacetime_mass_validation_perfect.csv`| CSV of perfect-case segmented spacetime mass validations                                             |
-| `carmen_qed_incompleteness_demo.py`              | Calculates and explains, with real astrophysical data, why only a fraction of the original photon energy is accessible at the detector in segmented spacetime; includes all computational steps and physical interpretation. |
-| `Segmentdichte-Analyse.py` | Calculates and visualizes the segment density profile σ(r) between the Schwarzschild radius (r_s) and the segment radius (r_phi). Shows how the segment density changes across this interval for different physical parameters, and provides both tabular and graphical output for further analysis or publication. |
-| [`estimators.md`](./estimators.md) | Defines and explains reproducible estimators that convert observations into model inputs (z_geom, r_phi, ΔM, segment density); includes SR removal, GR baselines, CV rules, robust metrics, pseudocode, and output formats. |
-| [`API.md`](./API.md)               | Documents the public API and CLI for the runners; lists function signatures, expected CSV schemas, modes (hint/deltaM/hybrid), report and debug outputs, and return types—serving as a stable reference for users and contributors. |
-| **segspace_all_in_one.py** | Unified script combining multiple calculations and modes (mass, π-bridge, bounds) |
-| **segspace_enhanced_pi_bridge.py** | Enhanced π–φ bridge calculation with additional modes and export options |
-| **segspace_mass_validate.py** | Validates mass projection calculations against empirical datasets |
-| **plots/** | Directory containing PNG and SVG plots for bound energy, mass projection, and π–φ bridge results |
-| **tests/** | Various test scripts for internal consistency and experimental formulas |
-| **.git/** | Git version control data (commits, branches, history) |
-| **.gitattributes** | Git attributes for file handling |
-| **.gitignore** | Ignore list for Git repository |
-| **requirements.txt** | List of Python dependencies required to run the scripts |
-
-## Bound Energy Scripts and Validation
-
-| File                                         | Purpose                                                                                                                                                                                           |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bound_energy_plot_with_frequenz_shift_fix.py | High-precision comparison between segmented spacetime (with ΔM correction) and classical gravitational redshift. Calculates, exports, and plots all values for selected astrophysical test cases. |
-| bound_energy_plot.py                         | Same as above, but **without** ΔM correction. Pure numerical comparison of the models, including CSV export and plot.                                                                             |
-| bound_energy_english.py                      | English version of the bound energy calculation script – implements all core functions, model comparison and CSV export for papers/presentations.                                                 |
-| bound_energy_with_deltaM.csv                 | Exported CSV containing all calculated values from `bound_energy_plot_with_frequenz_shift_fix.py`.                                                                                                |
-
-
-
-## 🚀 How to Run
-
-Make sure you have Python 3 installed. Then simply run:
-
-```bash
-python segmented_full_proof.py
-````
-
-## ⚙️ Setup with Virtual Environment
-
-To keep your environment clean and reproducible, it's recommended to run this project inside a virtual environment.
-
-### 🧰 Steps
-
-# 1. Create virtual environment (folder name: venv)
-```
-python3 -m venv venv
-````
-# 2. Activate the environment
-# On Linux/macOS:
-```
-source venv/bin/activate
-````
-# On Windows:
-```
-venv\Scripts\activate
-````
-
-# 3. Install required dependencies
-```
-pip install -r requirements.txt
-````
-## Second Content
-
-### `bound_energy.py`
-
-Calculates the bound‐electron mass and emitted photon energy from a local frequency shift, using the segmented-spacetime model developed in:
-
-> Wrede/Casu et al., “Segmented Spacetime: Bound Energy and the Structural Origin of the Fine-Structure Constant” (2025).
-
-- **Usage**:  
-  ```bash
-  python bound_energy.py
-  ````
-## Third Content
-
-
-`calculation_test.py` is the quick-start entry point for the **cycle-free mass calculation** via segment radius `r_phi`.
-
-| Option / Mode      | Description                                                                                                  |
-|--------------------|-------------------------------------------------------------------------------------------------------------|
-| `--rphi <value>`   | Returns the mass in kilograms for a single measured `r_phi` value.                                           |
-| `--demo`           | Runs a mini round (electron, moon, Earth, Sun) and demonstrates how precise the procedure works.             |
-
-### Examples
-
-
-# Calculate a single value
-```
-python calculation_test.py --rphi 1.0945634795e-57
-````
-# Start the demo round
-```
-python calculation_test.py --demo
-````
-### Fourth Content
-
-## ✅ `final_test.py` – Roundtrip Validation of Segmented-Spacetime Mass Reconstruction
-
-This script demonstrates that the segmented-spacetime model can reconstruct the rest mass of an object purely from its segmented radius – without relying on built-in constants like the Compton wavelength or classical radius.
-
-### What It Does
-
-- Takes known rest masses of test objects (electron, Moon, Earth, Sun).
-- Computes the segmented radius using:
-
-  r_phi = (G * m / c^2) * phi
-
-- Then inverts that radius back into mass via:
-
-  m = (c^2 * r_phi) / (G * phi)
-
-- Finally, it compares the original mass (M_in) with the reconstructed mass (M_out), and prints the relative error.
-
-### Why It Matters
-
-- No circular dependency: The mass is not hidden in the inputs.
-- No use of Compton wavelength or predefined scale lengths.
-- The reconstruction is based only on geometry and physical constants.
-
-This test directly avoids the circular logic found in other models, where mass is inserted via lambda_C and reappears in the result.
-
-### Example Output
-
----
-
-Segmented-Spacetime Roundtrip Mass Validation
-
-## Objekt     M\_in \[kg]     r\_phi \[m]       M\_out \[kg]     rel. error
-
-Electron   9.1094e-31    1.0946e-57      9.1094e-31      1.10e-50
-
-Moon       7.3420e+22    8.8220e-5       7.3420e+22      1.36e-50
-
-Earth      5.9722e+24    7.1761e-3       5.9722e+24      <1e-42
-
-Sun        1.9885e+30    2.3893e+3       1.9885e+30      <1e-42
-
----
-
-### Conclusion
-
-The `final_test.py` script confirms:
-
-- The segmented-spacetime model does not rely on hidden mass inputs.
-- It is free of circular logic.
-- Mass is derived from geometric structure alone.
-- The numerical error is near machine precision.
-
-
-This is a clean and direct demonstration that mass can be reconstructed from segmented spacetime – without assumptions, without shortcuts.
-
-## Contents of `paper.py`
-
-| Section                                                   | Description                                                                                                         |
-|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| 1. Constants & Imports                                    | Physical constants, mathematical libraries, and initialization                                                      |
-| 2. Effective Radius & Segmentation                        | Definition and calculation of segment length, segment count, and effective radius                                   |
-| 3. Classical Self-Energy                                  | Calculation of the classical electromagnetic self-energy                                                            |
-| 4. Structural Alpha Calculation                           | Derivation and inversion of the fine-structure constant (α) from structural parameters                              |
-| 5. Effective Radius with Fixed Alpha                      | Calculation of the classical electron radius with fixed α and m_e values                                            |
-| 6. Segment Length Inversion                               | Inversion of segment length φ from radius and segment count                                                         |
-| 7. Bound vs Free Energy & Rydberg Energy                  | Calculation of bound/free energy and Rydberg energy                                                                 |
-| 8. Photon Coupling Threshold                              | Calculation of the minimal wavelength and threshold frequency for photons in segmented spacetime                    |
-| 9. Example Calculation: Sagittarius A* (S2)               | Complete step-by-step example calculation from the paper, numerically reproduced                                    |
-|10. Utility: Classical Electron Radius                     | Direct verification of known values for α, m_e, and e                                                               |
-|11. Utility: Rydberg Energy                                | Demonstration of the energy range of bound electrons                                                                |
-|12. Utility: Photon Threshold Wavelength                   | Relationship between fine-structure constant and photon coupling                                                    |
-|13. Reference Statement                                    | Clear output/print for attribution to the original paper (DOI, authors, year, link)                                 |
-
----
-
-**Reference:**  
-Carmen Wrede, Lino P. Casu, Bingsi (2025):  
-_Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant_  
-Preprint · August 2025 · [DOI: 10.13140/RG.2.2.35006.80969](https://www.researchgate.net/publication/394248893)
----
-## `complete-math.py` — Step-by-Step Script for Segmented Spacetime Theory
-
-This script provides a **fully commented, didactic, and transparent step-by-step demonstration** of all key calculations from the papers by Carmen Wrede & Lino Casu, implementing the “Segmented Spacetime” model:
-
-### What does the script do?
-
-- **Mass reconstruction** from the segmented radius using the φ/2 constant and exponential correction, with **true Newtonian decimal-precision inversion**.
-- **Calculation of the local fine-structure constant** α from a measured frequency (e.g., as in the S2/Sgr A* test), and computation of the associated bound electron mass and threshold photon wavelength.
-- **Every single calculation step is explicitly explained in the output** — including all inputs, intermediate results, mathematical formulas, and the physical meaning of each result.
-
-### Features
-
-- **Explains every formula and physical constant** directly in the printout, line by line.
-- **Reproduces the Earth mass example** from segmented radius, showing both theory and inversion.
-- **Shows how to derive α<sub>local</sub> and m<sub>bound</sub>** from a single observed frequency.
-- **Checks mathematical consistency** (e.g. α × m<sub>bound</sub> × c² / h should recover the input frequency).
-- **Ideal for reviewers, teaching, or anyone who wants to understand the model without reading the full paper**.
-
-### Usage
-
-```bash
-python complete-math.py
-````
----
-### Why is there an energy difference between emitter and detector? (Physical explanation)
-
-The script `carmen_qed_incompleteness_demo.py` demonstrates that the classical idea of a photon "losing energy" as it travels through a gravitational field is incomplete.  
-In the segmented spacetime model, the **measured energy at the detector** (e.g., on Earth) does **not** decrease because the photon "loses" energy, but because the **local segmentation** (the discrete structure of space at the detector) limits how much energy can be extracted from the photon.
-
-- The photon's energy remains constant along its entire path.
-- However, our measuring instruments (the electrons on Earth) can only "tap" a **fraction of the original photon energy** – this fraction is set by the local segmentation parameter (N).
-- The stronger the gravitational field and the higher the segmentation at the detector, the less energy can be accessed from the original photon.
-- The apparent energy loss is thus **not a real energy loss of the photon itself**, but an effect of the spacetime structure at the detector.
-
-**Conclusion:**  
-The observed energy difference is directly explained by our model – it is not due to energy dissipation "on the way", but to the **local coupling/segmentation** between the photon and the detector.
----
----
-
-## QED Incompleteness Demo (`carmen_qed_incompleteness_demo.py`)
-
-This script demonstrates why the classical formula `E = m_e * c^2` and even QED are incomplete when strong gravity or segmented spacetime are present:
-
-- It uses a real astrophysical example (S2 star and Earth) to show how local segmentation (N) affects the measurable energy and the local electron mass.
-- The script calculates, from observed and emitted frequencies, the local fine-structure constant (`alpha_local`) and the bound electron mass (`m_bound`).
-- It explains and numerically demonstrates why, at the detector (e.g., on Earth), only a **portion of the original photon energy** can be accessed.
-- All formulas, calculation steps, and interpretations are printed and explained.
-
-**How to run:**
-```bash
-python carmen_qed_incompleteness_demo.py
-````
-
----
-
-# 📦 Final Test, Explain Run & Comparison CSV
-
-This section documents **three core files** in the repo and how to use them:
-
-* `segspace_final_test.py` — **strict, reproducible test runner**
-* `segspace_final_explain.py` — **explanatory runner** (prints per-case reasoning)
-* `real_data_30_segmodel.csv` — **comparison dataset** (alternatively: `real_data_30_segmodel_STRONG_NET.csv`)
-
----
-
-## 🔧 Requirements
-
-* Python ≥ 3.9
-* Packages: `pandas` (and optionally `scipy`; constants fall back if missing)
-
-```bash
-pip install pandas
-```
-
----
-
-## ✅ `segspace_final_test.py` — Final (strict) tests
-
-**Purpose:** runs tests T1–T6 and writes human/CI outputs so results are reproducible.
-
-**Run:**
-
-```bash
-# explicit CSV
-python segspace_final_test.py --csv real_data_30_segmodel.csv
-
-# auto-discovery (picks a sensible default in the working dir)
-python segspace_final_test.py
-
-# or via env var
-SEGSPACE_CSV=real_data_30_segmodel.csv python segspace_final_test.py
-```
-
-**Outputs (under `./out/`):**
-
-* `final_test_report.txt` — human-readable summary (metrics + test statuses)
-* `final_junit.xml` — CI-friendly JUnit
-* `final_failures.csv` — flat list of PASS/FAIL/SKIP with messages
-* `_final_test_debug.csv` — full per-row derived values & residuals
-
-**What is checked (high level):**
-
-* **T1** Nseg algebra consistency
-* **T2** bound-energy reconstruction (when freqs are present)
-* **T3** Seg-FIT ≈ 0
-* **T4** median |Δz| per category (**requires strong rows**)
-* **T5** physicality (e.g., $v<0.2c$)
-* **T6** S-stars comparison: Seg ≤ 1.2×GR (median |Δz|)
-
-**Important:**
-
-* A **strong row** requires **orbit mode**: `a_m` (in **meters**), `e`, `f_true_deg` (deg), and `M_solar` (in solar masses).
-* **GR** uses `r(a,e,f_true)` as fallback when `r_emit_m` is missing.
-* Observed **z** is taken **either** from `f_emit_Hz/f_obs_Hz` **or** directly from `z`. If *both* are set, **frequencies take precedence**. (If you want to force `z`, leave those frequency fields empty.)
-
----
-
-## 🔍 `segspace_final_explain.py` — Explanatory run
-
-**Purpose:** prints, per case, exactly how values were sourced/derived:
-
-* source of **z** (direct vs. from frequencies),
-* how **r\_eff** is obtained (`r_emit_m` vs. `r(a,e,f_true)`),
-* source of **v\_pred** (vis-viva, etc., and whether it’s *strong*),
-* **z\_pred(seg)**, **z\_GR**, **z\_SR**, **z\_GR×SR**, and **Δz**,
-* notes (e.g., if `v_los_mps` is missing → SR uses transverse part only).
-
-**Run:**
-
-```bash
-python segspace_final_explain.py --csv real_data_30_segmodel.csv
-# or let it auto-discover
-python segspace_final_explain.py
-```
-
-**Output (under `./out/`):**
-
-* `_explain_debug.csv` — full per-row matrix with provenance hints
-
----
-
-## 🗃️ `real_data_30_segmodel.csv` — Data schema & minimum fields
-
-**Header (as used by the runners):**
-
-```
-case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,v_los_mps,v_tot_mps,z_geom_hint,N0,source
-```
-
-**Key columns & units:**
-
-* `case` — identifier (e.g., `S2_SgrA*`)
-* `category` — e.g., `S-stars`, `Solar`, `WhiteDwarf`, `Lab/Geo`
-* `M_solar` — central mass in **solar masses** (e.g., Sgr A\*: \~4.3e6)
-* `a_m` — semi-major axis in **meters** (not mpc!)
-* `e` — eccentricity
-* `P_year`, `T0_year` — period (years), reference epoch
-* `f_true_deg` — true anomaly in **degrees** (pericenter = 0)
-* `z` — **observed** redshift $(\Delta\lambda/\lambda)$ **or**:
-
-  * `f_emit_Hz` and `f_obs_Hz` — then $z = f_{\rm emit}/f_{\rm obs}-1$ is computed internally
-    *(Tip: if you want to force `z`, leave the frequency fields empty.)*
-* `v_los_mps` — line-of-sight velocity (m/s), if available
-* `z_geom_hint` — optional **pure GR component** at the given $r$ (helps the Seg-PRED split)
-* `N0` — default `1.0000000028` (project convention)
-* `source` — provenance note
-
-**Example S2 row (2018 pericenter, measured z; frequencies empty):**
-
-```csv
-S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,0.0006671281903963041,,,,,0,,0.0003584,1.0000000028,GRAVITY 2018 Pericenter (z); orbit per table
-```
-
----
-
-## 🧪 Quickstart
-
-```bash
-# 1) Put the CSV in place (or use the provided STRONG_NET variant)
-cp real_data_30_segmodel.csv .
-
-# 2) Run strict tests
-python segspace_final_test.py --csv real_data_30_segmodel.csv
-
-# 3) Run the explanatory pass
-python segspace_final_explain.py --csv real_data_30_segmodel.csv
-```
-
----
-
-## 🩺 Troubleshooting
-
-* **T4\_pred\_S-stars = FAIL**
-  Check the S2 row:
-
-  * If `f_emit_Hz/f_obs_Hz` are set, they override `z`. → clear those fields and set `z` explicitly.
-  * Ensure `a_m` is in **meters**, `e` is correct, and `f_true_deg` matches the epoch (pericenter = 0).
-  * Optionally set `z_geom_hint` to the GR-only part at that $r$.
-
-* **No “strong rows”**
-  You’re missing orbit fields: `a_m` (m), `e`, `f_true_deg`, `M_solar`. Without those, T4 often **SKIPs**.
-
-* **Pandas error**
-  Install it: `pip install pandas`.
-
-
----
-
-# ⚙️ Minimal setup & reproducibility (Python-first)
-
-You know Python. Here’s the shortest, deterministic path.
-
-## Environment (pick one)
-
-### (A) Plain `venv` + pinned deps (traditional)
-
-```bash
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### (B) Conda/Mamba (if you already live there)
-
-```bash
-mamba create -n segspace python=3.11 -y
-conda activate segspace
-pip install -r requirements.txt
-```
-
-*(Optional)* If you use `uv`:
-
-```bash
-uv venv && . .venv/bin/activate
-uv pip install -r requirements.txt
-```
-
-> Tested with Python **3.10–3.11**. No system-wide installs, no sudo.
-
----
-
-## What to run (strict vs. explain)
-
-### 1) Final tests (strict, CI-style)
-
-```bash
-python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
-```
-
-Outputs to `./out/`:
-
-* `final_test_report.txt` — human summary
-* `final_junit.xml` — CI
-* `_final_test_debug.csv` — per-row residuals
-
-### 2) Explain run (prints per-case reasoning)
-
-```bash
-python segspace_final_explain.py --csv real_data_30_segmodel.csv --prefer-z
-```
-
-Output: `./out/_explain_debug.csv`
-
-**Flag discipline**
-
-* `--csv` selects the dataset; default is auto-discovery.
-* `--prefer-z` forces the runner to use the `z` column over any `f_emit/f_obs` if both are present (prevents accidental overrides).
-
----
-
-## The three core files
-
-* **`segspace_final_test.py`** — strict, reproducible test suite (T1–T6).
-  Requires “strong rows” for category comparisons: `a_m` (meters), `e`, `f_true_deg` (deg), `M_solar` (solar masses). GR uses `r(a,e,f_true)` as fallback if `r_emit_m` is missing.
-
-* **`segspace_final_explain.py`** — prints exactly how each quantity was sourced/derived per row: `z` (direct vs. frequency), `r_eff` (`r_emit_m` vs. `r(a,e,f_true)`), `v_pred` (vis-viva), `z_pred(seg)`, `z_GR`, `z_SR`, `z_GR×SR`, residuals, and any caveats (e.g., missing `v_los_mps`).
-
-* **`real_data_30_segmodel.csv`** — comparison data (see schema below). Use the provided locked variant for reproducible baselines if needed: `real_data_30_segmodel_LOCKED.csv`.
-
----
-
-## CSV schema (no surprises)
-
-Header (exact order used by the runners):
-
-```
-case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,
-z,f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,
-v_los_mps,v_tot_mps,z_geom_hint,N0,source
-```
-
-Key points:
-
-* `a_m` is **meters** (not mpc).
-* If you set both `z` and (`f_emit_Hz`,`f_obs_Hz`), **frequencies win** unless you pass `--prefer-z`.
-* `z_geom_hint` can hold the pure GR part at the given radius (helps the segmented model’s split).
-* “Strong rows” = orbit mode present: `a_m`, `e`, `f_true_deg`, `M_solar`.
-
-**S2 example (2018 pericenter, measured `z`; frequencies empty):**
-
+**Key points**
+- `a_m` is meters.
+- If both `z` and frequencies are set, frequencies win unless `--prefer-z`.
+- `z_geom_hint` may hold the pure GR part.
+- “Strong rows” require `a_m, e, f_true_deg, M_solar`.
+
+**S2 example (2018 pericenter)**
 ```csv
 S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,
 0.0006671281903963041,,,,,0,,0.0003584,1.0000000028,GRAVITY 2018 Pericenter (z); orbit per table
@@ -1291,121 +153,187 @@ S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,
 
 ---
 
+## Quick Overview (Segmented Spacetime vs. GR/SR)
+
+Result snapshot (median |Δz|, lower is better):
+- SEG (φ/2 + Δ(M)): 1.31e-4
+- SR: 1.34e-2
+- GR ≈ GR×SR: 2.25e-1
+
+Paired comparison: SEG better in 66/67 cases (two-sided binomial p ≈ 9.2e-19).
+Mass bins: In all bins SEG < GR×SR.
+
+### One-liner (auto mode, no fits)
+```bash
+python run_all_ssz_terminal.py
+```
+Output: verbose terminal explanation + JSON summary at `full_pipeline/reports/summary_full_terminal_v3.json`.
+Run prints SHA-256 of dataset, code, and runner. PPN far-field unchanged.
+
+---
+
 ## Repro in one line
-
 ```bash
-python -m venv .venv && . .venv/bin/activate \
-&& pip install -r requirements.txt \
-&& python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
+python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt && python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
 ```
 
-## Common sense checks
-
-* If T4 “strong rows” are SKIP: you’re missing orbit fields (`a_m`, `e`, `f_true_deg`, `M_solar`).
-* If residuals look absurd: verify units (meters), and clear `f_emit/f_obs` when you intend to use `z`.
-* If `pandas` “not found”: you skipped `requirements.txt`.
-
----
-Nice. Dann packen wir’s sauber in die README – plus eine kurze Content-Liste der neuen Files. Unten sind **zwei Copy-Blöcke**: 1) ein fertiger README-Abschnitt (Englisch), 2) eine „New files“-Tabelle.
-
 ---
 
-````markdown
-# ✅ Segspace — Enhanced Tests (hint / GR×SR / Δ(M))
+## Full Execution
 
-This repository now includes a **reproducible, strict test runner** that compares the segmented-spacetime predictions against GR, SR, and GR×SR on a curated S-stars dataset.
+### `run_all.py`
+End-to-end workflow:
+1) optional ESO Brγ fetch, 2) analysis, 3) mass validation, 4) energy bounds.
 
-## How to run
-
+**Run with existing CSV**
 ```bash
-# Recommended (forces z column over f_emit/f_obs if both present)
-python segspace_enhanced_test.py --csv real_data_30_segmodel.csv --prefer-z --seg-mode hint --plots --junit
-````
+python run_all.py --fetch-mode skip --csv real_data_full.csv --out-dir results --prefer-z --top 10
+```
+**Fetch your own**
+```bash
+python run_all.py --fetch-mode full --csv real_data_full.csv --out-dir results --prefer-z --top 10 --token YOUR_ESO_BEARER_TOKEN
+```
 
-### Modes
+**Clone**
+```bash
+git clone https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+cd Segmented-Spacetime-Mass-Projection-Unified-Results
+```
 
-* `--seg-mode hint`  → uses `z_geom_hint` (geometric GR) and mixes SR:  $(1+z_\text{seg})=(1+z_\text{hint})(1+z_\text{SR})-1$.
-* `--seg-mode grsr`  → identical to GR×SR baseline.
-* `--seg-mode deltaM` → applies a **relative** Δ(M) scaling to the geometric GR part only:
+### Hybrid pipeline (best median |Δz|)
+```bash
+python segspace_enhanced_test_better_final.py
+```
 
-  $$
-    z_{\rm GR,scaled} = z_{\rm GR}\,(1+\Delta M_{\rm frac}), \quad
-    \Delta M = (A\,e^{-\alpha\,r_s}+B)\cdot \mathrm{norm}(\log_{10}M)
-  $$
-
-  (A,B in percent; $r_s=2GM/c^2$). Example:
-
-  ```bash
-  python segspace_enhanced_test.py --csv real_data_30_segmodel.csv \
-    --prefer-z --seg-mode deltaM \
-    --deltam-A 4.0 --deltam-B 0.0 --deltam-alpha 1e-11 --plots --junit
-  ```
-
-## Current results (S-stars, 9 strong rows)
-
-Input: `real_data_30_segmodel.csv`
-SHA256: `9f4c562b8adb4afd9ddadb2e09907186304fe856e75ea9c89dad56617d5e85f9`
-
-**Median / Mean / Max |Δz|**
-
-| Model          |         Median |           Mean |            Max |
-| -------------- | -------------: | -------------: | -------------: |
-| **Seg (hint)** | **2.9078e-05** | **2.3524e-04** | **1.1407e-03** |
-| GR             |    1.26498e-04 |     5.0124e-04 |     2.2231e-03 |
-| SR             |    1.44816e-04 |     5.2014e-04 |     2.2485e-03 |
-| GR×SR          |     2.9108e-05 |     2.3526e-04 |     1.1407e-03 |
-
-Notes:
-
-* **Seg (hint)** ≈ **GR×SR** (as expected when `z_geom_hint` ≈ GR geometric part).
-* `deltaM` (with the **fixed relative** scaling) yields similar residuals; on pure S-stars (single mass scale) it does **not** outperform hint/GR×SR without broader mass diversity for calibration.
-
-## Outputs
-
-Generated under `./out/`:
-
-* `enhanced_report.txt` — summary
-* `_enhanced_debug.csv` — per-row derivations (provenance of z, r\_eff source, v\_los sanitization, z\_GR, z\_SR, z\_GR×SR, z\_seg, residuals)
-* `enhanced_junit.xml` — CI-friendly check (Seg median ≤ 1.2×GR median)
-* `hist_*.png` — residual histograms (if `--plots`)
-
-## Strong rows (requirements)
-
-A row is considered **strong** if it has orbit mode fields:
-`a_m` (meters), `e`, `f_true_deg` (deg), `M_solar` (solar masses).
-GR uses `r(a,e,f_true)` as fallback if `r_emit_m` is missing.
-If both `z` **and** `f_emit/f_obs` are set, `--prefer-z` forces using `z`.
-
+**Recommended kernel runs**
+```bash
+# venv
+python -m venv venv && source venv/bin/activate
+# deps
+pip install -r requirements.txt
+# output dir
+mkdir -p out
+# core runs
+python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
+python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
+python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
+# proofs / round-trips
+python final_test.py
+python segmented_full_proof.py
+python segmented_full_compare_proof.py
+python segmented_full_calc_proof.py
+# bound-energy
+python bound_energy_plot.py
+python bound_energy_plot_with_frequenz_shift_fix.py
+```
 
 ---
 
-## New files (content list)
+## Independent replication call
 
-| File | Purpose |
+Environment: Python 3.11  
+One-command run:
+```
+python ssz_covariant_smoketest_verbose_lino_casu.py && python test_ppn_exact.py && python test_c1_segments.py && python test_energy_conditions.py && python shadow_predictions_exact.py && python qnm_eikonal.py && python test_c2_segments_strict.py
+```
+Expected: PPN β=1, γ=1; Sgr A* shadow 53.255 µas; M87* 39.689 µas; no NaN/Inf. Report OS/CPU/Python/results.
+
+---
+
+## Additional Information
+
+The complete and up-to-date command reference is in `commands.md`.
+This repo unifies Mass Projection, π–φ Bridge, Bound Energy, and related calculations. See also `API.md`, `Estimators.md`, `Sources.md`, and `DATA_SOURCES.md`.
+
+Quick start with:
+```bash
+python segspace_all_in_one_extended.py all
+python segspace_all_in_one_extended.py eval-redshift --csv ".
+eal_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
+```
+
+---
+
+## Complete File List
+
+| File / Dir | Description |
 |---|---|
-| `segspace_enhanced_test.py` | Enhanced, reproducible test runner comparing **Seg (hint / grsr / deltaM)** vs **GR / SR / GR×SR**. Robust handling of `NaN` in `v_los_mps` (treated as 0.0), SHA256 print, optional plots & JUnit, full debug CSV. |
-| `segspace_final_test.py` | Strict CI-style suite (T1–T6), writes `final_test_report.txt`, `final_junit.xml`, `_final_test_debug.csv`, `final_failures.csv`. |
-| `segspace_final_explain.py` | Explanatory runner: prints per-case sourcing/derivation (`z` provenance, `r_eff` path, vis-viva, z-components, residuals). Writes `_explain_debug.csv`. |
-| `real_data_30_segmodel.csv` | Current S-stars comparison dataset (9 strong rows). If you set both `z` and `f_emit/f_obs`, use `--prefer-z` to ensure measured `z` is used. |
-
+| `run_all.py` | Top-level runner. |
+| `run_all_ssz_terminal.py` | Deterministic SSZ CLI runner. |
+| `segspace_all_in_one.py` | All-in-one toolkit (π-bridge, mass-validate, bound-energy, …). |
+| `segspace_all_in_one_extended.py` | Enhanced v2 pipeline. |
+| `segspace_final_test.py` | T1–T6 suite, report + JUnit XML. |
+| `segspace_enhanced_test_better_final.py` | GR/SR/GR×SR comparisons. |
+| `segspacetime_quick_tests.py` | Convenience wrapper. |
+| `phi_test.py` | φ-step residuals and summary. |
+| `phi_bic_test.py` | ΔBIC (uniform vs φ-lattice) + sign tests. |
+| `compute_vfall_from_z.py` | Compute `v_fall` and check `v_esc v_fall=c^2`. |
+| `test_vfall_duality.py` | Smoke test of γ-duality and product. |
+| `segmented_full_proof.py` | Proof/round-trip routines. |
+| `segmented_full_calc_proof.py` | Calculation trace. |
+| `segmented_full_compare_proof.py` | Compare proof outputs vs baselines. |
+| `segmented_mass.py` | Mass inversion utilities. |
+| `bound_energy.py` | Bound-energy derivation. |
+| `bound_energy_english.py` | Simplified bound-energy demo. |
+| `bound_energy_plot.py` | Bound-energy comparisons; CSV + plot. |
+| `bound_energy_plot_with_frequenz_shift_fix.py` | Bound-energy with emission-freq shift fix. |
+| `paper.py` | Reproduces numeric example from bound-energy paper. |
+| `check.py` | Fine-structure constant check. |
+| `calculation_test.py` | Small calculation sanity tests. |
+| `complete-math.py` | Collated formula path. |
+| `shadow_predictions_exact.py` | Exact shadow sizes (Sgr A*, M87*). |
+| `qnm_eikonal.py` | BH QNM (eikonal) cross-check. |
+| `Segmentdichte-Analyse.py` | Segment density analysis σ(r). |
+| `vergleich.py` | Comparison chart. |
+| `vergleich_2.py` | Updated comparison chart. |
+| `real_data_full.csv` | Master dataset. |
+| `bound_energy_results.csv` | Bound-energy results. |
+| `bound_energy_with_deltaM.csv` | Bound-energy with Δ(M). |
+| `segmented_spacetime_mass_validation*.csv` | Mass validation tables. |
+| `segment_mass_results.csv` | Per-object mass/segment outputs. |
+| `README.md` | Project overview & quickstart. |
+| `API.md` | Public API of scripts/modules. |
+| `commands.md` | Usage guide. |
+| `DATA_SOURCE(S).md` | Data provenance. |
+| `Sources.md` | External sources and links. |
+| `CITATION.cff` | Citation metadata. |
+| `requirements.txt`, `requirements-freeze.txt` | Dependencies and pinned env. |
+| `.github/workflows/ci.yml` | CI workflow. |
+| `carmen_qed_incompleteness_demo.py` | Photon-energy accessibility demo with data and interpretation. |
 
 ---
-### FOR BEST RESULTS OPEN:
 
-```
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
-  python segspace_enhanced_test_better.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
-````
-or 
-```
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint --plots --junit
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode deltaM --deltam-A 3.5 --deltam-B 0.2 --plots
-  python segspace_enhanced_test_better_final.py --csv real_data_full.csv --seg-mode hybrid --plots --junit
-````
+## Notes on Reproducibility
+
+- Deterministic execution. PPN far-field unchanged (β=γ=1).
+- The run prints SHA-256 hashes of dataset, code, and runner.
+- Please report OS/CPU/Python when replicating.
 
 ---
-END OR REPO
+
+## Appendix: S-stars enhanced tests (hint / GR×SR / Δ(M))
+
+This repo includes a strict test runner comparing SEG vs GR, SR, GR×SR on a curated S-stars set, with modes:
+- `--seg-mode hint` uses `z_geom_hint` and mixes SR via `(1+z_seg)=(1+z_hint)(1+z_SR)-1`.
+- `--seg-mode grsr` equals GR×SR.
+- `--seg-mode deltaM` applies a **relative** Δ(M) scaling to the GR part only:  
+  `z_GR,scaled = z_GR * (1+ΔM_frac)`, with `ΔM = (A*exp(-α*r_s)+B) * norm(log10 M)`; `r_s=2GM/c^2`.
+
+Example:
+```bash
+python segspace_enhanced_test_better_final.py --csv real_data_30_segmodel.csv   --prefer-z --seg-mode deltaM   --deltam-A 4.0 --deltam-B 0.0 --deltam-alpha 1e-11 --plots --junit
+```
+
+**Current results (S-stars, 9 strong rows)**  
+Median/Mean/Max |Δz| show Seg(hint) ≈ GR×SR where `z_geom_hint` ≈ GR geometric part. Δ(M) with fixed relative scaling is similar on a single mass scale.
+
+---
+
+**License:** ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4).
+
+**Repository goal:** Cover theory, numerics, and validation needed to support segmented spacetime: φ/2 scale-link, Schwarzschild baseline, saturation of segment density near horizon, GR recovery in weak field, Δ(M) mass inversion. Validations include mass round-trip ≤1e-6 %, redshift/frequency checks ~1e-6, and PPN consistency.
+
+**End.**
 
 
 
