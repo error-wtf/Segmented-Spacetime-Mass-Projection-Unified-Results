@@ -31,7 +31,7 @@ https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Proje
 | `phi_test.py`                                     | φ-step residuals and summary (median residual).                                       |
 | `phi_bic_test.py`                                 | Model selection: ΔBIC (uniform vs. φ-lattice) + sign tests.                           |          
 | `compute_vfall_from_z.py`                         | Compute $v_\text{fall}$ from z/ratios; check $v_\text{esc} v_\text{fall}=c^2$.        |          
-| `test_vfall_duality.py`                           | Smoke test: $ \gamma_\mathrm{GR}(r)=\gamma_\mathrm{dual}(v_\text{fall})$ and product. |         
+| `test_vfall_duality.py`                           | Smoke test: γ_GR(r) = γ_dual(v_fall) and product.|         
 | `fetch_eso_br_gamma.py`                           | Pull Br-γ spectra from ESO; generate raw/enriched CSVs.                               |          
 | `enrich_brgamma.py`                               | Clean/enrich scraped spectra (fill missing fields).                                   |         
 | `fetch_ligo.py`                                   | Retrieve LIGO GW event snippets (optional, supplemental).                             |          
