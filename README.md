@@ -205,7 +205,96 @@ python shadow_predictions_exact.py
 ```
 
 ---
-Here’s a clean, paste-ready README block in English:
+
+
+# v\_fall from z (Duality Check)
+
+This module tests the duality between escape velocity and “fall” velocity in segmented spacetime directly on your dataset.
+
+## Core idea
+
+* GR redshift: `gamma_GR = 1 / sqrt(1 - r_s/r)`
+
+* Observation: `gamma_obs = 1 + z`
+
+* Dual Lorentz form: `gamma_dual(v_fall) = 1 / sqrt(1 - (c/v_fall)^2)`
+
+* Segment duality enforces `gamma_dual(v_fall) = gamma_obs`, hence
+
+  `v_fall(z) = c / sqrt(1 - 1/(1+z)^2)`
+
+* Newton/GR link: `v_esc(r) = sqrt(2*G*M/r)` and the duality
+
+  `v_esc * v_fall = c^2`
+
+## Script: `compute_vfall_from_z.py`
+
+Computes `v_fall` per row and checks:
+
+* phi-step residual: `abs( round( ln(1+z)/ln(phi) ) - ln(1+z)/ln(phi) )`
+* Product test (if `v_esc` can be computed from `M,r`): `(v_esc * v_fall)/c^2 ≈ 1`
+
+### Inputs
+
+CSV containing one of:
+
+* `z`, or
+* `f_emit`, `f_obs` (uses `1+z = f_emit/f_obs`), or
+* `ratio` (equal to `f_emit/f_obs`).
+
+Optional (for product test): `M`, `r` to compute `v_esc`.
+
+### Examples
+
+```bash
+# use z directly
+python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out --z-col z
+
+# use frequencies instead of z
+python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out \
+  --f-emit f_emit_Hz --f-obs f_obs_Hz
+```
+
+### Console output (typical)
+
+* `rows used`: rows remaining after cleaning
+* `abs_residual_median`: median |phi-residual| (closer to 0 ⇒ clearer phi-stepping)
+* `prod_rel_err_median`: median relative error of `v_esc * v_fall = c^2` (0 ⇒ exact)
+
+### Files in `--outdir`
+
+* `vfall_results.csv`: per-row `z`, `v_fall`, residuals, optional `v_esc` and product error
+* `vfall_summary.json`: key metrics (mirrors console)
+* optional plots if enabled
+
+## Additional tests
+
+### phi BIC / sign tests
+
+```bash
+python phi_test.py     --in real_data_full.csv --outdir out
+python phi_bic_test.py --in real_data_full.csv --outdir out \
+  --f-emit f_emit_Hz --f-obs f_obs_Hz --tol 1e-3
+```
+
+Reports median residual, ΔBIC (uniform vs. phi-lattice), and sign-test p-value.
+
+### Quick duality smoke test
+
+```bash
+python test_vfall_duality.py --mass Earth --r-mults 1.1,1.2,2,5,10
+```
+
+Verifies (to machine precision) `v_esc * v_fall = c^2` and `gamma_GR(r) = gamma_dual(v_fall)`.
+
+## Interpretation
+
+* `abs_residual_median ≈ 0` → strong phi-stepping
+* `ΔBIC (uniform − lattice) >> 0` → phi-lattice strongly preferred
+* `prod_rel_err_median ≈ 0` → duality `v_esc * v_fall = c^2` holds
+
+
+---
 
 ### φ-Step (Phi) Metric Test
 
