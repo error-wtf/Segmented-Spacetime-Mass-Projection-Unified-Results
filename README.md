@@ -66,23 +66,49 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 
 ## What this repository is
 
-* A reproducible **reference implementation** of SSZ projection tests with a deterministic end-to-end runner (`run_all_ssz_terminal.py`) and machine-readable reports.
-* A **battery of physics checks** spanning weak- and strong-field regimes (PPN tests, light bending, Shapiro delay, perihelion precession; photon sphere/ISCO; QNM eikonal; shadow predictions).
-* **Geodesic/Lagrangian tests** (no fitting): null & timelike circular orbits, orbital frequencies.
-* **Energy conditions:** WEC/DEC/SEC evaluated for the metric; controlled violations only inside a few r\_s.
-* **Dual-velocity invariant:** verifies (v\_esc \* v\_fall)/c^2 -> 1 within numerical precision.
-* **Mass validation:** round-trip/Newton inversion across 30+ astrophysical objects **plus the electron** with negligible numerical error.
-* **Redshift benchmarks:** paired sign-tests vs. curated data; SSZ wins in the vast majority of pairs; detailed per-row explainers for S-stars.
-* **Effective stress–energy (diagnostic):** reverse-engineers a conserved **effective** T(mu, nu) for the chosen static, spherically symmetric metric; reports compact symbolic rho(r), p\_r(r), p\_t(r) and checks div T \~ 0 at user-selected radii.
-* A **research artifact** for independent re-runs, ablations, and plug-in comparisons; a living workspace for CI, curated datasets, and benchmark extensions.
+* A reproducible reference implementation of SSZ projection tests with a deterministic runner (`run_all_ssz_terminal.py`) and machine-readable reports.
+* A battery of physics checks spanning weak- and strong-field regimes (PPN tests, light bending, Shapiro delay, perihelion precession; photon sphere/ISCO; QNM eikonal; shadow predictions).
+* Geodesic/Lagrangian tests (no fitting): null & timelike circular orbits, orbital frequencies.
+* Energy conditions: WEC/DEC/SEC evaluated for the metric; controlled violations only inside a few Schwarzschild radii.
+* Dual-velocity invariant: verifies that escape-velocity × fall-velocity ≈ c² within numerical precision.
+* Mass validation: round-trip/Newton inversion across 30+ astrophysical objects plus the electron with negligible numerical error.
+* Redshift benchmarks: paired sign-tests vs. curated data; SSZ wins in the vast majority of pairs; detailed per-row explainers for S-stars.
+* Effective stress–energy (diagnostic): reverse-engineers a conserved effective T(mu,nu) for the chosen static, spherically symmetric metric; compact symbolic rho(r), p_r(r), p_t(r); divergence check ~ 0.
+* Action-based scalar (exterior, experimental): SSS module with anisotropic kinetic weight Z_parallel(phi) that generates the pressure anisotropy from an action. Numerically stabilized (caps, log-radius grid, horizon guard). CSV export with key diagnostics.
+* A research artifact for independent re-runs, ablations, and plug-in comparisons; a living workspace for CI, curated datasets, and benchmark extensions.
 
 ## What this repository is not
 
-* **Not a complete field theory.** We provide an effective metric, geodesic/Lagrangian tests, and a reverse-engineered, divergence-free effective T(mu, nu) as a diagnostic. **Still no** fundamental gravitational/matter action, **no** derived field equations, and **no** microphysical stress–energy dynamics.
-* **Not** a claim of intrinsic variation of fundamental constants: `alpha_loc` is a **projection parameter** for observables.
-* **Not** an assertion about black-hole information release.
-* **Not** a proof of EHT agreement (we include shadow predictions for reference only).
-* **Not** a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
+* Not a complete field theory. The core repo provides an effective metric, geodesic/Lagrangian tests, and a reverse-engineered, divergence-free effective T(mu,nu) as a diagnostic.  
+  The action-based scalar module is exterior-only by default and intended for experiments; it does not claim microphysical completeness or interior stellar modeling.
+* Not a claim of intrinsic variation of fundamental constants: `alpha_loc` is a projection parameter for observables.
+* Not an assertion about black-hole information release.
+* Not a proof of EHT agreement (shadow predictions are included for reference only).
+* Not a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
+
+---
+
+## Action-based scalar (exterior) — model & numerics (experimental)
+
+Idea in one sentence: keep Einstein–Hilbert gravity and add a scalar field whose kinetic weight is direction-selective along the radial unit vector; this produces a physically motivated pressure anisotropy (tangential minus radial) proportional to the squared radial gradient of the field.
+
+**Consistency with the Segmented-Spacetime principle.**
+This module respects the SSZ projection picture: the metric/kinematics used elsewhere in the repo are unchanged; the anisotropy arises from the matter action via the radial kinetic weight Z_parallel(phi), not from ad-hoc Δ terms. The dual-velocity invariant and all GR/SR comparison tests remain intact; deviations appear only through the scalar’s Δφ and Z(φ) profiles in the exported CSV. Exterior-only by default.
+
+Key properties
+- SSS setup; only the radial derivative of the scalar is active.
+- Anisotropy generated by Z_parallel(phi); no hand-tuned Δ.
+- Stable numerics: smooth caps for phi and phi', log-radius grid (`coord=lnr`), LSODA→Radau fallback, horizon guard.
+
+Quick start (exterior)
+```
+python ssz_theory_segmented.py --M 1.98847e30 --mode exterior --coord lnr --rmin-mult 1.05 --rmax-mult 12 --grid 200 --rho0 0 --pr0 0 --cs2 0.30 --phi0 1e-4 --phip0 0 --mphi 1e-7 --lam 1e-6 --Z0 1.0 --alpha 3e-3 --beta -8e-3 --phi-cap 5e-3 --phip-cap 1e-3 --Zmin 1e-8 --Zmax 1e8 --max-step-rs 0.02 --export out_theory_exterior.csv
+```
+
+Quick start (interior)
+```
+python ssz_theory_segmented.py --M 1.98847e30 --mode interior --coord lnr --rmin-mult 1.05 --rmax-mult 12 --grid 200 --m0 0 --rho0 1e-18 --pr0 1e-20 --cs2 0.30 --phi0 1e-4 --phip0 0 --mphi 1e-7 --lam 1e-6 --Z0 1.0 --alpha 3e-3 --beta=-8e-3 --phi-cap 5e-3 --phip-cap 1e-3 --Zmin 1e-8 --Zmax 1e8 --max-step-rs 0.02 --abort-on-horizon --horizon-margin 1e-6 --export out_theory_interior.csv
+```
 
 ---
 
@@ -237,8 +263,7 @@ CSV with one of: `z` **or** `f_emit,f_obs` (uses `1+z=f_emit/f_obs`) **or** `rat
 python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out --z-col z
 
 # use frequencies instead of z
-python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out \
-  --f-emit f_emit_Hz --f-obs f_obs_Hz
+python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out --f-emit f_emit_Hz --f-obs f_obs_Hz
 ```
 
 **Console output (typical)**
@@ -306,9 +331,7 @@ Mass bins: in all bins SEG < GR×SR.
 
 ## One‑line repro
 ```bash
-python -m venv .venv && . .venv/bin/activate \
-&& pip install -r requirements.txt \
-&& python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
+python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt && python segspace_final_test.py --csv real_data_30_segmodel.csv --prefer-z
 ```
 
 ---
@@ -352,8 +375,7 @@ mkdir -p out
 python segspace_all_in_one_enhanced.py all
 
 # Redshift evaluation only (geodesic baseline), with paired stats and plots
-python segspace_all_in_one_enhanced.py eval-redshift --csv ".\real_data_full.csv" \
-  --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
+python segspace_all_in_one_enhanced.py eval-redshift --csv ".\real_data_full.csv" --mode geodesic --prefer-z --ci 2000 --paired-stats --plots
 
 # Mass validation
 python segspace_all_in_one_enhanced.py validate-mass --csv ".\real_data_full.csv"
