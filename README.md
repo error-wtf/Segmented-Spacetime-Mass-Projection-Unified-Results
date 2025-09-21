@@ -13,6 +13,22 @@ Autorunner Precision Test:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
 https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
 )
+
+This Colab runs our **deterministic SSZ pipeline** end-to-end (no fitting).  
+It fetches the pinned dataset, verifies checksums, runs the same scripts as in `run_all_ssz_terminal.py`, and
+**asserts** key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
+
+**Inputs (pinned):**
+- `real_data_full.csv` — SHA256: `c6b503e14a822dbc465e0aae280255d33d602a8482f6136c0e2a4bceffb3f717`
+
+**Expected highlights (tolerances):**
+- Paired sign-test: Seg better **≥ 66/67**, p ≤ `1e-18`
+- PPN β=γ=1 (|Δ| < 1e-12)  
+- Mass roundtrip rel.err ≤ `1e-42` (numerical zeros)  
+- φ-lattice ΔBIC ≥ `+100`  
+- Dual invariant: max |(v_esc·v_fall)/c² − 1| = `0` (within machine precision)
+- Energy conditions hold for r ≥ ~5 r_s
+
 ---
 
 ## SSZ autorunner — quick start
