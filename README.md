@@ -93,6 +93,7 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 Idea in one sentence: keep Einstein–Hilbert gravity and add a scalar field whose kinetic weight is direction-selective along the radial unit vector; this produces a physically motivated pressure anisotropy (tangential minus radial) proportional to the squared radial gradient of the field.
 
 **Consistency with the Segmented-Spacetime principle.**
+
 This module respects the SSZ projection picture: the metric/kinematics used elsewhere in the repo are unchanged; the anisotropy arises from the matter action via the radial kinetic weight Z_parallel(phi), not from ad-hoc Δ terms. The dual-velocity invariant and all GR/SR comparison tests remain intact; deviations appear only through the scalar’s Δφ and Z(φ) profiles in the exported CSV. Exterior-only by default.
 
 Key properties
