@@ -369,6 +369,33 @@ else:
     print("[WARN] lagrangian_tests.py not found; skipping Lagrangian tests.")
 
 # ---------------------------------------
+# 5.7) Effective stress–energy (diagnostic; no action/equations)
+# ---------------------------------------
+eff_script = HERE / "derive_effective_stress_energy.py"
+if eff_script.exists():
+    # Sun
+    run([
+        PY, str(eff_script),
+        "--M", "1.98847e30",
+        "--eps3", "-4.8",
+        "--r-mults", "1.2,2,3,5,10"
+    ])
+
+    # Sgr A*  (mit LaTeX-Export ins reports-Ordner)
+    latex_out = agent_out / "reports" / "ssz_sources_latex.txt"
+    latex_out.parent.mkdir(parents=True, exist_ok=True)
+    run([
+        PY, str(eff_script),
+        "--M", "8.544456e36",
+        "--eps3", "-4.8",
+        "--r-mults", "1.2,2,3,5",
+        "--latex", str(latex_out)
+    ])
+else:
+    print("[WARN] derive_effective_stress_energy.py not found; skipping effective T_{μν}.")
+
+
+# ---------------------------------------
 # 6) Final interpretation (ASCII-clean, now including All-in-one + Dual velocities)
 # ---------------------------------------
 # Gather All-in-one stats if present
