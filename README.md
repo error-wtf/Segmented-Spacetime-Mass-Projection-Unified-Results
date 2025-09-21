@@ -9,6 +9,11 @@ Status: Reproducible evidence of model functionality (theory + code + tests).
 Note: This is not a formal proof; independent replication and peer review are encouraged.
 
 ---
+Autorunner Precision Test:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
+)
+---
 
 ## SSZ autorunner — quick start
 
