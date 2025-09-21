@@ -88,7 +88,7 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 
 ---
 
-## Action-based scalar (exterior) — model & numerics (experimental)
+## Action-based scalar (exterior and interior) — model & numerics (experimental)
 
 Idea in one sentence: keep Einstein–Hilbert gravity and add a scalar field whose kinetic weight is direction-selective along the radial unit vector; this produces a physically motivated pressure anisotropy (tangential minus radial) proportional to the squared radial gradient of the field.
 
