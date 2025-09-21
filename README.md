@@ -9,25 +9,25 @@ Status: Reproducible evidence of model functionality (theory + code + tests).
 Note: This is not a formal proof; independent replication and peer review are encouraged.
 
 ---
-Autorunner Precision Test:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
-https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb
-)
 
-This Colab runs our **deterministic SSZ pipeline** end-to-end (no fitting).  
-It fetches the pinned dataset, verifies checksums, runs the same scripts as in `run_all_ssz_terminal.py`, and
-**asserts** key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
+## Reproducibility — One-Click Colab
 
-**Inputs (pinned):**
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb)
+
+This Colab runs our **deterministic SSZ pipeline** end-to-end (no fitting).
+It fetches the pinned dataset, verifies checksums, runs the same scripts as `run_all_ssz_terminal.py`,
+and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
+
+**Pinned input**
 - `real_data_full.csv` — SHA256: `c6b503e14a822dbc465e0aae280255d33d602a8482f6136c0e2a4bceffb3f717`
 
-**Expected highlights (tolerances):**
-- Paired sign-test: Seg better **≥ 66/67**, p ≤ `1e-18`
-- PPN β=γ=1 (|Δ| < 1e-12)  
-- Mass roundtrip rel.err ≤ `1e-42` (numerical zeros)  
-- φ-lattice ΔBIC ≥ `+100`  
-- Dual invariant: max |(v_esc·v_fall)/c² − 1| = `0` (within machine precision)
-- Energy conditions hold for r ≥ ~5 r_s
+**Quality gate (expected)**
+- Paired sign-test: SEG better **≥ 66/67**, two-sided p ≤ `1e-18`
+- PPN: β=1, γ=1 with |Δ| < `1e-12`
+- Mass roundtrip: max relative error ≤ `1e-42` (numerical zero)
+- φ-lattice evidence: ΔBIC (uniform − lattice) ≥ `+100`
+- Dual invariant: max |(v_esc·v_fall)/c² − 1| ≤ `1e-15`
+- Energy conditions: WEC/DEC/SEC hold for r/rs ≥ `~5`
 
 ---
 
