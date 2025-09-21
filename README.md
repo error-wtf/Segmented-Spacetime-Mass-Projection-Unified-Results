@@ -66,15 +66,15 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 
 ## What this repository is
 
-- A reproducible **reference implementation** of SSZ projection tests with a deterministic end-to-end runner (`run_all_ssz_terminal.py`) and machine-readable reports.
-- A **battery of physics checks** spanning weak- and strong-field regimes (PPN tests, light bending, Shapiro delay, perihelion precession; photon sphere/ISCO; QNM eikonal; shadow predictions).
-- **Geodesic/Lagrangian tests** (no fitting): null & timelike circular orbits, orbital frequencies.
-- **Energy conditions:** WEC/DEC/SEC evaluated for the metric; controlled violations only inside a few \(r_s\).
-- **Dual-velocity invariant:** verifies \((v_{\mathrm{esc}} \cdot v_{\mathrm{fall}})/c^2 \to 1\) within numerical precision.
-- **Mass validation:** round-trip/Newton inversion across 30+ astrophysical objects **plus the electron** with negligible numerical error.
-- **Redshift benchmarks:** paired sign-tests vs. curated data; SSZ wins in the vast majority of pairs; detailed per-row explainers for S-stars.
-- **Effective stress–energy (diagnostic):** reverse-engineers a conserved **effective** \(T_{\mu\nu}\) for the chosen static, spherically symmetric metric; reports compact symbolic \(\rho(r), p_r(r), p_t(r)\) and checks \(\nabla\!\cdot\!T \approx 0\) at user-selected radii.
-- A **research artifact** for independent re-runs, ablations, and plug-in comparisons; a living workspace for CI, curated datasets, and benchmark extensions.
+* A reproducible **reference implementation** of SSZ projection tests with a deterministic end-to-end runner (`run_all_ssz_terminal.py`) and machine-readable reports.
+* A **battery of physics checks** spanning weak- and strong-field regimes (PPN tests, light bending, Shapiro delay, perihelion precession; photon sphere/ISCO; QNM eikonal; shadow predictions).
+* **Geodesic/Lagrangian tests** (no fitting): null & timelike circular orbits, orbital frequencies.
+* **Energy conditions:** WEC/DEC/SEC evaluated for the metric; controlled violations only inside a few r\_s.
+* **Dual-velocity invariant:** verifies (v\_esc \* v\_fall)/c^2 -> 1 within numerical precision.
+* **Mass validation:** round-trip/Newton inversion across 30+ astrophysical objects **plus the electron** with negligible numerical error.
+* **Redshift benchmarks:** paired sign-tests vs. curated data; SSZ wins in the vast majority of pairs; detailed per-row explainers for S-stars.
+* **Effective stress–energy (diagnostic):** reverse-engineers a conserved **effective** T(mu, nu) for the chosen static, spherically symmetric metric; reports compact symbolic rho(r), p\_r(r), p\_t(r) and checks div T \~ 0 at user-selected radii.
+* A **research artifact** for independent re-runs, ablations, and plug-in comparisons; a living workspace for CI, curated datasets, and benchmark extensions.
 
 ## What this repository is not
 
