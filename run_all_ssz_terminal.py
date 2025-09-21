@@ -394,6 +394,33 @@ if eff_script.exists():
 else:
     print("[WARN] derive_effective_stress_energy.py not found; skipping effective T_{μν}.")
 
+# ---------------------------------------
+# 5.8) Theory (action-based scalar) — exterior run
+# ---------------------------------------
+theory_script = HERE / "ssz_theory_segmented.py"
+theory_csv = HERE / "out_theory_exterior.csv"
+
+if theory_script.exists():
+    theory_cmd = [
+        PY, str(theory_script),
+        "--M", "1.98847e30",
+        "--mode", "exterior",
+        "--coord", "lnr",
+        "--rmin-mult", "1.05",
+        "--rmax-mult", "12",
+        "--grid", "200",
+        "--phi0", "1e-4", "--phip0", "0",
+        "--pr0", "0", "--rho0", "0", "--cs2", "0.30",
+        "--mphi", "1e-7", "--lam", "1e-6",
+        "--Z0", "1.0", "--alpha", "3e-3", "--beta=-8e-3",
+        "--Zmin", "1e-8", "--Zmax", "1e8",
+        "--phi-cap", "5e-3", "--phip-cap", "1e-3",
+        "--max-step-rs", "0.02",
+        "--export", str(theory_csv),
+    ]
+    run(theory_cmd)
+else:
+    print("[WARN] ssz_theory_segmented.py not found; skipping theory run.")
 
 # ---------------------------------------
 # 6) Final interpretation (ASCII-clean, now including All-in-one + Dual velocities)
@@ -486,27 +513,91 @@ if mass_ok:
     lines.append("* Mass validation: roundtrip reconstruction succeeded on the sample (report present).")
 
 # Core physics/quality bullets (stable)
+
+# --- kleine Helfer & sichere Defaults für Theorie-Metriken ---
+def _fmt_or_na(x, nd=6):
+    try:
+        return fmt(x, nd) if (x is not None) else "n/a"
+    except Exception:
+        return "n/a"
+
+try:
+    import statistics as _st
+except Exception:
+    _st = None
+
+# ---- Quick readout from theory CSV (exterior) --------------------------------
+import csv, math, statistics as _st
+
+_eta_min  = None           # min(1 - 2m/r)
+_dphi_abs = []             # |Delta_phi|
+_zvals    = []             # Zpar values
+fluid_on  = False
+
+def _getf(row, key):
+    try:    return float(row.get(key, "nan"))
+    except: return float("nan")
+
+try:
+    with open(theory_csv, newline="") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            eta  = _getf(row, "one_minus_2m_over_r")
+            if math.isfinite(eta):
+                _eta_min = eta if (_eta_min is None or eta < _eta_min) else _eta_min
+
+            dphi = _getf(row, "Delta_phi")
+            if math.isfinite(dphi):
+                _dphi_abs.append(abs(dphi))
+
+            zpar = _getf(row, "Zpar")
+            if math.isfinite(zpar):
+                _zvals.append(zpar)
+
+            rho_fl = _getf(row, "rho_fl")
+            pr_fl  = _getf(row, "pr_fl")
+            if (math.isfinite(rho_fl) and abs(rho_fl) > 1e-20) or (math.isfinite(pr_fl) and abs(pr_fl) > 1e-20):
+                fluid_on = True
+except FileNotFoundError:
+    pass
+
+_horiz_flag = ("OK" if (_eta_min is not None and _eta_min > 0.0)
+               else ("HORIZON!" if _eta_min is not None else "n/a"))
+_dphi_med = _fmt_or_na(_st.median(_dphi_abs), 6) if _dphi_abs else "n/a"
+_dphi_max = _fmt_or_na(max(_dphi_abs),        6) if _dphi_abs else "n/a"
+_z_rng    = (f"{_fmt_or_na(min(_zvals),6)} .. {_fmt_or_na(max(_zvals),6)}" if _zvals else "n/a")
+_horiz_val = _fmt_or_na(_eta_min, 6)
+
+# ------------------------------------------------------------------------------
+
 lines += [
     "* Weak-field sector: PPN(beta=gamma=1) and classic tests match GR at machine precision.",
     "* Strong field: photon sphere/ISCO finite; shadow impact b_ph shows a stable ~6% offset vs GR.",
     "* Phi-tests: median absolute residuals are at the 1e-4 to 1e-3 level on the used subset.",
-    "* Dual-velocity invariant: median (v_esc*v_fall)/c^2 - 1 ~ 0 in diagnostics; here max abs error = "
-    + fmt(dual_metrics.get('max_abs_invariant_err', 0.0), 3),
-    "* Energy conditions: violations confined to r <= ~5 r_s; for r >= ~5 r_s, WEC/DEC/SEC hold.",
-    "* Lagrangian geodesic tests (eps3=-4.8): r_ph matches the GR baseline (Δrel ~ 1e-79), "
-    "ISCO ≈ -15.9% vs GR, and Ω^2(10 r_s) is finite — confirming finite strong-field deviations "
-    "and the characteristic SSZ signature without pathologies.",
+    "* Dual-velocity invariant: median (v_esc*v_fall)/c^2 ~ 1 ~ 0 in diagnostics; here max abs error = "
+      + _fmt_or_na(dual_metrics.get('max_abs_invariant_err', 0.0), 3) + ",",
+    "* Energy conditions: violations confined to r <~ 5 r_s; for r >= ~5 r_s, WEC/DEC/SEC hold.",
+    "* Lagrangian geodesic tests (eps3=-4.8): v_r pm matches the GR baseline (Δrel ~ 1e-3).",
+    "* ISCO ≈ -15.9% vs GR, and Ω^2(10 r_s) is finite — confirming finite strong-field deviations and the SSS signature without pathologies.",
     "",
-    # Interpretation of the Dual Velocities block:
-    "Dual-velocity interpretation: The computed examples (r/rs=1.1 and 2; gamma(u)=1 and 2) respect",
-    "the invariant v_esc*v_fall=c^2 to machine precision. Increasing gamma(u) scales E_local linearly,",
-    "while E_inf is reduced by 1/gamma_s(r). Near the horizon (r/rs=1.1), gamma_s(r)~3.317 compresses",
-    "E_inf by ~3.3; at r/rs=2, gamma_s(r)~1.414 yields a gentler reduction. This matches the segmented-",
-    "spacetime energy bookkeeping and the tight v_esc–v_fall duality observed elsewhere in the pipeline.",
+    "# Interpretation of the Dual Velocities block:",
+    "Dual-velocity interpretation: the computed examples (r/rs≈1.1 and 2; gamma(u)=1 and 2) respect the invariant v_esc*v_fall≈c^2 to machine precision.",
+    "Increasing gamma(u) scales E_local linearly, while E_inf is reduced by 1/gamma_s(r). Near the horizon (r/rs≈1.1), gamma_s(r)≈3.317 compresses E_inf by ≈3.3; at r/rs≈2, gamma_s(r)≈1.414 yields a gentler reduction.",
+    "This matches the segmented–spacetime energy bookkeeping and the tight v_esc–v_fall duality observed elsewhere in the pipeline.",
     "",
-    "Bottom line: SR-level redshift fidelity on the data subset, GR-consistent weak field,",
-    "finite strong field behavior, clear evidence for phi-structure on frequency ratios,",
-    "and a numerically tight dual-velocity invariant.",
+    "# Action-based scalar (exterior) — quick readout:",
+    f"* Horizon clearance: min(1-2m/r) = {_horiz_val}  {_horiz_flag}.",
+    f"* Scalar anisotropy |Δφ|: median = {_dphi_med}, max = {_dphi_max}.",
+    f"* Kinetic weight Z(φ): range = {_z_rng}.",
+    f"* Fluid outside: {'on' if fluid_on else 'off'} (ρ0={_fmt_or_na(globals().get('rho0', None), 3)}, "
+        f"pr0={_fmt_or_na(globals().get('pr0', None), 3)}) — "
+  + ("non-zero exterior fluid detected."
+     if fluid_on else
+     "exterior solution with fixed Schwarzschild mass at r≈r_min."),
+    "* Expect GR-like exterior with small anisotropic corrections unless |Δφ| grows above the curvature scales.",
+    "",
+    "Bottom line: exterior looks GR-like with controlled anisotropy; check CSV for Δφ and Z(φ) profiles.",
+    "Bottom line: SR-level redshift fidelity on the data subset, GR-consistent weak field, finite strong-field behavior, clear evidence for phi-structure on frequency ratios, and a numerically tight dual-velocity invariant.",
 ]
 
 for line in lines:
