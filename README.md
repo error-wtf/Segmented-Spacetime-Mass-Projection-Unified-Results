@@ -64,17 +64,27 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 
 ---
 
-## What this repository *is*
-- A reproducible reference implementation of SSZ projection tests and parameterized strong‑field outputs.  
-- A research artifact for independent re‑runs, ablations, and plug‑in comparisons.  
-- A living workspace for CI, curated datasets, and benchmark extensions.
+## What this repository is
 
-## What this repository *is not*
-- Not a complete field theory: no Lagrangian/action or derived field equations are included.  
-- Not a claim of intrinsic variation of fundamental constants: `alpha_loc` is a projection parameter for observables.  
-- Not an assertion about black‑hole information release.  
-- Not a proof of EHT agreement.  
-- Not a general‑purpose cosmology/astrophysics pipeline beyond the documented tests.
+- A reproducible **reference implementation** of SSZ projection tests with a deterministic end-to-end runner (`run_all_ssz_terminal.py`) and machine-readable reports.
+- A **battery of physics checks** spanning weak- and strong-field regimes (PPN tests, light bending, Shapiro delay, perihelion precession; photon sphere/ISCO; QNM eikonal; shadow predictions).
+- **Geodesic/Lagrangian tests** (no fitting): null & timelike circular orbits, orbital frequencies.
+- **Energy conditions:** WEC/DEC/SEC evaluated for the metric; controlled violations only inside a few \(r_s\).
+- **Dual-velocity invariant:** verifies \((v_{\mathrm{esc}} \cdot v_{\mathrm{fall}})/c^2 \to 1\) within numerical precision.
+- **Mass validation:** round-trip/Newton inversion across 30+ astrophysical objects **plus the electron** with negligible numerical error.
+- **Redshift benchmarks:** paired sign-tests vs. curated data; SSZ wins in the vast majority of pairs; detailed per-row explainers for S-stars.
+- **Effective stress–energy (diagnostic):** reverse-engineers a conserved **effective** \(T_{\mu\nu}\) for the chosen static, spherically symmetric metric; reports compact symbolic \(\rho(r), p_r(r), p_t(r)\) and checks \(\nabla\!\cdot\!T \approx 0\) at user-selected radii.
+- A **research artifact** for independent re-runs, ablations, and plug-in comparisons; a living workspace for CI, curated datasets, and benchmark extensions.
+
+## What this repository is not
+
+- **Not a complete field theory.** We provide an **effective** metric, geodesic/Lagrangian tests, and a **reverse-engineered, divergence-free effective** \(T_{\mu\nu}\) as a diagnostic. **Still no** fundamental gravitational/matter **action**, **no** derived field equations, and **no** microphysical stress–energy **dynamics**.
+- **Not** a claim of intrinsic variation of fundamental constants: `alpha_loc` is a **projection parameter** for observables.
+- **Not** an assertion about black-hole information release.
+- **Not** a proof of EHT agreement (we include shadow predictions for reference only).
+- **Not** a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
+
+
 
 ---
 
