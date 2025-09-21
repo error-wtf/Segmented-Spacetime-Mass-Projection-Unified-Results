@@ -78,13 +78,11 @@ All runs are deterministic (fixed seeds). Inputs and modules are checksummed. Ut
 
 ## What this repository is not
 
-- **Not a complete field theory.** We provide an **effective** metric, geodesic/Lagrangian tests, and a **reverse-engineered, divergence-free effective** \(T_{\mu\nu}\) as a diagnostic. **Still no** fundamental gravitational/matter **action**, **no** derived field equations, and **no** microphysical stress–energy **dynamics**.
-- **Not** a claim of intrinsic variation of fundamental constants: `alpha_loc` is a **projection parameter** for observables.
-- **Not** an assertion about black-hole information release.
-- **Not** a proof of EHT agreement (we include shadow predictions for reference only).
-- **Not** a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
-
-
+* **Not a complete field theory.** We provide an effective metric, geodesic/Lagrangian tests, and a reverse-engineered, divergence-free effective T(mu, nu) as a diagnostic. **Still no** fundamental gravitational/matter action, **no** derived field equations, and **no** microphysical stress–energy dynamics.
+* **Not** a claim of intrinsic variation of fundamental constants: `alpha_loc` is a **projection parameter** for observables.
+* **Not** an assertion about black-hole information release.
+* **Not** a proof of EHT agreement (we include shadow predictions for reference only).
+* **Not** a general-purpose cosmology/astrophysics pipeline beyond the documented tests.
 
 ---
 
