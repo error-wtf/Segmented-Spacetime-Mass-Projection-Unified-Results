@@ -12,7 +12,7 @@ Note: This is not a formal proof; independent replication and peer review are en
 
 ## Reproducibility — One-Click Colab
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_AutoRunner.ipynb)
 
 This Colab runs our **deterministic SSZ pipeline** end-to-end (no fitting).
 It fetches the pinned dataset, verifies checksums, runs the same scripts as `run_all_ssz_terminal.py`,
