@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "created": "2025-10-16",
+    "purpose": "Comprehensive black hole catalog for segmented spacetime testing",
+    "total_objects": 86,
+    "cleaned_dataset": "real_data_full_cleaned.csv",
+    "original_base": "H:\\WINDSURF\\real_data_full.csv (67 S-stars)",
+    "categories": [
+      "S-stars",
+      "SMBH", 
+      "stellar-bh",
+      "pulsar",
+      "AGN-jets",
+      "NS-binaries",
+      "massive-stars",
+      "nearby-stars",
+      "gas-clouds"
+    ]
+  },
+  "sources": {
+    "literature": {
+      "EHT_2019": "https://doi.org/10.3847/2041-8213/ab0ec7",
+      "GRAVITY_2018": "https://doi.org/10.1051/0004-6361/201833718",
+      "Sgr_A_S_stars": "https://arxiv.org/abs/1807.09409",
+      "LIGO_catalog": "https://www.gw-openscience.org/eventapi/",
+      "Pulsar_catalog": "https://www.atnf.csiro.au/research/pulsar/psrcat/"
+    },
+    "archives": {
+      "ESO": "https://archive.eso.org/",
+      "SIMBAD": "https://simbad.u-strasbg.fr/",
+      "VizieR": "https://vizier.u-strasbg.fr/",
+      "NED": "https://ned.ipac.caltech.edu/"
+    },
+    "coordinates": {
+      "epoch": "J2000.0",
+      "system": "ICRS",
+      "precision": "arcsec"
+    }
+  },
+  "physical_parameters": {
+    "mass_estimates": "Literature values where available, scaling relations otherwise",
+    "emission_radii": "Schwarzschild radius scaling for BHs, surface for NSs",
+    "velocities": "Orbital/accretion physics estimates",
+    "redshifts": "Measured where available, Hubble law otherwise"
+  }
+}
