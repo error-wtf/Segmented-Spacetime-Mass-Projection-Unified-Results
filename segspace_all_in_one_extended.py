@@ -185,6 +185,80 @@ def bootstrap_ci(data: List[float], n_boot: int = 2000, q: float = 0.5) -> Optio
     lo = float(np.quantile(stats, 0.025)); hi = float(np.quantile(stats, 0.975))
     return (lo, hi)
 
+def _log_zero():
+    return float('-inf')
+
+def _log_add(a, b):
+    """log(exp(a)+exp(b)) numerically stable"""
+    if a == float('-inf'):
+        return b
+    if b == float('-inf'):
+        return a
+    if a < b:
+        a, b = b, a
+    # now a >= b
+    return a + math.log1p(math.exp(b - a))
+
+def _log_binom_pmf(k, n, p):
+    """log( Binom(n,k) * p^k * (1-p)^(n-k) ) using lgamma."""
+    # validate once to be safe
+    if not (0 <= k <= n):
+        return float('-inf')
+    return (math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1)
+            + k * math.log(p) + (n - k) * math.log(1.0 - p))
+
+def binom_test_two_sided_safe(k, n, p=0.5):
+    """
+    Exact two-sided binomial test in log-space for moderate n,
+    normal approximation with continuity correction for very large n.
+    This avoids float overflows from math.comb at high n.
+
+    Returns: p-value in [0,1].
+    """
+    # basic checks
+    if not (isinstance(n, int) and isinstance(k, int)):
+        raise TypeError("k and n must be integers")
+    if not (0 <= k <= n):
+        raise ValueError("k must be in [0, n]")
+    if not (0.0 < p < 1.0):
+        raise ValueError("p must be in (0,1)")
+
+    mu = n * p
+    sigma = math.sqrt(n * p * (1.0 - p))
+
+    # For very large n, use normal approximation with continuity correction
+    # to avoid O(n) loops. Thresholds are generous; tune if needed.
+    if n > 50000 or sigma > 200.0:
+        if sigma == 0.0:
+            # p is 0 or 1 (but we guard above); still for completeness:
+            return 0.0 if k == mu else 1.0
+        z = (abs(k - mu) - 0.5) / sigma  # continuity correction
+        # two-sided: 2 * min tail  == erfc(z / sqrt(2))
+        pval = math.erfc(z / math.sqrt(2.0))
+        # clamp numerical noise
+        if pval < 0.0: pval = 0.0
+        if pval > 1.0: pval = 1.0
+        return float(pval)
+
+    # Exact two-sided test (definition: sum of probabilities of outcomes
+    # with pmf <= pmf(k)). Work entirely in log-space; sum via log-add.
+    log_pk = _log_binom_pmf(k, n, p)
+
+    # Enumerate 0..n once. Cost is fine for n≈30k once per run.
+    log_sum = _log_zero()
+    # Optional: small margin to counter tiny rounding differences.
+    tol = 1e-18
+    for i in range(0, n + 1):
+        li = _log_binom_pmf(i, n, p)
+        if li <= log_pk + tol:
+            log_sum = _log_add(log_sum, li)
+
+    pval = math.exp(log_sum)
+    # clamp
+    if pval < 0.0: pval = 0.0
+    if pval > 1.0: pval = 1.0
+    return float(pval)
+
 def binom_test_two_sided(k: int, n: int, p: float = 0.5) -> float:
     from math import comb
     if n == 0: return float('nan')
@@ -293,9 +367,9 @@ def evaluate_redshift(rows: List[Dict[str, Any]], prefer_z: bool, mode: str,
     if paired_stats:
         diffs = [r["abs_grsr"] - r["abs_seg"] for r in dbg if finite(r["abs_seg"]) and finite(r["abs_grsr"])]
         n=len(diffs); kpos = len([d for d in diffs if d>0])
-        p_two = binom_test_two_sided(kpos, n, p=0.5) if n>0 else float('nan')
+        p_two = binom_test_two_sided_safe(kpos, n, p=0.5) if n>0 else float('nan')
         paired = {"N_pairs":n,"N_Seg_better":kpos,"share_Seg_better":(kpos/n) if n>0 else float('nan'),"binom_two_sided_p":p_two}
-        echo(f"[PAIRED] Seg better in {kpos}/{n} pairs (p≈{p_two:.3g})")
+        echo(f"[PAIRED] Seg better in {kpos}/{n} pairs (p~{p_two:.3g})")
 
     binned_rows: List[Dict[str,Any]] = []
     if bins and bins>0:
