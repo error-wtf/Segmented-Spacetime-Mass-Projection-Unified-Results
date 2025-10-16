@@ -671,13 +671,6 @@ For questions about these updates:
 - ✅ Enhanced documentation and analysis tools
 - ✅ Maintained full backward compatibility
 
-### Performance Improvements
-- **Robustness:** Handles 30,000+ objects without errors
-- **Coverage:** 17 different object categories
-- **Accuracy:** Real literature values where available
-- **Validation:** Statistical significance maintained (p < 0.01)
-
-
 ---
 
 **License:** ANTI‑CAPITALIST SOFTWARE LICENSE (v 1.4).
