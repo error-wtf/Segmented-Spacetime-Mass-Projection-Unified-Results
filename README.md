@@ -48,6 +48,20 @@ python run_all_ssz_terminal.py --save-raws --plots
 ```
 
 ---
+## IF YOU WANT TO INSTALL IT PERSISTENT
+
+```
+dpkg - i install_complete_repo.sh
+```
+
+then execute 
+
+```
+ssz-projection
+```
+
+---
+
 
 ## Technical briefing (scope & internal correctness)
 
