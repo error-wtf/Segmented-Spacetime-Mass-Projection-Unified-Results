@@ -105,6 +105,9 @@ ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
 
 **Full documentation:** `docs/segwave_guide.md`
 
+**Validation papers:** `papers/validation/` (bundled in repo)  
+**Theory papers:** `docs/theory/` (SSZ theoretical foundation)
+
 ### Repo-wide Markdown Output
 
 After any analysis run, print all Markdown reports/summaries to STDOUT:
