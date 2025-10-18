@@ -5,14 +5,16 @@ SSZ Projection Suite - Complete Test & Analysis Runner
 Runs ALL tests in the repository, generates summaries, and echoes all Markdown outputs.
 
 Test Phases:
-    1. Root-level SSZ tests (PPN, energy conditions, segments, dual velocity)
-    2. SegWave tests (core math, CLI, MD tools)
-    3. Scripts/tests (SSZ kernel, invariants, segmenter, cosmo)
-    4. Cosmos tests (multi-body sigma)
+    1. Root-level SSZ tests (Python scripts - PPN, energy conditions, segments, dual velocity)
+    2. SegWave tests (pytest - core math, CLI, MD tools)
+    3. Scripts/tests (pytest - SSZ kernel, invariants, segmenter, cosmo)
+    4. Cosmos tests (pytest - multi-body sigma)
     5. Complete SSZ analysis (run_all_ssz_terminal.py)
     6. Example runs (G79, Cygnus X)
     7. Summary generation
     8. MD echo
+    
+Note: Phase 1 tests are standalone Python scripts, not pytest tests!
 
 Copyright © 2025
 Carmen Wrede und Lino Casu
@@ -107,29 +109,30 @@ def main():
     results = {}
     
     # =============================================================================
-    # PHASE 1: Root-Level SSZ Tests
+    # PHASE 1: Root-Level SSZ Tests (Python scripts, NOT pytest)
     # =============================================================================
-    print_header("PHASE 1: ROOT-LEVEL SSZ TESTS", "-")
+    print_header("PHASE 1: ROOT-LEVEL SSZ TESTS (Python Scripts)", "-")
     
     tests_phase1 = [
-        (["python", "-m", "pytest", "test_vfall_duality.py", "-v"],
-         "Dual Velocity Tests", 60),
-        (["python", "-m", "pytest", "test_ppn_exact.py", "-v"],
+        (["python", "test_ppn_exact.py"],
          "PPN Exact Tests", 60),
-        (["python", "-m", "pytest", "test_energy_conditions.py", "-v"],
+        (["python", "test_vfall_duality.py"],
+         "Dual Velocity Tests", 60),
+        (["python", "test_energy_conditions.py"],
          "Energy Conditions Tests", 60),
-        (["python", "-m", "pytest", "test_c1_segments.py", "-v"],
+        (["python", "test_c1_segments.py"],
          "C1 Segments Tests", 60),
-        (["python", "-m", "pytest", "test_c2_segments_strict.py", "-v"],
+        (["python", "test_c2_segments_strict.py"],
          "C2 Segments Strict Tests", 60),
-        (["python", "-m", "pytest", "test_c2_curvature_proxy.py", "-v"],
+        (["python", "test_c2_curvature_proxy.py"],
          "C2 Curvature Proxy Tests", 60),
-        (["python", "-m", "pytest", "test_utf8_encoding.py", "-v"],
+        (["python", "test_utf8_encoding.py"],
          "UTF-8 Encoding Tests", 30),
     ]
     
     for cmd, desc, timeout in tests_phase1:
-        if Path(cmd[3]).exists():
+        # Check if file exists (cmd[1] is the script name)
+        if Path(cmd[1]).exists():
             success, elapsed = run_command(cmd, desc, timeout, check=False)
             results[desc] = {"success": success, "time": elapsed}
         else:
