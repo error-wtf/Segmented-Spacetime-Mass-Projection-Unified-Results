@@ -105,6 +105,22 @@ ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
 
 **Full documentation:** `docs/segwave_guide.md`
 
+### Repo-wide Markdown Output
+
+After any analysis run, print all Markdown reports/summaries to STDOUT:
+
+```bash
+# Standalone tool
+ssz-print-md --root . --order path
+
+# Or integrated with ssz-rings
+ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
+          --out-report report.md \
+          --echo-all-md
+```
+
+This captures complete analysis results for logging/archiving.
+
 ---
 
 ## IF YOU WANT TO INSTALL IT PERSISTENT

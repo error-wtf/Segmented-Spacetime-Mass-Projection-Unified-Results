@@ -246,6 +246,47 @@ alpha_opt, metrics = fit_alpha(
 print(f"Optimal α: {alpha_opt:.4f}, RMSE: {metrics['rmse']:.4f} km/s")
 ```
 
+## Repo-wide Markdown Echo
+
+After completing analysis runs, you can print all Markdown files in the repository to STDOUT for logging/archiving:
+
+### Standalone Tool
+
+```bash
+# Print all .md files in repo
+ssz-print-md --root . --order path
+
+# Limit file size (512 KB per file)
+ssz-print-md --root . --max-print-bytes 524288
+
+# Depth-first order (shallow files first)
+ssz-print-md --root . --order depth
+
+# Custom include patterns
+ssz-print-md --root . --include "reports/**/*.md" "analysis/**/*.md"
+```
+
+### Integrated with CLI
+
+```bash
+# Add --echo-all-md flag to any ssz-rings run
+ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+          --v0 12.5 --fit-alpha \
+          --out-report reports/g79.md \
+          --echo-all-md
+```
+
+**Default Include Patterns:**
+- `reports/**/*.md` - Pipeline reports
+- `out/**/*.md` - Generic outputs
+- `docs/**/*.md` - Documentation
+- `analysis/**/*.md` - Analysis results
+- `*.md` - Root-level summaries
+
+**Default Exclusions:** `.git`, `.venv`, `venv`, `node_modules`, `dist`, `build`, `__pycache__`
+
+**Use Case:** Capture complete analysis state for paper supplementary materials or automated logging.
+
 ## License
 
 Copyright © 2025 Carmen Wrede und Lino Casu
