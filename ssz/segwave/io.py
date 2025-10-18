@@ -1,0 +1,269 @@
+"""
+I/O Module for Segmented Radiowave Propagation
+
+Handles CSV/JSON data loading for ring temperature/velocity data.
+
+Copyright © 2025
+Carmen Wrede und Lino Casu
+
+Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+"""
+
+from __future__ import annotations
+import pandas as pd
+import json
+from pathlib import Path
+from typing import Optional
+
+
+def load_ring_data(
+    csv_path: str | Path,
+    required_columns: Optional[list] = None
+) -> pd.DataFrame:
+    """
+    Load ring temperature/density/velocity data from CSV.
+    
+    Expected columns:
+    - ring : Ring/shell identifier (int or string)
+    - T : Temperature (K)
+    - n : (Optional) Density (cm^-3)
+    - v_obs : (Optional) Observed velocity (km/s)
+    
+    Parameters:
+    -----------
+    csv_path : Path to CSV file
+    required_columns : List of required column names (default ['ring', 'T'])
+    
+    Returns:
+    --------
+    DataFrame with ring data
+    """
+    csv_path = Path(csv_path)
+    
+    if not csv_path.exists():
+        raise FileNotFoundError(f"CSV file not found: {csv_path}")
+    
+    # Load CSV with UTF-8 encoding
+    df = pd.read_csv(csv_path, encoding='utf-8')
+    
+    # Check required columns
+    if required_columns is None:
+        required_columns = ['ring', 'T']
+    
+    missing_cols = set(required_columns) - set(df.columns)
+    if missing_cols:
+        raise ValueError(
+            f"Missing required columns in {csv_path.name}: {missing_cols}\n"
+            f"Available columns: {list(df.columns)}"
+        )
+    
+    # Validate data types
+    if 'T' in df.columns:
+        if not pd.api.types.is_numeric_dtype(df['T']):
+            raise ValueError("Column 'T' must be numeric")
+        if (df['T'] <= 0).any():
+            raise ValueError("All temperatures must be positive")
+    
+    if 'n' in df.columns:
+        if not pd.api.types.is_numeric_dtype(df['n']):
+            raise ValueError("Column 'n' must be numeric")
+        if (df['n'] <= 0).any():
+            raise ValueError("All densities must be positive")
+    
+    if 'v_obs' in df.columns:
+        if not pd.api.types.is_numeric_dtype(df['v_obs']):
+            raise ValueError("Column 'v_obs' must be numeric")
+    
+    return df
+
+
+def load_sources_manifest(
+    json_path: str | Path
+) -> dict:
+    """
+    Load data sources manifest (bibliography/DOI references).
+    
+    Expected format:
+    {
+      "SOURCE_NAME": {
+        "TRACER": ["doi:...", "bib:...", ...],
+        ...
+      },
+      ...
+    }
+    
+    Parameters:
+    -----------
+    json_path : Path to sources JSON file
+    
+    Returns:
+    --------
+    Sources dictionary
+    """
+    json_path = Path(json_path)
+    
+    if not json_path.exists():
+        raise FileNotFoundError(f"Sources manifest not found: {json_path}")
+    
+    with open(json_path, 'r', encoding='utf-8') as f:
+        sources = json.load(f)
+    
+    if not isinstance(sources, dict):
+        raise ValueError(f"Sources manifest must be a JSON object/dict, got {type(sources)}")
+    
+    return sources
+
+
+def save_results(
+    df: pd.DataFrame,
+    output_path: str | Path,
+    float_format: str = "%.6f"
+) -> None:
+    """
+    Save results DataFrame to CSV with proper formatting.
+    
+    Parameters:
+    -----------
+    df : Results DataFrame
+    output_path : Output CSV path
+    float_format : Float formatting string (default 6 decimals)
+    """
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    df.to_csv(
+        output_path,
+        index=False,
+        encoding='utf-8',
+        float_format=float_format
+    )
+
+
+def save_report(
+    report_text: str,
+    output_path: str | Path
+) -> None:
+    """
+    Save text report to file.
+    
+    Parameters:
+    -----------
+    report_text : Report content
+    output_path : Output text file path
+    """
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(report_text)
+
+
+def load_sources_config(config_path: str | Path = "config/sources.yaml") -> dict:
+    """
+    Load sources configuration with validation papers base directory.
+    
+    Resolves base directory in this order:
+    1. SSZ_SOURCES_DIR environment variable (highest priority)
+    2. base_dir (Windows) if os.name == 'nt'
+    3. base_dir_unix (WSL/Linux)
+    
+    Parameters:
+    -----------
+    config_path : Path to sources.yaml config file
+    
+    Returns:
+    --------
+    dict with keys:
+        - 'base_dir': Resolved base directory path
+        - 'exists': Boolean, whether path exists
+        - 'source': String indicating resolution method
+    
+    Example:
+    --------
+    >>> config = load_sources_config()
+    >>> print(config['base_dir'])
+    'H:\\WINDSURF\\VALIDATION_PAPER'
+    >>> print(config['exists'])
+    True
+    """
+    import os
+    import yaml
+    
+    config_path = Path(config_path)
+    
+    # Check if config file exists
+    if not config_path.exists():
+        # Return default for Windows
+        default_dir = r"H:\WINDSURF\VALIDATION_PAPER"
+        return {
+            'base_dir': default_dir,
+            'exists': os.path.exists(default_dir),
+            'source': 'default'
+        }
+    
+    # Load YAML config
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    # Priority 1: Environment variable
+    env_dir = os.getenv('SSZ_SOURCES_DIR')
+    if env_dir:
+        return {
+            'base_dir': env_dir,
+            'exists': os.path.exists(env_dir),
+            'source': 'environment'
+        }
+    
+    # Priority 2: Repository-bundled papers (default after deployment)
+    if 'base_dir_repo' in config:
+        base_dir_repo = config['base_dir_repo']
+        # Try relative to config file location (standard repo structure)
+        config_dir = os.path.dirname(os.path.abspath(config_path))
+        repo_root = os.path.dirname(config_dir)  # Go up from config/ to root
+        full_repo_path = os.path.join(repo_root, base_dir_repo)
+        
+        if os.path.exists(full_repo_path):
+            return {
+                'base_dir': full_repo_path,
+                'exists': True,
+                'source': 'repo_bundled'
+            }
+    
+    # Priority 3: Windows external directory
+    if os.name == 'nt' and 'base_dir_external' in config:
+        base_dir = config['base_dir_external']
+        if os.path.exists(base_dir):
+            return {
+                'base_dir': base_dir,
+                'exists': True,
+                'source': 'external_windows'
+            }
+    
+    # Priority 4: Unix/WSL base_dir_unix
+    if 'base_dir_unix' in config:
+        base_dir_unix = config['base_dir_unix']
+        if os.path.exists(base_dir_unix):
+            return {
+                'base_dir': base_dir_unix,
+                'exists': True,
+                'source': 'external_unix'
+            }
+    
+    # Fallback: try legacy base_dir key
+    if 'base_dir' in config:
+        base_dir = config['base_dir']
+        return {
+            'base_dir': base_dir,
+            'exists': os.path.exists(base_dir),
+            'source': 'legacy_config'
+        }
+    
+    # Ultimate fallback: repo papers directory
+    config_dir = os.path.dirname(os.path.abspath(config_path))
+    repo_root = os.path.dirname(config_dir)
+    default_dir = os.path.join(repo_root, "papers", "validation")
+    return {
+        'base_dir': default_dir,
+        'exists': os.path.exists(default_dir),
+        'source': 'default_repo'
+    }

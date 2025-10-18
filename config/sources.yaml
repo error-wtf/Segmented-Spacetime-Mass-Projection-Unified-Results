@@ -1,0 +1,43 @@
+# SSZ Sources Configuration
+# 
+# Defines the base directory for validation papers and observational references
+# 
+# Copyright 2025
+# Carmen Wrede und Lino Casu
+# Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+
+# Base directory containing validation papers
+# Default: papers/validation/ (bundled in repository)
+# Override with SSZ_SOURCES_DIR environment variable if needed
+
+# Repository-bundled papers (default, works after deployment)
+base_dir_repo: "papers/validation"
+
+# External directory (Windows format) - optional fallback
+base_dir_external: "H:\\WINDSURF\\VALIDATION_PAPER"
+
+# Alternative base directory for WSL/Unix systems
+base_dir_unix: "/mnt/h/WINDSURF/VALIDATION_PAPER"
+
+# Environment variable override (highest priority)
+# Set SSZ_SOURCES_DIR to override all defaults
+# Example:
+#   Windows: setx SSZ_SOURCES_DIR "H:\WINDSURF\VALIDATION_PAPER"
+#   Linux:   export SSZ_SOURCES_DIR=/path/to/papers
+#
+# If SSZ_SOURCES_DIR is not set, the system will use:
+#   1. base_dir_repo (bundled in repository) - RECOMMENDED
+#   2. base_dir_external (if base_dir_repo doesn't exist)
+#   3. base_dir_unix (on Unix systems)
+# 
+# Beispiel Windows:
+#   setx SSZ_SOURCES_DIR "H:\WINDSURF\VALIDATION_PAPER"
+# 
+# Umgebungsvariable hat Vorrang, wenn gesetzt:
+#   SSZ_SOURCES_DIR (Windows- oder Unix-Pfad)
+# 
+# Logik:
+# 1. Wenn SSZ_SOURCES_DIR gesetzt → nutzen
+# 2. Sonst, wenn os.name == 'nt' (Windows) → base_dir_external
+# 3. Sonst (WSL/Linux) → base_dir_unix (falls vorhanden)
+#   export SSZ_SOURCES_DIR=/mnt/h/WINDSURF/VALIDATION_PAPER

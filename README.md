@@ -1,12 +1,61 @@
 <img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
 
 # Segmented Spacetime – Mass Projection & Unified Results
+
+[![Tests](https://img.shields.io/badge/tests-58%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
+
 © Carmen Wrede & Lino Casu
+
+**Latest Release:** v1.1.0 (2025-10-18) - Complete Test System Overhaul
 
 This repository contains a complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model**. It ships runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
 Status: Reproducible evidence of model functionality (theory + code + tests).  
 Note: This is not a formal proof; independent replication and peer review are encouraged.
+
+---
+
+## 📢 What's New in v1.1.0 (2025-10-18)
+
+### 🎉 Major Update: Complete Test System Overhaul
+
+✅ **35 physics tests** with detailed physical interpretations  
+✅ **23 technical tests** in silent background mode  
+✅ **Complete logging system** capturing all test output  
+✅ **Smart data fetching** (auto-fetch 2GB Planck, no overwrites)  
+✅ **Bug fixes**: pytest crash, import errors, false failure counts  
+✅ **Documentation**: 10+ comprehensive guides  
+✅ **Papers**: Both MD and PDF formats included  
+
+**Key Features:**
+- Complete output logging to `reports/summary-output.md` (~100-500 KB)
+- Smart data fetching (checks existing files, never overwrites)
+- Detailed physical interpretations for all 35 physics tests
+- Technical tests run silently in background
+- 10 new comprehensive documentation files
+
+**Critical Bug Fixes:**
+- 🔴 **Pytest I/O crash**: Changed `--disable-warnings` to `-s` flag
+- 🔴 **test_segmenter.py**: Fixed import error
+- 🔴 **Summary counts**: Fixed false "Failed: 3" bug
+
+**Performance:**
+- Test suite: ~2-3 minutes (full), ~30 seconds (quick mode)
+- Installation: ~2 minutes (without Planck), ~20 minutes (with Planck)
+- Re-installation: ~2 minutes (skips existing data)
+
+**New Documentation:**
+- 📖 [TESTING_COMPLETE_GUIDE.md](TESTING_COMPLETE_GUIDE.md) - Master testing guide
+- 📖 [tests/README_TESTS.md](tests/README_TESTS.md) - Tests directory docs
+- 📖 [scripts/tests/README_SCRIPTS_TESTS.md](scripts/tests/README_SCRIPTS_TESTS.md) - Scripts tests
+- 📖 [LINUX_TEST_PLAN.md](LINUX_TEST_PLAN.md) - Linux testing procedure
+- 📖 [LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md) - Logging system
+- 📖 [INSTALL_README.md](INSTALL_README.md) - Installation guide
+- 📖 [DATA_FETCHING_README.md](DATA_FETCHING_README.md) - Data management
+
+[See full changelog →](CHANGELOG.md)
 
 ---
 
@@ -31,6 +80,122 @@ and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC
 
 ---
 
+## Installation & Testing
+
+### Quick Install (All Platforms)
+
+**Windows:**
+```powershell
+# Standard install + basic tests (50+ tests)
+.\install.ps1
+
+# Install + Full test suite (~10-15 min)
+.\install_and_test.ps1
+
+# Install + Quick suite (~2 min)
+.\install_and_test.ps1 -Quick
+```
+
+**Linux/macOS:**
+```bash
+# Make executable
+chmod +x install.sh install_and_test.sh
+
+# Standard install + basic tests (50+ tests)
+./install.sh
+
+# Install + Full test suite (~10-15 min)
+./install_and_test.sh
+
+# Install + Quick suite (~2 min)
+./install_and_test.sh --quick
+```
+
+### What Gets Tested
+
+**Basic Install Tests (Step 7/8):**
+- ✅ Root-level SSZ tests (7 tests): PPN, energy conditions, segments, dual velocity
+- ✅ SegWave tests (43 tests): Core math, CLI, MD tools, cosmos
+- ✅ Scripts tests (5+ tests): SSZ kernel, invariants, segmenter, cosmo
+
+**Full Test Suite (optional):**
+- ✅ All basic tests
+- ✅ Complete SSZ analysis (`run_all_ssz_terminal.py`)
+- ✅ Example runs (G79, Cygnus X)
+- ✅ Summary generation
+- ✅ Markdown echo
+
+### Testing System Details (New v1.1)
+
+**Complete Test Overview:**
+- **Total: 58 Tests** (35 physics + 23 technical)
+- **Physics Tests:** Detailed output with physical interpretations
+- **Technical Tests:** Silent mode (run in background)
+
+**Physics Test Format (New!):**
+All 35 physics tests now show:
+```
+================================================================================
+TEST TITLE: Physical Phenomenon
+================================================================================
+Configuration:
+  Parameter = Value
+
+Results:
+  Value = Number
+
+Physical Interpretation:
+  • Physical meaning and implications
+  • Comparison to GR/SR
+  • Observational consequences
+================================================================================
+PASSED
+================================================================================
+```
+
+**Test Categories:**
+- Root-level: 6 physics tests (PPN, energy, segments, duality)
+- tests/: 17 physics + 23 technical tests
+- scripts/tests/: 12 physics tests
+
+**Run Complete Suite:**
+```bash
+python run_full_suite.py              # Full (~2-3 min)
+python run_full_suite.py --quick      # Quick (~30 sec)
+```
+
+**Generates:**
+- `reports/RUN_SUMMARY.md` - Compact overview
+- `reports/summary-output.md` - Complete log (~100-500 KB)
+
+**Critical:** Always use `-s` flag with pytest (never `--disable-warnings`)
+
+### Manual Installation
+
+```bash
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+.\.venv\Scripts\Activate.ps1  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install package
+pip install -e .
+
+# Verify installation
+ssz-rings --help
+ssz-print-md --help
+
+# Run tests
+pytest tests/ -v                    # Basic tests
+python run_full_suite.py            # Complete suite
+python run_full_suite.py --quick    # Quick suite
+```
+
+---
+
 ## SSZ autorunner — quick start
 
 Deterministic. No curve fitting. Prints SHA-256 of dataset, code, and runner. Writes a JSON summary.
@@ -48,6 +213,122 @@ python run_all_ssz_terminal.py --save-raws --plots
 ```
 
 ---
+
+## SSZ-Rings: Segmented Radiowave Propagation (Offline Quick Runs)
+
+**NEW:** Predict velocity profiles in expanding molecular rings using the segmented spacetime framework.
+
+### Real Observational Data Included
+
+The suite bundles curated datasets from published nebulae studies:
+
+#### G79.29+0.46 (Multi-shell LBV Nebula)
+```bash
+ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+          --v0 12.5 \
+          --fit-alpha \
+          --out-table reports/g79_table.csv \
+          --out-report reports/g79_summary.txt
+```
+
+**Expected output:**
+- Optimal alpha parameter fitted to 10 rings (shocked inner rim → ambient HI)
+- MAE/RMSE metrics comparing SSZ predictions vs observations
+- Velocity range: 15.5 km/s (inner shock) → 1.0 km/s (outer ambient)
+
+#### Cygnus X Diamond Ring (Slow Expansion Benchmark)
+```bash
+ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+          --v0 1.3 \
+          --alpha 1.0 \
+          --out-table reports/cygx_table.csv \
+          --out-report reports/cygx_summary.txt
+```
+
+**Expected output:**
+- Nearly constant expansion velocity ~ 1.3 km/s across 3 [CII]-traced rings
+- Benchmark for slow-expanding PDR-dominated structures
+
+### Command Options
+
+```bash
+# View all options
+ssz-rings --help
+
+# Fit alpha automatically
+ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha
+
+# Use fixed alpha
+ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.25
+
+# Include frequency tracking
+ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.0 --nu-in 3.0e11
+
+# Generate plot (requires matplotlib)
+ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
+```
+
+**Full documentation:** `docs/segwave_guide.md`
+
+**Validation papers:** `papers/validation/` (bundled in repo)  
+**Theory papers:** `docs/theory/` (SSZ theoretical foundation)
+
+### Complete Test & Analysis Workflow
+
+Run **ALL** tests in the repository, generate summaries, and echo all Markdown outputs:
+
+```bash
+# Full workflow (all tests + SSZ analysis + examples + MD echo, ~10-15 min)
+python run_full_suite.py
+
+# Quick mode (essential tests only, ~2 min)
+python run_full_suite.py --quick
+
+# Skip slow SSZ analysis (~5 min)
+python run_full_suite.py --skip-slow-tests
+
+# Windows
+run_full_suite.bat
+
+# Linux/macOS
+chmod +x run_full_suite.sh
+./run_full_suite.sh
+```
+
+**Test Phases:**
+1. **Root-level SSZ tests** - PPN, energy conditions, segments, dual velocity
+2. **SegWave tests** - Core math, CLI, MD tools
+3. **Scripts/tests** - SSZ kernel, invariants, segmenter, cosmo
+4. **Cosmos tests** - Multi-body sigma
+5. **Complete SSZ analysis** - `run_all_ssz_terminal.py` (full EHT analysis)
+6. **Example runs** - G79, Cygnus X validation
+7. **Summary generation** - `reports/RUN_SUMMARY.md`
+8. **MD echo** - All Markdown files
+
+**Output:**
+- Runs all test phases sequentially
+- Generates `reports/RUN_SUMMARY.md`
+- Echoes all Markdown files at the end
+- Returns exit code 0 if all passed
+
+### Repo-wide Markdown Output
+
+After any analysis run, print all Markdown reports/summaries to STDOUT:
+
+```bash
+# Standalone tool
+ssz-print-md --root . --order path
+
+# Or integrated with ssz-rings
+ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
+          --out-report report.md \
+          --echo-all-md
+```
+
+This captures complete analysis results for logging/archiving.
+
+---
+
 ## IF YOU WANT TO INSTALL IT PERSISTENT
 
 ```
@@ -663,7 +944,42 @@ For questions about these updates:
 
 ## Changelog
 
-### Version 2.0 (This Update)
+### Version 1.1.0 (2025-10-18) - Test System Overhaul
+
+**Major Features:**
+- ✅ **35 physics tests** with detailed physical interpretations
+- ✅ **23 technical tests** in silent background mode
+- ✅ Complete logging system capturing all test output to `reports/summary-output.md`
+- ✅ Smart data fetching (auto-fetch Planck 2GB, never overwrites existing files)
+- ✅ Papers in both MD and PDF formats
+- ✅ 10+ new comprehensive documentation files
+
+**Critical Bug Fixes:**
+- 🔴 **Pytest I/O crash**: Changed `--disable-warnings` to `-s` flag (fixed in run_full_suite.py, install.ps1, install.sh)
+- 🔴 **test_segmenter.py**: Fixed import error (removed non-existent `create_segments` import)
+- 🔴 **Summary counts**: Fixed false "Failed: 3" bug (silent tests no longer counted as failures)
+- 🔴 **Python cache**: Documented clearing procedures
+
+**New Documentation:**
+- TESTING_COMPLETE_GUIDE.md - Master testing guide
+- tests/README_TESTS.md - Tests directory documentation
+- scripts/tests/README_SCRIPTS_TESTS.md - Scripts tests documentation
+- LINUX_TEST_PLAN.md - Linux testing procedure
+- LOGGING_SYSTEM_README.md - Logging system docs
+- INSTALL_README.md - Installation guide
+- DATA_FETCHING_README.md - Data management guide
+- REPO_UPDATE_CHECKLIST.md - Repository update checklist
+- PHYSICS_TESTS_COMPLETE_LIST.md - All 35 physics tests listed
+- VERIFICATION_COMPLETE.md - Test verification status
+
+**Performance:**
+- Test suite: ~2-3 minutes (full), ~30 seconds (quick mode)
+- Installation: ~2 minutes (without Planck), ~20 minutes (with Planck download)
+- Re-installation: ~2 minutes (skips existing data)
+
+See [CHANGELOG.md](CHANGELOG.md) for complete technical details.
+
+### Version 2.0 (Previous Update)
 - ✅ Fixed overflow errors in statistical tests
 - ✅ Expanded dataset from 67 to 127 objects
 - ✅ Added comprehensive black hole catalog

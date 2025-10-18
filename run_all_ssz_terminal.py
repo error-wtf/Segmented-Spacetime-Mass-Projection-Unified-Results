@@ -14,6 +14,24 @@ NEU:
 
 import os
 import sys
+import io
+
+# ========================================================================
+# CRITICAL: Force UTF-8 for stdout/stderr to prevent Windows charmap crashes
+# ========================================================================
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    # Fallback for older Python versions
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+# Force UTF-8 for child processes
+os.environ.setdefault("PYTHONUTF8", "1")
+os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+# ========================================================================
+
 import csv
 import json
 import hashlib
@@ -237,6 +255,29 @@ if csv_full.exists():
         pass
 
 # ---------------------------------------
+# -1) Fetch Planck data if not present (2GB, skip if exists)
+# ---------------------------------------
+print("\n--- Checking for Planck CMB map data ---")
+planck_map = HERE / "data" / "raw" / "planck" / "planck_map.fits"
+if planck_map.exists():
+    print(f"[OK] Planck map already exists: {planck_map}")
+    print(f"     Size: {planck_map.stat().st_size / (1024**3):.2f} GB")
+else:
+    print(f"[INFO] Planck map not found at: {planck_map}")
+    fetch_script = HERE / "scripts" / "planck" / "fetch_planck_map.py"
+    if fetch_script.exists():
+        print(f"[FETCH] Downloading Planck SMICA map (~2 GB, this will take a while)...")
+        planck_map.parent.mkdir(parents=True, exist_ok=True)
+        run([PY, str(fetch_script), "--output", str(planck_map)])
+        if planck_map.exists():
+            print(f"[OK] Planck map downloaded: {planck_map.stat().st_size / (1024**3):.2f} GB")
+        else:
+            print("[WARN] Planck fetch completed but file not found. Continuing anyway.")
+    else:
+        print(f"[WARN] Planck fetch script not found: {fetch_script}")
+        print("[WARN] Skipping Planck data download. Analysis will continue without it.")
+
+# ---------------------------------------
 # 0) NEW: run the all-in-one pipeline first
 # ---------------------------------------
 all_in_one = HERE / "segspace_all_in_one_extended.py"
@@ -258,6 +299,35 @@ run([PY, str(HERE / "qnm_eikonal.py")])
 
 # vfall duality quick check (Earth, short list)
 run([PY, str(HERE / "test_vfall_duality.py"), "--mass", "Earth", "--r-mults", "1.1,2.0"])
+
+# ---------------------------------------
+# 1.5) Pytest Unit Tests (tests/ and scripts/tests/)
+# ---------------------------------------
+print("\n--- Running pytest unit tests ---")
+tests_dir = HERE / "tests"
+scripts_tests_dir = HERE / "scripts" / "tests"
+
+pytest_available = True
+try:
+    import pytest as _pytest_check
+except ImportError:
+    print("[WARN] pytest not installed; skipping unit tests.")
+    pytest_available = False
+
+if pytest_available:
+    # Run tests/ directory
+    if tests_dir.exists():
+        print("  Running tests/ directory...")
+        run([PY, "-m", "pytest", str(tests_dir), "-v", "--tb=short", "--disable-warnings"])
+    else:
+        print("[WARN] tests/ directory not found.")
+    
+    # Run scripts/tests/ directory
+    if scripts_tests_dir.exists():
+        print("  Running scripts/tests/ directory...")
+        run([PY, "-m", "pytest", str(scripts_tests_dir), "-v", "--tb=short", "--disable-warnings"])
+    else:
+        print("[WARN] scripts/tests/ directory not found.")
 
 # ---------------------------------------
 # 2) phi-tests (auto-detect columns)
@@ -421,6 +491,41 @@ if theory_script.exists():
     run(theory_cmd)
 else:
     print("[WARN] ssz_theory_segmented.py not found; skipping theory run.")
+
+# ---------------------------------------
+# 5.9) EHT Shadow Comparison Matrix
+# ---------------------------------------
+eht_script = HERE / "scripts" / "analysis" / "eht_shadow_comparison.py"
+if eht_script.exists():
+    print("\n--- EHT Shadow Comparison Matrix ---")
+    run([PY, str(eht_script)])
+else:
+    print("[WARN] eht_shadow_comparison.py not found; skipping EHT comparison.")
+
+# ---------------------------------------
+# 5.10) SSZ Rings Analysis (Example Data)
+# ---------------------------------------
+ring_script = HERE / "scripts" / "ring_temperature_to_velocity.py"
+g79_data = HERE / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
+cygx_data = HERE / "data" / "observations" / "CygnusX_DiamondRing_CII_rings.csv"
+
+if ring_script.exists():
+    print("\n--- SSZ Rings Analysis ---")
+    # G79.29+0.46 (if data exists)
+    if g79_data.exists():
+        print("  Analyzing G79.29+0.46...")
+        run([PY, str(ring_script), "--csv", str(g79_data)])
+    else:
+        print("[WARN] G79 data not found; skipping G79 analysis.")
+    
+    # Cygnus X (if data exists)
+    if cygx_data.exists():
+        print("  Analyzing Cygnus X Diamond Ring...")
+        run([PY, str(ring_script), "--csv", str(cygx_data)])
+    else:
+        print("[WARN] Cygnus X data not found; skipping Cygnus X analysis.")
+else:
+    print("[WARN] ring_temperature_to_velocity.py not found; skipping ring analysis.")
 
 # ---------------------------------------
 # 6) Final interpretation (ASCII-clean, now including All-in-one + Dual velocities)
