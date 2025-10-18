@@ -181,10 +181,11 @@ if (-not $SkipTests) {
     Write-Host "[7/8] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
 }
 
-# Step 7: Verify installation
+# Step 8: Verify installation
 Write-Host ""
 Write-Host "[8/8] Verifying installation..." -ForegroundColor Yellow
 if (-not $DryRun) {
+    # Check CLI commands
     try {
         $commands = @("ssz-rings --help", "ssz-print-md --help")
         foreach ($cmd in $commands) {
@@ -200,8 +201,27 @@ if (-not $DryRun) {
     } catch {
         Write-Host "  WARNING: Some commands not available" -ForegroundColor Yellow
     }
+    
+    # Check bundled papers
+    Write-Host "  Checking bundled papers..." -ForegroundColor Cyan
+    $papersValidation = "papers\validation"
+    $papersTheory = "docs\theory"
+    
+    if (Test-Path $papersValidation) {
+        $validationCount = (Get-ChildItem $papersValidation -Filter *.md).Count
+        Write-Host "    [OK] Validation papers: $validationCount files" -ForegroundColor Green
+    } else {
+        Write-Host "    [WARN] Validation papers directory not found" -ForegroundColor Yellow
+    }
+    
+    if (Test-Path $papersTheory) {
+        $theoryCount = (Get-ChildItem $papersTheory -Filter *.md).Count
+        Write-Host "    [OK] Theory papers: $theoryCount files" -ForegroundColor Green
+    } else {
+        Write-Host "    [WARN] Theory papers directory not found" -ForegroundColor Yellow
+    }
 } else {
-    Write-Host "  [DRY-RUN] Would verify commands" -ForegroundColor Cyan
+    Write-Host "  [DRY-RUN] Would verify commands and papers" -ForegroundColor Cyan
 }
 
 # Summary
@@ -218,6 +238,8 @@ Write-Host "  2. Run example:   ssz-rings --csv data/observations/G79_29+0_46_CO
 Write-Host "  3. Print all MD:  ssz-print-md --root . --order path" -ForegroundColor White
 Write-Host "  4. View docs:     Get-Content docs\segwave_guide.md" -ForegroundColor White
 Write-Host ""
-Write-Host "Validation Papers: H:\WINDSURF\VALIDATION_PAPER" -ForegroundColor Cyan
-Write-Host "License: ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan
+Write-Host "Resources:" -ForegroundColor Yellow
+Write-Host "  - Validation Papers: papers\validation\ (10 files, ~593 KB)" -ForegroundColor Cyan
+Write-Host "  - Theory Papers:     docs\theory\ (20 files, ~380 KB)" -ForegroundColor Cyan
+Write-Host "  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan
 Write-Host ""
