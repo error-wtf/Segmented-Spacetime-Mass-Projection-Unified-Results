@@ -168,8 +168,14 @@ if (-not $SkipTests) {
     Write-Host "[7/8] Running test suite..." -ForegroundColor Yellow
     if (-not $DryRun) {
         try {
-            # Run ALL tests: root-level, tests/, and scripts/tests/
-            Write-Host "  Running root-level SSZ tests..." -ForegroundColor Cyan
+            # Run ALL tests with full output
+            Write-Host "  Running ALL tests (root + tests/ + scripts/tests/)..." -ForegroundColor Cyan
+            Write-Host ""
+            
+            # Collect all test files
+            $allTests = @()
+            
+            # Root-level tests
             $rootTests = @(
                 "test_vfall_duality.py",
                 "test_ppn_exact.py", 
@@ -181,25 +187,32 @@ if (-not $SkipTests) {
             )
             foreach ($test in $rootTests) {
                 if (Test-Path $test) {
-                    pytest $test -q --disable-warnings 2>&1 | Out-Null
+                    $allTests += $test
                 }
             }
             
-            Write-Host "  Running tests/ directory..." -ForegroundColor Cyan
-            pytest tests/ -q --disable-warnings
+            # tests/ directory
+            $allTests += "tests/"
             
-            Write-Host "  Running scripts/tests/ directory..." -ForegroundColor Cyan
+            # scripts/tests/ directory
             if (Test-Path "scripts/tests") {
-                pytest scripts/tests/ -q --disable-warnings 2>&1 | Out-Null
+                $allTests += "scripts/tests/"
             }
+            
+            # Run all tests together with full output
+            pytest $allTests -v --tb=short --disable-warnings
             
             if ($LASTEXITCODE -eq 0) {
-                Write-Host "  All tests passed" -ForegroundColor Green
+                Write-Host ""
+                Write-Host "  ✓ All tests passed" -ForegroundColor Green
             } else {
-                Write-Host "  WARNING: Some tests failed (non-fatal)" -ForegroundColor Yellow
+                Write-Host ""
+                Write-Host "  ✗ Some tests FAILED - Fix before continuing!" -ForegroundColor Red
+                exit 1
             }
         } catch {
-            Write-Host "  WARNING: pytest not installed or tests failed" -ForegroundColor Yellow
+            Write-Host "  ✗ ERROR: pytest not installed or tests failed" -ForegroundColor Red
+            exit 1
         }
     } else {
         Write-Host "  [DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)" -ForegroundColor Cyan

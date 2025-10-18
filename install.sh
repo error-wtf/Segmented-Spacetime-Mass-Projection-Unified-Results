@@ -228,28 +228,40 @@ if [ "$SKIP_TESTS" = false ]; then
     echo ""
     print_step "[7/8] Running test suite..."
     if [ "$DRY_RUN" = false ]; then
-        # Run ALL tests: root-level, tests/, and scripts/tests/
-        print_info "Running root-level SSZ tests..."
+        # Run ALL tests with full output
+        print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
+        echo ""
+        
+        # Collect all test paths
+        TEST_PATHS=""
+        
+        # Root-level tests
         for test in test_vfall_duality.py test_ppn_exact.py test_energy_conditions.py \
                     test_c1_segments.py test_c2_segments_strict.py test_c2_curvature_proxy.py \
                     test_utf8_encoding.py; do
             if [ -f "$test" ]; then
-                $PYTHON_CMD -m pytest "$test" -q --disable-warnings 2>&1 > /dev/null || true
+                TEST_PATHS="$TEST_PATHS $test"
             fi
         done
         
-        print_info "Running tests/ directory..."
-        $PYTHON_CMD -m pytest tests/ -q --disable-warnings
+        # tests/ directory
+        TEST_PATHS="$TEST_PATHS tests/"
         
-        print_info "Running scripts/tests/ directory..."
+        # scripts/tests/ directory
         if [ -d "scripts/tests" ]; then
-            $PYTHON_CMD -m pytest scripts/tests/ -q --disable-warnings 2>&1 > /dev/null || true
+            TEST_PATHS="$TEST_PATHS scripts/tests/"
         fi
         
+        # Run all tests together with full output
+        $PYTHON_CMD -m pytest $TEST_PATHS -v --tb=short --disable-warnings
+        
         if [ $? -eq 0 ]; then
-            print_success "All tests passed"
+            echo ""
+            print_success "✓ All tests passed"
         else
-            print_warn "WARNING: Some tests failed (non-fatal)"
+            echo ""
+            echo -e "${RED}✗ Some tests FAILED - Fix before continuing!${NC}"
+            exit 1
         fi
     else
         print_info "[DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)"
