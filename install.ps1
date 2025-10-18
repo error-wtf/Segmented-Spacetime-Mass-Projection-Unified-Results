@@ -277,15 +277,39 @@ Write-Host "INSTALLATION COMPLETE" -ForegroundColor Green
 Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Quick Start:" -ForegroundColor Yellow
-Write-Host "  1. Activate venv: .\.venv\Scripts\Activate.ps1" -ForegroundColor White
-Write-Host "  2. Run example:   ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha" -ForegroundColor White
-Write-Host "  3. Print all MD:  ssz-print-md --root . --order path" -ForegroundColor White
-Write-Host "  4. View docs:     Get-Content docs\segwave_guide.md" -ForegroundColor White
+Write-Host "Quick Start - All Test Scripts:" -ForegroundColor Yellow
+Write-Host "  1. Activate venv:   .\.venv\Scripts\Activate.ps1" -ForegroundColor White
+Write-Host ""
+Write-Host "  Root-Level SSZ Tests (Python scripts):" -ForegroundColor Cyan
+Write-Host "    python test_ppn_exact.py              # PPN parameters β=γ=1" -ForegroundColor White
+Write-Host "    python test_vfall_duality.py          # Dual velocity invariant" -ForegroundColor White
+Write-Host "    python test_energy_conditions.py      # WEC/DEC/SEC" -ForegroundColor White
+Write-Host "    python test_c1_segments.py            # C1 continuity" -ForegroundColor White
+Write-Host "    python test_c2_segments_strict.py     # C2 strict" -ForegroundColor White
+Write-Host "    python test_c2_curvature_proxy.py     # C2 + curvature proxy" -ForegroundColor White
+Write-Host "    python test_utf8_encoding.py          # UTF-8 validation" -ForegroundColor White
+Write-Host ""
+Write-Host "  Full Test Suite:" -ForegroundColor Cyan
+Write-Host "    python run_full_suite.py              # All tests + analysis (~10-15 min)" -ForegroundColor White
+Write-Host "    python run_full_suite.py --quick      # Essential tests only (~2 min)" -ForegroundColor White
+Write-Host ""
+Write-Host "  Complete SSZ Analysis:" -ForegroundColor Cyan
+Write-Host "    python run_all_ssz_terminal.py        # Full EHT analysis (~10 min)" -ForegroundColor White
+Write-Host ""
+Write-Host "  Example Data Analysis (SegWave):" -ForegroundColor Cyan
+Write-Host "    ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha" -ForegroundColor White
+Write-Host "    ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv --v0 1.3" -ForegroundColor White
+Write-Host ""
+Write-Host "  Print ALL Markdown (Papers + Reports + Summaries + Outputs):" -ForegroundColor Cyan
+Write-Host "    ssz-print-md --root . --order path    # All MD files, alphabetically" -ForegroundColor White
+Write-Host "    ssz-print-md --root . --order depth   # All MD files, shallow-first" -ForegroundColor White
+Write-Host "    ssz-print-md --root papers            # Only validation papers" -ForegroundColor White
+Write-Host "    ssz-print-md --root reports           # Only analysis reports" -ForegroundColor White
+Write-Host "    ssz-print-md --root docs              # Only theory papers" -ForegroundColor White
 Write-Host ""
 Write-Host "Resources:" -ForegroundColor Yellow
-Write-Host "  - Validation Papers: papers\validation\ (10 files, ~593 KB)" -ForegroundColor Cyan
-Write-Host "  - Theory Papers:     docs\theory\ (20 files, ~380 KB)" -ForegroundColor Cyan
+Write-Host "  - Validation Papers: papers\validation\ (11 files)" -ForegroundColor Cyan
+Write-Host "  - Theory Papers:     docs\theory\ (21 files)" -ForegroundColor Cyan
 Write-Host "  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan
 Write-Host ""
 
