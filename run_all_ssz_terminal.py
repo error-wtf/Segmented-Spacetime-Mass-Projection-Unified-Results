@@ -255,6 +255,29 @@ if csv_full.exists():
         pass
 
 # ---------------------------------------
+# -1) Fetch Planck data if not present (2GB, skip if exists)
+# ---------------------------------------
+print("\n--- Checking for Planck CMB map data ---")
+planck_map = HERE / "data" / "raw" / "planck" / "planck_map.fits"
+if planck_map.exists():
+    print(f"[OK] Planck map already exists: {planck_map}")
+    print(f"     Size: {planck_map.stat().st_size / (1024**3):.2f} GB")
+else:
+    print(f"[INFO] Planck map not found at: {planck_map}")
+    fetch_script = HERE / "scripts" / "planck" / "fetch_planck_map.py"
+    if fetch_script.exists():
+        print(f"[FETCH] Downloading Planck SMICA map (~2 GB, this will take a while)...")
+        planck_map.parent.mkdir(parents=True, exist_ok=True)
+        run([PY, str(fetch_script), "--output", str(planck_map)])
+        if planck_map.exists():
+            print(f"[OK] Planck map downloaded: {planck_map.stat().st_size / (1024**3):.2f} GB")
+        else:
+            print("[WARN] Planck fetch completed but file not found. Continuing anyway.")
+    else:
+        print(f"[WARN] Planck fetch script not found: {fetch_script}")
+        print("[WARN] Skipping Planck data download. Analysis will continue without it.")
+
+# ---------------------------------------
 # 0) NEW: run the all-in-one pipeline first
 # ---------------------------------------
 all_in_one = HERE / "segspace_all_in_one_extended.py"
