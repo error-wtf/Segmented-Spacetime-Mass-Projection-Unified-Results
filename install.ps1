@@ -1,0 +1,197 @@
+# SSZ Projection Suite - Windows Installation Script
+# 
+# Copyright © 2025
+# Carmen Wrede und Lino Casu
+# Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+#
+# Usage:
+#   .\install.ps1              # Full install
+#   .\install.ps1 -SkipTests   # Skip test suite
+#   .\install.ps1 -DevMode     # Install in editable mode
+
+param(
+    [switch]$SkipTests,
+    [switch]$DevMode,
+    [switch]$DryRun
+)
+
+$ErrorActionPreference = "Stop"
+
+Write-Host "=" -NoNewline -ForegroundColor Cyan
+Write-Host ("=" * 98) -ForegroundColor Cyan
+Write-Host "SSZ PROJECTION SUITE - WINDOWS INSTALLER" -ForegroundColor Cyan
+Write-Host "=" -NoNewline -ForegroundColor Cyan
+Write-Host ("=" * 98) -ForegroundColor Cyan
+Write-Host ""
+
+# Step 1: Check Python
+Write-Host "[1/8] Checking Python installation..." -ForegroundColor Yellow
+try {
+    $pythonVersion = python --version 2>&1
+    Write-Host "  Found: $pythonVersion" -ForegroundColor Green
+    
+    # Check version >= 3.8
+    $versionMatch = $pythonVersion -match "Python (\d+)\.(\d+)"
+    if ($versionMatch) {
+        $major = [int]$Matches[1]
+        $minor = [int]$Matches[2]
+        if ($major -lt 3 -or ($major -eq 3 -and $minor -lt 8)) {
+            Write-Host "  ERROR: Python 3.8+ required (found $major.$minor)" -ForegroundColor Red
+            exit 1
+        }
+    }
+} catch {
+    Write-Host "  ERROR: Python not found. Install Python 3.8+ from python.org" -ForegroundColor Red
+    exit 1
+}
+
+# Step 2: Create virtual environment
+Write-Host ""
+Write-Host "[2/8] Setting up virtual environment..." -ForegroundColor Yellow
+$venvPath = ".venv"
+if (Test-Path $venvPath) {
+    Write-Host "  Virtual environment already exists" -ForegroundColor Green
+} else {
+    if (-not $DryRun) {
+        python -m venv $venvPath
+        Write-Host "  Created: $venvPath" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would create: $venvPath" -ForegroundColor Cyan
+    }
+}
+
+# Step 3: Activate venv and upgrade pip
+Write-Host ""
+Write-Host "[3/8] Activating virtual environment..." -ForegroundColor Yellow
+$activateScript = Join-Path $venvPath "Scripts\Activate.ps1"
+if (Test-Path $activateScript) {
+    if (-not $DryRun) {
+        & $activateScript
+        Write-Host "  Activated: $venvPath" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would activate: $venvPath" -ForegroundColor Cyan
+    }
+} else {
+    Write-Host "  ERROR: Activation script not found" -ForegroundColor Red
+    exit 1
+}
+
+Write-Host ""
+Write-Host "[4/8] Upgrading pip, setuptools, wheel..." -ForegroundColor Yellow
+if (-not $DryRun) {
+    python -m pip install --upgrade pip setuptools wheel | Out-Null
+    Write-Host "  Upgraded core packages" -ForegroundColor Green
+} else {
+    Write-Host "  [DRY-RUN] Would upgrade: pip, setuptools, wheel" -ForegroundColor Cyan
+}
+
+# Step 4: Install dependencies
+Write-Host ""
+Write-Host "[5/8] Installing dependencies..." -ForegroundColor Yellow
+
+# Check for requirements.txt or pyproject.toml
+if (Test-Path "requirements.txt") {
+    Write-Host "  Found: requirements.txt" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        python -m pip install -r requirements.txt
+        Write-Host "  Installed from requirements.txt" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install from requirements.txt" -ForegroundColor Cyan
+    }
+} elseif (Test-Path "pyproject.toml") {
+    Write-Host "  Found: pyproject.toml" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        # Install common scientific packages
+        python -m pip install numpy scipy pandas matplotlib astropy pyyaml
+        Write-Host "  Installed core scientific packages" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install core packages" -ForegroundColor Cyan
+    }
+} else {
+    Write-Host "  WARNING: No requirements.txt or pyproject.toml found" -ForegroundColor Yellow
+}
+
+# Step 5: Install package
+Write-Host ""
+Write-Host "[6/8] Installing SSZ Suite package..." -ForegroundColor Yellow
+if ($DevMode) {
+    Write-Host "  Mode: Editable (development)" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        python -m pip install -e .
+        Write-Host "  Installed in editable mode" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install: pip install -e ." -ForegroundColor Cyan
+    }
+} else {
+    Write-Host "  Mode: Standard" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        python -m pip install .
+        Write-Host "  Installed package" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install: pip install ." -ForegroundColor Cyan
+    }
+}
+
+# Step 6: Run tests
+if (-not $SkipTests) {
+    Write-Host ""
+    Write-Host "[7/8] Running test suite..." -ForegroundColor Yellow
+    if (-not $DryRun) {
+        try {
+            python -m pytest tests/ -v --tb=short 2>&1 | Tee-Object -Variable testOutput
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "  All tests passed" -ForegroundColor Green
+            } else {
+                Write-Host "  WARNING: Some tests failed (non-fatal)" -ForegroundColor Yellow
+            }
+        } catch {
+            Write-Host "  WARNING: pytest not installed or tests failed" -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "  [DRY-RUN] Would run: pytest tests/" -ForegroundColor Cyan
+    }
+} else {
+    Write-Host ""
+    Write-Host "[7/8] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
+}
+
+# Step 7: Verify installation
+Write-Host ""
+Write-Host "[8/8] Verifying installation..." -ForegroundColor Yellow
+if (-not $DryRun) {
+    try {
+        $commands = @("ssz-rings --help", "ssz-print-md --help")
+        foreach ($cmd in $commands) {
+            $cmdName = $cmd.Split()[0]
+            Write-Host "  Checking: $cmdName" -ForegroundColor Cyan
+            Invoke-Expression $cmd | Out-Null
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "    [OK] $cmdName" -ForegroundColor Green
+            } else {
+                Write-Host "    [WARN] $cmdName not available" -ForegroundColor Yellow
+            }
+        }
+    } catch {
+        Write-Host "  WARNING: Some commands not available" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  [DRY-RUN] Would verify commands" -ForegroundColor Cyan
+}
+
+# Summary
+Write-Host ""
+Write-Host "=" -NoNewline -ForegroundColor Cyan
+Write-Host ("=" * 98) -ForegroundColor Cyan
+Write-Host "INSTALLATION COMPLETE" -ForegroundColor Green
+Write-Host "=" -NoNewline -ForegroundColor Cyan
+Write-Host ("=" * 98) -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Quick Start:" -ForegroundColor Yellow
+Write-Host "  1. Activate venv: .\.venv\Scripts\Activate.ps1" -ForegroundColor White
+Write-Host "  2. Run example:   ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha" -ForegroundColor White
+Write-Host "  3. Print all MD:  ssz-print-md --root . --order path" -ForegroundColor White
+Write-Host "  4. View docs:     Get-Content docs\segwave_guide.md" -ForegroundColor White
+Write-Host ""
+Write-Host "Validation Papers: H:\WINDSURF\VALIDATION_PAPER" -ForegroundColor Cyan
+Write-Host "License: ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan
+Write-Host ""
