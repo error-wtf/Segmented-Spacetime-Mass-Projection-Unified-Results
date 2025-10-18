@@ -36,8 +36,8 @@ include-package-data = true
 find = {where = ["src", "."], include = ["segspace*", "ssz*", "cli*", "tools*"]}
 
 [tool.pytest.ini_options]
-addopts = "-q --disable-warnings --junitxml=junit-smoke.xml"
-testpaths = ["scripts/tests"]
+addopts = "-v --tb=short --disable-warnings --junitxml=junit-full.xml"
+testpaths = ["tests", "scripts/tests"]
 pythonpath = ["."]
 filterwarnings = [
   "ignore::DeprecationWarning",
