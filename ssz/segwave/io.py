@@ -214,37 +214,56 @@ def load_sources_config(config_path: str | Path = "config/sources.yaml") -> dict
             'source': 'environment'
         }
     
-    # Priority 2: Windows base_dir
-    if os.name == 'nt' and 'base_dir' in config:
-        base_dir = config['base_dir']
-        return {
-            'base_dir': base_dir,
-            'exists': os.path.exists(base_dir),
-            'source': 'config_windows'
-        }
+    # Priority 2: Repository-bundled papers (default after deployment)
+    if 'base_dir_repo' in config:
+        base_dir_repo = config['base_dir_repo']
+        # Try relative to config file location (standard repo structure)
+        config_dir = os.path.dirname(os.path.abspath(config_path))
+        repo_root = os.path.dirname(config_dir)  # Go up from config/ to root
+        full_repo_path = os.path.join(repo_root, base_dir_repo)
+        
+        if os.path.exists(full_repo_path):
+            return {
+                'base_dir': full_repo_path,
+                'exists': True,
+                'source': 'repo_bundled'
+            }
     
-    # Priority 3: Unix/WSL base_dir_unix
+    # Priority 3: Windows external directory
+    if os.name == 'nt' and 'base_dir_external' in config:
+        base_dir = config['base_dir_external']
+        if os.path.exists(base_dir):
+            return {
+                'base_dir': base_dir,
+                'exists': True,
+                'source': 'external_windows'
+            }
+    
+    # Priority 4: Unix/WSL base_dir_unix
     if 'base_dir_unix' in config:
         base_dir_unix = config['base_dir_unix']
-        return {
-            'base_dir': base_dir_unix,
-            'exists': os.path.exists(base_dir_unix),
-            'source': 'config_unix'
-        }
+        if os.path.exists(base_dir_unix):
+            return {
+                'base_dir': base_dir_unix,
+                'exists': True,
+                'source': 'external_unix'
+            }
     
-    # Fallback: use base_dir regardless of OS
+    # Fallback: try legacy base_dir key
     if 'base_dir' in config:
         base_dir = config['base_dir']
         return {
             'base_dir': base_dir,
             'exists': os.path.exists(base_dir),
-            'source': 'config_fallback'
+            'source': 'legacy_config'
         }
     
-    # Ultimate fallback
-    default_dir = r"H:\WINDSURF\VALIDATION_PAPER"
+    # Ultimate fallback: repo papers directory
+    config_dir = os.path.dirname(os.path.abspath(config_path))
+    repo_root = os.path.dirname(config_dir)
+    default_dir = os.path.join(repo_root, "papers", "validation")
     return {
         'base_dir': default_dir,
         'exists': os.path.exists(default_dir),
-        'source': 'hardcoded_fallback'
+        'source': 'default_repo'
     }
