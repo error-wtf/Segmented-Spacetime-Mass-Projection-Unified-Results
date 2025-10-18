@@ -278,6 +278,35 @@ run([PY, str(HERE / "qnm_eikonal.py")])
 run([PY, str(HERE / "test_vfall_duality.py"), "--mass", "Earth", "--r-mults", "1.1,2.0"])
 
 # ---------------------------------------
+# 1.5) Pytest Unit Tests (tests/ and scripts/tests/)
+# ---------------------------------------
+print("\n--- Running pytest unit tests ---")
+tests_dir = HERE / "tests"
+scripts_tests_dir = HERE / "scripts" / "tests"
+
+pytest_available = True
+try:
+    import pytest as _pytest_check
+except ImportError:
+    print("[WARN] pytest not installed; skipping unit tests.")
+    pytest_available = False
+
+if pytest_available:
+    # Run tests/ directory
+    if tests_dir.exists():
+        print("  Running tests/ directory...")
+        run([PY, "-m", "pytest", str(tests_dir), "-v", "--tb=short", "--disable-warnings"])
+    else:
+        print("[WARN] tests/ directory not found.")
+    
+    # Run scripts/tests/ directory
+    if scripts_tests_dir.exists():
+        print("  Running scripts/tests/ directory...")
+        run([PY, "-m", "pytest", str(scripts_tests_dir), "-v", "--tb=short", "--disable-warnings"])
+    else:
+        print("[WARN] scripts/tests/ directory not found.")
+
+# ---------------------------------------
 # 2) phi-tests (auto-detect columns)
 # ---------------------------------------
 cols = csv_columns(csv_full) if csv_full.exists() else []
