@@ -53,11 +53,12 @@ def test_print_all_md_depth_order(tmp_path: Path):
     (tmp_path / "deep" / "level1.md").write_text(level1_content, encoding="utf-8")
     (tmp_path / "deep" / "nested" / "level2.md").write_text(level2_content, encoding="utf-8")
     
-    # Run with depth order
+    # Run with depth order and include all subdirs
     cmd = [
         sys.executable, "-m", "tools.print_all_md",
         "--root", str(tmp_path),
-        "--order", "depth"
+        "--order", "depth",
+        "--include", "**/*.md"  # Include ALL .md files recursively
     ]
     
     # Use UTF-8 encoding explicitly for Windows compatibility
