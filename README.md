@@ -31,6 +31,77 @@ and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC
 
 ---
 
+## Installation & Testing
+
+### Quick Install (All Platforms)
+
+**Windows:**
+```powershell
+# Standard install + basic tests (50+ tests)
+.\install.ps1
+
+# Install + Full test suite (~10-15 min)
+.\install_and_test.ps1
+
+# Install + Quick suite (~2 min)
+.\install_and_test.ps1 -Quick
+```
+
+**Linux/macOS:**
+```bash
+# Make executable
+chmod +x install.sh install_and_test.sh
+
+# Standard install + basic tests (50+ tests)
+./install.sh
+
+# Install + Full test suite (~10-15 min)
+./install_and_test.sh
+
+# Install + Quick suite (~2 min)
+./install_and_test.sh --quick
+```
+
+### What Gets Tested
+
+**Basic Install Tests (Step 7/8):**
+- ✅ Root-level SSZ tests (7 tests): PPN, energy conditions, segments, dual velocity
+- ✅ SegWave tests (43 tests): Core math, CLI, MD tools, cosmos
+- ✅ Scripts tests (5+ tests): SSZ kernel, invariants, segmenter, cosmo
+
+**Full Test Suite (optional):**
+- ✅ All basic tests
+- ✅ Complete SSZ analysis (`run_all_ssz_terminal.py`)
+- ✅ Example runs (G79, Cygnus X)
+- ✅ Summary generation
+- ✅ Markdown echo
+
+### Manual Installation
+
+```bash
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+.\.venv\Scripts\Activate.ps1  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install package
+pip install -e .
+
+# Verify installation
+ssz-rings --help
+ssz-print-md --help
+
+# Run tests
+pytest tests/ -v                    # Basic tests
+python run_full_suite.py            # Complete suite
+python run_full_suite.py --quick    # Quick suite
+```
+
+---
+
 ## SSZ autorunner — quick start
 
 Deterministic. No curve fitting. Prints SHA-256 of dataset, code, and runner. Writes a JSON summary.
