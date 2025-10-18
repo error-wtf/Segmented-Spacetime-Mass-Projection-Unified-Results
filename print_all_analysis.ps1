@@ -24,19 +24,27 @@ Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host ""
 
-# Section 1: Validation Papers
+# Section 1: Validation Papers (list only, no content)
 Write-Host "[1/5] Validation Papers (papers/validation/)" -ForegroundColor Yellow
 if (Test-Path "papers/validation") {
-    ssz-print-md --root papers/validation --order path
+    $validationPapers = Get-ChildItem -Path "papers/validation" -Filter *.md -Recurse
+    foreach ($paper in $validationPapers) {
+        Write-Host "  - $($paper.FullName)" -ForegroundColor Cyan
+    }
+    Write-Host "  Total: $($validationPapers.Count) papers" -ForegroundColor Green
     Write-Host ""
 } else {
     Write-Host "  [SKIP] No validation papers found" -ForegroundColor Yellow
 }
 
-# Section 2: Theory Papers
+# Section 2: Theory Papers (list only, no content)
 Write-Host "[2/5] Theory Papers (docs/theory/)" -ForegroundColor Yellow
 if (Test-Path "docs/theory") {
-    ssz-print-md --root docs/theory --order path
+    $theoryPapers = Get-ChildItem -Path "docs/theory" -Filter *.md -Recurse
+    foreach ($paper in $theoryPapers) {
+        Write-Host "  - $($paper.FullName)" -ForegroundColor Cyan
+    }
+    Write-Host "  Total: $($theoryPapers.Count) papers" -ForegroundColor Green
     Write-Host ""
 } else {
     Write-Host "  [SKIP] No theory papers found" -ForegroundColor Yellow
