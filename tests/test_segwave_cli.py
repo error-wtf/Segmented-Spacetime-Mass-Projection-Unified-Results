@@ -239,5 +239,139 @@ class TestCLIValidation:
         assert "mutually exclusive" in result.stderr.lower() or "not allowed" in result.stderr.lower()
 
 
+class TestBundledDatasets:
+    """Tests for bundled observational datasets"""
+    
+    def test_g79_dataset_exists(self):
+        """Test G79.29+0.46 dataset exists and is loadable"""
+        g79_csv = Path(__file__).resolve().parents[1] / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
+        
+        if not g79_csv.exists():
+            pytest.skip(f"G79.29+0.46 dataset not found: {g79_csv}")
+        
+        # Load and validate structure
+        df = pd.read_csv(g79_csv)
+        
+        # Check required columns
+        required_cols = ['ring', 'radius_pc', 'T', 'n', 'v_obs']
+        for col in required_cols:
+            assert col in df.columns, f"Missing column: {col}"
+        
+        # Check data integrity
+        assert len(df) == 10, "G79.29+0.46 should have 10 rings"
+        assert df['T'].min() >= 20, "Temperature too low"
+        assert df['T'].max() <= 80, "Temperature too high"
+        assert df['v_obs'].min() >= 1.0, "Velocity too low"
+        assert df['v_obs'].max() <= 16.0, "Velocity too high"
+    
+    def test_cygx_dataset_exists(self):
+        """Test Cygnus X Diamond Ring dataset exists and is loadable"""
+        cygx_csv = Path(__file__).resolve().parents[1] / "data" / "observations" / "CygnusX_DiamondRing_CII_rings.csv"
+        
+        if not cygx_csv.exists():
+            pytest.skip(f"Cygnus X dataset not found: {cygx_csv}")
+        
+        # Load and validate structure
+        df = pd.read_csv(cygx_csv)
+        
+        # Check required columns
+        required_cols = ['ring', 'radius_pc', 'T', 'n', 'v_obs']
+        for col in required_cols:
+            assert col in df.columns, f"Missing column: {col}"
+        
+        # Check data integrity
+        assert len(df) == 3, "Cygnus X Diamond Ring should have 3 rings"
+        assert df['v_obs'].std() < 0.1, "Velocity should be nearly constant"
+        assert abs(df['v_obs'].mean() - 1.3) < 0.1, "Mean velocity should be ~1.3 km/s"
+    
+    def test_sources_json_exists(self):
+        """Test sources manifest exists and contains required keys"""
+        sources_json = Path(__file__).resolve().parents[1] / "data" / "observations" / "sources.json"
+        
+        if not sources_json.exists():
+            pytest.skip(f"Sources manifest not found: {sources_json}")
+        
+        import json
+        with open(sources_json, 'r', encoding='utf-8') as f:
+            sources = json.load(f)
+        
+        # Check required object keys
+        assert "G79.29+0.46" in sources, "Missing G79.29+0.46 in sources"
+        assert "CygnusX_DiamondRing" in sources, "Missing CygnusX_DiamondRing in sources"
+        
+        # Check structure for G79
+        g79 = sources["G79.29+0.46"]
+        assert "papers_local" in g79, "Missing papers_local for G79"
+        assert "tracers" in g79, "Missing tracers for G79"
+        assert isinstance(g79["papers_local"], list), "papers_local should be list"
+        assert len(g79["papers_local"]) > 0, "papers_local should not be empty"
+    
+    def test_g79_cli_smoke_run(self, temp_dir):
+        """Smoke test: run CLI on G79.29+0.46 dataset"""
+        g79_csv = Path(__file__).resolve().parents[1] / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
+        
+        if not g79_csv.exists():
+            pytest.skip(f"G79.29+0.46 dataset not found: {g79_csv}")
+        
+        out_table = temp_dir / "g79_test.csv"
+        
+        result = subprocess.run(
+            [sys.executable, str(CLI_SCRIPT),
+             "--csv", str(g79_csv),
+             "--v0", "12.5",
+             "--alpha", "1.0",
+             "--out-table", str(out_table)],
+            capture_output=True,
+            text=True
+        )
+        
+        # Check success
+        if result.returncode != 0:
+            print("STDOUT:", result.stdout)
+            print("STDERR:", result.stderr)
+        assert result.returncode == 0, f"G79 CLI run failed: {result.stderr}"
+        
+        # Check output exists
+        assert out_table.exists(), "G79 output table not created"
+        
+        # Validate output
+        df_out = pd.read_csv(out_table)
+        assert len(df_out) == 10, "Output should have 10 rings"
+        assert 'v_pred' in df_out.columns, "Missing v_pred column"
+    
+    def test_cygx_cli_smoke_run(self, temp_dir):
+        """Smoke test: run CLI on Cygnus X Diamond Ring dataset"""
+        cygx_csv = Path(__file__).resolve().parents[1] / "data" / "observations" / "CygnusX_DiamondRing_CII_rings.csv"
+        
+        if not cygx_csv.exists():
+            pytest.skip(f"Cygnus X dataset not found: {cygx_csv}")
+        
+        out_table = temp_dir / "cygx_test.csv"
+        
+        result = subprocess.run(
+            [sys.executable, str(CLI_SCRIPT),
+             "--csv", str(cygx_csv),
+             "--v0", "1.3",
+             "--alpha", "1.0",
+             "--out-table", str(out_table)],
+            capture_output=True,
+            text=True
+        )
+        
+        # Check success
+        if result.returncode != 0:
+            print("STDOUT:", result.stdout)
+            print("STDERR:", result.stderr)
+        assert result.returncode == 0, f"Cygnus X CLI run failed: {result.stderr}"
+        
+        # Check output exists
+        assert out_table.exists(), "Cygnus X output table not created"
+        
+        # Validate output
+        df_out = pd.read_csv(out_table)
+        assert len(df_out) == 3, "Output should have 3 rings"
+        assert 'v_pred' in df_out.columns, "Missing v_pred column"
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "-s"])

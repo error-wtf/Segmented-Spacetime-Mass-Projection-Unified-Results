@@ -48,6 +48,65 @@ python run_all_ssz_terminal.py --save-raws --plots
 ```
 
 ---
+
+## SSZ-Rings: Segmented Radiowave Propagation (Offline Quick Runs)
+
+**NEW:** Predict velocity profiles in expanding molecular rings using the segmented spacetime framework.
+
+### Real Observational Data Included
+
+The suite bundles curated datasets from published nebulae studies:
+
+#### G79.29+0.46 (Multi-shell LBV Nebula)
+```bash
+ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+          --v0 12.5 \
+          --fit-alpha \
+          --out-table reports/g79_table.csv \
+          --out-report reports/g79_summary.txt
+```
+
+**Expected output:**
+- Optimal alpha parameter fitted to 10 rings (shocked inner rim → ambient HI)
+- MAE/RMSE metrics comparing SSZ predictions vs observations
+- Velocity range: 15.5 km/s (inner shock) → 1.0 km/s (outer ambient)
+
+#### Cygnus X Diamond Ring (Slow Expansion Benchmark)
+```bash
+ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+          --v0 1.3 \
+          --alpha 1.0 \
+          --out-table reports/cygx_table.csv \
+          --out-report reports/cygx_summary.txt
+```
+
+**Expected output:**
+- Nearly constant expansion velocity ~ 1.3 km/s across 3 [CII]-traced rings
+- Benchmark for slow-expanding PDR-dominated structures
+
+### Command Options
+
+```bash
+# View all options
+ssz-rings --help
+
+# Fit alpha automatically
+ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha
+
+# Use fixed alpha
+ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.25
+
+# Include frequency tracking
+ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.0 --nu-in 3.0e11
+
+# Generate plot (requires matplotlib)
+ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
+```
+
+**Full documentation:** `docs/segwave_guide.md`
+
+---
+
 ## IF YOU WANT TO INSTALL IT PERSISTENT
 
 ```
