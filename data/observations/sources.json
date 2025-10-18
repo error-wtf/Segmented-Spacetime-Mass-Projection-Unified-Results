@@ -14,7 +14,7 @@
       "PDR": ["[C II] 158um", "[O I]", "PAH"],
       "Molecular": ["CO(1-0)", "CO(2-1)", "CO(3-2)", "NH3(1,1)", "NH3(2,2)"]
     },
-    "notes": "Mehrschaliger Ring; innen Schock ~15 km/s; kalte Clumps mit NH3/CO überleben nahe der Front."
+    "notes": "Innerer CO-Clump mit low-velocity shock ~14-15 km/s; kalte NH3/CO-Clumps nahe der Front."
   },
   "CygnusX_DiamondRing": {
     "papers_local": [
@@ -25,6 +25,6 @@
       "PDR": ["[C II] 158um"],
       "Molecular": ["CO(1-0)"]
     },
-    "notes": "Referenzobjekt mit langsamer Expansion ~1.3 km/s."
+    "notes": "Ringförmige [C II]-Emission; vrad = 1.3 ± 0.6 km/s."
   }
 }

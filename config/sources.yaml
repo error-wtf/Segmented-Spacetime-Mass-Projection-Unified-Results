@@ -1,0 +1,27 @@
+# SSZ Sources Configuration
+# 
+# Defines the base directory for validation papers and observational references
+# 
+# Copyright © 2025
+# Carmen Wrede und Lino Casu
+# Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+
+# Basis-Verzeichnis mit den validierenden Papern (Windows-Pfad):
+base_dir: "H:\\WINDSURF\\VALIDATION_PAPER"
+
+# Optional: WSL/Unix-Override, falls die Suite in WSL läuft:
+base_dir_unix: "/mnt/h/WINDSURF/VALIDATION_PAPER"
+
+# Umgebungsvariable hat Vorrang, wenn gesetzt:
+#   SSZ_SOURCES_DIR (Windows- oder Unix-Pfad)
+# 
+# Logik:
+# 1. Wenn SSZ_SOURCES_DIR gesetzt → nutzen
+# 2. Sonst, wenn os.name == 'nt' (Windows) → base_dir
+# 3. Sonst (WSL/Linux) → base_dir_unix (falls vorhanden)
+# 
+# Beispiel Windows:
+#   setx SSZ_SOURCES_DIR "H:\WINDSURF\VALIDATION_PAPER"
+# 
+# Beispiel WSL:
+#   export SSZ_SOURCES_DIR=/mnt/h/WINDSURF/VALIDATION_PAPER

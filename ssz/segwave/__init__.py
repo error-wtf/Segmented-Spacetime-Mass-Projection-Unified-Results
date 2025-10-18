@@ -18,7 +18,7 @@ from .seg_wave_propagation import (
     compute_cumulative_gamma
 )
 from .calib import fit_alpha
-from .io import load_ring_data, load_sources_manifest, save_results, save_report
+from .io import load_ring_data, load_sources_manifest, load_sources_config, save_results, save_report
 
 __all__ = [
     "predict_velocity_profile",
@@ -29,6 +29,7 @@ __all__ = [
     "fit_alpha",
     "load_ring_data",
     "load_sources_manifest",
+    "load_sources_config",
     "save_results",
     "save_report",
 ]
