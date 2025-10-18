@@ -172,13 +172,13 @@ if (-not $SkipTests) {
             Write-Host "  Running ALL tests (root + tests/ + scripts/tests/)..." -ForegroundColor Cyan
             Write-Host ""
             
-            # Collect all test files
-            $allTests = @()
+            $allPassed = $true
             
-            # Root-level tests
+            # Root-level tests (run as Python scripts, not pytest)
+            Write-Host "Root-level SSZ tests:" -ForegroundColor Cyan
             $rootTests = @(
-                "test_vfall_duality.py",
-                "test_ppn_exact.py", 
+                "test_ppn_exact.py",
+                "test_vfall_duality.py", 
                 "test_energy_conditions.py",
                 "test_c1_segments.py",
                 "test_c2_segments_strict.py",
@@ -187,31 +187,35 @@ if (-not $SkipTests) {
             )
             foreach ($test in $rootTests) {
                 if (Test-Path $test) {
-                    $allTests += $test
+                    Write-Host "  $test" -NoNewline
+                    python $test > $null 2>&1
+                    if ($LASTEXITCODE -eq 0) {
+                        Write-Host " PASSED" -ForegroundColor Green
+                    } else {
+                        Write-Host " FAILED" -ForegroundColor Red
+                        $allPassed = $false
+                    }
                 }
             }
+            Write-Host ""
             
-            # tests/ directory
-            $allTests += "tests/"
+            # pytest tests (tests/ and scripts/tests/)
+            Write-Host "Pytest test suites:" -ForegroundColor Cyan
+            pytest tests/ scripts/tests/ -v --tb=short --disable-warnings
             
-            # scripts/tests/ directory
-            if (Test-Path "scripts/tests") {
-                $allTests += "scripts/tests/"
+            if ($LASTEXITCODE -ne 0) {
+                $allPassed = $false
             }
             
-            # Run all tests together with full output
-            pytest $allTests -v --tb=short --disable-warnings
-            
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host ""
+            Write-Host ""
+            if ($allPassed) {
                 Write-Host "  ✓ All tests passed" -ForegroundColor Green
             } else {
-                Write-Host ""
                 Write-Host "  ✗ Some tests FAILED - Fix before continuing!" -ForegroundColor Red
                 exit 1
             }
         } catch {
-            Write-Host "  ✗ ERROR: pytest not installed or tests failed" -ForegroundColor Red
+            Write-Host "  ✗ ERROR: Tests failed" -ForegroundColor Red
             exit 1
         }
     } else {
