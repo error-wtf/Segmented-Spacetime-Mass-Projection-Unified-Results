@@ -168,7 +168,31 @@ if (-not $SkipTests) {
     Write-Host "[7/8] Running test suite..." -ForegroundColor Yellow
     if (-not $DryRun) {
         try {
-            python -m pytest tests/ -v --tb=short 2>&1 | Tee-Object -Variable testOutput
+            # Run ALL tests: root-level, tests/, and scripts/tests/
+            Write-Host "  Running root-level SSZ tests..." -ForegroundColor Cyan
+            $rootTests = @(
+                "test_vfall_duality.py",
+                "test_ppn_exact.py", 
+                "test_energy_conditions.py",
+                "test_c1_segments.py",
+                "test_c2_segments_strict.py",
+                "test_c2_curvature_proxy.py",
+                "test_utf8_encoding.py"
+            )
+            foreach ($test in $rootTests) {
+                if (Test-Path $test) {
+                    pytest $test -q --disable-warnings 2>&1 | Out-Null
+                }
+            }
+            
+            Write-Host "  Running tests/ directory..." -ForegroundColor Cyan
+            pytest tests/ -q --disable-warnings
+            
+            Write-Host "  Running scripts/tests/ directory..." -ForegroundColor Cyan
+            if (Test-Path "scripts/tests") {
+                pytest scripts/tests/ -q --disable-warnings 2>&1 | Out-Null
+            }
+            
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "  All tests passed" -ForegroundColor Green
             } else {
@@ -178,7 +202,7 @@ if (-not $SkipTests) {
             Write-Host "  WARNING: pytest not installed or tests failed" -ForegroundColor Yellow
         }
     } else {
-        Write-Host "  [DRY-RUN] Would run: pytest tests/" -ForegroundColor Cyan
+        Write-Host "  [DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)" -ForegroundColor Cyan
     }
 } else {
     Write-Host ""
