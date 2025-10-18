@@ -131,9 +131,9 @@ if (Test-Path "requirements.txt") {
 } elseif (Test-Path "pyproject.toml") {
     Write-Host "  Found: pyproject.toml" -ForegroundColor Cyan
     if (-not $DryRun) {
-        # Install common scientific packages
-        python -m pip install numpy scipy pandas matplotlib astropy pyyaml
-        Write-Host "  Installed core scientific packages" -ForegroundColor Green
+        # Install all critical dependencies
+        python -m pip install numpy scipy pandas matplotlib astropy astroquery pyyaml pytest pytest-timeout pyarrow colorama
+        Write-Host "  Installed core scientific + testing packages" -ForegroundColor Green
     } else {
         Write-Host "  [DRY-RUN] Would install core packages" -ForegroundColor Cyan
     }

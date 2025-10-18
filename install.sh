@@ -192,9 +192,9 @@ if [ -f "requirements.txt" ]; then
 elif [ -f "pyproject.toml" ]; then
     print_info "Found: pyproject.toml"
     if [ "$DRY_RUN" = false ]; then
-        # Install common scientific packages
-        $PYTHON_CMD -m pip install numpy scipy pandas matplotlib astropy pyyaml
-        print_success "Installed core scientific packages"
+        # Install all critical dependencies
+        $PYTHON_CMD -m pip install numpy scipy pandas matplotlib astropy astroquery pyyaml pytest pytest-timeout pyarrow colorama
+        print_success "Installed core scientific + testing packages"
     else
         print_info "[DRY-RUN] Would install core packages"
     fi
