@@ -156,3 +156,95 @@ def save_report(
     
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(report_text)
+
+
+def load_sources_config(config_path: str | Path = "config/sources.yaml") -> dict:
+    """
+    Load sources configuration with validation papers base directory.
+    
+    Resolves base directory in this order:
+    1. SSZ_SOURCES_DIR environment variable (highest priority)
+    2. base_dir (Windows) if os.name == 'nt'
+    3. base_dir_unix (WSL/Linux)
+    
+    Parameters:
+    -----------
+    config_path : Path to sources.yaml config file
+    
+    Returns:
+    --------
+    dict with keys:
+        - 'base_dir': Resolved base directory path
+        - 'exists': Boolean, whether path exists
+        - 'source': String indicating resolution method
+    
+    Example:
+    --------
+    >>> config = load_sources_config()
+    >>> print(config['base_dir'])
+    'H:\\WINDSURF\\VALIDATION_PAPER'
+    >>> print(config['exists'])
+    True
+    """
+    import os
+    import yaml
+    
+    config_path = Path(config_path)
+    
+    # Check if config file exists
+    if not config_path.exists():
+        # Return default for Windows
+        default_dir = r"H:\WINDSURF\VALIDATION_PAPER"
+        return {
+            'base_dir': default_dir,
+            'exists': os.path.exists(default_dir),
+            'source': 'default'
+        }
+    
+    # Load YAML config
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    # Priority 1: Environment variable
+    env_dir = os.getenv('SSZ_SOURCES_DIR')
+    if env_dir:
+        return {
+            'base_dir': env_dir,
+            'exists': os.path.exists(env_dir),
+            'source': 'environment'
+        }
+    
+    # Priority 2: Windows base_dir
+    if os.name == 'nt' and 'base_dir' in config:
+        base_dir = config['base_dir']
+        return {
+            'base_dir': base_dir,
+            'exists': os.path.exists(base_dir),
+            'source': 'config_windows'
+        }
+    
+    # Priority 3: Unix/WSL base_dir_unix
+    if 'base_dir_unix' in config:
+        base_dir_unix = config['base_dir_unix']
+        return {
+            'base_dir': base_dir_unix,
+            'exists': os.path.exists(base_dir_unix),
+            'source': 'config_unix'
+        }
+    
+    # Fallback: use base_dir regardless of OS
+    if 'base_dir' in config:
+        base_dir = config['base_dir']
+        return {
+            'base_dir': base_dir,
+            'exists': os.path.exists(base_dir),
+            'source': 'config_fallback'
+        }
+    
+    # Ultimate fallback
+    default_dir = r"H:\WINDSURF\VALIDATION_PAPER"
+    return {
+        'base_dir': default_dir,
+        'exists': os.path.exists(default_dir),
+        'source': 'hardcoded_fallback'
+    }

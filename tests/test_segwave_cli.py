@@ -306,6 +306,55 @@ class TestBundledDatasets:
         assert isinstance(g79["papers_local"], list), "papers_local should be list"
         assert len(g79["papers_local"]) > 0, "papers_local should not be empty"
     
+    def test_sources_config_yaml_exists(self):
+        """Test sources.yaml config exists and is loadable"""
+        sources_yaml = Path(__file__).resolve().parents[1] / "config" / "sources.yaml"
+        
+        if not sources_yaml.exists():
+            pytest.skip(f"Sources config not found: {sources_yaml}")
+        
+        import yaml
+        with open(sources_yaml, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+        
+        # Check required keys
+        assert "base_dir" in config, "Missing base_dir in sources.yaml"
+        
+        # Check Windows path format
+        base_dir = config["base_dir"]
+        assert isinstance(base_dir, str), "base_dir should be string"
+        assert "WINDSURF" in base_dir.upper(), "base_dir should contain WINDSURF"
+        assert "VALIDATION_PAPER" in base_dir.upper(), "base_dir should contain VALIDATION_PAPER"
+    
+    def test_load_sources_config_function(self):
+        """Test load_sources_config function from io module"""
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+        
+        try:
+            from ssz.segwave.io import load_sources_config
+            
+            # Test function call
+            config = load_sources_config()
+            
+            # Validate structure
+            assert 'base_dir' in config, "Missing base_dir in config"
+            assert 'exists' in config, "Missing exists in config"
+            assert 'source' in config, "Missing source in config"
+            
+            # Check types
+            assert isinstance(config['base_dir'], str), "base_dir should be string"
+            assert isinstance(config['exists'], bool), "exists should be boolean"
+            assert isinstance(config['source'], str), "source should be string"
+            
+            # Warn if validation papers directory doesn't exist (non-fatal)
+            if not config['exists']:
+                print(f"\nWARNING: Validation papers directory not found: {config['base_dir']}")
+                print(f"         Resolved from: {config['source']}")
+                print("         This is non-fatal but affects paper validation features")
+        
+        except ImportError as e:
+            pytest.skip(f"Cannot import load_sources_config: {e}")
+    
     def test_g79_cli_smoke_run(self, temp_dir):
         """Smoke test: run CLI on G79.29+0.46 dataset"""
         g79_csv = Path(__file__).resolve().parents[1] / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
