@@ -182,6 +182,11 @@ models/**/solar_ssz.json
 # - data/gaia/gaia_cone_g79.csv (~500 KB)
 # - data/gaia/gaia_cone_cygx.csv (~500 KB)
 
+# FORCE INCLUDE these important files:
+!data/real_data_full.csv
+!data/gaia/gaia_sample_small.csv
+!data/gaia/gaia_cone_*.csv
+
 # ============================================================================
 # GENERATED REPORTS & OUTPUTS
 # ============================================================================
