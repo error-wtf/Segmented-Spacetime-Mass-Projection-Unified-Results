@@ -59,10 +59,22 @@ if (Test-Path "reports") {
     Write-Host "  [SKIP] No reports found" -ForegroundColor Yellow
 }
 
-# Section 4: Documentation
+# Section 4: Documentation (list only, no content)
 Write-Host "[4/5] Documentation (docs/*.md, root *.md)" -ForegroundColor Yellow
-ssz-print-md --root docs --order path --include "*.md"
-ssz-print-md --root . --include "*.md" --exclude-dirs papers docs reports tests scripts data
+if (Test-Path "docs") {
+    $docFiles = Get-ChildItem -Path "docs" -Filter *.md -Recurse
+    foreach ($doc in $docFiles) {
+        Write-Host "  - $($doc.FullName)" -ForegroundColor Cyan
+    }
+    Write-Host "  Total: $($docFiles.Count) documentation files" -ForegroundColor Green
+}
+# Root-level MD files (excluding directories)
+$rootMd = Get-ChildItem -Path . -Filter *.md -File | Where-Object { 
+    $_.Name -ne "README.md"  # README still important to show
+}
+foreach ($md in $rootMd) {
+    Write-Host "  - $($md.FullName)" -ForegroundColor Cyan
+}
 Write-Host ""
 
 # Section 5: Full Pipeline Outputs
