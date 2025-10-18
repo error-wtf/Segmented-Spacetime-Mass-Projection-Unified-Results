@@ -156,6 +156,8 @@ python ssz_theory_segmented.py \
 
 ## Phase 6: EHT Shadow Comparison & Ring Analysis
 
+**NEW: Now automatically executed in run_all_ssz_terminal.py!**
+
 ### 6.1 EHT Shadow Comparison Matrix
 
 ```bash
@@ -164,24 +166,29 @@ python scripts/analysis/eht_shadow_comparison.py
 
 **Compares:**
 - SSZ shadow predictions vs EHT observations
-- M87* shadow radius
-- Sgr A* shadow predictions
+- M87* shadow radius (M87*)
+- Sgr A* shadow predictions  
 - Comparison matrix with GR
 - Statistical significance
+- Output: comparison tables and plots
 
-### 6.2 Ring Temperature to Velocity
+### 6.2 SSZ Rings Analysis
 
+**Automated for example datasets:**
 ```bash
-python scripts/ring_temperature_to_velocity.py
-python ring_temperature_to_velocity.py
+# G79.29+0.46 (multi-shell LBV nebula)
+python scripts/ring_temperature_to_velocity.py --csv data/observations/G79_29+0_46_CO_NH3_rings.csv
+
+# Cygnus X Diamond Ring
+python scripts/ring_temperature_to_velocity.py --csv data/observations/CygnusX_DiamondRing_CII_rings.csv
 ```
 
 **Analysis:**
-- Temperature-velocity conversion
-- Expanding ring kinematics
-- G79.29+0.46 analysis
-- Cygnus X Diamond Ring
+- Temperature-velocity conversion for expanding rings
 - NH3/CO line analysis
+- Shock front kinematics
+- Radial velocity profiles
+- Comparison with SSZ predictions
 
 ### 6.3 Redshift Robustness
 
