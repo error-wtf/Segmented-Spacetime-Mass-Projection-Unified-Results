@@ -183,6 +183,12 @@ Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
         help="Output PNG file for velocity plot (requires matplotlib)"
     )
     
+    parser.add_argument(
+        '--echo-all-md',
+        action='store_true',
+        help="After completion, print all Markdown files in repository to STDOUT"
+    )
+    
     args = parser.parse_args()
     
     # Load data
@@ -309,6 +315,21 @@ Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
     
     print()
     print("[OK] SSZ-Rings completed successfully")
+    
+    # Optional: Echo all Markdown files in repository
+    if args.echo_all_md:
+        print("\n" + "="*100)
+        print("ECHOING ALL MARKDOWN FILES IN REPOSITORY")
+        print("="*100)
+        try:
+            import subprocess
+            subprocess.run(
+                [sys.executable, "-m", "tools.print_all_md", "--root", "."],
+                check=False
+            )
+        except Exception as e:
+            print(f"(echo-all-md failed: {e})", file=sys.stderr)
+    
     return 0
 
 
