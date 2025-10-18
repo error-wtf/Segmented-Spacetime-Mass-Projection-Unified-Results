@@ -8,6 +8,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added - 2025-01-18
 
+#### Validation Papers Integration (`config/sources.yaml`)
+
+**Windows/WSL Sources Configuration**
+
+New configuration system for validation papers directory:
+- **Base directory:** `H:\WINDSURF\VALIDATION_PAPER` (Windows)
+- **WSL alternative:** `/mnt/h/WINDSURF/VALIDATION_PAPER`
+- **Environment override:** `SSZ_SOURCES_DIR` (highest priority)
+
+**Path Resolution:**
+```python
+from ssz.segwave import load_sources_config
+
+config = load_sources_config()
+print(config['base_dir'])    # H:\WINDSURF\VALIDATION_PAPER
+print(config['exists'])      # True/False
+print(config['source'])      # environment/config_windows/config_unix
+```
+
+**Features:**
+- Automatic OS detection (Windows vs WSL/Linux)
+- Smart fallback chain for cross-platform compatibility
+- Non-fatal warnings if papers directory missing
+- Enables offline validation against local PDF archive
+
+**Usage:**
+- Windows: `setx SSZ_SOURCES_DIR "H:\WINDSURF\VALIDATION_PAPER"`
+- WSL: `export SSZ_SOURCES_DIR=/mnt/h/WINDSURF/VALIDATION_PAPER`
+
 #### Segmented Radiowave Propagation Module (`ssz/segwave/`)
 
 **New Feature: SSZ-Rings CLI Tool**
