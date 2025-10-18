@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "segmented-spacetime-suite-extended"
+version = "1.0"
+description = "Segmented-Spacetime Suite (extended): Pipeline, Tests, Reports, Summaries"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  { name = "Carmen Wrede" },
+  { name = "Lino Casu" }
+]
+license = { text = "ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)" }
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/segmented-spacetime"
+
+[project.scripts]
+segspace-run-all = "segspace.cli:main_all_with_summary_and_license"
+segspace-summary = "segspace.cli:print_summary"
+segspace-fetch-data = "segspace.cli:fetch_data"
+ssz-rings = "cli.ssz_rings:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.package-data]
+"segspace" = ["**/*"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q --disable-warnings --junitxml=junit-smoke.xml"
+testpaths = ["scripts/tests"]
+pythonpath = ["."]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::PendingDeprecationWarning",
+]

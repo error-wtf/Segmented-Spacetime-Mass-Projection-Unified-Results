@@ -1,0 +1,31 @@
+{
+  "G79.29+0.46": {
+    "CO": [
+      "doi:10.1051/0004-6361/201936651",
+      "bib:Sabatini+2019_A&A_644_A34"
+    ],
+    "NH3": [
+      "doi:10.1088/0004-637X/756/1/60",
+      "bib:Dunham+2011_ApJ_756_60"
+    ],
+    "CII": [
+      "doi:10.1051/0004-6361/201834049",
+      "bib:Kabanovic+2020_A&A_645_A87"
+    ]
+  },
+  "NGC1333_IRAS4A": {
+    "CO": [
+      "doi:10.3847/1538-4357/aaf414",
+      "bib:Santangelo+2015_A&A_584_A126"
+    ],
+    "H2O": [
+      "doi:10.1051/0004-6361/201628648",
+      "bib:Persson+2016_A&A_590_A33"
+    ]
+  },
+  "EXAMPLE_SOURCE": {
+    "CO": ["doi:10.xxxx/example", "bib:Author+YYYY"],
+    "NH3": ["doi:10.xxxx/example2"],
+    "CII": ["arxiv:YYMM.NNNNN"]
+  }
+}
