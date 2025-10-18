@@ -30,19 +30,27 @@ echo -e "${CYAN}SSZ PROJECTION SUITE - COMPLETE MARKDOWN OUTPUT${NC}"
 echo -e "${CYAN}====================================================================================================${NC}"
 echo ""
 
-# Section 1: Validation Papers
+# Section 1: Validation Papers (list only, no content)
 echo -e "${YELLOW}[1/5] Validation Papers (papers/validation/)${NC}"
 if [ -d "papers/validation" ]; then
-    ssz-print-md --root papers/validation --order path
+    find papers/validation -name "*.md" | while read -r paper; do
+        echo -e "${CYAN}  - $paper${NC}"
+    done
+    VALIDATION_COUNT=$(find papers/validation -name "*.md" | wc -l)
+    echo -e "${GREEN}  Total: $VALIDATION_COUNT papers${NC}"
     echo ""
 else
     echo -e "${YELLOW}  [SKIP] No validation papers found${NC}"
 fi
 
-# Section 2: Theory Papers
+# Section 2: Theory Papers (list only, no content)
 echo -e "${YELLOW}[2/5] Theory Papers (docs/theory/)${NC}"
 if [ -d "docs/theory" ]; then
-    ssz-print-md --root docs/theory --order path
+    find docs/theory -name "*.md" | while read -r paper; do
+        echo -e "${CYAN}  - $paper${NC}"
+    done
+    THEORY_COUNT=$(find docs/theory -name "*.md" | wc -l)
+    echo -e "${GREEN}  Total: $THEORY_COUNT papers${NC}"
     echo ""
 else
     echo -e "${YELLOW}  [SKIP] No theory papers found${NC}"
