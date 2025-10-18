@@ -4,15 +4,32 @@ import os, pandas as pd
 from scripts.tools.logging_utils import get_logger
 from scripts.tools.retry import retry
 
-# Optional dependency - skip tests if not available
+# Required dependency for data fetching tests
 try:
     from astroquery.gaia import Gaia
     from astroquery.sdss import SDSS
     HAS_ASTROQUERY = True
-except ImportError:
+except ImportError as e:
     HAS_ASTROQUERY = False
-    Gaia = None
-    SDSS = None
+    import_error = e
+    # Provide helpful error message
+    def _missing_astroquery(*args, **kwargs):
+        raise ImportError(
+            "\n\n"
+            "❌ MISSING DEPENDENCY: astroquery\n"
+            "\n"
+            "The data fetching tests require 'astroquery' to be installed.\n"
+            "\n"
+            "📦 To install:\n"
+            "   pip install astroquery\n"
+            "\n"
+            "Or install all dependencies:\n"
+            "   pip install -r requirements.txt\n"
+            "\n"
+            f"Original error: {import_error}\n"
+        )
+    Gaia = type('Gaia', (), {'launch_job_async': _missing_astroquery, 'BASE_URL': '', 'ROW_LIMIT': -1})()
+    SDSS = type('SDSS', (), {'query_sql': _missing_astroquery})()
 
 def ensure_dir(p: str|Path):
     Path(p).mkdir(parents=True, exist_ok=True)
