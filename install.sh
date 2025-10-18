@@ -112,9 +112,23 @@ fi
 echo ""
 print_step "[2/8] Setting up virtual environment..."
 VENV_PATH=".venv"
+ACTIVATE_SCRIPT="$VENV_PATH/bin/activate"
 
+# Check if venv exists and is compatible with Linux/WSL
 if [ -d "$VENV_PATH" ]; then
-    print_success "Virtual environment already exists"
+    if [ -f "$ACTIVATE_SCRIPT" ]; then
+        print_success "Virtual environment already exists (Linux-compatible)"
+    else
+        print_warn "WARNING: Existing .venv is Windows-only (Scripts/activate.ps1)"
+        print_info "Removing incompatible venv and recreating for Linux/WSL..."
+        if [ "$DRY_RUN" = false ]; then
+            rm -rf "$VENV_PATH"
+            $PYTHON_CMD -m venv "$VENV_PATH"
+            print_success "Created new Linux-compatible venv: $VENV_PATH"
+        else
+            print_info "[DRY-RUN] Would remove and recreate: $VENV_PATH"
+        fi
+    fi
 else
     if [ "$DRY_RUN" = false ]; then
         $PYTHON_CMD -m venv "$VENV_PATH"
@@ -127,7 +141,6 @@ fi
 # Step 3: Activate venv
 echo ""
 print_step "[3/8] Activating virtual environment..."
-ACTIVATE_SCRIPT="$VENV_PATH/bin/activate"
 
 if [ -f "$ACTIVATE_SCRIPT" ]; then
     if [ "$DRY_RUN" = false ]; then
@@ -137,7 +150,8 @@ if [ -f "$ACTIVATE_SCRIPT" ]; then
         print_info "[DRY-RUN] Would activate: $VENV_PATH"
     fi
 else
-    print_error "ERROR: Activation script not found"
+    print_error "ERROR: Activation script not found at: $ACTIVATE_SCRIPT"
+    print_error "This should not happen. Venv creation may have failed."
     exit 1
 fi
 
