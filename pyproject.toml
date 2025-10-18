@@ -24,6 +24,7 @@ segspace-summary = "segspace.cli:print_summary"
 segspace-fetch-data = "segspace.cli:fetch_data"
 ssz-rings = "cli.ssz_rings:main"
 ssz-print-md = "tools.print_all_md:main"
+ssz-run-full-suite = "run_full_suite:main"
 
 [tool.setuptools]
 include-package-data = true

@@ -108,6 +108,34 @@ ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
 **Validation papers:** `papers/validation/` (bundled in repo)  
 **Theory papers:** `docs/theory/` (SSZ theoretical foundation)
 
+### Complete Test & Analysis Workflow
+
+Run all tests, generate summaries, and echo all Markdown outputs:
+
+```bash
+# Full workflow (all tests + examples + MD echo)
+python run_full_suite.py
+
+# Quick mode (essential tests only)
+python run_full_suite.py --quick
+
+# Skip slow tests
+python run_full_suite.py --skip-slow-tests
+
+# Windows
+run_full_suite.bat
+
+# Linux/macOS
+chmod +x run_full_suite.sh
+./run_full_suite.sh
+```
+
+**Output:**
+- Runs all test phases sequentially
+- Generates `reports/RUN_SUMMARY.md`
+- Echoes all Markdown files at the end
+- Returns exit code 0 if all passed
+
 ### Repo-wide Markdown Output
 
 After any analysis run, print all Markdown reports/summaries to STDOUT:
