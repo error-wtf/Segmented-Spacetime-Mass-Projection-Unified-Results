@@ -162,10 +162,10 @@ if ($DevMode) {
     }
 }
 
-# Step 6: Run tests
+# Step 7: Run tests
 if (-not $SkipTests) {
     Write-Host ""
-    Write-Host "[7/8] Running test suite..." -ForegroundColor Yellow
+    Write-Host "[7/9] Running test suite..." -ForegroundColor Yellow
     if (-not $DryRun) {
         try {
             # Run ALL tests with full output
@@ -223,12 +223,12 @@ if (-not $SkipTests) {
     }
 } else {
     Write-Host ""
-    Write-Host "[7/8] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
+    Write-Host "[7/9] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
 }
 
 # Step 8: Verify installation
 Write-Host ""
-Write-Host "[8/8] Verifying installation..." -ForegroundColor Yellow
+Write-Host "[8/9] Verifying installation..." -ForegroundColor Yellow
 if (-not $DryRun) {
     # Check CLI commands
     try {
@@ -267,6 +267,43 @@ if (-not $DryRun) {
     }
 } else {
     Write-Host "  [DRY-RUN] Would verify commands and papers" -ForegroundColor Cyan
+}
+
+# Step 9: Generate test summary and MD outputs
+if (-not $SkipTests) {
+    Write-Host ""
+    Write-Host "[9/9] Generating test summary and outputs..." -ForegroundColor Yellow
+    if (-not $DryRun) {
+        # Generate test summary
+        $summaryScript = "ci\summary-all-tests.py"
+        if (Test-Path $summaryScript) {
+            Write-Host "  Generating test summary..." -ForegroundColor Cyan
+            try {
+                python $summaryScript
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "    [OK] Test summary generated" -ForegroundColor Green
+                }
+            } catch {
+                Write-Host "    [WARN] Could not generate test summary" -ForegroundColor Yellow
+            }
+        }
+        
+        # Print MD outputs summary
+        Write-Host "  Generating MD outputs summary..." -ForegroundColor Cyan
+        try {
+            ssz-print-md --root reports --order path | Out-Null
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "    [OK] MD outputs available (run .\print_all_analysis.ps1 to view)" -ForegroundColor Green
+            }
+        } catch {
+            Write-Host "    [WARN] MD outputs not generated yet (run tests first)" -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "  [DRY-RUN] Would generate summary and outputs" -ForegroundColor Cyan
+    }
+} else {
+    Write-Host ""
+    Write-Host "[9/9] Skipping summary generation (--SkipTests flag)" -ForegroundColor Yellow
 }
 
 # Summary
