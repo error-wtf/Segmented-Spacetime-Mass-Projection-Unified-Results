@@ -32,6 +32,9 @@ kaleido>=0.2.1
 # Data validation (optional)
 pydantic>=2.0.0
 
+# Parquet support for GAIA data
+pyarrow>=14.0.0
+
 # Jupyter support (optional)
 jupyter>=1.0.0
 ipykernel>=6.25.0
