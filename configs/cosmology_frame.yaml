@@ -1,0 +1,27 @@
+# Reference frame configuration for SSZ cosmology pipeline
+reference_epoch: J2000
+icrs_to_galactic:
+  solar_radius_kpc: 8.2
+  solar_height_pc: 25.0
+  solar_motion_kms:
+    U: 11.1
+    V: 12.24
+    W: 7.25
+  l_ascending_node_deg: 32.93192
+  inclination_deg: 62.87175
+galactocentric_grid:
+  r_max_kpc: 200.0
+  z_max_kpc: 20.0
+  radial_step_kpc: 0.5
+  vertical_step_kpc: 0.25
+local_volume_selection:
+  max_distance_pc: 200.0
+  parallax_over_error_min: 5.0
+  ruwe_max: 1.4
+velocity_frame:
+  include_radial_velocity: true
+  distance_method: bailer_jones
+  distance_prior_scale_pc: 1000
+metadata:
+  created: "2025-10-17"
+  notes: "Initial frame defaults; adjust with latest literature"

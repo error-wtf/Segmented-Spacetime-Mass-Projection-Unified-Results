@@ -1,0 +1,56 @@
+#!/bin/sh
+set -e
+
+# Ensure UTF-8 encoding
+export PYTHONNOUSERSITE=0
+export PYTHONIOENCODING=UTF-8
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
+# Optional: Allow disabling automatic suite run with SEGSPACE_FETCH=0
+: "${SEGSPACE_FETCH:=1}"
+export SEGSPACE_FETCH
+
+echo ""
+echo "=========================================================================="
+echo "Segmented Spacetime Suite - Extended (v1.0)"
+echo "=========================================================================="
+echo ""
+
+if [ "$1" = "configure" ]; then
+    echo "[INFO] Package installed successfully."
+    echo "[INFO] Commands available:"
+    echo "  - segspace-run-all      : Run complete suite + print reports + license"
+    echo "  - segspace-summary      : Print all reports only"
+    echo "  - segspace-fetch-data   : Fetch optional data (if needed)"
+    echo ""
+    
+    # Only auto-run if user didn't disable it
+    if [ "$SEGSPACE_FETCH" = "1" ]; then
+        echo "[INFO] Running complete suite (this may take 2-5 minutes)..."
+        echo "[INFO] To skip auto-run in future: SEGSPACE_FETCH=0 apt install ..."
+        echo ""
+        
+        if command -v segspace-run-all >/dev/null 2>&1; then
+            segspace-run-all || {
+                echo "[WARN] Suite execution encountered errors (exit code: $?)"
+                echo "[INFO] You can re-run manually with: segspace-run-all"
+            }
+        else
+            echo "[WARN] segspace-run-all not found in PATH"
+            echo "[INFO] Try: python3 -m segspace.cli"
+        fi
+    else
+        echo "[INFO] Auto-run disabled (SEGSPACE_FETCH=0)"
+        echo "[INFO] Run manually with: segspace-run-all"
+    fi
+    
+    echo ""
+    echo "=========================================================================="
+    echo "Installation complete!"
+    echo "=========================================================================="
+fi
+
+#DEBHELPER#
+
+exit 0

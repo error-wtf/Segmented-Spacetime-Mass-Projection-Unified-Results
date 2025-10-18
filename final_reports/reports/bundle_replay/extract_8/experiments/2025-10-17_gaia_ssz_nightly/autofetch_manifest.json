@@ -1,0 +1,13 @@
+{
+  "run_id": "2025-10-17_gaia_ssz_nightly",
+  "artifacts": {
+    "gaia_primary": "data\\raw\\gaia\\2025-10-17_gaia_ssz_nightly\\gaia_dr3_core.parquet",
+    "gaia_parquet": "data\\raw\\gaia\\2025-10-17_gaia_ssz_nightly\\gaia_dr3_core.parquet",
+    "gaia_csv": "data\\raw\\gaia\\2025-10-17_gaia_ssz_nightly\\gaia_dr3_core.csv",
+    "sdss_primary": "data\\raw\\sdss\\2025-10-17_gaia_ssz_nightly\\sdss_catalog.parquet",
+    "sdss_parquet": "data\\raw\\sdss\\2025-10-17_gaia_ssz_nightly\\sdss_catalog.parquet",
+    "sdss_csv": "data\\raw\\sdss\\2025-10-17_gaia_ssz_nightly\\sdss_catalog.csv",
+    "planck_fits": null
+  },
+  "errors": []
+}

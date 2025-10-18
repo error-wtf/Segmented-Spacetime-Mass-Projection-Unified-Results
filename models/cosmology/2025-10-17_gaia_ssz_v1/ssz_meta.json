@@ -1,0 +1,11 @@
+{
+  "run_id": "2025-10-17_gaia_ssz_v1",
+  "rows": 550,
+  "params_path": "{'run_id': '2025-10-17_gaia_ssz_v1', 'phi': 1.61803398875, 'base_segments_at_r1': 6, 'spiral_turns': 3, 'segment_scale_law': 'logarithmic', 'radius_unit': 'pc', 'smoothing_healpix_nside': 64, 'velocity_weight': 0.2, 'mass_proxy': 'phot_g_mean_mag', 'alpha': 1.0, 'kappa': 0.8, 'delta_m_reference': 0.0, 'natural_boundary_beta': 0.05, 'healpix_frame': 'galactic', 'max_hierarchy_level': 5, 'integration_step_myr': 5.0, 'density_kernel': 'gaussian', 'kernel_sigma_pc': 25.0, 'nearest_neighbor_k': 32, 'spiral_search_radius_pc': 150.0, 'quality_mask': {'parallax_over_error_min': 5.0, 'ruwe_max': 1.4, 'radial_velocity_required': False}, 'energy_scaling': {'base_energy_density': 1.0, 'dual_velocity_tolerance': '1e-6'}}",
+  "features": [
+    "segment_density",
+    "segment_id",
+    "natural_boundary",
+    "spiral_turn_index"
+  ]
+}

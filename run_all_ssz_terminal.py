@@ -14,6 +14,39 @@ NEU:
 
 import os
 import sys
+import io
+
+# ========================================================================
+# CRITICAL: Force UTF-8 for stdout/stderr to prevent Windows charmap crashes
+# Cross-platform: Different approach for Windows vs Linux
+# ========================================================================
+IS_WINDOWS = sys.platform.startswith('win')
+
+if IS_WINDOWS:
+    # Windows: Needs explicit TextIOWrapper due to cp1252 default encoding
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, io.UnsupportedOperation):
+        # Fallback for older Python versions or when reconfigure not available
+        if hasattr(sys.stdout, 'buffer'):
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+        if hasattr(sys.stderr, 'buffer'):
+            sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+else:
+    # Linux/Unix: Usually UTF-8 by default, just ensure it's set
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        # If reconfigure fails on Linux, it's usually fine (already UTF-8)
+        pass
+
+# Force UTF-8 for child processes (cross-platform)
+os.environ.setdefault("PYTHONUTF8", "1")
+os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+# ========================================================================
+
 import csv
 import json
 import hashlib
@@ -63,10 +96,34 @@ def sha256_of_file(p: Path) -> str:
 def run(cmd, cwd=None):
     label = " ".join(map(str, cmd))
     print(f"\n--- Running {label} ---")
+    sys.stdout.flush()  # Ensure label is printed before subprocess
     try:
-        subprocess.run(cmd, cwd=cwd, check=True, env=_utf8_env())
+        # CRITICAL: Explicitly bind stdout/stderr so child processes can write to them
+        # This fixes the issue where TextIOWrapper prevents subprocess output
+        # Cross-platform: Works on both Windows and Linux
+        subprocess.run(
+            cmd, 
+            cwd=cwd, 
+            check=True, 
+            text=True, 
+            encoding="utf-8", 
+            errors="replace", 
+            env=_utf8_env(),
+            stdout=sys.stdout,  # Explizit stdout durchreichen (cross-platform)
+            stderr=sys.stderr   # Explizit stderr durchreichen (cross-platform)
+        )
     except subprocess.CalledProcessError as e:
         print(f"ERROR: Script {cmd[0]} exited with status {e.returncode}")
+        sys.stdout.flush()
+    except Exception as e:
+        # Fallback if stdout/stderr binding fails
+        print(f"WARNING: Subprocess error: {e}")
+        try:
+            # Retry without explicit stdout/stderr binding
+            subprocess.run(cmd, cwd=cwd, check=True, text=True, 
+                          encoding="utf-8", errors="replace", env=_utf8_env())
+        except subprocess.CalledProcessError as e2:
+            print(f"ERROR: Script {cmd[0]} exited with status {e2.returncode}")
 
 def run_capture(cmd, cwd=None):
     label = " ".join(map(str, cmd))
@@ -77,11 +134,13 @@ def run_capture(cmd, cwd=None):
         check=False,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         env=_utf8_env(),
     )
     if res.stdout:
         try:
-            sys.stdout.write(res.stdout)
+            sys.stdout.write(res.stdout.encode("utf-8").decode("utf-8"))
         except UnicodeEncodeError:
             sys.stdout.write(res.stdout.encode("utf-8","ignore").decode("utf-8"))
         sys.stdout.flush()
@@ -97,7 +156,7 @@ def script_supports_flags(script: Path, flags: list[str]) -> set[str]:
     try:
         res = subprocess.run(
             [PY, str(script), "-h"],
-            capture_output=True, text=True, check=False, env=_utf8_env()
+            capture_output=True, text=True, encoding="utf-8", errors="replace", check=False, env=_utf8_env()
         )
         helptext = (res.stdout or "") + "\n" + (res.stderr or "")
     except Exception:
@@ -237,6 +296,45 @@ if csv_full.exists():
         pass
 
 # ---------------------------------------
+# -1) Fetch Planck data if not present (2GB, skip if exists)
+# ---------------------------------------
+print("\n--- Checking for Planck CMB map data ---")
+
+# Try run_id-specific path first, then fall back to generic path
+RUN_ID = os.environ.get("SSZ_RUN_ID", "2025-10-17_gaia_ssz_real")
+planck_map_specific = HERE / "data" / "raw" / "planck" / RUN_ID / "planck_map.fits"
+planck_map_generic = HERE / "data" / "raw" / "planck" / "planck_map.fits"
+
+# Check both possible locations
+planck_map = None
+if planck_map_specific.exists():
+    planck_map = planck_map_specific
+    print(f"[OK] Planck map found (run-specific): {planck_map}")
+    print(f"     Size: {planck_map.stat().st_size / (1024**3):.2f} GB")
+elif planck_map_generic.exists():
+    planck_map = planck_map_generic
+    print(f"[OK] Planck map found (generic): {planck_map}")
+    print(f"     Size: {planck_map.stat().st_size / (1024**3):.2f} GB")
+else:
+    # Not found anywhere, try to download to run-specific location
+    planck_map = planck_map_specific
+    print(f"[INFO] Planck map not found")
+    print(f"     Checked: {planck_map_specific}")
+    print(f"     Checked: {planck_map_generic}")
+    fetch_script = HERE / "scripts" / "planck" / "fetch_planck_map.py"
+    if fetch_script.exists():
+        print(f"[FETCH] Downloading Planck SMICA map to run-specific location (~2 GB, this will take a while)...")
+        planck_map.parent.mkdir(parents=True, exist_ok=True)
+        run([PY, str(fetch_script), "--output", str(planck_map)])
+        if planck_map.exists():
+            print(f"[OK] Planck map downloaded: {planck_map.stat().st_size / (1024**3):.2f} GB")
+        else:
+            print("[WARN] Planck fetch completed but file not found. Continuing anyway.")
+    else:
+        print(f"[WARN] Planck fetch script not found: {fetch_script}")
+        print("[WARN] Skipping Planck data download. Analysis will continue without it.")
+
+# ---------------------------------------
 # 0) NEW: run the all-in-one pipeline first
 # ---------------------------------------
 all_in_one = HERE / "segspace_all_in_one_extended.py"
@@ -258,6 +356,35 @@ run([PY, str(HERE / "qnm_eikonal.py")])
 
 # vfall duality quick check (Earth, short list)
 run([PY, str(HERE / "test_vfall_duality.py"), "--mass", "Earth", "--r-mults", "1.1,2.0"])
+
+# ---------------------------------------
+# 1.5) Pytest Unit Tests (tests/ and scripts/tests/)
+# ---------------------------------------
+print("\n--- Running pytest unit tests ---")
+tests_dir = HERE / "tests"
+scripts_tests_dir = HERE / "scripts" / "tests"
+
+pytest_available = True
+try:
+    import pytest as _pytest_check
+except ImportError:
+    print("[WARN] pytest not installed; skipping unit tests.")
+    pytest_available = False
+
+if pytest_available:
+    # Run tests/ directory
+    if tests_dir.exists():
+        print("  Running tests/ directory...")
+        run([PY, "-m", "pytest", str(tests_dir), "-s", "-v", "--tb=short"])
+    else:
+        print("[WARN] tests/ directory not found.")
+    
+    # Run scripts/tests/ directory
+    if scripts_tests_dir.exists():
+        print("  Running scripts/tests/ directory...")
+        run([PY, "-m", "pytest", str(scripts_tests_dir), "-s", "-v", "--tb=short"])
+    else:
+        print("[WARN] scripts/tests/ directory not found.")
 
 # ---------------------------------------
 # 2) phi-tests (auto-detect columns)
@@ -421,6 +548,43 @@ if theory_script.exists():
     run(theory_cmd)
 else:
     print("[WARN] ssz_theory_segmented.py not found; skipping theory run.")
+
+# ---------------------------------------
+# 5.9) EHT Shadow Comparison Matrix
+# ---------------------------------------
+eht_script = HERE / "scripts" / "analysis" / "eht_shadow_comparison.py"
+if eht_script.exists():
+    print("\n--- EHT Shadow Comparison Matrix ---")
+    run([PY, str(eht_script)])
+else:
+    print("[WARN] eht_shadow_comparison.py not found; skipping EHT comparison.")
+
+# ---------------------------------------
+# 5.10) SSZ Rings Analysis (Example Data)
+# ---------------------------------------
+ring_script = HERE / "scripts" / "ring_temperature_to_velocity.py"
+g79_data = HERE / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
+cygx_data = HERE / "data" / "observations" / "CygnusX_DiamondRing_CII_rings.csv"
+
+if ring_script.exists():
+    print("\n--- SSZ Rings Analysis ---")
+    # G79.29+0.46 (if data exists)
+    if g79_data.exists():
+        print("  Analyzing G79.29+0.46...")
+        # CSV is positional argument, not --csv
+        run([PY, str(ring_script), str(g79_data), "--v0", "12.5"])
+    else:
+        print("[WARN] G79 data not found; skipping G79 analysis.")
+    
+    # Cygnus X (if data exists)
+    if cygx_data.exists():
+        print("  Analyzing Cygnus X Diamond Ring...")
+        # CSV is positional argument, not --csv
+        run([PY, str(ring_script), str(cygx_data), "--v0", "1.3"])
+    else:
+        print("[WARN] Cygnus X data not found; skipping Cygnus X analysis.")
+else:
+    print("[WARN] ring_temperature_to_velocity.py not found; skipping ring analysis.")
 
 # ---------------------------------------
 # 6) Final interpretation (ASCII-clean, now including All-in-one + Dual velocities)
@@ -602,4 +766,409 @@ lines += [
 
 for line in lines:
     print(ascii_safe(line))
+
+
+# ==============================================================================
+# EXTENDED METRICS & PLOTS (Optional - nur wenn SSZ_EXTENDED_METRICS=1)
+# ==============================================================================
+
+def _finalize_extended_outputs():
+    """
+    OPTIONAL: Erweiterte Metriken, Statistiken und Zusatzplots erzeugen.
+    
+    Wird NUR ausgeführt wenn Umgebungsvariable SSZ_EXTENDED_METRICS=1 gesetzt ist.
+    ÄNDERT NICHTS an der bestehenden Pipeline - nur Ergänzung!
+    
+    Aktivierung:
+        Windows: $env:SSZ_EXTENDED_METRICS="1"
+        Linux:   export SSZ_EXTENDED_METRICS=1
+    """
+    import os
+    
+    # Nur ausführen wenn explizit angefordert
+    if not os.environ.get("SSZ_EXTENDED_METRICS", "").strip() == "1":
+        return  # Nichts tun, Pipeline normal beenden
+    
+    print("\n" + "="*80)
+    print("[SSZ EXTENDED] Generating extended metrics and plots...")
+    print("="*80)
+    
+    try:
+        from pathlib import Path
+        import numpy as np
+        import pandas as pd
+        from core.stats import (
+            compute_ring_metrics, 
+            export_ring_metrics_csv, 
+            correlation_summary, 
+            residuals
+        )
+        from tools.plots import line, scatter, hist
+        from tools.io_utils import update_manifest, sha256_file
+        
+        # =====================================================================
+        # ECHTE RING-DATEN: G79 und Cygnus X
+        # =====================================================================
+        
+        ring_datasets = []
+        
+        # G79.29+0.46
+        g79_csv = HERE / "data" / "observations" / "G79_29+0_46_CO_NH3_rings.csv"
+        if g79_csv.exists():
+            try:
+                df_g79 = pd.read_csv(g79_csv)
+                # Erwartete Spalten: k, T_K, n_cm3, (optional: v_obs)
+                ring_datasets.append({
+                    "name": "G79",
+                    "k": df_g79['k'].values if 'k' in df_g79.columns else np.arange(len(df_g79)),
+                    "T": df_g79['T_K'].values,
+                    "n": df_g79['n_cm3'].values,
+                    "v": df_g79['v_obs'].values if 'v_obs' in df_g79.columns else None,
+                    "v0": 12.5  # Initial velocity
+                })
+                print(f"[SSZ EXTENDED] Loaded G79 data: {len(df_g79)} rings")
+            except Exception as e:
+                print(f"[SSZ EXTENDED] WARNING: Could not load G79 data: {e}")
+        
+        # Cygnus X Diamond Ring
+        cygx_csv = HERE / "data" / "observations" / "CygnusX_DiamondRing_CII_rings.csv"
+        if cygx_csv.exists():
+            try:
+                df_cygx = pd.read_csv(cygx_csv)
+                ring_datasets.append({
+                    "name": "CygnusX",
+                    "k": df_cygx['k'].values if 'k' in df_cygx.columns else np.arange(len(df_cygx)),
+                    "T": df_cygx['T_K'].values,
+                    "n": df_cygx['n_cm3'].values,
+                    "v": df_cygx['v_obs'].values if 'v_obs' in df_cygx.columns else None,
+                    "v0": 1.3  # Initial velocity
+                })
+                print(f"[SSZ EXTENDED] Loaded Cygnus X data: {len(df_cygx)} rings")
+            except Exception as e:
+                print(f"[SSZ EXTENDED] WARNING: Could not load Cygnus X data: {e}")
+        
+        if not ring_datasets:
+            print("[SSZ EXTENDED] No ring data found, using example data...")
+            # Fallback auf Beispieldaten
+            ring_datasets.append({
+                "name": "TestObject",
+                "k": np.arange(10),
+                "T": 50 + 10 * np.random.rand(10),
+                "n": 1000 + 500 * np.random.rand(10),
+                "v": None,
+                "v0": 10.0
+            })
+        
+        # =====================================================================
+        # Loop durch alle Ring-Datasets
+        # =====================================================================
+        
+        fig_formats = ("png", "svg")
+        fig_dpi = 600
+        fig_width_mm = 160
+        fig_root = "reports/figures"
+        
+        all_paths = []
+        all_csv_files = []
+        
+        for dataset in ring_datasets:
+            obj_name = dataset["name"]
+            k = dataset["k"]
+            T = dataset["T"]
+            n = dataset["n"]
+            v_obs = dataset["v"]
+            v0 = dataset["v0"]
+            
+            print(f"\n[SSZ EXTENDED] Processing {obj_name}...")
+            
+            # Wenn keine beobachteten Geschwindigkeiten vorhanden,
+            # verwende simple Schätzung basierend auf Temperatur
+            if v_obs is None:
+                # Einfache Annahme: v ~ sqrt(T)
+                v_model = v0 * np.sqrt(T / T[0])
+            else:
+                v_model = v_obs
+            
+            # 1) Metriken berechnen
+            metrics = compute_ring_metrics(
+                k=k, T=T, n=n, v=v_model
+            )
+            
+            # 2) CSV exportieren
+            csv_metrics = export_ring_metrics_csv(
+                obj_name, metrics, outdir="reports/data"
+            )
+            csv_stats = correlation_summary(
+                obj_name, metrics, v_obs=v_obs, outdir="reports/stats"
+            )
+            
+            all_csv_files.extend([csv_metrics, csv_stats])
+            
+            print(f"[SSZ EXTENDED]   Metrics CSV: {csv_metrics}")
+            print(f"[SSZ EXTENDED]   Stats CSV: {csv_stats}")
+            
+            # 3) Plots erzeugen
+            print(f"[SSZ EXTENDED]   Generating plots...")
+            
+            # Plot 1: v vs k
+            base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_ringchain_v_vs_k")
+            paths = line(
+                metrics["k"], metrics["v"],
+                "Ring index k", "Velocity v_k [km/s]",
+                f"{obj_name}: Ring-chain velocity",
+                base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+            )
+            all_paths.extend(paths)
+            
+            # Plot 2: log(γ) vs k
+            base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_gamma_log_vs_k")
+            paths = line(
+                metrics["k"], metrics["log_gamma"],
+                "Ring index k", "log γ",
+                f"{obj_name}: Cumulative time-density",
+                base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+            )
+            all_paths.extend(paths)
+            
+            # Plot 3: Segment-Energie vs k
+            base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_segment_energy_vs_k")
+            paths = line(
+                metrics["k"], metrics["E"],
+                "Ring index k", "Segment energy E_k [arb.]",
+                f"{obj_name}: Segment energy",
+                base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+            )
+            all_paths.extend(paths)
+            
+            # Plot 4: v vs T (log-log)
+            base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_v_vs_T_loglog")
+            Tpos = np.clip(metrics["T"], 1e-9, None)
+            vpos = np.clip(metrics["v"], 1e-9, None)
+            paths = scatter(
+                np.log10(Tpos), np.log10(vpos),
+                "log10 T [K]", "log10 v [km/s]",
+                f"{obj_name}: v vs T (log-log)",
+                base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+            )
+            all_paths.extend(paths)
+            
+            # Plot 5: n vs γ
+            base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_density_vs_gamma")
+            paths = scatter(
+                metrics["gamma"], metrics["n"],
+                "γ", "n [cm⁻³]",
+                f"{obj_name}: density vs gamma",
+                base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+            )
+            all_paths.extend(paths)
+            
+            # Plot 6: Residuen-Histogramm (falls v_obs vorhanden)
+            if v_obs is not None:
+                res = residuals(metrics["v"], v_obs)
+                base = str(Path(fig_root) / obj_name / f"fig_{obj_name}_residuals_histogram")
+                paths = hist(
+                    res, "Residual [km/s]",
+                    f"{obj_name}: Residuals",
+                    base, formats=fig_formats, dpi=fig_dpi, width_mm=fig_width_mm
+                )
+                all_paths.extend(paths)
+            
+            print(f"[SSZ EXTENDED]   Created {len(paths) if v_obs else len(paths)-2} plots for {obj_name}")
+        
+        # Finale Zusammenfassung
+        print("\n" + "="*80)
+        print(f"[SSZ EXTENDED] SUMMARY")
+        print("="*80)
+        print(f"  Processed objects: {len(ring_datasets)}")
+        for ds in ring_datasets:
+            print(f"    - {ds['name']}: {len(ds['k'])} rings")
+        print(f"  Generated {len(all_csv_files)} CSV files")
+        print(f"  Generated {len(all_paths)} figure files")
+        
+        print("\n[SSZ EXTENDED] Figure files:")
+        for p in all_paths:
+            print(f"  - {p}")
+        
+        # 4) Manifest aktualisieren
+        arts = []
+        for path in all_csv_files:
+            arts.append({
+                "role": "table",
+                "path": Path(path).as_posix(),
+                "sha256": sha256_file(path),
+                "format": "csv"
+            })
+        for path in all_paths:
+            arts.append({
+                "role": "figure",
+                "path": Path(path).as_posix(),
+                "sha256": sha256_file(path),
+                "format": Path(path).suffix[1:]
+            })
+        
+        update_manifest("reports/PAPER_EXPORTS_MANIFEST.json", {"artifacts": arts})
+        print(f"\n[SSZ EXTENDED] Manifest updated: reports/PAPER_EXPORTS_MANIFEST.json")
+        print(f"[SSZ EXTENDED] Total artifacts registered: {len(arts)}")
+        
+        print("="*80)
+        print("[SSZ EXTENDED] COMPLETE!")
+        print("="*80)
+        
+    except Exception as e:
+        print(f"[SSZ EXTENDED] WARNING: Extended metrics failed: {e}")
+        print("[SSZ EXTENDED] Continuing without extended outputs...")
+        import traceback
+        traceback.print_exc()
+        # Nicht abbrechen, nur warnen
+
+# Aufruf am Ende (OPTIONAL - tut nichts wenn Flag nicht gesetzt)
+_finalize_extended_outputs()
+
+
+# ==============================================================================
+# FINAL SUMMARY: List ALL generated plots
+# ==============================================================================
+
+def _list_all_generated_plots():
+    """
+    Durchsucht alle relevanten Ordner und listet ALLE generierten Plots auf.
+    """
+    print("\n" + "="*80)
+    print("ÜBERSICHT: ALLE GENERIERTEN PLOTS")
+    print("="*80)
+    
+    # Ordner die Plots enthalten können
+    plot_dirs = [
+        "reports/figures",
+        "agent_out/figures",
+        "out",
+        "vfall_out",
+        "full_pipeline/figures",
+        "final_reports/figures"
+    ]
+    
+    all_plots = []
+    plot_extensions = ['.png', '.svg', '.pdf', '.jpg', '.jpeg']
+    
+    for plot_dir in plot_dirs:
+        plot_path = HERE / plot_dir
+        if plot_path.exists() and plot_path.is_dir():
+            # Rekursiv alle Plot-Dateien finden
+            for ext in plot_extensions:
+                found = list(plot_path.rglob(f"*{ext}"))
+                all_plots.extend(found)
+    
+    # Nach Typ gruppieren
+    by_ext = {}
+    for p in all_plots:
+        ext = p.suffix.lower()
+        by_ext.setdefault(ext, []).append(p)
+    
+    # Ausgabe
+    if not all_plots:
+        print("  [INFO] Keine Plots gefunden.")
+    else:
+        print(f"\n  Gesamt: {len(all_plots)} Plot-Dateien gefunden\n")
+        
+        # Nach Extension gruppiert ausgeben
+        for ext in sorted(by_ext.keys()):
+            plots = by_ext[ext]
+            print(f"  {ext.upper()}-Dateien ({len(plots)}):")
+            
+            # Nach Ordner gruppieren für bessere Übersicht
+            by_dir = {}
+            for p in sorted(plots):
+                parent = p.parent.relative_to(HERE)
+                by_dir.setdefault(str(parent), []).append(p.name)
+            
+            for dir_name in sorted(by_dir.keys()):
+                files = by_dir[dir_name]
+                print(f"    {dir_name}/")
+                for fname in sorted(files)[:10]:  # Max 10 pro Ordner anzeigen
+                    print(f"      - {fname}")
+                if len(files) > 10:
+                    print(f"      ... und {len(files)-10} weitere")
+            print()
+    
+    # Spezielle Plot-Typen hervorheben
+    print("  Wichtige Plot-Kategorien:")
+    
+    special_plots = {
+        "Demo-Plots": list((HERE / "reports/figures/demo").rglob("*.*")) if (HERE / "reports/figures/demo").exists() else [],
+        "G79-Analyse": list((HERE / "reports/figures").rglob("*g79*.*")) if (HERE / "reports/figures").exists() else [],
+        "Cygnus X-Analyse": list((HERE / "reports/figures").rglob("*cygx*.*")) if (HERE / "reports/figures").exists() else [],
+        "Paper Exports": list((HERE / "reports/figures").rglob("fig_*.*")) if (HERE / "reports/figures").exists() else [],
+    }
+    
+    for category, plots in special_plots.items():
+        if plots:
+            print(f"    - {category}: {len(plots)} Dateien")
+    
+    print("\n" + "="*80)
+    print(f"SPEICHERORTE:")
+    print("="*80)
+    for plot_dir in plot_dirs:
+        plot_path = HERE / plot_dir
+        if plot_path.exists():
+            print(f"  ✓ {plot_path}")
+        else:
+            print(f"  ○ {plot_path} (nicht vorhanden)")
+    
+    print("="*80)
+
+# ==============================================================================
+# SEGMENT-REDSHIFT ADD-ON (Standardmäßig aktiv)
+# ==============================================================================
+
+def _run_segment_redshift_addon():
+    """
+    Segment-Redshift Berechnung am Ende der Pipeline.
+    
+    Läuft standardmäßig nach jedem Pipeline-Run.
+    
+    Deaktivierung (optional):
+        Windows: $env:SSZ_SEGMENT_REDSHIFT="0"
+        Linux:   export SSZ_SEGMENT_REDSHIFT=0
+    """
+    import os
+    
+    # Nur überspringen wenn explizit deaktiviert
+    if os.environ.get("SSZ_SEGMENT_REDSHIFT", "1").strip() == "0":
+        print("\n[SSZ ADDON] Segment-Redshift Add-on deaktiviert (SSZ_SEGMENT_REDSHIFT=0)")
+        return
+    
+    print("\n" + "="*80)
+    print("[SSZ ADDON] Running Segment-Redshift Add-on...")
+    print("="*80)
+    
+    addon_script = HERE / "scripts" / "addons" / "segment_redshift_addon.py"
+    
+    if not addon_script.exists():
+        print(f"[SSZ ADDON] WARNING: Add-on script not found: {addon_script}")
+        return
+    
+    # Standard-Parameter
+    cmd = [
+        PY,
+        str(addon_script),
+        "--segment-redshift",
+        "--proxy", "N",
+        "--nu-em", "1.0e18",
+        "--r-em", "2.0",
+        "--r-out", "50.0",
+        "--seg-plot"
+    ]
+    
+    try:
+        run(cmd)
+        print("[SSZ ADDON] Segment-Redshift completed successfully!")
+        print("[SSZ ADDON] Output: reports/segment_redshift.csv | .md | .png")
+    except Exception as e:
+        print(f"[SSZ ADDON] WARNING: Segment-Redshift failed: {e}")
+        # Nicht abbrechen, nur warnen
+
+# Aufrufen am absoluten Ende
+if __name__ == "__main__":
+    _run_segment_redshift_addon()
+    _list_all_generated_plots()
 

@@ -110,55 +110,11 @@ def sagittariusA_star_example(
     }
 
 if __name__ == '__main__':
-    print("=== Segmented Spacetime – Bound Energy & Fine-Structure Constant ===\n")
-    print("Paper Example: S2 orbiting Sagittarius A*\n")
-
-    # Basislauf: nur messbare Größen (f_emit, f_obs_raw).
-    ex = sagittariusA_star_example(
-        # Für GR/SR-Zerlegung optional ergänzen:
-        # M_sgra_Msun=4.297e6, r_emit_m=..., beta_tot=..., beta_los=...
-    )
-
-    # ---- Ausführliches Echo (nitpick-sicher) ----
-    print("INPUTS (direkt messbar):")
-    print(f"  f_emit (local)        : {ex['f_emit']:.6f} Hz")
-    print(f"  f_obs_raw (observed)  : {ex['f_obs_raw']:.6f} Hz")
-    print(f"  ratio_total           : {ex['ratio_total']:.12f}  ->  z_total = {ex['z_total']:.12f}")
-
-    print("\nDERIVED (aus α m c^2 = h f_emit):")
-    print(f"  E_photon              : {ex['E_photon (J)']:.12e} J")
-    print(f"  m_bound               : {ex['m_bound (kg)']:.12e} kg")
-    print(f"  alpha_local           : {ex['alpha_local']:.12f}  (≈ alpha_fs)")
-    print(f"  f_emit_back (check)   : {ex['f_emit_back (Hz)']:.6f} Hz  -> reproduziert f_emit")
-
-    if ex["z_gr (from M,r)"] is not None:
-        print("\nOPTIONAL (wenn M & r bekannt):")
-        print(f"  z_gr (GR)             : {ex['z_gr (from M,r)']:.12f}")
-        if ex["f_obs_corr (Hz)"] is not None:
-            print(f"  f_obs_corr (GR-only)  : {ex['f_obs_corr (Hz)']:.6f} Hz")
-    else:
-        print("\nNOTE:")
-        print("  Keine GR/SR-Zerlegung ausgegeben (M und/oder r fehlen).")
-        print("  Nichts wird gesetzt – es werden nur gemessene Totals verwendet.")
-
-    if ex["D (from beta)"] is not None and ex["z_total_from_parts"] is not None:
-        print("\nCONSISTENCY (falls β angegeben):")
-        print(f"  D (SR Doppler)        : {ex['D (from beta)']:.12f}")
-        print(f"  (1+z_gr)*D - 1        : {ex['z_total_from_parts']:.12f}")
-        print(f"  parts == total?       : {ex['parts_match']}")
-
-    print("\n-- General functions (für eigene Eingaben) --")
+    # Paper echo output removed per user request
+    # Computations still run but no print statements
+    ex = sagittariusA_star_example()
+    
+    # Silent execution - functions available for import
     phi_e = effective_radius_from_alpha(e, epsilon_0, alpha_fs, m_e, c)
     E_R = rydberg_energy(alpha_fs, m_e, c)
     lambda_thr = photon_threshold_lambda(h, c, alpha_fs, m_e)
-    print(f"\nKlassischer Elektronenradius r_eff(Ne=1): {phi_e:.12g} m")
-    print(f"Rydberg energy E_R                   : {E_R:.6e} J")
-    print(f"Photon threshold λ_gamma             : {lambda_thr:.6e} m")
-
-    print("\n============================================================")
-    print("Alle Ausgaben werden aus Eingaben berechnet – nichts ist handgesetzt.")
-    print("Carmen Wrede, Lino P. Casu, Bingsi (2025)")
-    print("»Segmented Spacetime – Bound Energy and the Structural Origin of the Fine-Structure Constant«")
-    print("Preprint · August 2025 · DOI: 10.13140/RG.2.2.35006.80969")
-    print("https://www.researchgate.net/publication/394248893")
-    print("============================================================")

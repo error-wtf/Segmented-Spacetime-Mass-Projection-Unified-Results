@@ -1,0 +1,10 @@
+{
+  "rows_used": 127,
+  "abs_residual_median": 0.0004873953031977789,
+  "prod_rel_err_median": 0.0,
+  "phi": 1.618033988749895,
+  "column_log": {
+    "auto_z": "z"
+  },
+  "outdir": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\vfall_out"
+}

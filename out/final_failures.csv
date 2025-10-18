@@ -1,0 +1,11 @@
+test,ok,case,message
+T1_Nseg_algebra,True,ALL,max|Δ|=0.000e+00 (≤5e-08)
+T2_bound_energy_recon,True,ALL,pass=0/0 (≥90% required)
+T3_seg_fit_zero,True,ALL,max|Δz_fit|=1.063e-16 (≤1e-12)
+T4_pred_Lab,,Lab,SKIP (keine strong rows)
+T4_pred_Lab/Geo,,Lab/Geo,SKIP (keine strong rows)
+T4_pred_Solar,,Solar,SKIP (keine strong rows)
+T4_pred_WhiteDwarf,,WhiteDwarf,SKIP (keine strong rows)
+T4_pred_S-stars,True,S-stars,median|Δz_pred|=2.908e-05 (≤0.005)
+T5_physicality,True,ALL,Require v_pred < 0.2c
+T6_compare_Sstars,True,S-stars,"median|Δz|: Seg=2.908e-05, GR=1.265e-04 (Seg ≤ 1.2×GR)"

@@ -1,0 +1,18 @@
+SEGMENTED SPACETIME — FINAL TEST REPORT
+Rows: 9
+Seg PRED: median|Δz|=2.908e-05, mean=2.352e-04, max=1.141e-03
+GR: median|Δz|=1.265e-04, mean=5.012e-04, max=2.223e-03
+SR: median|Δz|=1.448e-04, mean=5.201e-04, max=2.249e-03
+GR*SR: median|Δz|=2.911e-05, mean=2.353e-04, max=1.141e-03
+
+TESTS:
+ - T1_Nseg_algebra: PASS — max|Δ|=0.000e+00 (≤5e-08) (case=ALL)
+ - T2_bound_energy_recon: PASS — pass=0/0 (≥90% required) (case=ALL)
+ - T3_seg_fit_zero: PASS — max|Δz_fit|=1.063e-16 (≤1e-12) (case=ALL)
+ - T4_pred_Lab: SKIP — SKIP (keine strong rows) (case=Lab)
+ - T4_pred_Lab/Geo: SKIP — SKIP (keine strong rows) (case=Lab/Geo)
+ - T4_pred_Solar: SKIP — SKIP (keine strong rows) (case=Solar)
+ - T4_pred_WhiteDwarf: SKIP — SKIP (keine strong rows) (case=WhiteDwarf)
+ - T4_pred_S-stars: PASS — median|Δz_pred|=2.908e-05 (≤0.005) (case=S-stars)
+ - T5_physicality: PASS — Require v_pred < 0.2c (case=ALL)
+ - T6_compare_Sstars: PASS — median|Δz|: Seg=2.908e-05, GR=1.265e-04 (Seg ≤ 1.2×GR) (case=S-stars)

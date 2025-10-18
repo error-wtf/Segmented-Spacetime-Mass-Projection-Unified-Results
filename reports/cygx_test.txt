@@ -1,0 +1,25 @@
+============================================================
+SSZ RINGS - SEGMENTED RADIOWAVE PROPAGATION REPORT
+============================================================
+
+PARAMETERS:
+  v0 (initial velocity): 1.300 km/s
+  alpha (fixed): 1.000000
+  beta (temperature exp): 1.000
+  eta (density exp): 0.000
+
+DATA:
+  Number of rings: 3
+  Temperature range: 36.00 - 48.00 K
+  Density range: 5.50e+03 - 9.00e+03 cm^-3
+
+PREDICTIONS:
+  v_pred range: 1.300 - 1.501 km/s
+  q_k range: 0.857143 - 1.000000
+
+VALIDATION METRICS:
+  MAE: 0.0970 km/s
+  RMSE: 0.1272 km/s
+  Max |residual|: 0.2011 km/s
+
+============================================================

@@ -35,6 +35,28 @@
       "epoch": "J2000.0",
       "system": "ICRS",
       "precision": "arcsec"
+    },
+    "gaia": {
+      "release": "DR3",
+      "service": "Gaia TAP",
+      "adql_files": [
+        "queries/gaia_dr3_core.sql",
+        "queries/gaia_dr3_rv.sql"
+      ],
+      "cones_config": "configs/gaia_cones.json",
+      "columns_core": [
+        "source_id",
+        "ra",
+        "dec",
+        "parallax",
+        "parallax_error",
+        "pmra",
+        "pmdec",
+        "radial_velocity",
+        "phot_g_mean_mag",
+        "bp_rp"
+      ],
+      "notes": "Do not change existing schema; extend only."
     }
   },
   "physical_parameters": {

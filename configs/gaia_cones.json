@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "description": "Cone search regions for GAIA queries",
+    "created": "2025-10-17",
+    "reference": "Segmented Spacetime cosmology pipeline"
+  },
+  "regions": [
+    {
+      "name": "local_solar",
+      "ra_deg": 0.0,
+      "dec_deg": 0.0,
+      "radius_deg": 5.0,
+      "notes": "Placeholder region; replace with target coordinates"
+    }
+  ]
+}
