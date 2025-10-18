@@ -304,6 +304,13 @@ Write-Host "  Example Data Analysis (SegWave):" -ForegroundColor Cyan
 Write-Host "    ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha" -ForegroundColor White
 Write-Host "    ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv --v0 1.3" -ForegroundColor White
 Write-Host ""
+Write-Host "  Additional Analysis Scripts:" -ForegroundColor Cyan
+Write-Host "    python scripts/analysis/eht_shadow_comparison.py    # EHT comparison matrix" -ForegroundColor White
+Write-Host "    python scripts/analysis/redshift_robustness.py      # Redshift robustness" -ForegroundColor White
+Write-Host "    python scripts/ring_temperature_to_velocity.py      # Ring temperature analysis" -ForegroundColor White
+Write-Host "    python ci/summary-all-tests.py                      # Complete test summary" -ForegroundColor White
+Write-Host "    python ci/summary_visualize.py                      # Visualization dashboard" -ForegroundColor White
+Write-Host ""
 Write-Host "  Print ALL Markdown (Papers + Reports + Summaries + Outputs):" -ForegroundColor Cyan
 Write-Host "    ssz-print-md --root . --order path    # All MD files, alphabetically" -ForegroundColor White
 Write-Host "    ssz-print-md --root . --order depth   # All MD files, shallow-first" -ForegroundColor White

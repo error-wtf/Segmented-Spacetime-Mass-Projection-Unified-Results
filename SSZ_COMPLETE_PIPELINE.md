@@ -8,16 +8,24 @@
 
 ## Phase 0: All-in-One Extended Analysis
 
+**Current main script:**
 ```bash
 python segspace_all_in_one_extended.py all
 ```
 
-**Comprehensive analysis:**
+**Alternative (basic version):**
+```bash
+python segspace_all_in_one.py all
+```
+
+**Comprehensive analysis includes:**
 - Paired sign tests (SEG vs SR/GR)
 - Redshift analysis
 - Bound energy calculations
 - Mass validation (12 orders of magnitude)
 - Statistical significance tests
+- φ-lattice BIC comparison
+- Dual velocity invariants
 
 ---
 
@@ -65,10 +73,13 @@ python compute_vfall_from_z.py --in real_data_full.csv --outdir vfall_out/
 
 ## Phase 4: Segspace Analysis Suite
 
+**Note:** Most functionality is now in Phase 0's `segspace_all_in_one_extended.py all`
+
+**Legacy scripts (still called by run_all_ssz_terminal.py):**
 ```bash
 python segspace_final_test.py --csv real_data_30_segmodel.csv
 python segspace_final_explain.py
-python segspace_enhanced_test_better_final.py --csv real_data_full.csv --prefer-z --seg-mode hint
+python segspace_enhanced_test_better_final.py  # VERALTET - wird noch aufgerufen
 ```
 
 **Optional demos:**
@@ -78,6 +89,11 @@ python segmented_full_proof.py
 python segmented_full_calc_proof.py
 python segmented_full_compare_proof.py
 ```
+
+**Important:** 
+- `segspace_all_in_one_extended.py` (Phase 0) is the current main script
+- Phase 4 scripts are legacy but still executed for compatibility
+- No script called `segspace_all_in_one_enhanced.py` exists!
 
 ---
 
@@ -138,7 +154,78 @@ python ssz_theory_segmented.py \
 
 ---
 
-## Phase 6: Final Interpretation & Summary
+## Phase 6: EHT Shadow Comparison & Ring Analysis
+
+### 6.1 EHT Shadow Comparison Matrix
+
+```bash
+python scripts/analysis/eht_shadow_comparison.py
+```
+
+**Compares:**
+- SSZ shadow predictions vs EHT observations
+- M87* shadow radius
+- Sgr A* shadow predictions
+- Comparison matrix with GR
+- Statistical significance
+
+### 6.2 Ring Temperature to Velocity
+
+```bash
+python scripts/ring_temperature_to_velocity.py
+python ring_temperature_to_velocity.py
+```
+
+**Analysis:**
+- Temperature-velocity conversion
+- Expanding ring kinematics
+- G79.29+0.46 analysis
+- Cygnus X Diamond Ring
+- NH3/CO line analysis
+
+### 6.3 Redshift Robustness
+
+```bash
+python scripts/analysis/redshift_robustness.py
+```
+
+**Tests:**
+- Redshift measurement robustness
+- Bootstrap analysis
+- Confidence intervals
+- Outlier detection
+
+---
+
+## Phase 7: Test Summary & Visualization
+
+### 7.1 Complete Test Summary
+
+```bash
+python ci/summary-all-tests.py
+```
+
+**Generates:**
+- Complete test results summary
+- Pass/fail statistics
+- Performance metrics
+- HTML report
+
+### 7.2 Summary Visualization
+
+```bash
+python ci/summary_visualize.py
+```
+
+**Creates:**
+- Visual test result dashboard
+- Performance plots
+- Coverage analysis
+- Trend visualization
+
+---
+
+## Phase 8: Final Interpretation & Summary
 
 **Generates:**
 - `full_pipeline/reports/summary_full_terminal_v4.json`
