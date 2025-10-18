@@ -226,7 +226,7 @@ fi
 # Step 7: Run tests
 if [ "$SKIP_TESTS" = false ]; then
     echo ""
-    print_step "[7/8] Running test suite..."
+    print_step "[7/9] Running test suite..."
     if [ "$DRY_RUN" = false ]; then
         # Run ALL tests with full output
         print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
@@ -271,12 +271,12 @@ if [ "$SKIP_TESTS" = false ]; then
     fi
 else
     echo ""
-    print_step "[7/8] Skipping tests (--skip-tests flag)"
+    print_step "[7/9] Skipping tests (--skip-tests flag)"
 fi
 
 # Step 8: Verify installation
 echo ""
-print_step "[8/8] Verifying installation..."
+print_step "[8/9] Verifying installation..."
 if [ "$DRY_RUN" = false ]; then
     # Check CLI commands
     COMMANDS=("ssz-rings --help" "ssz-print-md --help")
@@ -307,6 +307,37 @@ if [ "$DRY_RUN" = false ]; then
     fi
 else
     print_info "[DRY-RUN] Would verify commands and papers"
+fi
+
+# Step 9: Generate test summary and MD outputs
+if [ "$SKIP_TESTS" = false ]; then
+    echo ""
+    print_step "[9/9] Generating test summary and outputs..."
+    if [ "$DRY_RUN" = false ]; then
+        # Generate test summary
+        SUMMARY_SCRIPT="ci/summary-all-tests.py"
+        if [ -f "$SUMMARY_SCRIPT" ]; then
+            print_info "Generating test summary..."
+            if $PYTHON_CMD "$SUMMARY_SCRIPT"; then
+                print_success "[OK] Test summary generated"
+            else
+                print_warn "[WARN] Could not generate test summary"
+            fi
+        fi
+        
+        # Print MD outputs summary
+        print_info "Generating MD outputs summary..."
+        if ssz-print-md --root reports --order path > /dev/null 2>&1; then
+            print_success "[OK] MD outputs available (run ./print_all_analysis.sh to view)"
+        else
+            print_warn "[WARN] MD outputs not generated yet (run tests first)"
+        fi
+    else
+        print_info "[DRY-RUN] Would generate summary and outputs"
+    fi
+else
+    echo ""
+    print_step "[9/9] Skipping summary generation (--skip-tests flag)"
 fi
 
 # Summary
