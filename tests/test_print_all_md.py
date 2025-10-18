@@ -44,9 +44,9 @@ def test_print_all_md_depth_order(tmp_path: Path):
     # Create nested structure
     (tmp_path / "deep" / "nested").mkdir(parents=True, exist_ok=True)
     
-    (tmp_path / "root.md").write_text("root level", encoding="utf-8")
-    (tmp_path / "deep" / "level1.md").write_text("level 1", encoding="utf-8")
-    (tmp_path / "deep" / "nested" / "level2.md").write_text("level 2", encoding="utf-8")
+    (tmp_path / "root.md").write_text("root_level_content", encoding="utf-8")
+    (tmp_path / "deep" / "level1.md").write_text("level1_content", encoding="utf-8")
+    (tmp_path / "deep" / "nested" / "level2.md").write_text("level2_content", encoding="utf-8")
     
     # Run with depth order
     cmd = [
@@ -54,17 +54,20 @@ def test_print_all_md_depth_order(tmp_path: Path):
         "--root", str(tmp_path),
         "--order", "depth"
     ]
-    out = subprocess.check_output(cmd, text=True, errors='ignore')
+    
+    # Use UTF-8 encoding explicitly for Windows compatibility
+    result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    out = result.stdout
     
     # Root should appear before nested
-    root_pos = out.find("root level")
-    level1_pos = out.find("level 1")
-    level2_pos = out.find("level 2")
+    root_pos = out.find("root_level_content")
+    level1_pos = out.find("level1_content")
+    level2_pos = out.find("level2_content")
     
     # All three should be found
-    assert root_pos != -1, "root level not found in output"
-    assert level1_pos != -1, "level 1 not found in output"
-    assert level2_pos != -1, "level 2 not found in output"
+    assert root_pos != -1, f"root level not found in output. Output length: {len(out)}"
+    assert level1_pos != -1, f"level 1 not found in output. Output length: {len(out)}"
+    assert level2_pos != -1, f"level 2 not found in output. Output length: {len(out)}"
     
     # And in correct depth order
     assert root_pos < level1_pos < level2_pos
