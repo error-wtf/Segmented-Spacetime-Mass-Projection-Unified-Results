@@ -125,6 +125,89 @@ ssz-rings --csv data/observations/ring_temperature_data.csv \
           --out-table reports/rings_with_frequency.csv
 ```
 
+## Bundled Observational Datasets
+
+The suite includes curated observational datasets from published studies, ready for offline analysis:
+
+### 1. G79.29+0.46 Multi-Shell Ring
+
+**File:** `data/observations/G79_29+0_46_CO_NH3_rings.csv`
+
+**Object:** LBV nebula G79.29+0.46 with shocked inner rim and molecular shells
+
+**Columns:**
+- `ring`: Ring identifier (1-10)
+- `radius_pc`: Radius in parsecs (0.30-1.90 pc)
+- `T`: Dust temperature in Kelvin (20-78 K)
+- `n`: H₂ number density in cm⁻³ (2.5e3 - 2.0e4)
+- `v_obs`: Observed velocity in km/s (1.0-15.5)
+- `tracers`: Molecular/atomic tracers (CO, NH₃, [CII], HI)
+- `notes`: Physical interpretation per ring
+
+**Key Features:**
+- **Inner shocked rim** (ring 1): v ~ 15.5 km/s, T ~ 78 K, cold clumps with NH₃/CO survive near shock front
+- **Molecular shell** (rings 2-3): Transition from CO(3-2) to CO(2-1), cooling with partial UV exposure
+- **PDR overlap** (ring 4): [CII] 158μm + CO(2-1), photodissociation region interface
+- **Outer molecular arc** (rings 5-6): CO(1-0) + HI, mixing with diffuse ISM
+- **Diffuse interface** (rings 7-10): HI-dominated, ambient baseline v ~ 1 km/s
+
+**References:**
+- Ammonia observations (Di Francesco et al.)
+- Diamond Ring in Cygnus X (AKARI diffuse maps)
+- Segmented Spacetime and Origin of Molecular Zones (Casu & Wrede)
+
+**Usage:**
+```bash
+ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+          --v0 12.5 \
+          --fit-alpha \
+          --out-table reports/g79_fitted.csv \
+          --out-report reports/g79_summary.txt
+```
+
+### 2. Cygnus X Diamond Ring (Slow Expansion Benchmark)
+
+**File:** `data/observations/CygnusX_DiamondRing_CII_rings.csv`
+
+**Object:** Diamond Ring in Cygnus X - benchmark for slow-expanding rings
+
+**Columns:** Same as G79.29+0.46
+
+**Key Features:**
+- **Nearly constant expansion:** v_exp ~ 1.3 km/s across all rings
+- **[CII] 158μm dominated:** Primary tracer throughout structure
+- **Temperature gradient:** T decreases from 48 K (inner) to 36 K (outer)
+- **Density decline:** n_H2 from 9.0e3 to 5.5e3 cm⁻³
+
+**References:**
+- The Diamond Ring in Cygnus X (AKARI)
+
+**Usage:**
+```bash
+ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+          --v0 1.3 \
+          --alpha 1.0 \
+          --out-table reports/cygx_table.csv
+```
+
+### 3. Sources Manifest
+
+**File:** `data/observations/sources.json`
+
+JSON inventory mapping datasets to local PDF references for offline reproducibility. Contains:
+- Local PDF filenames
+- Tracer lists per zone (HII, PDR, Molecular)
+- Interpretive notes
+
+**Loading:**
+```python
+from ssz.segwave.io import load_sources_manifest
+
+sources = load_sources_manifest("data/observations/sources.json")
+print(sources["G79.29+0.46"]["tracers"]["Molecular"])
+# Output: ['CO(1-0)', 'CO(2-1)', 'CO(3-2)', 'NH3(1,1)', 'NH3(2,2)']
+```
+
 ## Output Interpretation
 
 ### Results Table Columns
