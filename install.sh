@@ -233,6 +233,7 @@ fi
 echo ""
 print_step "[8/8] Verifying installation..."
 if [ "$DRY_RUN" = false ]; then
+    # Check CLI commands
     COMMANDS=("ssz-rings --help" "ssz-print-md --help")
     for cmd in "${COMMANDS[@]}"; do
         CMD_NAME=$(echo $cmd | cut -d' ' -f1)
@@ -243,8 +244,24 @@ if [ "$DRY_RUN" = false ]; then
             print_warn "  [WARN] $CMD_NAME not available"
         fi
     done
+    
+    # Check bundled papers
+    print_info "Checking bundled papers..."
+    if [ -d "papers/validation" ]; then
+        VALIDATION_COUNT=$(find papers/validation -name "*.md" | wc -l)
+        print_success "  [OK] Validation papers: $VALIDATION_COUNT files"
+    else
+        print_warn "  [WARN] Validation papers directory not found"
+    fi
+    
+    if [ -d "docs/theory" ]; then
+        THEORY_COUNT=$(find docs/theory -name "*.md" | wc -l)
+        print_success "  [OK] Theory papers: $THEORY_COUNT files"
+    else
+        print_warn "  [WARN] Theory papers directory not found"
+    fi
 else
-    print_info "[DRY-RUN] Would verify commands"
+    print_info "[DRY-RUN] Would verify commands and papers"
 fi
 
 # Summary
@@ -257,6 +274,8 @@ echo -e "${NC}  2. Run example:   ssz-rings --csv data/observations/G79_29+0_46_
 echo -e "${NC}  3. Print all MD:  ssz-print-md --root . --order path${NC}"
 echo -e "${NC}  4. View docs:     less docs/segwave_guide.md${NC}"
 echo ""
-echo -e "${CYAN}Validation Papers: \$SSZ_SOURCES_DIR (set via environment)${NC}"
-echo -e "${CYAN}License: ANTI-CAPITALIST SOFTWARE LICENSE v1.4${NC}"
+echo -e "${YELLOW}Resources:${NC}"
+echo -e "${CYAN}  - Validation Papers: papers/validation/ (10 files, ~593 KB)${NC}"
+echo -e "${CYAN}  - Theory Papers:     docs/theory/ (20 files, ~380 KB)${NC}"
+echo -e "${CYAN}  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4${NC}"
 echo ""
