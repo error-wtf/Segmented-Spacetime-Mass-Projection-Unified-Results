@@ -106,34 +106,82 @@ and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC
 
 ## Installation & Testing
 
-### Quick Install (All Platforms)
+### 🚀 Quick Install (Recommended)
+
+**One-command installation with automated testing:**
 
 **Windows:**
 ```powershell
-# Standard install + basic tests (50+ tests)
-.\install.ps1
-
-# Install + Full test suite (~10-15 min)
-.\install_and_test.ps1
-
-# Install + Quick suite (~2 min)
-.\install_and_test.ps1 -Quick
+.\install.ps1              # Standard install + basic tests (50+ tests, ~2 min)
+.\install_and_test.ps1     # Install + Full test suite (~10-15 min)
+.\install_and_test.ps1 -Quick  # Install + Quick tests (~2 min)
 ```
 
 **Linux/macOS:**
 ```bash
-# Make executable
-chmod +x install.sh install_and_test.sh
-
-# Standard install + basic tests (50+ tests)
-./install.sh
-
-# Install + Full test suite (~10-15 min)
-./install_and_test.sh
-
-# Install + Quick suite (~2 min)
-./install_and_test.sh --quick
+chmod +x install.sh install_and_test.sh  # Make executable (first time only)
+./install.sh               # Standard install + basic tests (50+ tests, ~2 min)
+./install_and_test.sh      # Install + Full test suite (~10-15 min)
+./install_and_test.sh --quick  # Install + Quick tests (~2 min)
 ```
+
+### 📦 What the Install Scripts Do
+
+The automated install scripts (`install.ps1` / `install.sh`) perform 8 steps:
+
+1. **🔍 Check Python** - Verifies Python 3.10+ is installed
+2. **🗑️ Clean Old Environment** - Removes old virtual environment if present
+3. **📦 Create Virtual Environment** - Creates fresh `.venv`
+4. **⬆️ Upgrade pip** - Updates pip, setuptools, wheel
+5. **📥 Install Dependencies** - Installs from `requirements.txt` (or fallback list)
+6. **🔧 Install SSZ Suite** - Installs package in editable mode (`-e .`)
+7. **✅ Verify Installation** - Checks CLI tools (`ssz-rings`, `ssz-print-md`)
+8. **🧪 Run Basic Tests** - Executes 50+ core tests (physics + technical)
+
+### 🎯 Dependencies Installed
+
+**Core Scientific:**
+- `numpy`, `scipy`, `pandas`, `matplotlib`, `sympy`
+
+**Astronomy & Data:**
+- `astropy` - Astronomy calculations
+- `astroquery` - GAIA/SDSS data fetching
+- `pyarrow` - Parquet file support
+
+**Testing Framework:**
+- `pytest` - Test runner
+- `pytest-timeout` - Timeout handling
+- `colorama` - Terminal colors
+
+**Configuration & Utils:**
+- `pyyaml` - YAML config files
+- `requests`, `tqdm` - HTTP & progress bars
+
+**Optional (Visualization):**
+- `plotly`, `kaleido` - Interactive plots
+- `jupyter`, `ipykernel` - Notebook support
+
+**See [requirements.txt](requirements.txt) for complete list with versions.**
+
+### ⚙️ Install Script Options
+
+**Dry-Run Mode** (see what would be done without changes):
+```powershell
+.\install.ps1 -DryRun     # Windows
+./install.sh --dry-run    # Linux
+```
+
+**Development Mode** (editable install):
+```powershell
+.\install.ps1 -DevMode    # Windows (default)
+./install.sh              # Linux (default)
+```
+
+### ⏱️ Installation Time
+
+- **Standard Install**: ~2 minutes
+- **With Full Tests**: ~10-15 minutes
+- **Re-installation**: ~2 minutes (skips existing dependencies)
 
 ### What Gets Tested
 
