@@ -232,34 +232,37 @@ if [ "$SKIP_TESTS" = false ]; then
         print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
         echo ""
         
-        # Collect all test paths
-        TEST_PATHS=""
+        ALL_PASSED=true
         
-        # Root-level tests
-        for test in test_vfall_duality.py test_ppn_exact.py test_energy_conditions.py \
+        # Root-level tests (run as Python scripts, not pytest)
+        echo -e "${CYAN}Root-level SSZ tests:${NC}"
+        for test in test_ppn_exact.py test_vfall_duality.py test_energy_conditions.py \
                     test_c1_segments.py test_c2_segments_strict.py test_c2_curvature_proxy.py \
                     test_utf8_encoding.py; do
             if [ -f "$test" ]; then
-                TEST_PATHS="$TEST_PATHS $test"
+                echo -n "  $test "
+                if $PYTHON_CMD "$test" > /dev/null 2>&1; then
+                    echo -e "${GREEN}PASSED${NC}"
+                else
+                    echo -e "${RED}FAILED${NC}"
+                    ALL_PASSED=false
+                fi
             fi
         done
+        echo ""
         
-        # tests/ directory
-        TEST_PATHS="$TEST_PATHS tests/"
+        # pytest tests (tests/ and scripts/tests/)
+        echo -e "${CYAN}Pytest test suites:${NC}"
+        $PYTHON_CMD -m pytest tests/ scripts/tests/ -v --tb=short --disable-warnings
         
-        # scripts/tests/ directory
-        if [ -d "scripts/tests" ]; then
-            TEST_PATHS="$TEST_PATHS scripts/tests/"
+        if [ $? -ne 0 ]; then
+            ALL_PASSED=false
         fi
         
-        # Run all tests together with full output
-        $PYTHON_CMD -m pytest $TEST_PATHS -v --tb=short --disable-warnings
-        
-        if [ $? -eq 0 ]; then
-            echo ""
+        echo ""
+        if [ "$ALL_PASSED" = true ]; then
             print_success "✓ All tests passed"
         else
-            echo ""
             echo -e "${RED}✗ Some tests FAILED - Fix before continuing!${NC}"
             exit 1
         fi
