@@ -1,10 +1,18 @@
 from __future__ import annotations
 from pathlib import Path
 import os, pandas as pd
-from astroquery.gaia import Gaia
-from astroquery.sdss import SDSS
 from scripts.tools.logging_utils import get_logger
 from scripts.tools.retry import retry
+
+# Optional dependency - skip tests if not available
+try:
+    from astroquery.gaia import Gaia
+    from astroquery.sdss import SDSS
+    HAS_ASTROQUERY = True
+except ImportError:
+    HAS_ASTROQUERY = False
+    Gaia = None
+    SDSS = None
 
 def ensure_dir(p: str|Path):
     Path(p).mkdir(parents=True, exist_ok=True)

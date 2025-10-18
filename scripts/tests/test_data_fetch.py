@@ -1,11 +1,12 @@
 from __future__ import annotations
 from pathlib import Path
 import os, pytest, pandas as pd
-from scripts.tests.data_smoke_fetch import fetch_gaia_quick, fetch_sdss_quick, smoke_paths
+from scripts.tests.data_smoke_fetch import fetch_gaia_quick, fetch_sdss_quick, smoke_paths, HAS_ASTROQUERY
 from scripts.tools.logging_utils import get_logger
 
 RUN_ID = "2025-10-17_gaia_ssz_real"
 
+@pytest.mark.skipif(not HAS_ASTROQUERY, reason="astroquery not installed")
 def test_gaia_smoke(tmp_path: Path):
     log = get_logger("TEST_GAIA", RUN_ID)
     p = smoke_paths(RUN_ID)["gaia_parquet"]
@@ -27,6 +28,7 @@ def test_gaia_smoke(tmp_path: Path):
         assert col in df.columns, f"Missing GAIA col {col}"
     log.info("GAIA smoke rows=%d", len(df))
 
+@pytest.mark.skipif(not HAS_ASTROQUERY, reason="astroquery not installed")
 def test_sdss_smoke(tmp_path: Path):
     log = get_logger("TEST_SDSS", RUN_ID)
     p = smoke_paths(RUN_ID)["sdss_csv"]
