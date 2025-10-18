@@ -49,8 +49,34 @@ try {
 Write-Host ""
 Write-Host "[2/8] Setting up virtual environment..." -ForegroundColor Yellow
 $venvPath = ".venv"
+$activateScript = Join-Path $venvPath "Scripts\Activate.ps1"
+$linuxActivate = Join-Path $venvPath "bin\activate"
+
+# Check if venv exists and is compatible with Windows
 if (Test-Path $venvPath) {
-    Write-Host "  Virtual environment already exists" -ForegroundColor Green
+    if (Test-Path $activateScript) {
+        Write-Host "  Virtual environment already exists (Windows-compatible)" -ForegroundColor Green
+    } elseif (Test-Path $linuxActivate) {
+        Write-Host "  WARNING: Existing .venv is Linux/WSL-only (bin/activate)" -ForegroundColor Yellow
+        Write-Host "  Removing incompatible venv and recreating for Windows..." -ForegroundColor Yellow
+        if (-not $DryRun) {
+            Remove-Item -Recurse -Force $venvPath
+            python -m venv $venvPath
+            Write-Host "  Created new Windows-compatible venv: $venvPath" -ForegroundColor Green
+        } else {
+            Write-Host "  [DRY-RUN] Would remove and recreate: $venvPath" -ForegroundColor Cyan
+        }
+    } else {
+        Write-Host "  WARNING: .venv exists but is corrupted" -ForegroundColor Yellow
+        Write-Host "  Removing and recreating..." -ForegroundColor Yellow
+        if (-not $DryRun) {
+            Remove-Item -Recurse -Force $venvPath
+            python -m venv $venvPath
+            Write-Host "  Created: $venvPath" -ForegroundColor Green
+        } else {
+            Write-Host "  [DRY-RUN] Would remove and recreate: $venvPath" -ForegroundColor Cyan
+        }
+    }
 } else {
     if (-not $DryRun) {
         python -m venv $venvPath
@@ -63,7 +89,6 @@ if (Test-Path $venvPath) {
 # Step 3: Activate venv and upgrade pip
 Write-Host ""
 Write-Host "[3/8] Activating virtual environment..." -ForegroundColor Yellow
-$activateScript = Join-Path $venvPath "Scripts\Activate.ps1"
 if (Test-Path $activateScript) {
     if (-not $DryRun) {
         & $activateScript
@@ -72,7 +97,8 @@ if (Test-Path $activateScript) {
         Write-Host "  [DRY-RUN] Would activate: $venvPath" -ForegroundColor Cyan
     }
 } else {
-    Write-Host "  ERROR: Activation script not found" -ForegroundColor Red
+    Write-Host "  ERROR: Activation script not found at: $activateScript" -ForegroundColor Red
+    Write-Host "  This should not happen. Venv creation may have failed." -ForegroundColor Red
     exit 1
 }
 
