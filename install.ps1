@@ -293,8 +293,12 @@ Write-Host "  Full Test Suite:" -ForegroundColor Cyan
 Write-Host "    python run_full_suite.py              # All tests + analysis (~10-15 min)" -ForegroundColor White
 Write-Host "    python run_full_suite.py --quick      # Essential tests only (~2 min)" -ForegroundColor White
 Write-Host ""
-Write-Host "  Complete SSZ Analysis:" -ForegroundColor Cyan
-Write-Host "    python run_all_ssz_terminal.py        # Full EHT analysis (~10 min)" -ForegroundColor White
+Write-Host "  Complete SSZ Analysis (20+ scripts in pipeline):" -ForegroundColor Cyan
+Write-Host "    python run_all_ssz_terminal.py        # Full SSZ pipeline (~10-15 min)" -ForegroundColor White
+Write-Host "      → Runs: segspace_all_in_one_extended, covariant tests," -ForegroundColor DarkGray
+Write-Host "        PPN tests, shadow predictions, QNM, φ-lattice, v_fall," -ForegroundColor DarkGray
+Write-Host "        Lagrangian tests, stress-energy, theory calculations" -ForegroundColor DarkGray
+Write-Host "      → See SSZ_COMPLETE_PIPELINE.md for full 20+ script list" -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "  Example Data Analysis (SegWave):" -ForegroundColor Cyan
 Write-Host "    ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha" -ForegroundColor White
