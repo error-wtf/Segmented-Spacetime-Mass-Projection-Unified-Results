@@ -31,6 +31,7 @@ python segspace_all_in_one.py all
 
 ## Phase 1: Covariant Tests & Basic Validation
 
+**Root-level Python scripts:**
 ```bash
 python ssz_covariant_smoketest_verbose_lino_casu.py  # Covariant formulation
 python test_ppn_exact.py                              # PPN parameters β=γ=1
@@ -40,7 +41,41 @@ python test_energy_conditions.py                      # WEC/DEC/SEC
 python shadow_predictions_exact.py                    # Black hole shadows
 python qnm_eikonal.py                                 # Quasi-normal modes
 python test_vfall_duality.py --mass Earth --r-mults 1.1,2.0  # Dual velocity
+python test_utf8_encoding.py                          # UTF-8 validation
+python test_c2_curvature_proxy.py                     # C2 curvature proxy
 ```
+
+**Total:** 10 root-level scripts
+
+---
+
+## Phase 1.5: Pytest Unit Tests (71 tests)
+
+**Automated pytest execution:**
+```bash
+# SegWave tests (43 tests)
+python -m pytest tests/ -v --tb=short --disable-warnings
+
+# SSZ scripts tests (28 tests)
+python -m pytest scripts/tests/ -v --tb=short --disable-warnings
+```
+
+**Test coverage:**
+- `tests/test_segwave_core.py` - SegWave core functionality (20 tests)
+- `tests/test_segwave_cli.py` - CLI tools (16 tests)
+- `tests/test_print_all_md.py` - MD printing (6 tests)
+- `tests/cosmos/test_multi_body_sigma.py` - Multi-body (1 test)
+- `scripts/tests/test_ssz_kernel.py` - SSZ kernel (4 tests)
+- `scripts/tests/test_ssz_invariants.py` - SSZ invariants (6 tests)
+- `scripts/tests/test_cosmo_fields.py` - Cosmology fields (1 test)
+- `scripts/tests/test_cosmo_multibody.py` - Multi-body cosmo (3 tests)
+- `scripts/tests/test_data_fetch.py` - GAIA data (3 tests)
+- `scripts/tests/test_gaia_required_columns.py` - GAIA columns (3 tests)
+- `scripts/tests/test_plot_ssz_maps.py` - SSZ plotting (2 tests)
+- `scripts/tests/test_segmenter.py` - Segmenter (2 tests)
+- `scripts/tests/test_utf8_encoding.py` - UTF-8 (4 tests)
+
+**Total:** 71 pytest unit tests
 
 ---
 
