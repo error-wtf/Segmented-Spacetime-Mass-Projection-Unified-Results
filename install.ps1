@@ -8,11 +8,15 @@
 #   .\install.ps1              # Full install
 #   .\install.ps1 -SkipTests   # Skip test suite
 #   .\install.ps1 -DevMode     # Install in editable mode
+#   .\install.ps1 -RunFullSuite # Run full test suite
+#   .\install.ps1 -QuickSuite  # Run quick test suite
 
 param(
     [switch]$SkipTests,
     [switch]$DevMode,
-    [switch]$DryRun
+    [switch]$DryRun,
+    [switch]$RunFullSuite,
+    [switch]$QuickSuite
 )
 
 $ErrorActionPreference = "Stop"
@@ -243,3 +247,40 @@ Write-Host "  - Validation Papers: papers\validation\ (10 files, ~593 KB)" -Fore
 Write-Host "  - Theory Papers:     docs\theory\ (20 files, ~380 KB)" -ForegroundColor Cyan
 Write-Host "  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan
 Write-Host ""
+
+# Optional: Run Full Test Suite
+if ($RunFullSuite -or $QuickSuite) {
+    Write-Host ""
+    Write-Host "=" -NoNewline -ForegroundColor Cyan
+    Write-Host ("=" * 98) -ForegroundColor Cyan
+    if ($QuickSuite) {
+        Write-Host "RUNNING QUICK TEST SUITE" -ForegroundColor Yellow
+    } else {
+        Write-Host "RUNNING FULL TEST SUITE" -ForegroundColor Yellow
+    }
+    Write-Host "=" -NoNewline -ForegroundColor Cyan
+    Write-Host ("=" * 98) -ForegroundColor Cyan
+    Write-Host ""
+    
+    if (Test-Path "run_full_suite.py") {
+        $suiteArgs = if ($QuickSuite) { "--quick" } else { "" }
+        Write-Host "  Executing: python run_full_suite.py $suiteArgs" -ForegroundColor Cyan
+        
+        try {
+            & python run_full_suite.py $suiteArgs
+            
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host ""
+                Write-Host "  [SUCCESS] All tests passed!" -ForegroundColor Green
+            } else {
+                Write-Host ""
+                Write-Host "  [WARNING] Some tests failed (see output above)" -ForegroundColor Yellow
+            }
+        } catch {
+            Write-Host "  [ERROR] Test suite execution failed: $_" -ForegroundColor Red
+        }
+    } else {
+        Write-Host "  [SKIP] run_full_suite.py not found" -ForegroundColor Yellow
+    }
+    Write-Host ""
+}

@@ -24,6 +24,8 @@ NC='\033[0m' # No Color
 SKIP_TESTS=false
 DEV_MODE=false
 DRY_RUN=false
+RUN_FULL_SUITE=false
+QUICK_SUITE=false
 
 for arg in "$@"; do
     case $arg in
@@ -39,15 +41,25 @@ for arg in "$@"; do
             DRY_RUN=true
             shift
             ;;
+        --run-full-suite)
+            RUN_FULL_SUITE=true
+            shift
+            ;;
+        --quick-suite)
+            QUICK_SUITE=true
+            shift
+            ;;
         --help)
             echo "SSZ Projection Suite Installer"
             echo ""
             echo "Usage: $0 [OPTIONS]"
             echo ""
             echo "Options:"
-            echo "  --skip-tests    Skip running test suite"
-            echo "  --dev-mode      Install in editable mode (pip install -e .)"
-            echo "  --dry-run       Show what would be done without executing"
+            echo "  --skip-tests       Skip running test suite"
+            echo "  --dev-mode         Install in editable mode (pip install -e .)"
+            echo "  --dry-run          Show what would be done without executing"
+            echo "  --run-full-suite   Run complete test suite after install"
+            echo "  --quick-suite      Run quick test suite after install (~2 min)"
             echo "  --help          Show this help message"
             exit 0
             ;;
@@ -279,3 +291,31 @@ echo -e "${CYAN}  - Validation Papers: papers/validation/ (10 files, ~593 KB)${N
 echo -e "${CYAN}  - Theory Papers:     docs/theory/ (20 files, ~380 KB)${NC}"
 echo -e "${CYAN}  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4${NC}"
 echo ""
+
+# Optional: Run Full Test Suite
+if [ "$RUN_FULL_SUITE" = true ] || [ "$QUICK_SUITE" = true ]; then
+    echo ""
+    print_header "RUNNING TEST SUITE"
+    echo ""
+    
+    if [ -f "run_full_suite.py" ]; then
+        if [ "$QUICK_SUITE" = true ]; then
+            print_info "Executing: python3 run_full_suite.py --quick"
+            python3 run_full_suite.py --quick
+        else
+            print_info "Executing: python3 run_full_suite.py"
+            python3 run_full_suite.py
+        fi
+        
+        if [ $? -eq 0 ]; then
+            echo ""
+            print_success "[SUCCESS] All tests passed!"
+        else
+            echo ""
+            print_warn "[WARNING] Some tests failed (see output above)"
+        fi
+    else
+        print_warn "[SKIP] run_full_suite.py not found"
+    fi
+    echo ""
+fi
