@@ -110,16 +110,16 @@ ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
 
 ### Complete Test & Analysis Workflow
 
-Run all tests, generate summaries, and echo all Markdown outputs:
+Run **ALL** tests in the repository, generate summaries, and echo all Markdown outputs:
 
 ```bash
-# Full workflow (all tests + examples + MD echo)
+# Full workflow (all tests + SSZ analysis + examples + MD echo, ~10-15 min)
 python run_full_suite.py
 
-# Quick mode (essential tests only)
+# Quick mode (essential tests only, ~2 min)
 python run_full_suite.py --quick
 
-# Skip slow tests
+# Skip slow SSZ analysis (~5 min)
 python run_full_suite.py --skip-slow-tests
 
 # Windows
@@ -129,6 +129,16 @@ run_full_suite.bat
 chmod +x run_full_suite.sh
 ./run_full_suite.sh
 ```
+
+**Test Phases:**
+1. **Root-level SSZ tests** - PPN, energy conditions, segments, dual velocity
+2. **SegWave tests** - Core math, CLI, MD tools
+3. **Scripts/tests** - SSZ kernel, invariants, segmenter, cosmo
+4. **Cosmos tests** - Multi-body sigma
+5. **Complete SSZ analysis** - `run_all_ssz_terminal.py` (full EHT analysis)
+6. **Example runs** - G79, Cygnus X validation
+7. **Summary generation** - `reports/RUN_SUMMARY.md`
+8. **MD echo** - All Markdown files
 
 **Output:**
 - Runs all test phases sequentially

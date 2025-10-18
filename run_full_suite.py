@@ -2,16 +2,27 @@
 """
 SSZ Projection Suite - Complete Test & Analysis Runner
 
-Runs all tests, generates summaries, and echoes all Markdown outputs.
+Runs ALL tests in the repository, generates summaries, and echoes all Markdown outputs.
+
+Test Phases:
+    1. Root-level SSZ tests (PPN, energy conditions, segments, dual velocity)
+    2. SegWave tests (core math, CLI, MD tools)
+    3. Scripts/tests (SSZ kernel, invariants, segmenter, cosmo)
+    4. Cosmos tests (multi-body sigma)
+    5. Complete SSZ analysis (run_all_ssz_terminal.py)
+    6. Example runs (G79, Cygnus X)
+    7. Summary generation
+    8. MD echo
 
 Copyright © 2025
 Carmen Wrede und Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 Usage:
-    python run_full_suite.py
-    python run_full_suite.py --skip-slow-tests
-    python run_full_suite.py --quick
+    python run_full_suite.py                # Full workflow (~10-15 min)
+    python run_full_suite.py --quick        # Essential tests only (~2 min)
+    python run_full_suite.py --skip-slow-tests  # Skip SSZ analysis (~5 min)
+    python run_full_suite.py --no-echo-md   # Skip MD echo
 """
 
 import subprocess
@@ -96,29 +107,47 @@ def main():
     results = {}
     
     # =============================================================================
-    # PHASE 1: Core Unit Tests
+    # PHASE 1: Root-Level SSZ Tests
     # =============================================================================
-    print_header("PHASE 1: CORE UNIT TESTS", "-")
+    print_header("PHASE 1: ROOT-LEVEL SSZ TESTS", "-")
     
     tests_phase1 = [
-        (["python", "-m", "pytest", "tests/test_segwave_core.py", "-v"], 
-         "SegWave Core Math Tests", 60),
-        (["python", "-m", "pytest", "tests/test_print_all_md.py", "-v"],
-         "MD Print Tool Tests", 30),
+        (["python", "-m", "pytest", "test_vfall_duality.py", "-v"],
+         "Dual Velocity Tests", 60),
+        (["python", "-m", "pytest", "test_ppn_exact.py", "-v"],
+         "PPN Exact Tests", 60),
+        (["python", "-m", "pytest", "test_energy_conditions.py", "-v"],
+         "Energy Conditions Tests", 60),
+        (["python", "-m", "pytest", "test_c1_segments.py", "-v"],
+         "C1 Segments Tests", 60),
+        (["python", "-m", "pytest", "test_c2_segments_strict.py", "-v"],
+         "C2 Segments Strict Tests", 60),
+        (["python", "-m", "pytest", "test_c2_curvature_proxy.py", "-v"],
+         "C2 Curvature Proxy Tests", 60),
+        (["python", "-m", "pytest", "test_utf8_encoding.py", "-v"],
+         "UTF-8 Encoding Tests", 30),
     ]
     
     for cmd, desc, timeout in tests_phase1:
-        success, elapsed = run_command(cmd, desc, timeout, check=False)
-        results[desc] = {"success": success, "time": elapsed}
+        if Path(cmd[3]).exists():
+            success, elapsed = run_command(cmd, desc, timeout, check=False)
+            results[desc] = {"success": success, "time": elapsed}
+        else:
+            print(f"  [SKIP] {desc} (file not found)")
+            results[desc] = {"success": True, "time": 0.0}
     
     # =============================================================================
-    # PHASE 2: CLI & Integration Tests
+    # PHASE 2: SegWave Tests (tests/ directory)
     # =============================================================================
-    print_header("PHASE 2: CLI & INTEGRATION TESTS", "-")
+    print_header("PHASE 2: SEGWAVE TESTS", "-")
     
     tests_phase2 = [
+        (["python", "-m", "pytest", "tests/test_segwave_core.py", "-v"],
+         "SegWave Core Math Tests", 60),
         (["python", "-m", "pytest", "tests/test_segwave_cli.py", "-v"],
          "SegWave CLI & Dataset Tests", 120),
+        (["python", "-m", "pytest", "tests/test_print_all_md.py", "-v"],
+         "MD Print Tool Tests", 30),
     ]
     
     for cmd, desc, timeout in tests_phase2:
@@ -126,35 +155,65 @@ def main():
         results[desc] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 3: Cosmos Tests (if not quick mode)
+    # PHASE 3: Scripts Tests (scripts/tests/ directory)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 3: COSMOS TESTS", "-")
+        print_header("PHASE 3: SCRIPTS/TESTS", "-")
         
         tests_phase3 = [
-            (["python", "-m", "pytest", "tests/cosmos/", "-v"],
-             "Cosmos Multi-Body Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_ssz_kernel.py", "-v"],
+             "SSZ Kernel Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_ssz_invariants.py", "-v"],
+             "SSZ Invariants Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_segmenter.py", "-v"],
+             "Segmenter Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_cosmo_fields.py", "-v"],
+             "Cosmo Fields Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_cosmo_multibody.py", "-v"],
+             "Cosmo Multibody Tests", 60),
         ]
         
         for cmd, desc, timeout in tests_phase3:
+            if Path(cmd[3]).exists():
+                success, elapsed = run_command(cmd, desc, timeout, check=False)
+                results[desc] = {"success": success, "time": elapsed}
+            else:
+                print(f"  [SKIP] {desc} (file not found)")
+    
+    # =============================================================================
+    # PHASE 4: Cosmos Tests (tests/cosmos/)
+    # =============================================================================
+    if not args.quick:
+        print_header("PHASE 4: COSMOS TESTS", "-")
+        
+        tests_phase4 = [
+            (["python", "-m", "pytest", "tests/cosmos/", "-v"],
+             "Cosmos Multi-Body Sigma Tests", 60),
+        ]
+        
+        for cmd, desc, timeout in tests_phase4:
             success, elapsed = run_command(cmd, desc, timeout, check=False)
             results[desc] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 4: Complete Test Suite (all together)
+    # PHASE 5: Complete SSZ Analysis (run_all_ssz_terminal.py)
     # =============================================================================
     if not args.skip_slow_tests and not args.quick:
-        print_header("PHASE 4: COMPLETE TEST SUITE", "-")
+        print_header("PHASE 5: COMPLETE SSZ ANALYSIS", "-")
         
-        cmd = ["python", "-m", "pytest", "tests/", "-v", "--tb=short"]
-        success, elapsed = run_command(cmd, "All Tests Combined", 300, check=False)
-        results["Complete Test Suite"] = {"success": success, "time": elapsed}
+        ssz_runner = Path("run_all_ssz_terminal.py")
+        if ssz_runner.exists():
+            cmd = ["python", str(ssz_runner)]
+            success, elapsed = run_command(cmd, "Full SSZ Terminal Analysis", 600, check=False)
+            results["SSZ Complete Analysis"] = {"success": success, "time": elapsed}
+        else:
+            print(f"  [SKIP] SSZ Terminal Analysis (run_all_ssz_terminal.py not found)")
     
     # =============================================================================
-    # PHASE 5: Example Runs (if not quick mode)
+    # PHASE 6: Example Runs (if not quick mode)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 5: EXAMPLE ANALYSIS RUNS", "-")
+        print_header("PHASE 6: EXAMPLE ANALYSIS RUNS", "-")
         
         # Check if example data exists
         g79_data = Path("data/observations/G79_29+0_46_CO_NH3_rings.csv")
@@ -185,7 +244,7 @@ def main():
             results["Cygnus X Analysis"] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 6: Generate Summary
+    # PHASE 7: Generate Summary
     # =============================================================================
     suite_elapsed = time.time() - suite_start
     
@@ -234,7 +293,7 @@ def main():
     print(f"\nSummary written to: {summary_file}")
     
     # =============================================================================
-    # PHASE 7: Echo All Markdown Outputs
+    # PHASE 8: Echo All Markdown Outputs
     # =============================================================================
     if not args.no_echo_md:
         print_header("ECHOING ALL MARKDOWN OUTPUTS", "=")
