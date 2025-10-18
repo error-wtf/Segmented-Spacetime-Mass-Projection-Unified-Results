@@ -309,31 +309,66 @@ else
     print_info "[DRY-RUN] Would verify commands and papers"
 fi
 
-# Step 9: Generate test summary and MD outputs
+# Step 9: Generate complete summary (tests, papers, analyses, MD outputs)
 if [ "$SKIP_TESTS" = false ]; then
     echo ""
-    print_step "[9/9] Generating test summary and outputs..."
+    print_step "[9/9] Generating complete summary and outputs..."
     if [ "$DRY_RUN" = false ]; then
-        # Generate test summary
+        print_info "Creating comprehensive summary..."
+        
+        # 1. Test Summary
         SUMMARY_SCRIPT="ci/summary-all-tests.py"
         if [ -f "$SUMMARY_SCRIPT" ]; then
-            print_info "Generating test summary..."
-            if $PYTHON_CMD "$SUMMARY_SCRIPT"; then
-                print_success "[OK] Test summary generated"
+            echo -e "${CYAN}  [1/5] Test summary...${NC}"
+            if $PYTHON_CMD "$SUMMARY_SCRIPT" > /dev/null 2>&1; then
+                print_success "    [OK] Test results summary generated"
             else
-                print_warn "[WARN] Could not generate test summary"
+                print_warn "    [WARN] Could not generate test summary"
             fi
         fi
         
-        # Print MD outputs summary
-        print_info "Generating MD outputs summary..."
-        if ssz-print-md --root reports --order path > /dev/null 2>&1; then
-            print_success "[OK] MD outputs available (run ./print_all_analysis.sh to view)"
-        else
-            print_warn "[WARN] MD outputs not generated yet (run tests first)"
+        # 2. Count validation papers
+        echo -e "${CYAN}  [2/5] Validation papers...${NC}"
+        PAPERS_VALIDATION="papers/validation"
+        if [ -d "$PAPERS_VALIDATION" ]; then
+            VALIDATION_COUNT=$(find "$PAPERS_VALIDATION" -name "*.md" | wc -l)
+            print_success "    [OK] $VALIDATION_COUNT validation papers available"
         fi
+        
+        # 3. Count theory papers
+        echo -e "${CYAN}  [3/5] Theory papers...${NC}"
+        PAPERS_THEORY="docs/theory"
+        if [ -d "$PAPERS_THEORY" ]; then
+            THEORY_COUNT=$(find "$PAPERS_THEORY" -name "*.md" | wc -l)
+            print_success "    [OK] $THEORY_COUNT theory papers available"
+        fi
+        
+        # 4. Check analysis reports
+        echo -e "${CYAN}  [4/5] Analysis reports...${NC}"
+        REPORTS_DIR="reports"
+        if [ -d "$REPORTS_DIR" ]; then
+            REPORT_COUNT=$(find "$REPORTS_DIR" -name "*.md" 2>/dev/null | wc -l)
+            if [ "$REPORT_COUNT" -gt 0 ]; then
+                print_success "    [OK] $REPORT_COUNT analysis reports found"
+            else
+                echo -e "${CYAN}    [INFO] No reports yet (run python run_all_ssz_terminal.py to generate)${NC}"
+            fi
+        fi
+        
+        # 5. Complete MD outputs catalog
+        echo -e "${CYAN}  [5/5] Complete MD catalog...${NC}"
+        ALL_MD_COUNT=$(find . -name "*.md" -not -path "./.venv/*" -not -path "./node_modules/*" 2>/dev/null | wc -l)
+        print_success "    [OK] $ALL_MD_COUNT total MD files available"
+        echo -e "${CYAN}    [INFO] Run ./print_all_analysis.sh to view ALL outputs${NC}"
+        
+        echo ""
+        print_success "Summary ready! Available outputs:"
+        echo -e "${NC}    - Test results: ci/test_summary.html (if generated)${NC}"
+        echo -e "${NC}    - Papers: papers/validation/ + docs/theory/${NC}"
+        echo -e "${NC}    - Reports: reports/ (after running analysis)${NC}"
+        echo -e "${NC}    - Complete: Run ./print_all_analysis.sh for everything${NC}"
     else
-        print_info "[DRY-RUN] Would generate summary and outputs"
+        print_info "[DRY-RUN] Would generate complete summary and outputs"
     fi
 else
     echo ""

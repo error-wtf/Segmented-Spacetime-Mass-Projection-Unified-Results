@@ -269,37 +269,74 @@ if (-not $DryRun) {
     Write-Host "  [DRY-RUN] Would verify commands and papers" -ForegroundColor Cyan
 }
 
-# Step 9: Generate test summary and MD outputs
+# Step 9: Generate complete summary (tests, papers, analyses, MD outputs)
 if (-not $SkipTests) {
     Write-Host ""
-    Write-Host "[9/9] Generating test summary and outputs..." -ForegroundColor Yellow
+    Write-Host "[9/9] Generating complete summary and outputs..." -ForegroundColor Yellow
     if (-not $DryRun) {
-        # Generate test summary
+        Write-Host "  Creating comprehensive summary..." -ForegroundColor Cyan
+        
+        # 1. Test Summary
         $summaryScript = "ci\summary-all-tests.py"
         if (Test-Path $summaryScript) {
-            Write-Host "  Generating test summary..." -ForegroundColor Cyan
+            Write-Host "  [1/5] Test summary..." -ForegroundColor Cyan
             try {
-                python $summaryScript
+                python $summaryScript 2>&1 | Out-Null
                 if ($LASTEXITCODE -eq 0) {
-                    Write-Host "    [OK] Test summary generated" -ForegroundColor Green
+                    Write-Host "    [OK] Test results summary generated" -ForegroundColor Green
                 }
             } catch {
                 Write-Host "    [WARN] Could not generate test summary" -ForegroundColor Yellow
             }
         }
         
-        # Print MD outputs summary
-        Write-Host "  Generating MD outputs summary..." -ForegroundColor Cyan
-        try {
-            ssz-print-md --root reports --order path | Out-Null
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host "    [OK] MD outputs available (run .\print_all_analysis.ps1 to view)" -ForegroundColor Green
-            }
-        } catch {
-            Write-Host "    [WARN] MD outputs not generated yet (run tests first)" -ForegroundColor Yellow
+        # 2. Count validation papers
+        Write-Host "  [2/5] Validation papers..." -ForegroundColor Cyan
+        $papersValidation = "papers\validation"
+        if (Test-Path $papersValidation) {
+            $validationCount = (Get-ChildItem $papersValidation -Filter *.md -Recurse).Count
+            Write-Host "    [OK] $validationCount validation papers available" -ForegroundColor Green
         }
+        
+        # 3. Count theory papers
+        Write-Host "  [3/5] Theory papers..." -ForegroundColor Cyan
+        $papersTheory = "docs\theory"
+        if (Test-Path $papersTheory) {
+            $theoryCount = (Get-ChildItem $papersTheory -Filter *.md -Recurse).Count
+            Write-Host "    [OK] $theoryCount theory papers available" -ForegroundColor Green
+        }
+        
+        # 4. Check analysis reports
+        Write-Host "  [4/5] Analysis reports..." -ForegroundColor Cyan
+        $reportsDir = "reports"
+        if (Test-Path $reportsDir) {
+            $reportCount = (Get-ChildItem $reportsDir -Filter *.md -Recurse -ErrorAction SilentlyContinue).Count
+            if ($reportCount -gt 0) {
+                Write-Host "    [OK] $reportCount analysis reports found" -ForegroundColor Green
+            } else {
+                Write-Host "    [INFO] No reports yet (run python run_all_ssz_terminal.py to generate)" -ForegroundColor Cyan
+            }
+        }
+        
+        # 5. Complete MD outputs catalog
+        Write-Host "  [5/5] Complete MD catalog..." -ForegroundColor Cyan
+        try {
+            # Count ALL MD files
+            $allMdFiles = (Get-ChildItem -Path . -Filter *.md -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.DirectoryName -notlike "*\.venv*" -and $_.DirectoryName -notlike "*\node_modules*" }).Count
+            Write-Host "    [OK] $allMdFiles total MD files available" -ForegroundColor Green
+            Write-Host "    [INFO] Run .\print_all_analysis.ps1 to view ALL outputs" -ForegroundColor Cyan
+        } catch {
+            Write-Host "    [WARN] Could not count MD files" -ForegroundColor Yellow
+        }
+        
+        Write-Host ""
+        Write-Host "  Summary ready! Available outputs:" -ForegroundColor Green
+        Write-Host "    - Test results: ci/test_summary.html (if generated)" -ForegroundColor White
+        Write-Host "    - Papers: papers/validation/ + docs/theory/" -ForegroundColor White
+        Write-Host "    - Reports: reports/ (after running analysis)" -ForegroundColor White
+        Write-Host "    - Complete: Run .\print_all_analysis.ps1 for everything" -ForegroundColor White
     } else {
-        Write-Host "  [DRY-RUN] Would generate summary and outputs" -ForegroundColor Cyan
+        Write-Host "  [DRY-RUN] Would generate complete summary and outputs" -ForegroundColor Cyan
     }
 } else {
     Write-Host ""
