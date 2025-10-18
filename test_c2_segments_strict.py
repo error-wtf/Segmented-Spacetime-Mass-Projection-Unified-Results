@@ -82,6 +82,10 @@ def A_blend_all(r, rs, rphi, p, rL, rR):
     return A, A1, A2
 
 def main():
+    print("\n" + "="*80)
+    print("C2 STRICT CONTINUITY: Quintic Hermite with Analytic Derivatives")
+    print("="*80)
+    
     # setup
     M = 1.98847e30
     rs = 2*G*M/(c*c)
@@ -89,6 +93,24 @@ def main():
     p = 2.0
     Ab = 2.0*rs; w = 0.2*rs
     rL = Ab - w; rR = Ab + w
+    
+    print(f"\nTest Configuration:")
+    print(f"  Mass M = {M:.3e} kg (1 M☉)")
+    print(f"  r_s = {rs:.3e} m")
+    print(f"  Blend zone: [{rL/rs:.2f}r_s, {rR/rs:.2f}r_s]")
+    
+    print(f"\nC2 Requirements:")
+    print(f"  • A(r)   continuous (value)")
+    print(f"  • A'(r)  continuous (first derivative)")
+    print(f"  • A''(r) continuous (second derivative)")
+    print(f"  All checked analytically (no finite differences)")
+    
+    print(f"\nQuintic Hermite Basis:")
+    print(f"  Matches A, A', A'' at both boundaries")
+    print(f"  Ensures C2 continuity across blend zone")
+    
+    print("\n" + "="*80)
+    print(f"\nContinuity Check (Analytic):")
 
     # Evaluate left and right limits at the join points analytically
     A_L, A1_L, A2_L = A_core_region(rL, rs, rphi, p, 1)
@@ -101,8 +123,21 @@ def main():
 
     ok = (abs(A_L-AbL) < 1e-12 and abs(A1_L-Ab1L) < 1e-12 and abs(A2_L-Ab2L) < 1e-12 and
           abs(AbR-A_R) < 1e-12 and abs(Ab1R-A1_R) < 1e-12 and abs(Ab2R-A2_R) < 1e-12)
-    print("C2 strict (analytic) ->", "PASS" if ok else "FAIL")
-    if not ok:
+    
+    print(f"\nPhysical Interpretation:")
+    print(f"  • C2 continuity ensures smooth Ricci curvature")
+    print(f"  • No δ-function singularities in stress-energy")
+    print(f"  • Analytic matching (machine-precision accuracy)")
+    print(f"  • Quintic Hermite provides optimal smoothness")
+    
+    if ok:
+        print(f"\n{'='*80}")
+        print(f"✓ C2 strict (analytic) test PASSED")
+        print(f"{'='*80}\n")
+    else:
+        print(f"\n{'='*80}")
+        print(f"✗ C2 strict test FAILED")
+        print(f"{'='*80}\n")
         raise SystemExit(1)
 
 if __name__ == "__main__":

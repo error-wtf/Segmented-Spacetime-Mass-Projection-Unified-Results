@@ -201,7 +201,7 @@ if (-not $SkipTests) {
             
             # pytest tests (tests/ and scripts/tests/)
             Write-Host "Pytest test suites:" -ForegroundColor Cyan
-            pytest tests/ scripts/tests/ -v --tb=short --disable-warnings
+            pytest tests/ scripts/tests/ -s -v --tb=short
             
             if ($LASTEXITCODE -ne 0) {
                 $allPassed = $false
@@ -226,9 +226,86 @@ if (-not $SkipTests) {
     Write-Host "[7/9] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
 }
 
-# Step 8: Verify installation
+# Step 8: Check and fetch missing data files
 Write-Host ""
-Write-Host "[8/9] Verifying installation..." -ForegroundColor Yellow
+Write-Host "[8/9] Checking data files..." -ForegroundColor Yellow
+
+if (-not $DryRun) {
+    $dataFetched = $false
+    
+    # Check for real_data_full.csv (should be in release)
+    if (-not (Test-Path "data/real_data_full.csv")) {
+        Write-Host "  ⚠ real_data_full.csv missing - should be included in release!" -ForegroundColor Yellow
+    } else {
+        Write-Host "  ✓ real_data_full.csv found" -ForegroundColor Green
+    }
+    
+    # Check for small GAIA CSVs (should be in release)
+    $gaiaSmallFiles = @(
+        "data/gaia/gaia_sample_small.csv",
+        "data/gaia/gaia_cone_g79.csv",
+        "data/gaia/gaia_cone_cygx.csv"
+    )
+    
+    foreach ($file in $gaiaSmallFiles) {
+        if (-not (Test-Path $file)) {
+            Write-Host "  ⚠ $file missing - should be in release!" -ForegroundColor Yellow
+        } else {
+            Write-Host "  ✓ $file found" -ForegroundColor Green
+        }
+    }
+    
+    # Check for Planck data (2GB - fetch only if missing)
+    $planckFile = "data/planck/COM_PowerSpect_CMB-TT-full_R3.01.txt"
+    
+    if (-not (Test-Path $planckFile)) {
+        Write-Host "  ⚠ Planck data missing (2GB) - fetching..." -ForegroundColor Yellow
+        
+        # Create directory
+        New-Item -ItemType Directory -Force -Path "data/planck" | Out-Null
+        
+        try {
+            Write-Host "    Downloading Planck CMB power spectrum..." -ForegroundColor Cyan
+            Write-Host "    This may take several minutes (2GB file)..." -ForegroundColor Cyan
+            
+            # Run fetch script
+            python scripts/fetch_planck.py
+            
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "  ✓ Planck data fetched successfully" -ForegroundColor Green
+                $dataFetched = $true
+            } else {
+                Write-Host "  ⚠ Failed to fetch Planck data - continuing anyway" -ForegroundColor Yellow
+            }
+        } catch {
+            Write-Host "  ⚠ Error fetching Planck data: $_" -ForegroundColor Yellow
+            Write-Host "    You can fetch manually later with: python scripts/fetch_planck.py" -ForegroundColor Cyan
+        }
+    } else {
+        Write-Host "  ✓ Planck data found (skipping download)" -ForegroundColor Green
+    }
+    
+    # Check for additional GAIA data (fetch if missing)
+    $gaiaLargeFile = "data/gaia/gaia_full_sample.csv"
+    
+    if (-not (Test-Path $gaiaLargeFile)) {
+        Write-Host "  ⚠ Full GAIA sample missing - you can fetch with:" -ForegroundColor Yellow
+        Write-Host "    python scripts/fetch_gaia_full.py" -ForegroundColor Cyan
+    } else {
+        Write-Host "  ✓ Full GAIA sample found" -ForegroundColor Green
+    }
+    
+    Write-Host ""
+    if ($dataFetched) {
+        Write-Host "  Note: Data files were downloaded. They will NOT be overwritten on reinstall." -ForegroundColor Cyan
+    }
+} else {
+    Write-Host "  [DRY-RUN] Would check: data files" -ForegroundColor Cyan
+}
+
+# Step 9: Verify installation
+Write-Host ""
+Write-Host "[9/10] Verifying installation..." -ForegroundColor Yellow
 if (-not $DryRun) {
     # Check CLI commands
     try {
@@ -338,13 +415,12 @@ if (-not $SkipTests) {
     } else {
         Write-Host "  [DRY-RUN] Would generate complete summary and outputs" -ForegroundColor Cyan
     }
-} else {
-    Write-Host ""
     Write-Host "[9/9] Skipping summary generation (--SkipTests flag)" -ForegroundColor Yellow
 }
 
-# Summary
+# Step 10: Summary
 Write-Host ""
+Write-Host "[10/10] Installation complete!" -ForegroundColor Green
 Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host "INSTALLATION COMPLETE" -ForegroundColor Green
