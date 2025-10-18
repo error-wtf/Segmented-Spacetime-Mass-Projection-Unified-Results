@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 # Strict C2 continuity with analytic derivatives for A(r) and the quintic blend.
+import sys
+import io
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 import math
 
 phi = 1.6180339887498948
