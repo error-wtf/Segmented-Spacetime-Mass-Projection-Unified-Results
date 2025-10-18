@@ -65,10 +65,19 @@ else
     echo -e "${YELLOW}  [SKIP] No reports found${NC}"
 fi
 
-# Section 4: Documentation
+# Section 4: Documentation (list only, no content)
 echo -e "${YELLOW}[4/5] Documentation (docs/*.md, root *.md)${NC}"
-ssz-print-md --root docs --order path --include "*.md"
-ssz-print-md --root . --include "*.md" --exclude-dirs papers docs reports tests scripts data
+if [ -d "docs" ]; then
+    find docs -name "*.md" | while read -r doc; do
+        echo -e "${CYAN}  - $doc${NC}"
+    done
+    DOC_COUNT=$(find docs -name "*.md" | wc -l)
+    echo -e "${GREEN}  Total: $DOC_COUNT documentation files${NC}"
+fi
+# Root-level MD files (excluding README which is still important)
+find . -maxdepth 1 -name "*.md" -not -name "README.md" | while read -r md; do
+    echo -e "${CYAN}  - $md${NC}"
+done
 echo ""
 
 # Section 5: Full Pipeline Outputs
