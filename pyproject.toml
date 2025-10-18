@@ -26,14 +26,13 @@ ssz-rings = "cli.ssz_rings:main"
 ssz-print-md = "tools.print_all_md:main"
 
 [tool.setuptools]
-package-dir = {"" = "src"}
 include-package-data = true
 
 [tool.setuptools.package-data]
 "segspace" = ["**/*"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools.packages]
+find = {where = ["src", "."], include = ["segspace*", "ssz*", "cli*", "tools*"]}
 
 [tool.pytest.ini_options]
 addopts = "-q --disable-warnings --junitxml=junit-smoke.xml"
