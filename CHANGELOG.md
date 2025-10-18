@@ -4,6 +4,91 @@ All notable changes to the Segmented Spacetime Suite will be documented in this 
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+---
+
+## [1.1.0] - 2025-10-18
+
+### 🎉 Major Update: Complete Test System Overhaul
+
+#### Added
+
+**Test System:**
+- Complete logging system capturing all output to `reports/summary-output.md` (~100-500 KB)
+- 35 physics tests now show detailed physical interpretations
+- 23 technical tests converted to silent background mode
+- Smart data fetching system (checks existing files, never overwrites)
+
+**New Scripts:**
+- `scripts/fetch_planck.py` - Planck data downloader (2GB) with progress bar
+- `COPY_TO_TEST_SUITES.ps1` - Project copy script for test suites
+
+**Documentation (9 new files):**
+- `TESTING_COMPLETE_GUIDE.md` - Master testing guide
+- `tests/README_TESTS.md` - Tests directory documentation
+- `scripts/tests/README_SCRIPTS_TESTS.md` - Scripts tests documentation
+- `LOGGING_SYSTEM_README.md`, `INSTALL_README.md`, `DATA_FETCHING_README.md`
+- `PHYSICS_TESTS_COMPLETE_LIST.md`, `VERIFICATION_COMPLETE.md`
+- `REPO_UPDATE_CHECKLIST.md`, `LINUX_TEST_PLAN.md`
+
+**Papers:**
+- Added PDF versions of all theoretical papers (alongside MD)
+
+#### Changed
+
+**Test Output Format:**
+- All 35 physics tests standardized with: Configuration → Results → Physical Interpretation
+- Each test shows 3+ bullet points explaining physical meaning
+- Unified format across all test files
+
+**Test Runner:**
+- `run_full_suite.py` captures ALL output to StringIO buffer
+- Generates 2 files: `RUN_SUMMARY.md` (compact) + `summary-output.md` (complete log)
+- Silent tests excluded from summary display
+
+**Installation:**
+- `install.ps1`/`install.sh` updated to 10 steps (added data checking)
+- Step [8/10]: Check and fetch missing data files
+- Auto-fetch Planck only if missing, never overwrites
+
+**Updated Test Files:**
+- `tests/test_segwave_core.py` - 16 tests verbose
+- `scripts/tests/test_ssz_invariants.py` - 6 tests (added 3 new)
+- All 6 root-level tests verbose
+
+#### Fixed
+
+**Critical Bugs:**
+- 🔴 **Pytest I/O Crash**: Changed `--disable-warnings` to `-s` flag
+  - Root cause: `ValueError: I/O operation on closed file`
+  - Fixed in: `run_full_suite.py`, `install.ps1`, `install.sh`
+  
+- 🔴 **test_segmenter.py Import Error**: Removed non-existent `create_segments` import
+  - Now uses correct `assign_segments_xy` API
+  
+- 🔴 **False "Failed: 3"**: Fixed summary counting logic
+  - Silent tests no longer counted as failures
+
+**Other Fixes:**
+- Python cache clearing documented
+- Shell script permissions on Linux
+- Line ending issues
+
+#### Performance
+
+- Complete test suite: ~2-3 minutes
+- Installation without Planck: ~2 minutes  
+- Installation with Planck: ~20 minutes (connection dependent)
+- Re-installation: ~2 minutes (skips existing data)
+
+#### Statistics
+
+- Physics Tests: 35 (all verbose with interpretations)
+- Technical Tests: 23 (all silent)
+- Modified Files: 15 (12 tests + 3 runners)
+- New Files: 10 (9 docs + 1 script)
+
+---
+
 ## [Unreleased]
 
 ### Added - 2025-01-18

@@ -1,0 +1,503 @@
+# SSZ Suite - Git Ignore File
+# Complete exclusion list for clean repository
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+junit-*.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================================================
+# DATA FILES - LARGE
+# ============================================================================
+
+# Planck Data (2 GB - will be auto-fetched)
+data/planck/*.txt
+data/planck/*.fits
+data/planck/*.dat
+
+# Large GAIA datasets (optional downloads)
+data/gaia/gaia_full_sample.csv
+data/gaia/*_full.csv
+data/gaia/*_large.csv
+
+# SDSS large datasets
+data/sdss/*_full.csv
+data/sdss/*_large.csv
+
+# Any large data files (>50 MB)
+data/**/*_large.*
+data/**/*_full.*
+data/**/*.fits
+
+# Temporary data downloads
+data/temp/
+data/cache/
+data/downloads/
+
+# ============================================================================
+# DATA FILES - KEEP IN REPO (SMALL)
+# ============================================================================
+# These should be INCLUDED (not ignored):
+# - data/real_data_full.csv (~50 MB - OK for repo)
+# - data/gaia/gaia_sample_small.csv (~1 MB)
+# - data/gaia/gaia_cone_g79.csv (~500 KB)
+# - data/gaia/gaia_cone_cygx.csv (~500 KB)
+
+# ============================================================================
+# GENERATED REPORTS & OUTPUTS
+# ============================================================================
+
+# Test reports
+reports/summary-output.md
+reports/*_output.md
+reports/*.log
+reports/junit-*.xml
+
+# Keep RUN_SUMMARY.md in repo (small)
+# reports/RUN_SUMMARY.md is NOT ignored
+
+# Analysis outputs
+output/
+results/
+*.out
+
+# Plot outputs (can be regenerated)
+plots/*.png
+plots/*.jpg
+plots/*.pdf
+figures/*.png
+figures/*.jpg
+
+# HTML reports
+*.html
+!docs/**/*.html
+
+# ============================================================================
+# BUILD & PACKAGING
+# ============================================================================
+
+# Debian packaging
+debian/files
+debian/*.log
+debian/*.substvars
+debian/tmp/
+debian/.debhelper/
+debian/segmented-spacetime-suite-extended/
+.pybuild/
+
+# RPM packaging
+*.rpm
+*.src.rpm
+rpmbuild/
+
+# setuptools
+*.egg
+*.egg-info
+dist/
+build/
+_skbuild/
+
+# ============================================================================
+# IDE & EDITORS
+# ============================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Atom
+.atom/
+
+# ============================================================================
+# OS FILES
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# VERSION CONTROL
+# ============================================================================
+
+# Git
+*.orig
+*.rej
+*.patch
+
+# Mercurial
+.hg/
+.hgignore
+.hgtags
+
+# SVN
+.svn/
+
+# ============================================================================
+# TEMPORARY FILES
+# ============================================================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~.nib
+*.old
+
+# Lock files
+*.lock
+!requirements.txt.lock
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# ============================================================================
+# NODE / NPM (if using JavaScript tools)
+# ============================================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/
+package-lock.json
+yarn.lock
+
+# ============================================================================
+# DOCKER
+# ============================================================================
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+.docker/
+
+# ============================================================================
+# CI/CD
+# ============================================================================
+
+# GitHub Actions
+.github/workflows/*.log
+
+# GitLab CI
+.gitlab-ci.local.yml
+
+# Travis CI
+.travis.yml.local
+
+# CircleCI
+.circleci/local/
+
+# ============================================================================
+# SECRETS & CREDENTIALS
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# API keys & credentials
+*secrets.yaml
+*secrets.json
+*credentials.json
+*.key
+*.pem
+*.crt
+*.cer
+
+# Config files with secrets
+config/local.yaml
+config/secrets.yaml
+
+# ============================================================================
+# JUPYTER NOTEBOOKS (keep notebooks, ignore checkpoints)
+# ============================================================================
+
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# But KEEP the actual notebooks:
+# !notebooks/**/*.ipynb
+
+# ============================================================================
+# PROFILING & DEBUGGING
+# ============================================================================
+
+# Profiling
+*.prof
+*.lprof
+*.pstats
+
+# Debugging
+.debug/
+*.debug
+
+# Memory profiling
+*.mprof
+
+# ============================================================================
+# LATEX (if generating papers)
+# ============================================================================
+
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+
+# ============================================================================
+# MISC
+# ============================================================================
+
+# Archives (keep source, ignore built archives)
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tgz
+*.rar
+*.7z
+
+# Media files (large)
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Backups
+*_backup/
+backup/
+*.backup
+
+# Test suite copies (to avoid duplicates)
+*-TEST-SUITE-*/
+
+# ============================================================================
+# PROJECT SPECIFIC
+# ============================================================================
+
+# SSZ specific temp files
+ssz_cache/
+ssz_temp/
+
+# Analysis temp outputs
+analysis_temp/
+temp_analysis/
+
+# Validation temp files
+validation_temp/
+
+# Old backup directories
+*_bak/
+*_old/
+
+# ============================================================================
+# KEEP IMPORTANT FILES (EXPLICIT)
+# ============================================================================
+
+# Force include these even if matched by patterns above:
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
+!requirements.txt
+!setup.py
+!pyproject.toml
+!MANIFEST.in
+
+# Documentation (keep)
+!docs/**/*.md
+!papers/**/*.md
+!papers/**/*.pdf
+
+# Small data files (keep)
+!data/real_data_full.csv
+!data/gaia/gaia_sample_small.csv
+!data/gaia/gaia_cone_*.csv
+
+# Test files (keep all)
+!test_*.py
+!tests/**/*.py
+!scripts/tests/**/*.py
+
+# ============================================================================
+# END OF .gitignore
+# ============================================================================

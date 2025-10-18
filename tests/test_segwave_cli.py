@@ -36,7 +36,9 @@ class TestCLIBasic:
         result = subprocess.run(
             [sys.executable, str(CLI_SCRIPT), "--help"],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode == 0
@@ -48,7 +50,9 @@ class TestCLIBasic:
         result = subprocess.run(
             [sys.executable, str(CLI_SCRIPT)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode != 0
@@ -62,7 +66,9 @@ class TestCLIBasic:
              "--v0", "12.5",
              "--alpha", "1.0"],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode != 0
@@ -88,7 +94,9 @@ class TestCLIExecution:
              "--out-table", str(out_table),
              "--out-report", str(out_report)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         # Check exit code
@@ -134,7 +142,9 @@ class TestCLIExecution:
              "--fit-alpha",
              "--out-table", str(out_table)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         if result.returncode != 0:
@@ -165,7 +175,9 @@ class TestCLIExecution:
              "--nu-in", "3.0e11",
              "--out-table", str(out_table)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode == 0, f"Frequency CLI failed: {result.stderr}"
@@ -191,7 +203,9 @@ class TestCLIExecution:
              "--eta", "0.2",
              "--out-table", str(out_table)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode == 0, f"Custom params CLI failed: {result.stderr}"
@@ -214,7 +228,9 @@ class TestCLIValidation:
              "--v0", "-10.0",
              "--alpha", "1.0"],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         # Should either fail gracefully or warn
@@ -232,7 +248,9 @@ class TestCLIValidation:
              "--alpha", "1.0",
              "--fit-alpha"],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         assert result.returncode != 0
@@ -374,7 +392,9 @@ class TestBundledDatasets:
              "--alpha", "1.0",
              "--out-table", str(out_table)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         # Check success
@@ -407,7 +427,9 @@ class TestBundledDatasets:
              "--alpha", "1.0",
              "--out-table", str(out_table)],
             capture_output=True,
-            text=True
+            text=True,
+            encoding="utf-8",
+            errors="replace"
         )
         
         # Check success

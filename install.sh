@@ -179,7 +179,7 @@ fi
 
 # Step 5: Install dependencies
 echo ""
-print_step "[5/8] Installing dependencies..."
+print_step "[5/10] Installing dependencies..."
 
 if [ -f "requirements.txt" ]; then
     print_info "Found: requirements.txt"
@@ -253,7 +253,7 @@ if [ "$SKIP_TESTS" = false ]; then
         
         # pytest tests (tests/ and scripts/tests/)
         echo -e "${CYAN}Pytest test suites:${NC}"
-        $PYTHON_CMD -m pytest tests/ scripts/tests/ -v --tb=short --disable-warnings
+        $PYTHON_CMD -m pytest tests/ scripts/tests/ -s -v --tb=short
         
         if [ $? -ne 0 ]; then
             ALL_PASSED=false
@@ -274,9 +274,80 @@ else
     print_step "[7/9] Skipping tests (--skip-tests flag)"
 fi
 
-# Step 8: Verify installation
+# Step 8: Check and fetch missing data files
 echo ""
-print_step "[8/9] Verifying installation..."
+print_step "[8/10] Checking data files..."
+
+if [ "$DRY_RUN" = false ]; then
+    DATA_FETCHED=false
+    
+    # Check for real_data_full.csv (should be in release)
+    if [ ! -f "data/real_data_full.csv" ]; then
+        print_warn "⚠ real_data_full.csv missing - should be included in release!"
+    else
+        print_success "✓ real_data_full.csv found"
+    fi
+    
+    # Check for small GAIA CSVs (should be in release)
+    GAIA_SMALL_FILES=(
+        "data/gaia/gaia_sample_small.csv"
+        "data/gaia/gaia_cone_g79.csv"
+        "data/gaia/gaia_cone_cygx.csv"
+    )
+    
+    for file in "${GAIA_SMALL_FILES[@]}"; do
+        if [ ! -f "$file" ]; then
+            print_warn "⚠ $file missing - should be in release!"
+        else
+            print_success "✓ $file found"
+        fi
+    done
+    
+    # Check for Planck data (2GB - fetch only if missing)
+    PLANCK_FILE="data/planck/COM_PowerSpect_CMB-TT-full_R3.01.txt"
+    
+    if [ ! -f "$PLANCK_FILE" ]; then
+        print_warn "⚠ Planck data missing (2GB) - fetching..."
+        
+        # Create directory
+        mkdir -p data/planck
+        
+        print_info "Downloading Planck CMB power spectrum..."
+        print_info "This may take several minutes (2GB file)..."
+        
+        # Run fetch script
+        if $PYTHON_CMD scripts/fetch_planck.py; then
+            print_success "✓ Planck data fetched successfully"
+            DATA_FETCHED=true
+        else
+            print_warn "⚠ Failed to fetch Planck data - continuing anyway"
+            print_info "You can fetch manually later with: python scripts/fetch_planck.py"
+        fi
+    else
+        print_success "✓ Planck data found (skipping download)"
+    fi
+    
+    # Check for additional GAIA data (fetch if missing)
+    GAIA_LARGE_FILE="data/gaia/gaia_full_sample.csv"
+    
+    if [ ! -f "$GAIA_LARGE_FILE" ]; then
+        print_warn "⚠ Full GAIA sample missing - you can fetch with:"
+        print_info "python scripts/fetch_gaia_full.py"
+    else
+        print_success "✓ Full GAIA sample found"
+    fi
+    
+    echo ""
+    if [ "$DATA_FETCHED" = true ]; then
+        print_info "Note: Data files were downloaded. They will NOT be overwritten on reinstall."
+    fi
+else
+    print_info "[DRY-RUN] Would check: data files"
+fi
+
+# Step 9: Verify installation
+echo ""
+print_step "[9/10] Verifying installation..."
 if [ "$DRY_RUN" = false ]; then
     # Check CLI commands
     COMMANDS=("ssz-rings --help" "ssz-print-md --help")
@@ -309,10 +380,10 @@ else
     print_info "[DRY-RUN] Would verify commands and papers"
 fi
 
-# Step 9: Generate complete summary (tests, papers, analyses, MD outputs)
+# Step 10: Generate complete summary (tests, papers, analyses, MD outputs)
 if [ "$SKIP_TESTS" = false ]; then
     echo ""
-    print_step "[9/9] Generating complete summary and outputs..."
+    print_step "[10/10] Generating complete summary and outputs..."
     if [ "$DRY_RUN" = false ]; then
         print_info "Creating comprehensive summary..."
         

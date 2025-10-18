@@ -1,12 +1,61 @@
 <img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
 
 # Segmented Spacetime – Mass Projection & Unified Results
+
+[![Tests](https://img.shields.io/badge/tests-58%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
+
 © Carmen Wrede & Lino Casu
+
+**Latest Release:** v1.1.0 (2025-10-18) - Complete Test System Overhaul
 
 This repository contains a complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model**. It ships runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
 Status: Reproducible evidence of model functionality (theory + code + tests).  
 Note: This is not a formal proof; independent replication and peer review are encouraged.
+
+---
+
+## 📢 What's New in v1.1.0 (2025-10-18)
+
+### 🎉 Major Update: Complete Test System Overhaul
+
+✅ **35 physics tests** with detailed physical interpretations  
+✅ **23 technical tests** in silent background mode  
+✅ **Complete logging system** capturing all test output  
+✅ **Smart data fetching** (auto-fetch 2GB Planck, no overwrites)  
+✅ **Bug fixes**: pytest crash, import errors, false failure counts  
+✅ **Documentation**: 10+ comprehensive guides  
+✅ **Papers**: Both MD and PDF formats included  
+
+**Key Features:**
+- Complete output logging to `reports/summary-output.md` (~100-500 KB)
+- Smart data fetching (checks existing files, never overwrites)
+- Detailed physical interpretations for all 35 physics tests
+- Technical tests run silently in background
+- 10 new comprehensive documentation files
+
+**Critical Bug Fixes:**
+- 🔴 **Pytest I/O crash**: Changed `--disable-warnings` to `-s` flag
+- 🔴 **test_segmenter.py**: Fixed import error
+- 🔴 **Summary counts**: Fixed false "Failed: 3" bug
+
+**Performance:**
+- Test suite: ~2-3 minutes (full), ~30 seconds (quick mode)
+- Installation: ~2 minutes (without Planck), ~20 minutes (with Planck)
+- Re-installation: ~2 minutes (skips existing data)
+
+**New Documentation:**
+- 📖 [TESTING_COMPLETE_GUIDE.md](TESTING_COMPLETE_GUIDE.md) - Master testing guide
+- 📖 [tests/README_TESTS.md](tests/README_TESTS.md) - Tests directory docs
+- 📖 [scripts/tests/README_SCRIPTS_TESTS.md](scripts/tests/README_SCRIPTS_TESTS.md) - Scripts tests
+- 📖 [LINUX_TEST_PLAN.md](LINUX_TEST_PLAN.md) - Linux testing procedure
+- 📖 [LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md) - Logging system
+- 📖 [INSTALL_README.md](INSTALL_README.md) - Installation guide
+- 📖 [DATA_FETCHING_README.md](DATA_FETCHING_README.md) - Data management
+
+[See full changelog →](CHANGELOG.md)
 
 ---
 
@@ -75,6 +124,51 @@ chmod +x install.sh install_and_test.sh
 - ✅ Example runs (G79, Cygnus X)
 - ✅ Summary generation
 - ✅ Markdown echo
+
+### Testing System Details (New v1.1)
+
+**Complete Test Overview:**
+- **Total: 58 Tests** (35 physics + 23 technical)
+- **Physics Tests:** Detailed output with physical interpretations
+- **Technical Tests:** Silent mode (run in background)
+
+**Physics Test Format (New!):**
+All 35 physics tests now show:
+```
+================================================================================
+TEST TITLE: Physical Phenomenon
+================================================================================
+Configuration:
+  Parameter = Value
+
+Results:
+  Value = Number
+
+Physical Interpretation:
+  • Physical meaning and implications
+  • Comparison to GR/SR
+  • Observational consequences
+================================================================================
+PASSED
+================================================================================
+```
+
+**Test Categories:**
+- Root-level: 6 physics tests (PPN, energy, segments, duality)
+- tests/: 17 physics + 23 technical tests
+- scripts/tests/: 12 physics tests
+
+**Run Complete Suite:**
+```bash
+python run_full_suite.py              # Full (~2-3 min)
+python run_full_suite.py --quick      # Quick (~30 sec)
+```
+
+**Generates:**
+- `reports/RUN_SUMMARY.md` - Compact overview
+- `reports/summary-output.md` - Complete log (~100-500 KB)
+
+**Critical:** Always use `-s` flag with pytest (never `--disable-warnings`)
 
 ### Manual Installation
 
@@ -850,7 +944,42 @@ For questions about these updates:
 
 ## Changelog
 
-### Version 2.0 (This Update)
+### Version 1.1.0 (2025-10-18) - Test System Overhaul
+
+**Major Features:**
+- ✅ **35 physics tests** with detailed physical interpretations
+- ✅ **23 technical tests** in silent background mode
+- ✅ Complete logging system capturing all test output to `reports/summary-output.md`
+- ✅ Smart data fetching (auto-fetch Planck 2GB, never overwrites existing files)
+- ✅ Papers in both MD and PDF formats
+- ✅ 10+ new comprehensive documentation files
+
+**Critical Bug Fixes:**
+- 🔴 **Pytest I/O crash**: Changed `--disable-warnings` to `-s` flag (fixed in run_full_suite.py, install.ps1, install.sh)
+- 🔴 **test_segmenter.py**: Fixed import error (removed non-existent `create_segments` import)
+- 🔴 **Summary counts**: Fixed false "Failed: 3" bug (silent tests no longer counted as failures)
+- 🔴 **Python cache**: Documented clearing procedures
+
+**New Documentation:**
+- TESTING_COMPLETE_GUIDE.md - Master testing guide
+- tests/README_TESTS.md - Tests directory documentation
+- scripts/tests/README_SCRIPTS_TESTS.md - Scripts tests documentation
+- LINUX_TEST_PLAN.md - Linux testing procedure
+- LOGGING_SYSTEM_README.md - Logging system docs
+- INSTALL_README.md - Installation guide
+- DATA_FETCHING_README.md - Data management guide
+- REPO_UPDATE_CHECKLIST.md - Repository update checklist
+- PHYSICS_TESTS_COMPLETE_LIST.md - All 35 physics tests listed
+- VERIFICATION_COMPLETE.md - Test verification status
+
+**Performance:**
+- Test suite: ~2-3 minutes (full), ~30 seconds (quick mode)
+- Installation: ~2 minutes (without Planck), ~20 minutes (with Planck download)
+- Re-installation: ~2 minutes (skips existing data)
+
+See [CHANGELOG.md](CHANGELOG.md) for complete technical details.
+
+### Version 2.0 (Previous Update)
 - ✅ Fixed overflow errors in statistical tests
 - ✅ Expanded dataset from 67 to 127 objects
 - ✅ Added comprehensive black hole catalog
