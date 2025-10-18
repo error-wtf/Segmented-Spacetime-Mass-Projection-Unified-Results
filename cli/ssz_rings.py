@@ -259,7 +259,7 @@ Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
     
     # Frequency tracking if requested
     if args.nu_in is not None:
-        print(f"Computing frequency track (ν_in = {args.nu_in:.3e} Hz)...")
+        print(f"Computing frequency track (nu_in = {args.nu_in:.3e} Hz)...")
         try:
             gamma_series = compute_cumulative_gamma(df_result['q_k'].values)
             nu_series = predict_frequency_track(args.nu_in, gamma_series)

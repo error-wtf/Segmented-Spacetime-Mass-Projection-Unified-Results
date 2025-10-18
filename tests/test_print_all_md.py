@@ -54,13 +54,19 @@ def test_print_all_md_depth_order(tmp_path: Path):
         "--root", str(tmp_path),
         "--order", "depth"
     ]
-    out = subprocess.check_output(cmd, text=True)
+    out = subprocess.check_output(cmd, text=True, errors='ignore')
     
     # Root should appear before nested
     root_pos = out.find("root level")
     level1_pos = out.find("level 1")
     level2_pos = out.find("level 2")
     
+    # All three should be found
+    assert root_pos != -1, "root level not found in output"
+    assert level1_pos != -1, "level 1 not found in output"
+    assert level2_pos != -1, "level 2 not found in output"
+    
+    # And in correct depth order
     assert root_pos < level1_pos < level2_pos
 
 
