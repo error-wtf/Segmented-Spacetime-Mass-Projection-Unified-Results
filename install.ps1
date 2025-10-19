@@ -262,10 +262,52 @@ if ($DevMode) {
     }
 }
 
-# Step 8: Run tests
+# Step 8: Generate pipeline outputs
+Write-Host ""
+Write-Host "[8/11] Generating pipeline outputs with real data..." -ForegroundColor Yellow
+if (-not $DryRun) {
+    # Check if real_data_full.csv exists
+    if (Test-Path "real_data_full.csv") {
+        $rows = (Get-Content "real_data_full.csv" | Measure-Object -Line).Lines
+        Write-Host "  Found real_data_full.csv ($rows rows)" -ForegroundColor Green
+        
+        # Clean old outputs
+        Write-Host "  Cleaning old outputs..." -ForegroundColor Cyan
+        Remove-Item -Path "out\*.csv", "out\*.png", "out\*.txt" -ErrorAction SilentlyContinue
+        Remove-Item -Path "reports\*.md", "reports\*.csv" -ErrorAction SilentlyContinue
+        Remove-Item -Path "reports\figures\*" -Recurse -ErrorAction SilentlyContinue
+        
+        # Run pipeline
+        Write-Host "  Running SSZ pipeline (this may take 7-10 minutes)..." -ForegroundColor Cyan
+        Write-Host "  Processing $rows data points (ALMA/Chandra/VLT)..." -ForegroundColor Cyan
+        Write-Host ""
+        
+        python run_all_ssz_terminal.py
+        
+        if ($LASTEXITCODE -eq 0) {
+            # Verify outputs
+            if (Test-Path "out\phi_step_debug_full.csv") {
+                $outRows = (Get-Content "out\phi_step_debug_full.csv" | Measure-Object -Line).Lines
+                Write-Host ""
+                Write-Host "  ✓ Pipeline complete: out\phi_step_debug_full.csv ($outRows rows)" -ForegroundColor Green
+                Write-Host "  ✓ Reports generated in reports/" -ForegroundColor Green
+            } else {
+                Write-Host "  ⚠️  Warning: Pipeline outputs not found" -ForegroundColor Yellow
+            }
+        } else {
+            Write-Host "  ✗ Pipeline failed - continuing anyway..." -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "  ⚠️  real_data_full.csv not found - skipping pipeline" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  [DRY-RUN] Would run: python run_all_ssz_terminal.py" -ForegroundColor Cyan
+}
+
+# Step 9: Run tests
 if (-not $SkipTests) {
     Write-Host ""
-    Write-Host "[8/10] Running test suite..." -ForegroundColor Yellow
+    Write-Host "[9/11] Running test suite..." -ForegroundColor Yellow
     if (-not $DryRun) {
         try {
             # Run ALL tests with full output
@@ -323,12 +365,12 @@ if (-not $SkipTests) {
     }
 } else {
     Write-Host ""
-    Write-Host "[8/10] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
+    Write-Host "[9/11] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
 }
 
-# Step 9: Verify installation
+# Step 10: Verify installation
 Write-Host ""
-Write-Host "[9/10] Verifying installation..." -ForegroundColor Yellow
+Write-Host "[10/11] Verifying installation..." -ForegroundColor Yellow
 if (-not $DryRun) {
     # Check CLI commands
     try {
@@ -441,9 +483,9 @@ if (-not $SkipTests) {
     Write-Host "[9/9] Skipping summary generation (--SkipTests flag)" -ForegroundColor Yellow
 }
 
-# Step 10: Summary
+# Step 11: Summary
 Write-Host ""
-Write-Host "[10/10] Installation complete!" -ForegroundColor Green
+Write-Host "[11/11] Installation complete!" -ForegroundColor Green
 Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host "INSTALLATION COMPLETE" -ForegroundColor Green

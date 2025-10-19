@@ -313,10 +313,52 @@ else
     fi
 fi
 
-# Step 8: Run tests
+# Step 8: Generate pipeline outputs
+echo ""
+print_step "[8/11] Generating pipeline outputs with real data..."
+if [ "$DRY_RUN" = false ]; then
+    # Check if real_data_full.csv exists
+    if [ -f "real_data_full.csv" ]; then
+        ROWS=$(wc -l < real_data_full.csv)
+        print_success "Found real_data_full.csv ($ROWS rows)"
+        
+        # Clean old outputs
+        print_info "Cleaning old outputs..."
+        rm -f out/*.csv out/*.png out/*.txt 2>/dev/null
+        rm -f reports/*.md reports/*.csv 2>/dev/null
+        rm -rf reports/figures/* 2>/dev/null
+        
+        # Run pipeline
+        print_info "Running SSZ pipeline (this may take 7-10 minutes)..."
+        print_info "Processing $ROWS data points (ALMA/Chandra/VLT)..."
+        echo ""
+        
+        $PYTHON_CMD run_all_ssz_terminal.py
+        
+        if [ $? -eq 0 ]; then
+            # Verify outputs
+            if [ -f "out/phi_step_debug_full.csv" ]; then
+                OUT_ROWS=$(wc -l < out/phi_step_debug_full.csv)
+                echo ""
+                print_success "✓ Pipeline complete: out/phi_step_debug_full.csv ($OUT_ROWS rows)"
+                print_success "✓ Reports generated in reports/"
+            else
+                print_warn "⚠️  Warning: Pipeline outputs not found"
+            fi
+        else
+            print_warn "✗ Pipeline failed - continuing anyway..."
+        fi
+    else
+        print_warn "⚠️  real_data_full.csv not found - skipping pipeline"
+    fi
+else
+    print_info "[DRY-RUN] Would run: python run_all_ssz_terminal.py"
+fi
+
+# Step 9: Run tests
 if [ "$SKIP_TESTS" = false ]; then
     echo ""
-    print_step "[8/10] Running test suite..."
+    print_step "[9/11] Running test suite..."
     if [ "$DRY_RUN" = false ]; then
         # Run ALL tests with full output
         print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
@@ -361,12 +403,12 @@ if [ "$SKIP_TESTS" = false ]; then
     fi
 else
     echo ""
-    print_step "[8/10] Skipping tests (--skip-tests flag)"
+    print_step "[9/11] Skipping tests (--skip-tests flag)"
 fi
 
-# Step 9: Verify installation
+# Step 10: Verify installation
 echo ""
-print_step "[9/10] Verifying installation..."
+print_step "[10/11] Verifying installation..."
 if [ "$DRY_RUN" = false ]; then
     # Check CLI commands
     COMMANDS=("ssz-rings --help" "ssz-print-md --help")
@@ -399,10 +441,10 @@ else
     print_info "[DRY-RUN] Would verify commands and papers"
 fi
 
-# Step 10: Generate complete summary (tests, papers, analyses, MD outputs)
+# Step 11: Generate complete summary (tests, papers, analyses, MD outputs)
 if [ "$SKIP_TESTS" = false ]; then
     echo ""
-    print_step "[10/10] Generating complete summary and outputs..."
+    print_step "[11/11] Generating complete summary and outputs..."
     if [ "$DRY_RUN" = false ]; then
         print_info "Creating comprehensive summary..."
         
@@ -462,7 +504,7 @@ if [ "$SKIP_TESTS" = false ]; then
     fi
 else
     echo ""
-    print_step "[9/9] Skipping summary generation (--skip-tests flag)"
+    print_step "[10/10] Skipping summary generation (--skip-tests flag)"
 fi
 
 # Summary
