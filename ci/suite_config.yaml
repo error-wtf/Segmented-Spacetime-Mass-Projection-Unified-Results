@@ -1,0 +1,34 @@
+run_id: 2025-10-17_gaia_ssz_real
+time_window_days: 7
+prefer_parquet: true
+outputs_root: experiments/2025-10-17_gaia_ssz_real/suite
+logs_root: data/logs
+mode: full
+steps:
+  - name: autofetch
+    enabled: true
+  - name: ssz_pipeline
+    enabled: true
+  - name: ssz_terminal_all
+    enabled: true
+  - name: nightly_bundle_replay
+    enabled: true
+  - name: tests
+    enabled: true
+  - name: visualize
+    enabled: true
+  - name: ring_temperature_analysis
+    enabled: true
+  - name: summary
+    enabled: true
+  - name: final_reports
+    enabled: true
+
+# Ring temperature analysis configuration
+rings_csv: "data/ring_temperature_data.csv"
+rings_v0: 12.5   # Baseline velocity for ring 0 [km/s]
+
+# Final reports configuration
+final_reports_dir: "final_reports"
+
+nightly_bundle_path: "reports/2025-10-17_gaia_ssz_nightly/2025-10-17_gaia_ssz_nightly_bundle.zip"

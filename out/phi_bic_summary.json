@@ -1,0 +1,38 @@
+{
+  "N_total": 127,
+  "tol": 0.001,
+  "ties_<=tol": 75,
+  "used_for_sign_test": 52,
+  "abs_residual_median": 0.0004873953031977789,
+  "abs_residual_MAD": 0.0006918027138741511,
+  "sigma_hat_steps": 0.13539560187665992,
+  "BIC_lattice": -142.6322434551314,
+  "BIC_uniform": 0.0,
+  "DeltaBIC_uniform_minus_lattice": 142.6322434551314,
+  "sign_test_k_pos": 43,
+  "sign_test_p_two_sided": 4.738017452905029e-06,
+  "phi": 1.618033988749895,
+  "column_info": {
+    "ratio_col": null,
+    "z_col": "z",
+    "f_emit": "f_emit_Hz",
+    "f_obs": "f_obs_Hz",
+    "lambda_obs": null,
+    "lambda_rest": null
+  },
+  "randomized_sign_test": {
+    "enabled": false,
+    "jitter": 0.0,
+    "n_rand": 0,
+    "samples_used": 0,
+    "p_two_median": NaN,
+    "p_two_95ci": [
+      NaN,
+      NaN
+    ]
+  },
+  "files": {
+    "perrow_csv": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\out\\phi_bic_perrow.csv",
+    "residuals_csv_alias": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\out\\phi_bic_residuals.csv"
+  }
+}

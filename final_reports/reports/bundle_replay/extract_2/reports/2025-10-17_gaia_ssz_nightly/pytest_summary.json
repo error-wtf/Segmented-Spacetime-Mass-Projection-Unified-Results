@@ -1,0 +1,114 @@
+{
+  "total": 21,
+  "passed": 21,
+  "failed": 0,
+  "skipped": 0,
+  "duration": 4.926,
+  "cases": [
+    {
+      "name": "scripts.tests.test_cosmo_fields.test_cosmo_fields_added",
+      "duration": 0.005,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_cosmo_multibody.test_sigma_additive_mass",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_cosmo_multibody.test_tau_monotonic_with_alpha",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_cosmo_multibody.test_refractive_index_baseline",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_data_fetch.test_gaia_smoke",
+      "duration": 0.138,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_data_fetch.test_sdss_smoke",
+      "duration": 0.015,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_data_fetch.test_planck_presence",
+      "duration": 0.004,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_plot_ssz_maps.test_plot_mollweide_handles_nan",
+      "duration": 0.053,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_plot_ssz_maps.test_plot_mollweide_derives_galactic",
+      "duration": 0.24,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_segmenter.test_segments_cover_all_points",
+      "duration": 0.002,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_segmenter.test_segment_counts_grow",
+      "duration": 0.005,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_segment_growth_is_monotonic",
+      "duration": 0.01,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_natural_boundary_positive",
+      "duration": 0.008,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_manifest_exists",
+      "duration": 0.005,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_spiral_index_bounds",
+      "duration": 0.008,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_solar_segments_non_empty",
+      "duration": 0.005,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_invariants.test_segment_density_positive",
+      "duration": 0.008,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_kernel.test_gamma_bounds_and_monotonic",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_kernel.test_redshift_mapping",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_kernel.test_rotation_modifier",
+      "duration": 0.001,
+      "status": "passed"
+    },
+    {
+      "name": "scripts.tests.test_ssz_kernel.test_lensing_proxy_positive",
+      "duration": 0.001,
+      "status": "passed"
+    }
+  ]
+}

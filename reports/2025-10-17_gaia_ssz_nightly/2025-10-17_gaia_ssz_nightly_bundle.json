@@ -1,0 +1,18 @@
+{
+  "run_id": "2025-10-17_gaia_ssz_nightly",
+  "mode": "full",
+  "bundle": {
+    "zip": "reports\\2025-10-17_gaia_ssz_nightly\\2025-10-17_gaia_ssz_nightly_bundle.zip",
+    "files": [
+      "ci\\suite_manifest.json",
+      "experiments\\2025-10-17_gaia_ssz_nightly\\autofetch_manifest.json",
+      "reports\\2025-10-17_gaia_ssz_nightly\\pytest_results.xml",
+      "reports\\2025-10-17_gaia_ssz_nightly\\pytest_summary.json",
+      "experiments\\2025-10-17_gaia_ssz_nightly\\viz\\solar_ssz.html",
+      "experiments\\2025-10-17_gaia_ssz_nightly\\viz\\ssz_density_mollweide.html",
+      "experiments\\2025-10-17_gaia_ssz_nightly\\viz\\ssz_density_mollweide.png",
+      "experiments\\2025-10-17_gaia_ssz_nightly\\viz\\ssz_density_scatter.html"
+    ]
+  },
+  "timestamp": "2025-10-17T14:12:43.961304+00:00"
+}

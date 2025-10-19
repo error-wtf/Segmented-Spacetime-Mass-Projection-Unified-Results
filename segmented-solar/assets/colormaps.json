@@ -1,0 +1,59 @@
+{
+  "field_colormaps": {
+    "N": {
+      "name": "Turbo",
+      "description": "Segment density N(x) - high values in red/yellow",
+      "reverse": false
+    },
+    "tau": {
+      "name": "Viridis",
+      "description": "Time dilation τ(x) - slower time in purple",
+      "reverse": true
+    },
+    "n": {
+      "name": "Plasma",
+      "description": "Refractive index n(x) - higher index in yellow",
+      "reverse": false
+    }
+  },
+  "body_colors": {
+    "Sun": "#FFD700",
+    "Mercury": "#8C7853",
+    "Venus": "#FFA500",
+    "Earth": "#4169E1",
+    "Mars": "#CD5C5C",
+    "Jupiter": "#D2691E",
+    "Saturn": "#FAD5A5",
+    "Uranus": "#40E0D0",
+    "Neptune": "#191970",
+    "Moon": "#C0C0C0",
+    "Io": "#FFFF99",
+    "Europa": "#87CEEB",
+    "Ganymede": "#A0522D",
+    "Callisto": "#696969",
+    "Titan": "#F4A460",
+    "Ceres": "#8B7D6B",
+    "Vesta": "#D3D3D3",
+    "Pallas": "#B0C4DE",
+    "Hygiea": "#778899"
+  },
+  "orbit_colors": {
+    "Mercury": "#8C7853",
+    "Venus": "#FFA500", 
+    "Earth": "#4169E1",
+    "Mars": "#CD5C5C",
+    "Jupiter": "#D2691E",
+    "Saturn": "#FAD5A5",
+    "Uranus": "#40E0D0",
+    "Neptune": "#191970"
+  },
+  "spiral_colors": {
+    "default": "#FFD700",
+    "phi_emphasis": "#FF6347"
+  },
+  "background": {
+    "space": "#000000",
+    "grid": "#333333",
+    "text": "#FFFFFF"
+  }
+}

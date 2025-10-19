@@ -1,0 +1,14 @@
+{
+  "rows_used": 127,
+  "abs_residual_mean": 0.053081566809497896,
+  "abs_residual_median": 0.00048739530319731757,
+  "abs_residual_max": 0.4870033006754366,
+  "residual_mean": 0.007998060299388828,
+  "residual_std": 0.1356643110934944,
+  "phi": 1.618033988749895,
+  "ln_phi": 0.48121182505960347,
+  "column_log": {
+    "used_f_emit": "f_emit_Hz",
+    "used_f_obs": "f_obs_Hz"
+  }
+}

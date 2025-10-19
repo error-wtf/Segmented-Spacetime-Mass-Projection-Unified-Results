@@ -1,0 +1,2 @@
+r_em(rs),r_out(rs),proxy,Phi_seg,chi_em,nu_em_Hz,nu_inf_Hz,band,source
+2.0,50.0,N,0.647840,5.231745e-01,1.000000e+18,5.231745e+17,X-ray,reports/ring_chain.csv

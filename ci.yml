@@ -1,0 +1,27 @@
+name: ssz-tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run smoketest
+        run: python ssz_covariant_smoketest_verbose_lino_casu.py
+      - name: Run extended tests
+        run: |
+          python tests_ssz_next/test_ppn_exact.py
+          python tests_ssz_next/test_c1_segments.py
+          python tests_ssz_next/test_energy_conditions.py
+          python tests_ssz_next/shadow_predictions.py
+          python tests_ssz_next/qnm_eikonal.py

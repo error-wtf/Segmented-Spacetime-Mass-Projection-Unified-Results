@@ -1,0 +1,3 @@
+\frac{G M^{2} \left(- G^{4} M^{4} eps_{3}^{2} - 3 G^{3} M^{3} c^{2} eps_{3} r + 2 G^{2} M^{2} c^{4} eps_{3} r^{2} - 2 G^{2} M^{2} c^{4} r^{2} - G M c^{6} eps_{3} r^{3} + 2 G M c^{6} r^{3} - c^{8} r^{4}\right)}{4 \pi c^{8} r^{8}}
+- \frac{G M^{2} c^{4} \left(G M eps_{3} + c^{2} r\right)}{4 \pi r^{2} \left(G^{3} M^{3} eps_{3} + 2 G^{2} M^{2} c^{2} r - 2 G M c^{4} r^{2} + c^{6} r^{3}\right)}
+\frac{G M^{2} \left(3 G M eps_{3} + 2 c^{2} r\right)}{8 \pi c^{2} r^{3}}

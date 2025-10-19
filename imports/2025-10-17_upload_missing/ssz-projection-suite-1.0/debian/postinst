@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+# Fix permissions after installation
+chmod +x /usr/bin/ssz-projection || true
+
+# Create symlinks if needed
+if [ -d "/usr/lib/python3/dist-packages/ssz_projection_suite" ]; then
+    # Package installed via Python
+    echo "SSZ Projection Suite installed via Python packaging"
+fi
+
+echo "SSZ Projection Suite v1.0 installed successfully!"
+echo "Usage: ssz-projection"
+echo "Anti-Capitalist Software License (v 1.4)"
+
+#DEBHELPER#
+
+exit 0

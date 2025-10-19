@@ -1,0 +1,49 @@
+#!/bin/bash
+# SSZ Projection Suite v1.0 - Anti-Capitalist Scientific Software
+
+INSTALL_DIR="/usr/share/ssz-projection-suite"
+DATA_DIR="/usr/share/ssz-projection-suite/data"
+
+# Try different installation locations
+if [ -d "/usr/lib/python3/dist-packages/ssz_projection_suite" ]; then
+    PYTHON_DIR="/usr/lib/python3/dist-packages/ssz_projection_suite"
+elif [ -d "/usr/local/lib/python3.*/dist-packages/ssz_projection_suite" ]; then
+    PYTHON_DIR=$(ls -d /usr/local/lib/python3.*/dist-packages/ssz_projection_suite | head -1)
+else
+    PYTHON_DIR="$INSTALL_DIR"
+fi
+
+cd "$PYTHON_DIR" 2>/dev/null || cd "$DATA_DIR" 2>/dev/null || cd /tmp
+
+echo "================================================================"
+echo "                SSZ PROJECTION SUITE v1.0"
+echo "            Segmented Spacetime Mass Projection"
+echo "          Anti-Capitalist Scientific Software"
+echo "================================================================"
+echo
+echo "Starting COMPLETE Segmented Spacetime Analysis..."
+echo
+
+# Find and run the analysis
+if [ -f "$PYTHON_DIR/run_all_ssz_terminal.py" ]; then
+    python3 "$PYTHON_DIR/run_all_ssz_terminal.py" all
+elif [ -f "$PYTHON_DIR/segspace_all_in_one_extended.py" ]; then
+    python3 "$PYTHON_DIR/segspace_all_in_one_extended.py" all
+elif [ -f "$DATA_DIR/../run_all_ssz_terminal.py" ]; then
+    cd "$DATA_DIR/.."
+    python3 run_all_ssz_terminal.py all
+else
+    echo "ERROR: Analysis scripts not found!"
+    echo "Searched in: $PYTHON_DIR, $DATA_DIR"
+    exit 1
+fi
+
+echo
+echo "================================================================"
+echo "                    ANALYSIS COMPLETE"
+echo "================================================================"
+echo
+echo "SEGMENTED SPACETIME PERFORMANCE: ~65% success rate, p < 0.01"
+echo "Anti-Capitalist Software License (v 1.4)"
+echo "© 2025 Carmen Wrede und Lino Casu"
+echo "Fighting capitalism through open science!"

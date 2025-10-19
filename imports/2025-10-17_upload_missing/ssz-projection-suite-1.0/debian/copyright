@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ssz-projection-suite
+Source: https://github.com/ssz-research/segmented-spacetime
+
+Files: *
+Copyright: 2025 Carmen Wrede und Lino Casu
+License: Anti-Capitalist-1.4
+
+License: Anti-Capitalist-1.4
+ ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)
+ .
+ This is anti-capitalist software, released for free use by individuals and
+ organizations that do not operate by capitalist principles.
+ .
+ [Full license text would go here]

@@ -1,0 +1,113 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ☕ Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: 🔍 Verify Java Installation
+        run: |
+          java -version
+          mvn -version
+
+      - name: 🧹 Clean Previous Build
+        run: mvn clean
+
+      - name: 🏗️ Build with Maven (TeaVM → JavaScript)
+        run: |
+          echo "🚀 Starting TeaVM compilation..."
+          mvn -q -e -DskipTests package
+          echo "✅ Build completed"
+
+      - name: 📋 List Generated Files
+        run: |
+          echo "📁 Contents of docs/ directory:"
+          ls -la docs/ || echo "docs/ directory not found"
+          echo "📁 Contents of target/dist/ directory:"
+          ls -la target/dist/ || echo "target/dist/ directory not found"
+
+      - name: ✅ Verify Required Files
+        run: |
+          if [ ! -f "docs/index.html" ]; then
+            echo "❌ docs/index.html not found!"
+            exit 1
+          fi
+          if [ ! -f "docs/app.js" ]; then
+            echo "❌ docs/app.js not found!"
+            exit 1
+          fi
+          echo "✅ All required files present"
+
+      - name: 📊 File Sizes
+        run: |
+          echo "📊 Generated file sizes:"
+          du -h docs/app.js docs/index.html docs/style.css 2>/dev/null || true
+
+      - name: 🔧 Configure Git
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: 📤 Commit and Push docs/
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          git add docs/
+          if git diff --staged --quiet; then
+            echo "📝 No changes to commit"
+          else
+            git commit -m "🚀 Deploy: Update GitHub Pages (TeaVM build $(date '+%Y-%m-%d %H:%M'))"
+            git push
+            echo "✅ Changes pushed to repository"
+          fi
+
+      - name: 🌐 Setup GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v4
+
+      - name: 📦 Upload Pages Artifact
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - name: 🚀 Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: 🎉 Deployment Summary
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "🌐 Your Segmented Spacetime Solar System is now live at:"
+          echo "   https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo ""
+          echo "📊 Build Summary:"
+          echo "   ☕ Java → JavaScript via TeaVM"
+          echo "   🔺 Icosphere mesh generation"
+          echo "   🌌 Segmented spacetime field calculation"
+          echo "   🎨 Real-time 3D visualization"

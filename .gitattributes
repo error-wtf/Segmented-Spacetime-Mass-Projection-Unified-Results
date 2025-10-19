@@ -1,0 +1,4 @@
+data/interim/gaia/2025-10-17_gaia_ssz_real/*.parquet filter=lfs diff=lfs merge=lfs -text
+data/raw/gaia/2025-10-17_gaia_ssz_real/*.parquet filter=lfs diff=lfs merge=lfs -text
+models/cosmology/2025-10-17_gaia_ssz_real/ssz_field.parquet filter=lfs diff=lfs merge=lfs -text
+models/solar_system/2025-10-17_gaia_ssz_real/solar_ssz.json filter=lfs diff=lfs merge=lfs -text

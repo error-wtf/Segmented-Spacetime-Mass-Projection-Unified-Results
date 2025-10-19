@@ -1,0 +1,14 @@
+segmented-spacetime-suite-extended (1.0) unstable; urgency=medium
+
+  * Initial release
+  * Complete analysis pipeline implementation
+  * Ring temperature → velocity predictions (Section 4.6)
+  * EHT shadow comparison (χ² tests)
+  * Redshift robustness analysis (Bootstrap/Jackknife)
+  * Repository portability (central paths + CI guard)
+  * UTF-8 encoding fixes
+  * Anti-Capitalist Software License (v 1.4)
+  * Automated reports and summary generation
+  * Optional data fetch (avoids bundling large datasets)
+
+ -- Carmen Wrede & Lino Casu <mail@error.wtf>  Fri, 18 Oct 2025 01:00:00 +0200

@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+recursive-include data *
+recursive-include docs *
+recursive-include ssz_projection_suite *.py
+include bin/ssz-projection
