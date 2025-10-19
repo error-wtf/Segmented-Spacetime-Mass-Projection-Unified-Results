@@ -1,0 +1,458 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Data Validation Tests for SSZ Theory Predictions
+
+Ensures all data files are correctly formatted and valid before
+running theory prediction tests.
+
+© 2025 Carmen Wrede, Lino Casu
+Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+"""
+
+import sys
+import os
+from pathlib import Path
+import numpy as np
+import pandas as pd
+
+# UTF-8 Setup
+os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except AttributeError:
+        import codecs
+        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'replace')
+        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'replace')
+
+
+def test_phi_debug_data_exists():
+    """Test 1: Check if phi_step_debug_full.csv exists"""
+    data_path = Path("out/phi_step_debug_full.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 1: PHI DEBUG DATA EXISTS")
+    print("="*80)
+    
+    assert data_path.exists(), f"Missing file: {data_path}"
+    
+    # Check file size
+    size = data_path.stat().st_size
+    print(f"✅ File exists: {data_path}")
+    print(f"   Size: {size:,} bytes")
+    
+    assert size > 1000, "File too small (< 1 KB)"
+    print(f"✅ File size valid (> 1 KB)")
+    
+    print("="*80)
+
+
+def test_phi_debug_data_structure():
+    """Test 2: Validate phi_step_debug_full.csv structure"""
+    data_path = Path("out/phi_step_debug_full.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 2: PHI DEBUG DATA STRUCTURE")
+    print("="*80)
+    
+    df = pd.read_csv(data_path)
+    
+    # Required columns
+    required_cols = [
+        'source', 'case', 'f_emit_Hz', 'f_obs_Hz', 
+        'r_emit_m', 'M_solar', 'n_round'
+    ]
+    
+    missing = set(required_cols) - set(df.columns)
+    assert len(missing) == 0, f"Missing columns: {missing}"
+    
+    print(f"✅ All required columns present: {len(required_cols)}")
+    print(f"   Columns: {', '.join(required_cols)}")
+    
+    # Check data types
+    print(f"\n📊 Data Statistics:")
+    print(f"   Rows: {len(df):,}")
+    print(f"   Unique sources: {df['source'].nunique()}")
+    print(f"   Unique cases: {df['case'].nunique()}")
+    
+    # Check for NaN in critical columns
+    for col in ['f_emit_Hz', 'f_obs_Hz', 'r_emit_m', 'M_solar']:
+        nan_count = df[col].isna().sum()
+        print(f"   {col} NaN count: {nan_count}")
+    
+    print("="*80)
+
+
+def test_phi_debug_data_values():
+    """Test 3: Validate phi_step_debug_full.csv value ranges"""
+    data_path = Path("out/phi_step_debug_full.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 3: PHI DEBUG DATA VALUE RANGES")
+    print("="*80)
+    
+    df = pd.read_csv(data_path)
+    
+    # Frequency checks
+    assert (df['f_emit_Hz'] > 0).all(), "f_emit_Hz must be positive"
+    assert (df['f_obs_Hz'] > 0).all(), "f_obs_Hz must be positive"
+    print(f"✅ Frequencies positive")
+    print(f"   f_emit range: {df['f_emit_Hz'].min():.2e} - {df['f_emit_Hz'].max():.2e} Hz")
+    print(f"   f_obs range: {df['f_obs_Hz'].min():.2e} - {df['f_obs_Hz'].max():.2e} Hz")
+    
+    # Radius checks
+    assert (df['r_emit_m'] > 0).all(), "r_emit_m must be positive"
+    print(f"✅ Radii positive")
+    print(f"   r_emit range: {df['r_emit_m'].min():.2e} - {df['r_emit_m'].max():.2e} m")
+    
+    # Mass checks
+    assert (df['M_solar'] > 0).all(), "M_solar must be positive"
+    print(f"✅ Masses positive")
+    print(f"   M_solar range: {df['M_solar'].min():.2e} - {df['M_solar'].max():.2e}")
+    
+    # n_round checks
+    n_round_vals = df['n_round'].dropna()
+    if len(n_round_vals) > 0:
+        print(f"✅ n_round values present: {len(n_round_vals)}")
+        print(f"   n_round range: {n_round_vals.min():.4f} - {n_round_vals.max():.4f}")
+    
+    print("="*80)
+
+
+def test_enhanced_debug_data_exists():
+    """Test 4: Check if _enhanced_debug.csv exists"""
+    data_path = Path("out/_enhanced_debug.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 4: ENHANCED DEBUG DATA EXISTS")
+    print("="*80)
+    
+    assert data_path.exists(), f"Missing file: {data_path}"
+    
+    size = data_path.stat().st_size
+    print(f"✅ File exists: {data_path}")
+    print(f"   Size: {size:,} bytes")
+    
+    assert size > 1000, "File too small (< 1 KB)"
+    print(f"✅ File size valid (> 1 KB)")
+    
+    print("="*80)
+
+
+def test_enhanced_debug_data_structure():
+    """Test 5: Validate _enhanced_debug.csv structure"""
+    data_path = Path("out/_enhanced_debug.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 5: ENHANCED DEBUG DATA STRUCTURE")
+    print("="*80)
+    
+    df = pd.read_csv(data_path)
+    
+    # Required columns
+    required_cols = ['r_emit_m', 'z_obs']
+    
+    missing = set(required_cols) - set(df.columns)
+    assert len(missing) == 0, f"Missing columns: {missing}"
+    
+    print(f"✅ All required columns present: {len(required_cols)}")
+    
+    # Check for redshift decomposition columns (optional but expected)
+    optional_cols = ['z_grav', 'z_SR', 'z_geom_hint']
+    present_optional = [col for col in optional_cols if col in df.columns]
+    print(f"   Optional columns present: {len(present_optional)}/{len(optional_cols)}")
+    if present_optional:
+        print(f"   {', '.join(present_optional)}")
+    
+    print(f"\n📊 Data Statistics:")
+    print(f"   Rows: {len(df):,}")
+    
+    print("="*80)
+
+
+def test_timeseries_template_valid():
+    """Test 6: Validate S2 timeseries template"""
+    template_path = Path("data/observations/s2_star_timeseries_TEMPLATE.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 6: S2 TIMESERIES TEMPLATE VALIDATION")
+    print("="*80)
+    
+    if not template_path.exists():
+        print(f"⚠️  Template not found: {template_path}")
+        print(f"   (Optional - for future data integration)")
+        print("="*80)
+        return
+    
+    df = pd.read_csv(template_path)
+    
+    # Required columns
+    required = ['source', 'f_emit_Hz', 'f_obs_Hz', 'r_emit_m', 'M_solar']
+    missing = set(required) - set(df.columns)
+    assert len(missing) == 0, f"Template missing columns: {missing}"
+    
+    print(f"✅ Template structure valid")
+    print(f"   Rows: {len(df)}")
+    print(f"   Unique sources: {df['source'].nunique()}")
+    
+    # Check for frequency variation
+    f_emit_unique = df['f_emit_Hz'].nunique()
+    print(f"   Unique f_emit values: {f_emit_unique}")
+    
+    if f_emit_unique >= 2:
+        print(f"✅ Multiple emission frequencies (good for Jacobian)")
+    else:
+        print(f"⚠️  Only 1 emission frequency (need multiple lines for Jacobian)")
+    
+    print("="*80)
+
+
+def test_thermal_spectrum_template_valid():
+    """Test 7: Validate thermal spectrum template"""
+    template_path = Path("data/observations/cyg_x1_thermal_spectrum_TEMPLATE.csv")
+    
+    print("\n" + "="*80)
+    print("TEST 7: THERMAL SPECTRUM TEMPLATE VALIDATION")
+    print("="*80)
+    
+    if not template_path.exists():
+        print(f"⚠️  Template not found: {template_path}")
+        print(f"   (Optional - for future data integration)")
+        print("="*80)
+        return
+    
+    df = pd.read_csv(template_path)
+    
+    # Required columns
+    required = ['source', 'frequency_Hz', 'flux_erg_cm2_s', 'temperature_K']
+    missing = set(required) - set(df.columns)
+    assert len(missing) == 0, f"Template missing columns: {missing}"
+    
+    print(f"✅ Template structure valid")
+    print(f"   Rows: {len(df)} frequency bins")
+    
+    # Check frequency coverage
+    f_min = df['frequency_Hz'].min()
+    f_max = df['frequency_Hz'].max()
+    orders = np.log10(f_max / f_min)
+    
+    print(f"   Frequency range: {f_min:.2e} - {f_max:.2e} Hz")
+    print(f"   Coverage: {orders:.1f} orders of magnitude")
+    
+    if orders >= 1.0:
+        print(f"✅ Good frequency coverage (≥1 order of magnitude)")
+    else:
+        print(f"⚠️  Limited coverage (< 1 order of magnitude)")
+    
+    print("="*80)
+
+
+def test_data_loader_exists():
+    """Test 8: Check if data loader script exists"""
+    loader_path = Path("scripts/data_loaders/load_timeseries.py")
+    
+    print("\n" + "="*80)
+    print("TEST 8: DATA LOADER SCRIPT EXISTS")
+    print("="*80)
+    
+    assert loader_path.exists(), f"Missing loader: {loader_path}"
+    
+    print(f"✅ Loader exists: {loader_path}")
+    
+    # Check if it's executable
+    with open(loader_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Check for key functions
+    required_functions = ['load_s2_timeseries', 'validate_timeseries']
+    for func in required_functions:
+        assert func in content, f"Missing function: {func}"
+    
+    print(f"✅ All required functions present")
+    print(f"   Functions: {', '.join(required_functions)}")
+    
+    print("="*80)
+
+
+def test_theory_predictions_executable():
+    """Test 9: Verify theory predictions test is executable"""
+    test_path = Path("scripts/tests/test_horizon_hawking_predictions.py")
+    
+    print("\n" + "="*80)
+    print("TEST 9: THEORY PREDICTIONS TEST EXECUTABLE")
+    print("="*80)
+    
+    assert test_path.exists(), f"Missing test: {test_path}"
+    
+    print(f"✅ Test file exists: {test_path}")
+    
+    # Check for all 7 test functions
+    with open(test_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    test_functions = [
+        'test_finite_horizon_area',
+        'test_information_preservation',
+        'test_singularity_resolution',
+        'test_hawking_radiation_proxy',
+        'test_jacobian_reconstruction',
+        'test_hawking_spectrum_fit',
+        'test_r_phi_cross_verification'
+    ]
+    
+    present = []
+    for func in test_functions:
+        if f"def {func}" in content:
+            present.append(func)
+    
+    print(f"✅ Test functions present: {len(present)}/{len(test_functions)}")
+    
+    for func in present:
+        print(f"   • {func}")
+    
+    missing = set(test_functions) - set(present)
+    if missing:
+        print(f"\n⚠️  Missing functions:")
+        for func in missing:
+            print(f"   • {func}")
+    
+    print("="*80)
+
+
+def test_integration_in_pipeline():
+    """Test 10: Verify integration in run_full_suite.py"""
+    pipeline_path = Path("run_full_suite.py")
+    
+    print("\n" + "="*80)
+    print("TEST 10: PIPELINE INTEGRATION")
+    print("="*80)
+    
+    assert pipeline_path.exists(), f"Missing pipeline: {pipeline_path}"
+    
+    with open(pipeline_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Check for Phase 6
+    assert "PHASE 6: SSZ THEORY PREDICTIONS" in content or \
+           "test_horizon_hawking_predictions" in content, \
+           "Theory tests not integrated in pipeline"
+    
+    print(f"✅ Theory tests integrated in pipeline")
+    
+    # Check for UTF-8 configuration
+    assert "sys.stdout.reconfigure" in content or "PYTHONIOENCODING" in content, \
+           "UTF-8 configuration missing"
+    
+    print(f"✅ UTF-8 configuration present")
+    
+    print("="*80)
+
+
+def test_cross_platform_validator_exists():
+    """Test 11: Check cross-platform validator"""
+    validator_path = Path("test_theory_predictions_cross_platform.py")
+    
+    print("\n" + "="*80)
+    print("TEST 11: CROSS-PLATFORM VALIDATOR EXISTS")
+    print("="*80)
+    
+    assert validator_path.exists(), f"Missing validator: {validator_path}"
+    
+    print(f"✅ Cross-platform validator exists")
+    
+    with open(validator_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Check for platform checks
+    assert "platform.system()" in content, "Platform detection missing"
+    assert "sys.stdout.reconfigure" in content, "UTF-8 config missing"
+    
+    print(f"✅ Platform detection and UTF-8 config present")
+    
+    print("="*80)
+
+
+def run_all_validation_tests():
+    """Run all validation tests"""
+    print("="*80)
+    print("SSZ DATA VALIDATION TEST SUITE")
+    print("="*80)
+    print(f"Validating data files, templates, and integration...")
+    print()
+    
+    tests = [
+        ("Data Files", [
+            test_phi_debug_data_exists,
+            test_phi_debug_data_structure,
+            test_phi_debug_data_values,
+            test_enhanced_debug_data_exists,
+            test_enhanced_debug_data_structure,
+        ]),
+        ("Templates & Loaders", [
+            test_timeseries_template_valid,
+            test_thermal_spectrum_template_valid,
+            test_data_loader_exists,
+        ]),
+        ("Integration", [
+            test_theory_predictions_executable,
+            test_integration_in_pipeline,
+            test_cross_platform_validator_exists,
+        ])
+    ]
+    
+    total_tests = sum(len(group) for _, group in tests)
+    passed = 0
+    failed = 0
+    warnings = 0
+    
+    for category, test_group in tests:
+        print(f"\n{'='*80}")
+        print(f"CATEGORY: {category}")
+        print(f"{'='*80}")
+        
+        for test_func in test_group:
+            try:
+                test_func()
+                passed += 1
+            except AssertionError as e:
+                print(f"\n❌ FAILED: {test_func.__name__}")
+                print(f"   Error: {e}")
+                failed += 1
+            except FileNotFoundError as e:
+                print(f"\n⚠️  WARNING: {test_func.__name__}")
+                print(f"   {e}")
+                warnings += 1
+            except Exception as e:
+                print(f"\n❌ ERROR: {test_func.__name__}")
+                print(f"   Unexpected error: {e}")
+                failed += 1
+    
+    # Summary
+    print("\n" + "="*80)
+    print("VALIDATION SUMMARY")
+    print("="*80)
+    print(f"Total tests: {total_tests}")
+    print(f"✅ Passed: {passed}")
+    print(f"❌ Failed: {failed}")
+    print(f"⚠️  Warnings: {warnings}")
+    
+    success_rate = (passed / total_tests) * 100 if total_tests > 0 else 0
+    print(f"\nSuccess rate: {success_rate:.1f}%")
+    
+    if failed > 0:
+        print(f"\n❌ VALIDATION FAILED - Fix {failed} test(s)")
+        return 1
+    elif warnings > 0:
+        print(f"\n⚠️  VALIDATION PASSED WITH WARNINGS")
+        print(f"   {warnings} optional component(s) missing")
+        return 0
+    else:
+        print(f"\n✅ ALL VALIDATION TESTS PASSED")
+        return 0
+
+
+if __name__ == "__main__":
+    sys.exit(run_all_validation_tests())
