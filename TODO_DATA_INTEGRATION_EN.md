@@ -1,9 +1,9 @@
 # 🚨 TODO: DATA INTEGRATION REMINDER
 
-**Status:** ⚠️ **KRITISCH - DATEN VORHANDEN ABER NICHT INTEGRIERT**  
-**Priorität:** 🔴 **HIGH**  
-**Aufwand:** ~1 Stunde  
-**Erstellt:** 2025-10-19
+**Status:** ⚠️ **CRITICAL - DATA EXISTS BUT NOT INTEGRATED**  
+**Priority:** 🔴 **HIGH**  
+**Effort:** ~1 hour  
+**Created:** 2025-10-19
 
 **🌐 Languages:** [🇬🇧 English](TODO_DATA_INTEGRATION_EN.md) | [🇩🇪 Deutsch](TODO_DATA_INTEGRATION.md)
 
@@ -11,30 +11,30 @@
 
 ## 📋 PROBLEM
 
-**Die neuen Daten existieren, sind aber NICHT in `real_data_full.csv` integriert!**
+**The new data exists but is NOT integrated into `real_data_full.csv`!**
 
 ```
-Vorhanden in data/observations/:
-✅ s2_star_timeseries.csv (10 Datenpunkte)
-✅ cyg_x1_thermal_spectrum.csv (10 Datenpunkte)
-✅ m87_continuum_spectrum.csv (10 Datenpunkte)
+Available in data/observations/:
+✅ s2_star_timeseries.csv (10 data points)
+✅ cyg_x1_thermal_spectrum.csv (10 data points)
+✅ m87_continuum_spectrum.csv (10 data points)
 ✅ m87_ned_spectrum.csv (13 KB)
 
-ABER:
-❌ NICHT in real_data_full.csv integriert
-❌ Tests lesen nur real_data_full.csv
-❌ Warnings bleiben bestehen
+BUT:
+❌ NOT integrated into real_data_full.csv
+❌ Tests only read real_data_full.csv
+❌ Warnings persist
 ```
 
 ---
 
-## 🎯 AUFGABE
+## 🎯 TASK
 
-**Integriere S2 Star + Cyg X-1 Daten in real_data_full.csv**
+**Integrate S2 Star + Cyg X-1 data into real_data_full.csv**
 
-### Schritt 1: Data Merge Script (30 Min)
+### Step 1: Data Merge Script (30 Min)
 
-**Datei erstellen:** `scripts/integrate_new_data.py`
+**Create file:** `scripts/integrate_new_data.py`
 
 ```python
 import pandas as pd
@@ -93,16 +93,16 @@ for source, count in multi.items():
 
 ---
 
-### Schritt 2: Ausführen (10 Min)
+### Step 2: Execute (10 Min)
 
 ```bash
-# 1. Ins Projektverzeichnis
+# 1. Navigate to project directory
 cd h:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00
 
-# 2. Script ausführen
+# 2. Run script
 python scripts/integrate_new_data.py
 
-# 3. Erwartete Ausgabe:
+# 3. Expected output:
 # Original data: 127 rows
 # ✓ Backup saved to real_data_full_v1_backup.csv
 # ✓ New data saved: 147 rows (added 20)
@@ -121,13 +121,13 @@ python scripts/integrate_new_data.py
 
 ---
 
-### Schritt 3: Tests Re-Run (10 Min)
+### Step 3: Re-Run Tests (10 Min)
 
 ```bash
-# Re-run kritischer Test
+# Re-run critical test
 python test_horizon_hawking_predictions.py
 
-# Erwartetes Ergebnis:
+# Expected result:
 # ✅ Test 2 PASSED: Information Preservation
 #    Sources with ≥3 data points: 3
 #    Jacobian reconstruction error: <1%
@@ -142,13 +142,13 @@ python test_horizon_hawking_predictions.py
 #    ΔBIC: -70.00
 #    Interpretation: Strong evidence for thermal spectrum ✅
 
-# Oder full suite:
+# Or full suite:
 python run_full_suite.py
 ```
 
 ---
 
-### Schritt 4: Dokumentation Update (10 Min)
+### Step 4: Documentation Update (10 Min)
 
 **Files to update:**
 
@@ -182,9 +182,9 @@ python run_full_suite.py
 
 ---
 
-## ✅ ERFOLGS-KRITERIEN
+## ✅ SUCCESS CRITERIA
 
-**Nach Abschluss sollte gelten:**
+**After completion should have:**
 
 ```python
 # data/real_data_full.csv
@@ -203,48 +203,48 @@ Sources with ≥3 points: ≥3 (S2, Cyg_X-1, synthetic)
 
 ## 📅 TIMELINE
 
-| Schritt | Zeit | Status |
-|---------|------|--------|
-| 1. Script schreiben | 30 Min | ⏸️ TODO |
-| 2. Script ausführen | 10 Min | ⏸️ TODO |
-| 3. Tests re-run | 10 Min | ⏸️ TODO |
-| 4. Dokumentation | 10 Min | ⏸️ TODO |
-| **TOTAL** | **~1 Stunde** | ⏸️ **PENDING** |
+| Step | Time | Status |
+|------|------|--------|
+| 1. Write script | 30 Min | ⏸️ TODO |
+| 2. Execute script | 10 Min | ⏸️ TODO |
+| 3. Re-run tests | 10 Min | ⏸️ TODO |
+| 4. Documentation | 10 Min | ⏸️ TODO |
+| **TOTAL** | **~1 Hour** | ⏸️ **PENDING** |
 
 ---
 
-## 🔗 REFERENZEN
+## 🔗 REFERENCES
 
 **Roadmap:** `DATA_IMPROVEMENT_ROADMAP.md`  
 **Status Report:** `DATA_IMPROVEMENT_STATUS_REPORT.md`
 
-**Datenquellen:**
+**Data Sources:**
 - `data/observations/s2_star_timeseries.csv`
 - `data/observations/cyg_x1_thermal_spectrum.csv`
 - `data/observations/m87_continuum_spectrum.csv`
 - `data/observations/m87_ned_spectrum.csv`
 
-**Ziel-Datei:** `data/real_data_full.csv`
+**Target File:** `data/real_data_full.csv`
 
 ---
 
-## ⚠️ WICHTIG
+## ⚠️ IMPORTANT
 
-**Warum das wichtig ist:**
-- Ohne Integration: Warnings bleiben bestehen
-- Mit Integration: Alle 3 Warnings gelöst
-- Impact: 0 → 100% Roadmap completion
+**Why this matters:**
+- Without integration: Warnings persist
+- With integration: All 3 warnings resolved
+- Impact: 0 → 100% roadmap completion
 
-**Wann:** Sobald Zeit verfügbar  
-**Dauer:** ~1 Stunde  
-**Priorität:** 🔴 HIGH  
+**When:** As soon as time is available  
+**Duration:** ~1 hour  
+**Priority:** 🔴 HIGH  
 
 ---
 
-**REMINDER: Die Daten sind bereits DA - nur die Integration fehlt! 🎯**
+**REMINDER: The data is already THERE - only integration is missing! 🎯**
 
 ---
 
 **© 2025 Carmen Wrede & Lino Casu**  
-**Erstellt:** 2025-10-19  
+**Created:** 2025-10-19  
 **Status:** ⏸️ PENDING ACTION
