@@ -216,18 +216,24 @@ if [ "$DRY_RUN" = false ]; then
         print_success "✓ real_data_full.csv found"
     fi
     
-    # Check for small GAIA CSVs (should be in release)
-    GAIA_SMALL_FILES=(
-        "data/gaia/gaia_sample_small.csv"
+    # Check for small GAIA CSV (should be in release)
+    GAIA_SMALL_FILE="data/gaia/gaia_sample_small.csv"
+    
+    if [ ! -f "$GAIA_SMALL_FILE" ]; then
+        print_warn "⚠ $GAIA_SMALL_FILE missing - should be in release!"
+    else
+        print_success "✓ GAIA sample data found"
+    fi
+    
+    # Optional cone files (generated on demand, not required)
+    GAIA_CONE_FILES=(
         "data/gaia/gaia_cone_g79.csv"
         "data/gaia/gaia_cone_cygx.csv"
     )
     
-    for file in "${GAIA_SMALL_FILES[@]}"; do
-        if [ ! -f "$file" ]; then
-            print_warn "⚠ $file missing - should be in release!"
-        else
-            print_success "✓ $file found"
+    for file in "${GAIA_CONE_FILES[@]}"; do
+        if [ -f "$file" ]; then
+            print_success "✓ Optional: $file found"
         fi
     done
     

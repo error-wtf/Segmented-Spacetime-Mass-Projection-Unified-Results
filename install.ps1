@@ -155,18 +155,24 @@ if (-not $DryRun) {
         Write-Host "  ✓ real_data_full.csv found" -ForegroundColor Green
     }
     
-    # Check for small GAIA CSVs (should be in release)
-    $gaiaSmallFiles = @(
-        "data/gaia/gaia_sample_small.csv",
+    # Check for small GAIA CSV (should be in release)
+    $gaiaSmallFile = "data/gaia/gaia_sample_small.csv"
+    
+    if (-not (Test-Path $gaiaSmallFile)) {
+        Write-Host "  ⚠ $gaiaSmallFile missing - should be in release!" -ForegroundColor Yellow
+    } else {
+        Write-Host "  ✓ GAIA sample data found" -ForegroundColor Green
+    }
+    
+    # Optional cone files (generated on demand, not required)
+    $gaiaConeFiles = @(
         "data/gaia/gaia_cone_g79.csv",
         "data/gaia/gaia_cone_cygx.csv"
     )
     
-    foreach ($file in $gaiaSmallFiles) {
-        if (-not (Test-Path $file)) {
-            Write-Host "  ⚠ $file missing - should be in release!" -ForegroundColor Yellow
-        } else {
-            Write-Host "  ✓ $file found" -ForegroundColor Green
+    foreach ($file in $gaiaConeFiles) {
+        if (Test-Path $file) {
+            Write-Host "  ✓ Optional: $file found" -ForegroundColor Green
         }
     }
     
