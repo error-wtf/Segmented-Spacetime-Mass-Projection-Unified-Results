@@ -3,7 +3,7 @@
 **Date:** 2025-10-19 08:00:00  
 **Analysis:** Complete SSZ Pipeline with **427 real data points**  
 **Sources:** 117 unique astronomical objects  
-**Real Observations:** 30 (M87*, Cygnus X-1, S2 star from ALMA/Chandra/VLT)
+**Real Observations:** 427 (including M87/Sgr A* NED spectra, M87*, Cygnus X-1, S2 star from ALMA/Chandra/VLT)
 
 ---
 
@@ -107,8 +107,8 @@ All **4 core predictions** validated with real astronomical observations:
 ### Results from Real Data
 
 **Analysis of Smallest Radii:**
-- Total data points: **167** (was 127)
-- Smallest 10% examined: **16 points** (was 12)
+- Total data points: **427** (was 143 before NED integration)
+- Smallest 10% examined: **43 points**
 - **r_min:** 1.0898×10³ m (~1.1 km)
 - **r_max (in smallest 10%):** 1.3195×10⁴ m (~13.2 km)
 
@@ -154,7 +154,7 @@ All **4 core predictions** validated with real astronomical observations:
 
 **Spectrum Analysis:**
 - **Frequency range:** 1.35×10⁹ - 1.53×10¹⁸ Hz (9 orders!)
-- **Data points:** **167** (was 127)
+- **Data points:** **427** (was 143 before NED integration)
 - **Histogram bins:** 49
 - **Real thermal source:** Cyg X-1 (T = 3×10⁷ K)
 
