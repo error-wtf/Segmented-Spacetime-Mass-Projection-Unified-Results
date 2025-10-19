@@ -128,9 +128,9 @@ It fetches the pinned dataset, verifies checksums, runs the same scripts as `run
 and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
 
 **Current Dataset (2025-10-19) - 100% Real Data**
-- `real_data_full.csv` — **167 data points** (all from real observations)
+- `real_data_full.csv` — **143 data points** (all from real observations)
 - **No synthetic data** - All placeholder observations removed ✅
-- Real multi-frequency: **30** (M87*, Cyg X-1, S2 from ALMA/Chandra/VLT)
+- Real multi-frequency: **38 verified** (M87*, Cyg X-1, S2 from ALMA/Chandra/VLT)
 - Frequency range: **2.3×10¹¹ - 3.0×10¹⁸ Hz** (9+ orders)
 - **Data sources**: EHT 2019, Gou+ 2009, GRAVITY 2018 (peer-reviewed)
 
@@ -1109,8 +1109,8 @@ For a complete analysis of all pipeline results, test data, and scientific findi
 **📖 [Complete Data Analysis →](COMPREHENSIVE_DATA_ANALYSIS.md)**
 
 **Contents:**
-- Executive Summary (54 tests, **167 data points**)
-- Dataset Overview & Statistics (**30 real observations**)
+- Executive Summary (54 tests, **143 data points**)
+- Dataset Overview & Statistics (**38 verified real observations**)
 - Theory Predictions Analysis (4 core + 3 extended) - **ALL VALIDATED**
 - Physics Tests Results (PPN, Energy Conditions, etc.)
 - **Real Data Integration** (M87*, Cyg X-1, S2)
