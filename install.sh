@@ -428,6 +428,39 @@ else
     print_step "[9/11] Skipping tests (--skip-tests flag)"
 fi
 
+# Step 9: Run installation validation tests
+if [ "$SKIP_TESTS" != "true" ]; then
+    echo ""
+    echo "[9/11] Validating installation..."
+    if [ "$DRY_RUN" != "true" ]; then
+        echo "  Testing core functionality (10 seconds)..."
+        echo ""
+        
+        # Quick install tests only (no pipeline outputs required)
+        python -m pytest tests/quick_install_tests.py -v --tb=short
+        
+        if [ $? -eq 0 ]; then
+            echo ""
+            echo "  Installation validated successfully!"
+            echo ""
+            echo "  To run the full test suite (58 tests, ~5 min):"
+            echo "    python run_full_suite.py"
+        else
+            echo ""
+            echo "  Installation validation failed!"
+            echo "    Please check the output above for details."
+            exit 1
+        fi
+    else
+        echo "  [DRY-RUN] Would run: pytest tests/quick_install_tests.py"
+    fi
+else
+    echo ""
+    echo "[9/11] Skipping validation tests (--skip-tests)"
+    echo "  To validate installation manually:"
+    echo "    pytest tests/quick_install_tests.py"
+fi
+
 # Step 10: Verify installation
 echo ""
 print_step "[10/11] Verifying installation..."
@@ -533,21 +566,19 @@ fi
 echo ""
 print_header "INSTALLATION COMPLETE"
 echo ""
-echo -e "${YELLOW}Quick Start - All Test Scripts:${NC}"
+echo -e "${YELLOW}Quick Start:${NC}"
 echo -e "  1. Activate venv:   source .venv/bin/activate"
 echo ""
-echo -e "${CYAN}  Root-Level SSZ Tests (Python scripts):${NC}"
+echo -e "${CYAN}  Quick Validation (recommended first step):${NC}"
+echo -e "    pytest tests/quick_install_tests.py   # 6 tests, 10 seconds ✓"
+echo ""
+echo -e "${CYAN}  Full Test Suite (comprehensive):${NC}"
+echo -e "    python run_full_suite.py              # 58 tests, ~5 min ✓"
+echo ""
+echo -e "${CYAN}  Individual Physics Tests:${NC}"
 echo -e "    python test_ppn_exact.py              # PPN parameters β=γ=1"
 echo -e "    python test_vfall_duality.py          # Dual velocity invariant"
 echo -e "    python test_energy_conditions.py      # WEC/DEC/SEC"
-echo -e "    python test_c1_segments.py            # C1 continuity"
-echo -e "    python test_c2_segments_strict.py     # C2 strict"
-echo -e "    python test_c2_curvature_proxy.py     # C2 + curvature proxy"
-echo -e "    python test_utf8_encoding.py          # UTF-8 validation"
-echo ""
-echo -e "${CYAN}  Full Test Suite:${NC}"
-echo -e "    python run_full_suite.py              # All tests + analysis (~10-15 min)"
-echo -e "    python run_full_suite.py --quick      # Essential tests only (~2 min)"
 echo ""
 echo -e "${CYAN}  Complete SSZ Analysis (20+ scripts in pipeline):${NC}"
 echo -e "    python run_all_ssz_terminal.py        # Full SSZ pipeline (~10-15 min)"
@@ -574,7 +605,10 @@ echo -e "    ssz-print-md --root papers            # Only validation papers"
 echo -e "    ssz-print-md --root reports           # Only analysis reports"
 echo -e "    ssz-print-md --root docs              # Only theory papers"
 echo ""
-echo -e "${YELLOW}Resources:${NC}"
+echo -e "${YELLOW}Documentation & Resources:${NC}"
+echo -e "${CYAN}  - Quick Start Guide: QUICK_START_GUIDE.md${NC}"
+echo -e "${CYAN}  - All Documentation: DOCUMENTATION_INDEX.md${NC}"
+echo -e "${CYAN}  - Cross-Platform:    CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md${NC}"
 echo -e "${CYAN}  - Validation Papers: papers/validation/ (11 files)${NC}"
 echo -e "${CYAN}  - Theory Papers:     docs/theory/ (21 files)${NC}"
 echo -e "${CYAN}  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4${NC}"

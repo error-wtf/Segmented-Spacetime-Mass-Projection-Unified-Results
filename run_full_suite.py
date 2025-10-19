@@ -18,25 +18,18 @@ Test Phases:
     
 Output Logs:
     - RUN_SUMMARY.md: Compact test results summary
-    - summary-output.md: Quick overview with pass/fail status
-    - full-output.md: COMPLETE log with all test output
-    
-MD Echo:
-    - Echoes all .md files in reports/ directory
-    - Includes: RUN_SUMMARY.md, summary-output.md, full-output.md
-    - Excludes: Papers, theory docs (not in reports/)
-    
-Note: Phase 1 tests are standalone Python scripts, not pytest tests!
 
-Copyright 2025
-Carmen Wrede und Lino Casu
-Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+Test Categories:
+- 35 Physics Tests (with detailed physical interpretations)
+- 23 Technical Tests (CLI, encoding, data validation)
+- 12 Pipeline Tests (require generated debug files from run_all_ssz_terminal.py)
 
 Usage:
-    python run_full_suite.py                # Full workflow (~10-15 min)
-    python run_full_suite.py --quick        # Essential tests only (~2 min)
-    python run_full_suite.py --skip-slow-tests  # Skip SSZ analysis (~5 min)
-    python run_full_suite.py --no-echo-md   # Skip MD echo
+    python run_full_suite.py           # Run all 58 tests (~5 min)
+    python run_full_suite.py --quick   # Skip pipeline-dependent tests
+
+Note: For pipeline tests (12 tests), first run: python run_all_ssz_terminal.py
+      Or these tests will be skipped with informative messages.
 """
 
 import subprocess

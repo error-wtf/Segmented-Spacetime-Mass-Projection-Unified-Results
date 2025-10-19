@@ -325,68 +325,37 @@ if (-not $DryRun) {
     Write-Host "  [DRY-RUN] Would run: python run_all_ssz_terminal.py" -ForegroundColor Cyan
 }
 
-# Step 9: Run tests
+# Step 9: Run installation validation tests
 if (-not $SkipTests) {
     Write-Host ""
-    Write-Host "[9/11] Running test suite..." -ForegroundColor Yellow
+    Write-Host "[9/11] Validating installation..." -ForegroundColor Yellow
     if (-not $DryRun) {
-        try {
-            # Run ALL tests with full output
-            Write-Host "  Running ALL tests (root + tests/ + scripts/tests/)..." -ForegroundColor Cyan
+        Write-Host "  Testing core functionality (10 seconds)..." -ForegroundColor Cyan
+        Write-Host ""
+        
+        # Quick install tests only (no pipeline outputs required)
+        python -m pytest tests/quick_install_tests.py -v --tb=short
+        
+        if ($LASTEXITCODE -eq 0) {
             Write-Host ""
-            
-            $allPassed = $true
-            
-            # Root-level tests (run as Python scripts, not pytest)
-            Write-Host "Root-level SSZ tests:" -ForegroundColor Cyan
-            $rootTests = @(
-                "test_ppn_exact.py",
-                "test_vfall_duality.py", 
-                "test_energy_conditions.py",
-                "test_c1_segments.py",
-                "test_c2_segments_strict.py",
-                "test_c2_curvature_proxy.py",
-                "test_utf8_encoding.py"
-            )
-            foreach ($test in $rootTests) {
-                if (Test-Path $test) {
-                    Write-Host "  $test" -NoNewline
-                    python $test > $null 2>&1
-                    if ($LASTEXITCODE -eq 0) {
-                        Write-Host " PASSED" -ForegroundColor Green
-                    } else {
-                        Write-Host " FAILED" -ForegroundColor Red
-                        $allPassed = $false
-                    }
-                }
-            }
+            Write-Host "  ✓ Installation validated successfully!" -ForegroundColor Green
             Write-Host ""
-            
-            # pytest tests (tests/ and scripts/tests/)
-            Write-Host "Pytest test suites:" -ForegroundColor Cyan
-            pytest tests/ scripts/tests/ -s -v --tb=short
-            
-            if ($LASTEXITCODE -ne 0) {
-                $allPassed = $false
-            }
-            
+            Write-Host "  To run the full test suite (58 tests, ~5 min):" -ForegroundColor Cyan
+            Write-Host "    python run_full_suite.py" -ForegroundColor White
+        } else {
             Write-Host ""
-            if ($allPassed) {
-                Write-Host "  ✓ All tests passed" -ForegroundColor Green
-            } else {
-                Write-Host "  ✗ Some tests FAILED - Fix before continuing!" -ForegroundColor Red
-                exit 1
-            }
-        } catch {
-            Write-Host "  ✗ ERROR: Tests failed" -ForegroundColor Red
+            Write-Host "  ✗ Installation validation failed!" -ForegroundColor Red
+            Write-Host "    Please check the output above for details." -ForegroundColor Yellow
             exit 1
         }
     } else {
-        Write-Host "  [DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)" -ForegroundColor Cyan
+        Write-Host "  [DRY-RUN] Would run: pytest tests/quick_install_tests.py" -ForegroundColor Cyan
     }
 } else {
     Write-Host ""
-    Write-Host "[9/11] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
+    Write-Host "[9/11] Skipping validation tests (--skip-tests)" -ForegroundColor Yellow
+    Write-Host "  To validate installation manually:" -ForegroundColor Cyan
+    Write-Host "    pytest tests/quick_install_tests.py" -ForegroundColor White
 }
 
 # Step 10: Verify installation
@@ -513,21 +482,19 @@ Write-Host "INSTALLATION COMPLETE" -ForegroundColor Green
 Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Quick Start - All Test Scripts:" -ForegroundColor Yellow
+Write-Host "Quick Start:" -ForegroundColor Yellow
 Write-Host "  1. Activate venv:   .\.venv\Scripts\Activate.ps1" -ForegroundColor White
 Write-Host ""
-Write-Host "  Root-Level SSZ Tests (Python scripts):" -ForegroundColor Cyan
+Write-Host "  Quick Validation (recommended first step):" -ForegroundColor Cyan
+Write-Host "    pytest tests/quick_install_tests.py   # 6 tests, 10 seconds ✓" -ForegroundColor White
+Write-Host ""
+Write-Host "  Full Test Suite (comprehensive):" -ForegroundColor Cyan
+Write-Host "    python run_full_suite.py              # 58 tests, ~5 min ✓" -ForegroundColor White
+Write-Host ""
+Write-Host "  Individual Physics Tests:" -ForegroundColor Cyan
 Write-Host "    python test_ppn_exact.py              # PPN parameters β=γ=1" -ForegroundColor White
 Write-Host "    python test_vfall_duality.py          # Dual velocity invariant" -ForegroundColor White
 Write-Host "    python test_energy_conditions.py      # WEC/DEC/SEC" -ForegroundColor White
-Write-Host "    python test_c1_segments.py            # C1 continuity" -ForegroundColor White
-Write-Host "    python test_c2_segments_strict.py     # C2 strict" -ForegroundColor White
-Write-Host "    python test_c2_curvature_proxy.py     # C2 + curvature proxy" -ForegroundColor White
-Write-Host "    python test_utf8_encoding.py          # UTF-8 validation" -ForegroundColor White
-Write-Host ""
-Write-Host "  Full Test Suite:" -ForegroundColor Cyan
-Write-Host "    python run_full_suite.py              # All tests + analysis (~10-15 min)" -ForegroundColor White
-Write-Host "    python run_full_suite.py --quick      # Essential tests only (~2 min)" -ForegroundColor White
 Write-Host ""
 Write-Host "  Complete SSZ Analysis (20+ scripts in pipeline):" -ForegroundColor Cyan
 Write-Host "    python run_all_ssz_terminal.py        # Full SSZ pipeline (~10-15 min)" -ForegroundColor White
@@ -554,7 +521,10 @@ Write-Host "    ssz-print-md --root papers            # Only validation papers" 
 Write-Host "    ssz-print-md --root reports           # Only analysis reports" -ForegroundColor White
 Write-Host "    ssz-print-md --root docs              # Only theory papers" -ForegroundColor White
 Write-Host ""
-Write-Host "Resources:" -ForegroundColor Yellow
+Write-Host "Documentation & Resources:" -ForegroundColor Yellow
+Write-Host "  - Quick Start Guide: QUICK_START_GUIDE.md" -ForegroundColor Cyan
+Write-Host "  - All Documentation: DOCUMENTATION_INDEX.md" -ForegroundColor Cyan
+Write-Host "  - Cross-Platform:    CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md" -ForegroundColor Cyan
 Write-Host "  - Validation Papers: papers\validation\ (11 files)" -ForegroundColor Cyan
 Write-Host "  - Theory Papers:     docs\theory\ (21 files)" -ForegroundColor Cyan
 Write-Host "  - License:           ANTI-CAPITALIST SOFTWARE LICENSE v1.4" -ForegroundColor Cyan

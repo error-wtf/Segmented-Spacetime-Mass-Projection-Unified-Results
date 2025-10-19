@@ -29,6 +29,7 @@ if sys.platform.startswith('win'):
         pass  # pytest capture active, skip
 
 
+@pytest.mark.pipeline_required
 def test_phi_debug_data_exists():
     """Test 1: Check if phi_step_debug_full.csv exists"""
     data_path = Path("out/phi_step_debug_full.csv")
@@ -50,6 +51,7 @@ def test_phi_debug_data_exists():
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_phi_debug_data_structure():
     """Test 2: Validate phi_step_debug_full.csv structure"""
     data_path = Path("out/phi_step_debug_full.csv")
@@ -86,6 +88,7 @@ def test_phi_debug_data_structure():
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_phi_debug_data_values():
     """Test 3: Validate phi_step_debug_full.csv value ranges"""
     data_path = Path("out/phi_step_debug_full.csv")
@@ -122,6 +125,7 @@ def test_phi_debug_data_values():
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_enhanced_debug_data_exists():
     """Test 4: Check if _enhanced_debug.csv exists"""
     data_path = Path("out/_enhanced_debug.csv")
@@ -142,6 +146,7 @@ def test_enhanced_debug_data_exists():
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_enhanced_debug_data_structure():
     """Test 5: Validate _enhanced_debug.csv structure"""
     data_path = Path("out/_enhanced_debug.csv")

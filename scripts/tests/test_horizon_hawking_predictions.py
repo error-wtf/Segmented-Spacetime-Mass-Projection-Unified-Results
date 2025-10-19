@@ -80,6 +80,7 @@ def load_enhanced_debug_data(base_path: Path | None = None) -> pd.DataFrame:
     return pd.read_csv(data_path)
 
 
+@pytest.mark.pipeline_required
 def test_finite_horizon_area(tmp_path: Path) -> None:
     """Test Prediction 1: Finite Horizon Area at r_φ
     
@@ -137,6 +138,7 @@ def test_finite_horizon_area(tmp_path: Path) -> None:
     assert A_H > 0, "Horizon area must be positive"
 
 
+@pytest.mark.pipeline_required
 def test_information_preservation(tmp_path: Path) -> None:
     """Test Prediction 2: Information is Preserved
     
@@ -218,7 +220,7 @@ def test_information_preservation(tmp_path: Path) -> None:
         print(f"  • Information can be recovered from observations")
         print(f"  • No information loss at horizon (unlike GR black holes)")
     else:
-        print(f"\n⚠️  Insufficient data: No sources with ≥3 points for Jacobian test")
+        print(f"\n  Insufficient data: No sources with ≥3 points for Jacobian test")
         print(f"    This test requires multiple frequency measurements per source")
         print(f"\nPhysical Interpretation:")
         print(f"  • Test requires orbital motion data (multiple observations)")
@@ -233,6 +235,7 @@ def test_information_preservation(tmp_path: Path) -> None:
         assert n_invertible > 0, "At least some sources should have invertible mappings"
 
 
+@pytest.mark.pipeline_required
 def test_singularity_resolution(tmp_path: Path) -> None:
     """Test Prediction 3: Singularity is Resolved
     
@@ -286,6 +289,7 @@ def test_singularity_resolution(tmp_path: Path) -> None:
     assert max_residual < 1.0, "Residuals should remain bounded (< 1.0)"
 
 
+@pytest.mark.pipeline_required
 def test_hawking_radiation_proxy(tmp_path: Path) -> None:
     """Test Prediction 4: Natural Hawking Radiation via κ_seg
     
@@ -382,13 +386,14 @@ def test_hawking_radiation_proxy(tmp_path: Path) -> None:
             assert np.isfinite(kappa_median), "Surface gravity must be finite"
             assert kappa_median > 0, "Surface gravity magnitude must be positive"
         else:
-            print("\n⚠️  Insufficient data for κ_seg calculation (denominator too small)")
+            print("\n  Insufficient data for κ_seg calculation (denominator too small)")
             print("   Test PASSES - gradient calculation requires sufficient radius sampling")
     else:
-        print("\n⚠️  Insufficient data points for κ_seg calculation")
+        print("\n  Insufficient data points for κ_seg calculation")
         print("   Test PASSES - need multiple data points for gradient calculation")
 
 
+@pytest.mark.pipeline_required
 def test_jacobian_reconstruction(tmp_path: Path) -> None:
     """Extended Test 2a: Jacobian Reconstruction per Source
     
@@ -476,13 +481,14 @@ def test_jacobian_reconstruction(tmp_path: Path) -> None:
         print(f"  • Low reconstruction error → information is preserved")
         print(f"  • Invertibility verified at source level")
     else:
-        print(f"\n⚠️  No sources with sufficient data for reconstruction test")
+        print(f"\n  No sources with sufficient data for reconstruction test")
         print(f"   (Need sources with 3+ frequency measurements)")
         print(f"   Test PASSES - validation successful on available multi-freq sources")
     
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_hawking_spectrum_fit(tmp_path: Path) -> None:
     """Extended Test 4a: Hawking Proxy Spectrum Fit
     
@@ -649,7 +655,7 @@ def test_hawking_spectrum_fit(tmp_path: Path) -> None:
     print("\n" + "="*80)
     print("EXTENDED TEST 4a: HAWKING PROXY SPECTRUM FIT")
     print("="*80)
-    print("\n⚠️  Insufficient data for Hawking spectrum fit")
+    print("\n  Insufficient data for Hawking spectrum fit")
     print("\nReason:")
     print("  • Need: r < 3 r_s with thermal multi-frequency observations")
     print("  • Current data: Mostly weak-field (r >> r_s) or non-thermal")
@@ -658,6 +664,7 @@ def test_hawking_spectrum_fit(tmp_path: Path) -> None:
     print("="*80)
 
 
+@pytest.mark.pipeline_required
 def test_r_phi_cross_verification(tmp_path: Path) -> None:
     """Extended Test 1a: r_φ Cross-Verification via Multiple Markers
     
