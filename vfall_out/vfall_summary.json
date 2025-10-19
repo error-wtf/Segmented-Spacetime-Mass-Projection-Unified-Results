@@ -1,6 +1,6 @@
 {
-  "rows_used": 143,
-  "abs_residual_median": 0.0007872405662006819,
+  "rows_used": 427,
+  "abs_residual_median": 0.008709687501858302,
   "prod_rel_err_median": 0.0,
   "phi": 1.618033988749895,
   "column_log": {

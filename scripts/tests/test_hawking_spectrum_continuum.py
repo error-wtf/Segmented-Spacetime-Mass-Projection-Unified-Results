@@ -374,9 +374,14 @@ def test_hawking_spectrum_continuum():
                 preference = "thermal"
             elif delta_bic < -10:
                 print(f"  ⚠️  Strong evidence for non-thermal model (ΔBIC < -10)")
+                if is_template:
+                    print(f"      EXPECTED: Template uses power-law continuum (non-thermal)")
+                    print(f"      For thermal evidence, need real AGN disk spectra")
                 preference = "non-thermal"
             elif delta_bic < -2:
                 print(f"  ⚠️  Positive evidence for non-thermal model (ΔBIC < -2)")
+                if is_template:
+                    print(f"      EXPECTED: Template uses continuum spectrum (non-thermal)")
                 preference = "non-thermal"
             else:
                 print(f"  ℹ️  No strong preference (|ΔBIC| < 2)")
