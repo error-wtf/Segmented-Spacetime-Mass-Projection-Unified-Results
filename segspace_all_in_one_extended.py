@@ -443,7 +443,14 @@ def workflow_eval_redshift(cfg: PreflightConfig, csv_path: Path, prefer_z: bool,
                            drop_na: bool, paired_stats: bool, n_boot: int, bins: int, do_plots: bool,
                            filter_complete_gr: bool) -> int:
     echo_section("WORKFLOW: REDSHIFT EVAL")
-    if not csv_path.exists(): echo(f"[ERR] CSV not found: {csv_path}"); return 2
+    # Fallback to full data if specified file doesn't exist
+    if not csv_path.exists():
+        fallback = Path("./real_data_full.csv")
+        if fallback.exists():
+            echo(f"[WARN] {csv_path} not found, using fallback: {fallback}")
+            csv_path = fallback
+        else:
+            echo(f"[ERR] CSV not found: {csv_path}"); return 2
     rows=load_csv(csv_path)
     res=evaluate_redshift(rows, prefer_z=prefer_z, mode=mode, dmA=dmA, dmB=dmB, dmAlpha=dmAlpha, lo=lo, hi=hi,
                           drop_na=drop_na, paired_stats=paired_stats, n_boot=n_boot, bins=bins, do_plots=do_plots,
@@ -494,7 +501,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub=p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("validate-masses", help="Reconstruct masses from segmented radii")
     sp=sub.add_parser("eval-redshift", help="Evaluate GR/SR/Seg models against a dataset (+stats)")
-    sp.add_argument("--csv", type=Path, default=Path("./real_data_full.csv"))
+    # Use emission-line data for paired test (compatible z_obs vs z_pred)
+    # See data/DATA_TYPE_USAGE_GUIDE.md for details
+    sp.add_argument("--csv", type=Path, default=Path("./data/real_data_emission_lines.csv"))
     sp.add_argument("--prefer-z", action="store_true")
     sp.add_argument("--mode", choices=["hint","deltaM","hybrid", "geodesic"], default="hybrid")
     sp.add_argument("--dmA","--dm-A","--dm-a", dest="dmA", type=float, default=float(A))
@@ -558,7 +567,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.cmd=="all":
         rc=workflow_validate_masses(cfg)
         if rc!=0: return rc
-        csv_path=Path("./real_data_full.csv")
+        # Use emission-line data for paired test (compatible z_obs)
+        csv_path=Path("./data/real_data_emission_lines.csv")
         if csv_path.exists():
             rc=workflow_eval_redshift(cfg, csv_path, prefer_z=True, mode="hybrid", dmA=float(A), dmB=float(B), dmAlpha=float(ALPHA),
                                       lo=None, hi=None, drop_na=False, paired_stats=True, n_boot=0, bins=0, do_plots=False,
