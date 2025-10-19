@@ -25,13 +25,12 @@ os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 # Fix Windows console encoding for Unicode output (φ, ≈, ✅, ❌, etc.)
 if sys.platform.startswith('win'):
     try:
-        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
-    except AttributeError:
-        # Fallback for older Python versions
-        import codecs
-        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'replace')
-        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'replace')
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        if hasattr(sys.stderr, 'reconfigure'):
+            sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except (AttributeError, OSError):
+        pass  # pytest capture active, skip
 
 # Golden ratio constant
 PHI = (1 + np.sqrt(5)) / 2
