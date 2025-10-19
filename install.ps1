@@ -27,6 +27,27 @@ Write-Host "SSZ PROJECTION SUITE - WINDOWS INSTALLER" -ForegroundColor Cyan
 Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host ""
+Write-Host "[INFO] ABOUT WARNINGS DURING INSTALLATION" -ForegroundColor Cyan
+Write-Host "-" * 80 -ForegroundColor Cyan
+Write-Host "You may see warnings during installation. Most are NORMAL:" -ForegroundColor White
+Write-Host ""
+Write-Host "  * 'WARNING: Existing .venv is Linux/WSL-only'" -ForegroundColor White
+Write-Host "    -> Will recreate venv for Windows compatibility" -ForegroundColor White
+Write-Host ""
+Write-Host "  * 'DeprecationWarning' from packages" -ForegroundColor White
+Write-Host "    -> Third-party package warnings, not our code" -ForegroundColor White
+Write-Host ""
+Write-Host "  * pytest warnings about encoding" -ForegroundColor White
+Write-Host "    -> Tests use Unicode (Greek letters, math symbols)" -ForegroundColor White
+Write-Host "    -> Fixed in our code with UTF-8 encoding" -ForegroundColor White
+Write-Host ""
+Write-Host "  * 'Insufficient data' during tests" -ForegroundColor White
+Write-Host "    -> Expected! Some tests need horizon-scale observations" -ForegroundColor White
+Write-Host "    -> Tests will PASS with informative warnings" -ForegroundColor White
+Write-Host ""
+Write-Host "Installation will continue. Only stop if ERROR (not WARNING) appears." -ForegroundColor White
+Write-Host "=" * 80 -ForegroundColor Cyan
+Write-Host ""
 
 # Step 1: Check Python
 Write-Host "[1/8] Checking Python installation..." -ForegroundColor Yellow

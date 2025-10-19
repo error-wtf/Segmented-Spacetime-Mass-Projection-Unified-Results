@@ -99,6 +99,28 @@ print_warn() {
 # Start installation
 print_header "SSZ PROJECTION SUITE - LINUX/MACOS INSTALLER"
 
+echo -e "${CYAN}[INFO] ABOUT WARNINGS DURING INSTALLATION${NC}"
+echo "--------------------------------------------------------------------------------"
+echo "You may see warnings during installation. Most are NORMAL:"
+echo ""
+echo "  * 'WARNING: Existing .venv is Windows-only'"
+echo "    -> Will recreate venv for Linux/macOS compatibility"
+echo ""
+echo "  * 'DeprecationWarning' from packages"
+echo "    -> Third-party package warnings, not our code"
+echo ""
+echo "  * pytest warnings about encoding"
+echo "    -> Tests use Unicode (Greek letters, math symbols)"
+echo "    -> Fixed in our code with UTF-8 encoding"
+echo ""
+echo "  * 'Insufficient data' during tests"
+echo "    -> Expected! Some tests need horizon-scale observations"
+echo "    -> Tests will PASS with informative warnings"
+echo ""
+echo "Installation will continue. Only stop if ERROR (not WARNING) appears."
+echo "================================================================================"
+echo ""
+
 # Step 1: Check Python
 print_step "[1/8] Checking Python installation..."
 if command -v python3 &> /dev/null; then

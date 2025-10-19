@@ -52,7 +52,7 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
 ✅ **ALL SYNTHETIC DATA REMOVED** - Replaced with real observations  
 ✅ **100% REAL DATA** - Only peer-reviewed observatory measurements  
 ✅ **ALL WARNINGS RESOLVED** with real observational data  
-✅ **143 data points** - ALL from peer-reviewed observations  
+✅ **427 data points** - ALL from peer-reviewed observations (143 original + 142 M87 NED + 142 Sgr A* NED)  
 ✅ **38 verified real observations** (M87*, Cygnus X-1, S2 star)  
 ✅ **6+ orders of magnitude** frequency coverage (Radio → X-ray)  
 ✅ **ALMA + Chandra + VLT** data integration  
@@ -83,7 +83,7 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
 - ✅ **Reconstruction Error**: 0.238 median (was 0.291)
 
 **Data Quality & Synthetic Data Elimination:**
-- Total data points: 177 → **143** (100% real)
+- Total data points: 177 → 143 (synthetic removed) → **427** (+ M87/Sgr A* NED spectra)
 - **Synthetic data ELIMINATED**: -34 synthetic/placeholder observations ❌
 - **Real data retained**: +143 verified peer-reviewed observations ✅
 - **Scientific integrity**: NO SYNTHETIC DATA - only real measurements
@@ -98,6 +98,7 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
 - 📖 [DATA_CHANGELOG.md](DATA_CHANGELOG.md) - **Synthetic data removal detailed**
 - 📖 [DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md) - Data enhancement plan
 - 📖 [COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md) - Updated with real data
+- ⚠️ [EXTERNAL_DATA_INTEGRATION_CRITICAL_WARNINGS.md](EXTERNAL_DATA_INTEGRATION_CRITICAL_WARNINGS.md) - **CRITICAL warnings for external data integration**
 
 **Why This Matters:**
 
@@ -127,8 +128,8 @@ This Colab runs our **deterministic SSZ pipeline** end-to-end (no fitting).
 It fetches the pinned dataset, verifies checksums, runs the same scripts as `run_all_ssz_terminal.py`,
 and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
 
-**Current Dataset (2025-10-19) - 100% Real Data**
-- `real_data_full.csv` — **143 data points** (all from real observations)
+**Current Dataset (2025-10-19) - 100% Real Data + NED Spectra**
+- `real_data_full.csv` — **427 data points** (143 original + 142 M87 NED + 142 Sgr A* NED continuum spectra)
 - **No synthetic data** - All placeholder observations removed ✅
 - Real multi-frequency: **38 verified** (M87*, Cyg X-1, S2 from ALMA/Chandra/VLT)
 - Frequency range: **2.3×10¹¹ - 3.0×10¹⁸ Hz** (9+ orders)
