@@ -262,13 +262,26 @@ if [ "$DRY_RUN" = false ]; then
     fi
     
     # Check for additional GAIA data (fetch if missing)
-    GAIA_LARGE_FILE="data/gaia/gaia_full_sample.csv"
+    GAIA_SMALL_SAMPLE="data/gaia/gaia_sample_small.csv"
     
-    if [ ! -f "$GAIA_LARGE_FILE" ]; then
-        print_warn "⚠ Full GAIA sample missing - you can fetch with:"
-        print_info "python scripts/fetch_gaia_full.py"
+    if [ ! -f "$GAIA_SMALL_SAMPLE" ]; then
+        print_warn "⚠ GAIA sample missing - fetching..."
+        
+        # Create directory
+        mkdir -p data/gaia
+        
+        print_info "Running GAIA fetch script..."
+        
+        # Run fetch script
+        if $PYTHON_CMD scripts/fetch_gaia_full.py; then
+            print_success "✓ GAIA data fetched successfully"
+            DATA_FETCHED=true
+        else
+            print_warn "⚠ Failed to fetch GAIA data - continuing anyway"
+            print_info "You can fetch manually later with: python scripts/fetch_gaia_full.py"
+        fi
     else
-        print_success "✓ Full GAIA sample found"
+        print_success "✓ GAIA sample found"
     fi
     
     echo ""

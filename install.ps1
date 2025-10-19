@@ -207,13 +207,30 @@ if (-not $DryRun) {
     }
     
     # Check for additional GAIA data (fetch if missing)
-    $gaiaLargeFile = "data/gaia/gaia_full_sample.csv"
+    $gaiaSmallSample = "data/gaia/gaia_sample_small.csv"
     
-    if (-not (Test-Path $gaiaLargeFile)) {
-        Write-Host "  ⚠ Full GAIA sample missing - you can fetch with:" -ForegroundColor Yellow
-        Write-Host "    python scripts/fetch_gaia_full.py" -ForegroundColor Cyan
+    if (-not (Test-Path $gaiaSmallSample)) {
+        Write-Host "  ⚠ GAIA sample missing - fetching..." -ForegroundColor Yellow
+        
+        # Create directory
+        New-Item -ItemType Directory -Path "data/gaia" -Force | Out-Null
+        
+        Write-Host "    Running GAIA fetch script..." -ForegroundColor Cyan
+        
+        try {
+            python scripts/fetch_gaia_full.py
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "  ✓ GAIA data fetched successfully" -ForegroundColor Green
+                $dataFetched = $true
+            } else {
+                Write-Host "  ⚠ Failed to fetch GAIA data - continuing anyway" -ForegroundColor Yellow
+            }
+        } catch {
+            Write-Host "  ⚠ Error fetching GAIA data: $_" -ForegroundColor Yellow
+            Write-Host "    You can fetch manually later with: python scripts/fetch_gaia_full.py" -ForegroundColor Cyan
+        }
     } else {
-        Write-Host "  ✓ Full GAIA sample found" -ForegroundColor Green
+        Write-Host "  ✓ GAIA sample found" -ForegroundColor Green
     }
     
     Write-Host ""
