@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: false  # Don't pull LFS files (too large for CI)
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,8 +27,10 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-order astroquery astropy pyarrow
 
-      - name: Run smoke tests
+      - name: Run smoke tests (with small datasets)
         env:
           PYTHONPATH: .
         run: |
-          python ci/run_all_tests.py 2025-10-17_gaia_ssz_real
+          # Run tests with v1/nightly datasets (small files, immediately available)
+          # Large "real" datasets require Git LFS (~3.6 GB) and are not tested in CI
+          python ci/run_all_tests.py 2025-10-17_gaia_ssz_nightly
