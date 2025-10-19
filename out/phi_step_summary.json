@@ -1,10 +1,10 @@
 {
-  "rows_used": 167,
-  "abs_residual_mean": 0.05814088237219057,
+  "rows_used": 143,
+  "abs_residual_mean": 0.06251247220618775,
   "abs_residual_median": 0.0007872405662006819,
   "abs_residual_max": 0.4870033006754366,
-  "residual_mean": 0.023846464667414278,
-  "residual_std": 0.13191873724261313,
+  "residual_mean": 0.02247327411679017,
+  "residual_std": 0.13845432253264692,
   "phi": 1.618033988749895,
   "ln_phi": 0.48121182505960347,
   "column_log": {
