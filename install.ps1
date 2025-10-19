@@ -516,3 +516,23 @@ if ($RunFullSuite -or $QuickSuite) {
     }
     Write-Host ""
 }
+
+# Important notice about virtual environment
+Write-Host ""
+Write-Host ("=" * 100) -ForegroundColor Cyan
+Write-Host "⚠️  IMPORTANT: Virtual Environment" -ForegroundColor Yellow
+Write-Host ("=" * 100) -ForegroundColor Cyan
+Write-Host ""
+Write-Host "All packages are installed in the virtual environment: .venv\" -ForegroundColor Yellow
+Write-Host ""
+Write-Host "To use the installed packages, you MUST activate the venv:" -ForegroundColor Green
+Write-Host "  .\.venv\Scripts\Activate.ps1" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "If you run tests WITHOUT activating, you'll get errors like:" -ForegroundColor Yellow
+Write-Host "  ImportError: No module named 'pyarrow'" -ForegroundColor Red
+Write-Host ""
+Write-Host "To check if venv is active:" -ForegroundColor Green
+Write-Host "  .\check_venv.ps1" -ForegroundColor Cyan
+Write-Host ""
+Write-Host ("=" * 100) -ForegroundColor Cyan
+Write-Host ""

@@ -530,3 +530,23 @@ if [ "$RUN_FULL_SUITE" = true ] || [ "$QUICK_SUITE" = true ]; then
     fi
     echo ""
 fi
+
+# Important notice about virtual environment
+echo ""
+echo -e "${CYAN}$(printf '=%.0s' {1..100})${NC}"
+echo -e "${YELLOW}⚠️  IMPORTANT: Virtual Environment${NC}"
+echo -e "${CYAN}$(printf '=%.0s' {1..100})${NC}"
+echo ""
+echo -e "${YELLOW}All packages are installed in the virtual environment: .venv/${NC}"
+echo ""
+echo -e "${GREEN}To use the installed packages, you MUST activate the venv:${NC}"
+echo -e "${CYAN}  source .venv/bin/activate${NC}"
+echo ""
+echo -e "${YELLOW}If you run tests WITHOUT activating, you'll get errors like:${NC}"
+echo -e "${RED}  ImportError: No module named 'pyarrow'${NC}"
+echo ""
+echo -e "${GREEN}To check if venv is active:${NC}"
+echo -e "${CYAN}  source check_venv.sh${NC}"
+echo ""
+echo -e "${CYAN}$(printf '=%.0s' {1..100})${NC}"
+echo ""
