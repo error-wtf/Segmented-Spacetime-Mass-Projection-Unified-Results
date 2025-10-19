@@ -47,6 +47,26 @@ echo -e "${CYAN}SSZ PROJECTION SUITE - INSTALL + TEST WORKFLOW${NC}"
 echo -e "${CYAN}====================================================================================================${NC}"
 echo ""
 
+# Warning explanations
+echo -e "${CYAN}[INFO] ABOUT WARNINGS DURING TESTS${NC}"
+echo "----------------------------------------------------------------------------------------------------"
+echo "Some tests may show warnings. This is NORMAL and EXPECTED:"
+echo ""
+echo "  * 'Insufficient data for Hawking spectrum fit'"
+echo "    -> Expected! Data needs thermal multi-frequency at same radius"
+echo "    -> Test still PASSES with informative warning"
+echo ""
+echo "  * 'Insufficient data for kappa_seg test'"
+echo "    -> Expected! Needs very tight radial sampling (r < 3 r_s)"
+echo "    -> Test still PASSES with informative warning"
+echo ""
+echo "  * DeprecationWarning from packages"
+echo "    -> From dependencies (numpy, scipy, etc.) - ignore safely"
+echo ""
+echo "These warnings do NOT mean tests failed. Check for '[SUCCESS]' or '[FAILED]' in output."
+echo "===================================================================================================="
+echo ""
+
 # Step 1: Run standard installation
 echo -e "${YELLOW}STEP 1: Running installation...${NC}"
 ./install.sh

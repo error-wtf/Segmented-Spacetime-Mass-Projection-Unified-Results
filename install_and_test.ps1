@@ -25,6 +25,26 @@ Write-Host "=" -NoNewline -ForegroundColor Cyan
 Write-Host ("=" * 98) -ForegroundColor Cyan
 Write-Host ""
 
+# Warning explanations
+Write-Host "[INFO] ABOUT WARNINGS DURING TESTS" -ForegroundColor Cyan
+Write-Host ("-" * 100)
+Write-Host "Some tests may show warnings. This is NORMAL and EXPECTED:"
+Write-Host ""
+Write-Host "  * 'Insufficient data for Hawking spectrum fit'"
+Write-Host "    -> Expected! Data needs thermal multi-frequency at same radius"
+Write-Host "    -> Test still PASSES with informative warning"
+Write-Host ""
+Write-Host "  * 'Insufficient data for kappa_seg test'"
+Write-Host "    -> Expected! Needs very tight radial sampling (r < 3 r_s)"
+Write-Host "    -> Test still PASSES with informative warning"
+Write-Host ""
+Write-Host "  * DeprecationWarning from packages"
+Write-Host "    -> From dependencies (numpy, scipy, etc.) - ignore safely"
+Write-Host ""
+Write-Host "These warnings do NOT mean tests failed. Check for '[SUCCESS]' or '[FAILED]' in output."
+Write-Host ("=" * 100)
+Write-Host ""
+
 # Step 1: Run standard installation
 Write-Host "STEP 1: Running installation..." -ForegroundColor Yellow
 & .\install.ps1
