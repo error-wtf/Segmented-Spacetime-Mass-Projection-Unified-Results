@@ -53,6 +53,17 @@ import os
 # This prevents UnicodeEncodeError with Greek letters (β, γ, α) and Unicode symbols (→, ₀)
 os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 
+# Fix Windows console encoding for Unicode output (✅, ❌, φ, etc.)
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except AttributeError:
+        # Fallback for older Python versions
+        import codecs
+        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'replace')
+        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'replace')
+
 def print_header(title, char="=", length=100):
     """Print formatted section header"""
     print("\n" + char * length)
