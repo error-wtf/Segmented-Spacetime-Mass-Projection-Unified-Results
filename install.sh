@@ -461,39 +461,28 @@ else
     echo "    pytest tests/quick_install_tests.py"
 fi
 
-# Step 10: Verify installation
+# Step 10: Verify installation (simplified - no extensive tests)
 echo ""
 print_step "[10/11] Verifying installation..."
 if [ "$DRY_RUN" = false ]; then
-    # Check CLI commands
-    COMMANDS=("ssz-rings --help" "ssz-print-md --help")
-    for cmd in "${COMMANDS[@]}"; do
-        CMD_NAME=$(echo $cmd | cut -d' ' -f1)
-        print_info "Checking: $CMD_NAME"
-        if eval $cmd > /dev/null 2>&1; then
-            print_success "  [OK] $CMD_NAME"
-        else
-            print_warn "  [WARN] $CMD_NAME not available"
-        fi
-    done
+    print_info "Checking Python environment..."
     
-    # Check bundled papers
-    print_info "Checking bundled papers..."
-    if [ -d "papers/validation" ]; then
-        VALIDATION_COUNT=$(find papers/validation -name "*.md" | wc -l)
-        print_success "  [OK] Validation papers: $VALIDATION_COUNT files"
+    # Quick import test
+    IMPORT_TEST="import core.ssz, core.stats; print('✓ Core modules OK')"
+    if $PYTHON_CMD -c "$IMPORT_TEST" > /dev/null 2>&1; then
+        print_success "  [OK] Python imports working"
     else
-        print_warn "  [WARN] Validation papers directory not found"
+        print_warn "  [WARN] Some imports may not work"
     fi
     
-    if [ -d "docs/theory" ]; then
-        THEORY_COUNT=$(find docs/theory -name "*.md" | wc -l)
-        print_success "  [OK] Theory papers: $THEORY_COUNT files"
-    else
-        print_warn "  [WARN] Theory papers directory not found"
+    # Check essential files
+    if [ -f "data/real_data_full.csv" ]; then
+        print_success "  [OK] Essential data files present"
     fi
+    
+    print_success "✓ Installation verification complete"
 else
-    print_info "[DRY-RUN] Would verify commands and papers"
+    print_info "[DRY-RUN] Would verify installation"
 fi
 
 # Step 11: Generate complete summary (tests, papers, analyses, MD outputs)

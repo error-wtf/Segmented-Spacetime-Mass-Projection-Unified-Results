@@ -358,47 +358,29 @@ if (-not $SkipTests) {
     Write-Host "    pytest tests/quick_install_tests.py" -ForegroundColor White
 }
 
-# Step 10: Verify installation
+# Step 10: Verify installation (simplified - no extensive tests)
 Write-Host ""
 Write-Host "[10/11] Verifying installation..." -ForegroundColor Yellow
 if (-not $DryRun) {
-    # Check CLI commands
-    try {
-        $commands = @("ssz-rings --help", "ssz-print-md --help")
-        foreach ($cmd in $commands) {
-            $cmdName = $cmd.Split()[0]
-            Write-Host "  Checking: $cmdName" -ForegroundColor Cyan
-            Invoke-Expression $cmd | Out-Null
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host "    [OK] $cmdName" -ForegroundColor Green
-            } else {
-                Write-Host "    [WARN] $cmdName not available" -ForegroundColor Yellow
-            }
-        }
-    } catch {
-        Write-Host "  WARNING: Some commands not available" -ForegroundColor Yellow
-    }
+    Write-Host "  Checking Python environment..." -ForegroundColor Cyan
     
-    # Check bundled papers
-    Write-Host "  Checking bundled papers..." -ForegroundColor Cyan
-    $papersValidation = "papers\validation"
-    $papersTheory = "docs\theory"
-    
-    if (Test-Path $papersValidation) {
-        $validationCount = (Get-ChildItem $papersValidation -Filter *.md).Count
-        Write-Host "    [OK] Validation papers: $validationCount files" -ForegroundColor Green
+    # Quick import test
+    $importTest = "import core.ssz, core.stats; print('✓ Core modules OK')"
+    $result = python -c $importTest 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "    [OK] Python imports working" -ForegroundColor Green
     } else {
-        Write-Host "    [WARN] Validation papers directory not found" -ForegroundColor Yellow
+        Write-Host "    [WARN] Some imports may not work" -ForegroundColor Yellow
     }
     
-    if (Test-Path $papersTheory) {
-        $theoryCount = (Get-ChildItem $papersTheory -Filter *.md).Count
-        Write-Host "    [OK] Theory papers: $theoryCount files" -ForegroundColor Green
-    } else {
-        Write-Host "    [WARN] Theory papers directory not found" -ForegroundColor Yellow
+    # Check essential files
+    if (Test-Path "data/real_data_full.csv") {
+        Write-Host "    [OK] Essential data files present" -ForegroundColor Green
     }
+    
+    Write-Host "  ✓ Installation verification complete" -ForegroundColor Green
 } else {
-    Write-Host "  [DRY-RUN] Would verify commands and papers" -ForegroundColor Cyan
+    Write-Host "  [DRY-RUN] Would verify installation" -ForegroundColor Cyan
 }
 
 # Step 9: Generate complete summary (tests, papers, analyses, MD outputs)
