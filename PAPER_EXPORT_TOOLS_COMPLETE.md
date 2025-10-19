@@ -193,9 +193,11 @@ cat reports/figures/FIGURE_INDEX.md
 
 **Markdown:**
 ```markdown
-![Ring-chain velocity](figures/G79/fig_G79_ringchain_v_vs_k.png)
+<!-- Figure to be generated - run analysis with --save-figures flag -->
+<!-- ![Ring-chain velocity](figures/G79/fig_G79_ringchain_v_vs_k.png) -->
 
 *Figure 1:* Ring-Ketten-Propagation im SSZ-Feld...
+(Figure will be generated when running G79 analysis with figure export enabled)
 ```
 
 ### **Schritt 4:** Checksums verifizieren

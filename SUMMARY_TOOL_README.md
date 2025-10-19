@@ -39,8 +39,9 @@ python -X utf8 summary-all-tests.py --out mein-report.md
 
 ### Alle Optionen
 ```powershell
-python -X utf8 summary-all-tests.py --root . --run-id <run-id> --out <ausgabe.md>
+python -X utf8 summary-all-tests.py --root . --run-id <run-id> --out <output-file.md>
 ```
+Note: Replace `<output-file.md>` with your desired filename (e.g., `report.md`)
 
 ## 📊 Was wird aggregiert?
 
