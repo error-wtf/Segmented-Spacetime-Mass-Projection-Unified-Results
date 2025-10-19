@@ -523,9 +523,203 @@ PRODUCTION-READY FOR PUBLICATION 🚀
 
 ---
 
+## ⚠️ WICHTIG: STOLPERFALLEN BEIM DATENMANAGEMENT
+
+### 🚨 KRITISCHE WARNUNG: "Äpfel und Birnen" Vergleich
+
+**PROBLEM ERKANNT IN:** `PAIRED_TEST_ANALYSIS_COMPLETE.md`
+
+**Root Cause:**
+```
+NED continuum data verwendet SOURCE cosmological redshift (z_obs),
+NICHT EMISSION gravitational redshift!
+
+Unser z_geom = lokaler gravitativer Redshift bei Emissionsradius
+NED z_obs    = globaler kosmologischer Redshift der Quelle
+
+→ Völlig unterschiedliche physikalische Größen!
+→ Vergleich ergibt massive Fehler
+→ Lässt SSZ schlechter aussehen als es ist
+```
+
+### 📊 DATEN WURDEN EXTRA GESPLITTET
+
+**Warum wir verschiedene Datensätze haben:**
+
+**1. Snapshot Data (cross-source comparison):**
+```
+Zweck: Vergleich zwischen verschiedenen Quellen
+Typ: Ein Datenpunkt pro Quelle
+Beispiel: Galaxien, Sterne, schwarze Löcher
+Redshift: z_obs (beobachtet, cosmological)
+```
+
+**2. Time-Series Data (single-source evolution):**
+```
+Zweck: Zeitliche Evolution einer Quelle
+Typ: Multiple Datenpunkte gleiche Quelle
+Beispiel: S2 Stern, Pulsare
+Redshift: z_emit (lokal, gravitational)
+```
+
+**3. Thermal Spectra (single-source, multi-frequency):**
+```
+Zweck: Spektralanalyse, Temperaturbestimmung
+Typ: Multiple Frequenzen gleiche Quelle
+Beispiel: Cyg X-1 X-ray, M87 continuum
+Redshift: Kann beides sein! (VORSICHT)
+```
+
+### ⚠️ STOLPERFALLEN BEI INTEGRATION
+
+**Stolperfalle 1: Redshift Mixing**
+```python
+# ❌ FALSCH:
+z_predicted = calculate_z_geom(M, r)  # Lokaler gravitativer Redshift
+z_observed  = df['z_obs']             # Globaler cosmological Redshift
+error = z_predicted - z_observed      # ÄPFEL ≠ BIRNEN!
+
+# ✅ RICHTIG:
+if dataset_type == 'timeseries':
+    z_predicted = calculate_z_geom(M, r)  # Lokal
+    z_observed  = df['z_emit']            # Lokal
+elif dataset_type == 'snapshot':
+    z_predicted = calculate_z_total(M, r, v_los)  # Total
+    z_observed  = df['z_obs']                     # Total
+```
+
+**Stolperfalle 2: Multi-Frequency ohne Kontext**
+```python
+# ❌ FALSCH:
+# NED continuum als multi-frequency für Jacobian Test nutzen
+df_ned = df[df['source'] == 'M87']  # 278 verschiedene Frequenzen
+jacobian_test(df_ned)  # Aber alle z_obs sind GLEICH!
+
+# ✅ RICHTIG:
+# Nur echte time-series oder emission-line data
+df_s2 = df[df['source'] == 'S2']  # 10 Datenpunkte
+# mit VERSCHIEDENEN z_emit Werten
+jacobian_test(df_s2)
+```
+
+**Stolperfalle 3: Case-Label Mismatch**
+```python
+# ❌ FALSCH:
+df_cyg['case'] = 'thermal'  # Korrekt
+df_cyg['obs_type'] = 'thermal'  # Korrekt
+df_cyg['f_obs_Hz'] = df_cyg['frequency_Hz']  # ABER: ohne Kontext!
+
+# ✅ RICHTIG:
+df_cyg['case'] = 'thermal_spectrum'
+df_cyg['obs_type'] = 'continuum'  # Spektrum, nicht line
+df_cyg['f_emit_Hz'] = df_cyg['frequency_Hz']  # Rest-frame
+df_cyg['f_obs_Hz'] = df_cyg['frequency_Hz']   # No cosmological shift
+df_cyg['z_type'] = 'none'  # Wichtig: Markiere dass z_obs NICHT gravitational ist
+```
+
+### 📋 INTEGRATION CHECKLIST
+
+**Vor dem Mergen IMMER prüfen:**
+
+- [ ] **1. Redshift-Typ identifiziert:**
+  - [ ] z_obs (cosmological, global)
+  - [ ] z_emit (gravitational, local)
+  - [ ] z_total (beides kombiniert)
+
+- [ ] **2. Daten-Typ klassifiziert:**
+  - [ ] `snapshot` - Cross-source comparison
+  - [ ] `timeseries` - Single-source evolution
+  - [ ] `thermal_spectrum` - Multi-frequency continuum
+  - [ ] `emission_line` - Spectral line (z_emit!)
+
+- [ ] **3. Spalten-Mapping korrekt:**
+  - [ ] `f_emit_Hz` = Rest-frame frequency
+  - [ ] `f_obs_Hz` = Observed frequency
+  - [ ] `r_emit_m` = Emission radius
+  - [ ] `epoch` = Observation date/time
+
+- [ ] **4. Meta-Data hinzugefügt:**
+  - [ ] `obs_type` (snapshot/timeseries/continuum/line)
+  - [ ] `z_type` (cosmological/gravitational/total/none)
+  - [ ] `source_category` (galaxy/star/BH/AGN)
+
+- [ ] **5. Test-Kompatibilität geprüft:**
+  - [ ] Jacobian Test: Braucht multi-frequency MIT verschiedenen z_emit
+  - [ ] Paired Test: Braucht konsistente z-Typen
+  - [ ] Hawking Test: Braucht thermal continuum (nicht emission lines)
+
+### 🎯 EMPFOHLENE VORGEHENSWEISE
+
+**Schritt 1: Daten kategorisieren**
+```python
+# Neue Spalten zum Schema hinzufügen
+df['obs_type'] = 'snapshot'     # Default
+df['z_type'] = 'cosmological'   # Default
+df['source_category'] = 'unknown'  # Default
+```
+
+**Schritt 2: Getrennte Merge-Scripts**
+```bash
+# NICHT alles in einen Topf werfen!
+python merge_snapshot_data.py     # Cross-source
+python merge_timeseries_data.py   # Time evolution
+python merge_continuum_data.py    # Thermal spectra
+python merge_emission_lines.py    # Spectral lines
+```
+
+**Schritt 3: Validierung VOR merge**
+```python
+def validate_data(df, data_type):
+    """Validiere Daten vor Integration"""
+    if data_type == 'timeseries':
+        assert df['z_type'].unique() == ['gravitational']
+        assert df['obs_type'].unique() == ['timeseries']
+    elif data_type == 'continuum':
+        assert df['z_type'].unique() == ['none', 'cosmological']
+        assert df['obs_type'].unique() == ['continuum']
+    # etc.
+```
+
+**Schritt 4: Test-Subsets definieren**
+```python
+# Für verschiedene Tests verschiedene Subsets!
+df_jacobian = df[df['obs_type'] == 'timeseries']
+df_paired = df[df['z_type'].isin(['gravitational', 'total'])]
+df_hawking = df[df['obs_type'] == 'continuum']
+```
+
+### 📚 SIEHE AUCH
+
+- **PAIRED_TEST_ANALYSIS_COMPLETE.md** - Detaillierte Fehleranalyse
+- **TODO_DATA_INTEGRATION.md** - Integration TO-DO
+- **DATA_IMPROVEMENT_STATUS_REPORT.md** - Status Report
+
+### ⚡ QUICK REFERENCE
+
+**Was gehört NICHT zusammen:**
+```
+❌ z_geom (lokal) vs z_obs (global)
+❌ Thermal continuum vs Emission lines
+❌ Time-series vs Snapshot für Jacobian
+❌ NED spectra (cosmological) vs VLT spectra (local)
+```
+
+**Was gehört zusammen:**
+```
+✅ S2 time-series (verschiedene Zeiten, gleiche Quelle)
+✅ Cyg X-1 thermal (verschiedene Frequenzen, thermales Ensemble)
+✅ Snapshot data (verschiedene Quellen, z_obs konsistent)
+```
+
+---
+
+**REMEMBER: Ordentliches Datenmanagement ist KRITISCH für valide Ergebnisse! 🎯**
+
+---
+
 **© 2025 Carmen Wrede & Lino Casu**  
 **Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
 **Erstellt:** 2025-10-19  
-**Status:** Ready for Implementation  
-**Version:** 1.0.0
+**Status:** Ready for Implementation (MIT STOLPERFALLEN-WARNUNG!)  
+**Version:** 1.1.0 (Updated mit Data Management Guidelines)
