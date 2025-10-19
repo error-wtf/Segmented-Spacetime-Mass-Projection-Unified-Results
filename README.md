@@ -19,25 +19,25 @@ Note: This is not a formal proof; independent replication and peer review are en
 
 ## 🚀 Quick Start - Google Colab
 
-**Keine Installation nötig! Führe die komplette Pipeline direkt im Browser aus:**
+**No installation required! Run the complete pipeline directly in your browser:**
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Full_Pipeline_Colab.ipynb)
 
-**One-Click Ausführung:**
-1. Klicke auf den Badge oben
-2. Klicke in Colab: `Runtime` → `Run all`
-3. Warte ~5-10 Minuten
-4. ✅ Fertig! Download ZIP mit allen Ergebnissen
+**One-Click Execution:**
+1. Click the badge above
+2. In Colab: `Runtime` → `Run all`
+3. Wait ~5-10 minutes
+4. ✅ Done! Download ZIP with all results
 
 **Features:**
-- ✅ Automatische Dependency-Installation
-- ✅ Komplette SSZ Pipeline (Tests + Analysen)
-- ✅ 35 Physik-Tests + 23 Technische Tests
-- ✅ Extended Metrics & Segment-Redshift Add-on
-- ✅ Alle Plots und Reports
-- ✅ Download als ZIP-Archiv
+- ✅ Automatic dependency installation
+- ✅ Complete SSZ pipeline (tests + analysis)
+- ✅ 35 physics tests + 23 technical tests
+- ✅ Extended metrics & segment-redshift add-on
+- ✅ All plots and reports
+- ✅ Download as ZIP archive
 
-📖 **[Colab Anleitung →](COLAB_README.md)**
+📖 **[Colab Guide →](GOOGLE_COLAB_SETUP.md)**
 
 ---
 
