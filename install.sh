@@ -335,47 +335,13 @@ else
     fi
 fi
 
-# Step 8: Generate pipeline outputs
+# Step 8: Pipeline setup (optional - skip during installation)
 echo ""
-print_step "[8/11] Generating pipeline outputs with real data..."
-if [ "$DRY_RUN" = false ]; then
-    # Check if real_data_full.csv exists
-    if [ -f "real_data_full.csv" ]; then
-        ROWS=$(wc -l < real_data_full.csv)
-        print_success "Found real_data_full.csv ($ROWS rows)"
-        
-        # Clean old outputs
-        print_info "Cleaning old outputs..."
-        rm -f out/*.csv out/*.png out/*.txt 2>/dev/null
-        rm -f reports/*.md reports/*.csv 2>/dev/null
-        rm -rf reports/figures/* 2>/dev/null
-        
-        # Run pipeline
-        print_info "Running SSZ pipeline (this may take 7-10 minutes)..."
-        print_info "Processing $ROWS data points (ALMA/Chandra/VLT)..."
-        echo ""
-        
-        $PYTHON_CMD run_all_ssz_terminal.py
-        
-        if [ $? -eq 0 ]; then
-            # Verify outputs
-            if [ -f "out/phi_step_debug_full.csv" ]; then
-                OUT_ROWS=$(wc -l < out/phi_step_debug_full.csv)
-                echo ""
-                print_success "✓ Pipeline complete: out/phi_step_debug_full.csv ($OUT_ROWS rows)"
-                print_success "✓ Reports generated in reports/"
-            else
-                print_warn "⚠️  Warning: Pipeline outputs not found"
-            fi
-        else
-            print_warn "✗ Pipeline failed - continuing anyway..."
-        fi
-    else
-        print_warn "⚠️  real_data_full.csv not found - skipping pipeline"
-    fi
-else
-    print_info "[DRY-RUN] Would run: python run_all_ssz_terminal.py"
-fi
+print_step "[8/11] Pipeline setup..."
+print_info "ℹ Pipeline execution SKIPPED during installation"
+print_info "To generate pipeline outputs and run comprehensive tests:"
+echo "    python run_all_ssz_terminal.py    # Full pipeline (~10 min)"
+echo "    python run_full_suite.py          # All 58 tests (~5 min)"
 
 # Step 9: Run tests
 if [ "$SKIP_TESTS" = false ]; then
