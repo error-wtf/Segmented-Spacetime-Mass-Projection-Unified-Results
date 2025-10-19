@@ -274,9 +274,9 @@ table = eso.query_instrument('GRAVITY', target='S2')
 
 ### Validation Status
 
- All data cross-checked with published values  
- Multi-frequency sources: 4 (M87*, S2, PSR B1937+21, NGC 4151)  
- Thermal sources: 1 (Cyg X-1, T = 3×10⁷ K)  
+- All data cross-checked with published values  
+Multi-frequency sources: 5 (M87: 278 obs, Cyg X-1: 10, M87*: 10, S2: 10, Sgr A*: 6)  
+- Thermal sources: 1 (Cyg X-1, T = 3×10⁷ K)  
  Multi-epoch sources: 2 (S2, PSR B1937+21)  
 
 ---

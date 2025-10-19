@@ -52,7 +52,7 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
 ✅ **ALL SYNTHETIC DATA REMOVED** - Replaced with real observations  
 ✅ **100% REAL DATA** - Only peer-reviewed observatory measurements  
 ✅ **ALL WARNINGS RESOLVED** with real observational data  
-✅ **427 data points** - ALL from peer-reviewed observations (143 original + 142 M87 NED + 142 Sgr A* NED)  
+✅ **427 data points** from **117 unique sources** - ALL from peer-reviewed observations  
 ✅ **38 verified real observations** (M87*, Cygnus X-1, S2 star)  
 ✅ **6+ orders of magnitude** frequency coverage (Radio → X-ray)  
 ✅ **ALMA + Chandra + VLT** data integration  
@@ -76,7 +76,7 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
   - Source: GRAVITY Collaboration, A&A 615, L15 (2018)
 
 **Scientific Validation:**
-- ✅ **Warning 1 RESOLVED**: 4 multi-frequency sources (was 0)
+- ✅ **Warning 1 RESOLVED**: 5 multi-frequency sources (was 0)
 - ✅ **Warning 2 RESOLVED**: 50% stable Jacobian (was 0%)
 - ✅ **Warning 3 RESOLVED**: Real thermal spectrum integrated
 - ✅ **Confidence Level**: HIGH (was Medium)
@@ -87,8 +87,8 @@ This release **removes all synthetic/placeholder data** and replaces it with **r
 - **Synthetic data ELIMINATED**: -34 synthetic/placeholder observations ❌
 - **Real data retained**: +143 verified peer-reviewed observations ✅
 - **Scientific integrity**: NO SYNTHETIC DATA - only real measurements
-- Unique sources: 119 → **123**
-- Multi-frequency sources: **4** (M87*, S2, PSR, AGN)
+- Unique sources: **117** (including M87, Sgr A*, S2, Cyg X-1, etc.)
+- Multi-frequency sources: **5** (M87: 278 obs, Cyg X-1: 10, M87*: 10, S2: 10, Sgr A*: 6)
 - Thermal sources: **1** (Cyg X-1, T=30 MK)
 - **Data provenance**: All sources cited, publicly accessible
 - Frequency coverage: **Radio to X-ray** (9+ orders!)
@@ -129,7 +129,7 @@ It fetches the pinned dataset, verifies checksums, runs the same scripts as `run
 and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC win, S-stars z-matching, dual-velocity invariant).
 
 **Current Dataset (2025-10-19) - 100% Real Data + NED Spectra**
-- `real_data_full.csv` — **427 data points** (143 original + 142 M87 NED + 142 Sgr A* NED continuum spectra)
+- `real_data_full.csv` — **427 data points** from **117 unique sources** (including M87/Sgr A* NED continuum spectra)
 - **No synthetic data** - All placeholder observations removed ✅
 - Real multi-frequency: **38 verified** (M87*, Cyg X-1, S2 from ALMA/Chandra/VLT)
 - Frequency range: **2.3×10¹¹ - 3.0×10¹⁸ Hz** (9+ orders)
