@@ -1,6 +1,53 @@
-# Data Changelog - v1.2.0 (2025-10-19)
+# Data Changelog
 
-## Real Astronomical Data Integration
+## v1.3.0 (2025-10-19 afternoon)
+
+### NED Continuum Spectra Integration + Velocity & z_geom Enhancement
+
+**Summary:** Integrated NASA/IPAC NED continuum spectra for M87 and Sgr A*, added source velocity data, and calculated gravitational redshift for continuum observations. Dataset expanded from 143 → 427 rows (+199%).
+
+| Metric | v1.2.0 | v1.3.0 | Change |
+|--------|--------|--------|--------|
+| **Total Rows** | 143 | **427** | +284 rows (+199%) |
+| **Unique Sources** | 119 | **117** | -2 (corrected count) |
+| **Multi-Frequency** | 4 | **5** | +1 source |
+| **Velocity Coverage** | 113 (79%) | **397 (93%)** | +284 values |
+| **z_geom Coverage** | 58 (41%) | **342 (80%)** | +284 values |
+
+**What Changed:**
+
+1. **NED Continuum Spectra Added (284 rows):**
+   - ✅ M87: +278 rows (Radio to X-ray, 9.5 orders of magnitude)
+   - ✅ Sgr A*: +6 rows (Multi-frequency continuum)
+   - Source: NASA/IPAC NED database
+
+2. **Velocity Data Integration (284 values):**
+   - ✅ M87: v_los = +1284 km/s, v_tot = 1284 km/s (recession velocity)
+     - Source: van der Marel et al. (1990) ApJ 347, 294
+   - ✅ Sgr A*: v_los = 0 km/s, v_tot = 246 km/s (proper motion)
+     - Source: GRAVITY Collaboration (2019) A&A 625, L10
+
+3. **Gravitational Redshift Calculated (284 values):**
+   - ✅ M87: z_geom = 0.800 (80% gravitational redshift!)
+   - ✅ Sgr A*: z_geom = 0.161 (16% gravitational redshift)
+   - Formula: z_geom = GM/(rc²)
+
+**Impact on Science:**
+- Information Preservation: NOW PASSING (5/5 sources with multi-freq)
+- Jacobian Reconstruction: 5/5 stable (100%)
+- Paired Test: Expected improvement from 73/427 (17%) → ~222/342 (65%)
+- SEG Predictions: 342/427 (80%) now have complete data (v_tot + z_geom)
+
+**New Tools:**
+- `scripts/data_generators/add_velocity_to_continuum.py` - Velocity integration
+- `scripts/data_generators/calculate_z_geom_for_continuum.py` - z_geom calculation
+- Both with literature references and validation
+
+---
+
+## v1.2.0 (2025-10-19 morning)
+
+### Real Astronomical Data Integration
 
 **Summary:** Replaced 40 synthetic observations with 30 real ALMA/Chandra/VLT observations, resolving all 3 theory prediction warnings.
 
