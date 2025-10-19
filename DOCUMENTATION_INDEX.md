@@ -14,6 +14,13 @@
 - **[INSTALL_README.md](INSTALL_README.md)** - Installation guide
 - **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform compatibility details
 
+### 🎓 Theory & Code Foundations ⭐ NEW
+- **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** - Complete theory & implementation guide
+- **[docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md)** - Physical concepts explained (no heavy math)
+- **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** - All formulas with derivations
+- **[docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md)** - Core algorithms explained (coming soon)
+- **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** - Practical use cases (coming soon)
+
 ### 📊 Data Documentation
 - **[Sources.md](Sources.md)** - Complete data provenance & citations
 - **[DATA_CHANGELOG.md](DATA_CHANGELOG.md)** - Data version history
@@ -47,7 +54,17 @@
 
 ## 📚 Documentation by Category
 
-### 1. Installation & Setup
+### 1. Theory & Code Foundations ⭐ NEW
+
+| File | Description | Audience |
+|------|-------------|----------|
+| [docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) | Main theory & code index | Everyone |
+| [docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) | Physical concepts (intuitive) | Physicists, Students |
+| [docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) | Complete mathematical formulation | Theorists, Mathematicians |
+| [docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) | Code algorithms & snippets | Developers (WIP) |
+| [docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) | Practical examples | Researchers (WIP) |
+
+### 2. Installation & Setup
 
 | File | Description | Audience |
 |------|-------------|----------|
@@ -56,7 +73,7 @@
 | [CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md) | Platform compatibility | Developers |
 | [COLAB_README.md](COLAB_README.md) | Google Colab setup | Researchers |
 
-### 2. Data Documentation
+### 3. Data Documentation
 
 | File | Description | Coverage |
 |------|-------------|----------|
@@ -66,7 +83,7 @@
 | [DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md) | Future plans | Roadmap |
 | [data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md) | Usage guide | 3 datasets |
 
-### 3. Testing Documentation
+### 5. Testing Documentation
 
 | File | Description | Tests |
 |------|-------------|-------|
@@ -76,7 +93,7 @@
 | [tests/README_TESTS.md](tests/README_TESTS.md) | Test overview | Main suite |
 | [scripts/tests/README_SCRIPTS_TESTS.md](scripts/tests/README_SCRIPTS_TESTS.md) | Script tests | 15 tests |
 
-### 4. Scientific Papers
+### 7. Scientific Papers
 
 | Location | Count | Description |
 |----------|-------|-------------|
@@ -84,7 +101,7 @@
 | [docs/theory/](docs/theory/) | 21 papers | Theoretical foundation |
 | [papers/validation/README.md](papers/validation/README.md) | Index | Papers overview |
 
-### 5. Pipeline Documentation
+### 9. Pipeline Documentation
 
 | File | Description | Purpose |
 |------|-------------|---------|
@@ -92,7 +109,7 @@
 | [SUMMARY_PIPELINE_README.md](SUMMARY_PIPELINE_README.md) | Summary tool | Reports |
 | [OUTPUT_LOGS_README.md](OUTPUT_LOGS_README.md) | Output logs | Debugging |
 
-### 6. Specialized Topics
+### 11. Specialized Topics
 
 | File | Topic | Audience |
 |------|-------|----------|
@@ -108,22 +125,32 @@
 ### For New Users
 
 1. **[README.md](README.md)** - Start here
-2. **[INSTALL_README.md](INSTALL_README.md)** - Installation
-3. **[COLAB_README.md](COLAB_README.md)** - Try online first
+2. **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** - Understand the theory ⭐
+3. **[INSTALL_README.md](INSTALL_README.md)** - Installation
+4. **[COLAB_README.md](COLAB_README.md)** - Try online first
+
+### For Physics Students & Learners
+
+1. **[docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md)** - Start here (intuitive explanations) ⭐
+2. **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** - Mathematical details ⭐
+3. **[docs/theory/](docs/theory/)** - Advanced papers
+4. **[papers/validation/](papers/validation/)** - Empirical validation
 
 ### For Researchers
 
-1. **[Sources.md](Sources.md)** - Data provenance
-2. **[papers/validation/](papers/validation/)** - Validation papers
-3. **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Data quality
-4. **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Statistical analysis
+1. **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** - Theory overview ⭐
+2. **[Sources.md](Sources.md)** - Data provenance
+3. **[papers/validation/](papers/validation/)** - Validation papers
+4. **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Data quality
+5. **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Statistical analysis
 
 ### For Developers
 
-1. **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform details
-2. **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Testing system
-3. **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Pipeline internals
-4. **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test architecture
+1. **[docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md)** - Core algorithms (WIP) ⭐
+2. **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform details
+3. **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Testing system
+4. **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Pipeline internals
+5. **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test architecture
 
 ### For Contributors
 
@@ -135,6 +162,12 @@
 ---
 
 ## 🔍 Finding Specific Information
+
+### Understanding the Theory
+- Physical concepts: [docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) ⭐
+- Mathematical formulas: [docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) ⭐
+- Code implementation: [docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) (WIP) ⭐
+- Full theory index: [docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) ⭐
 
 ### Installation Issues
 - Windows: [INSTALL_README.md](INSTALL_README.md) → Windows section
@@ -168,11 +201,21 @@
 Documentation/
 ├── Root Level (Main Docs)
 │   ├── README.md                    # Main overview ⭐
+│   ├── DOCUMENTATION_INDEX.md       # This file ⭐
 │   ├── INSTALL_README.md            # Installation
 │   ├── CHANGELOG.md                 # Release history
 │   ├── CROSS_PLATFORM_*.md          # Platform compatibility ⭐
 │   ├── Sources.md                   # Data provenance ⭐
 │   └── [40+ other docs]
+│
+├── docs/                            ⭐ NEW: Theory & Code
+│   ├── THEORY_AND_CODE_INDEX.md     # Main theory index ⭐⭐
+│   ├── PHYSICS_FOUNDATIONS.md       # Physical concepts ⭐⭐
+│   ├── MATHEMATICAL_FORMULAS.md     # All formulas ⭐⭐
+│   ├── CODE_IMPLEMENTATION_GUIDE.md # Code guide (WIP)
+│   ├── EXAMPLES_AND_APPLICATIONS.md # Examples (WIP)
+│   └── theory/                      # 21 theory papers
+│       └── README.md
 │
 ├── data/
 │   ├── DATA_TYPE_USAGE_GUIDE.md     # Dataset usage
@@ -187,16 +230,22 @@ Documentation/
 │   ├── analysis/README_HAWKING_*.md
 │   └── data_acquisition/README_NED_*.md
 │
-├── papers/
-│   └── validation/README.md         # Papers index
-│
-└── docs/
-    └── theory/README.md             # Theory papers
+└── papers/
+    └── validation/README.md         # Papers index
 ```
 
 ---
 
 ## 🆕 Recently Updated Documentation
+
+### v1.2.1 Updates (2025-10-19) ⭐ LATEST
+
+**New: Theory & Code Foundations Documentation:**
+- ✅ [docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) - Complete theory & code index ⭐⭐
+- ✅ [docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) - Physical concepts explained (12 KB) ⭐⭐
+- ✅ [docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) - All formulas with derivations ⭐⭐
+- 🔄 [docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) - Core algorithms (WIP)
+- 🔄 [docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) - Practical examples (WIP)
 
 ### v1.2.0 Updates (2025-10-19)
 
@@ -257,7 +306,7 @@ Documentation/
 ---
 
 **Last Updated:** 2025-10-19  
-**Documentation Version:** v1.2.0  
-**Total Documents:** 40+ files
+**Documentation Version:** v1.2.1 ⭐ NEW: Theory & Code Foundations  
+**Total Documents:** 45+ files (5 new theory/code docs)
 
 © 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4
