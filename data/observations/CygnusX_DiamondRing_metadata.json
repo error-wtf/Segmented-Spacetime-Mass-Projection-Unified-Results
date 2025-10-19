@@ -1,0 +1,48 @@
+{
+  "object_name": "Cygnus X Diamond Ring",
+  "common_name": "Diamond Ring in Cygnus X",
+  "category": "molecular_cloud",
+  "n_rings": 3,
+  "data_file": "CygnusX_DiamondRing_CII_rings.csv",
+  
+  "observation": {
+    "instruments": ["Herschel HIFI", "IRAM 30m"],
+    "tracers": ["CII 158um", "CO(1-0)"],
+    "observation_date": "2011-2013",
+    "spatial_resolution": "0.15 pc"
+  },
+  
+  "source_paper": {
+    "title": "The Diamond Ring in Cygnus X: Advanced stage of an expanding HII region",
+    "authors": ["Schneider et al."],
+    "year": 2016,
+    "doi": "10.1051/0004-6361/201526105",
+    "ads_bibcode": "2016A&A...587A..74S",
+    "local_reference": "papers/validation/The_Diamond_Ring_in_Cygnus_X_Advanced_stage_of_an_.pdf.md"
+  },
+  
+  "physical_properties": {
+    "distance_kpc": 1.4,
+    "temperature_range_K": [36, 48],
+    "density_range_cm3": [5500, 9000],
+    "velocity_range_kms": [1.3, 1.3],
+    "radius_range_pc": [0.40, 0.70]
+  },
+  
+  "data_quality": {
+    "peer_reviewed": true,
+    "verified": true,
+    "completeness": "good",
+    "notes": "3-ring system with nearly constant expansion velocity. CII traces photodissociation region (PDR)."
+  },
+  
+  "usage_notes": {
+    "suitable_for_tests": ["constant_expansion", "pdr_structure", "multi_ring_consistency"],
+    "physics_assumptions": ["photodissociation_region", "expanding_bubble", "hii_region_driven"],
+    "caveats": ["Constant velocity may indicate pressure-driven expansion", "Only 3 rings - minimum for trend analysis"]
+  },
+  
+  "metadata_version": "1.0",
+  "created_date": "2025-10-19",
+  "last_updated": "2025-10-19"
+}
