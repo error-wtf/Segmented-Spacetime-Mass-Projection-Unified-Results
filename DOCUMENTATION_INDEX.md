@@ -19,7 +19,7 @@
 - **[docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md)** ([🇩🇪 DE](docs/PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts explained (no heavy math)
 - **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** ([🇩🇪 DE](docs/MATHEMATICAL_FORMULAS_DE.md)) - All formulas with derivations
 - **[docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md)** ([🇩🇪 DE](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) - Core algorithms & implementation
-- **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** - Practical use cases (coming soon)
+- **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
 
 ### 📊 Data Documentation
 - **[Sources.md](Sources.md)** - Complete data provenance & citations
@@ -62,7 +62,7 @@
 | [PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) | [🇬🇧](docs/PHYSICS_FOUNDATIONS.md) [🇩🇪](docs/PHYSICS_FOUNDATIONS_DE.md) | Physical concepts (560 lines) | Physicists, Students |
 | [MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) | [🇬🇧](docs/MATHEMATICAL_FORMULAS.md) [🇩🇪](docs/MATHEMATICAL_FORMULAS_DE.md) | Complete math formulation (465 lines) | Theorists, Mathematicians |
 | [CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) | [🇬🇧](docs/CODE_IMPLEMENTATION_GUIDE.md) [🇩🇪](docs/CODE_IMPLEMENTATION_GUIDE_DE.md) | Code algorithms & implementation (669 lines) | Developers |
-| [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) | 🇬🇧 | Practical examples | Researchers (WIP) |
+| [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) | [🇬🇧](docs/EXAMPLES_AND_APPLICATIONS.md) [🇩🇪](docs/EXAMPLES_AND_APPLICATIONS_DE.md) | Practical examples (774 lines) | Researchers |
 
 ### 2. Installation & Setup
 
@@ -209,7 +209,7 @@ Documentation/
 │   ├── Sources.md                   # Data provenance ⭐
 │   └── [40+ other docs]
 │
-├── docs/                            ⭐ NEW: Theory & Code (Bilingual EN/DE)
+├── docs/                            ⭐ NEW: Theory & Code (Bilingual EN/DE - COMPLETE)
 │   ├── THEORY_AND_CODE_INDEX.md     # Main theory index ⭐⭐
 │   ├── THEORY_AND_CODE_INDEX_DE.md  # (German version)
 │   ├── PHYSICS_FOUNDATIONS.md       # Physical concepts ⭐⭐
@@ -218,7 +218,8 @@ Documentation/
 │   ├── MATHEMATICAL_FORMULAS_DE.md  # (German version)
 │   ├── CODE_IMPLEMENTATION_GUIDE.md # Code guide ⭐⭐
 │   ├── CODE_IMPLEMENTATION_GUIDE_DE.md # (German version)
-│   ├── EXAMPLES_AND_APPLICATIONS.md # Examples (WIP)
+│   ├── EXAMPLES_AND_APPLICATIONS.md # Examples ⭐⭐
+│   ├── EXAMPLES_AND_APPLICATIONS_DE.md # (German version)
 │   └── theory/                      # 21 theory papers
 │       └── README.md
 │
@@ -250,7 +251,7 @@ Documentation/
 - ✅ [PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) ([🇩🇪](docs/PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts (560 lines) ⭐⭐
 - ✅ [MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) ([🇩🇪](docs/MATHEMATICAL_FORMULAS_DE.md)) - All formulas (465 lines) ⭐⭐
 - ✅ [CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) ([🇩🇪](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) - Implementation (669 lines) ⭐⭐
-- 🔄 [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) - Practical examples (WIP)
+- ✅ [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) ([🇩🇪](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples (774 lines) ⭐⭐
 
 **All bilingual documentation complete with:**
 - 🇬🇧 English versions (primary)
@@ -318,6 +319,6 @@ Documentation/
 
 **Last Updated:** 2025-10-19  
 **Documentation Version:** v1.2.2 ⭐ NEW: Complete Bilingual Theory & Code Documentation  
-**Total Documents:** 50+ files (8 theory/code docs: 4 EN + 4 DE)
+**Total Documents:** 52+ files (10 theory/code docs: 5 EN + 5 DE - ALL COMPLETE)
 
 © 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4
