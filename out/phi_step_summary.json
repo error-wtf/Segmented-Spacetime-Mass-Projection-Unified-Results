@@ -1,10 +1,10 @@
 {
-  "rows_used": 157,
-  "abs_residual_mean": 0.0486369797017564,
-  "abs_residual_median": 0.0005566244081211837,
+  "rows_used": 187,
+  "abs_residual_mean": 0.10842182826645239,
+  "abs_residual_median": 0.001807149625323711,
   "abs_residual_max": 0.4870033006754366,
-  "residual_mean": 0.011210851213988553,
-  "residual_std": 0.12658767739030896,
+  "residual_mean": 0.07699989151469008,
+  "residual_std": 0.1902959115329431,
   "phi": 1.618033988749895,
   "ln_phi": 0.48121182505960347,
   "column_log": {
