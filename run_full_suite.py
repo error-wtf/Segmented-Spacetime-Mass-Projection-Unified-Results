@@ -10,11 +10,11 @@ Test Phases:
     3. Scripts/tests (pytest - SSZ kernel, invariants, segmenter, cosmo)
     4. Cosmos tests (pytest - multi-body sigma)
     5. Complete SSZ analysis (run_all_ssz_terminal.py)
-    6. Example runs (G79, Cygnus X)
-    7. Paper export tools demo (figure generation, captions, manifest)
-    8. Summary generation
-    9. MD echo (reports/ directory only)
-    10. Output log generation (summary + full)
+    6. SSZ Theory Predictions (4 tests - Horizon, Hawking, Information, Singularity)
+    7. Example runs (G79, Cygnus X)
+    8. Paper export tools demo (figure generation, captions, manifest)
+    9. Summary generation
+    10. MD echo (reports/ directory only)
     
 Output Logs:
     - RUN_SUMMARY.md: Compact test results summary
@@ -296,10 +296,24 @@ def main():
             print(f"  [SKIP] SSZ Terminal Analysis (run_all_ssz_terminal.py not found)")
     
     # =============================================================================
-    # PHASE 6: Example Runs (if not quick mode)
+    # PHASE 6: SSZ THEORY PREDICTIONS (Horizon, Hawking, Information, Singularity)
+    # =============================================================================
+    if not args.skip_slow_tests and not args.quick:
+        print_header("PHASE 6: SSZ THEORY PREDICTIONS TESTS", "-")
+        
+        prediction_tests = Path("scripts/tests/test_horizon_hawking_predictions.py")
+        if prediction_tests.exists():
+            cmd = ["python", str(prediction_tests)]
+            success, elapsed = run_command(cmd, "SSZ Theory Predictions (4 Tests)", 120, check=False)
+            results["SSZ Theory Predictions"] = {"success": success, "time": elapsed}
+        else:
+            print(f"  [SKIP] SSZ Theory Predictions (file not found)")
+    
+    # =============================================================================
+    # PHASE 7: Example Runs (if not quick mode)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 6: EXAMPLE ANALYSIS RUNS", "-")
+        print_header("PHASE 7: EXAMPLE ANALYSIS RUNS", "-")
         
         # Check if example data exists
         g79_data = Path("data/observations/G79_29+0_46_CO_NH3_rings.csv")
@@ -330,10 +344,10 @@ def main():
             results["Cygnus X Analysis"] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 7: Paper Export Tools Demo
+    # PHASE 8: Paper Export Tools Demo
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 7: PAPER EXPORT TOOLS", "-")
+        print_header("PHASE 8: PAPER EXPORT TOOLS", "-")
         
         demo_script = Path("demo_paper_exports.py")
         if demo_script.exists():
@@ -344,7 +358,7 @@ def main():
             print(f"  [SKIP] Paper Export Tools Demo (demo_paper_exports.py not found)")
     
     # =============================================================================
-    # PHASE 8: Generate Summary
+    # PHASE 9: Generate Summary
     # =============================================================================
     suite_elapsed = time.time() - suite_start
     
@@ -396,7 +410,7 @@ def main():
     print(f"\nSummary written to: {summary_file}")
     
     # =============================================================================
-    # PHASE 9: Echo Relevant Markdown Outputs (Reports Only)
+    # PHASE 10: Echo Relevant Markdown Outputs (Reports Only)
     # =============================================================================
     if not args.no_echo_md:
         print_header("ECHOING REPORTS & SUMMARIES", "=")
