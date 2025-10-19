@@ -2,14 +2,14 @@
 
 # Segmented Spacetime – Mass Projection & Unified Results
 
-[![Tests](https://img.shields.io/badge/tests-58%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Tests](https://img.shields.io/badge/tests-69%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20WSL%20%7C%20macOS%20%7C%20Colab-brightgreen)](#cross-platform-compatibility)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
 © Carmen Wrede & Lino Casu
 
-**Latest Release:** v1.2.0 (2025-10-19) - Real Astronomical Data Integration
+**Latest Release:** v1.2.1 (2025-10-19) - Multi-Ring Validation Tests
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
@@ -52,7 +52,7 @@ chmod +x install.sh
 - ✅ [6/11] Fetches data (if missing)
 - ✅ [7/11] Installs SSZ package
 - ✅ [8/11] Generates pipeline outputs
-- ✅ [9/11] Runs 58 tests
+- ✅ [9/11] Runs 69 tests
 - ✅ [10/11] Verifies installation
 - ✅ [11/11] Generates summary
 
@@ -84,6 +84,7 @@ chmod +x install.sh
 
 ✅ **427 data points** from **117 unique sources** - ALL peer-reviewed  
 ✅ **38 verified observations** (M87*, Cygnus X-1, S2 star)  
+✅ **13 multi-ring structures** (G79.29+0.46: 10 rings, Cygnus X: 3 rings)  
 ✅ **6+ orders of magnitude** frequency coverage (Radio → X-ray)  
 ✅ **ALL 3 theory warnings RESOLVED** with real data  
 
@@ -92,6 +93,8 @@ chmod +x install.sh
 - 🔭 **Cygnus X-1 Thermal X-ray** (Chandra ACIS)
 - 🔭 **S2 Star Timeseries** (VLT/GRAVITY 2002-2018)
 - 🔭 **M87/Sgr A* NED Spectra** (284 continuum observations)
+- 🔭 **G79.29+0.46 Multi-Ring** (10 rings, IRAM 30m + VLA, Di Francesco+ 2010)
+- 🔭 **Cygnus X Diamond Ring** (3 rings, Herschel HIFI, Schneider+ 2016)
 
 **Quality Gate:**
 - Paired test: SEG better **79/143 emission lines** (55%), p < 0.001
@@ -160,9 +163,10 @@ ssz-print-md --help
 
 ### Test Overview
 
-**Total: 58 Tests**
+**Total: 69 Tests**
 - **35 Physics Tests** - Detailed output with physical interpretations
 - **23 Technical Tests** - Silent mode (background validation)
+- **11 Multi-Ring Validation Tests** - Real astronomical ring datasets (G79, Cygnus X)
 
 ### Run Tests
 
