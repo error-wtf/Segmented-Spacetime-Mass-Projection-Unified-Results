@@ -22,10 +22,11 @@ Output Logs:
 Test Categories:
 - 35 Physics Tests (with detailed physical interpretations)
 - 23 Technical Tests (CLI, encoding, data validation)
+- 11 Multi-Ring Validation Tests (G79, Cygnus X - real astronomical data)
 - 12 Pipeline Tests (require generated debug files from run_all_ssz_terminal.py)
 
 Usage:
-    python run_full_suite.py           # Run all 58 tests (~5 min)
+    python run_full_suite.py           # Run all 69+ tests (~5 min)
     python run_full_suite.py --quick   # Skip pipeline-dependent tests
 
 Note: For pipeline tests (12 tests), first run: python run_all_ssz_terminal.py
@@ -271,12 +272,25 @@ def main():
             print(f"  [WARNING] Silent test failed: {desc}")
     
     # =============================================================================
-    # PHASE 3: Scripts Tests (scripts/tests/ directory)
+    # PHASE 3: Multi-Ring Dataset Validation Tests (tests/ directory)
+    # =============================================================================
+    print_header("PHASE 3: MULTI-RING VALIDATION TESTS", "-")
+    
+    ring_test_file = Path("tests/test_ring_datasets.py")
+    if ring_test_file.exists():
+        cmd = ["python", "-m", "pytest", str(ring_test_file), "-s", "-v", "--tb=short"]
+        success, elapsed = run_command(cmd, "Multi-Ring Dataset Validation Tests", 60, check=False)
+        results["Multi-Ring Validation Tests"] = {"success": success, "time": elapsed}
+    else:
+        print(f"  [SKIP] Multi-Ring Validation Tests (file not found)")
+    
+    # =============================================================================
+    # PHASE 4: Scripts Tests (scripts/tests/ directory)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 3: SCRIPTS/TESTS", "-")
+        print_header("PHASE 4: SCRIPTS/TESTS", "-")
         
-        tests_phase3 = [
+        tests_phase4 = [
             (["python", "-m", "pytest", "scripts/tests/test_ssz_kernel.py", "-s", "-v", "--tb=short"],
              "SSZ Kernel Tests", 60),
             (["python", "-m", "pytest", "scripts/tests/test_ssz_invariants.py", "-s", "-v", "--tb=short"],
@@ -289,7 +303,7 @@ def main():
              "Cosmo Multibody Tests", 60),
         ]
         
-        for cmd, desc, timeout in tests_phase3:
+        for cmd, desc, timeout in tests_phase4:
             if Path(cmd[3]).exists():
                 success, elapsed = run_command(cmd, desc, timeout, check=False)
                 results[desc] = {"success": success, "time": elapsed}
@@ -297,25 +311,25 @@ def main():
                 print(f"  [SKIP] {desc} (file not found)")
     
     # =============================================================================
-    # PHASE 4: Cosmos Tests (tests/cosmos/)
+    # PHASE 5: Cosmos Tests (tests/cosmos/)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 4: COSMOS TESTS", "-")
+        print_header("PHASE 5: COSMOS TESTS", "-")
         
-        tests_phase4 = [
+        tests_phase5 = [
             (["python", "-m", "pytest", "tests/cosmos/", "-s", "-v", "--tb=short"],
              "Cosmos Multi-Body Sigma Tests", 60),
         ]
         
-        for cmd, desc, timeout in tests_phase4:
+        for cmd, desc, timeout in tests_phase5:
             success, elapsed = run_command(cmd, desc, timeout, check=False)
             results[desc] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 5: Complete SSZ Analysis (run_all_ssz_terminal.py)
+    # PHASE 6: Complete SSZ Analysis (run_all_ssz_terminal.py)
     # =============================================================================
     if not args.skip_slow_tests and not args.quick:
-        print_header("PHASE 5: COMPLETE SSZ ANALYSIS", "-")
+        print_header("PHASE 6: COMPLETE SSZ ANALYSIS", "-")
         
         ssz_runner = Path("run_all_ssz_terminal.py")
         if ssz_runner.exists():
@@ -326,10 +340,10 @@ def main():
             print(f"  [SKIP] SSZ Terminal Analysis (run_all_ssz_terminal.py not found)")
     
     # =============================================================================
-    # PHASE 6: SSZ THEORY PREDICTIONS (Horizon, Hawking, Information, Singularity)
+    # PHASE 7: SSZ THEORY PREDICTIONS (Horizon, Hawking, Information, Singularity)
     # =============================================================================
     if not args.skip_slow_tests and not args.quick:
-        print_header("PHASE 6: SSZ THEORY PREDICTIONS TESTS", "-")
+        print_header("PHASE 7: SSZ THEORY PREDICTIONS TESTS", "-")
         
         prediction_tests = Path("scripts/tests/test_horizon_hawking_predictions.py")
         if prediction_tests.exists():
@@ -340,10 +354,10 @@ def main():
             print(f"  [SKIP] SSZ Theory Predictions (file not found)")
     
     # =============================================================================
-    # PHASE 7: Example Runs (if not quick mode)
+    # PHASE 8: Example Runs (if not quick mode)
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 7: EXAMPLE ANALYSIS RUNS", "-")
+        print_header("PHASE 8: EXAMPLE ANALYSIS RUNS", "-")
         
         # Check if example data exists
         g79_data = Path("data/observations/G79_29+0_46_CO_NH3_rings.csv")
@@ -374,10 +388,10 @@ def main():
             results["Cygnus X Analysis"] = {"success": success, "time": elapsed}
     
     # =============================================================================
-    # PHASE 8: Paper Export Tools Demo
+    # PHASE 9: Paper Export Tools Demo
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 8: PAPER EXPORT TOOLS", "-")
+        print_header("PHASE 9: PAPER EXPORT TOOLS", "-")
         
         demo_script = Path("demo_paper_exports.py")
         if demo_script.exists():
@@ -388,7 +402,7 @@ def main():
             print(f"  [SKIP] Paper Export Tools Demo (demo_paper_exports.py not found)")
     
     # =============================================================================
-    # PHASE 9: Generate Summary
+    # PHASE 10: Generate Summary
     # =============================================================================
     suite_elapsed = time.time() - suite_start
     
@@ -397,6 +411,7 @@ def main():
     passed = sum(1 for r in results.values() if r["success"])
     failed = len(results) - passed  # Only count actual failures in results
     silent_test_count = 3  # UTF-8 Encoding, CLI Tests, MD Print Tests
+    ring_test_count = 11  # Multi-Ring Validation Tests (G79 + Cygnus X)
     total_test_time = sum(r["time"] for r in results.values())
     
     print(f"Total Phases: {len(results)}")
@@ -422,6 +437,7 @@ def main():
         f.write(f"## Overview\n\n")
         f.write(f"- **Physics Test Suites:** {len(results)}\n")
         f.write(f"- **Silent Technical Tests:** {silent_test_count} (UTF-8, CLI, MD Print)\n")
+        f.write(f"- **Multi-Ring Validation Tests:** {ring_test_count} (G79, Cygnus X)\n")
         f.write(f"- **Passed:** {passed}\n")
         f.write(f"- **Failed:** {failed}\n")
         f.write(f"- **Success Rate:** {(passed/len(results)*100) if len(results) > 0 else 0:.1f}%\n")
@@ -431,7 +447,8 @@ def main():
         for name, result in results.items():
             status = "✅ PASS" if result["success"] else "❌ FAIL"
             f.write(f"- **{name}:** {status} ({result['time']:.1f}s)\n")
-        f.write(f"\n> **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.\n\n")
+        f.write(f"\n> **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.\n")
+        f.write(f"> Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.\n\n")
         f.write(f"---\n\n")
         f.write(f"**Copyright © 2025**\n")
         f.write(f"Carmen Wrede und Lino Casu\n")
@@ -440,7 +457,7 @@ def main():
     print(f"\nSummary written to: {summary_file}")
     
     # =============================================================================
-    # PHASE 10: Echo Relevant Markdown Outputs (Reports Only)
+    # PHASE 11: Echo Relevant Markdown Outputs (Reports Only)
     # =============================================================================
     if not args.no_echo_md:
         print_header("ECHOING REPORTS & SUMMARIES", "=")

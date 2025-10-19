@@ -1,16 +1,17 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-19 13:11:14
+**Date:** 2025-10-19 13:43:58
 
 ## Overview
 
-- **Physics Test Suites:** 18
+- **Physics Test Suites:** 8
 - **Silent Technical Tests:** 3 (UTF-8, CLI, MD Print)
-- **Passed:** 18
+- **Multi-Ring Validation Tests:** 11 (G79, Cygnus X)
+- **Passed:** 8
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 134.9s
-- **Total Suite Time:** 172.2s
+- **Total Test Time:** 11.4s
+- **Total Suite Time:** 48.9s
 
 ## Physics Test Results
 
@@ -20,20 +21,11 @@
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (5.3s)
-- **SSZ Kernel Tests:** ✅ PASS (5.9s)
-- **SSZ Invariants Tests:** ✅ PASS (5.0s)
-- **Segmenter Tests:** ✅ PASS (4.9s)
-- **Cosmo Fields Tests:** ✅ PASS (5.1s)
-- **Cosmo Multibody Tests:** ✅ PASS (6.3s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (6.5s)
-- **SSZ Complete Analysis:** ✅ PASS (84.3s)
-- **SSZ Theory Predictions:** ✅ PASS (2.6s)
-- **G79 Analysis:** ✅ PASS (2.2s)
-- **Cygnus X Analysis:** ✅ PASS (2.2s)
-- **Paper Export Tools:** ✅ PASS (3.8s)
+- **SegWave Core Math Tests:** ✅ PASS (5.7s)
+- **Multi-Ring Validation Tests:** ✅ PASS (5.0s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
+> Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.
 
 ---
 
