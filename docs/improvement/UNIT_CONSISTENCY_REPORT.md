@@ -1,0 +1,255 @@
+# Unit Consistency Report
+
+**Generated:** 2025-10-20 01:51:22
+
+---
+
+## 📊 Summary
+
+- **Total Formulas:** 10
+- **Dimensionally Consistent:** 7
+- **Success Rate:** 70.0%
+
+⚠️  **3 formulas need attention**
+
+---
+
+## 📋 Formula-by-Formula Analysis
+
+### ✅ Golden Ratio
+
+**Formula:** `φ = (1 + √5)/2`
+
+**Expected Units:** dimensionless
+
+**Result Units:** dimensionless
+
+**Dimensional Analysis:** `N/A`
+
+**Component Units:**
+- `1` → dimensionless
+- `√5` → dimensionless
+- `2` → dimensionless
+
+✅ **Dimensionally consistent**
+
+---
+
+### ❌ Schwarzschild Radius
+
+**Formula:** `r_s = 2GM/c²`
+
+**Expected Units:** length (m)
+
+**Result Units:** m
+
+**Dimensional Analysis:** `[L] = [L³·T⁻²]/[L²·T⁻²] = [L]`
+
+**Component Units:**
+- `G` → m³ kg⁻¹ s⁻²
+- `M` → kg
+- `c²` → m² s⁻²
+- `GM` → m³ s⁻²
+- `GM/c²` → m
+
+❌ **Unit mismatch detected**
+
+---
+
+### ❌ Phi Radius
+
+**Formula:** `r_φ = φ·(GM/c²)·(1 + Δ/100)`
+
+**Expected Units:** length (m)
+
+**Result Units:** m
+
+**Dimensional Analysis:** `[L] = [1]·[L]·[1] = [L]`
+
+**Component Units:**
+- `φ` → dimensionless
+- `GM/c²` → m
+- `Δ/100` → dimensionless
+- `1 + Δ/100` → dimensionless
+
+❌ **Unit mismatch detected**
+
+---
+
+### ❌ Escape Velocity
+
+**Formula:** `v_esc = √(2GM/r)`
+
+**Expected Units:** velocity (m/s)
+
+**Result Units:** m s⁻¹
+
+**Dimensional Analysis:** `[L·T⁻¹] = √([L³·T⁻²]/[L]) = √[L²·T⁻²] = [L·T⁻¹]`
+
+**Component Units:**
+- `G` → m³ kg⁻¹ s⁻²
+- `M` → kg
+- `r` → m
+- `GM` → m³ s⁻²
+- `GM/r` → m² s⁻²
+- `√(GM/r)` → m s⁻¹
+
+❌ **Unit mismatch detected**
+
+---
+
+### ✅ Dual Velocity Invariant
+
+**Formula:** `v_esc · v_fall = c²`
+
+**Expected Units:** m² s⁻²
+
+**Result Units:** m² s⁻²
+
+**Dimensional Analysis:** `[L²·T⁻²] = [L·T⁻¹]·[L·T⁻¹] = [L²·T⁻²]`
+
+**Component Units:**
+- `v_esc` → m s⁻¹
+- `v_fall` → m s⁻¹
+- `c²` → m² s⁻²
+
+✅ **Dimensionally consistent**
+
+---
+
+### ✅ Time Dilation
+
+**Formula:** `τ(x) = φ^(-α·N(x))`
+
+**Expected Units:** dimensionless
+
+**Result Units:** dimensionless
+
+**Dimensional Analysis:** `[1] = [1]^[1] = [1]`
+
+**Component Units:**
+- `φ` → dimensionless
+- `α` → dimensionless
+- `N(x)` → dimensionless (segments per volume becomes dimensionless ratio)
+- `α·N(x)` → dimensionless
+- `φ^(-α·N(x))` → dimensionless
+
+✅ **Dimensionally consistent**
+
+---
+
+### ✅ Refractive Index
+
+**Formula:** `n(x) = 1 + κ·N(x)`
+
+**Expected Units:** dimensionless
+
+**Result Units:** dimensionless
+
+**Dimensional Analysis:** `[1] = [1] + [1]·[1] = [1]`
+
+**Component Units:**
+- `1` → dimensionless
+- `κ` → dimensionless
+- `N(x)` → dimensionless
+- `κ·N(x)` → dimensionless
+
+✅ **Dimensionally consistent**
+
+---
+
+### ✅ Metric Component
+
+**Formula:** `A(r) = 1 - r_s/r`
+
+**Expected Units:** dimensionless
+
+**Result Units:** dimensionless
+
+**Dimensional Analysis:** `[1] = [1] - [L]/[L] = [1]`
+
+**Component Units:**
+- `1` → dimensionless
+- `r_s` → m
+- `r` → m
+- `r_s/r` → dimensionless
+
+✅ **Dimensionally consistent**
+
+---
+
+### ✅ Gravitational Constant
+
+**Formula:** `G in F = GMm/r²`
+
+**Expected Units:** m³ kg⁻¹ s⁻²
+
+**Result Units:** m³ kg⁻¹ s⁻²
+
+**Dimensional Analysis:** `[M·L·T⁻²] = [M³·L⁻¹·T⁻²]·[M²·L⁻²]`
+
+**Component Units:**
+- `F` → kg m s⁻² (Newton)
+- `M` → kg
+- `m` → kg
+- `r²` → m²
+- `Mm/r²` → kg² m⁻²
+- `G` → m³ kg⁻¹ s⁻²
+
+✅ **Dimensionally consistent**
+
+---
+
+### ✅ Speed Of Light
+
+**Formula:** `c constant`
+
+**Expected Units:** m s⁻¹
+
+**Result Units:** m s⁻¹
+
+**Dimensional Analysis:** `[L·T⁻¹]`
+
+**Component Units:**
+- `c` → m s⁻¹
+
+✅ **Dimensionally consistent**
+
+---
+
+## 📐 SI Base Units Reference
+
+| Quantity | Symbol | SI Unit |
+|----------|--------|----------|
+| Length | L | meter (m) |
+| Mass | M | kilogram (kg) |
+| Time | T | second (s) |
+| Velocity | - | m s⁻¹ |
+| Acceleration | - | m s⁻² |
+| Force | - | kg m s⁻² (Newton) |
+| Energy | - | kg m² s⁻² (Joule) |
+
+## 🔢 Physical Constants (SI Units)
+
+| Constant | Symbol | Value | Units |
+|----------|--------|-------|-------|
+| Gravitational constant | G | 6.67430×10⁻¹¹ | m³ kg⁻¹ s⁻² |
+| Speed of light | c | 299792458 | m s⁻¹ |
+| Golden ratio | φ | 1.618... | dimensionless |
+| Solar mass | M☉ | 1.98847×10³⁰ | kg |
+
+## 🧮 Common Derived Quantities
+
+| Quantity | Formula | Units | Dimensional |
+|----------|---------|-------|-------------|
+| Schwarzschild radius | 2GM/c² | m | [L] |
+| Escape velocity | √(2GM/r) | m s⁻¹ | [L·T⁻¹] |
+| Gravitational acceleration | GM/r² | m s⁻² | [L·T⁻²] |
+| Gravitational potential | GM/r | m² s⁻² | [L²·T⁻²] |
+| Energy | mc² | kg m² s⁻² | [M·L²·T⁻²] |
+
+---
+
+**Generated by:** `scripts/check_unit_consistency.py`
+
+© 2025 Carmen Wrede & Lino Casu
