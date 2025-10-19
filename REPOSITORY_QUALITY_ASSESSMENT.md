@@ -212,7 +212,7 @@ Suggested Structure:
 
 **Recommendations:**
 1. **Consolidate Quick Starts:**
-   - Merge into single QUICK_START.md
+   - Merge into single QUICK_START_GUIDE.md
    - Keep platform-specific sections
    
 2. **Create Documentation Hub:**
@@ -220,12 +220,12 @@ Suggested Structure:
    # Documentation Hub
    
    ## New Users
-   - [Quick Start](QUICK_START.md)
+   - [Quick Start](QUICK_START_GUIDE.md)
    - [Installation](INSTALL.md)
    
    ## Developers
    - [API Reference](API.md)
-   - [Contributing](CONTRIBUTING.md)
+   - [Contributing](CONTRIBUTING.md) <!-- TODO: Create CONTRIBUTING.md -->
    
    ## Scientists
    - [Theory Papers](papers/validation/)
