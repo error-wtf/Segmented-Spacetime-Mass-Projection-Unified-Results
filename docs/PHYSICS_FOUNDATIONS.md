@@ -1,53 +1,55 @@
-# Physikalische Grundlagen – Segmented Spacetime (SSZ)
+# Physical Foundations – Segmented Spacetime (SSZ)
 
-**Intuitive Einführung in die segmentierte Raumzeit-Theorie**
+**Intuitive introduction to segmented spacetime theory**
 
 © Carmen Wrede & Lino Casu, 2025
 
----
-
-## 🎯 Ziel dieser Dokumentation
-
-Verständnis der **physikalischen Ideen** hinter der Segmented Spacetime Theorie **ohne komplexe Mathematik**.
-
-**Nach dem Lesen verstehst du:**
-- Was segmentierte Raumzeit bedeutet
-- Warum der goldene Schnitt φ zentral ist
-- Wie Masse die Raumzeit strukturiert
-- Warum das Modell Singularitäten vermeidet
-- Wo SSZ mit der Allgemeinen Relativitätstheorie (GR) übereinstimmt
+**🌐 Languages:** [🇬🇧 English](PHYSICS_FOUNDATIONS.md) | [🇩🇪 Deutsch](PHYSICS_FOUNDATIONS_DE.md)
 
 ---
 
-## 1. Das Grundproblem: Singularitäten in der GR
+## 🎯 Goal of this Documentation
 
-### Was ist eine Singularität?
+Understanding the **physical ideas** behind the Segmented Spacetime theory **without complex mathematics**.
 
-In der **Allgemeinen Relativitätstheorie (GR)** von Einstein:
-- Masse krümmt Raumzeit
-- Je näher an der Masse, desto stärker die Krümmung
-- **Am Zentrum eines Schwarzen Lochs:** Unendliche Krümmung = **Singularität**
+**After reading you will understand:**
+- What segmented spacetime means
+- Why the golden ratio φ is central
+- How mass structures spacetime
+- Why the model avoids singularities
+- Where SSZ agrees with General Relativity (GR)
+
+---
+
+## 1. The Core Problem: Singularities in GR
+
+### What is a Singularity?
+
+In Einstein's **General Relativity (GR)**:
+- Mass curves spacetime
+- The closer to the mass, the stronger the curvature
+- **At the center of a black hole:** Infinite curvature = **Singularity**
 
 **Problem:**
-- Physik bricht zusammen (Division durch Null)
-- Alle physikalischen Größen werden unendlich
-- Mathematisch schwierig zu handhaben
+- Physics breaks down (division by zero)
+- All physical quantities become infinite
+- Mathematically difficult to handle
 
-### Die SSZ-Lösung: Natürliche Grenze
+### The SSZ Solution: Natural Boundary
 
-**Idee:** Raumzeit ist nicht kontinuierlich, sondern **segmentiert**
-- Segmente haben minimale Größe
-- Keine unendliche Verdichtung möglich
-- **Natürliche Grenze** verhindert Singularität
+**Idea:** Spacetime is not continuous but **segmented**
+- Segments have minimal size
+- No infinite compression possible
+- **Natural boundary** prevents singularity
 
-**Analogie:**
-- GR: Raumzeit wie Wasser (kontinuierlich, beliebig teilbar)
-- SSZ: Raumzeit wie Sand (aus Körnern = Segmenten)
-- Sand kann man nicht unendlich komprimieren!
+**Analogy:**
+- GR: Spacetime like water (continuous, arbitrarily divisible)
+- SSZ: Spacetime like sand (made of grains = segments)
+- Sand cannot be compressed infinitely!
 
 ---
 
-## 2. Der Goldene Schnitt φ – Warum gerade diese Zahl?
+## 2. The Golden Ratio φ – Why This Number?
 
 ### Definition
 
@@ -55,503 +57,503 @@ In der **Allgemeinen Relativitätstheorie (GR)** von Einstein:
 φ = (1 + √5)/2 ≈ 1.618033988749...
 ```
 
-**Besondere Eigenschaft:**
+**Special property:**
 ```
 φ² = φ + 1
 ```
 
-### Warum φ?
+### Why φ?
 
-**1. Selbstähnlichkeit**
-- φ teilt Strecken optimal
-- Fibonacci-Spiralen in der Natur
-- Optimale Raumausnutzung
+**1. Self-Similarity**
+- φ divides lengths optimally
+- Fibonacci spirals in nature
+- Optimal space utilization
 
-**2. Zeitstruktur**
-- Zeit fließt in φ-Schritten
-- Jeder Zeitschritt ist φ-mal länger als der vorherige
-- Selbstähnliche Zeitdynamik
+**2. Time Structure**
+- Time flows in φ-steps
+- Each time step is φ times longer than the previous
+- Self-similar time dynamics
 
-**3. Mathematische Eleganz**
-- φ ist algebraisch einfach (Quadratwurzel aus 5)
-- Viele Vereinfachungen möglich
-- Natürliche Basis für Segmentierung
+**3. Mathematical Elegance**
+- φ is algebraically simple (square root of 5)
+- Many simplifications possible
+- Natural basis for segmentation
 
-**Analogie:**
-- Normale Physik: Zeit tickt gleichmäßig (1, 2, 3, 4...)
-- SSZ: Zeit wächst geometrisch (φ⁰, φ¹, φ², φ³...)
+**Analogy:**
+- Normal physics: Time ticks uniformly (1, 2, 3, 4...)
+- SSZ: Time grows geometrically (φ⁰, φ¹, φ², φ³...)
 
 ---
 
-## 3. Segmentierte Raumzeit – Das Kernkonzept
+## 3. Segmented Spacetime – The Core Concept
 
-### Was ist ein Segment?
+### What is a Segment?
 
-**Segment = Minimale Raumzeit-Einheit**
-- Hat Ausdehnung (nicht punktförmig)
-- Strukturiert durch φ
-- Zeit verläuft segmentweise
+**Segment = Minimal spacetime unit**
+- Has extension (not point-like)
+- Structured by φ
+- Time progresses segment-wise
 
-### Segment-Dichte N(x)
+### Segment Density N(x)
 
-**Physikalische Bedeutung:**
-- N(x) = Anzahl der Segmente pro Volumen am Ort x
-- **Hohe Dichte:** Viele Segmente → Zeit läuft langsam
-- **Niedrige Dichte:** Wenige Segmente → Zeit läuft normal
+**Physical meaning:**
+- N(x) = Number of segments per volume at location x
+- **High density:** Many segments → time runs slowly
+- **Low density:** Few segments → time runs normally
 
-**Wo kommt die Dichte her?**
-- Masse erzeugt Segmente
-- Je mehr Masse, desto höher N(x)
-- **Gravitation = Gradient der Segment-Dichte**
+**Where does the density come from?**
+- Mass creates segments
+- The more mass, the higher N(x)
+- **Gravitation = Gradient of segment density**
 
-**Formel (vereinfacht):**
+**Formula (simplified):**
 ```
-N(x) = Σ [Masse_i × Kernel(Abstand zu Masse_i)]
+N(x) = Σ [Mass_i × Kernel(distance to Mass_i)]
 ```
 
-### Zeit-Dilatation τ(x)
+### Time Dilation τ(x)
 
-**Physikalische Bedeutung:**
-- τ(x) = Wie schnell vergeht die Zeit am Ort x?
-- τ < 1: Zeit läuft langsamer (nahe Masse)
-- τ = 1: Zeit läuft normal (weit weg)
+**Physical meaning:**
+- τ(x) = How fast does time pass at location x?
+- τ < 1: Time runs slower (near mass)
+- τ = 1: Time runs normally (far away)
 
-**Formel:**
+**Formula:**
 ```
 τ(x) = φ^(-α·N(x))
 ```
 
 **Interpretation:**
-- Hohe Segment-Dichte → großes N(x)
-- Großes N(x) → kleines τ(x)
-- Kleines τ(x) → **Zeit läuft langsamer**
+- High segment density → large N(x)
+- Large N(x) → small τ(x)
+- Small τ(x) → **Time runs slower**
 
-**Das ist Gravitation!**
-- Einstein: Gravitation = Raumzeit-Krümmung
-- SSZ: Gravitation = Segment-Dichte-Gradient
+**This is gravitation!**
+- Einstein: Gravitation = Spacetime curvature
+- SSZ: Gravitation = Segment density gradient
 
 ---
 
-## 4. Masse-Projektion – Wie Masse wirkt
+## 4. Mass Projection – How Mass Acts
 
-### Charakteristischer Radius r_φ
+### Characteristic Radius r_φ
 
-**Physikalische Bedeutung:**
-- r_φ = "Typischer Radius" einer Masse M
-- Vergleichbar mit Schwarzschild-Radius r_s
-- **Aber:** φ statt 2, plus Korrektion Δ(M)
+**Physical meaning:**
+- r_φ = "Typical radius" of a mass M
+- Comparable to Schwarzschild radius r_s
+- **But:** φ instead of 2, plus correction Δ(M)
 
-**Formel:**
+**Formula:**
 ```
 r_φ = φ · (GM/c²) · (1 + Δ(M)/100)
 ```
 
-**Vergleich mit GR:**
+**Comparison with GR:**
 ```
-r_s = 2 · (GM/c²)          (Schwarzschild-Radius, GR)
-r_φ ≈ 1.618 · (GM/c²)      (φ-Radius, SSZ ohne Δ(M))
+r_s = 2 · (GM/c²)          (Schwarzschild radius, GR)
+r_φ ≈ 1.618 · (GM/c²)      (φ-radius, SSZ without Δ(M))
 ```
 
-**Warum kleiner als r_s?**
+**Why smaller than r_s?**
 - φ ≈ 1.618 < 2
-- SSZ "kompakter" als GR
-- Aber: Δ(M) gleicht das teilweise aus
+- SSZ more "compact" than GR
+- But: Δ(M) partially compensates
 
-### Δ(M)-Modell: Massenabhängige Korrektion
+### Δ(M) Model: Mass-Dependent Correction
 
-**Warum nötig?**
-- Kleine Massen: SSZ ≈ GR (Schwach-Feld)
-- Große Massen: SSZ-Effekte werden stärker
-- Δ(M) interpoliert zwischen beiden Regimen
+**Why necessary?**
+- Small masses: SSZ ≈ GR (weak field)
+- Large masses: SSZ effects become stronger
+- Δ(M) interpolates between both regimes
 
-**Formel:**
+**Formula:**
 ```
 Δ(M) = A · exp(-α·r_s) + B
 ```
 
-**Bedeutung der Parameter:**
-- A ≈ 98: Amplitude der Korrektion
-- α ≈ 27000: Wie schnell Korrektion abfällt
-- B ≈ 2: Basis-Offset
+**Parameter meanings:**
+- A ≈ 98: Amplitude of correction
+- α ≈ 27000: How fast correction decays
+- B ≈ 2: Base offset
 
-**Physikalische Interpretation:**
-- **Kleine Massen** (r_s klein): exp(-α·r_s) ≈ 1 → Δ(M) ≈ A+B ≈ 100%
+**Physical interpretation:**
+- **Small masses** (r_s small): exp(-α·r_s) ≈ 1 → Δ(M) ≈ A+B ≈ 100%
   - r_φ ≈ φ·(GM/c²)·2 ≈ 3.24·(GM/c²) ≈ 1.62·r_s
-  - **SSZ nahe GR!**
-- **Große Massen** (r_s groß): exp(-α·r_s) ≈ 0 → Δ(M) ≈ B ≈ 2%
+  - **SSZ close to GR!**
+- **Large masses** (r_s large): exp(-α·r_s) ≈ 0 → Δ(M) ≈ B ≈ 2%
   - r_φ ≈ φ·(GM/c²)·1.02 ≈ 1.65·(GM/c²)
-  - **SSZ-Effekte dominant**
+  - **SSZ effects dominant**
 
 ---
 
-## 5. Dual-Geschwindigkeiten – Eine fundamentale Invariante
+## 5. Dual Velocities – A Fundamental Invariant
 
-### Das Konzept
+### The Concept
 
-**Zwei Geschwindigkeiten:**
-1. **v_esc(r)** = Fluchtgeschwindigkeit (klassisch)
-2. **v_fall(r)** = Fallgeschwindigkeit (segment-basiert, dual)
+**Two velocities:**
+1. **v_esc(r)** = Escape velocity (classical)
+2. **v_fall(r)** = Fall velocity (segment-based, dual)
 
-**Invariante:**
+**Invariant:**
 ```
 v_esc(r) × v_fall(r) = c²
 ```
 
-**Diese Gleichung gilt EXAKT!** (Maschinengenauigkeit!)
+**This equation holds EXACTLY!** (Machine precision!)
 
-### Physikalische Bedeutung
+### Physical Meaning
 
-**Fluchtgeschwindigkeit (klassisch):**
+**Escape velocity (classical):**
 ```
 v_esc = √(2GM/r)
 ```
-- Geschwindigkeit, um von Radius r ins Unendliche zu entkommen
-- Nimmt zu, je näher an der Masse
+- Velocity to escape from radius r to infinity
+- Increases closer to the mass
 
-**Duale Fallgeschwindigkeit (SSZ):**
+**Dual fall velocity (SSZ):**
 ```
 v_fall = c² / v_esc
 ```
-- Geschwindigkeit, mit der Segmente "fallen"
-- **NICHT** die Geschwindigkeit eines fallenden Objekts!
-- Beschreibt segment-basierte Raumzeit-Dynamik
+- Velocity at which segments "fall"
+- **NOT** the velocity of a falling object!
+- Describes segment-based spacetime dynamics
 
-**Warum dual?**
-- v_esc nahe Horizont: v_esc → c
-- v_fall nahe Horizont: v_fall → c² /c = c
-- **Beide konvergieren gegen c am Horizont!**
+**Why dual?**
+- v_esc near horizon: v_esc → c
+- v_fall near horizon: v_fall → c²/c = c
+- **Both converge to c at the horizon!**
 
-**Kann v_fall > c sein?**
-- Ja! Für r < c²/(2GM)
-- **Kein Problem:** v_fall ist keine physikalische Geschwindigkeit
-- Beschreibt segment-basierte Zeitdynamik
-- Vergleich: Phasengeschwindigkeit in Medien kann auch > c sein
+**Can v_fall > c?**
+- Yes! For r < c²/(2GM)
+- **No problem:** v_fall is not a physical velocity
+- Describes segment-based time dynamics
+- Comparison: Phase velocity in media can also be > c
 
-### Gamma-Faktoren: Konsistenz-Check
+### Gamma Factors: Consistency Check
 
-**GR-Zeitdilatation:**
+**GR time dilation:**
 ```
 γ_GR(r) = 1/√(1 - r_s/r)
 ```
 
-**Dualer Lorentz-Faktor:**
+**Dual Lorentz factor:**
 ```
 γ_dual(v_fall) = 1/√(1 - (c/v_fall)²)
 ```
 
-**Ergebnis:**
+**Result:**
 ```
-γ_GR(r) = γ_dual(v_fall(r))    [exakt!]
+γ_GR(r) = γ_dual(v_fall(r))    [exact!]
 ```
 
-**Das bedeutet:**
-- SSZ dual-Geschwindigkeiten erzeugen GR-Zeitdilatation
-- Konsistente Kinematik
-- Validierung der Segment-Formulierung
+**This means:**
+- SSZ dual velocities generate GR time dilation
+- Consistent kinematics
+- Validation of segment formulation
 
 ---
 
-## 6. Brechungsindex n(x) – Licht in gekrümmter Raumzeit
+## 6. Refractive Index n(x) – Light in Curved Spacetime
 
-### Konzept
+### Concept
 
 **Einstein (GR):**
-- Licht folgt Geodäten (kürzesten Wegen)
-- Raumzeit-Krümmung → Lichtablenkung
+- Light follows geodesics (shortest paths)
+- Spacetime curvature → light deflection
 
 **SSZ:**
-- Raumzeit hat effektiven Brechungsindex n(x)
-- Licht "langsamer" in dichter Segment-Region
-- Gleiche Ablenkung, andere Interpretation
+- Spacetime has effective refractive index n(x)
+- Light "slower" in dense segment regions
+- Same deflection, different interpretation
 
-### Formel
+### Formula
 
 ```
 n(x) = 1 + κ · N(x)
 ```
 
-**Parameter:**
-- κ: Kopplungsstärke (typisch κ ≈ 0.01...0.1)
-- N(x): Segment-Dichte
+**Parameters:**
+- κ: Coupling strength (typically κ ≈ 0.01...0.1)
+- N(x): Segment density
 
-**Physikalische Bedeutung:**
-- n = 1: Vakuum (keine Segmente)
-- n > 1: "Optisch dichter" (viele Segmente)
-- Licht langsamer → Ablenkung
+**Physical meaning:**
+- n = 1: Vacuum (no segments)
+- n > 1: "Optically denser" (many segments)
+- Light slower → deflection
 
-**Analogie:**
-- Licht in Wasser: n_Wasser ≈ 1.33 → Licht langsamer
-- Licht nahe Sonne: n_SSZ ≈ 1 + 10⁻⁶ → minimale Verlangsamung
-- **Aber:** Auch kleine n führen zu messbarer Ablenkung!
+**Analogy:**
+- Light in water: n_water ≈ 1.33 → light slower
+- Light near Sun: n_SSZ ≈ 1 + 10⁻⁶ → minimal slowdown
+- **But:** Even small n leads to measurable deflection!
 
-### Lichtablenkung
+### Light Deflection
 
-**GR-Vorhersage (Sonne):**
+**GR prediction (Sun):**
 ```
-α_GR = 4GM/(c²·b) ≈ 1.75 Bogensekunden
+α_GR = 4GM/(c²·b) ≈ 1.75 arcseconds
 ```
 
-**SSZ-Vorhersage:**
-- Im Schwach-Feld: α_SSZ ≈ α_GR (PPN-kompatibel)
-- Im Stark-Feld: Leichte Abweichungen möglich
+**SSZ prediction:**
+- In weak field: α_SSZ ≈ α_GR (PPN compatible)
+- In strong field: Slight deviations possible
 
 ---
 
-## 7. PPN-Parameter – Kompatibilität mit GR
+## 7. PPN Parameters – Compatibility with GR
 
-### Was sind PPN-Parameter?
+### What are PPN Parameters?
 
-**Post-Newtonian-Formalism:**
-- Systematische Entwicklung relativistischer Effekte
-- **β**: Preferred-Frame-Effekt
-- **γ**: Raumkrümmungs-Parameter
+**Post-Newtonian Formalism:**
+- Systematic development of relativistic effects
+- **β**: Preferred-frame effect
+- **γ**: Space curvature parameter
 
-**GR-Werte:**
+**GR values:**
 ```
 β_GR = 1
 γ_GR = 1
 ```
 
-**Andere Theorien haben andere Werte!**
+**Other theories have different values!**
 
-### SSZ-Metrik
+### SSZ Metric
 
-**Metrischer Tensor (vereinfacht):**
+**Metric tensor (simplified):**
 ```
 ds² = -A(r)dt² + B(r)dr² + r²dΩ²
 ```
 
-**SSZ-Funktionen:**
+**SSZ functions:**
 ```
 A(r) = 1 - 2U + 2U² + ε₃·U³ + ...
 B(r) = 1/A(r)
 ```
 
-**Wobei:**
+**Where:**
 ```
-U = GM/(c²r)    (Schwach-Feld-Parameter)
-ε₃ = -24/5      (Kubischer Koeffizient)
+U = GM/(c²r)    (weak field parameter)
+ε₃ = -24/5      (cubic coefficient)
 ```
 
-### PPN-Extraktion
+### PPN Extraction
 
-**Entwicklung für U → 0:**
+**Expansion for U → 0:**
 ```
 A(r) ≈ 1 - 2U + 2U²
 B(r) ≈ 1 + 2U + ...
 ```
 
-**Ergebnis:**
+**Result:**
 ```
 β_SSZ = 1.0
 γ_SSZ = 1.0
 ```
 
-**Bedeutung:**
-- **SSZ reproduziert GR im Schwach-Feld exakt!**
-- Perihel-Rotation: ✓
-- Lichtablenkung: ✓
-- Shapiro-Verzögerung: ✓
+**Meaning:**
+- **SSZ reproduces GR in weak field exactly!**
+- Perihelion rotation: ✓
+- Light deflection: ✓
+- Shapiro delay: ✓
 
 ---
 
-## 8. Energie-Bedingungen – Physikalische Konsistenz
+## 8. Energy Conditions – Physical Consistency
 
-### Was sind Energie-Bedingungen?
+### What are Energy Conditions?
 
-**Physikalische Anforderungen an Materie:**
-- Energie-Dichte ρ ≥ 0 (keine negative Energie)
-- Druck-Energie p ≤ ρ (kein zu starker Druck)
-- Weitere technische Bedingungen
+**Physical requirements for matter:**
+- Energy density ρ ≥ 0 (no negative energy)
+- Pressure-energy p ≤ ρ (no excessive pressure)
+- Further technical conditions
 
-### Die drei Hauptbedingungen
+### The Three Main Conditions
 
 **1. Weak Energy Condition (WEC):**
 ```
 ρ ≥ 0
 ρ + p ≥ 0
 ```
-- Energie-Dichte ist positiv
-- Druck kann negativ sein, aber nicht zu stark
+- Energy density is positive
+- Pressure can be negative, but not too strong
 
 **2. Dominant Energy Condition (DEC):**
 ```
 ρ ≥ |p|
 ```
-- Energie-Dichte dominiert über Druck
-- Verhindert überlichtschnelle Energie-Ausbreitung
+- Energy density dominates over pressure
+- Prevents faster-than-light energy propagation
 
 **3. Strong Energy Condition (SEC):**
 ```
 ρ + 3p ≥ 0
 ρ + p ≥ 0
 ```
-- Gravitation ist immer anziehend
-- **Oft verletzt:** Dunkle Energie, Inflation
+- Gravitation is always attractive
+- **Often violated:** Dark energy, inflation
 
-### SSZ-Erfüllung
+### SSZ Fulfillment
 
-**Test-Ergebnisse:**
-- **WEC:** ✓ Erfüllt für r ≥ 5·r_s
-- **DEC:** ✓ Erfüllt für r ≥ 5·r_s
-- **SEC:** ✓ Erfüllt für r ≥ 5·r_s
+**Test results:**
+- **WEC:** ✓ Satisfied for r ≥ 5·r_s
+- **DEC:** ✓ Satisfied for r ≥ 5·r_s
+- **SEC:** ✓ Satisfied for r ≥ 5·r_s
 
 **Interpretation:**
-- SSZ ist physikalisch konsistent außerhalb 5·r_s
-- Im Nahfeld (r < 5·r_s): Modifikationen möglich
-- **Natürliche Grenze verhindert Probleme!**
+- SSZ is physically consistent outside 5·r_s
+- In near field (r < 5·r_s): Modifications possible
+- **Natural boundary prevents problems!**
 
 ---
 
-## 9. Schwarze Löcher – Die natürliche Grenze
+## 9. Black Holes – The Natural Boundary
 
-### GR: Das Singularitäts-Problem
+### GR: The Singularity Problem
 
-**Schwarzschild-Lösung:**
-- Ereignishorizont bei r = r_s = 2GM/c²
-- Zentrale Singularität bei r = 0
-- **Unendliche Dichte, Krümmung, Gezeitenkräfte**
+**Schwarzschild solution:**
+- Event horizon at r = r_s = 2GM/c²
+- Central singularity at r = 0
+- **Infinite density, curvature, tidal forces**
 
-### SSZ: Natürliche Grenze
+### SSZ: Natural Boundary
 
-**Konzept:**
-- Segmente haben minimale Größe
-- Maximale Segment-Dichte N_max
-- **Gravitation sättigt bei r → r_natural**
+**Concept:**
+- Segments have minimal size
+- Maximum segment density N_max
+- **Gravitation saturates at r → r_natural**
 
-**Formel (logistische Sättigung):**
+**Formula (logistic saturation):**
 ```
 N(r) = N_max / (1 + exp(k·(r - r_natural)))
 ```
 
-**Bedeutung:**
-- N(r) kann nicht unendlich werden
-- Bei r_natural: N(r) ≈ N_max/2
-- **Keine Singularität!**
+**Meaning:**
+- N(r) cannot become infinite
+- At r_natural: N(r) ≈ N_max/2
+- **No singularity!**
 
-### Photonen-Sphäre und ISCO
+### Photon Sphere and ISCO
 
-**Photonen-Sphäre (r_ph):**
-- Kreisbahn für Licht
+**Photon sphere (r_ph):**
+- Circular orbit for light
 - GR: r_ph = 3GM/c² = 1.5·r_s
-- SSZ: r_ph ≈ 1.4·r_s (leicht kleiner)
+- SSZ: r_ph ≈ 1.4·r_s (slightly smaller)
 
 **ISCO (Innermost Stable Circular Orbit):**
-- Innerste stabile Kreisbahn für Materie
+- Innermost stable circular orbit for matter
 - GR: r_ISCO = 6GM/c² = 3·r_s
-- SSZ: r_ISCO ≈ 2.8·r_s (leicht kleiner)
+- SSZ: r_ISCO ≈ 2.8·r_s (slightly smaller)
 
-**Schwarzschild-Schatten:**
-- Beobachteter Radius des Schwarzen Lochs
+**Schwarzschild shadow:**
+- Observed radius of black hole
 - GR: b_shadow = √27·GM/c²
-- SSZ: b_shadow ≈ 0.94·b_GR (6% kleiner)
+- SSZ: b_shadow ≈ 0.94·b_GR (6% smaller)
 
-**Event Horizon Telescope (EHT) kompatibel!**
+**Event Horizon Telescope (EHT) compatible!**
 
 ---
 
-## 10. Hawking-Strahlung Proxy
+## 10. Hawking Radiation Proxy
 
-### GR: Hawking-Temperatur
+### GR: Hawking Temperature
 
-**Formel:**
+**Formula:**
 ```
 T_H = ℏc³/(8πGMk_B)
 ```
 
-**Bedeutung:**
-- Schwarze Löcher strahlen
-- Temperatur umgekehrt proportional zu Masse
-- **Problem:** Benötigt Quantengravitation (nicht in GR!)
+**Meaning:**
+- Black holes radiate
+- Temperature inversely proportional to mass
+- **Problem:** Requires quantum gravity (not in GR!)
 
-### SSZ: Proxy ohne Quantentheorie
+### SSZ: Proxy without Quantum Theory
 
-**Ansatz:**
-- Segment-Schwingungen erzeugen effektive Temperatur
-- Ähnliche Skalierung wie T_H
-- **Klassische** Beschreibung (keine Quanten nötig!)
+**Approach:**
+- Segment oscillations create effective temperature
+- Similar scaling as T_H
+- **Classical** description (no quanta needed!)
 
-**Formel:**
+**Formula:**
 ```
 T_SSZ ≈ c²/(k_B · r_φ) · f(N(r_φ))
 ```
 
-**Vergleich:**
-- SSZ-Temperatur skaliert richtig mit M⁻¹
-- Numerischer Faktor anpassbar
-- **Qualitative** Übereinstimmung mit Hawking
+**Comparison:**
+- SSZ temperature scales correctly with M⁻¹
+- Numerical factor adjustable
+- **Qualitative** agreement with Hawking
 
-**Bedeutung:**
-- SSZ bietet **semi-klassischen** Zugang zu Quanteneffekten
-- Übergang zu voller Quantentheorie möglich
-- Test-Framework für Hawking-Proxy vorhanden
+**Meaning:**
+- SSZ offers **semi-classical** access to quantum effects
+- Transition to full quantum theory possible
+- Test framework for Hawking proxy available
 
 ---
 
-## 11. Zusammenfassung: Warum funktioniert SSZ?
+## 11. Summary: Why Does SSZ Work?
 
-### Kernprinzipien
+### Core Principles
 
-1. **Segmentierung statt Kontinuum**
-   - Vermeidet Singularitäten
-   - Natürliche minimale Skala
+1. **Segmentation instead of continuum**
+   - Avoids singularities
+   - Natural minimal scale
 
-2. **Goldener Schnitt φ**
-   - Optimale Raumzeit-Struktur
-   - Selbstähnliche Zeitdynamik
-   - Mathematische Eleganz
+2. **Golden ratio φ**
+   - Optimal spacetime structure
+   - Self-similar time dynamics
+   - Mathematical elegance
 
-3. **Masse-Projektion r_φ**
-   - Charakteristische Längenskala
-   - Δ(M)-Modell für Massenabhängigkeit
-   - Glatte Interpolation Schwach ↔ Stark
+3. **Mass projection r_φ**
+   - Characteristic length scale
+   - Δ(M) model for mass dependence
+   - Smooth interpolation weak ↔ strong
 
-4. **Dual-Geschwindigkeiten**
-   - Fundamentale Invariante v_esc × v_fall = c²
-   - Konsistente Kinematik
-   - Validierung durch γ_GR = γ_dual
+4. **Dual velocities**
+   - Fundamental invariant v_esc × v_fall = c²
+   - Consistent kinematics
+   - Validation through γ_GR = γ_dual
 
-5. **GR-Kompatibilität**
+5. **GR compatibility**
    - PPN: β = γ = 1
-   - Schwach-Feld-Tests bestanden
-   - Perihel, Ablenkung, Shapiro ✓
+   - Weak field tests passed
+   - Perihelion, deflection, Shapiro ✓
 
-6. **Physikalische Konsistenz**
-   - Energie-Bedingungen erfüllt
-   - Natürliche Grenze bei Schwarzen Löchern
-   - Hawking-Proxy verfügbar
+6. **Physical consistency**
+   - Energy conditions satisfied
+   - Natural boundary at black holes
+   - Hawking proxy available
 
-### Wo steht SSZ heute?
+### Where Does SSZ Stand Today?
 
-**Erfolge:**
-- ✓ Mathematisch konsistent
-- ✓ Numerisch validiert
-- ✓ GR-kompatibel im Schwach-Feld
-- ✓ Testbare Vorhersagen im Stark-Feld
+**Successes:**
+- ✓ Mathematically consistent
+- ✓ Numerically validated
+- ✓ GR-compatible in weak field
+- ✓ Testable predictions in strong field
 
-**Offene Fragen:**
-- Vollständige Quantentheorie?
-- Kosmologische Anwendungen?
-- Experimentelle Tests (EHT, LIGO)?
+**Open Questions:**
+- Complete quantum theory?
+- Cosmological applications?
+- Experimental tests (EHT, LIGO)?
 
-**Nächste Schritte:**
-- Mehr astronomische Daten
-- Verfeinerung der Parameter
-- Vergleich mit Beobachtungen
+**Next Steps:**
+- More astronomical data
+- Refinement of parameters
+- Comparison with observations
 
 ---
 
-## 📚 Weiterführende Literatur
+## 📚 Further Reading
 
-**Papers (in diesem Repository):**
+**Papers (in this repository):**
 1. `SegmentedSpacetime-ANewPerspectiveonLightGravityandBlackHoles.md`
 2. `DualVelocitiesinSegmentedSpacetime.md`
 3. `Segment-BasedGroupVelocity.md`
 4. `SegmentedSpacetimeandtheNaturalBoundaryofBlackHoles.md`
 
-**Nächster Schritt:**
-→ [Mathematische Formeln](MATHEMATICAL_FORMULAS.md) für detaillierte Herleitungen
+**Next step:**
+→ [Mathematical Formulas](MATHEMATICAL_FORMULAS.md) for detailed derivations
 
 ---
 
-**Du hast jetzt ein solides physikalisches Verständnis der SSZ-Theorie! 🎓**
+**You now have a solid physical understanding of SSZ theory! 🎓**
