@@ -1,8 +1,8 @@
 # DATA IMPROVEMENT STATUS REPORT
 
-**Analyse-Datum:** 2025-10-19  
-**Roadmap-Version:** v1.0.0  
-**Aktueller Status:** TEILWEISE IMPLEMENTIERT ✅⚠️
+**Analysis Date:** 2025-10-19  
+**Roadmap Version:** v1.0.0  
+**Current Status:** PARTIALLY IMPLEMENTED ✅⚠️
 
 **🌐 Languages:** [🇬🇧 English](DATA_IMPROVEMENT_STATUS_REPORT_EN.md) | [🇩🇪 Deutsch](DATA_IMPROVEMENT_STATUS_REPORT.md)
 
@@ -10,163 +10,163 @@
 
 ## 📊 Executive Summary
 
-**Von den geplanten Improvements wurden bereits umgesetzt:**
+**Of the planned improvements, already implemented:**
 - ✅ **Phase 2 (Thermal Spectrum):** 100% COMPLETE
 - ✅ **Phase 1 (Time-Series):** 100% COMPLETE (S2 Star)
-- ⚠️ **Phase 1 (Multi-frequency):** TEILWEISE (noch nicht in real_data_full.csv integriert)
-- ❌ **Phase 3 (Integration):** NICHT ABGESCHLOSSEN
+- ⚠️ **Phase 1 (Multi-frequency):** PARTIAL (not yet integrated into real_data_full.csv)
+- ❌ **Phase 3 (Integration):** NOT COMPLETED
 
 ---
 
-## ✅ ERFOLGREICH IMPLEMENTIERT
+## ✅ SUCCESSFULLY IMPLEMENTED
 
 ### 1. S2 Star Time-Series Data ✅ COMPLETE
 
-**Roadmap Anforderung:**
+**Roadmap Requirement:**
 - Option 1A: S2 Star Real Data
-- Minimum 5-10 Observationen
-- Verschiedene Orbitalphasen
-- Multi-frequency (verschiedene f_emit)
+- Minimum 5-10 observations
+- Different orbital phases
+- Multi-frequency (different f_emit)
 
-**Tatsächlicher Status:**
+**Actual Status:**
 ```
-Datei: data/observations/s2_star_timeseries.csv
-Zeilen: 10 (header + 10 Datenpunkte)
+File: data/observations/s2_star_timeseries.csv
+Rows: 10 (header + 10 data points)
 ```
 
-**Analyse:**
+**Analysis:**
 ```python
 Source: S2
-Beobachtungen: 5 Zeitpunkte (2002-2010)
-Frequenzen pro Zeitpunkt: 2 (Br-gamma + H-alpha)
+Observations: 5 time points (2002-2010)
+Frequencies per time point: 2 (Br-gamma + H-alpha)
 f_emit_1: 4.568050e+14 Hz (Br-gamma)
 f_emit_2: 6.907575e+14 Hz (H-alpha)
 Orbital phases: 0.12, 0.24, 0.36, 0.48, 0.60
 ```
 
-**✅ Erfüllt Roadmap-Anforderungen:**
-- ✅ Mindestens 5 Observationen: JA (5 Zeitpunkte)
-- ✅ Verschiedene Orbitalphasen: JA
-- ✅ Multi-frequency: JA (2 Spektrallinien)
-- ✅ Zeitliche Evolution: JA (8 Jahre Spanne)
+**✅ Meets Roadmap Requirements:**
+- ✅ At least 5 observations: YES (5 time points)
+- ✅ Different orbital phases: YES
+- ✅ Multi-frequency: YES (2 spectral lines)
+- ✅ Temporal evolution: YES (8 year span)
 
-**Status:** **COMPLETE** - Kann Warning 1 & 2 lösen!
+**Status:** **COMPLETE** - Can solve Warning 1 & 2!
 
 ---
 
 ### 2. Cyg X-1 Thermal Spectrum ✅ COMPLETE
 
-**Roadmap Anforderung:**
+**Roadmap Requirement:**
 - Option 2A: Stellar-Mass Black Hole X-ray Spectrum
 - 50-100 spectrum bins
 - Thermal continuum
 - X-ray range
 
-**Tatsächlicher Status:**
+**Actual Status:**
 ```
-Datei: data/observations/cyg_x1_thermal_spectrum.csv
-Zeilen: 10 (header + 10 Datenpunkte)
+File: data/observations/cyg_x1_thermal_spectrum.csv
+Rows: 10 (header + 10 data points)
 ```
 
-**Analyse:**
+**Analysis:**
 ```python
 Source: Cyg_X-1
-Frequenzen: 10 bins (1.0e+17 - 3.0e+18 Hz)
+Frequencies: 10 bins (1.0e+17 - 3.0e+18 Hz)
 Coverage: X-ray range
-Temperature: 3.0e+07 K (konstant)
+Temperature: 3.0e+07 K (constant)
 Observation date: 2024-01-15
 ```
 
-**✅ Erfüllt Roadmap-Anforderungen:**
-- ✅ X-ray spectrum: JA (10^17 - 10^18 Hz)
-- ✅ Thermal continuum: JA (flux values)
-- ✅ Single source: JA (Cyg_X-1)
-- ⚠️ Anzahl bins: 10 (Roadmap wollte 50-100, aber ausreichend)
+**✅ Meets Roadmap Requirements:**
+- ✅ X-ray spectrum: YES (10^17 - 10^18 Hz)
+- ✅ Thermal continuum: YES (flux values)
+- ✅ Single source: YES (Cyg_X-1)
+- ⚠️ Number of bins: 10 (Roadmap wanted 50-100, but sufficient)
 
-**Status:** **COMPLETE** - Kann Warning 3 lösen!
+**Status:** **COMPLETE** - Can solve Warning 3!
 
 ---
 
 ### 3. M87 Continuum Spectrum ✅ BONUS
 
-**Nicht im Roadmap, aber vorhanden:**
+**Not in roadmap, but available:**
 ```
-Datei: data/observations/m87_continuum_spectrum.csv
-Zeilen: 10
-Frequenzen: 1.0e+09 - 1.0e+17 Hz
+File: data/observations/m87_continuum_spectrum.csv
+Rows: 10
+Frequencies: 1.0e+09 - 1.0e+17 Hz
 Type: AGN continuum (radio to X-ray)
 ```
 
-**Status:** **BONUS DATA** - Zusätzliche Validierung möglich!
+**Status:** **BONUS DATA** - Additional validation possible!
 
 ---
 
 ### 4. NED Spectra ✅ BONUS
 
-**Nicht im Roadmap, aber vorhanden:**
+**Not in roadmap, but available:**
 ```
-Datei: data/observations/m87_ned_spectrum.csv (13 KB)
-Datei: data/observations/sgra_ned_spectrum.csv (364 bytes)
+File: data/observations/m87_ned_spectrum.csv (13 KB)
+File: data/observations/sgra_ned_spectrum.csv (364 bytes)
 ```
 
-**Status:** **BONUS DATA** - M87 und Sgr A* Spektren verfügbar!
+**Status:** **BONUS DATA** - M87 and Sgr A* spectra available!
 
 ---
 
-## ⚠️ TEILWEISE IMPLEMENTIERT
+## ⚠️ PARTIALLY IMPLEMENTED
 
 ### 1. Data Integration (Phase 3) ⚠️ IN PROGRESS
 
 **Problem:**
 ```python
-# Aktuelle real_data_full.csv
+# Current real_data_full.csv
 Total rows: 127
 Unique sources: 119
-Sources mit >1 Datenpunkt: 2 (synthetic pericenter, NS-BH merger)
+Sources with >1 data point: 2 (synthetic pericenter, NS-BH merger)
 ```
 
-**Was fehlt:**
-- ❌ S2 star data NICHT in real_data_full.csv integriert
-- ❌ Cyg X-1 thermal NICHT in real_data_full.csv integriert
-- ❌ Multi-frequency support fehlt in Schema
+**What's Missing:**
+- ❌ S2 star data NOT integrated into real_data_full.csv
+- ❌ Cyg X-1 thermal NOT integrated into real_data_full.csv
+- ❌ Multi-frequency support missing in schema
 
-**Warum das ein Problem ist:**
+**Why This Is a Problem:**
 ```
-test_horizon_hawking_predictions.py läuft auf real_data_full.csv
-→ Warnings bleiben, weil neue Daten nicht geladen werden!
+test_horizon_hawking_predictions.py runs on real_data_full.csv
+→ Warnings persist because new data is not loaded!
 ```
 
 ---
 
-## ❌ NOCH NICHT IMPLEMENTIERT
+## ❌ NOT YET IMPLEMENTED
 
 ### 1. CSV Schema Update ❌ PENDING
 
-**Roadmap Schritt 3.1:**
+**Roadmap Step 3.1:**
 ```csv
-# Soll:
+# Should be:
 source, case, f_emit_Hz, f_obs_Hz, r_emit_m, M_solar, n_round, epoch, obs_type
 
-# Ist:
+# Currently is:
 source, f_emit_Hz, f_obs_Hz, r_emit_m, M_solar, case, n_round
 ```
 
-**Fehlende Spalten:**
-- ❌ `epoch` - für zeitliche Zuordnung
+**Missing Columns:**
+- ❌ `epoch` - for temporal assignment
 - ❌ `obs_type` - (timeseries, thermal, snapshot)
 
 ---
 
 ### 2. Data Loader Update ❌ PENDING
 
-**Roadmap Schritt 3.2:**
+**Roadmap Step 3.2:**
 - ❌ Update `scripts/data_loaders/load_timeseries.py`
 - ❌ Add multi-source support
 - ❌ Add thermal spectrum loader
 
-**Aktueller Status:**
+**Current Status:**
 ```bash
-# Diese Files existieren nicht oder sind nicht updated:
+# These files don't exist or aren't updated:
 scripts/data_loaders/load_timeseries.py - ?
 ```
 
@@ -174,25 +174,25 @@ scripts/data_loaders/load_timeseries.py - ?
 
 ### 3. Test Update ❌ PENDING
 
-**Roadmap Schritt 3.3:**
+**Roadmap Step 3.3:**
 - ❌ Re-run test_horizon_hawking_predictions.py
-- ❌ Erwarte: Alle Warnings verschwunden
-- ❌ Dokumentiere: Neue Ergebnisse
+- ❌ Expect: All warnings disappeared
+- ❌ Document: New results
 
 ---
 
-## 🎯 NÄCHSTE SCHRITTE (Priorität)
+## 🎯 NEXT STEPS (Priority)
 
-### Schritt 1: Data Integration (1-2 Stunden) 🔴 KRITISCH
+### Step 1: Data Integration (1-2 Hours) 🔴 CRITICAL
 
-**Aktion:**
+**Action:**
 ```python
 # 1. Merge s2_star_timeseries.csv → real_data_full.csv
 # 2. Merge cyg_x1_thermal_spectrum.csv → real_data_full.csv
 # 3. Add epoch & obs_type columns
 ```
 
-**Script (vorgeschlagen):**
+**Script (Proposed):**
 ```python
 import pandas as pd
 
@@ -227,18 +227,18 @@ print(f"New rows: {len(df_new)}")
 print(f"Added: {len(df_new) - len(df_main)}")
 ```
 
-**Erwartetes Ergebnis:**
+**Expected Result:**
 ```
 Old rows: 127
 New rows: 147 (127 + 10 S2 + 10 Cyg X-1)
-Sources with ≥3 points: 2 (S2 mit 10, Cyg X-1 mit 10)
+Sources with ≥3 points: 2 (S2 with 10, Cyg X-1 with 10)
 ```
 
 ---
 
-### Schritt 2: Test Re-Run (10 Minuten) 🟡 WICHTIG
+### Step 2: Test Re-Run (10 Minutes) 🟡 IMPORTANT
 
-**Aktion:**
+**Action:**
 ```bash
 # 1. Backup old file
 cp data/real_data_full.csv data/real_data_full_v1_backup.csv
@@ -250,7 +250,7 @@ mv data/real_data_full_v2.csv data/real_data_full.csv
 python test_horizon_hawking_predictions.py
 ```
 
-**Erwartete Änderungen:**
+**Expected Changes:**
 ```
 Warning 1: FIXED ✅
   Sources with ≥3 points: 2 (S2, Cyg X-1)
@@ -266,59 +266,59 @@ Warning 3: IMPROVED ⚠️→✅
 
 ---
 
-### Schritt 3: Dokumentation (30 Minuten) 🟢 FOLLOW-UP
+### Step 3: Documentation (30 Minutes) 🟢 FOLLOW-UP
 
-**Aktion:**
+**Action:**
 1. ✅ Update COMPREHENSIVE_DATA_ANALYSIS.md
 2. ✅ Update DATA_CHANGELOG.md (v1.4.0)
 3. ✅ Update Sources.md (add S2, Cyg X-1 refs)
 
 ---
 
-## 📈 FORTSCHRITTS-ÜBERSICHT
+## 📈 PROGRESS OVERVIEW
 
-| Roadmap Item | Status | % Complete | Notizen |
-|--------------|--------|------------|---------|
-| **Phase 1: Time-Series** | ✅ | **100%** | S2 data vorhanden |
-| → S2 Star Data | ✅ | 100% | 10 Datenpunkte |
-| → Pulsar Data | ⚠️ | 0% | Optional (nicht kritisch) |
-| → AGN Variability | ⚠️ | 0% | Optional (nicht kritisch) |
-| **Phase 2: Thermal Spectra** | ✅ | **100%** | Cyg X-1 + M87 vorhanden |
+| Roadmap Item | Status | % Complete | Notes |
+|--------------|--------|------------|-------|
+| **Phase 1: Time-Series** | ✅ | **100%** | S2 data available |
+| → S2 Star Data | ✅ | 100% | 10 data points |
+| → Pulsar Data | ⚠️ | 0% | Optional (not critical) |
+| → AGN Variability | ⚠️ | 0% | Optional (not critical) |
+| **Phase 2: Thermal Spectra** | ✅ | **100%** | Cyg X-1 + M87 available |
 | → Cyg X-1 X-ray | ✅ | 100% | 10 frequency bins |
-| → NS Thermal | ⚠️ | 0% | Optional (nicht kritisch) |
-| → AGN Disk | ✅ | 100% | M87 vorhanden (bonus) |
-| **Phase 3: Integration** | ❌ | **0%** | **KRITISCHER BLOCKER** |
-| → CSV Schema Update | ❌ | 0% | Benötigt: epoch, obs_type |
+| → NS Thermal | ⚠️ | 0% | Optional (not critical) |
+| → AGN Disk | ✅ | 100% | M87 available (bonus) |
+| **Phase 3: Integration** | ❌ | **0%** | **CRITICAL BLOCKER** |
+| → CSV Schema Update | ❌ | 0% | Needs: epoch, obs_type |
 | → Data Merger | ❌ | 0% | S2 + Cyg X-1 → real_data_full.csv |
 | → Test Update | ❌ | 0% | Re-run tests |
 
-**Gesamt-Fortschritt:** ~67% (2/3 Phasen complete, aber Integration fehlt)
+**Overall Progress:** ~67% (2/3 phases complete, but integration missing)
 
 ---
 
-## 🚨 KRITISCHE BLOCKIERER
+## 🚨 CRITICAL BLOCKERS
 
 ### Blocker #1: Data Not Integrated ❌
 
 **Problem:**
 ```
-Neue Daten existieren in data/observations/ aber nicht in real_data_full.csv
-→ Tests lesen nur real_data_full.csv
-→ Warnings bleiben bestehen
+New data exists in data/observations/ but not in real_data_full.csv
+→ Tests only read real_data_full.csv
+→ Warnings persist
 ```
 
-**Auswirkung:**
-- ⚠️ Warning 1 & 2: NICHT gelöst (obwohl Daten vorhanden)
-- ⚠️ Warning 3: NICHT gelöst (obwohl Daten vorhanden)
+**Impact:**
+- ⚠️ Warning 1 & 2: NOT solved (although data is available)
+- ⚠️ Warning 3: NOT solved (although data is available)
 
-**Lösung:**
-- 🔴 **SOFORT:** Data merge script schreiben & ausführen (siehe Schritt 1)
+**Solution:**
+- 🔴 **IMMEDIATELY:** Write & execute data merge script (see Step 1)
 
 ---
 
-## ✅ ERFOLGS-KRITERIEN (Nach Integration)
+## ✅ SUCCESS CRITERIA (After Integration)
 
-**Nach Abschluss von Phase 3 sollte gelten:**
+**After completing Phase 3 should have:**
 
 ```python
 # real_data_full.csv (v2)
@@ -347,7 +347,7 @@ Warning 3: ✅ RESOLVED
 
 ---
 
-## 📊 DATEN-ÜBERSICHT (Aktuell Verfügbar)
+## 📊 DATA OVERVIEW (Currently Available)
 
 ### Time-Series Data
 | File | Source | Points | Frequencies | Status |
@@ -378,31 +378,31 @@ Warning 3: ✅ RESOLVED
 
 ---
 
-## 🎯 EMPFEHLUNG
+## 🎯 RECOMMENDATION
 
-**PRIORITÄT 1 (SOFORT):**
-1. ✅ Schreibe Data Merge Script (30 Min)
+**PRIORITY 1 (IMMEDIATELY):**
+1. ✅ Write data merge script (30 Min)
 2. ✅ Merge S2 + Cyg X-1 → real_data_full_v2.csv (10 Min)
 3. ✅ Re-run test_horizon_hawking_predictions.py (5 Min)
-4. ✅ Dokumentiere Ergebnisse (15 Min)
+4. ✅ Document results (15 Min)
 
-**Timeline:** **1 Stunde** für komplette Integration
+**Timeline:** **1 Hour** for complete integration
 
-**Erwartetes Ergebnis:**
-- ✅ Alle 3 Warnings RESOLVED
-- ✅ 18/18 Tests PASSED
-- ✅ 0 Warnings
+**Expected Result:**
+- ✅ All 3 warnings RESOLVED
+- ✅ 18/18 tests PASSED
+- ✅ 0 warnings
 - ✅ **PRODUCTION-READY FOR PUBLICATION** 🚀
 
 ---
 
-**Fazit:** Die Daten sind DA, nur die Integration fehlt! 🎯
+**Conclusion:** The data is THERE, only integration is missing! 🎯
 
 ---
 
 **© 2025 Carmen Wrede & Lino Casu**  
 **Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
-**Erstellt:** 2025-10-19  
+**Created:** 2025-10-19  
 **Status:** Analysis Complete - Action Required  
 **Version:** 1.0.0
