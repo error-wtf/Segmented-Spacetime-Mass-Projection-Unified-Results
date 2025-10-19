@@ -234,25 +234,109 @@ These tests provide **empirical validation** of SSZ theory's key distinctions fr
 
 ---
 
-## Future Enhancements
+## Extended Tests (Implemented)
 
-### **Jacobian Reconstruction Test:**
-- Implement `ν_emit → ν_obs → ν_emit,recon`
-- Measure reconstruction error: `|ν_emit - ν_emit,recon| / ν_emit`
-- Threshold: < 1e-3 or 1e-4
+### **Extended Test 1a: r_φ Cross-Verification** ✅
 
-### **Hawking Spectrum Fit:**
-- Generate Planck spectrum from `T_seg`
-- Fit vs. observed frequency distribution
-- Compare ΔBIC to non-thermal models
+**Method:** Multi-marker validation of horizon radius
 
-### **r_φ Cross-Verification:**
-- Cross-check r_φ using `z_geom_hint`, `N0`, `n_star`
-- Multi-method confidence interval
+**Markers Used:**
+1. **n_round ≈ 4φ** - Primary geometric marker
+2. **z_geom_hint** - Redshift-based geometric hint
+3. **N0 threshold** - High segment density regions (75th percentile)
+4. **n_star peak** - Maximum segment count regions (90% of peak)
 
-### **Group-Level Analysis:**
-- Per-source invertibility reports
-- Group statistics for monotonicity
+**Output:**
+- Console: Method comparison table with confidence levels
+- Metrics: Combined estimate with uncertainty
+- Confidence: High/Medium/Low based on method agreement
+
+**Example Results:**
+```
+Method Comparison:
+  n_round ≈ 4φ        : r_φ = 2.8352e+12 ± 1.5709e+16 m  [Low (Fallback)]
+  z_geom_hint         : r_φ = 3.8071e+10 ± 0.0000e+00 m  [Medium]
+  N0 threshold        : r_φ = 3.8071e+10 ± 9.9413e+12 m  [High]
+  n_star peak         : r_φ = 3.5129e+16 ± nan m  [Medium]
+
+Combined Estimate:
+  r_φ (combined) = 1.4366e+12 ± 9.0697e+15 m
+  Methods used:    4/4
+  Confidence:      Medium
+```
+
+---
+
+### **Extended Test 2a: Jacobian Reconstruction** ✅
+
+**Method:** Per-source frequency reconstruction analysis
+
+**Implementation:**
+- Groups data by source
+- Requires ≥3 data points per source
+- Computes Jacobian: `∂ν_obs/∂ν_emit` via finite differences
+- Estimates reconstruction error: `σ(J) / mean(J)`
+- Stability threshold: error < 0.1
+
+**Output:**
+- CSV: `reports/info_preservation_by_source.csv`
+- Columns: source, n_points, jacobian_mean, jacobian_std, inv_jacobian, reconstruction_error, is_stable
+
+**Metrics:**
+- Stable Jacobian percentage (error < 0.1)
+- Mean reconstruction error
+- Median reconstruction error
+
+**Note:** Currently limited by single-point data. Full reconstruction requires time-series observations.
+
+---
+
+### **Extended Test 4a: Hawking Spectrum Fit** ✅
+
+**Method:** Planck spectrum fit with Bayesian Information Criterion (BIC)
+
+**Implementation:**
+1. Compute `T_seg` from `κ_seg` via: `T = ℏκ/(2πk_Bc)`
+2. Generate Planck spectrum: `B_ν(T) = (2hν³/c²) / (exp(hν/kT) - 1)`
+3. Compare to observed frequency histogram (50 bins)
+4. Calculate BIC for Planck vs. Uniform (null) model
+5. Interpret ΔBIC:
+   - ΔBIC < -10: Strong evidence for thermal spectrum
+   - ΔBIC < -2: Moderate evidence
+   - |ΔBIC| < 2: Inconclusive
+   - ΔBIC > 2: No evidence
+
+**Output:**
+- Markdown: `reports/hawking_proxy_fit.md`
+- Contains: Temperature, κ_seg, frequency range, BIC comparison, interpretation
+
+**Example Results:**
+```
+Temperature: T_seg = 8.0953e-34 K
+Surface gravity: κ_seg = 1.9964e-13 m⁻¹
+
+Model Comparison (BIC):
+  BIC (Planck):  5771.15
+  BIC (Uniform): 412.00
+  ΔBIC:          5359.15  → No evidence for thermal spectrum
+```
+
+---
+
+## Test Suite Structure
+
+### **Core Tests (4):**
+1. Finite Horizon Area
+2. Information Preservation
+3. Singularity Resolution
+4. Natural Hawking Radiation
+
+### **Extended Tests (3):**
+1a. r_φ Cross-Verification
+2a. Jacobian Reconstruction
+4a. Hawking Spectrum Fit
+
+**Total:** 7 tests validating SSZ theory predictions
 
 ---
 
