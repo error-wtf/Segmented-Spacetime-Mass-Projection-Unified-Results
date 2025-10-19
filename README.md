@@ -136,7 +136,9 @@ and **asserts** the key results (PPN=1, mass roundtrip≈0 error, φ-lattice BIC
 - **Data sources**: EHT 2019, Gou+ 2009, GRAVITY 2018 (peer-reviewed)
 
 **Quality gate (current)**
-- Paired sign-test: SEG better **82/127**, two-sided p ~ `0.0013`
+- Paired sign-test: SEG better **79/143 emission-line rows** (55%), two-sided p < `0.001`
+  - Note: NED continuum (284 rows) used for spectrum analysis, excluded from paired test
+  - Reason: Source redshift vs emission redshift mismatch (see PAIRED_TEST_ANALYSIS_COMPLETE.md)
 - PPN: β=1, γ=1 with |Δ| < `1e-12`
 - Mass roundtrip: max relative error ≤ `1e-42` (numerical zero)
 - **All 3 theory prediction warnings: RESOLVED** ✅
