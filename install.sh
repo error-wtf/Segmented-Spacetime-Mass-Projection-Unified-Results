@@ -371,13 +371,17 @@ if [ "$SKIP_TESTS" = false ]; then
         done
         echo ""
         
-        # pytest tests (tests/ and scripts/tests/)
+        # pytest tests (tests/ only - scripts/tests/ needs pipeline outputs)
         echo -e "${CYAN}Pytest test suites:${NC}"
-        $PYTHON_CMD -m pytest tests/ scripts/tests/ -s -v --tb=short
+        $PYTHON_CMD -m pytest tests/ -s -v --tb=short
         
         if [ $? -ne 0 ]; then
             ALL_PASSED=false
         fi
+        
+        echo ""
+        print_info "ℹ Skipped scripts/tests/ (requires pipeline outputs)"
+        print_info "Run full test suite with: python run_full_suite.py"
         
         echo ""
         if [ "$ALL_PASSED" = true ]; then
