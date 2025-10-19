@@ -17,6 +17,10 @@ import os
 from pathlib import Path
 import sys
 
+# UTF-8 setup for Windows
+if sys.platform.startswith('win'):
+    os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+
 # Planck Legacy Archive URL
 PLANCK_URL = "https://pla.esac.esa.int/pla/aio/product-action?COSMOLOGY.FILE_ID=COM_PowerSpect_CMB-TT-full_R3.01.txt"
 
@@ -42,7 +46,7 @@ def download_with_progress(url, output_path):
                 mb_total = total_size / (1024**2)
                 bar_length = 50
                 filled = int(bar_length * percent / 100)
-                bar = '█' * filled + '░' * (bar_length - filled)
+                bar = '#' * filled + '.' * (bar_length - filled)
                 print(f"\r[{bar}] {percent:.1f}% ({mb_downloaded:.1f}/{mb_total:.1f} MB)", end='', flush=True)
         
         urllib.request.urlretrieve(url, output_path, reporthook=report_progress)
@@ -57,7 +61,7 @@ def main():
     
     # Check if file already exists
     if OUTPUT_FILE.exists():
-        print(f"✓ Planck data already exists: {OUTPUT_FILE}")
+        print(f"[OK] Planck data already exists: {OUTPUT_FILE}")
         print(f"  File size: {OUTPUT_FILE.stat().st_size / (1024**2):.1f} MB")
         print("")
         print("Skipping download (will not overwrite existing file).")
@@ -92,7 +96,7 @@ def main():
         file_size_mb = OUTPUT_FILE.stat().st_size / (1024**2)
         print("")
         print("="*80)
-        print("✓ Download complete!")
+        print("[OK] Download complete!")
         print("="*80)
         print(f"File: {OUTPUT_FILE}")
         print(f"Size: {file_size_mb:.1f} MB")
@@ -103,13 +107,13 @@ def main():
     else:
         print("")
         print("="*80)
-        print("✗ Download failed")
+        print("[FAILED] Download failed")
         print("="*80)
         print("")
         print("Both download sources failed. Possible reasons:")
-        print("  • No internet connection")
-        print("  • ESA/IPAC servers temporarily down")
-        print("  • Firewall blocking download")
+        print("  - No internet connection")
+        print("  - ESA/IPAC servers temporarily down")
+        print("  - Firewall blocking download")
         print("")
         print("You can try again later with:")
         print(f"  python scripts/fetch_planck.py")
