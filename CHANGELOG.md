@@ -6,6 +6,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.1] - 2025-10-19
+
+### 🎉 Multi-Ring Validation Tests
+
+#### Added
+
+**Multi-Ring Dataset Validation (11 new tests):**
+- Complete validation test suite for multi-ring astronomical observations
+- G79.29+0.46: 10-ring star-forming region (CO, NH₃)
+- Cygnus X Diamond Ring: 3-ring molecular cloud (C II)
+- Tests: Ring completeness, growth statistics, temperature gradients, velocity profiles, tracer documentation
+- Real observational data integration (no synthetic data)
+
+**Test Suite Integration:**
+- New Phase 3 in `run_full_suite.py` for multi-ring tests
+- Updated test count: 58 → 69 tests
+- All ring tests logged in `reports/full-output.md`
+- Structured test pipeline now complete
+
+**Documentation:**
+- `tests/test_ring_datasets.py` - 11 parametrized tests
+- `data/observations/MULTI_RING_CATALOG.md` - Dataset catalog
+- `data/observations/RING_METADATA.md` - Dataset metadata
+- `DATA_USAGE_SUMMARY.md` - Data usage guide
+- `MULTI_RING_TEST_INTEGRATION.md` - Integration guide
+
+**Colab Integration:**
+- Updated `SSZ_Full_Pipeline_Colab.ipynb` to use `run_full_suite.py`
+- All 69 tests now run in Colab environment
+- Complete logging and reporting in Colab
+
+#### Changed
+
+- Test count badge: 58 → 69 passing
+- Version: v1.2.0 → v1.2.1
+- README.md updated with multi-ring datasets
+- Full test suite now includes all validation tests
+
+#### Status
+
+- ✅ 69 tests total (35 physics + 23 technical + 11 ring)
+- ✅ All tests passing
+- ✅ Complete logging in reports/full-output.md
+- ✅ Cross-platform compatible (Windows, Linux, Colab)
+
+---
+
 ## [1.3.0] - 2025-10-19
 
 ### 🎉 Major Update: Dataset Expansion + Comprehensive Warning System

@@ -74,36 +74,7 @@ chmod +x install.sh
 
 **Details:** See [`CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md`](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)
 
----
-
-## 📢 What's New in v1.2.0
-
-### 🎉 Real Astronomical Data Integration
-
-**⚠️ ALL SYNTHETIC DATA ELIMINATED**
-
-✅ **427 data points** from **117 unique sources** - ALL peer-reviewed  
-✅ **38 verified observations** (M87*, Cygnus X-1, S2 star)  
-✅ **13 multi-ring structures** (G79.29+0.46: 10 rings, Cygnus X: 3 rings)  
-✅ **6+ orders of magnitude** frequency coverage (Radio → X-ray)  
-✅ **ALL 3 theory warnings RESOLVED** with real data  
-
-**Data Sources:**
-- 🔭 **M87* Multi-Frequency** (ALMA, Chandra, EHT 2017)
-- 🔭 **Cygnus X-1 Thermal X-ray** (Chandra ACIS)
-- 🔭 **S2 Star Timeseries** (VLT/GRAVITY 2002-2018)
-- 🔭 **M87/Sgr A* NED Spectra** (284 continuum observations)
-- 🔭 **G79.29+0.46 Multi-Ring** (10 rings, IRAM 30m + VLA, Di Francesco+ 2010)
-- 🔭 **Cygnus X Diamond Ring** (3 rings, Herschel HIFI, Schneider+ 2016)
-
-**Quality Gate:**
-- Paired test: SEG better **79/143 emission lines** (55%), p < 0.001
-- PPN: β=1, γ=1 with |Δ| < 1e-12 ✓
-- Mass roundtrip: max error ≤ 1e-42 (numerical zero) ✓
-- φ-lattice: ΔBIC ≥ +100 ✓
-- Dual invariant: v_esc × v_fall = c² with error ~1.7e-15 ✓
-
-[Full changelog →](CHANGELOG.md)
+**What's New:** See [CHANGELOG.md](CHANGELOG.md) for complete release history
 
 ---
 
@@ -253,7 +224,7 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 ## 📊 Key Results
 
-### Current Dataset (v1.2.0)
+### Current Dataset (v1.2.1)
 
 **427 data points** from **117 unique sources**
 
@@ -323,7 +294,7 @@ python segspace_all_in_one_extended.py bound-energy --plots
 ### For Developers
 
 - Cross-platform Python scientific code example
-- Comprehensive test system (58 tests)
+- Comprehensive test system (69 tests)
 - CI/CD integration (GitHub Actions)
 - UTF-8 handling best practices
 
@@ -442,7 +413,7 @@ See [LICENSE](LICENSE) for full terms.
   author = {Wrede, Carmen and Casu, Lino},
   title = {Segmented Spacetime Mass Projection \& Unified Results},
   year = {2025},
-  version = {1.2.0},
+  version = {1.2.1},
   url = {https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results}
 }
 ```
@@ -528,9 +499,9 @@ Segmented-Spacetime-Mass-Projection-Unified-Results/
 
 ---
 
-**Version:** v1.2.0 (2025-10-19)  
+**Version:** v1.2.1 (2025-10-19)  
 **Status:** ✅ Production-Ready | Cross-Platform Compatible  
-**Tests:** 58 passing (35 physics + 23 technical)  
-**Data:** 427 real observations from 117 sources
+**Tests:** 69 passing (35 physics + 23 technical + 11 ring)  
+**Data:** 427 real observations from 117 sources + 13 multi-ring structures
 
 © 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4
