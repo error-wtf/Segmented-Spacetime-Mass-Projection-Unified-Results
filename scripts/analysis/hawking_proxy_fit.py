@@ -134,6 +134,8 @@ def main():
     missing = [col for col in required if col not in obs.columns]
     if missing:
         # Try alternative column names
+        if 'frequency_Hz' in obs.columns:
+            obs['freq_Hz'] = obs['frequency_Hz']
         if 'flux_density_Jy' in obs.columns:
             obs['flux_Jy'] = obs['flux_density_Jy']
         if 'flux_error_Jy' in obs.columns:

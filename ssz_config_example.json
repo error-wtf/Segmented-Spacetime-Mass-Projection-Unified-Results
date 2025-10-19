@@ -1,0 +1,7 @@
+{
+  "r_phi_m": 2835205806784.203,
+  "A_H_m2": 1.0101341259858367e+26,
+  "kappa_seg_per_m": 1.114736659559427e-13,
+  "source": "Example from SSZ report",
+  "notes": "Extracted parameters - ready for hawking_proxy_fit.py"
+}
