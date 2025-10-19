@@ -46,18 +46,32 @@ def test_segment_growth_is_monotonic(tmp_path: Path) -> None:
     print("="*80)
     print(f"Dataset: {run_id}")
     print(f"Number of rings: {df['ring_id'].nunique()}")
-    print(f"\nGrowth Statistics:")
-    print(f"  Mean growth: {growth.mean():.6e}")
-    print(f"  Min growth: {growth.min():.6e}")
-    print(f"  Max growth: {growth.max():.6e}")
-    print(f"  All non-negative: {(growth >= -1e-6).all()}")
-    print(f"\nPhysical Interpretation:")
-    print(f"  • Segment density increases outward (or remains stable)")
-    print(f"  • Ensures consistent spacetime structure")
-    print(f"  • No unphysical density drops between rings")
-    print("="*80)
     
-    assert (growth >= -1e-6).all(), "Segment density must be non-decreasing with ring index"
+    if len(growth) == 0:
+        # Only 1 ring → no growth to compute
+        print(f"\nGrowth Statistics:")
+        print(f"  Mean growth: N/A (only 1 ring)")
+        print(f"  Min growth: N/A (only 1 ring)")
+        print(f"  Max growth: N/A (only 1 ring)")
+        print(f"  All non-negative: True (no inter-ring transitions)")
+        print(f"\nPhysical Interpretation:")
+        print(f"  • Single ring dataset: no growth to validate")
+        print(f"  • Test passed by default (no violations possible)")
+        print("="*80)
+    else:
+        # Multiple rings → compute growth statistics
+        print(f"\nGrowth Statistics:")
+        print(f"  Mean growth: {growth.mean():.6e}")
+        print(f"  Min growth: {growth.min():.6e}")
+        print(f"  Max growth: {growth.max():.6e}")
+        print(f"  All non-negative: {(growth >= -1e-6).all()}")
+        print(f"\nPhysical Interpretation:")
+        print(f"  • Segment density increases outward (or remains stable)")
+        print(f"  • Ensures consistent spacetime structure")
+        print(f"  • No unphysical density drops between rings")
+        print("="*80)
+        
+        assert (growth >= -1e-6).all(), "Segment density must be non-decreasing with ring index"
 
 
 def test_natural_boundary_positive(tmp_path: Path) -> None:
