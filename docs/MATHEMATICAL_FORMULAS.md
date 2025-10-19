@@ -125,6 +125,340 @@ r_φ ≈ φ·(GM/c²)·1.02 ≈ 0.83·r_s  (SSZ effects)
 
 ---
 
-See [CODE_IMPLEMENTATION_GUIDE.md](CODE_IMPLEMENTATION_GUIDE.md) for implementation details and [PHYSICS_FOUNDATIONS.md](PHYSICS_FOUNDATIONS.md) for physical interpretation.
+## 3. Metric Tensor
 
-For complete mathematical derivations, see the theory papers in `papers/`.
+### 3.1 SSZ Metric (Spherical)
+
+**Line element:**
+```
+ds² = -A(r)dt² + B(r)dr² + r²(dθ² + sin²θ dφ²)
+```
+
+**Metric coefficients:**
+```
+A(r) = 1 - 2U + 2U² + ε₃U³ + O(U⁴)
+B(r) = 1/A(r)
+```
+
+**Where:**
+```
+U = GM/(c²r) = r_s/(2r)  (weak field parameter)
+ε₃ = -24/5               (cubic coefficient)
+```
+
+### 3.2 Derivation of A(r)
+
+**Ansatz:**
+```
+A(r) = f(U) with U → 0 for r → ∞
+```
+
+**Taylor expansion:**
+```
+f(U) = f(0) + f'(0)·U + f''(0)/2·U² + f'''(0)/6·U³ + ...
+```
+
+**Boundary conditions:**
+1. f(0) = 1              (flat at infinity)
+2. f'(0) = -2            (Newton limit)
+3. f''(0) = 4            (φ correction)
+4. f'''(0) = -24/5·6     (uniqueness)
+
+**Result:**
+```
+A(U) = 1 - 2U + 2U² - 24/5·U³ + ...
+```
+
+---
+
+## 4. PPN Parameters
+
+### 4.1 Post-Newtonian Formalism
+
+**Standard PPN metric:**
+```
+A(r) = 1 - 2GM/(c²r) + 2β(GM/(c²r))²
+B(r) = 1 + 2γ·GM/(c²r)
+```
+
+**GR values:**
+```
+β_GR = 1
+γ_GR = 1
+```
+
+### 4.2 SSZ Extraction
+
+**SSZ metric:**
+```
+A(r) = 1 - 2U + 2U² + ...
+B(r) = 1 + 2U + ...
+```
+
+**Comparison:**
+```
+β_SSZ = 1.0
+γ_SSZ = 1.0
+```
+
+**Meaning:**
+- **SSZ = GR in Post-Newtonian limit!**
+- Perihelion precession: ✓
+- Light deflection: ✓
+- Shapiro delay: ✓
+
+---
+
+## 5. Dual Velocities
+
+### 5.1 Fundamental Invariant
+
+**Theorem:**
+```
+v_esc(r) · v_fall(r) = c²
+```
+
+**Proof:**
+
+**Definition v_esc:**
+```
+v_esc = √(2GM/r)
+```
+
+**Definition v_fall (dual):**
+```
+v_fall = c²/v_esc
+```
+
+**Product:**
+```
+v_esc · v_fall = v_esc · (c²/v_esc) = c²  ∎
+```
+
+### 5.2 Lorentz Factors
+
+**GR time dilation:**
+```
+γ_GR(r) = 1/√(1 - r_s/r)
+        = 1/√(1 - 2GM/(c²r))
+```
+
+**Dual Lorentz factor:**
+```
+γ_dual(v) = 1/√(1 - (c/v)²)
+```
+
+**Consistency:**
+```
+γ_dual(v_fall) = γ_GR(r)  [exact!]
+```
+
+---
+
+## 6. Redshift Formulas
+
+### 6.1 Gravitational Redshift (GR)
+
+**Formula:**
+```
+z_GR = 1/√(1 - r_s/r) - 1
+```
+
+**Derivation:**
+```
+dt_∞/dt_r = 1/√(g_tt) = 1/√(A(r))
+
+For A(r) = 1 - r_s/r:
+z_GR = dt_∞/dt_r - 1
+     = 1/√(1 - r_s/r) - 1
+```
+
+### 6.2 Combined Redshift
+
+**GR+SR:**
+```
+z_total = (1 + z_GR)(1 + z_SR) - 1
+```
+
+**SSZ modification:**
+```
+z_SSZ = (1 + z_GR,scaled)(1 + z_SR) - 1
+```
+
+**Where:**
+```
+z_GR,scaled = z_GR · (1 + Δ(M)/100)
+```
+
+---
+
+## 7. Energy Conditions
+
+### 7.1 Energy-Momentum Tensor
+
+**Perfect fluid:**
+```
+T_μν = (ρ + p)u_μu_ν + p·g_μν
+```
+
+### 7.2 Main Conditions
+
+**Weak Energy Condition (WEC):**
+```
+ρ ≥ 0
+ρ + p ≥ 0
+```
+
+**Dominant Energy Condition (DEC):**
+```
+ρ ≥ |p|
+```
+
+**Strong Energy Condition (SEC):**
+```
+ρ + 3p ≥ 0
+ρ + p ≥ 0
+```
+
+### 7.3 SSZ Fulfillment
+
+**Test results:**
+- **WEC:** ✓ for r ≥ 5r_s
+- **DEC:** ✓ for r ≥ 5r_s
+- **SEC:** ✓ for r ≥ 5r_s
+
+---
+
+## 8. Black Holes
+
+### 8.1 Horizon Structure
+
+**Event horizon:**
+```
+A(r_H) = 0
+r_H ≈ r_s = 2GM/c²
+```
+
+**Photon sphere:**
+```
+r_ph = 3GM/c² · (1 - ε_φ)
+ε_φ ≈ 0.05  (φ correction)
+```
+
+**ISCO:**
+```
+r_ISCO = 6GM/c² · (1 - δ_φ)
+δ_φ ≈ 0.07
+```
+
+### 8.2 Schwarzschild Shadow
+
+**Critical impact parameter:**
+```
+b_crit² = r_ph² / A(r_ph)
+```
+
+**SSZ vs GR:**
+```
+b_SSZ ≈ 0.94 · b_GR
+Difference: ~6%
+```
+
+---
+
+## 9. Numerical Methods
+
+### 9.1 Mass Inversion
+
+**Problem:** Given r_φ, find M
+
+**Newton's method:**
+```
+f(M) = r_φ(M) - r_obs
+M_new = M_old - f(M_old)/f'(M_old)
+```
+
+**Derivative:**
+```
+f'(M) = ∂r_φ/∂M
+      = φ·G/c² · [1 + Δ(M)/100 + M·Δ'(M)/100]
+```
+
+**Convergence:**
+- Type: Quadratic
+- Iterations: ~10...20
+- Tolerance: 10⁻¹²⁰ (Decimal)
+
+### 9.2 Precision Handling
+
+**Decimal arithmetic:**
+```python
+from decimal import Decimal, getcontext
+getcontext().prec = 200  # 200 digits
+```
+
+**Why?**
+- Exponential terms: exp(-α·r_s)
+- Large mass differences: 10⁻³¹...10⁴⁰ kg
+- Residual minimization
+
+---
+
+## 10. Statistical Tests
+
+### 10.1 Paired Sign Test
+
+**Hypothesis:**
+```
+H₀: Median(z_SSZ - z_GR×SR) = 0
+H₁: Median(z_SSZ - z_GR×SR) ≠ 0
+```
+
+**Test statistic:**
+```
+S = Count(z_SSZ < z_GR×SR)
+p = P(S | Binomial(N, 0.5))
+```
+
+**Result:**
+```
+S = 82/127 objects
+p ≈ 0.0013  (significant!)
+```
+
+### 10.2 Bootstrap Confidence Intervals
+
+**Algorithm:**
+```
+1. Resample N data points (with replacement)
+2. Calculate median
+3. Repeat 10,000× 
+4. Sort → percentiles = CI
+```
+
+**95% CI:**
+```
+[Median - 1.96·SE, Median + 1.96·SE]
+```
+
+**Result:**
+```
+Median|Δz| = 0.00927
+95% CI: [0.0081, 0.0104]
+```
+
+---
+
+## 📚 Further Reading
+
+**For derivations:**
+- [PHYSICS_FOUNDATIONS.md](PHYSICS_FOUNDATIONS.md) - Physical interpretation
+- [CODE_IMPLEMENTATION_GUIDE.md](CODE_IMPLEMENTATION_GUIDE.md) - Numerical implementation
+
+**Theory papers:**
+- `papers/SegmentedSpacetime-ANewPerspectiveonLightGravityandBlackHoles.md`
+- `papers/DualVelocitiesinSegmentedSpacetime.md`
+
+---
+
+**Complete mathematical formulation of SSZ theory! 📐**
