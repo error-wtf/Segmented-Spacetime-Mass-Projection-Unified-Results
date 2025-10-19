@@ -519,6 +519,9 @@ validation_temp/
 !tests/**/*.py
 !scripts/tests/**/*.py
 
+# Temporary notebook backups
+temp_old_colab.ipynb
+
 # ============================================================================
 # END OF .gitignore
 # ============================================================================
