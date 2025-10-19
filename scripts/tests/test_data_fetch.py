@@ -40,7 +40,16 @@ def test_sdss_smoke(tmp_path: Path):
     log.info("SDSS smoke rows=%d", len(df))
 
 def test_planck_presence():
+    """Test Planck data presence.
+    
+    Planck data (~2 GB) is auto-fetched during installation.
+    If missing, run: python scripts/fetch_planck.py
+    """
     log = get_logger("TEST_PLANCK", RUN_ID)
     p = smoke_paths(RUN_ID)["planck_fits"]
-    assert p.exists(), f"Planck FITS not found: {p}"
+    assert p.exists(), (
+        f"Planck FITS not found: {p}\n"
+        f"The install script should auto-fetch this file.\n"
+        f"Manual download: python scripts/fetch_planck.py"
+    )
     log.info("Planck present -> %s", p)

@@ -202,81 +202,9 @@ else
     print_warn "WARNING: No requirements.txt or pyproject.toml found"
 fi
 
-# Step 6: Install package
+# Step 6: Check and fetch missing data files (BEFORE tests)
 echo ""
-print_step "[6/8] Installing SSZ Suite package..."
-if [ "$DEV_MODE" = true ]; then
-    print_info "Mode: Editable (development)"
-    if [ "$DRY_RUN" = false ]; then
-        $PYTHON_CMD -m pip install -e .
-        print_success "Installed in editable mode"
-    else
-        print_info "[DRY-RUN] Would install: pip install -e ."
-    fi
-else
-    print_info "Mode: Standard"
-    if [ "$DRY_RUN" = false ]; then
-        $PYTHON_CMD -m pip install .
-        print_success "Installed package"
-    else
-        print_info "[DRY-RUN] Would install: pip install ."
-    fi
-fi
-
-# Step 7: Run tests
-if [ "$SKIP_TESTS" = false ]; then
-    echo ""
-    print_step "[7/9] Running test suite..."
-    if [ "$DRY_RUN" = false ]; then
-        # Run ALL tests with full output
-        print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
-        echo ""
-        
-        ALL_PASSED=true
-        
-        # Root-level tests (run as Python scripts, not pytest)
-        echo -e "${CYAN}Root-level SSZ tests:${NC}"
-        for test in test_ppn_exact.py test_vfall_duality.py test_energy_conditions.py \
-                    test_c1_segments.py test_c2_segments_strict.py test_c2_curvature_proxy.py \
-                    test_utf8_encoding.py; do
-            if [ -f "$test" ]; then
-                echo -n "  $test "
-                if $PYTHON_CMD "$test" > /dev/null 2>&1; then
-                    echo -e "${GREEN}PASSED${NC}"
-                else
-                    echo -e "${RED}FAILED${NC}"
-                    ALL_PASSED=false
-                fi
-            fi
-        done
-        echo ""
-        
-        # pytest tests (tests/ and scripts/tests/)
-        echo -e "${CYAN}Pytest test suites:${NC}"
-        $PYTHON_CMD -m pytest tests/ scripts/tests/ -s -v --tb=short
-        
-        if [ $? -ne 0 ]; then
-            ALL_PASSED=false
-        fi
-        
-        echo ""
-        if [ "$ALL_PASSED" = true ]; then
-            print_success "✓ All tests passed"
-        else
-            echo -e "${RED}✗ Some tests FAILED - Fix before continuing!${NC}"
-            exit 1
-        fi
-    else
-        print_info "[DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)"
-    fi
-else
-    echo ""
-    print_step "[7/9] Skipping tests (--skip-tests flag)"
-fi
-
-# Step 8: Check and fetch missing data files
-echo ""
-print_step "[8/10] Checking data files..."
+print_step "[6/10] Checking and fetching data files..."
 
 if [ "$DRY_RUN" = false ]; then
     DATA_FETCHED=false
@@ -339,10 +267,82 @@ if [ "$DRY_RUN" = false ]; then
     
     echo ""
     if [ "$DATA_FETCHED" = true ]; then
-        print_info "Note: Data files were downloaded. They will NOT be overwritten on reinstall."
+        print_info "Note: Data files downloaded. They will NOT be overwritten on reinstall."
     fi
 else
-    print_info "[DRY-RUN] Would check: data files"
+    print_info "[DRY-RUN] Would check and fetch: data files"
+fi
+
+# Step 7: Install package
+echo ""
+print_step "[7/10] Installing SSZ Suite package..."
+if [ "$DEV_MODE" = true ]; then
+    print_info "Mode: Editable (development)"
+    if [ "$DRY_RUN" = false ]; then
+        $PYTHON_CMD -m pip install -e .
+        print_success "Installed in editable mode"
+    else
+        print_info "[DRY-RUN] Would install: pip install -e ."
+    fi
+else
+    print_info "Mode: Standard"
+    if [ "$DRY_RUN" = false ]; then
+        $PYTHON_CMD -m pip install .
+        print_success "Installed package"
+    else
+        print_info "[DRY-RUN] Would install: pip install ."
+    fi
+fi
+
+# Step 8: Run tests
+if [ "$SKIP_TESTS" = false ]; then
+    echo ""
+    print_step "[8/10] Running test suite..."
+    if [ "$DRY_RUN" = false ]; then
+        # Run ALL tests with full output
+        print_info "Running ALL tests (root + tests/ + scripts/tests/)..."
+        echo ""
+        
+        ALL_PASSED=true
+        
+        # Root-level tests (run as Python scripts, not pytest)
+        echo -e "${CYAN}Root-level SSZ tests:${NC}"
+        for test in test_ppn_exact.py test_vfall_duality.py test_energy_conditions.py \
+                    test_c1_segments.py test_c2_segments_strict.py test_c2_curvature_proxy.py \
+                    test_utf8_encoding.py; do
+            if [ -f "$test" ]; then
+                echo -n "  $test "
+                if $PYTHON_CMD "$test" > /dev/null 2>&1; then
+                    echo -e "${GREEN}PASSED${NC}"
+                else
+                    echo -e "${RED}FAILED${NC}"
+                    ALL_PASSED=false
+                fi
+            fi
+        done
+        echo ""
+        
+        # pytest tests (tests/ and scripts/tests/)
+        echo -e "${CYAN}Pytest test suites:${NC}"
+        $PYTHON_CMD -m pytest tests/ scripts/tests/ -s -v --tb=short
+        
+        if [ $? -ne 0 ]; then
+            ALL_PASSED=false
+        fi
+        
+        echo ""
+        if [ "$ALL_PASSED" = true ]; then
+            print_success "✓ All tests passed"
+        else
+            echo -e "${RED}✗ Some tests FAILED - Fix before continuing!${NC}"
+            exit 1
+        fi
+    else
+        print_info "[DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)"
+    fi
+else
+    echo ""
+    print_step "[8/10] Skipping tests (--skip-tests flag)"
 fi
 
 # Step 9: Verify installation

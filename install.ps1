@@ -141,94 +141,9 @@ if (Test-Path "requirements.txt") {
     Write-Host "  WARNING: No requirements.txt or pyproject.toml found" -ForegroundColor Yellow
 }
 
-# Step 5: Install package
+# Step 6: Check and fetch missing data files (BEFORE tests)
 Write-Host ""
-Write-Host "[6/8] Installing SSZ Suite package..." -ForegroundColor Yellow
-if ($DevMode) {
-    Write-Host "  Mode: Editable (development)" -ForegroundColor Cyan
-    if (-not $DryRun) {
-        python -m pip install -e .
-        Write-Host "  Installed in editable mode" -ForegroundColor Green
-    } else {
-        Write-Host "  [DRY-RUN] Would install: pip install -e ." -ForegroundColor Cyan
-    }
-} else {
-    Write-Host "  Mode: Standard" -ForegroundColor Cyan
-    if (-not $DryRun) {
-        python -m pip install .
-        Write-Host "  Installed package" -ForegroundColor Green
-    } else {
-        Write-Host "  [DRY-RUN] Would install: pip install ." -ForegroundColor Cyan
-    }
-}
-
-# Step 7: Run tests
-if (-not $SkipTests) {
-    Write-Host ""
-    Write-Host "[7/9] Running test suite..." -ForegroundColor Yellow
-    if (-not $DryRun) {
-        try {
-            # Run ALL tests with full output
-            Write-Host "  Running ALL tests (root + tests/ + scripts/tests/)..." -ForegroundColor Cyan
-            Write-Host ""
-            
-            $allPassed = $true
-            
-            # Root-level tests (run as Python scripts, not pytest)
-            Write-Host "Root-level SSZ tests:" -ForegroundColor Cyan
-            $rootTests = @(
-                "test_ppn_exact.py",
-                "test_vfall_duality.py", 
-                "test_energy_conditions.py",
-                "test_c1_segments.py",
-                "test_c2_segments_strict.py",
-                "test_c2_curvature_proxy.py",
-                "test_utf8_encoding.py"
-            )
-            foreach ($test in $rootTests) {
-                if (Test-Path $test) {
-                    Write-Host "  $test" -NoNewline
-                    python $test > $null 2>&1
-                    if ($LASTEXITCODE -eq 0) {
-                        Write-Host " PASSED" -ForegroundColor Green
-                    } else {
-                        Write-Host " FAILED" -ForegroundColor Red
-                        $allPassed = $false
-                    }
-                }
-            }
-            Write-Host ""
-            
-            # pytest tests (tests/ and scripts/tests/)
-            Write-Host "Pytest test suites:" -ForegroundColor Cyan
-            pytest tests/ scripts/tests/ -s -v --tb=short
-            
-            if ($LASTEXITCODE -ne 0) {
-                $allPassed = $false
-            }
-            
-            Write-Host ""
-            if ($allPassed) {
-                Write-Host "  ✓ All tests passed" -ForegroundColor Green
-            } else {
-                Write-Host "  ✗ Some tests FAILED - Fix before continuing!" -ForegroundColor Red
-                exit 1
-            }
-        } catch {
-            Write-Host "  ✗ ERROR: Tests failed" -ForegroundColor Red
-            exit 1
-        }
-    } else {
-        Write-Host "  [DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)" -ForegroundColor Cyan
-    }
-} else {
-    Write-Host ""
-    Write-Host "[7/9] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
-}
-
-# Step 8: Check and fetch missing data files
-Write-Host ""
-Write-Host "[8/9] Checking data files..." -ForegroundColor Yellow
+Write-Host "[6/10] Checking and fetching data files..." -ForegroundColor Yellow
 
 if (-not $DryRun) {
     $dataFetched = $false
@@ -297,10 +212,95 @@ if (-not $DryRun) {
     
     Write-Host ""
     if ($dataFetched) {
-        Write-Host "  Note: Data files were downloaded. They will NOT be overwritten on reinstall." -ForegroundColor Cyan
+        Write-Host "  Note: Data files downloaded. They will NOT be overwritten on reinstall." -ForegroundColor Cyan
     }
 } else {
-    Write-Host "  [DRY-RUN] Would check: data files" -ForegroundColor Cyan
+    Write-Host "  [DRY-RUN] Would check and fetch: data files" -ForegroundColor Cyan
+}
+
+# Step 7: Install package
+Write-Host ""
+Write-Host "[7/10] Installing SSZ Suite package..." -ForegroundColor Yellow
+if ($DevMode) {
+    Write-Host "  Mode: Editable (development)" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        python -m pip install -e .
+        Write-Host "  Installed in editable mode" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install: pip install -e ." -ForegroundColor Cyan
+    }
+} else {
+    Write-Host "  Mode: Standard" -ForegroundColor Cyan
+    if (-not $DryRun) {
+        python -m pip install .
+        Write-Host "  Installed package" -ForegroundColor Green
+    } else {
+        Write-Host "  [DRY-RUN] Would install: pip install ." -ForegroundColor Cyan
+    }
+}
+
+# Step 8: Run tests
+if (-not $SkipTests) {
+    Write-Host ""
+    Write-Host "[8/10] Running test suite..." -ForegroundColor Yellow
+    if (-not $DryRun) {
+        try {
+            # Run ALL tests with full output
+            Write-Host "  Running ALL tests (root + tests/ + scripts/tests/)..." -ForegroundColor Cyan
+            Write-Host ""
+            
+            $allPassed = $true
+            
+            # Root-level tests (run as Python scripts, not pytest)
+            Write-Host "Root-level SSZ tests:" -ForegroundColor Cyan
+            $rootTests = @(
+                "test_ppn_exact.py",
+                "test_vfall_duality.py", 
+                "test_energy_conditions.py",
+                "test_c1_segments.py",
+                "test_c2_segments_strict.py",
+                "test_c2_curvature_proxy.py",
+                "test_utf8_encoding.py"
+            )
+            foreach ($test in $rootTests) {
+                if (Test-Path $test) {
+                    Write-Host "  $test" -NoNewline
+                    python $test > $null 2>&1
+                    if ($LASTEXITCODE -eq 0) {
+                        Write-Host " PASSED" -ForegroundColor Green
+                    } else {
+                        Write-Host " FAILED" -ForegroundColor Red
+                        $allPassed = $false
+                    }
+                }
+            }
+            Write-Host ""
+            
+            # pytest tests (tests/ and scripts/tests/)
+            Write-Host "Pytest test suites:" -ForegroundColor Cyan
+            pytest tests/ scripts/tests/ -s -v --tb=short
+            
+            if ($LASTEXITCODE -ne 0) {
+                $allPassed = $false
+            }
+            
+            Write-Host ""
+            if ($allPassed) {
+                Write-Host "  ✓ All tests passed" -ForegroundColor Green
+            } else {
+                Write-Host "  ✗ Some tests FAILED - Fix before continuing!" -ForegroundColor Red
+                exit 1
+            }
+        } catch {
+            Write-Host "  ✗ ERROR: Tests failed" -ForegroundColor Red
+            exit 1
+        }
+    } else {
+        Write-Host "  [DRY-RUN] Would run: All tests (root, tests/, scripts/tests/)" -ForegroundColor Cyan
+    }
+} else {
+    Write-Host ""
+    Write-Host "[8/10] Skipping tests (--SkipTests flag)" -ForegroundColor Yellow
 }
 
 # Step 9: Verify installation
