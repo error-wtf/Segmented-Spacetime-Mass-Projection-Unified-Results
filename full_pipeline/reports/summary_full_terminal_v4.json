@@ -1,8 +1,8 @@
 {
   "csv_full": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\real_data_full.csv",
-  "csv_full_sha256": "37964601e730cb00bdbbd0bb4788ae10ca6dc8cc0b774c77b121ce28b6a78695",
-  "csv_full_mtime": "2025-10-17T17:09:24.209314",
+  "csv_full_sha256": "58ad2450d7ad293233309feeb49babbb045161642fe7461d5f22ad69fba094f6",
+  "csv_full_mtime": "2025-10-19T08:00:06.944805",
   "module": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\segspace_all_in_one_extended.py",
   "runner": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\run_all_ssz_terminal.py",
-  "timestamp": "2025-10-18T23:32:17"
+  "timestamp": "2025-10-19T08:02:19"
 }

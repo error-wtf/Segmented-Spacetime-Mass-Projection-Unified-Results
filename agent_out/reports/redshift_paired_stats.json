@@ -1,6 +1,6 @@
 {
-  "N_pairs": 127,
-  "N_Seg_better": 82,
-  "share_Seg_better": 0.6456692913385826,
-  "binom_two_sided_p": 0.0013073851235000232
+  "N_pairs": 157,
+  "N_Seg_better": 89,
+  "share_Seg_better": 0.5668789808917197,
+  "binom_two_sided_p": 0.11015726076112843
 }

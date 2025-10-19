@@ -1,16 +1,16 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-18 23:32:52
+**Date:** 2025-10-19 06:10:38
 
 ## Overview
 
-- **Physics Test Suites:** 17
+- **Physics Test Suites:** 7
 - **Silent Technical Tests:** 3 (UTF-8, CLI, MD Print)
-- **Passed:** 17
+- **Passed:** 7
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 141.9s
-- **Total Suite Time:** 181.1s
+- **Total Test Time:** 6.5s
+- **Total Suite Time:** 46.4s
 
 ## Physics Test Results
 
@@ -20,17 +20,7 @@
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (6.0s)
-- **SSZ Kernel Tests:** ✅ PASS (4.9s)
-- **SSZ Invariants Tests:** ✅ PASS (4.9s)
-- **Segmenter Tests:** ✅ PASS (4.9s)
-- **Cosmo Fields Tests:** ✅ PASS (4.7s)
-- **Cosmo Multibody Tests:** ✅ PASS (7.3s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (7.1s)
-- **SSZ Complete Analysis:** ✅ PASS (92.3s)
-- **G79 Analysis:** ✅ PASS (2.5s)
-- **Cygnus X Analysis:** ✅ PASS (2.9s)
-- **Paper Export Tools:** ✅ PASS (3.8s)
+- **SegWave Core Math Tests:** ✅ PASS (5.8s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
 
