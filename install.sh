@@ -122,7 +122,7 @@ echo "==========================================================================
 echo ""
 
 # Step 1: Check Python
-print_step "[1/8] Checking Python installation..."
+print_step "[1/11] Checking Python installation..."
 if command -v python3 &> /dev/null; then
     PYTHON_CMD=python3
 elif command -v python &> /dev/null; then
@@ -144,7 +144,7 @@ fi
 
 # Step 2: Create virtual environment
 echo ""
-print_step "[2/8] Setting up virtual environment..."
+print_step "[2/11] Setting up virtual environment..."
 VENV_PATH=".venv"
 ACTIVATE_SCRIPT="$VENV_PATH/bin/activate"
 
@@ -174,7 +174,7 @@ fi
 
 # Step 3: Activate venv
 echo ""
-print_step "[3/8] Activating virtual environment..."
+print_step "[3/11] Activating virtual environment..."
 
 if [ -f "$ACTIVATE_SCRIPT" ]; then
     if [ "$DRY_RUN" = false ]; then
@@ -191,7 +191,7 @@ fi
 
 # Step 4: Upgrade pip
 echo ""
-print_step "[4/8] Upgrading pip, setuptools, wheel..."
+print_step "[4/11] Upgrading pip, setuptools, wheel..."
 if [ "$DRY_RUN" = false ]; then
     $PYTHON_CMD -m pip install --upgrade pip setuptools wheel > /dev/null 2>&1
     print_success "Upgraded core packages"
@@ -201,7 +201,7 @@ fi
 
 # Step 5: Install dependencies
 echo ""
-print_step "[5/10] Installing dependencies..."
+print_step "[5/11] Installing dependencies..."
 
 if [ -f "requirements.txt" ]; then
     print_info "Found: requirements.txt"
@@ -226,7 +226,7 @@ fi
 
 # Step 6: Check and fetch missing data files (BEFORE tests)
 echo ""
-print_step "[6/10] Checking and fetching data files..."
+print_step "[6/11] Checking and fetching data files..."
 
 if [ "$DRY_RUN" = false ]; then
     DATA_FETCHED=false
@@ -316,7 +316,7 @@ fi
 
 # Step 7: Install package
 echo ""
-print_step "[7/10] Installing SSZ Suite package..."
+print_step "[7/11] Installing SSZ Suite package..."
 if [ "$DEV_MODE" = true ]; then
     print_info "Mode: Editable (development)"
     if [ "$DRY_RUN" = false ]; then

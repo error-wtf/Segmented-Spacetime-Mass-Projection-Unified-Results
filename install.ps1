@@ -50,7 +50,7 @@ Write-Host "=" * 80 -ForegroundColor Cyan
 Write-Host ""
 
 # Step 1: Check Python
-Write-Host "[1/8] Checking Python installation..." -ForegroundColor Yellow
+Write-Host "[1/11] Checking Python installation..." -ForegroundColor Yellow
 try {
     $pythonVersion = python --version 2>&1
     Write-Host "  Found: $pythonVersion" -ForegroundColor Green
@@ -72,7 +72,7 @@ try {
 
 # Step 2: Create virtual environment
 Write-Host ""
-Write-Host "[2/8] Setting up virtual environment..." -ForegroundColor Yellow
+Write-Host "[2/11] Setting up virtual environment..." -ForegroundColor Yellow
 $venvPath = ".venv"
 $activateScript = Join-Path $venvPath "Scripts\Activate.ps1"
 $linuxActivate = Join-Path $venvPath "bin\activate"
@@ -113,7 +113,7 @@ if (Test-Path $venvPath) {
 
 # Step 3: Activate venv and upgrade pip
 Write-Host ""
-Write-Host "[3/8] Activating virtual environment..." -ForegroundColor Yellow
+Write-Host "[3/11] Activating virtual environment..." -ForegroundColor Yellow
 if (Test-Path $activateScript) {
     if (-not $DryRun) {
         & $activateScript
@@ -128,7 +128,7 @@ if (Test-Path $activateScript) {
 }
 
 Write-Host ""
-Write-Host "[4/8] Upgrading pip, setuptools, wheel..." -ForegroundColor Yellow
+Write-Host "[4/11] Upgrading pip, setuptools, wheel..." -ForegroundColor Yellow
 if (-not $DryRun) {
     python -m pip install --upgrade pip setuptools wheel | Out-Null
     Write-Host "  Upgraded core packages" -ForegroundColor Green
@@ -138,7 +138,7 @@ if (-not $DryRun) {
 
 # Step 4: Install dependencies
 Write-Host ""
-Write-Host "[5/8] Installing dependencies..." -ForegroundColor Yellow
+Write-Host "[5/11] Installing dependencies..." -ForegroundColor Yellow
 
 # Check for requirements.txt or pyproject.toml
 if (Test-Path "requirements.txt") {
@@ -164,7 +164,7 @@ if (Test-Path "requirements.txt") {
 
 # Step 6: Check and fetch missing data files (BEFORE tests)
 Write-Host ""
-Write-Host "[6/10] Checking and fetching data files..." -ForegroundColor Yellow
+Write-Host "[6/11] Checking and fetching data files..." -ForegroundColor Yellow
 
 if (-not $DryRun) {
     $dataFetched = $false
@@ -264,7 +264,7 @@ if (-not $DryRun) {
 
 # Step 7: Install package
 Write-Host ""
-Write-Host "[7/10] Installing SSZ Suite package..." -ForegroundColor Yellow
+Write-Host "[7/11] Installing SSZ Suite package..." -ForegroundColor Yellow
 if ($DevMode) {
     Write-Host "  Mode: Editable (development)" -ForegroundColor Cyan
     if (-not $DryRun) {
