@@ -1,7 +1,7 @@
 ========================================================================
  SEGSPACE — ENHANCED TEST REPORT (IMPROVED)
 ========================================================================
-Rows used: 187   |   Strong rows: 187
+Rows used: 177   |   Strong rows: 177
 Velocity corrections applied: 5
 seg-mode : hint
 deltaM   : A=4.0%  B=0.0%  alpha=1e-11  logM_min=None  logM_max=None
