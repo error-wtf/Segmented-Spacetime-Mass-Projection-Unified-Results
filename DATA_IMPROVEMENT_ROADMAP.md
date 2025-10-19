@@ -3,6 +3,8 @@
 **Erstellt:** 2025-10-19  
 **Status:** Pipeline läuft perfekt (18/18 Tests), aber 3 Warnings benötigen bessere Daten
 
+**🌐 Languages:** [🇬🇧 English](DATA_IMPROVEMENT_ROADMAP_EN.md) | [🇩🇪 Deutsch](DATA_IMPROVEMENT_ROADMAP.md)
+
 ---
 
 ## 🔴 Aktuelle Warnings (Analyse)
