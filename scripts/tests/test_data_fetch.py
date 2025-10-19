@@ -40,16 +40,18 @@ def test_sdss_smoke(tmp_path: Path):
     log.info("SDSS smoke rows=%d", len(df))
 
 def test_planck_presence():
-    """Test Planck data presence.
+    """Test Planck CMB power spectrum data presence.
     
     Planck data (~2 GB) is auto-fetched during installation.
+    File: COM_PowerSpect_CMB-TT-full_R3.01.txt (CMB TT power spectrum)
     If missing, run: python scripts/fetch_planck.py
     """
     log = get_logger("TEST_PLANCK", RUN_ID)
     p = smoke_paths(RUN_ID)["planck_fits"]
     assert p.exists(), (
-        f"Planck FITS not found: {p}\n"
+        f"Planck CMB power spectrum not found: {p}\n"
+        f"Expected file: data/planck/COM_PowerSpect_CMB-TT-full_R3.01.txt\n"
         f"The install script should auto-fetch this file.\n"
         f"Manual download: python scripts/fetch_planck.py"
     )
-    log.info("Planck present -> %s", p)
+    log.info("Planck CMB power spectrum present -> %s", p)

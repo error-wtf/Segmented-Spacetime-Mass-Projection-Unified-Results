@@ -83,18 +83,16 @@ def fetch_sdss_quick(out_csv: str, limit:int=5000) -> str:
 def smoke_paths(run_id: str) -> dict:
     """Return expected paths for autofetch smoke test.
     
-    For Planck, tries run-specific path first, then falls back to generic path.
+    For Planck, uses the actual file downloaded by scripts/fetch_planck.py
     """
     base = Path("data/raw")
     
-    # Check run-specific Planck path first, then generic
-    planck_specific = Path(f"data/raw/planck/{run_id}/planck_map.fits")
-    planck_generic = Path("data/raw/planck/planck_map.fits")
-    
-    planck_fits = planck_specific if planck_specific.exists() else planck_generic
+    # Use the actual Planck file that fetch_planck.py downloads
+    # This is the CMB power spectrum TXT file, not a FITS map
+    planck_file = Path("data/planck/COM_PowerSpect_CMB-TT-full_R3.01.txt")
     
     return {
         "gaia_parquet": base.parent / "gaia" / run_id / "gaia_quick.parquet",
         "sdss_csv":     base.parent / "sdss" / run_id / "sdss_quick.csv",
-        "planck_fits":  planck_fits,
+        "planck_fits":  planck_file,  # Actually a TXT file, not FITS
     }
