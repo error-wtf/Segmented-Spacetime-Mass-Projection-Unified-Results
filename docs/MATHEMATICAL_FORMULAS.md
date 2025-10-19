@@ -65,6 +65,24 @@ M_☉ = 1.98847 × 10^30 kg                    Solar mass
 
 ## 2. Segment Radius r_φ
 
+### 2.0 Physical Motivation: The Singularity Problem
+
+**General Relativity singularities:**
+- Schwarzschild metric singular at r = 0 (infinite curvature)
+- Information loss paradox at event horizon
+- Quantum effects ignored (breakdown of classical GR)
+
+**SSZ Natural Boundary Solution:**
+- Spacetime consists of discrete segments (not continuous)
+- Segment size sets minimum scale → **natural boundary**
+- No infinite compression possible → **no singularity**
+- Curvature saturates at φ-radius r_φ
+
+**Key Insight:**
+- r_φ ≈ 0.809·r_s (SSZ boundary inside GR horizon)
+- Finite maximum density → finite physics
+- Information preserved at boundary
+
 ### 2.1 Main Formula
 
 **SSZ characteristic radius:**
@@ -88,7 +106,50 @@ r_φ/r_s = (φ/2) · (1 + Δ(M)/100)
 - φ instead of 2: Fundamental SSZ structure
 - Δ(M): Mass-dependent correction
 
-### 2.2 Δ(M) Model
+### 2.2 Segment Density Field N(x)
+
+**Definition:**
+```
+N(x) = Σ_i γ_i · K_i(||x - x_i||)
+```
+
+Where:
+- γ_i = mass projection coefficient for body i
+- K_i = kernel function (Gaussian or φ-based)
+- x_i = position of body i
+
+**Physical meaning:**
+- N(x) = local segment concentration at point x
+- Higher N → denser spacetime → slower time
+- Gravitation = gradient of segment density
+
+**Typical kernel:**
+```
+K(r) = exp(-r²/σ²)  or  K(r) = φ^(-r/r_φ)
+```
+
+### 2.3 Refractive Index n(x)
+
+**Formula:**
+```
+n(x) = 1 + κ·N(x)
+```
+
+Where:
+- κ = coupling constant (≈ 0.01 to 0.1)
+- N(x) = segment density field
+
+**Physical interpretation:**
+- Light "slower" in regions with high segment density
+- Causes light deflection (equivalent to GR geodesics)
+- n(x) - 1 proportional to gravitational potential
+
+**Weak field limit:**
+```
+n(x) ≈ 1 + GM/(c²r)  (matches GR)
+```
+
+### 2.4 Δ(M) Model
 
 **Formula:**
 ```
@@ -98,8 +159,8 @@ r_φ/r_s = (φ/2) · (1 + Δ(M)/100)
 **Fitted parameters:**
 ```
 A = 98.01
-α = 2.7177 × 10^4 m^(-1) 
-B = 1.96
+B = 2.01
+α = 27000 (in units 1/m)
 ```
 
 **Where:**
@@ -211,6 +272,30 @@ B(r) = 1 + 2U + ...
 
 ## 5. Dual Velocities
 
+### 5.0 Physical Definitions
+
+**Escape velocity v_esc:**
+```
+v_esc(r) = √(2GM/r)
+```
+- Classical velocity needed to escape from radius r to infinity
+- At horizon (r = r_s): v_esc = c
+- Standard Newtonian result
+
+**Fall velocity v_fall (segment-based):**
+```
+v_fall(r) = c²/v_esc(r)
+```
+- Dual velocity describing segment dynamics
+- NOT velocity of falling object!
+- Describes temporal progression of segments
+- Can exceed c (phase velocity, not signal velocity)
+
+**Physical interpretation:**
+- v_esc: classical kinematic escape
+- v_fall: segment-time coupling
+- Duality: v_esc·v_fall = c² (exact invariant)
+
 ### 5.1 Fundamental Invariant
 
 **Theorem:**
@@ -220,13 +305,9 @@ v_esc(r) · v_fall(r) = c²
 
 **Proof:**
 
-**Definition v_esc:**
+**By definition:**
 ```
 v_esc = √(2GM/r)
-```
-
-**Definition v_fall (dual):**
-```
 v_fall = c²/v_esc
 ```
 
