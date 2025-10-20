@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "segmented-spacetime-suite-extended"
-version = "1.0"
+version = "1.3.0"
 description = "Segmented-Spacetime Suite (extended): Pipeline, Tests, Reports, Summaries"
 readme = "README.md"
 requires-python = ">=3.8"

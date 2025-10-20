@@ -66,6 +66,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Bilingual Coverage** - 9 core docs fully bilingual (EN/DE)
 - **Production Readiness** - Verified and confirmed
 
+### Changed
+- **Generated Test Reports** - All test outputs now properly linked
+  - reports/RUN_SUMMARY.md - Compact test suite summary
+  - reports/full-output.md - Complete detailed log (231 KB)
+  - reports/summary-output.md - Brief summary (1.1 KB)
+- **Quality Reports** - Internal audit reports archived (not promoted in docs)
+- **Version Consistency** - All version numbers updated to v1.3.0
+  - README.md: v1.2.1 → v1.3.0
+  - DOCUMENTATION_INDEX.md: v1.2.3 → v1.3.0
+  - pyproject.toml: v1.0 → v1.3.0
+
 ### Fixed
 - All critical broken links resolved
 - Terminology standardized across 302 files

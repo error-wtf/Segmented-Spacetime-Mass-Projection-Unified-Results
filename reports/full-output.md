@@ -1,6 +1,6 @@
 # SSZ Suite - Complete Full Output Log
 
-**Generated:** 2025-10-19 14:00:29
+**Generated:** 2025-10-20 14:11:18
 
 This file contains the COMPLETE output from all test phases.
 
@@ -14,7 +14,7 @@ This file contains the COMPLETE output from all test phases.
 SSZ PROJECTION SUITE - FULL TEST & ANALYSIS WORKFLOW
 ====================================================================================================
 
-Started: 2025-10-19 13:57:32
+Started: 2025-10-20 14:07:54
 Python: 3.10.11
 Working Directory: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00
 
@@ -133,7 +133,7 @@ Physical Interpretation:
 ✓ Dual velocity invariant test PASSED
 ======================================================================================
 
-  [OK] Dual Velocity Tests (took 0.1s)
+  [OK] Dual Velocity Tests (took 0.2s)
 [RUNNING] Energy Conditions Tests
   Command: python test_energy_conditions.py
 
@@ -325,7 +325,7 @@ Testing subprocess.run with UTF-8 encoding...
 ======================================================================
 Test complete!
 ======================================================================
-  [OK] UTF-8 Encoding Tests (took 0.4s)
+  [OK] UTF-8 Encoding Tests (took 0.5s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 2: SEGWAVE TESTS
@@ -658,8 +658,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================= 20 passed in 1.80s ==============================
-  [OK] SegWave Core Math Tests (took 5.2s)
+============================= 20 passed in 7.80s ==============================
+  [OK] SegWave Core Math Tests (took 14.1s)
 [RUNNING] SegWave CLI & Dataset Tests
   Command: python -m pytest tests/test_segwave_cli.py -s -v --tb=short
 ============================= test session starts =============================
@@ -687,8 +687,8 @@ tests/test_segwave_cli.py::TestBundledDatasets::test_load_sources_config_functio
 tests/test_segwave_cli.py::TestBundledDatasets::test_g79_cli_smoke_run PASSED
 tests/test_segwave_cli.py::TestBundledDatasets::test_cygx_cli_smoke_run PASSED
 
-============================= 16 passed in 28.41s =============================
-  [OK] SegWave CLI & Dataset Tests (took 31.8s)
+============================= 16 passed in 29.08s =============================
+  [OK] SegWave CLI & Dataset Tests (took 33.2s)
 [RUNNING] MD Print Tool Tests
   Command: python -m pytest tests/test_print_all_md.py -s -v --tb=short
 ============================= test session starts =============================
@@ -706,8 +706,8 @@ tests/test_print_all_md.py::test_print_all_md_size_limit PASSED
 tests/test_print_all_md.py::test_print_all_md_no_files PASSED
 tests/test_print_all_md.py::test_print_all_md_custom_includes PASSED
 
-============================== 6 passed in 1.69s ==============================
-  [OK] MD Print Tool Tests (took 5.4s)
+============================== 6 passed in 1.90s ==============================
+  [OK] MD Print Tool Tests (took 6.1s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 3: MULTI-RING VALIDATION TESTS
@@ -934,8 +934,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================= 11 passed in 1.14s ==============================
-  [OK] Multi-Ring Dataset Validation Tests (took 4.9s)
+============================= 11 passed in 1.21s ==============================
+  [OK] Multi-Ring Dataset Validation Tests (took 5.2s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 4: SCRIPTS/TESTS
@@ -1045,8 +1045,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 4 passed in 0.26s ==============================
-  [OK] SSZ Kernel Tests (took 4.9s)
+============================== 4 passed in 0.36s ==============================
+  [OK] SSZ Kernel Tests (took 5.1s)
 [RUNNING] SSZ Invariants Tests
   Command: python -m pytest scripts/tests/test_ssz_invariants.py -s -v --tb=short
 ============================= test session starts =============================
@@ -1117,8 +1117,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 6 passed in 0.44s ==============================
-  [OK] SSZ Invariants Tests (took 5.2s)
+============================== 6 passed in 1.22s ==============================
+  [OK] SSZ Invariants Tests (took 6.0s)
 [RUNNING] Segmenter Tests
   Command: python -m pytest scripts/tests/test_segmenter.py -s -v --tb=short
 ============================= test session starts =============================
@@ -1139,7 +1139,7 @@ Requested rings: 16
 Segmentation Results:
   Points covered: 5000/5000
   Ring IDs: 0 to 6
-  Segment IDs: 0 to 11
+  Segment IDs: 0 to 12
 
 Physical Interpretation:
   • Complete coverage: all 5000 points assigned
@@ -1171,8 +1171,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 2 passed in 0.28s ==============================
-  [OK] Segmenter Tests (took 5.4s)
+============================== 2 passed in 0.33s ==============================
+  [OK] Segmenter Tests (took 5.5s)
 [RUNNING] Cosmo Fields Tests
   Command: python -m pytest scripts/tests/test_cosmo_fields.py -s -v --tb=short
 ============================= test session starts =============================
@@ -1217,8 +1217,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 1 passed in 0.28s ==============================
-  [OK] Cosmo Fields Tests (took 4.8s)
+============================== 1 passed in 0.30s ==============================
+  [OK] Cosmo Fields Tests (took 5.1s)
 [RUNNING] Cosmo Multibody Tests
   Command: python -m pytest scripts/tests/test_cosmo_multibody.py -s -v --tb=short
 ============================= test session starts =============================
@@ -1307,8 +1307,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 3 passed in 1.52s ==============================
-  [OK] Cosmo Multibody Tests (took 6.0s)
+============================== 3 passed in 2.07s ==============================
+  [OK] Cosmo Multibody Tests (took 7.4s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 5: COSMOS TESTS
@@ -1353,8 +1353,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 1 passed in 2.34s ==============================
-  [OK] Cosmos Multi-Body Sigma Tests (took 6.5s)
+============================== 1 passed in 2.48s ==============================
+  [OK] Cosmos Multi-Body Sigma Tests (took 6.8s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 6: COMPLETE SSZ ANALYSIS
@@ -1411,60 +1411,60 @@ CSV mtime    : 2025-10-19T11:37:52.309464
      Size: 1.88 GB
 
 --- Running C:\Program Files\Python310\python.exe H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\segspace_all_in_one_extended.py all ---
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  SEGSPACE ALL-IN-ONE (FINAL v2) – START
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  DETERMINISM SETUP
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] [OK] NumPy seeded
-[ECHO 2025-10-19 13:58:54] [OK] Decimal precision = 200
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  SAFETY PREFLIGHT
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] [OK] ensured: agent_out
-[ECHO 2025-10-19 13:58:54] [OK] ensured: agent_out\data
-[ECHO 2025-10-19 13:58:54] [OK] ensured: agent_out\figures
-[ECHO 2025-10-19 13:58:54] [OK] ensured: agent_out\reports
-[ECHO 2025-10-19 13:58:54] [OK] ensured: agent_out\logs
-[ECHO 2025-10-19 13:58:54] [SAFE] All writes restricted to outdir subtree.
-[ECHO 2025-10-19 13:58:54] [OK] wrote JSON: agent_out\MANIFEST.json
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  WORKFLOW: MASS VALIDATION
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] Invert mass from r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 with M0=9.10938356E-31
-[ECHO 2025-10-19 13:58:54] [Newton] Converged at 0 | residual=-1E-256
-[ECHO 2025-10-19 13:58:54]       Elektron | M_true=9.10938356E-31 kg | r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 m | M_rec=9.10938356E-31 kg | rel=0
-[ECHO 2025-10-19 13:58:54] Invert mass from r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 with M0=7.342E+22
-[ECHO 2025-10-19 13:58:54] [Newton] Converged at 0 | residual=1E-204
-[ECHO 2025-10-19 13:58:54]           Mond | M_true=7.342E+22 kg | r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 m | M_rec=7.342E+22 kg | rel=0
-[ECHO 2025-10-19 13:58:54] Invert mass from r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 with M0=5.97219E+24
-[ECHO 2025-10-19 13:58:54] [Newton] Converged at 0 | residual=0E-202
-[ECHO 2025-10-19 13:58:54]           Erde | M_true=5.97219E+24 kg | r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 m | M_rec=5.97219E+24 kg | rel=0
-[ECHO 2025-10-19 13:58:54] Invert mass from r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 with M0=1.98847E+30
-[ECHO 2025-10-19 13:58:54] [Newton] Converged at 0 | residual=0E-196
-[ECHO 2025-10-19 13:58:54]          Sonne | M_true=1.98847E+30 kg | r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 m | M_rec=1.98847E+30 kg | rel=0
-[ECHO 2025-10-19 13:58:54] Invert mass from r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 with M0=8.54445559E+36
-[ECHO 2025-10-19 13:58:54] [Newton] Converged at 0 | residual=0E-189
-[ECHO 2025-10-19 13:58:54] Sagittarius A* | M_true=8.54445559E+36 kg | r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 m | M_rec=8.54445559E+36 kg | rel=0
-[ECHO 2025-10-19 13:58:54] [OK] wrote CSV: agent_out\reports\mass_validation.csv
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  WORKFLOW: REDSHIFT EVAL
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] Loading CSV: data\real_data_emission_lines.csv
-[ECHO 2025-10-19 13:58:54] [OK] loaded rows: 143
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  EVALUATE REDSHIFT
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] [PAIRED] Seg better in 73/143 pairs (p~0.867)
-[ECHO 2025-10-19 13:58:54] [OK] wrote JSON: agent_out\reports\redshift_medians.json
-[ECHO 2025-10-19 13:58:54] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
-[ECHO 2025-10-19 13:58:54] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54]  WORKFLOW: BOUND ENERGY & α
-[ECHO 2025-10-19 13:58:54] ================================================================================
-[ECHO 2025-10-19 13:58:54] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
-[ECHO 2025-10-19 13:58:54] [OK] wrote text: agent_out\reports\bound_energy.txt
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  SEGSPACE ALL-IN-ONE (FINAL v2) – START
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  DETERMINISM SETUP
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] [OK] NumPy seeded
+[ECHO 2025-10-20 14:09:31] [OK] Decimal precision = 200
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  SAFETY PREFLIGHT
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] [OK] ensured: agent_out
+[ECHO 2025-10-20 14:09:31] [OK] ensured: agent_out\data
+[ECHO 2025-10-20 14:09:31] [OK] ensured: agent_out\figures
+[ECHO 2025-10-20 14:09:31] [OK] ensured: agent_out\reports
+[ECHO 2025-10-20 14:09:31] [OK] ensured: agent_out\logs
+[ECHO 2025-10-20 14:09:31] [SAFE] All writes restricted to outdir subtree.
+[ECHO 2025-10-20 14:09:31] [OK] wrote JSON: agent_out\MANIFEST.json
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  WORKFLOW: MASS VALIDATION
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] Invert mass from r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 with M0=9.10938356E-31
+[ECHO 2025-10-20 14:09:31] [Newton] Converged at 0 | residual=-1E-256
+[ECHO 2025-10-20 14:09:31]       Elektron | M_true=9.10938356E-31 kg | r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 m | M_rec=9.10938356E-31 kg | rel=0
+[ECHO 2025-10-20 14:09:31] Invert mass from r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 with M0=7.342E+22
+[ECHO 2025-10-20 14:09:31] [Newton] Converged at 0 | residual=1E-204
+[ECHO 2025-10-20 14:09:31]           Mond | M_true=7.342E+22 kg | r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 m | M_rec=7.342E+22 kg | rel=0
+[ECHO 2025-10-20 14:09:31] Invert mass from r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 with M0=5.97219E+24
+[ECHO 2025-10-20 14:09:31] [Newton] Converged at 0 | residual=0E-202
+[ECHO 2025-10-20 14:09:31]           Erde | M_true=5.97219E+24 kg | r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 m | M_rec=5.97219E+24 kg | rel=0
+[ECHO 2025-10-20 14:09:31] Invert mass from r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 with M0=1.98847E+30
+[ECHO 2025-10-20 14:09:31] [Newton] Converged at 0 | residual=0E-196
+[ECHO 2025-10-20 14:09:31]          Sonne | M_true=1.98847E+30 kg | r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 m | M_rec=1.98847E+30 kg | rel=0
+[ECHO 2025-10-20 14:09:31] Invert mass from r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 with M0=8.54445559E+36
+[ECHO 2025-10-20 14:09:31] [Newton] Converged at 0 | residual=0E-189
+[ECHO 2025-10-20 14:09:31] Sagittarius A* | M_true=8.54445559E+36 kg | r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 m | M_rec=8.54445559E+36 kg | rel=0
+[ECHO 2025-10-20 14:09:31] [OK] wrote CSV: agent_out\reports\mass_validation.csv
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  WORKFLOW: REDSHIFT EVAL
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] Loading CSV: data\real_data_emission_lines.csv
+[ECHO 2025-10-20 14:09:31] [OK] loaded rows: 143
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  EVALUATE REDSHIFT
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] [PAIRED] Seg better in 73/143 pairs (p~0.867)
+[ECHO 2025-10-20 14:09:31] [OK] wrote JSON: agent_out\reports\redshift_medians.json
+[ECHO 2025-10-20 14:09:31] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
+[ECHO 2025-10-20 14:09:31] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31]  WORKFLOW: BOUND ENERGY & α
+[ECHO 2025-10-20 14:09:31] ================================================================================
+[ECHO 2025-10-20 14:09:31] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
+[ECHO 2025-10-20 14:09:31] [OK] wrote text: agent_out\reports\bound_energy.txt
 
 --- Running C:\Program Files\Python310\python.exe H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\ssz_covariant_smoketest_verbose_lino_casu.py ---
 ======================================================================================
@@ -2873,7 +2873,7 @@ Anti-Capitalist Software License (v 1.4)
 
 
 
-============================= 78 passed in 29.66s =============================
+============================= 78 passed in 31.16s =============================
   Running scripts/tests/ directory...
 
 --- Running C:\Program Files\Python310\python.exe -m pytest H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests -s -v --tb=short ---
@@ -3320,8 +3320,8 @@ Requested rings: 16
 
 Segmentation Results:
   Points covered: 5000/5000
-  Ring IDs: 0 to 8
-  Segment IDs: 0 to 15
+  Ring IDs: 0 to 7
+  Segment IDs: 0 to 12
 
 Physical Interpretation:
   • Complete coverage: all 5000 points assigned
@@ -3532,7 +3532,7 @@ scripts/tests/test_hawking_spectrum_continuum.py::test_hawking_spectrum_continuu
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 =========================== short test summary info ===========================
 FAILED scripts/tests/test_data_validation.py::test_thermal_spectrum_template_valid - NameError: name 'np' is not defined
-============= 1 failed, 45 passed, 1 skipped, 3 warnings in 5.59s =============
+============= 1 failed, 45 passed, 1 skipped, 3 warnings in 9.01s =============
 ERROR: Script C:\Program Files\Python310\python.exe exited with status 1
 
 --- Running C:\Program Files\Python310\python.exe H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\phi_test.py --in H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\real_data_full.csv --outdir H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out --f-emit f_emit_Hz --f-obs f_obs_Hz ---
@@ -4421,7 +4421,7 @@ Interpretation:
 ================================================================================
 Ring Temperature → Velocity Prediction (Section 4.6)
 ================================================================================
-Timestamp: 2025-10-19T14:00:15.737248
+Timestamp: 2025-10-20T14:11:03.841099
 Input file: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\data\observations\G79_29+0_46_CO_NH3_rings.csv
 Number of rings: 10
 Baseline velocity v0: 12.500 km/s
@@ -4456,7 +4456,7 @@ Velocity ratio (v_N / v_0):       1.975x
 ================================================================================
 Ring Temperature → Velocity Prediction (Section 4.6)
 ================================================================================
-Timestamp: 2025-10-19T14:00:17.073743
+Timestamp: 2025-10-20T14:11:05.736342
 Input file: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\data\observations\CygnusX_DiamondRing_CII_rings.csv
 Number of rings: 3
 Baseline velocity v0: 1.300 km/s
@@ -4520,13 +4520,16 @@ Bottom line: SR-level redshift fidelity on the data subset, GR-consistent weak f
 ÜBERSICHT: ALLE GENERIERTEN PLOTS
 ================================================================================
 
-  Gesamt: 14 Plot-Dateien gefunden
+  Gesamt: 16 Plot-Dateien gefunden
 
-  .PNG-Dateien (9):
+  .PNG-Dateien (11):
     out/
       - phi_step_qq_uniform.png
       - phi_step_residual_abs_scatter.png
       - phi_step_residual_hist.png
+    reports\figures/
+      - readme_header_sstars_comparison.png
+      - readme_results_phi_lattice.png
     reports\figures\DemoObject/
       - fig_DemoObject_freqshift_vs_gamma.png
       - fig_DemoObject_gamma_log_vs_k.png
@@ -4559,13 +4562,13 @@ SPEICHERORTE:
   ○ H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\full_pipeline\figures (nicht vorhanden)
   ○ H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\final_reports\figures (nicht vorhanden)
 ================================================================================
-2025-10-19 13:59:39,237 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251019_135939.log
-2025-10-19 13:59:39,364 [INFO] TEST_GAIA: GAIA smoke rows=5000
-2025-10-19 13:59:39,370 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251019_135939.log
-2025-10-19 13:59:39,379 [INFO] TEST_SDSS: SDSS smoke rows=5000
-2025-10-19 13:59:39,381 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251019_135939.log
-2025-10-19 13:59:39,382 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
-  [OK] Full SSZ Terminal Analysis (took 84.0s)
+2025-10-20 14:10:20,781 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251020_141020.log
+2025-10-20 14:10:21,375 [INFO] TEST_GAIA: GAIA smoke rows=5000
+2025-10-20 14:10:21,382 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251020_141021.log
+2025-10-20 14:10:21,406 [INFO] TEST_SDSS: SDSS smoke rows=5000
+2025-10-20 14:10:21,410 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251020_141021.log
+2025-10-20 14:10:21,422 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
+  [OK] Full SSZ Terminal Analysis (took 96.3s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 7: SSZ THEORY PREDICTIONS TESTS
@@ -4793,7 +4796,7 @@ VALIDATION METRICS:
 
 
 [OK] SSZ-Rings completed successfully
-  [OK] G79 Example Run (took 2.5s)
+  [OK] G79 Example Run (took 2.9s)
 [RUNNING] Cygnus X Example Run
   Command: python -m cli.ssz_rings --csv data\observations\CygnusX_DiamondRing_CII_rings.csv --v0 1.3 --alpha 1.0 --out-table reports/cygx_test.csv --out-report reports/cygx_test.txt
 Loading data from: data\observations\CygnusX_DiamondRing_CII_rings.csv
@@ -4831,7 +4834,7 @@ VALIDATION METRICS:
 
 
 [OK] SSZ-Rings completed successfully
-  [OK] Cygnus X Example Run (took 2.6s)
+  [OK] Cygnus X Example Run (took 2.3s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 9: PAPER EXPORT TOOLS
@@ -4931,7 +4934,7 @@ Erstellte Dateien:
   - reports/PAPER_EXPORTS_MANIFEST.json
 
 
-  [OK] Paper Export Tools Demo (took 3.8s)
+  [OK] Paper Export Tools Demo (took 4.2s)
 
 ====================================================================================================
 SUMMARY REPORT
@@ -4941,29 +4944,29 @@ Total Phases: 19
 Passed: 19
 Failed: 0
 Success Rate: 100.0%
-Total Test Time: 139.4s
-Total Suite Time: 177.1s
+Total Test Time: 164.4s
+Total Suite Time: 204.3s
 
 Detailed Results:
   [PASS] PPN Exact Tests                          (0.1s)
-  [PASS] Dual Velocity Tests                      (0.1s)
+  [PASS] Dual Velocity Tests                      (0.2s)
   [PASS] Energy Conditions Tests                  (0.1s)
   [PASS] C1 Segments Tests                        (0.1s)
   [PASS] C2 Segments Strict Tests                 (0.1s)
   [PASS] C2 Curvature Proxy Tests                 (0.1s)
-  [PASS] SegWave Core Math Tests                  (5.2s)
-  [PASS] Multi-Ring Validation Tests              (4.9s)
-  [PASS] SSZ Kernel Tests                         (4.9s)
-  [PASS] SSZ Invariants Tests                     (5.2s)
-  [PASS] Segmenter Tests                          (5.4s)
-  [PASS] Cosmo Fields Tests                       (4.8s)
-  [PASS] Cosmo Multibody Tests                    (6.0s)
-  [PASS] Cosmos Multi-Body Sigma Tests            (6.5s)
-  [PASS] SSZ Complete Analysis                    (84.0s)
+  [PASS] SegWave Core Math Tests                  (14.1s)
+  [PASS] Multi-Ring Validation Tests              (5.2s)
+  [PASS] SSZ Kernel Tests                         (5.1s)
+  [PASS] SSZ Invariants Tests                     (6.0s)
+  [PASS] Segmenter Tests                          (5.5s)
+  [PASS] Cosmo Fields Tests                       (5.1s)
+  [PASS] Cosmo Multibody Tests                    (7.4s)
+  [PASS] Cosmos Multi-Body Sigma Tests            (6.8s)
+  [PASS] SSZ Complete Analysis                    (96.3s)
   [PASS] SSZ Theory Predictions                   (2.7s)
-  [PASS] G79 Analysis                             (2.5s)
-  [PASS] Cygnus X Analysis                        (2.6s)
-  [PASS] Paper Export Tools                       (3.8s)
+  [PASS] G79 Analysis                             (2.9s)
+  [PASS] Cygnus X Analysis                        (2.3s)
+  [PASS] Paper Export Tools                       (4.2s)
 
 Summary written to: reports\RUN_SUMMARY.md
 
@@ -4981,7 +4984,7 @@ ECHOING REPORTS & SUMMARIES
 
 ## Summary Statistics
 
-- **Total Duration:** 177.1s
+- **Total Duration:** 204.3s
 - **Test Suites:** 19
 - **Passed:** 19
 - **Failed:** 0
