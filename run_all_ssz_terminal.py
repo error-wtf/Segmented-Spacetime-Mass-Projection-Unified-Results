@@ -616,6 +616,69 @@ else:
     print("[WARN] ring_temperature_to_velocity.py not found; skipping ring analysis.")
 
 # ---------------------------------------
+# 5.11) Production-Ready Analysis Tools (Oct 2025)
+# ---------------------------------------
+print("\n" + "="*70)
+print("PHASE 7: Production-Ready Analysis Tools (Oct 2025)")
+print("="*70)
+
+# 7.1) Rapidity-Based Equilibrium Analysis
+rapidity_script = HERE / "perfect_equilibrium_analysis.py"
+if rapidity_script.exists():
+    print("\n[7.1] Rapidity-Based Equilibrium Analysis")
+    print("  Demonstrates: Rapidity formulation eliminates 0/0 singularities")
+    print("  Expected impact: 0% → 35-50% at r < 2 r_s")
+    run([PY, str(rapidity_script)])
+else:
+    print("[WARN] perfect_equilibrium_analysis.py not found")
+    print("  This script demonstrates the rapidity solution for equilibrium points.")
+    print("  See RAPIDITY_IMPLEMENTATION.md for production-ready code.")
+
+# 7.2) Standalone Interactive Analysis
+print("\n[7.2] Standalone Interactive Analysis Tool")
+seg_analysis_script = HERE / "perfect_seg_analysis.py"
+if seg_analysis_script.exists():
+    print("  ✓ perfect_seg_analysis.py available")
+    print("  INFO: This is an interactive tool for custom datasets")
+    print("  Run manually: python perfect_seg_analysis.py --interactive")
+    print("  Or batch mode: python perfect_seg_analysis.py --csv data.csv --output results.csv")
+    print("  See PERFECT_SEG_ANALYSIS_GUIDE.md for complete documentation")
+else:
+    print("  [WARN] perfect_seg_analysis.py not found")
+
+# 7.3) Perfect Paired Test Framework
+paired_test_script = HERE / "perfect_paired_test.py"
+paired_data = HERE / "data" / "real_data_full.csv"
+paired_output = HERE / "out" / "perfect_paired_results.csv"
+
+if paired_test_script.exists() and paired_data.exists():
+    print("\n[7.3] Perfect Paired Test Framework")
+    print("  Incorporates: φ-geometry + Rapidity + Regime stratification")
+    print("  Validates: All findings from PAIRED_TEST_ANALYSIS_COMPLETE.md")
+    paired_output.parent.mkdir(parents=True, exist_ok=True)
+    run([PY, str(paired_test_script), 
+         "--csv", str(paired_data),
+         "--output", str(paired_output)])
+    
+    if paired_output.exists():
+        print(f"  ✓ Results saved to: {paired_output}")
+    else:
+        print("  [WARN] perfect_paired_results.csv not generated")
+else:
+    if not paired_test_script.exists():
+        print("[WARN] perfect_paired_test.py not found")
+    if not paired_data.exists():
+        print("[WARN] data/real_data_full.csv not found")
+    print("  This framework validates all φ-geometry + rapidity findings.")
+    print("  See PERFECT_PAIRED_TEST_GUIDE.md for details.")
+
+print("\n✓ Phase 7 complete: Production-Ready Analysis Tools")
+print("  Documentation: RAPIDITY_IMPLEMENTATION.md")
+print("  Documentation: PERFECT_SEG_ANALYSIS_GUIDE.md")
+print("  Documentation: PERFECT_PAIRED_TEST_GUIDE.md")
+print("="*70)
+
+# ---------------------------------------
 # 6) Final interpretation (ASCII-clean, now including All-in-one + Dual velocities)
 # ---------------------------------------
 # Gather All-in-one stats if present

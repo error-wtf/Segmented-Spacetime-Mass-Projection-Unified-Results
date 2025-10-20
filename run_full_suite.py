@@ -340,6 +340,47 @@ def main():
             print(f"  [SKIP] SSZ Terminal Analysis (run_all_ssz_terminal.py not found)")
     
     # =============================================================================
+    # PHASE 6.5: Production-Ready Analysis Tools (Oct 2025) - NEW!
+    # =============================================================================
+    if not args.skip_slow_tests and not args.quick:
+        print_header("PHASE 6.5: PRODUCTION-READY ANALYSIS TOOLS (OCT 2025)", "-")
+        
+        # Note: Phase 7 in run_all_ssz_terminal.py already runs these,
+        # but we add them here for standalone execution capability
+        
+        # 6.5.1: Rapidity-Based Equilibrium Analysis
+        rapidity_script = Path("perfect_equilibrium_analysis.py")
+        if rapidity_script.exists():
+            desc = "Rapidity Equilibrium Analysis (0/0 solution demo)"
+            cmd = ["python", str(rapidity_script)]
+            success, elapsed = run_command(cmd, desc, 300, check=False)
+            results[desc] = {"success": success, "time": elapsed}
+        else:
+            print("  [SKIP] perfect_equilibrium_analysis.py not found")
+        
+        # 6.5.2: Perfect Paired Test Framework
+        paired_script = Path("perfect_paired_test.py")
+        csv_file = Path("data/real_data_full.csv")
+        output_file = Path("out/perfect_paired_results.csv")
+        
+        if paired_script.exists() and csv_file.exists():
+            desc = "Perfect Paired Test (All Findings Framework)"
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+            cmd = ["python", str(paired_script), 
+                   "--csv", str(csv_file),
+                   "--output", str(output_file)]
+            success, elapsed = run_command(cmd, desc, 600, check=False)
+            results[desc] = {"success": success, "time": elapsed}
+        else:
+            if not paired_script.exists():
+                print("  [SKIP] perfect_paired_test.py not found")
+            if not csv_file.exists():
+                print("  [SKIP] data/real_data_full.csv not found")
+        
+        # Note: perfect_seg_analysis.py is interactive tool, skip in batch mode
+        print("  [INFO] perfect_seg_analysis.py is interactive tool (not run in batch)")
+    
+    # =============================================================================
     # PHASE 7: SSZ THEORY PREDICTIONS (Horizon, Hawking, Information, Singularity)
     # =============================================================================
     if not args.skip_slow_tests and not args.quick:
