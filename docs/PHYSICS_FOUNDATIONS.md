@@ -6,11 +6,15 @@
 
 **🌐 Languages:** [🇬🇧 English](PHYSICS_FOUNDATIONS.md) | [🇩🇪 Deutsch](PHYSICS_FOUNDATIONS_DE.md)
 
----
+**Key Abbreviations:**
+- **SSZ:** Segmented Spacetime
+- **GAIA:** ESA's Gaia space observatory (stellar astrometry mission)
+- **NED:** NASA/IPAC Extragalactic Database
+- **EHT:** Event Horizon Telescope
+- **PPN:** Parametrized Post-Newtonian formalism
+- **GR:** General Relativity
+- **SR:** Special Relativity
 
-## 🎯 Goal of this Documentation
-
-Understanding the **physical ideas** behind the Segmented Spacetime theory **without complex mathematics**.
 
 **After reading you will understand:**
 - What Segmented Spacetime means
