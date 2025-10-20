@@ -10,10 +10,6 @@
 
 ## 📖 Quick Navigation
 
-### 🏆 Repository Status & Quality
-- **[REPOSITORY_QUALITY_REPORT_v1.3.0.md](REPOSITORY_QUALITY_REPORT_v1.3.0.md)** - Comprehensive quality assessment (95.1% A+) ⭐ NEW
-- **[docs/improvement/TERMINOLOGY_GLOSSARY.md](docs/improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary: 200+ terms (EN/DE) ⭐ NEW
-
 ### 🚀 Getting Started
 - **[README.md](README.md)** - Main repository overview & quick start
 - **[QUICK_START.md](QUICK_START.md)** - 5-minute quick start guide ⭐ NEW
