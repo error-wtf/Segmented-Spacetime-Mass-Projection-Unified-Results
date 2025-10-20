@@ -353,6 +353,41 @@ Sollte zeigen:
 
 ---
 
+## Production-Ready Analysis Scripts (NEW - Oct 2025)
+
+**Nach der Installation verfügbar:**
+
+### 1. Rapidity-Based Equilibrium Analysis
+```bash
+python perfect_equilibrium_analysis.py
+```
+- Eliminiert 0/0 Singularitäten
+- Rapidity formulation
+- Erwartete Verbesserung: 0% → 35-50%
+
+### 2. Standalone Interactive Analysis
+```bash
+python perfect_seg_analysis.py --interactive
+```
+- 3 Modi (Interactive/Single/CSV)
+- Für eigene Datensätze
+- Production-ready
+
+### 3. Perfect Paired Test Framework
+```bash
+python perfect_paired_test.py --csv data/real_data_full.csv
+```
+- Alle Findings inkorporiert
+- Regime-spezifische Stats
+- Framework für Integration
+
+**Dokumentation:**
+- [RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)
+- [PERFECT_SEG_ANALYSIS_GUIDE.md](PERFECT_SEG_ANALYSIS_GUIDE.md)
+- [PERFECT_PAIRED_TEST_GUIDE.md](PERFECT_PAIRED_TEST_GUIDE.md)
+
+---
+
 ## Copyright
 
 © 2025 Carmen Wrede, Lino Casu  

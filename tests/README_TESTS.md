@@ -1,15 +1,18 @@
 # SSZ Suite - Test System Documentation
 
-**Last Updated:** 2025-10-18  
-**Complete Test System Overhaul**
+**Last Updated:** 2025-10-20  
+**Complete Test System Overhaul + Production Analysis Scripts**
 
 ---
 
 ## Overview
 
-The SSZ Suite contains **58 tests total**:
+The SSZ Suite contains **69+ tests total**:
 - **35 Physics Tests** - Detailed output with physical interpretations
 - **23 Technical Tests** - Silent mode (run in background)
+- **11 Multi-Ring Validation Tests** - Real astronomical datasets
+- **7 Smoke Tests** - Quick health checks (NEW: includes rapidity validation!)
+- **3 Production Analysis Scripts** - NEW: Rapidity-based tools
 
 ---
 
@@ -404,6 +407,84 @@ source .venv/bin/activate
 
 ---
 
+## Production-Ready Analysis Scripts (NEW - Oct 2025)
+
+**Beyond testing - production tools for analysis:**
+
+### 1. Rapidity-Based Equilibrium Analysis
+**Script:** `perfect_equilibrium_analysis.py` (428 lines)  
+**Purpose:** Eliminates 0/0 singularities at equilibrium points
+
+```bash
+python perfect_equilibrium_analysis.py
+```
+
+**Features:**
+- Rapidity formulation: χ = arctanh(v/c)
+- Angular bisector for natural origin
+- Expected improvement: 0% → 35-50% at r < 2 r_s
+- Complete validation tests included
+
+**Documentation:** [RAPIDITY_IMPLEMENTATION.md](../RAPIDITY_IMPLEMENTATION.md)
+
+### 2. Standalone Interactive Analysis
+**Script:** `perfect_seg_analysis.py` (480 lines)  
+**Purpose:** User-friendly tool for custom datasets
+
+```bash
+# Interactive mode
+python perfect_seg_analysis.py --interactive
+
+# CSV batch
+python perfect_seg_analysis.py --csv data.csv --output results.csv
+```
+
+**Features:**
+- 3 usage modes (Interactive/Single/CSV)
+- Flexible column detection
+- Regime classification
+- Rapidity-based (NO 0/0!)
+
+**Documentation:** [PERFECT_SEG_ANALYSIS_GUIDE.md](../PERFECT_SEG_ANALYSIS_GUIDE.md)
+
+### 3. Perfect Paired Test Framework
+**Script:** `perfect_paired_test.py` (470 lines)  
+**Purpose:** Complete paired test with ALL findings
+
+```bash
+python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
+```
+
+**Features:**
+- φ-geometry fundamental (not fitting!)
+- Rapidity formulation (NO 0/0!)
+- Regime stratification
+- Complete statistics
+
+**Documentation:** [PERFECT_PAIRED_TEST_GUIDE.md](../PERFECT_PAIRED_TEST_GUIDE.md)
+
+### 4. Smoke Tests (Quick Health Checks)
+**Script:** `smoke_test_all.py`  
+**Purpose:** Fast validation of critical components
+
+```bash
+python smoke_test_all.py
+```
+
+**Tests (7 total):**
+1. Critical imports
+2. φ calculation
+3. Data files
+4. Output directories
+5. Matplotlib
+6. Precision
+7. **Rapidity equilibrium (NEW!)**
+
+**Runtime:** ~5 seconds  
+**Test 7:** Validates rapidity functions, v=0 handling, bisector
+
+---
+
 ## Contact & License
 
 **Authors:** Carmen Wrede, Lino Casu  
@@ -412,4 +493,5 @@ source .venv/bin/activate
 
 ---
 
-**All 58 tests verified and documented!** ✅
+**All 69+ tests verified and documented!** ✅  
+**3 production analysis scripts ready for deployment!** 🚀
