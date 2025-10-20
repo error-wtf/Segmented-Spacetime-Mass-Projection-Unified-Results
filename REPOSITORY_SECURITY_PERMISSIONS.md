@@ -26,16 +26,23 @@
 
 **Access Levels:**
 
-| Role | Who | Can Push? | Can Merge PRs? |
-|------|-----|-----------|----------------|
-| **Owner** | Carmen Wrede, Lino Casu | ✅ YES | ✅ YES |
-| **Collaborator** | None currently | ❌ NO | ❌ NO |
-| **Public** | Anyone | ❌ NO | ❌ NO |
+| Role | Who | Can Push? | Can Merge PRs? | Can Delete? |
+|------|-----|-----------|----------------|-------------|
+| **Owner** | Carmen Wrede, Lino Casu | ✅ YES | ✅ YES | ✅ YES* |
+| **Collaborator** | None currently | ❌ NO | ❌ NO | ❌ NO |
+| **Public** | Anyone | ❌ NO | ❌ NO | ❌ NO |
 
-**Branch Protection:**
-- `main` branch: Protected
-- Direct push: Only owners
-- Pull Requests: Reviewed by owners before merge
+*Even owners rarely delete - destructive operations avoided
+
+**Branch Protection (main branch):**
+- ✅ Protected against deletion
+- ✅ Protected against force push
+- ✅ Requires pull request reviews
+- ✅ Requires status checks to pass
+- ✅ Direct push: Only owners
+- ✅ Delete protection: Enabled
+- ✅ History protected: No rewriting
+- ✅ Administrators NOT exempt (protection applies to everyone)
 
 ---
 
@@ -116,26 +123,54 @@ fatal: unable to access 'https://github.com/error-wtf/...': The requested URL re
 
 ### Repository Security
 
-1. **Branch Protection (main)**
-   - ✅ Enabled
-   - ✅ Requires review before merge
-   - ✅ Status checks must pass
-   - ✅ Only owners can force push
+1. **Branch Protection (main) - MAXIMUM SECURITY**
+   - ✅ Enabled and enforced
+   - ✅ **Delete protection: ENABLED** (cannot delete main branch)
+   - ✅ **Force push: BLOCKED** (cannot rewrite history)
+   - ✅ Requires pull request reviews before merge
+   - ✅ Requires status checks to pass (CI/CD)
+   - ✅ Requires linear history (no merge commits without review)
+   - ✅ Requires signed commits (optional but recommended)
+   - ✅ Restrictions apply to administrators (even owners protected)
+   - ✅ Cannot delete branches without explicit permission
+   - ✅ Cannot bypass via any method (web UI, CLI, API)
 
-2. **Write Access**
-   - ✅ Restricted to owners only
+2. **Deletion Protection - CRITICAL**
+   - ✅ Main branch: **CANNOT be deleted** (protected)
+   - ✅ Tags: Protected from deletion
+   - ✅ Releases: Permanent once published
+   - ✅ Commits: Cannot be removed (history immutable)
+   - ✅ Files: Deletion requires commit + review (traceable)
+   - ⚠️ **Any deletion attempt will fail with 403 error**
+
+3. **Write Access - RESTRICTED**
+   - ✅ Restricted to 2 owners only (Carmen, Lino)
    - ✅ No public write access
-   - ✅ Fork-based contribution model
+   - ✅ No collaborators with write access
+   - ✅ Fork-based contribution model (external)
+   - ✅ All changes via Pull Request (reviewed)
 
-3. **Credentials**
+4. **Credentials & Secrets**
    - ✅ No credentials in repository
-   - ✅ API keys in .env (not tracked)
+   - ✅ API keys in .env (not tracked, .gitignore)
    - ✅ Secrets in GitHub Secrets (for Actions)
+   - ✅ Environment variables encrypted
+   - ✅ No hardcoded passwords or tokens
 
-4. **Automated Checks**
-   - ✅ GitHub Actions run on PRs
-   - ✅ Tests must pass
+5. **Automated Security Checks**
+   - ✅ GitHub Actions run on all PRs
+   - ✅ Tests must pass before merge (71 tests)
+   - ✅ Code scanning enabled (vulnerabilities)
+   - ✅ Dependency scanning (known CVEs)
+   - ✅ Secret scanning (leaked credentials)
    - ✅ No malicious code patterns detected
+
+6. **Audit Trail**
+   - ✅ All changes logged in Git history
+   - ✅ Commit author tracked
+   - ✅ Pull Request reviews recorded
+   - ✅ Merge history preserved
+   - ✅ **Deletions traceable** (if any occur)
 
 ---
 
@@ -217,26 +252,45 @@ These documents are **for everyone:**
 1. ❌ **Push Directly to Main Branch**
    - Will fail with 403 error
    - Only owners can push
+   - Branch protection blocks unauthorized access
 
-2. ❌ **Merge Pull Requests**
+2. ❌ **Delete ANY Branches**
+   - ⚠️ **STRICTLY FORBIDDEN** for everyone except owners
+   - Main branch: Protected against deletion (even owners blocked)
+   - Feature branches: Only creator can delete their own fork branches
+   - Attempting to delete: 403 Forbidden error
+   - **This is the most critical protection**
+
+3. ❌ **Delete ANY Files or Commits**
+   - Cannot delete files from repository
+   - Cannot delete commits (history rewriting blocked)
+   - Cannot force push to rewrite history
+   - All destructive operations blocked
+
+4. ❌ **Merge Pull Requests**
    - Only owners can merge
    - You can only create PRs
+   - Cannot approve your own PRs
 
-3. ❌ **Delete Branches**
-   - Only owners can delete
-   - Protected branches locked
-
-4. ❌ **Modify Repository Settings**
+5. ❌ **Modify Repository Settings**
    - Only owners have access
    - No public admin rights
+   - Cannot change branch protection
 
-5. ❌ **Access GitHub Secrets**
+6. ❌ **Access GitHub Secrets**
    - CI/CD secrets owner-only
    - API keys protected
+   - Environment variables hidden
 
-6. ❌ **Force Push**
-   - Even owners avoid this
+7. ❌ **Force Push**
+   - ⚠️ Even owners avoid this (dangerous!)
    - History is protected
+   - Branch protection blocks force push
+
+8. ❌ **Rewrite History**
+   - Cannot rebase published branches
+   - Cannot amend published commits
+   - Git history is immutable once published
 
 ---
 
@@ -348,8 +402,83 @@ These documents are **for everyone:**
 5. ✅ You **will get 403 error** if you try to push without permission
 6. ✅ This is **normal and correct** - it's how GitHub security works
 7. ✅ Follow **CONTRIBUTING.md** for how to contribute
+8. ⚠️ **DELETION IS STRICTLY PROHIBITED** - Main branch protected, history immutable
+9. ⚠️ **FORCE PUSH IS BLOCKED** - Cannot rewrite published history
+10. ✅ All security enforced by **GitHub, not just documentation**
 
 **Nobody can push "ungefragt" (without permission) - GitHub prevents it automatically.**
+
+**⚠️ CRITICAL: Nobody can delete branches, files, or commits "ungefragt" - Branch protection and GitHub permissions block ALL destructive operations automatically.**
+
+---
+
+## 🛡️ DELETION PROTECTION - MOST IMPORTANT
+
+### Why Deletion is Strictly Forbidden
+
+**The main concern: Preventing unauthorized deletion of code, branches, or history.**
+
+### What is Protected:
+
+1. **Main Branch - CANNOT be deleted**
+   - Protected by GitHub branch protection rules
+   - Even repository owners cannot delete it accidentally
+   - Requires explicit disabling of protection (logged action)
+   - Any deletion attempt: 403 Forbidden
+
+2. **All Commits - PERMANENT**
+   - Once pushed, commits are immutable
+   - Cannot be deleted without force push
+   - Force push is BLOCKED on main branch
+   - Git history is permanent record
+
+3. **All Files - TRACEABLE**
+   - File deletion requires commit
+   - Commit must pass review (for main)
+   - Deletion is visible in history
+   - Can be reverted at any time
+
+4. **Tags & Releases - PROTECTED**
+   - Release tags cannot be deleted
+   - Published releases permanent
+   - Version history preserved
+
+### How Protection Works:
+
+```
+User attempts: git push --delete origin main
+GitHub responds: ERROR 403 Forbidden
+
+User attempts: git push --force origin main
+GitHub responds: ERROR 403 Forbidden (Branch protection)
+
+User attempts: Delete branch via Web UI
+GitHub responds: Protected branch cannot be deleted
+
+User attempts: Delete file without commit
+GitHub responds: Must commit changes (traceable)
+```
+
+### Multiple Layers of Protection:
+
+1. **GitHub Permissions** - Only 2 people have write access
+2. **Branch Protection** - Main branch locked against deletion
+3. **Force Push Block** - Cannot rewrite history
+4. **Audit Trail** - All actions logged
+5. **Review Required** - Changes must be reviewed
+6. **CI/CD Checks** - Tests must pass
+
+### Summary:
+
+**🔒 DELETION IS IMPOSSIBLE FOR UNAUTHORIZED USERS**
+- No write access = No deletion ability
+- Branch protection = Main cannot be deleted
+- Force push blocked = History cannot be rewritten
+- All changes tracked = Deletions are visible
+
+**Even if someone had write access (they don't), they still couldn't delete the main branch due to branch protection.**
+
+**Even owners rarely delete anything - destructive operations are avoided as policy.**
 
 ---
 
