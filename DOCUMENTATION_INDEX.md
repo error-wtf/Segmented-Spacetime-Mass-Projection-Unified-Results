@@ -37,7 +37,9 @@
 ### 🧪 Testing & Validation
 - **[TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md)** ([🇩🇪 DE](TEST_SUITE_VERIFICATION.md) | [🇬🇧 EN](TEST_SUITE_VERIFICATION_EN.md)) - Test system verification
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
-- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Paired test explanation
+- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Paired test complete investigation
+- **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ NEW: Regime-specific paired test analysis
+- **[PAIRED_TEST_FAILURE_ANALYSIS.md](PAIRED_TEST_FAILURE_ANALYSIS.md)** - Detailed data distribution analysis
 - **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test overview
 
 ### 📄 Generated Test Reports

@@ -267,7 +267,7 @@ python segspace_all_in_one_extended.py bound-energy --plots
 ### Complete Test Output
 
 **📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
-*Last updated: 2025-10-20 14:58:00 - Reports regenerated with correct paired test results (73/143)*
+*Last updated: 2025-10-20 15:29:00 - Reports regenerated with stratified analysis insights (73/143 overall)*
 
 ---
 
