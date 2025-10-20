@@ -258,14 +258,14 @@ python segspace_all_in_one_extended.py bound-energy --plots
 - SR: 1.34e-2
 - GR: 2.25e-1
 
-**Paired comparison (emission lines only):** SEG better in 79/143 rows (55%), p < 0.001
+**Paired comparison (emission lines only):** SEG better in 73/143 rows (51%), p = 0.867
 
 **Mass bins:** SEG < GR×SR in all bins
 
 ### Complete Test Output
 
 **📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
-*Last updated: 2025-10-20 14:11:00*
+*Last updated: 2025-10-20 14:58:00 - Reports regenerated with correct paired test results (73/143)*
 
 ---
 

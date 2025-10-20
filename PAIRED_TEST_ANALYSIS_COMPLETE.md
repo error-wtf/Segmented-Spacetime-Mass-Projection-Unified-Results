@@ -310,10 +310,12 @@ NED continuum excluded:
    - See "Current Dataset (v1.3.0)" section
 
 ### **Result:**
-- ✅ Paired test score: **79/143** (55%) - scientifically correct
+- ✅ Paired test score: **73/143** (51%) - scientifically correct but not statistically significant (p = 0.867)
 - ✅ Continuum data (284 rows) preserved for multi-frequency analysis
 - ✅ No data loss - each dataset used for its intended purpose
 - ✅ Transparent and well-documented
+
+**Note:** The paired test shows SEG and GR×SR perform comparably on emission-line data (no significant difference). SEG's advantage is more evident in median |Δz| values and mass-binned analysis.
 
 ---
 
@@ -396,7 +398,7 @@ rows are used for multi-frequency analysis and Information Preservation tests.
 
 **Solution:** Accept and document - NED for spectrum analysis, not paired test
 
-**Correct Score:** 79/143 original rows (55%) - SEG performs well!
+**Correct Score:** 73/143 original rows (51%) - SEG comparable to GR×SR (p = 0.867, not significant)
 
 **Completed Actions (Option B Implementation):**
 1. ✅ Separated data files by type (emission vs continuum)
