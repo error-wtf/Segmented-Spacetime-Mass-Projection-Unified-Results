@@ -351,7 +351,13 @@ All results shown are WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-
 
 **📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
 **📄 [Test Run Summary](reports/RUN_SUMMARY.md)** - Compact overview with φ-based geometry framework  
-*Last updated: 2025-10-20 16:55:04 - All reports regenerated with complete φ-geometry integration*
+*Last updated: 2025-10-20 17:20:14 - All reports regenerated with complete φ-geometry integration*
+
+**✓ Built-in Double-Check Validation:** Every pipeline run automatically verifies:
+- φ (golden ratio) value: 1.618033988749... (deviation < 1e-10)
+- Δ(M) parameters: A=98.01, α=2.7177e4, B=1.96
+- φ/2 natural boundary: ≈ 0.809
+- Critical findings: 82%, 86%, 0%, 51% (validated by stratified analysis)
 
 ---
 
