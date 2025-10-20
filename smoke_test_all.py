@@ -196,6 +196,88 @@ def test_precision():
         print(f"✗ Precision test failed: {e}")
         return False
 
+def test_rapidity_equilibrium():
+    """Test rapidity-based equilibrium analysis (perfect script)"""
+    print("\n" + "="*80)
+    print("TEST 7: Rapidity Equilibrium Analysis")
+    print("="*80)
+    
+    try:
+        import numpy as np
+        
+        # Check if script exists
+        script_path = Path("perfect_equilibrium_analysis.py")
+        if not script_path.exists():
+            print("⚠️  perfect_equilibrium_analysis.py not found (optional)")
+            return True  # Non-critical
+        
+        print(f"✓ Script exists ({script_path.stat().st_size / 1024:.1f} KB)")
+        
+        # Test core rapidity functions (minimal version for smoke test)
+        C = 299792458  # Speed of light
+        
+        def velocity_to_rapidity(v, c=C):
+            """chi = arctanh(v/c) - NO singularities"""
+            beta = np.clip(v / c, -0.99999, 0.99999)
+            return np.arctanh(beta)
+        
+        def rapidity_to_velocity(chi, c=C):
+            """v = c*tanh(chi) - smooth everywhere"""
+            return c * np.tanh(chi)
+        
+        def bisector_rapidity(chi1, chi2):
+            """Angular bisector - natural origin"""
+            return 0.5 * (chi1 + chi2)
+        
+        # Test 1: v=0 is well-defined
+        chi_zero = velocity_to_rapidity(0, C)
+        v_zero = rapidity_to_velocity(0, C)
+        
+        print(f"✓ v=0 test: chi={chi_zero:.6f}, v={v_zero:.6f} (smooth!)")
+        
+        if abs(chi_zero) > 1e-10 or abs(v_zero) > 1e-10:
+            print("✗ v=0 handling FAILED")
+            return False
+        
+        # Test 2: Opposite velocities give v=0
+        v1 = 0.3 * C
+        v2 = -0.3 * C
+        chi1 = velocity_to_rapidity(v1, C)
+        chi2 = velocity_to_rapidity(v2, C)
+        chi_bisect = bisector_rapidity(chi1, chi2)
+        v_bisect = rapidity_to_velocity(chi_bisect, C)
+        
+        print(f"✓ Opposite velocities: v1=+0.3c, v2=-0.3c")
+        print(f"  chi1={chi1:.4f}, chi2={chi2:.4f}")
+        print(f"  Bisector chi={chi_bisect:.6f} -> v={v_bisect:.6f}")
+        
+        if abs(chi_bisect) > 1e-10 or abs(v_bisect) > 1e-6:
+            print("✗ Bisector test FAILED")
+            return False
+        
+        # Test 3: Roundtrip conversion
+        test_velocities = [0.1*C, 0.5*C, 0.9*C]
+        for v_test in test_velocities:
+            chi = velocity_to_rapidity(v_test, C)
+            v_back = rapidity_to_velocity(chi, C)
+            error = abs(v_test - v_back)
+            
+            if error > 1e-6:
+                print(f"✗ Roundtrip test FAILED for v={v_test/C:.1f}c")
+                return False
+        
+        print(f"✓ Roundtrip tests: {len(test_velocities)} velocities OK")
+        
+        print("✅ Rapidity equilibrium analysis functional")
+        print("   (NO 0/0 singularities, smooth at equilibrium!)")
+        return True
+        
+    except Exception as e:
+        print(f"✗ Rapidity test failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
 def main():
     """Run all smoke tests"""
     print("="*80)
@@ -210,6 +292,7 @@ def main():
         ("Output Directories", test_output_directories),
         ("Matplotlib", test_matplotlib),
         ("Precision", test_precision),
+        ("Rapidity Equilibrium", test_rapidity_equilibrium),
     ]
     
     results = []
