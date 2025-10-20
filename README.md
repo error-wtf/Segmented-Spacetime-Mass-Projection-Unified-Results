@@ -367,7 +367,7 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 ## 📊 Key Results
 
-### Current Dataset (v1.3.0)
+### Current Dataset (v1.3.1)
 
 **427 data points** from **117 unique sources**
 
@@ -627,7 +627,7 @@ See [LICENSE](LICENSE) for full terms.
   author = {Wrede, Carmen and Casu, Lino},
   title = {Segmented Spacetime Mass Projection \& Unified Results},
   year = {2025},
-  version = {1.3.0},
+  version = {1.3.1},
   url = {https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results}
 }
 ```
@@ -682,7 +682,7 @@ See [LICENSE](LICENSE) for full terms.
 
 ### Data Quality
 
-- **Current (v1.3.0):** 427 real observations from 117 peer-reviewed sources
+- **Current (v1.3.1):** 427 real observations from 117 peer-reviewed sources
 - **No synthetic data:** All placeholder/synthetic data removed (completed v1.2.0)
 - **Data expansion:** 143 → 427 rows via NASA/IPAC NED continuum spectra integration (v1.2.1)
 - **Provenance:** All data cited in [Sources.md](Sources.md), publicly accessible
@@ -737,9 +737,10 @@ Segmented-Spacetime-Mass-Projection-Unified-Results/
 
 ---
 
-**Version:** v1.3.0 (2025-10-20)  
+**Version:** v1.3.1 (2025-10-20)  
 **Status:** ✅ Production-Ready | Cross-Platform Compatible  
-**Tests:** 69 passing (35 physics + 23 technical + 11 ring)  
-**Data:** 427 real observations from 117 sources + 13 multi-ring structures
+**Tests:** 71 passing (69 automated + 2 smoke)  
+**Data:** 427 real observations from 117 sources + 13 multi-ring structures  
+**New in v1.3.1:** 5 publication plots (300 DPI) + Final validation analysis + Comprehensive testing guide
 
 © 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4

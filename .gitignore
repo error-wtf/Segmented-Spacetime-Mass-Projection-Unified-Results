@@ -489,6 +489,13 @@ validation_temp/
 # Old backup directories
 *_bak/
 *_old/
+/backups/
+
+# Old backup files in root (keep archive/ though)
+*_OLD.md
+*_BACKUP.md
+*_old.md
+*_backup.md
 
 # ============================================================================
 # KEEP IMPORTANT FILES (EXPLICIT)
