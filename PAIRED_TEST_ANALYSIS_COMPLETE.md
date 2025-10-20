@@ -73,6 +73,9 @@ Problem: Comparing galaxy recession (0.0042)
 
 The 284 rows of continuum-only data were therefore excluded not because they are "lower quality" but because **they measure physics that SEG is not designed to predict**. Including them would be like testing Newton's law of gravitation using measurements of galaxy cluster recession - the data is valid, but it's testing the wrong theory.
 
+**Note on Other Data Sources:**
+We also evaluated **LIGO gravitational wave strain data** early in the project. While LIGO provides Nobel Prize-winning measurements, we found it unsuitable for different reasons: LIGO measures dynamic gravitational wave strain h(t) from merger events, while SEG predicts static metric redshift z from stable configurations. These are fundamentally different observables (wave amplitude vs time dilation), require different analysis approaches (time-series vs spectroscopy), and test different aspects of gravity (wave propagation vs local curvature). For detailed LIGO rejection rationale, see `data/DATA_TYPE_USAGE_GUIDE.md` section "Why We Don't Use LIGO Gravitational Wave Data".
+
 ### Statistical Method
 
 **Test:** Paired comparison (SEG vs GR×SR)  
