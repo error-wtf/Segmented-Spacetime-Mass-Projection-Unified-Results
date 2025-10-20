@@ -181,13 +181,17 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity=True):
     # From PHI_FUNDAMENTAL_GEOMETRY.md - this is the EXACT calibrated formula
     # ===========================================================================
     
-    # Mass normalization (same as segspace_all_in_one_extended.py)
-    log_M = np.log10(M_kg)
-    norm = np.clip((log_M - LOG_M_LOW) / (LOG_M_HIGH - LOG_M_LOW), 0.0, 1.0)
+    # Mass normalization (segspace uses lo=None, hi=None → norm=1.0)
+    # NOT mass-dependent for emission line analysis!
+    norm = 1.0
     
     # Complete Δ(M) formula with φ-derived parameters
-    # deltaM_pct = (A * exp(-α * r_s) + B) * norm
-    deltaM_pct = (A * np.exp(-ALPHA * r_s) + B) * norm
+    # CRITICAL: Testing exp(-α/r_s) instead of exp(-α*r_s) to avoid underflow!
+    # deltaM_pct = (A * exp(-α / r_s) + B) * norm
+    if r_s > 0:
+        deltaM_pct = (A * np.exp(-ALPHA / r_s) + B) * norm
+    else:
+        deltaM_pct = B * norm
     
     # Apply Δ(M) correction to gravitational redshift
     # This is the φ-based segment correction!
@@ -263,8 +267,13 @@ def compute_z_gr_classical(r_m, M_msun, v_mps, z_obs):
     else:
         z_doppler = np.nan
     
-    # Simple combination (no φ-geometry!)
-    z_gr = z_grav + z_doppler
+    # CORRECT relativistic combination (multiplicative, not additive!)
+    # z_total = (1 + z_grav) * (1 + z_doppler) - 1
+    if not np.isnan(z_grav) and not np.isnan(z_doppler):
+        z_gr = (1.0 + z_grav) * (1.0 + z_doppler) - 1.0
+    else:
+        z_gr = np.nan
+    
     error = abs(z_gr - z_obs) if not np.isnan(z_gr) else np.nan
     
     return {
@@ -302,7 +311,9 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
             # Required columns
             M_msun = row['M_solar'] if 'M_solar' in row else row.get('M_msun', np.nan)
             r_m = row['r_emit_m'] if 'r_emit_m' in row else row.get('r_m', np.nan)
-            v_mps = row.get('v_tot_mps', 0)
+            # Use line-of-sight velocity (v_los_mps), NOT total velocity!
+            # Redshift depends on radial component only
+            v_mps = row.get('v_los_mps', row.get('v_tot_mps', 0))
             z_obs = row['z'] if 'z' in row else row.get('z_obs', np.nan)
             
             if np.isnan([M_msun, r_m, z_obs]).any():
@@ -332,7 +343,8 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
                 'seg_wins': seg_wins,
                 'regime': seg_result['regime'],
                 'x': seg_result['x'],
-                'phi_factor': seg_result['phi_factor'],
+                'deltaM_pct': seg_result['deltaM_pct'],
+                'phi_correction_factor': seg_result['phi_correction_factor'],
                 'equilibrium_factor': seg_result['equilibrium_factor'],
                 'is_photon_sphere': seg_result['is_photon_sphere'],
                 'is_high_velocity': seg_result['is_high_velocity'],
@@ -423,9 +435,10 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
         print(f"\n{'='*80}")
         print("φ-GEOMETRY IMPACT")
         print(f"{'='*80}")
-        print(f"Mean φ-factor: {results_df['phi_factor'].mean():.4f}")
-        print(f"Max φ-factor: {results_df['phi_factor'].max():.4f}")
-        print(f"Photon sphere mean φ-factor: {results_df[results_df['is_photon_sphere']]['phi_factor'].mean():.4f}")
+        print(f"Mean Δ(M)%: {results_df['deltaM_pct'].mean():.4f}%")
+        print(f"Max Δ(M)%: {results_df['deltaM_pct'].max():.4f}%")
+        print(f"Mean φ-correction factor: {results_df['phi_correction_factor'].mean():.4f}")
+        print(f"Photon sphere mean φ-factor: {results_df[results_df['is_photon_sphere']]['phi_correction_factor'].mean():.4f}")
         print(f"\nKEY FINDING from PHI_CORRECTION_IMPACT_ANALYSIS.md:")
         print(f"  WITHOUT φ-geometry: 0% wins")
         print(f"  WITH φ-geometry: {100*seg_wins_total/n_valid:.1f}% wins")
