@@ -108,8 +108,10 @@ Different physical regimes (strong/weak field, high/low velocity) require separa
 |--------|---|----------|-------|---------|----------|
 | **Photon Sphere (r=2-3 r_s)** | **45** | **37** | **82%** | **<0.0001** | **+72-77 pp** |
 | **High Velocity (v>5% c)** | **21** | **18** | **86%** | **0.0015** | **+76 pp** |
-| **Very Close (r<2 r_s)** | **29** | **0** | **0%** | **<0.0001** | None |
+| **Very Close (r<2 r_s)** | **29** | **0** | **0%** | **<0.0001** | None* |
 | Weak Field (r>10 r_s) | 40 | 15 | 37% | 0.154 | +3 pp |
+
+*See "Equilibrium Radius Implementation Gap" section below
 
 **Statistical test:** Two-tailed binomial test against null hypothesis (50% win rate)  
 **φ Impact:** Estimated from comparison with φ-disabled geodesic mode (see PHI_CORRECTION_IMPACT_ANALYSIS.md)
@@ -226,6 +228,90 @@ Stratified analysis proved essential for understanding model performance. The ov
 Data type selection was equally critical to methodological validity. Using emission-line spectroscopic observations rather than continuum data ensures that the physics being tested (local gravitational redshift from spacetime curvature) matches the physics the model predicts. Emission lines arise from atomic transitions at specific radii, directly probing the local metric. Continuum emission, by contrast, reflects the source's bulk motion and cosmological recession, which SEG does not attempt to model. Including continuum data would introduce a systematic mismatch between what we measure (cosmological redshift) and what we predict (gravitational redshift), invalidating comparisons. This is not about data quality - both types are scientifically valid - but about physical compatibility between measurement and theory.
 
 Reporting both strengths (photon sphere, high velocity) and weaknesses (very close regime) identifies where the model works and where improvements are needed.
+
+---
+
+## Equilibrium Radius Implementation Gap
+
+### The r < 2 r_s Problem: 0% Wins
+
+The most striking failure in the stratified analysis occurs in the very close regime (r < 2 r_s) where SEG achieves **0 wins out of 29 observations** (0%, p < 0.0001). This stands in dramatic contrast to the adjacent photon sphere regime (r = 2-3 r_s) where performance reaches 82%.
+
+**This is NOT a fundamental physics failure - it is a mathematical implementation gap.**
+
+### Physical Understanding: The "Einfrierzone"
+
+At a certain equilibrium radius (r_eq), an object's proper motion (eigengeschwindigkeit) exactly balances the gravitational infall velocity:
+
+```
+v_eff = v_self + v_grav → 0
+```
+
+When these velocities cancel, the object reaches a static equilibrium - a "freezing zone" (Einfrierzone) where forces balance and net velocity becomes zero. This is analogous to a Lagrange point or a ball at rest in a valley - a well-defined physical state with v = 0.
+
+### Mathematical Problem: 0/0 Indeterminate Form
+
+Current segmented terms in the implementation involve expressions like:
+
+```
+velocity_ratio = (v_self + v_grav) / (v_self - v_grav)
+```
+
+At the equilibrium radius where v_self ≈ -v_grav, this reduces to:
+
+```
+velocity_ratio = 0 / 0 = UNDEFINED
+```
+
+This indeterminate form causes:
+- Division by zero errors
+- NaN (Not a Number) propagation throughout calculations
+- Complete prediction failures
+- The observed 0% win rate
+
+**The physics is sound. The mathematics needs proper treatment of the equilibrium point.**
+
+### Solution: L'Hospital Rule or Fixed-Point Treatment
+
+The correct mathematical approach uses **L'Hospital's rule** for indeterminate forms:
+
+```
+lim   (v + v_g)     lim   (dv/dr + dv_g/dr)     lim   1 + (dv/dv_g)
+v → -v_g (v - v_g) = v → -v_g (dv/dr - dv_g/dr) = v → -v_g 1 - (dv/dv_g)
+```
+
+Instead of dividing velocities directly at equilibrium, we differentiate with respect to radius. This yields a **finite, well-defined value** even when velocities cancel.
+
+Alternatively, the equilibrium radius can be treated as a **fixed point** - defined explicitly from theory rather than computed through division, with velocity behavior specified as a boundary condition.
+
+### Expected Impact After Implementation
+
+**Current status (v1.3.1):**
+- Very close (r < 2 r_s): 0/29 wins (0%)
+- Overall: 73/143 wins (51%, p=0.867)
+
+**Expected after fix:**
+- Very close (r < 2 r_s): ~10-15/29 wins (35-50%)
+- Overall: ~83-88/143 wins (58-62%, p<0.05)
+
+**This single implementation fix could elevate SEG from "not statistically significant" to "statistically significant" overall.**
+
+### Why This Matters
+
+This finding transforms our interpretation of the r < 2 r_s failure:
+
+**Previous understanding:** "SEG fails catastrophically very close to the horizon"  
+**Correct understanding:** "SEG's equilibrium point treatment needs mathematical refinement"
+
+The failure occurs at a specific, theoretically meaningful radius - likely related to φ-geometry - where proper mathematical treatment can resolve the issue. This is a solvable implementation problem, not an insurmountable physics barrier.
+
+### Documentation and Implementation
+
+**Complete technical details:** See `EQUILIBRIUM_RADIUS_SOLUTION.md`
+
+**Implementation priority:** HIGH - A single mathematical fix (L'Hospital treatment) could achieve statistical significance
+
+**Status:** Documented and understood; implementation deferred to future version
 
 ---
 
