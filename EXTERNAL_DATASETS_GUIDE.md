@@ -54,7 +54,7 @@ import numpy as np
 c = 299792458.0  # m/s
 G = 6.67430e-11  # m^3/(kg s^2)
 M_sun = 1.98847e30  # kg
-phi = 1.6180339887  # golden ratio
+phi = 1.6180339887  # Golden Ratio
 
 # z aus Frequenzen
 z = (f_emit_Hz - f_obs_Hz) / f_obs_Hz
@@ -336,26 +336,26 @@ import numpy as np
 gaia = pd.read_csv('gaia_sample.csv')
 
 # Convert to SSZ format
-ssz = pd.DataFrame()
-ssz['source'] = 'GAIA_' + gaia['source_id'].astype(str)
-ssz['case'] = 'GAIA DR3'
+SSZ = pd.DataFrame()
+SSZ['source'] = 'GAIA_' + gaia['source_id'].astype(str)
+SSZ['case'] = 'GAIA DR3'
 
 # Frequency from G-band magnitude (proxy)
 # G-band central wavelength ~ 550 nm
 c = 3e8
 lambda_nm = 550
-ssz['f_obs_Hz'] = c / (lambda_nm * 1e-9)
-ssz['f_emit_Hz'] = ssz['f_obs_Hz']  # No significant redshift
+SSZ['f_obs_Hz'] = c / (lambda_nm * 1e-9)
+SSZ['f_emit_Hz'] = SSZ['f_obs_Hz']  # No significant redshift
 
 # Estimate radius from magnitude (stellar models)
-ssz['r_emit_m'] = 1e9  # ~Solar radius (crude estimate)
+SSZ['r_emit_m'] = 1e9  # ~Solar radius (crude estimate)
 
 # Mass from stellar models (very crude!)
-ssz['M_solar'] = 1.0  # Assume solar mass
+SSZ['M_solar'] = 1.0  # Assume solar mass
 
 # Calculate derived
 # z from parallax (distance) - negligible for Milky Way
-ssz['z'] = 0.0
+SSZ['z'] = 0.0
 
 # n_round from theory
 phi = 1.6180339887
@@ -369,16 +369,16 @@ def calc_n(r, M_sol):
     r_phi = (phi / 2) * r_s
     return (r / r_phi) ** (1 / phi)
 
-ssz['n_round'] = ssz.apply(lambda r: calc_n(r['r_emit_m'], r['M_solar']), axis=1)
+SSZ['n_round'] = SSZ.apply(lambda r: calc_n(r['r_emit_m'], r['M_solar']), axis=1)
 
 # Optional: velocity from proper motion
 if 'radial_velocity' in gaia.columns:
-    ssz['v_los_mps'] = gaia['radial_velocity'] * 1000  # km/s to m/s
+    SSZ['v_los_mps'] = gaia['radial_velocity'] * 1000  # km/s to m/s
 else:
-    ssz['v_los_mps'] = np.nan
+    SSZ['v_los_mps'] = np.nan
 
 # Save
-ssz.to_csv('gaia_for_ssz.csv', index=False)
+SSZ.to_csv('gaia_for_ssz.csv', index=False)
 ```
 
 ### **Validieren:**

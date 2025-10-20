@@ -8,7 +8,7 @@
 
 ## 🎯 Definition of Done — ALLE ERFÜLLT ✓
 
-- [x] **`ssz-rings --help` funktioniert** → CLI voll funktional
+- [x] **`SSZ-rings --help` funktioniert** → CLI voll funktional
 - [x] **Beispiel-Runs erzeugen Tabellen/Reports** → G79 & Cygnus X getestet
 - [x] **`--fit-alpha` liefert alpha_hat** → Optimal α = 0.100007 für G79
 - [x] **Unit-Tests grün** → 20/20 Core-Tests + 7/7 Dataset-Tests = **27/27 passing**
@@ -22,7 +22,7 @@
 ## 📦 Projektstruktur — VOLLSTÄNDIG IMPLEMENTIERT
 
 ```
-✓ ssz/
+✓ SSZ/
   ✓ segwave/
     ✓ __init__.py                    (exports all public API)
     ✓ seg_wave_propagation.py        (212 lines: v_k, q_k, ν tracking, metrics)
@@ -86,7 +86,7 @@ MAE, RMSE, Max|residual| gegen v_obs
 ### Public API (vollständig getestet)
 
 ```python
-from ssz.segwave import (
+from SSZ.segwave import (
     predict_velocity_profile,    # Core velocity recursion
     predict_frequency_track,     # Frequency redshift
     compute_residuals,           # MAE/RMSE metrics
@@ -103,30 +103,30 @@ from ssz.segwave import (
 
 ## 💻 CLI — VOLL FUNKTIONAL
 
-### `ssz-rings` Command
+### `SSZ-rings` Command
 
 ```bash
 # Help
-ssz-rings --help
+SSZ-rings --help
 
 # Fixed Alpha
-ssz-rings --csv data.csv --v0 12.5 --alpha 1.25 \
+SSZ-rings --csv data.csv --v0 12.5 --alpha 1.25 \
           --out-table results.csv --out-report summary.txt
 
 # Fit Alpha
-ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
+SSZ-rings --csv data.csv --v0 12.5 --fit-alpha \
           --out-table fitted.csv
 
 # Frequency Tracking
-ssz-rings --csv data.csv --v0 12.5 --alpha 1.0 \
+SSZ-rings --csv data.csv --v0 12.5 --alpha 1.0 \
           --nu-in 3.0e11 --out-table with_freq.csv
 
 # Custom Exponents
-ssz-rings --csv data.csv --v0 10.0 --alpha 1.5 \
+SSZ-rings --csv data.csv --v0 10.0 --alpha 1.5 \
           --beta 0.8 --eta 0.3 --out-table custom.csv
 
 # With Plot (requires matplotlib)
-ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
+SSZ-rings --csv data.csv --v0 12.5 --fit-alpha \
           --out-plot velocity.png
 ```
 
@@ -135,7 +135,7 @@ ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
 **`pyproject.toml` Entry:**
 ```toml
 [project.scripts]
-ssz-rings = "cli.ssz_rings:main"
+SSZ-rings = "cli.ssz_rings:main"
 ```
 
 ---
@@ -217,7 +217,7 @@ base_dir_unix: "/mnt/h/WINDSURF/VALIDATION_PAPER"
 ### Path Resolution Logic
 
 ```python
-from ssz.segwave import load_sources_config
+from SSZ.segwave import load_sources_config
 
 config = load_sources_config()
 # Returns:
@@ -348,7 +348,7 @@ test_cygx_cli_smoke_run ............................. PASSED
    - Environment Variable Support
    - Usage Examples
    
-2. **Segmented Radiowave Propagation Module** (`ssz/segwave/`)
+2. **Segmented Radiowave Propagation Module** (`SSZ/segwave/`)
    - Core Functionality
    - CLI Tool
    - Datasets
@@ -363,7 +363,7 @@ test_cygx_cli_smoke_run ............................. PASSED
 
 ```bash
 # Fit alpha to observations
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/g79_fitted.csv \
@@ -379,7 +379,7 @@ ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
 
 ```bash
 # Fixed alpha validation
-ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
           --v0 1.3 \
           --alpha 1.0 \
           --out-table reports/cygx_table.csv \
@@ -395,7 +395,7 @@ ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
 
 ## 📝 Git History — CLEAN & DOCUMENTED
 
-**Branch:** `feature/segwave-data` (basierend auf `feature/segwave-ssz`)
+**Branch:** `feature/segwave-data` (basierend auf `feature/segwave-SSZ`)
 
 **Commits:**
 1. `a6e6b17` - "Add real observational datasets for G79.29+0.46 and Cygnus X"
@@ -419,7 +419,7 @@ ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
    - ✅ Nur ERGÄNZUNGEN in `pyproject.toml`, `README.md`, `CHANGELOG.md`
 
 2. **Risikoanalyse:**
-   - **Betroffene Verzeichnisse:** `ssz/`, `cli/`, `data/`, `config/`, `docs/`, `tests/`
+   - **Betroffene Verzeichnisse:** `SSZ/`, `cli/`, `data/`, `config/`, `docs/`, `tests/`
    - **Modifizierte Dateien:** 3 (nur Ergänzungen, keine Löschungen)
    - **Risiko-Level:** **ZERO** - alle Änderungen additiv
 

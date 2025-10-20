@@ -202,7 +202,7 @@ REPO_NAME = "Segmented-Spacetime-Mass-Projection-Unified-Results"
 INSTALL_LFS = False  # True for large files (~3.6 GB), False for small files only
 
 print("="*80)
-print("SEGMENTED SPACETIME - GOOGLE COLAB SETUP")
+print("Segmented Spacetime - GOOGLE COLAB SETUP")
 print("="*80)
 print(f"Repository: {REPO_NAME}")
 print(f"Git LFS: {'Yes (large files)' if INSTALL_LFS else 'No (small files only)'}")
@@ -399,8 +399,8 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 # Clone to Drive (persistent!)
-!git clone {REPO_URL} /content/drive/MyDrive/ssz-repo
-%cd /content/drive/MyDrive/ssz-repo
+!git clone {REPO_URL} /content/drive/MyDrive/SSZ-repo
+%cd /content/drive/MyDrive/SSZ-repo
 ```
 
 ---

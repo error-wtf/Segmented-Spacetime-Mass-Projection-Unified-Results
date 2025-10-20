@@ -87,7 +87,7 @@ chmod +x install.sh
 **SSZ:** Segmented Spacetime (φ-based geometric framework)  
 **GAIA:** ESA's Gaia space observatory (stellar data)  
 **NED:** NASA/IPAC Extragalactic Database  
-**EHT:** Event Horizon Telescope  
+**EHT:** Event Horizon Telescope (EHT) (EHT)  
 **PPN:** Parametrized Post-Newtonian formalism  
 
 See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) with 200+ terms in English and German.
@@ -140,8 +140,8 @@ pip install -r requirements.txt
 pip install -e .
 
 # Verify
-ssz-rings --help
-ssz-print-md --help
+SSZ-rings --help
+SSZ-print-md --help
 ```
 
 ---
@@ -210,11 +210,11 @@ python run_all_ssz_terminal.py
 
 ```bash
 # G79+0.46 (ALMA CO + NH₃)
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 --fit-alpha
 
 # Cygnus X Diamond Ring (C II)
-ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
           --v0 1.3
 ```
 
@@ -357,10 +357,10 @@ python scripts/data_acquisition/fetch_ned_spectra.py
 
 ```bash
 # Print all Markdown documentation
-ssz-print-md --root . --order path    # Alphabetical
-ssz-print-md --root . --order depth   # Shallow-first
-ssz-print-md --root papers            # Papers only
-ssz-print-md --root reports           # Reports only
+SSZ-print-md --root . --order path    # Alphabetical
+SSZ-print-md --root . --order depth   # Shallow-first
+SSZ-print-md --root papers            # Papers only
+SSZ-print-md --root reports           # Reports only
 ```
 
 ---

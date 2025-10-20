@@ -27,7 +27,7 @@ These estimators align with our test runners (`segspace_enhanced_test*.py`): *hi
 
 - c: speed of light  
 - G: gravitational constant  
-- phi_const := (1 + sqrt(5))/2   # golden ratio (dimensionless)  
+- phi_const := (1 + sqrt(5))/2   # Golden Ratio (dimensionless)  
 - phi_len   := …                 # physical segment length (if used) — keep separate from phi_const!  
 - r_s := 2 G M / c^2             # Schwarzschild radius  
 - z_tot := f_emit/f_obs − 1      # or directly measured redshift  

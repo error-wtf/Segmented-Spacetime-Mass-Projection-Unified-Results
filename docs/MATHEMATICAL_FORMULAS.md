@@ -67,7 +67,7 @@ M_☉ = 1.98847 × 10^30 kg                    Solar mass
 
 ### 2.0 Physical Motivation: The Singularity Problem
 
-**General Relativity singularities:**
+**General Relativity (GR) (GR) singularities:**
 - Schwarzschild metric singular at r = 0 (infinite curvature)
 - Information loss paradox at event horizon
 - Quantum effects ignored (breakdown of classical GR)
@@ -114,7 +114,7 @@ N(x) = Σ_i γ_i · K_i(||x - x_i||)
 ```
 
 Where:
-- γ_i = mass projection coefficient for body i
+- γ_i = Mass Projection coefficient for body i
 - K_i = kernel function (Gaussian or φ-based)
 - x_i = position of body i
 

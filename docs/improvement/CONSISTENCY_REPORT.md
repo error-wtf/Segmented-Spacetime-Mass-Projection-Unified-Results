@@ -41,7 +41,7 @@
 
 ### Golden Ratio
 
-**Preferred term:** `golden ratio`
+**Preferred term:** `Golden Ratio`
 
 **Overall consistency:** 7.2%
 - Total uses: 97
@@ -67,7 +67,7 @@
 - Issue: Contains spaces
 - Suggestion: `Euler-reduktion_Der_Φ‑segmentierung_–_Leitfaden_Für_Die_Paper-einleitung.md`
 
-**Final Paper — Φ, Β & Euler (segmented Spacetime).md**
+**Final Paper — Φ, Β & Euler (Segmented Spacetime).md**
 - Issue: Contains spaces
 - Suggestion: `Final_Paper_—_Φ,_Β_&_Euler_(segmented_Spacetime).md`
 

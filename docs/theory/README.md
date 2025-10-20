@@ -11,14 +11,14 @@ This directory contains theoretical papers, derivations, and documentation for S
 
 ### Mathematical Framework
 - `Φ_2 And Β In Segmented Spacetime — Derivation, Justification, Calibration (en) (1).md` - φ and β derivations
-- `Final Paper — Φ, Β & Euler (segmented Spacetime).md` - Euler reduction
+- `Final Paper — Φ, Β & Euler (Segmented Spacetime).md` - Euler reduction
 - `Euler-reduktion Der Φ‑segmentierung – Leitfaden Für Die Paper-einleitung.md` - Euler proof chain
 - `Von Φ‑segmentierung Zu Euler_ Beweiskette & Ableitung.md` - φ-segmentation to Euler
 
 ### Physical Implications
 - `DualVelocitiesinSegmentedSpacetime-EscapeFallandGravitationalRedshift.md` - Dual velocity framework
 - `Kinematische Schließung – Escape Vs.md` - Kinematic closure
-- `Segment-BasedGroupVelocity.md` - Group velocity in segmented spacetime
+- `Segment-BasedGroupVelocity.md` - Group velocity in Segmented Spacetime
 
 ### Advanced Topics
 - `SegmentedSpacetimeandtheNaturalBoundaryofBlackHoles-ImplicationsfortheCosmicCensorshipConjecture.md` - Black hole natural boundaries
@@ -44,7 +44,7 @@ For newcomers to SSZ theory:
 
 1. **Start:** `SegmentedSpacetime-ANewPerspectiveonLightGravityandBlackHoles.md`
 2. **Foundation:** `Segmentierte Raumzeit – Ein geometrisch-topologisches Modell.md`
-3. **Math:** `Final Paper — Φ, Β & Euler (segmented Spacetime).md`
+3. **Math:** `Final Paper — Φ, Β & Euler (Segmented Spacetime).md`
 4. **Applications:** `DualVelocitiesinSegmentedSpacetime-EscapeFallandGravitationalRedshift.md`
 5. **Advanced:** `SegmentedSpacetimeandtheNaturalBoundaryofBlackHoles-ImplicationsfortheCosmicCensorshipConjecture.md`
 

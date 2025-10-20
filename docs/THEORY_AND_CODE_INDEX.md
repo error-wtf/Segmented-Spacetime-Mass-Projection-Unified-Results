@@ -33,7 +33,7 @@ This documentation explains **all physical and mathematical foundations** of the
 **Languages:** [🇬🇧 English](PHYSICS_FOUNDATIONS.md) | [🇩🇪 Deutsch](PHYSICS_FOUNDATIONS_DE.md)
 
 **Content:**
-- **Core Concept:** Segmented spacetime instead of continuous spacetime
+- **Core Concept:** Segmented Spacetime instead of continuous spacetime
 - **Golden Ratio φ:** Why φ = (1+√5)/2 is central
 - **Mass Projection:** How mass segments spacetime
 - **Time Dilation:** Gravitational time slowdown
@@ -269,7 +269,7 @@ pytest tests/ -s -v
 
 **Understand Physics:**
 - [ ] Read PHYSICS_FOUNDATIONS.md
-- [ ] Understand core concepts (segments, φ, mass projection)
+- [ ] Understand core concepts (segments, φ, Mass Projection)
 - [ ] Read at least 3 papers
 
 **Follow Mathematics:**

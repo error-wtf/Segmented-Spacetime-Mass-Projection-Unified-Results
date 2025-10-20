@@ -47,7 +47,7 @@ Computes the segment radius r_φ for a given mass M.
 
 **Parameters:**
 - `M`: float, mass (kg)
-- `phi`: float, golden ratio (default: calculated from (1+sqrt(5))/2)
+- `phi`: float, Golden Ratio (default: calculated from (1+sqrt(5))/2)
 
 **Returns:**  
 - `float`: segment radius r_φ
@@ -71,7 +71,7 @@ Computes the segment radius for a Kerr (rotating) object.
 **Parameters:**
 - `M`: float, mass (kg)
 - `a`: float, dimensionless spin/Kerr parameter |a|<1
-- `phi`: float, golden ratio (optional)
+- `phi`: float, Golden Ratio (optional)
 
 **Returns:**  
 - `float`: segment radius r_φ for Kerr metric

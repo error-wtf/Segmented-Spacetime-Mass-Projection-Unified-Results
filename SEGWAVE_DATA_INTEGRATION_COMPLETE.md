@@ -37,7 +37,7 @@
 
 **SSZ Fit Results:**
 ```bash
-$ ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha
+$ SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha
 
 Optimal alpha = 0.100007
 RMSE = 9.4643 km/s
@@ -72,7 +72,7 @@ MAE = 8.5396 km/s
 
 **SSZ Fit Results:**
 ```bash
-$ ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv --v0 1.3 --alpha 1.0
+$ SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv --v0 1.3 --alpha 1.0
 
 Using fixed alpha = 1.000000
 RMSE = 0.1272 km/s
@@ -190,7 +190,7 @@ tests/test_segwave_cli.py::TestBundledDatasets::test_cygx_cli_smoke_run PASSED
 
 ```bash
 # Fit alpha to observations
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/g79_fitted.csv \
@@ -203,7 +203,7 @@ ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
 
 ```bash
 # Fixed alpha validation
-ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
           --v0 1.3 \
           --alpha 1.0 \
           --out-table reports/cygx_table.csv \
@@ -215,7 +215,7 @@ ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
 ### Python API
 
 ```python
-from ssz.segwave import load_ring_data, fit_alpha, load_sources_manifest
+from SSZ.segwave import load_ring_data, fit_alpha, load_sources_manifest
 
 # Load G79 data
 df = load_ring_data("data/observations/G79_29+0_46_CO_NH3_rings.csv")
@@ -242,7 +242,7 @@ print(sources["G79.29+0.46"]["tracers"]["Molecular"])
 ## 📊 Scientific Interpretation
 
 ### G79.29+0.46: Complex Shocked System
-- **Low segmentation parameter (α ~ 0.1):** Shock dynamics dominate over segmented spacetime effects
+- **Low segmentation parameter (α ~ 0.1):** Shock dynamics dominate over Segmented Spacetime effects
 - **High RMSE:** Simple temperature-driven model insufficient
 - **Multi-phase structure:** Requires extended model with magnetic fields, turbulence, UV radiation
 - **Research direction:** Use as test case for multi-parameter SSZ extensions

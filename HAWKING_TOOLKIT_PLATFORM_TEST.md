@@ -32,7 +32,7 @@ python scripts/analysis/hawking_proxy_fit.py --help
 # Tool 2: With template data
 python scripts/analysis/hawking_proxy_fit.py `
     --spectrum data/observations/m87_continuum_spectrum_TEMPLATE.csv `
-    --ssz ssz_config_example.json
+    --SSZ ssz_config_example.json
 # ✅ Works - generates report + plot
 
 # Tool 3: Test suite
@@ -125,7 +125,7 @@ python scripts/tests/test_hawking_spectrum_continuum.py
 # Cell 5: Fit spectrum
 !python scripts/analysis/hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz ssz_config.json \
+    --SSZ ssz_config.json \
     --C 1e30 \
     --out hawking_fit_report.md \
     --plot hawking_fit_plot.png

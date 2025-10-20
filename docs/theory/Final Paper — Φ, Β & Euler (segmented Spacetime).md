@@ -8,7 +8,7 @@ Abstract
 
 We   propose   that   gravitational   redshift   and   time‑dilation   emerge   from   a   discretely   segmented
 
-spacetime, where local scales jump by integer powers of the golden ratio ϕ. In weak fields, this lattice
+spacetime, where local scales jump by integer powers of the Golden Ratio ϕ. In weak fields, this lattice
 
 shifts the preferred coupling radius without altering the exterior series 
 
@@ -463,7 +463,7 @@ nature jumps between stable scales.
 
 9. Conclusions
 
-A φ‑segmented spacetime with a single mild mass dressing β reproduces weak‑field GR, regularizes the
+A φ‑Segmented Spacetime with a single mild mass dressing β reproduces weak‑field GR, regularizes the
 
 inner geometry, and predicts a crisp spectroscopic/chronometric lattice. The closure  
 

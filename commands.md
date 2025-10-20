@@ -148,12 +148,12 @@ So: in the robust metric (median) you improve over GR, but in the non-robust met
  python segspace_all_in_one.py pi-bridge --csv real_data_full.csv --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16 --prefer-z --top 10 --no-emission-gate --out segspace_pi_bridge_out2
 
 =============================================================
- SEGMENTED SPACETIME – Δ(M) + CHUDNOVSKY‑π BRIDGE (Runner)
+ Segmented Spacetime – Δ(M) + CHUDNOVSKY‑π BRIDGE (Runner)
 =============================================================
 π (chud)     : 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706...
 π compute time     : 0.107 ms
 =====================================================================
- SEGMENTED SPACETIME – DATASET EVALUATION
+ Segmented Spacetime – DATASET EVALUATION
 =====================================================================
 Rows used: 67
 seg-mode : hybrid
@@ -276,12 +276,12 @@ python segspace_all_in_one.py pi-bridge --csv real_data_full.csv --seg-mode hybr
 python segspace_all_in_one.py pi-bridge --csv real_data_full.csv --seg-mode hybrid --pi-source chud --prec 200 --chud-terms 16 --top 10 --out segspace_pi_bridge_out_gate_from_freq
 
 =============================================================
- SEGMENTED SPACETIME – Δ(M) + CHUDNOVSKY‑π BRIDGE (Runner)
+ Segmented Spacetime – Δ(M) + CHUDNOVSKY‑π BRIDGE (Runner)
 =============================================================
 π (chud)     : 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706...
 π compute time     : 0.103 ms
 =====================================================================
- SEGMENTED SPACETIME – DATASET EVALUATION
+ Segmented Spacetime – DATASET EVALUATION
 =====================================================================
 Rows used: 67
 seg-mode : hybrid
@@ -359,7 +359,7 @@ Ratios‑CSV         : segspace_pi_bridge_out_gate_from_freq\segspace_ratios.csv
 
 **Why GR alone performs worse than the hybrid approach**
 
-In our dataset, the pure General Relativity (GR) prediction often shows a larger deviation from the observed values than the hybrid Segmented Spacetime + GR×SR model.
+In our dataset, the pure General Relativity (GR) (GR) (GR) prediction often shows a larger deviation from the observed values than the hybrid Segmented Spacetime + GR×SR model.
 This is not unexpected:
 
 1. **GR accounts only for large-scale curvature**
@@ -367,7 +367,7 @@ This is not unexpected:
    – It does not include local micro-scale effects.
 
 2. **Hybrid model incorporates local segmentation effects**
-   – The hybrid $z_{\mathrm{hybrid}}$ combines GR curvature with additional terms from Special Relativity (SR) and segmented spacetime corrections.
+   – The hybrid $z_{\mathrm{hybrid}}$ combines GR curvature with additional terms from Special Relativity (SR) (SR) (SR) and Segmented Spacetime corrections.
    – These corrections account for fine-scale spatial partitioning that affects local frequency propagation.
 
 3. **Physical implication**
@@ -380,7 +380,7 @@ This is not unexpected:
 
 ---
 
-This demonstrates that our model outperforms GR alone and achieves results equivalent to the combined GR/SR approach — while being significantly less complex. This indicates that the segmented spacetime formulation provides the same or better physical accuracy with a simpler framework, reducing unnecessary computational and theoretical overhead.
+This demonstrates that our model outperforms GR alone and achieves results equivalent to the combined GR/SR approach — while being significantly less complex. This indicates that the Segmented Spacetime formulation provides the same or better physical accuracy with a simpler framework, reducing unnecessary computational and theoretical overhead.
 
 ---
 

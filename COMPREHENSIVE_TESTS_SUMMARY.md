@@ -2,7 +2,7 @@
 
 ## 🎯 Zielsetzung
 
-**Anforderung:** "alle tests die junit-full.xml sollen an echten daten testen und auch die ergebnisse zeigen und beschreiben was sie wie im sinne der segmented spacetime machen"
+**Anforderung:** "alle tests die junit-full.xml sollen an echten daten testen und auch die ergebnisse zeigen und beschreiben was sie wie im sinne der Segmented Spacetime machen"
 
 **Umgesetzt:** ✅ Vollständig implementiert
 

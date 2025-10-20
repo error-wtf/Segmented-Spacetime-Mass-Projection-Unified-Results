@@ -71,7 +71,7 @@ median(|Δz|) ≈ 0.0004874  (konsistent über beide Läufe)
 - **~5-6% Abweichung** von GR bei Schwarzen Löchern:
   - Ursache: φ-Gitter-Diskretisierung + ε₃-Term (Segment-Korrekturen)
   - Erwartbar für alternatives Modell
-  - Testbar mit EHT-Daten (Event Horizon Telescope)
+  - Testbar mit EHT-Daten (Event Horizon Telescope (EHT) (EHT))
 
 ### 4. Energiebedingungen
 

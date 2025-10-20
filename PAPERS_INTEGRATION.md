@@ -34,7 +34,7 @@ Alle Validation Papers und theoretischen Dokumente sind jetzt im Repository gebu
 ## 🔧 Configuration - Automatic Path Resolution
 
 ```python
-from ssz.segwave import load_sources_config
+from SSZ.segwave import load_sources_config
 
 config = load_sources_config()
 # Returns: {'base_dir': '/path/to/repo/papers/validation', 
@@ -70,7 +70,7 @@ Papers are automatically discoverable after installation:
 ./install.sh   # Linux
 
 # Papers location auto-resolved
-python -c "from ssz.segwave import load_sources_config; print(load_sources_config())"
+python -c "from SSZ.segwave import load_sources_config; print(load_sources_config())"
 ```
 
 See `papers/validation/README.md` and `docs/theory/README.md` for details.

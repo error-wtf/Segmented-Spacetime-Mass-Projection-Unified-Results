@@ -18,13 +18,13 @@
 ### 3. **real_data_full_expanded.csv** ⭐ RECOMMENDED
 - **Purpose:** Complete 127-object dataset
 - **Content:** S-stars, SMBHs, IMBHs, pulsars, stellar BHs, LIGO sources
-- **Performance:** 82/127 objects where segmented spacetime performs better (64.6%)
+- **Performance:** 82/127 objects where Segmented Spacetime performs better (64.6%)
 - **Key Objects:** Sgr A*, NGC 227, M87*, TON 618, Cygnus X-1
 
 ### 4. **real_data_full_cleaned.csv**
 - **Purpose:** Cleaned 86-object dataset (intermediate version)
 - **Content:** Original + some additions, all NaN values fixed
-- **Performance:** 73/86 objects where segmented spacetime performs better (84.9%)
+- **Performance:** 73/86 objects where Segmented Spacetime performs better (84.9%)
 
 ## Data Generation Tools (Add to Repository)
 
@@ -69,7 +69,7 @@
 
 ### 12. **fetch_robust_5000_enhanced.py**
 - **Purpose:** Enhanced version of original fetch_robust_5000.py
-- **Features:** Adds M_solar and r_emit_m columns required by segmented spacetime
+- **Features:** Adds M_solar and r_emit_m columns required by Segmented Spacetime
 - **Dependencies:** astroquery, pandas, numpy
 - **Source:** Based on working script from broken-by-gemini directory
 
@@ -83,7 +83,7 @@
 ### 14. **redshift_medians.json**
 - **Purpose:** Median performance metrics
 - **Content:** Median |Δz| for each model (Seg, GR, SR, GR×SR)
-- **Result:** Segmented spacetime shows lower median errors
+- **Result:** Segmented Spacetime shows lower median errors
 
 ## Documentation (Add to Repository)
 

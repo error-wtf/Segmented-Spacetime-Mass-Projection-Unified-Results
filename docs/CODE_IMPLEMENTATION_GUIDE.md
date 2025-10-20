@@ -226,7 +226,7 @@ def mass_from_rphi(r_phi_obs, max_iter=100, tol=1e-120):
 ```python
 def z_GR(M, r):
     """
-    Gravitational redshift in General Relativity.
+    Gravitational redshift in General Relativity (GR) (GR).
     
     z_GR = 1/√(1 - r_s/r) - 1
     """
@@ -255,7 +255,7 @@ def z_SSZ(M, r, v_radial=0):
     delta = delta_percent(M, use_decimal=False)
     z_gr_scaled = z_gr * (1 + delta / 100)
     
-    # Special relativity (Doppler)
+    # Special Relativity (SR) (SR) (Doppler)
     z_sr = v_radial / C
     
     # Combined

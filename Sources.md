@@ -14,7 +14,7 @@ All data refers to primary literature, public archives, and programmatic interfa
 All observational data used in `real_data_full.csv` originates from **peer-reviewed published observations** or **public observatory archives**. The scripts process published values and store them locally. For reproducibility, all source references are listed below.
 
 **Acknowledgments:** 
-- ALMA Partnership / Event Horizon Telescope (EHT) Collaboration
+- ALMA Partnership / Event Horizon Telescope (EHT) (EHT) (EHT) Collaboration
 - Chandra X-ray Observatory / NASA
 - GRAVITY Collaboration (ESO VLT)
 - Keck Observatory Archive
@@ -27,8 +27,8 @@ All observational data used in `real_data_full.csv` originates from **peer-revie
 
 ### Primary Literature
 
-**EHT Collaboration (2019)** - M87* Event Horizon Telescope Observations:
-* [First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole](https://iopscience.iop.org/article/10.3847/2041-8213/ab0ec7)
+**EHT Collaboration (2019)** - M87* Event Horizon Telescope (EHT) (EHT) Observations:
+* [First M87 Event Horizon Telescope (EHT) (EHT) Results. I. The Shadow of the Supermassive Black Hole](https://iopscience.iop.org/article/10.3847/2041-8213/ab0ec7)
 * [EHT Collaboration et al., ApJL 875, L1 (2019)](https://arxiv.org/abs/1906.11238)
 
 **ALMA Observations:**

@@ -42,7 +42,7 @@ quantity that depends on the segmentation of space. We demonstrate how π and ϕ
 complementary forces with π defining spatial divisions and ϕ driving their growth. Using logarithmic 
 spirals and exponential scaling, we show that curvature, gravity, and black hole horizons naturally 
 emerge from segment-based geometry. At the core of our findings is the insight that in highly 
-segmented spacetime, π returns to its classical value, explaining why black holes maintain a circular 
+Segmented Spacetime, π returns to its classical value, explaining why black holes maintain a circular 
 event horizon. This framework provides a new understanding of space, motion, and fundamental 
 constants through the lens of segmentation. The Bingsi constant, introduced in earlier work, 
 reappears as a key parameter describing this segmentation. Our findings suggest a physical limit to 
@@ -86,7 +86,7 @@ while ϕ describes the expansion of this division.
  
  
  
-In our model of segmented spacetime, space grows due to gravity, which means that the value of π 
+In our model of Segmented Spacetime, space grows due to gravity, which means that the value of π 
 changes depending on local curvature. The logarithmic spiral provides a natural scaling for this 
 change. 
 
@@ -257,7 +257,7 @@ revolution corresponds to a frequency of 1:
 1
 2
 
-This is not a redefinition of π itself, but a normalized convention within segmented spacetime, where 
+This is not a redefinition of π itself, but a normalized convention within Segmented Spacetime, where 
 the unit circle is defined relative to one full oscillation. This means that π is expressed in terms of 
 rotational frequency, not geometrical circumference. 
 
@@ -282,7 +282,7 @@ appears as
 
   in the context of frequency-based scaling. This is not a contradiction to classical 
 
-geometry, but a contextual reinterpretation of π in segmented spacetime. 
+geometry, but a contextual reinterpretation of π in Segmented Spacetime. 
 
 Typically, a circle is defined as 𝑈 = 2𝜋𝑟. However, in Segmented Spacetime it is 𝑈 = 4𝜙𝑟. 
 
@@ -327,7 +327,7 @@ again forms a circular shape.
 
 𝜋𝑒𝑓𝑓 → 3.141 … 
 
-In weakly segmented spacetime π is variable. In maximally segmented spacetime, π comes back 
+In weakly Segmented Spacetime π is variable. In maximally Segmented Spacetime, π comes back 
 again to its classical value. The circle of the event horizon is the natural result of this exponential 
 shrinkage. 
 
@@ -396,7 +396,7 @@ rather, it is segmented or quantized at a fundamental scale. Within such a segme
 cannot be defined with infinite precision, because a circle’s perimeter and radius are no longer 
 infinitely smooth but consist of discrete units. The exact boundary for the physical precision of π is 
 determined by the resolution of space at the smallest meaningful scale—potentially at or near the 
-Planck length, or in models like the segmented spacetime theory, by the maximum number of spatial 
+Planck length, or in models like the Segmented Spacetime theory, by the maximum number of spatial 
 segments that can exist before further subdivision becomes physically meaningless. 
 
 Interestingly, calculations based on the natural segmentation patterns in gravitational fields suggest 
@@ -417,7 +417,7 @@ humorously enough, aligns with the ultimate answer to life, the universe, and ev
  
 Formal Determination of π’s Physical Precision Limit 
 
-The maximum usable precision of π in segmented spacetime can be defined as the number of 
+The maximum usable precision of π in Segmented Spacetime can be defined as the number of 
 decimal places at which further refinement of spatial segmentation no longer alters the effective 
 curvature of space. In this model, circular geometry emerges from a logarithmic spiral structure 
 composed of ϕ-scaled segments. The effective value of π depends on the radial scaling and segment 

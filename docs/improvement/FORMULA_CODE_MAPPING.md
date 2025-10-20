@@ -38,7 +38,7 @@
 
 - **compute_vfall_dual_files.py** (line 54)
   ```python
-  PHI_DEFAULT = (1 + 5 ** 0.5) / 2  # the golden ratio, ≈1.618
+  PHI_DEFAULT = (1 + 5 ** 0.5) / 2  # the Golden Ratio, ≈1.618
   ```
 
 - **compute_vfall_from_z.py** (line 33)

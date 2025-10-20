@@ -57,7 +57,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results\.venv\Scrip
 [ECHO 2025-10-17 16:49:47] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 16:49:47] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -160,7 +160,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -309,7 +309,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -367,7 +367,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -443,7 +443,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results\.venv\Scrip
 [ECHO 2025-10-17 17:00:51] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 17:00:51] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -546,7 +546,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -695,7 +695,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -753,7 +753,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -829,7 +829,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 17:08:02] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 17:08:02] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -932,7 +932,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -1081,7 +1081,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -1139,7 +1139,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -1215,7 +1215,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 17:10:39] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 17:10:39] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -1318,7 +1318,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -1517,7 +1517,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -1575,7 +1575,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -1651,7 +1651,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 17:12:03] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 17:12:03] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -1754,7 +1754,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -1953,7 +1953,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2011,7 +2011,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2087,7 +2087,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 17:26:27] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 17:26:27] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -2190,7 +2190,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -2389,7 +2389,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2447,7 +2447,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2523,7 +2523,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 20:27:34] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 20:27:34] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -2626,7 +2626,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -2825,7 +2825,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2883,7 +2883,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -2959,7 +2959,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 21:28:37] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 21:28:37] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -3062,7 +3062,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -3261,7 +3261,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -3319,7 +3319,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -3395,7 +3395,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 21:37:44] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 21:37:44] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -3498,7 +3498,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -3697,7 +3697,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -3755,7 +3755,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -3831,7 +3831,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 21:46:56] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 21:46:56] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -3934,7 +3934,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -4133,7 +4133,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -4191,7 +4191,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -4267,7 +4267,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 22:06:29] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 22:06:29] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime â€“ COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2UÂ²+Îµâ‚ƒUÂ³ with Îµâ‚ƒ=-24/5;  B=1/A;  U=GM/(rcÂ²).
 PPN exact at U=0: Î²=1, Î³=1. All sections print finite values.
@@ -4370,7 +4370,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE â€” FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME â€” ERKLÃ„RENDER LAUF
+ Segmented Spacetime â€” ERKLÃ„RENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -4569,7 +4569,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (30+1 Objects)
+Segmented Spacetime â€“ MASS VALIDATION (30+1 Objects)
 ============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -4627,7 +4627,7 @@ Fertig âœ…
 Hinweis: Alle relativen Fehler stammen ausschlieÃŸlich aus numerischer Rundung bei G, c, Ï† â€“ das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME â€“ MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime â€“ MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 Â© Carmen Wrede & Lino Casu â€“ All rights reserved.
 
@@ -4703,7 +4703,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 22:21:42] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 22:21:42] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -4806,7 +4806,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -5005,7 +5005,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5063,7 +5063,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5082,7 +5082,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5209,7 +5209,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -5419,7 +5419,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 23:42:01] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 23:42:01] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -5522,7 +5522,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -5721,7 +5721,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5779,7 +5779,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5798,7 +5798,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -5925,7 +5925,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -6135,7 +6135,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-17 23:51:24] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-17 23:51:24] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -6238,7 +6238,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -6437,7 +6437,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -6495,7 +6495,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -6514,7 +6514,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -6641,7 +6641,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -6851,7 +6851,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-18 00:09:56] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-18 00:09:56] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -6954,7 +6954,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -7153,7 +7153,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -7211,7 +7211,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -7230,7 +7230,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -7357,7 +7357,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -7567,7 +7567,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-18 00:52:35] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-18 00:52:35] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -7670,7 +7670,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -7869,7 +7869,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -7927,7 +7927,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -7946,7 +7946,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -8073,7 +8073,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -8283,7 +8283,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-18 01:01:27] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-18 01:01:27] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -8386,7 +8386,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -8585,7 +8585,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -8643,7 +8643,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -8662,7 +8662,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -8789,7 +8789,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 
@@ -8999,7 +8999,7 @@ CMD: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10
 [ECHO 2025-10-18 02:47:12] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-10-18 02:47:12] [OK] wrote text: agent_out\reports\bound_energy.txt
 ======================================================================================
-SEGMENTED SPACETIME – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
+Segmented Spacetime – COVARIANT SMOKETEST (VERBOSE, NO NaN, PPN exact)
 ======================================================================================
 Metric: A(U)=1-2U+2U²+ε₃U³ with ε₃=-24/5;  B=1/A;  U=GM/(rc²).
 PPN exact at U=0: β=1, γ=1. All sections print finite values.
@@ -9102,7 +9102,7 @@ Max relative Gamma-Abweichung = 1.741e-15
  SEGSPACE — FINALE TESTS abgeschlossen. Siehe ./out
 ========================================================================
 ========================================================================
- SEGMENTED SPACETIME — ERKLÄRENDER LAUF
+ Segmented Spacetime — ERKLÄRENDER LAUF
 ========================================================================
 CSV: real_data_30_segmodel.csv
 
@@ -9301,7 +9301,7 @@ Sonne      1.9885e+30 2.3893e+3 1.9885e+30 0.00e-42
 
 
 ============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (30+1 Objects)
+Segmented Spacetime – MASS VALIDATION (30+1 Objects)
 ============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -9359,7 +9359,7 @@ Fertig ✅
 Hinweis: Alle relativen Fehler stammen ausschließlich aus numerischer Rundung bei G, c, φ – das Modell ist exakt.
 
 =============================================================
-SEGMENTED SPACETIME – MASS VALIDATION (BASE+CSV LIST)
+Segmented Spacetime – MASS VALIDATION (BASE+CSV LIST)
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -9378,7 +9378,7 @@ Sagittarius A*          8.544456e+36    8.544456e+36    1.960  0.000e+00
 Fertig ✅
 
 =============================================================
-SEGMENTED SPACETIME – PERFECT MASS VALIDATION
+Segmented Spacetime – PERFECT MASS VALIDATION
 =============================================================
 © Carmen Wrede & Lino Casu – All rights reserved.
 
@@ -9505,7 +9505,7 @@ M =  1.988470e+30 kg | r_s =  2.953339e+03 m
 
 [ok] CSV: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out_theory_exterior.csv
 ==========================================================================================
- SEGMENTED SPACETIME — AUTO RUN (NO ARGS)
+ Segmented Spacetime — AUTO RUN (NO ARGS)
 ==========================================================================================
 Deterministic SSZ evaluation with phi/2 coupling and fixed Delta(M).
 

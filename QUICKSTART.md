@@ -386,7 +386,7 @@ brew install maven
 4. "Solution to the Paradox of Singularities"
 
 ### **Online-Ressourcen**
-- GitHub Repository: `github.com/your-username/ssz-complete-suite`
+- GitHub Repository: `github.com/your-username/SSZ-complete-suite`
 - WebGL Demo: `your-username.github.io/segmented-solar-webgl`
 - Java Demo: `your-username.github.io/segmented-solar-java`
 

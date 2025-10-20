@@ -13,7 +13,7 @@
 |---------|--------|--------|-------|
 | Segmented Spacetime | Segmentierte Raumzeit | - | 138 occurrences |
 | segment | Segment | - | 236 occurrences |
-| golden ratio | Goldener Schnitt | - | 134 occurrences |
+| Golden Ratio | Goldener Schnitt | - | 134 occurrences |
 | natural boundary | natürliche Grenze | - | 12 occurrences |
 | proper time | Eigenzeit | - | 7 occurrences |
 | coordinate time | Koordinatenzeit | - | 2529 occurrences |
@@ -24,7 +24,7 @@
 
 | Symbol | English | German | Value |
 |--------|---------|--------|-------|
-| φ | golden ratio | Goldener Schnitt | ≈ 1.618 |
+| φ | Golden Ratio | Goldener Schnitt | ≈ 1.618 |
 | τ | proper time | Eigenzeit | - |
 | t | coordinate time | Koordinatenzeit | - |
 | π | pi | Pi | ≈ 3.14159 |
@@ -37,13 +37,13 @@
 
 ### docs\PHYSICS_FOUNDATIONS.md
 
-**Concept:** `segmented spacetime`
+**Concept:** `Segmented Spacetime`
 
 **Issue:** Inconsistent Capitalization
 
 **Variants found:**
 - `SSZ`
-- `segmented spacetime`
+- `Segmented Spacetime`
 - `Segmented Spacetime`
 
 **Total occurrences:** 46
@@ -52,15 +52,15 @@
 
 ### docs\PHYSICS_FOUNDATIONS.md
 
-**Concept:** `golden ratio`
+**Concept:** `Golden Ratio`
 
 **Issue:** Inconsistent Capitalization
 
 **Variants found:**
 - `φ`
-- `golden ratio`
 - `Golden Ratio`
-- `Golden ratio`
+- `Golden Ratio`
+- `Golden Ratio`
 
 **Total occurrences:** 35
 
@@ -83,7 +83,7 @@
 
 ### docs\MATHEMATICAL_FORMULAS.md
 
-**Concept:** `golden ratio`
+**Concept:** `Golden Ratio`
 
 **Issue:** Inconsistent Capitalization
 
@@ -113,13 +113,13 @@
 
 ### docs\CODE_IMPLEMENTATION_GUIDE.md
 
-**Concept:** `segmented spacetime`
+**Concept:** `Segmented Spacetime`
 
 **Issue:** Inconsistent Capitalization
 
 **Variants found:**
 - `SSZ`
-- `ssz`
+- `SSZ`
 - `Segmented Spacetime`
 
 **Total occurrences:** 44
@@ -128,7 +128,7 @@
 
 ### docs\CODE_IMPLEMENTATION_GUIDE.md
 
-**Concept:** `golden ratio`
+**Concept:** `Golden Ratio`
 
 **Issue:** Inconsistent Capitalization
 
@@ -173,13 +173,13 @@
 
 ### README.md
 
-**Concept:** `segmented spacetime`
+**Concept:** `Segmented Spacetime`
 
 **Issue:** Inconsistent Capitalization
 
 **Variants found:**
 - `SSZ`
-- `ssz`
+- `SSZ`
 - `Segmented Spacetime`
 
 **Total occurrences:** 27
@@ -195,7 +195,7 @@
 | Abbreviation | Full Term | Context |
 |--------------|-----------|----------|
 | SSZ | Segmented Spacetime | Theory name |
-| GR | General Relativity | Comparison framework |
+| GR | General Relativity (GR) (GR) | Comparison framework |
 | PPN | Parametrized Post-Newtonian | Test framework |
 | BH | Black Hole | Astrophysical object |
 | ISCO | Innermost Stable Circular Orbit | Orbital mechanics |
@@ -256,8 +256,8 @@ These abbreviations appear in documentation but may need definition:
 | coordinate time | 2529 |
 | koordinatenzeit | 1185 |
 | segment | 236 |
-| segmented spacetime | 138 |
-| golden ratio | 134 |
+| Segmented Spacetime | 138 |
+| Golden Ratio | 134 |
 | goldener schnitt | 109 |
 | segmentierte raumzeit | 75 |
 | schwarzschild | 36 |
@@ -293,7 +293,7 @@ These abbreviations appear in documentation but may need definition:
 
 **Always define at first use:**
 
-- φ (golden ratio) = (1 + √5)/2
+- φ (Golden Ratio) = (1 + √5)/2
 - τ (proper time) vs t (coordinate time)
 - r_φ (segment radius) vs r_s (Schwarzschild radius)
 

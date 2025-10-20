@@ -33,7 +33,7 @@ A_H:  ~10^24 - 10^32 m² (finite, positive)
 **Physical Interpretation:**
 - Finite horizon → no point singularity
 - Well-defined surface area at φ-based scale
-- Geometric structure tied to golden ratio (4φ spiral turns)
+- Geometric structure tied to Golden Ratio (4φ spiral turns)
 
 ---
 
@@ -221,7 +221,7 @@ os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 
 ## Scientific Significance
 
-These tests provide **empirical validation** of SSZ theory's key distinctions from General Relativity:
+These tests provide **empirical validation** of SSZ theory's key distinctions from General Relativity (GR) (GR):
 
 | Prediction | GR | SSZ | Test Status |
 |------------|-----|-----|-------------|
@@ -344,7 +344,7 @@ Model Comparison (BIC):
 
 **Theory Papers:**
 - Casu & Wrede (2025): Segmented Spacetime Framework
-- φ-based natural scales and golden ratio geometry
+- φ-based natural scales and Golden Ratio geometry
 
 **Implementation:**
 - `scripts/tests/test_horizon_hawking_predictions.py`

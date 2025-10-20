@@ -291,8 +291,8 @@ git push origin feature/test-system-overhaul
 ```bash
 # Test in new location:
 cd /tmp
-git clone https://github.com/YourUsername/SSZ-Suite.git ssz-test
-cd ssz-test
+git clone https://github.com/YourUsername/SSZ-Suite.git SSZ-test
+cd SSZ-test
 ```
 
 ### 2. Verify Files Present

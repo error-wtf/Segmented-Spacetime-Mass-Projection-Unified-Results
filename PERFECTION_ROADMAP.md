@@ -44,7 +44,7 @@ def test_full_workflow_s2():
 
 def test_cli_end_to_end():
     """Test CLI tools end-to-end."""
-    # ssz-rings --csv ... → verify output
+    # SSZ-rings --csv ... → verify output
     pass
 ```
 
@@ -146,7 +146,7 @@ Tests ← All Components
 
 ### Installation Issues
 
-#### Issue: "ModuleNotFoundError: No module named 'core.ssz'"
+#### Issue: "ModuleNotFoundError: No module named 'core.SSZ'"
 **Solution:**
 ```bash
 # Ensure you're in venv
@@ -285,13 +285,13 @@ python run_full_suite.py
 **Common Commands:**
 ```bash
 # Analyze specific object
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5
 
 # Generate paper figures
 python demo_paper_exports.py
 
 # Print all documentation
-ssz-print-md --root . --order depth
+SSZ-print-md --root . --order depth
 ```
 
 **Troubleshooting:**

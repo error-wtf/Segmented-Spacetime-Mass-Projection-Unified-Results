@@ -87,7 +87,7 @@ python phi_bic_test.py --in real_data_full.csv --outdir out/
 ```
 
 **Tests:**
-- Golden ratio (φ) lattice hypothesis
+- Golden Ratio (φ) lattice hypothesis
 - BIC (Bayesian Information Criterion) comparison
 - Frequency emission/observation analysis
 

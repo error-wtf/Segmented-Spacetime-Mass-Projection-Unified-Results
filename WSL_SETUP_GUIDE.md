@@ -215,10 +215,10 @@ sudo pip3 install numpy pandas scipy matplotlib
 
 ```bash
 # Create venv
-python3 -m venv ssz-env
+python3 -m venv SSZ-env
 
 # Activate
-source ssz-env/bin/activate
+source SSZ-env/bin/activate
 
 # Install dependencies
 pip install numpy pandas scipy matplotlib

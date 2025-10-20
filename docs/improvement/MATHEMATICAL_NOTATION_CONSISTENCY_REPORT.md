@@ -15,7 +15,7 @@ No Greek letters detected in formulas.
 
 ### Key Constants
 
-- **φ (golden ratio):** 0 occurrences
+- **φ (Golden Ratio):** 0 occurrences
 - **π (pi):** 0 occurrences
 - **τ vs t (time):** 0 mixed usages
 

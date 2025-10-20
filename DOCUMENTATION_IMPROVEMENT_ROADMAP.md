@@ -81,7 +81,7 @@
 **Task:** Review all formulas for consistency
 
 **Check Points:**
-- [ ] φ (golden ratio) usage consistent
+- [ ] φ (Golden Ratio) usage consistent
 - [ ] π (pi) usage consistent
 - [ ] τ (proper time) vs t (coordinate time) distinction
 - [ ] Subscript/superscript conventions

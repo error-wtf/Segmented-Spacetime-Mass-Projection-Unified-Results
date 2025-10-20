@@ -5,7 +5,7 @@
 MD Echo mit komplexen Include/Exclude Patterns fand keine Dateien:
 
 ```bash
-ssz-print-md — no Markdown files found
+SSZ-print-md — no Markdown files found
 ```
 
 **Ursache:** Zu viele und zu spezifische Pattern-Filter
@@ -223,7 +223,7 @@ python -m tools.print_all_md --root reports
 
 ```
 ====================================================================================================
-ssz-print-md — root=reports — 2 Markdown file(s)
+SSZ-print-md — root=reports — 2 Markdown file(s)
 ====================================================================================================
 
 === reports/RUN_SUMMARY.md ===

@@ -148,12 +148,12 @@ The automated install scripts perform **8 steps**:
 #### Step 6: Install SSZ Suite Package
 - Installs package in editable mode (`-e .`)
 - Allows code changes without reinstall
-- Registers CLI commands (`ssz-rings`, `ssz-print-md`)
+- Registers CLI commands (`SSZ-rings`, `SSZ-print-md`)
 
 #### Step 7: Verify Installation
 - Checks if CLI tools are accessible
-- Tests `ssz-rings --help`
-- Tests `ssz-print-md --help`
+- Tests `SSZ-rings --help`
+- Tests `SSZ-print-md --help`
 - Confirms installation succeeded
 
 #### Step 8: Run Basic Tests
@@ -216,9 +216,9 @@ pip install -e .
 
 **7. Verify Installation:**
 ```bash
-ssz-rings --help
-ssz-print-md --help
-python -c "import ssz; print('✅ SSZ Suite installed')"
+SSZ-rings --help
+SSZ-print-md --help
+python -c "import SSZ; print('✅ SSZ Suite installed')"
 ```
 
 **8. Run Tests (Optional):**
@@ -302,9 +302,9 @@ pytest tests/ scripts/tests/ -s -v --tb=short
 **Quick Verification:**
 ```bash
 # Activate virtual environment first!
-ssz-rings --help
-ssz-print-md --help
-python -c "import ssz; print('✅ SSZ installed')"
+SSZ-rings --help
+SSZ-print-md --help
+python -c "import SSZ; print('✅ SSZ installed')"
 ```
 
 **Run Core Tests:**
@@ -325,10 +325,10 @@ python run_full_suite.py
 **Check CLI Tools:**
 ```bash
 # SSZ Rings Analysis
-ssz-rings --csv data/real_data_full.csv --output out/
+SSZ-rings --csv data/real_data_full.csv --output out/
 
 # Print Markdown Files
-ssz-print-md --depth 2 --output reports/docs_tree.md
+SSZ-print-md --depth 2 --output reports/docs_tree.md
 ```
 
 ---
@@ -411,11 +411,11 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\.venv\Scripts\Activate.ps1
 ```
 
-#### ❌ Tests Fail: "ModuleNotFoundError: No module named 'ssz'"
+#### ❌ Tests Fail: "ModuleNotFoundError: No module named 'SSZ'"
 
 **Error:**
 ```
-ModuleNotFoundError: No module named 'ssz'
+ModuleNotFoundError: No module named 'SSZ'
 ```
 
 **Solution:**

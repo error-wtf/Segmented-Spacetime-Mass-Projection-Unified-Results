@@ -8,9 +8,9 @@
 
 **Segmented Spacetime with φ-Scaling (SSZ)** is an alternative approach to gravity that:
 - Uses discrete spacetime segments instead of continuous curvature
-- Incorporates the golden ratio φ ≈ 1.618 as a fundamental constant
+- Incorporates the Golden Ratio φ ≈ 1.618 as a fundamental constant
 - Resolves singularities through natural boundaries
-- Reproduces General Relativity predictions in testable limits
+- Reproduces General Relativity (GR) (GR) predictions in testable limits
 
 ---
 
@@ -38,7 +38,7 @@ Two complementary velocities that always satisfy: v_esc · v_fall = c²
 - **Invariant:** Their product is exactly c²
 
 ### 5. GR Compatibility
-SSZ matches General Relativity where tested:
+SSZ matches General Relativity (GR) (GR) where tested:
 - **Weak field:** Same as Newton + Einstein
 - **Strong field:** Similar predictions with modifications
 - **PPN parameters:** β = γ = 1 (like GR)
@@ -126,7 +126,7 @@ print(f"φ-radius: {r_phi:.1f} m")
 
 1. **Understand the Math**
    - Read: `MATHEMATICAL_FORMULAS.md`
-   - Focus: Golden ratio, φ-radius, segments
+   - Focus: Golden Ratio, φ-radius, segments
 
 2. **See the Tests**
    - Run: `python run_full_suite.py`
@@ -147,7 +147,7 @@ print(f"φ-radius: {r_phi:.1f} m")
 **Q: Is this proven?**
 A: SSZ matches GR in all tested regimes. New predictions are testable.
 
-**Q: Why golden ratio?**
+**Q: Why Golden Ratio?**
 A: Emerges naturally from segment scaling. Not imposed, but derived.
 
 **Q: Replaces GR?**
@@ -180,6 +180,6 @@ A: Start with README, then Physics Foundations document.
 
 ---
 
-**Welcome to SSZ! Let's explore segmented spacetime together.** 🚀
+**Welcome to SSZ! Let's explore Segmented Spacetime together.** 🚀
 
 © 2025 Carmen Wrede & Lino Casu

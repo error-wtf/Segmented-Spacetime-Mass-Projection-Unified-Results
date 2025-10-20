@@ -137,7 +137,7 @@
    - Dual velocity invariant
    - PPN parameters
    - Time dilation
-   - Mass projection
+   - Mass Projection
 
 4. **Mathematical Formalism** (requires all above)
    - Metric tensor

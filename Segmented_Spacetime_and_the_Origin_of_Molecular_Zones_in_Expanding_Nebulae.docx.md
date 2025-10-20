@@ -222,7 +222,7 @@ dependent temporal domains.
 
 
 Such a configuration provides the empirical foundation for the
-segmented spacetime interpretation introduced in Section 3, where spatial curvature and local time
+Segmented Spacetime interpretation introduced in Section 3, where spatial curvature and local time
 density jointly determine the apparent thermal hierarchy.
 
 
@@ -307,7 +307,7 @@ both energy and matter, while outer regions evolve faster and disperse.
 4.2 Broken Reciprocity
 
 In
-ordinary general relativity, two observers related by gravitational redshift remain reciprocal: Each
+ordinary General Relativity (GR) (GR), two observers related by gravitational redshift remain reciprocal: Each
 sees the other’s clock as slowed symmetrically once proper corrections are applied.
 In a segmented
 medium, this reciprocity breaks down. The nested sub-metric  evolves under a different temporal
@@ -361,9 +361,9 @@ transition, consistent with the morphological structure described in Section 2.
 
 
 4.5 Why
-General Relativity Requires Extension in Segmented Fields
+General Relativity (GR) (GR) Requires Extension in Segmented Fields
 
-General Relativity (GR) remains fully
+General Relativity (GR) (GR) (GR) remains fully
 valid in continuous, single-metric spacetime. However, when local time density varies
 discontinuously or hierarchically, forming segmented sub-metrics, the classical formalism becomes
 incomplete.
@@ -404,7 +404,7 @@ order field that governs how curvature self-organizes before matter appears.
 4.6
 Chemical Stability and the Formation of Molecular Zones
 While the hierarchical metric structure
-explains the geometric foundation of segmented spacetime, its thermodynamic consequence is equally
+explains the geometric foundation of Segmented Spacetime, its thermodynamic consequence is equally
 fundamental: The emergence of chemical stability within temporally slowed regions. Segmented
 Spacetime predicts that gravitational segmentation not only slows local time but also reduces
 effective thermal energy in proportion to the time-density field . This provides a natural

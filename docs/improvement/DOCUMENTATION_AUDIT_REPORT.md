@@ -133,8 +133,8 @@
 | Euler-reduktion Der Φ‑segmentierung – Leitfaden Für Die Paper-einleitung.md | 607 | Unknown | Single version | 2025-10-17 |
 | PERFECTION_ROADMAP.md | 607 | Unknown | Single version | 2025-10-19 |
 | docs\theory\Euler-reduktion Der Φ‑segmentierung – Leitfaden Für Die Paper-einleitung.md | 607 | Unknown | Single version | 2025-10-18 |
-| Final Paper — Φ, Β & Euler (segmented Spacetime).md | 596 | Unknown | Single version | 2025-10-17 |
-| docs\theory\Final Paper — Φ, Β & Euler (segmented Spacetime).md | 596 | Unknown | Single version | 2025-10-18 |
+| Final Paper — Φ, Β & Euler (Segmented Spacetime).md | 596 | Unknown | Single version | 2025-10-17 |
+| docs\theory\Final Paper — Φ, Β & Euler (Segmented Spacetime).md | 596 | Unknown | Single version | 2025-10-18 |
 | SegmentedSpacetime-Solutiontotheparadoxofsingularities.md | 583 | Unknown | Single version | 2025-10-17 |
 | docs\theory\SegmentedSpacetime-Solutiontotheparadoxofsingularities.md | 583 | Unknown | Single version | 2025-10-18 |
 | commands.md | 575 | Unknown | Single version | 2025-10-17 |
@@ -253,7 +253,7 @@
 |------|-------|----------|-----------|---------------|
 | README_OLD_BACKUP.md | 1,131 | Unknown | Single version | 2025-10-19 |
 | README.md | 507 | Unknown | Single version | 2025-10-19 |
-| imports\2025-10-17_upload_missing\ssz-projection-suite-1.0\docs\README.md | 489 | Unknown | Single version | 2025-10-18 |
+| imports\2025-10-17_upload_missing\SSZ-projection-suite-1.0\docs\README.md | 489 | Unknown | Single version | 2025-10-18 |
 | tests\README_TESTS.md | 415 | EN | Single version | 2025-10-18 |
 | PAPER_EXPORTS_README.md | 397 | Unknown | Single version | 2025-10-18 |
 | README_SSZ_COMPLETE.md | 383 | Unknown | Single version | 2025-10-18 |
@@ -310,7 +310,7 @@
 | CLI_FIGURE_FLAGS.md | 205 | Unknown | Single version | 2025-10-18 |
 | SUMMARY_TOOL_README.md | 171 | Bilingual | Single version | 2025-10-18 |
 | API.md | 152 | EN | Single version | 2025-10-17 |
-| imports\2025-10-17_upload_missing\ssz-projection-suite-1.0\docs\API.md | 152 | EN | Single version | 2025-10-18 |
+| imports\2025-10-17_upload_missing\SSZ-projection-suite-1.0\docs\API.md | 152 | EN | Single version | 2025-10-18 |
 | SUMMARY_CONFIGURATION.md | 147 | Bilingual | Single version | 2025-10-18 |
 | final_reports\reports\output-summary.md | 115 | DE | Single version | 2025-10-18 |
 | reports\2025-10-17_gaia_ssz_real\output-summary.md | 115 | DE | Single version | 2025-10-18 |

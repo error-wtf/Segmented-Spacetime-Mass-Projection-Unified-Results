@@ -1,6 +1,6 @@
 # Physical Foundations – Segmented Spacetime (SSZ)
 
-**Intuitive introduction to segmented spacetime theory**
+**Intuitive introduction to Segmented Spacetime theory**
 
 © Carmen Wrede & Lino Casu, 2025
 
@@ -13,11 +13,11 @@
 Understanding the **physical ideas** behind the Segmented Spacetime theory **without complex mathematics**.
 
 **After reading you will understand:**
-- What segmented spacetime means
-- Why the golden ratio φ is central
+- What Segmented Spacetime means
+- Why the Golden Ratio φ is central
 - How mass structures spacetime
 - Why the model avoids singularities
-- Where SSZ agrees with General Relativity (GR)
+- Where SSZ agrees with General Relativity (GR) (GR) (GR)
 
 ---
 
@@ -25,7 +25,7 @@ Understanding the **physical ideas** behind the Segmented Spacetime theory **wit
 
 ### What is a Singularity?
 
-In Einstein's **General Relativity (GR)**:
+In Einstein's **General Relativity (GR) (GR) (GR)**:
 - Mass curves spacetime
 - The closer to the mass, the stronger the curvature
 - **At the center of a black hole:** Infinite curvature = **Singularity**
@@ -448,7 +448,7 @@ N(r) = N_max / (1 + exp(k·(r - r_natural)))
 - GR: b_shadow = √27·GM/c²
 - SSZ: b_shadow ≈ 0.94·b_GR (6% smaller)
 
-**Event Horizon Telescope (EHT) compatible!**
+**Event Horizon Telescope (EHT) (EHT) (EHT) compatible!**
 
 ---
 
@@ -498,12 +498,12 @@ T_SSZ ≈ c²/(k_B · r_φ) · f(N(r_φ))
    - Avoids singularities
    - Natural minimal scale
 
-2. **Golden ratio φ**
+2. **Golden Ratio φ**
    - Optimal spacetime structure
    - Self-similar time dynamics
    - Mathematical elegance
 
-3. **Mass projection r_φ**
+3. **Mass Projection r_φ**
    - Characteristic length scale
    - Δ(M) model for mass dependence
    - Smooth interpolation weak ↔ strong

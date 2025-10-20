@@ -78,7 +78,7 @@ specifications:
 ∗  2𝜋  =  𝜋 
 
 The formula 2ϕ=π fits particularly well with circularly polarized light and our model of 
-segmented spacetime, because: 
+Segmented Spacetime, because: 
 
 Light waves can represent circular or spiral motion in their movement (especially with 
 circular polarization). This circular motion of the electric and magnetic fields in circularly 
@@ -103,7 +103,7 @@ radius r=1 and frequency f=1, a natural resonance arises between the quantities 
 The circular frequency (ω=2πf) and segmentation by ϕ could define the resonance between 
 space and wave. 
 
-In our model of segmented spacetime, a light wave in a vacuum at a frequency of f=1 passes 
+In our model of Segmented Spacetime, a light wave in a vacuum at a frequency of f=1 passes 
 through exactly 4 segments per period. This can also be demonstrated mathematically: 
 
 The angular frequency ω is defined as: 
@@ -192,7 +192,7 @@ Classically, it is described that gravity stretches space, increasing the wavele
 the radius of the wave circle. This happens because spacetime itself is stretched, making the 
 oscillations of the wave appear slower (time dilation). 
 
-In the theory of segmented spacetime, the increase in radius r corresponds to an increase in 
+In the theory of Segmented Spacetime, the increase in radius r corresponds to an increase in 
 segments. With increasing gravity, space has more segments. Gravity adds more segments 
 to space, and the wave must travel through more of these segments per period. 
 
@@ -248,7 +248,7 @@ large radius in normal conditions.
  
  
  
-Light waves under the influence of gravity in segmented spacetime 
+Light waves under the influence of gravity in Segmented Spacetime 
 
 Under the influence of gravity, the wave becomes longer, and a redshift occurs. Let's assume 
 a frequency of f=0.5 Hz (half vibration): 
@@ -668,7 +668,7 @@ challenges traditional views of black holes as ultimate sinks of information, in
 suggesting a mechanism of redistribution and encoding. 
 
 Future observations and experiments, particularly those utilizing advanced radio telescopes 
-like the Event Horizon Telescope or the Square Kilometer Array, could help confirm or refine 
+like the Event Horizon Telescope (EHT) (EHT) or the Square Kilometer Array, could help confirm or refine 
 this model. The detection of temporal signatures or specific polarization patterns in radio 
 waves near black holes may provide the evidence needed to support this hypothesis. 
 

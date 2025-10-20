@@ -2,13 +2,13 @@
 
 ## Overview
 
-The **SSZ Segwave** module implements radiowave propagation through segmented spacetime shells based on the γ_seg(r) formalism developed by Casu & Wrede. This tool predicts velocity profiles and frequency shifts in molecular ring structures around star-forming regions.
+The **SSZ Segwave** module implements radiowave propagation through Segmented Spacetime shells based on the γ_seg(r) formalism developed by Casu & Wrede. This tool predicts velocity profiles and frequency shifts in molecular ring structures around star-forming regions.
 
 ## Physical Model
 
 ### Core Formalism
 
-The segmented spacetime framework models spacetime as a sequence of discrete shells, each with its own metric scaling factor γ_k. Radio waves propagating through these shells experience:
+The Segmented Spacetime framework models spacetime as a sequence of discrete shells, each with its own metric scaling factor γ_k. Radio waves propagating through these shells experience:
 
 1. **Velocity Evolution**:
    ```
@@ -35,7 +35,7 @@ The segmented spacetime framework models spacetime as a sequence of discrete she
 
 The parameter **α** controls the strength of segment-induced velocity damping:
 - **α = 0**: No segmentation effect (classical propagation)
-- **α = 1**: Standard segmented spacetime prediction
+- **α = 1**: Standard Segmented Spacetime prediction
 - **α > 1**: Enhanced segmentation coupling
 - **α < 1**: Weak segmentation regime
 
@@ -74,7 +74,7 @@ A JSON file documenting data sources and references in `data/observations/source
 ### Basic Syntax
 
 ```bash
-ssz-rings --csv DATA.csv --v0 VELOCITY [--alpha ALPHA | --fit-alpha] [OPTIONS]
+SSZ-rings --csv DATA.csv --v0 VELOCITY [--alpha ALPHA | --fit-alpha] [OPTIONS]
 ```
 
 ### Required Arguments
@@ -97,7 +97,7 @@ ssz-rings --csv DATA.csv --v0 VELOCITY [--alpha ALPHA | --fit-alpha] [OPTIONS]
 ### Example 1: Fixed α with Basic Output
 
 ```bash
-ssz-rings --csv data/observations/ring_temperature_data.csv \
+SSZ-rings --csv data/observations/ring_temperature_data.csv \
           --v0 12.5 \
           --alpha 1.25 \
           --out-table reports/rings_alpha125.csv \
@@ -107,7 +107,7 @@ ssz-rings --csv data/observations/ring_temperature_data.csv \
 ### Example 2: Fit α to Observations
 
 ```bash
-ssz-rings --csv data/observations/ring_temperature_data.csv \
+SSZ-rings --csv data/observations/ring_temperature_data.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/rings_fitted.csv \
@@ -118,7 +118,7 @@ ssz-rings --csv data/observations/ring_temperature_data.csv \
 ### Example 3: Frequency Tracking
 
 ```bash
-ssz-rings --csv data/observations/ring_temperature_data.csv \
+SSZ-rings --csv data/observations/ring_temperature_data.csv \
           --v0 12.5 \
           --alpha 1.0 \
           --nu-in 3.0e11 \
@@ -158,7 +158,7 @@ The suite includes curated observational datasets from published studies, ready 
 
 **Usage:**
 ```bash
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/g79_fitted.csv \
@@ -184,7 +184,7 @@ ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
 
 **Usage:**
 ```bash
-ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
           --v0 1.3 \
           --alpha 1.0 \
           --out-table reports/cygx_table.csv
@@ -201,7 +201,7 @@ JSON inventory mapping datasets to local PDF references for offline reproducibil
 
 **Loading:**
 ```python
-from ssz.segwave.io import load_sources_manifest
+from SSZ.segwave.io import load_sources_manifest
 
 sources = load_sources_manifest("data/observations/sources.json")
 print(sources["G79.29+0.46"]["tracers"]["Molecular"])
@@ -230,7 +230,7 @@ print(sources["G79.29+0.46"]["tracers"]["Molecular"])
 ## Python API
 
 ```python
-from ssz.segwave import predict_velocity_profile, fit_alpha, load_ring_data
+from SSZ.segwave import predict_velocity_profile, fit_alpha, load_ring_data
 
 # Load data
 df = load_ring_data("data/observations/ring_temperature_data.csv")
@@ -254,23 +254,23 @@ After completing analysis runs, you can print all Markdown files in the reposito
 
 ```bash
 # Print all .md files in repo
-ssz-print-md --root . --order path
+SSZ-print-md --root . --order path
 
 # Limit file size (512 KB per file)
-ssz-print-md --root . --max-print-bytes 524288
+SSZ-print-md --root . --max-print-bytes 524288
 
 # Depth-first order (shallow files first)
-ssz-print-md --root . --order depth
+SSZ-print-md --root . --order depth
 
 # Custom include patterns
-ssz-print-md --root . --include "reports/**/*.md" "analysis/**/*.md"
+SSZ-print-md --root . --include "reports/**/*.md" "analysis/**/*.md"
 ```
 
 ### Integrated with CLI
 
 ```bash
-# Add --echo-all-md flag to any ssz-rings run
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+# Add --echo-all-md flag to any SSZ-rings run
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 --fit-alpha \
           --out-report reports/g79.md \
           --echo-all-md

@@ -155,7 +155,7 @@ explorations into time-symmetric physics and emergent geometry.
 4.1 Gravitational Analogy 
 
 Interestingly, the resulting intensity field F(tx,ty) bears a functional resemblance to 
-gravitational behaviour in General Relativity. Peaks in the field may be interpreted as regions 
+gravitational behaviour in General Relativity (GR) (GR). Peaks in the field may be interpreted as regions 
 of concentrated spatial structure, analogous to high curvature or energy density, while 
 gradients correspond to directional changes in perceived spatial flow. In this interpretation, 
 gravity emerges not as a fundamental force but as a geometric effect of non-uniform time-
@@ -163,7 +163,7 @@ interference [4]. Just as classical gravitation describes the bending of geodesi
 curvature, this model hints that pathways of motion might align with gradients in temporal 
 interference intensity, offering a conceptual parallel to gravitational potential. 
 
-This interpretation finds a conceptual connection with the segmented spacetime framework 
+This interpretation finds a conceptual connection with the Segmented Spacetime framework 
 proposed in other contexts, where motion-induced structural changes in space and time give 
 rise to increased mass[5]. In contrast to that approach, which examines post-motion 
 segmentation effects, the present model emphasizes the real-time structure of the interference 

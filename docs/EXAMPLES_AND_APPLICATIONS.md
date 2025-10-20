@@ -376,7 +376,7 @@ print(f"  ISCO:")
 print(f"    GR:  r_ISCO = {r_isco_gr/1e9:.3f} × 10⁹ m")
 print(f"    SSZ: r_ISCO = {r_isco_ssz/1e9:.3f} × 10⁹ m")
 
-# Event Horizon Telescope observables
+# Event Horizon Telescope (EHT) (EHT) observables
 b_shadow_gr = np.sqrt(27) * G * M_sgr_a / c**2
 b_shadow_ssz = 0.94 * b_shadow_gr
 

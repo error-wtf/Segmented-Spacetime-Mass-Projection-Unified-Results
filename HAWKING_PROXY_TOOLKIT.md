@@ -33,7 +33,7 @@ python scripts/data_acquisition/parse_ssz_horizon.py \
 ```bash
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz ssz_config.json \
+    --SSZ ssz_config.json \
     --C 1e30 \
     --out hawking_fit_report.md
 ```
@@ -158,7 +158,7 @@ python parse_ssz_horizon.py \
 **Parameters:**
 ```bash
 --spectrum  Input spectrum CSV (required)
---ssz       SSZ config JSON (required)
+--SSZ       SSZ config JSON (required)
 --C         Temperature factor: T = C × |κ_seg| (default: 1e30)
 --out       Output report MD (default: hawking_fit_report.md)
 --plot      Output plot PNG (default: hawking_fit_plot.png)
@@ -187,7 +187,7 @@ python parse_ssz_horizon.py \
 ```bash
 python hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz ssz_config.json \
+    --SSZ ssz_config.json \
     --C 1e30
 ```
 
@@ -242,7 +242,7 @@ python scripts/data_acquisition/parse_ssz_horizon.py \
 # ============================================================================
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz ssz_config.json \
+    --SSZ ssz_config.json \
     --C 1e30 \
     --out hawking_fit_report.md \
     --plot hawking_fit_plot.png
@@ -279,7 +279,7 @@ python scripts/analysis/hawking_proxy_fit.py \
 # Use template data (no download needed)
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum data/observations/m87_continuum_spectrum_TEMPLATE.csv \
-    --ssz data/config/ssz_config_m87_TEMPLATE.json
+    --SSZ data/config/ssz_config_m87_TEMPLATE.json
 ```
 
 ### **Multiple Sources:**
@@ -466,7 +466,7 @@ If continuum spectrum is thermal with T ~ T_seg → evidence for Hawking-like em
 # Use templates (no download)
 python hawking_proxy_fit.py \
     --spectrum data/observations/m87_continuum_spectrum_TEMPLATE.csv \
-    --ssz data/config/ssz_config_m87_TEMPLATE.json
+    --SSZ data/config/ssz_config_m87_TEMPLATE.json
 ```
 
 ### **For Real Science:**

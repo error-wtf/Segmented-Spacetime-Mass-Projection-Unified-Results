@@ -313,7 +313,7 @@ M_EARTH = 5.97219e24    # Erdmasse [kg]
 
 ```bash
 # Repository forken
-git clone https://github.com/your-username/ssz-complete-suite.git
+git clone https://github.com/your-username/SSZ-complete-suite.git
 
 # Feature-Branch erstellen
 git checkout -b feature/neue-funktion

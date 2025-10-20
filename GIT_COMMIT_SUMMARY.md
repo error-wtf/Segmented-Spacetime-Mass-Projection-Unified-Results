@@ -411,10 +411,10 @@ pytest tests/ -s -v                   # Pytest tests
 
 # Analysis
 python run_all_ssz_terminal.py       # SSZ pipeline
-ssz-rings --csv data.csv --v0 12.5   # Ring analysis
+SSZ-rings --csv data.csv --v0 12.5   # Ring analysis
 
 # Documentation
-ssz-print-md --root . --order path   # Print all docs
+SSZ-print-md --root . --order path   # Print all docs
 ```
 
 ---

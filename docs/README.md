@@ -19,7 +19,7 @@
    - Physical concepts explained intuitively
    - No heavy mathematics
    - Perfect for students and physicists
-   - Topics: Segmented spacetime, φ, dual velocities, black holes
+   - Topics: Segmented Spacetime, φ, dual velocities, black holes
 
 2. **[MATHEMATICAL_FORMULAS.md](MATHEMATICAL_FORMULAS.md)** (2.5 KB+)
    - All formulas with derivations
@@ -92,7 +92,7 @@ This directory also contains the Segmented Spacetime (SSZ) cosmology pipeline th
 
 1. Fetch Gaia data using `scripts/gaia/fetch_gaia_adql.py` or cone search helper `scripts/gaia/fetch_gaia_conesearch.py`.
 2. Preprocess outputs with `scripts/preprocess/gaia_clean_map.py` and `scripts/preprocess/gaia_frame_transform.py`.
-3. Build cosmology field via `scripts/ssz/build_ssz_model.py` and solar embedding via `scripts/ssz/build_solar_system_model.py`.
+3. Build cosmology field via `scripts/SSZ/build_ssz_model.py` and solar embedding via `scripts/SSZ/build_solar_system_model.py`.
 4. Visualize with `scripts/viz/plot_ssz_maps.py` (cosmology) and `scripts/viz/plot_solar_ssz.py` (solar segments).
 5. Run everything end-to-end with `run_gaia_ssz_pipeline.py`.
 

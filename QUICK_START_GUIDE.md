@@ -86,7 +86,7 @@ source .venv/bin/activate
 python run_all_ssz_terminal.py
 
 # Ring velocity analysis (G79 nebula)
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-alpha
 
 # All-in-one runner
 python segspace_all_in_one_extended.py all
@@ -144,8 +144,8 @@ pytest scripts/tests/ -s -v           # Script tests
 
 ```bash
 # View all CLI tools
-ssz-rings --help
-ssz-print-md --help
+SSZ-rings --help
+SSZ-print-md --help
 
 # Analysis examples
 python segspace_all_in_one_extended.py --help
@@ -193,13 +193,13 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 ```bash
 # All Markdown files
-ssz-print-md --root . --order path
+SSZ-print-md --root . --order path
 
 # Papers only
-ssz-print-md --root papers --order depth
+SSZ-print-md --root papers --order depth
 
 # Reports only
-ssz-print-md --root reports --order path
+SSZ-print-md --root reports --order path
 ```
 
 ### Generate Reports
@@ -296,7 +296,7 @@ pip install -r requirements.txt
 ✅ Virtual environment created (.venv/)
 ✅ All dependencies installed (numpy, scipy, pandas, etc.)
 ✅ 58 tests passing (35 physics + 23 technical)
-✅ CLI tools available (ssz-rings, ssz-print-md)
+✅ CLI tools available (SSZ-rings, SSZ-print-md)
 ✅ Platform compatibility verified
 ```
 
@@ -337,7 +337,7 @@ python run_full_suite.py --quick
 
 ### 3. Ring Analysis (1 minute)
 ```bash
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5
 ```
 
 ### 4. Full Analysis (10 minutes)
@@ -400,7 +400,7 @@ After setup, you should have:
 
 - ✅ Virtual environment active (`.venv/`)
 - ✅ All 58 tests passing
-- ✅ CLI tools working (`ssz-rings --help`)
+- ✅ CLI tools working (`SSZ-rings --help`)
 - ✅ Data files present (427 observations)
 - ✅ Reports directory created (`reports/`)
 - ✅ Platform compatibility confirmed

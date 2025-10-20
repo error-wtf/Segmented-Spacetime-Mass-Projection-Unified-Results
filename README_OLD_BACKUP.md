@@ -179,7 +179,7 @@ The automated install scripts (`install.ps1` / `install.sh`) perform 8 steps:
 4. **⬆️ Upgrade pip** - Updates pip, setuptools, wheel
 5. **📥 Install Dependencies** - Installs from `requirements.txt` (or fallback list)
 6. **🔧 Install SSZ Suite** - Installs package in editable mode (`-e .`)
-7. **✅ Verify Installation** - Checks CLI tools (`ssz-rings`, `ssz-print-md`)
+7. **✅ Verify Installation** - Checks CLI tools (`SSZ-rings`, `SSZ-print-md`)
 8. **🧪 Run Basic Tests** - Executes 50+ core tests (physics + technical)
 
 ### 🎯 Dependencies Installed
@@ -301,8 +301,8 @@ pip install -r requirements.txt
 pip install -e .
 
 # Verify installation
-ssz-rings --help
-ssz-print-md --help
+SSZ-rings --help
+SSZ-print-md --help
 
 # Run tests
 pytest tests/ -v                    # Basic tests
@@ -332,7 +332,7 @@ python run_all_ssz_terminal.py --save-raws --plots
 
 ## SSZ-Rings: Segmented Radiowave Propagation (Offline Quick Runs)
 
-**NEW:** Predict velocity profiles in expanding molecular rings using the segmented spacetime framework.
+**NEW:** Predict velocity profiles in expanding molecular rings using the Segmented Spacetime framework.
 
 ### Real Observational Data Included
 
@@ -340,7 +340,7 @@ The suite bundles curated datasets from published nebulae studies:
 
 #### G79.29+0.46 (Multi-shell LBV Nebula)
 ```bash
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/g79_table.csv \
@@ -354,7 +354,7 @@ ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
 
 #### Cygnus X Diamond Ring (Slow Expansion Benchmark)
 ```bash
-ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
+SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
           --v0 1.3 \
           --alpha 1.0 \
           --out-table reports/cygx_table.csv \
@@ -369,19 +369,19 @@ ssz-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
 
 ```bash
 # View all options
-ssz-rings --help
+SSZ-rings --help
 
 # Fit alpha automatically
-ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha
+SSZ-rings --csv DATA.csv --v0 VELOCITY --fit-alpha
 
 # Use fixed alpha
-ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.25
+SSZ-rings --csv DATA.csv --v0 VELOCITY --alpha 1.25
 
 # Include frequency tracking
-ssz-rings --csv DATA.csv --v0 VELOCITY --alpha 1.0 --nu-in 3.0e11
+SSZ-rings --csv DATA.csv --v0 VELOCITY --alpha 1.0 --nu-in 3.0e11
 
 # Generate plot (requires matplotlib)
-ssz-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
+SSZ-rings --csv DATA.csv --v0 VELOCITY --fit-alpha --out-plot plot.png
 ```
 
 **Full documentation:** `docs/segwave_guide.md`
@@ -433,10 +433,10 @@ After any analysis run, print all Markdown reports/summaries to STDOUT:
 
 ```bash
 # Standalone tool
-ssz-print-md --root . --order path
+SSZ-print-md --root . --order path
 
-# Or integrated with ssz-rings
-ssz-rings --csv data.csv --v0 12.5 --fit-alpha \
+# Or integrated with SSZ-rings
+SSZ-rings --csv data.csv --v0 12.5 --fit-alpha \
           --out-report report.md \
           --echo-all-md
 ```
@@ -454,7 +454,7 @@ dpkg - i install_complete_repo.sh
 then execute 
 
 ```
-ssz-projection
+SSZ-projection
 ```
 
 ---
@@ -1056,7 +1056,7 @@ For questions about these updates:
 1. Check the analysis results in the JSON files
 2. Run the validation commands above
 3. Review the failure analysis for object-specific issues
-4. Consult the original segmented spacetime papers for theoretical background
+4. Consult the original Segmented Spacetime papers for theoretical background
 
 ## Changelog
 

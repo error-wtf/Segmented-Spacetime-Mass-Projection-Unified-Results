@@ -109,7 +109,7 @@ Overall: [██████░░░░░░░░░░░] 33% of total road
 - **10/10 formulas mapped (100%!)**
 - **512 total implementations found**
 - Perfect theory-code consistency
-- Golden ratio: 70 implementations
+- Golden Ratio: 70 implementations
 - Schwarzschild: 101 implementations
 - Refractive index: 105 implementations
 
@@ -121,7 +121,7 @@ Overall: [██████░░░░░░░░░░░] 33% of total road
 
 ### 3.1 Formula Derivation ✅
 - **12/13 checks passed (92.3%)**
-- Golden ratio: Perfect (3/3)
+- Golden Ratio: Perfect (3/3)
 - Dual velocity invariant: Perfect (3/3)
 - PPN parameters: Match GR (2/2)
 - Metric components: Perfect (2/2)

@@ -161,13 +161,13 @@ The φ-radius is φ·(GM/c²)·(1 + Δ(M)/100).
 ## The φ-Radius
 
 **What it is:**
-The characteristic length scale in segmented spacetime.
+The characteristic length scale in Segmented Spacetime.
 
 **Formula:**
 r_φ = φ·(GM/c²)·(1 + Δ(M)/100)
 
 **Where:**
-- φ ≈ 1.618 (golden ratio)
+- φ ≈ 1.618 (Golden Ratio)
 - G = gravitational constant
 - M = mass of object
 - c = speed of light
@@ -185,7 +185,7 @@ segmentation becomes significant.
 **See also:**
 - Schwarzschild radius (comparison)
 - Natural boundary concept
-- Mass projection theory
+- Mass Projection theory
 ```
 
 ---

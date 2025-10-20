@@ -4,7 +4,7 @@ Repository
 
 Theoretical Foundations
 
-φ/2 Constant and Schwarzschild Basis:  The repository adopts  φ/2 (half the golden ratio)  as a key
+φ/2 Constant and Schwarzschild Basis:  The repository adopts  φ/2 (half the Golden Ratio)  as a key
 dimensionless constant in its gravity model. In code, the segment radius is defined as   r_φ = (φ/
 2)·r_s  (with minor mass-dependent corrections), where r_s is the Schwarzschild radius
 
@@ -382,13 +382,13 @@ intermediate objects (white dwarf Sirius B, neutron star PSR J0740+6620, stellar
 X-1, etc. in the test list) demonstrates that even in strong-field regimes the model’s mass projections
 remain   accurate   to   <1e-6%.   This   breadth   of   numeric   testing   strongly   supports   the  universal
 
-applicability of the segmented spacetime model.
+applicability of the Segmented Spacetime model.
 
 Consistency with Known Physics
 
-Recovery of GR in Weak Fields:  In the limit of weak gravity or large radii, the segmented spacetime
+Recovery of GR in Weak Fields:  In the limit of weak gravity or large radii, the Segmented Spacetime
 
-model converges to standard General Relativity predictions. The Δ(M) scaling factor tends to a constant
+model converges to standard General Relativity (GR) (GR) predictions. The Δ(M) scaling factor tends to a constant
 
 ~1.02   (i.e.   a   ~2%   effect)   for   macroscopic   masses   like   planets   and   stars
 
@@ -426,7 +426,7 @@ it does not artificially improve fit unless multi-scale data is introduced
 
 check:   where   GR   already   works,   the   segmented   model   does   not   introduce   spurious   differences.   All
 
-classical tests thus far (redshift, orbital motion) show that segmented spacetime reduces to GR in the
+classical tests thus far (redshift, orbital motion) show that Segmented Spacetime reduces to GR in the
 
 appropriate regime.
 
@@ -586,7 +586,7 @@ and   then   fixed   in   code,   rather   than   arbitrarily   tweaked.   In   
 
 demonstrates   that   segmented   spacetime   can   serve   as   a   consistent   theoretical   and
 
-computational framework for gravity, matching General Relativity in proven domains and offering a
+computational framework for gravity, matching General Relativity (GR) (GR) in proven domains and offering a
 
 plausible,  testable  difference  in  the  strong-field  domain,   all   without   contradicting   known   physics   or
 

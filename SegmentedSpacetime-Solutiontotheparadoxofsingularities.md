@@ -33,7 +33,7 @@ physics. In classical theory, the entire mass of a black hole is concentrated in
 singularity at r=0. However, this assumption leads to physical paradoxes such as infinite density and 
 an incomplete description of spacetime. 
 
-The theory of segmented spacetime, which is based on a logarithmic description of the spacetime 
+The theory of Segmented Spacetime, which is based on a logarithmic description of the spacetime 
 structure, offers an elegant solution to this problem. By introducing the Bingsi constant, the mass is 
 no longer described as a point mass, but as a structure distributed over the range from r=0 to r=1. 
 This model makes it possible to replace the singularity with a well-defined distribution that is both 
@@ -43,16 +43,16 @@ This new perspective not only opens up a better understanding of the dynamics wi
 but also provides interesting perspectives for central questions of astrophysics, such as the existence 
 of an upper mass limit and the nature of the Cosmic Censorship Conjecture. In this paper, we will 
 examine the theoretical foundations, mathematical derivation, and physical implications of the 
-segmented spacetime model. 
+Segmented Spacetime model. 
 
 Minkowski Space and its Connection to Euler's Formula 
 
-Minkowski space is a four-dimensional spacetime used in special relativity to describe the structure 
+Minkowski space is a four-dimensional spacetime used in Special Relativity (SR) (SR) to describe the structure 
 of space and time. It is defined by four coordinates (x, y, z, t), where x, y, and z represent the three 
 spatial dimensions, and t represents the time dimension. 
 
 In Minkowski space, the general form of the complex exponential function ex+iy plays an important 
-role in various areas of physics. In particular, in special relativity, it frequently appears when it comes 
+role in various areas of physics. In particular, in Special Relativity (SR) (SR), it frequently appears when it comes 
 to finding solutions for differential equations. Examples of this include: 
 
 Lorentz Transformations: These can be interpreted as complex rotations in Minkowski space, in 
@@ -202,7 +202,7 @@ energy into a static description of space. This opens new perspectives on the co
 waves and space-time and offers an innovative model to understand gravitational effects and spatial 
 structure. 
 
-In classical theories such as general relativity, the gravitational decay is typically described by 
+In classical theories such as General Relativity (GR) (GR), the gravitational decay is typically described by 
 
 quadratic laws (z.B. 
 

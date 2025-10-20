@@ -69,7 +69,7 @@ pytest tests/test_segwave_core.py -q           # Math works
 pytest tests/test_segwave_cli.py -q            # CLI works  
 python test_ppn_exact.py                       # Physics works
 python test_vfall_duality.py                   # Physics works
-python -c "import core.ssz; import core.stats" # Imports work
+python -c "import core.SSZ; import core.stats" # Imports work
 ```
 
 **Exclude:**
@@ -105,7 +105,7 @@ from pathlib import Path
 
 def test_core_imports():
     """Test that core modules can be imported."""
-    import core.ssz
+    import core.SSZ
     import core.stats
     import core.transforms
     assert True
@@ -122,7 +122,7 @@ def test_config_files_exist():
 
 def test_basic_calculation():
     """Test basic SSZ calculation works."""
-    from core.ssz import compute_ppn_params
+    from core.SSZ import compute_ppn_params
     beta, gamma = compute_ppn_params(M_sun=1.0, eps3=-4.8)
     assert abs(beta - 1.0) < 1e-10
     assert abs(gamma - 1.0) < 1e-10

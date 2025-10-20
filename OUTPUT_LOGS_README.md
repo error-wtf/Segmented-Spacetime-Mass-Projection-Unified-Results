@@ -110,7 +110,7 @@ Results:
   γ_measured = 1.000000000
   
 Physical Interpretation:
-  • PPN parameters match General Relativity (β=γ=1)
+  • PPN parameters match General Relativity (GR) (GR) (β=γ=1)
   • Weak-field limit correctly reproduces Einstein gravity
   • No scalar field contributions detected
 ================================================================================

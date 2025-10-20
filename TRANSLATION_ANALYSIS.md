@@ -34,7 +34,7 @@ German-only papers/docs in repository:
 2. **Kinematische Schließung – Escape Vs.md**
 3. **Segmentierte Raumzeit – Ein geometrisch-topologisches Modell.md**
 4. **Von Φ‑segmentierung Zu Euler_ Beweiskette & Ableitung.md**
-5. **Final Paper — Φ, Β & Euler (segmented Spacetime).md**
+5. **Final Paper — Φ, Β & Euler (Segmented Spacetime).md**
 6. **GOOGLE_COLAB_SETUP_DE.md** (but COLAB_README.md exists in EN)
 
 ---

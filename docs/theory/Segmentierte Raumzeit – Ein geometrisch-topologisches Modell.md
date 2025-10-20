@@ -1767,7 +1767,7 @@ Code:
 (base) D:\Segmented-Spacetime-Mass-Projection-Unified-Results>python
 carmen_qed_incompleteness_demo.py
 ====================================================================
- SEGMENTED SPACETIME – QED Incompleteness Demo (Carmen Wrede)
+ Segmented Spacetime – QED Incompleteness Demo (Carmen Wrede)
 ====================================================================
 
 Input values:

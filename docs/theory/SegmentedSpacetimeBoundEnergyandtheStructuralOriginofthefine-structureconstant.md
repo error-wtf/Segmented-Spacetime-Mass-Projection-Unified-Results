@@ -47,7 +47,7 @@ value of the fine-structure constant α, which varies depending on the segmentat
 of space. Near massive gravitational sources, such as the environment around Sagittarius A*, 
 the space becomes more finely segmented, reducing the accessible portion of the electron’s 
 energy and thus decreasing the effective α. Using this approach, we derive the observed 
-frequency shift purely from the structural limitations of the electron in segmented spacetime,  
+frequency shift purely from the structural limitations of the electron in Segmented Spacetime,  
 without requiring Doppler motion or relativistic time dilation. This reinterpretation suggests 
 that α is not a fixed constant of nature, but a geometric projection of local segmentation. The 
 model reproduces the observed frequency shift at Sagittarius A* with high precision and 
@@ -115,7 +115,7 @@ The classical electrostatic self-energy of a point charge 𝑒 confined within a
 𝑒2
 4𝜋𝜀0𝑟
 
-To integrate this into the segmented spacetime framework, we substitute the effective 
+To integrate this into the Segmented Spacetime framework, we substitute the effective 
 radius from the previous section: 
 
 𝑟 =
@@ -166,7 +166,7 @@ The rest energy of the electron is:
 
 𝐸0 = 𝑚𝑒𝑐2 
 
-In the segmented spacetime model, we distinguish between the standard electron rest mass  
+In the Segmented Spacetime model, we distinguish between the standard electron rest mass  
 
 𝑚𝑒 , which is used as a CODATA reference value, and the local bound mass 𝑚bound, which 
 reflects the particle's effective mass under spatial segmentation. 
@@ -382,7 +382,7 @@ The Rydberg energy arises within the segment-defined energy range,
 2
 
 While the Rydberg formula itself arises from quantum mechanics, we show that its energy 
-scale lies well within the structurally accessible range defined by segmented spacetime. This 
+scale lies well within the structurally accessible range defined by Segmented Spacetime. This 
 suggests a structural reinterpretation of atomic binding energies, but does not replace the 
 full quantum derivation. 
 
@@ -410,7 +410,7 @@ into a free state is defined by this expression.
 
 8. Segment-Dependent Photon Coupling 
 
-In segmented spacetime, particle interaction is fundamentally constrained by the available 
+In Segmented Spacetime, particle interaction is fundamentally constrained by the available 
 internal energy determined through spatial segmentation. As previously derived, a bound 
 electron has access only to a fraction of its rest energy, defined by the fine-structure 
 constant: 
@@ -457,7 +457,7 @@ shift remains within the infrared range, rather than extending into the microwav
 bands. 
 
 As the star S2 approaches the supermassive black hole, observations show an increasing 
-redshift of its emitted light. In our segmented spacetime model, this is naturally explained by 
+redshift of its emitted light. In our Segmented Spacetime model, this is naturally explained by 
 the decreasing local fine-structure constant 𝛼𝑙𝑜𝑐𝑎𝑙 , which limits the electromagnetic 
 accessibility of bound electron mass, thereby shifting all emitted photon frequencies toward 
 lower energy, without requiring spacetime curvature. 
@@ -483,7 +483,7 @@ In classical quantum electrodynamics (QED), the rest energy of an electron is gi
 
 𝐸0 = 𝑚𝑒𝑐2 
 
-However, in segmented spacetime, only a fraction of this energy is accessible to external 
+However, in Segmented Spacetime, only a fraction of this energy is accessible to external 
 interactions such as coupling with a photon. This fraction is defined by a locally effective 
 fine-structure constant α(Ne), which depends on the segment density Ne of spacetime near 
 the electron. 
@@ -632,7 +632,7 @@ being a universal constant.
 The frequency f and the energy 𝐸 = ℎ ∙ 𝑓 of a photon are directly dependent on the local 
 orbital velocity of the electron, which is described by the fine-structure constant α. 
 
-In a gravitational context or in a scenario with segmented spacetime, α varies locally 
+In a gravitational context or in a scenario with Segmented Spacetime, α varies locally 
 (denoted as 𝛼local), which also changes the observed photon frequency: 
 
 𝑓′ =
@@ -664,25 +664,25 @@ precision measurements, most notably at the LEP collider at CERN. The effective 
 increases with energy, consistent with predictions from the renormalization group in 
 quantum electrodynamics. 
 
-In the segmented spacetime model, we interpret this variation structurally, not as a function 
+In the Segmented Spacetime model, we interpret this variation structurally, not as a function 
 of energy alone, but as a reflection of the local segmentation density of space. Thus, the 
 empirical variation of α supports not only quantum field theory but also opens the door to 
 geometric interpretations beyond it. 
 
 While the fine-structure constant is typically regarded as universal, both quantum 
-electrodynamics and the segmented spacetime model suggest that it is in fact locally 
+electrodynamics and the Segmented Spacetime model suggest that it is in fact locally 
 defined. The standard QED renormalization already accounts for its energy dependence. 
 Here, we propose that this variation is not merely a function of momentum transfer, but a 
 structural consequence of spacetime segmentation. Thus, 𝛼 is not an absolute constant, but 
 the measurable projection of a local coupling geometry. 
 
-In contrast to the energy-based interpretation in QED, the segmented spacetime model 
+In contrast to the energy-based interpretation in QED, the Segmented Spacetime model 
 proposes that variations in 𝛼 are not primarily driven by interaction energy, but rather by 
 local segmentation of spacetime itself. In this view, the fine-structure constant becomes a 
 projection of the local geometric structure, a measure of how space is discretized or 
 “segmented” at a given location, especially in the presence of gravitational fields. 
 
-While QED describes how 𝛼 changes with energy, the segmented spacetime model suggests 
+While QED describes how 𝛼 changes with energy, the Segmented Spacetime model suggests 
 that this "running" is actually a phenomenological effect of deeper structural segmentation 
 of the vacuum. In this view: 
 
@@ -724,7 +724,7 @@ actual energy loss by the photon during propagation. This is particularly common
 interpretations of gravitational redshift, where photons are said to "lose energy" as they 
 climb out of gravitational wells. 
 
-However, in our segmented spacetime model, this assumption is challenged. We propose 
+However, in our Segmented Spacetime model, this assumption is challenged. We propose 
 that photons do not intrinsically lose energy during propagation. Instead, the observed 
 energy difference arises from a structural constraint at the point of detection: the local 
 segmentation density of spacetime restricts how much energy can be absorbed by a bound 
@@ -749,14 +749,14 @@ formula for an elastic photon-electron interaction with zero scattering angle (�
 However, we emphasize that in our model, this shift does not result from an interaction or 
 recoil event. Instead, it reflects the limited energy absorption capability of the local electron 
 due to segmentation. The electron cannot access the full incoming energy because its bound 
-state is embedded in a more highly segmented spacetime structure, reducing the available 
+state is embedded in a more highly Segmented Spacetime structure, reducing the available 
 internal degrees of freedom. 
 
 14. Biological Detectors and Perceptual Segmentation 
 
 Even our biological perception is structurally limited by local segmentation. The 
 photoreceptor molecules in the human retina consist of bound electron systems that 
-operate under the same constraints of segmented spacetime as described throughout this 
+operate under the same constraints of Segmented Spacetime as described throughout this 
 paper. 
 
 This implies that the human eye, like any bound quantum detector, does not perceive the 

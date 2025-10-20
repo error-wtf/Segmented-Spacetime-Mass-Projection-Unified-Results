@@ -163,7 +163,7 @@ Model Comparison:
 # Mit Template-Daten getestet:
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum data/observations/m87_continuum_spectrum_TEMPLATE.csv \
-    --ssz ssz_config_example.json
+    --SSZ ssz_config_example.json
 
 # Output:
 ✅ Lädt Spektrum (10 Punkte)
@@ -275,7 +275,7 @@ python scripts/data_acquisition/parse_ssz_horizon.py \
 # 3. Fit spectrum
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz ssz_config.json
+    --SSZ ssz_config.json
 ```
 
 ### **Für komplette Pipeline:**

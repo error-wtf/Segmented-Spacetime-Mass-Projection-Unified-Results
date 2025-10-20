@@ -114,7 +114,7 @@ propagation. A wave traverses these segments at a rate governed by its frequency
 
 Definition (Segment traversal velocity): 
 
-In a segmented spacetime model, where wave propagation is governed by discrete spatial 
+In a Segmented Spacetime model, where wave propagation is governed by discrete spatial 
 segments rather than continuous fields, the group velocity is not defined as the derivative of 
 a dispersion relation ω(k), but rather as a direct function of the frequency relative to the rate 
 of segment traversal: 
@@ -412,7 +412,7 @@ segmentation at the emission point [4,5].
 
 This method will allow us to describe the gravitational influence of a region of spacetime to be 
 described in terms of structural density, independent of the observer's frame and showcases a 
-central strength of the segmented spacetime model: Its ability to express gravitational curvature as a 
+central strength of the Segmented Spacetime model: Its ability to express gravitational curvature as a 
 measurable shift in segment count. 
 
 To quantify the gravitational effect near the star S2, we use the emission and observation 
@@ -434,7 +434,7 @@ From these values, we compute the frequency ratio:
 
 =  1.0257470026244293 
 
-In the segmented spacetime model, the observed segment density N' on Earth (relative to 
+In the Segmented Spacetime model, the observed segment density N' on Earth (relative to 
 the emission reference) is derived from the base segment count of 4: 
 
 𝑁′ =  4  ∙
@@ -510,7 +510,7 @@ Finally we can calculate the energy subistituting our findings into the formula
 This method introduces a novel approach to determining photon energy from observed 
 frequencies by accounting for gravitational segment density. It provides a practical extension 
 to quantum mechanics by enabling the definition of a state function Ψ(E, λ) or Ψ(τ, t) within 
-a segmented spacetime framework, capturing the influence of gravitational dilation on wave 
+a Segmented Spacetime framework, capturing the influence of gravitational dilation on wave 
 behaviour. 
 
 7. Implications for Relativity and Quantum Information 
@@ -555,7 +555,7 @@ relativistic segmentation.
 These shifts are not minor refinements—they represent a fundamental reframing of how 
 frequency, energy, and information behave under the influence of gravity. By replacing 
 differential continuity with segmental discreteness, this approach bridges a long-standing 
-conceptual gap between general relativity and quantum mechanics. 
+conceptual gap between General Relativity (GR) (GR) and quantum mechanics. 
 
 8. Further Applications 
 
@@ -618,7 +618,7 @@ space and time itself.
 
 Ultimately, this framework not only explains existing phenomena but extends the toolkit of 
 physics, offering a scalable, computable, and testable structure for the interface of quantum 
-information, general relativity, and wave dynamics. 
+information, General Relativity (GR) (GR), and wave dynamics. 
 
 Keywords: discrete spacetime, segment-based group velocity, gravitational redshift 
 correction, segment density, structural dilation, Ψ(E, λ), frequency-energy transformation, 

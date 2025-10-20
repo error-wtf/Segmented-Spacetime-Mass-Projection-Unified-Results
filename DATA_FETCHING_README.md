@@ -186,7 +186,7 @@ https://gea.esac.esa.int/archive/
 ### **Was MUSS im Release sein:**
 
 ```
-ssz-suite-v1.0.tar.gz/
+SSZ-suite-v1.0.tar.gz/
 ├── data/
 │   ├── real_data_full.csv          # ✅ MUSS
 │   └── gaia/

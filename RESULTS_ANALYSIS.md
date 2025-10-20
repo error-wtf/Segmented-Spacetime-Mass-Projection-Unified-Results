@@ -11,7 +11,7 @@
 Die Segmented Spacetime Zero-Stress (SSZ) Pipeline hat **alle wissenschaftlichen Tests bestanden** und zeigt **signifikante Verbesserungen** gegenüber Standard-Modellen:
 
 - ✅ **Massenrekonstruktion**: Perfekt über 12 Größenordnungen (Elektron bis Schwarzes Loch)
-- ✅ **Redshift-Vorhersage**: **24× besser** als General Relativity (GR) allein
+- ✅ **Redshift-Vorhersage**: **24× besser** als General Relativity (GR) (GR) (GR) allein
 - ✅ **Statistische Signifikanz**: p < 0.0013 (hochsignifikant)
 - ✅ **Alle Tests**: 24/24 PyTests bestanden
 
@@ -45,8 +45,8 @@ Die Segmented Spacetime Zero-Stress (SSZ) Pipeline hat **alle wissenschaftlichen
 | Modell | Median |Δz| | Performance |
 |--------|--------------|-------------|
 | **Segmented Spacetime (Seg)** | **0.0093** | 🥇 **BESTES** |
-| Special Relativity (SR) | 0.0016 | 🥈 (aber unrealistisch ohne GR) |
-| General Relativity (GR) | 0.2241 | ❌ **24× schlechter** |
+| Special Relativity (SR) (SR) (SR) | 0.0016 | 🥈 (aber unrealistisch ohne GR) |
+| General Relativity (GR) (GR) (GR) | 0.2241 | ❌ **24× schlechter** |
 | GR×SR kombiniert | 0.2254 | ❌ Noch schlechter |
 
 **Bedeutung**:

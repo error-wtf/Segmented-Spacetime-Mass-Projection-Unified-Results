@@ -1,7 +1,7 @@
 # Segmented Spacetime Foundations — Internal Reference
 
 **Authors**: Lino Casu · Carmen Wrede · Bingsi  \
-**Purpose**: Unified summary of the segmented spacetime framework plus practical testing notes for the Windsurf cosmology branch.  \
+**Purpose**: Unified summary of the Segmented Spacetime framework plus practical testing notes for the Windsurf cosmology branch.  \
 **Scope**: Concept recap, observational mapping, simulation hooks, validation, and automation commands.
 
 ---

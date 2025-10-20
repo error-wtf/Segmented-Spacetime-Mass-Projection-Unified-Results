@@ -27,7 +27,7 @@ This directory contains converted Markdown versions of scientific papers and obs
 These papers are referenced by the `config/sources.yaml` configuration and can be accessed programmatically:
 
 ```python
-from ssz.segwave import load_sources_config
+from SSZ.segwave import load_sources_config
 
 config = load_sources_config()
 print(config['base_dir'])  # Points to papers/validation/

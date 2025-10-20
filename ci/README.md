@@ -224,7 +224,7 @@ jobs:
 ### GitLab CI
 
 ```yaml
-ssz-suite:
+SSZ-suite:
   image: python:3.11
   script:
     - pip install -r requirements.txt

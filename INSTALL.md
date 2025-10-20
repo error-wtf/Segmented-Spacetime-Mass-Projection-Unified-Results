@@ -99,8 +99,8 @@ pip install -e .
 ### 5. Verify Installation
 
 ```bash
-ssz-rings --help
-ssz-print-md --help
+SSZ-rings --help
+SSZ-print-md --help
 pytest tests/ -v
 ```
 
@@ -243,8 +243,8 @@ pytest tests/ -v -k "not network"
 
 ```bash
 # Check installed commands
-ssz-rings --help
-ssz-print-md --help
+SSZ-rings --help
+SSZ-print-md --help
 
 # List installed package
 pip list | grep segmented
@@ -258,7 +258,7 @@ source .venv/bin/activate  # Linux/macOS
 .\.venv\Scripts\Activate.ps1  # Windows
 
 # Run G79.29+0.46 analysis
-ssz-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
+SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
           --v0 12.5 \
           --fit-alpha \
           --out-table reports/g79.csv
@@ -272,7 +272,7 @@ less docs/segwave_guide.md       # Linux/macOS
 Get-Content docs\segwave_guide.md  # Windows
 
 # API reference
-python -c "import ssz.segwave; help(ssz.segwave)"
+python -c "import SSZ.segwave; help(SSZ.segwave)"
 ```
 
 ---

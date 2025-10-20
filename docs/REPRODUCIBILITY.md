@@ -41,11 +41,11 @@ All outputs are organized by run identifier (`RUN_ID`), e.g., `2025-10-17_gaia_s
    ```
 3. **Build SSZ cosmology field**
    ```bash
-   python scripts/ssz/build_ssz_model.py --run-id <RUN_ID>
+   python scripts/SSZ/build_ssz_model.py --run-id <RUN_ID>
    ```
 4. **Solar system embedding**
    ```bash
-   python scripts/ssz/build_solar_system_model.py --run-id <RUN_ID>
+   python scripts/SSZ/build_solar_system_model.py --run-id <RUN_ID>
    ```
 5. **Visualization**
    ```bash

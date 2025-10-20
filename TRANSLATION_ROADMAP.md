@@ -51,7 +51,7 @@
 | 7 | **Euler-reduktion Der Φ‑segmentierung – Leitfaden Für Die Paper-einleitung.md** | ~200 | 🇩🇪 DE | ❌ TODO | → Euler_Reduction_Phi_Segmentation_Guide.md |
 | 8 | **Kinematische Schließung – Escape Vs.md** | ~200 | 🇩🇪 DE | ❌ TODO | → Kinematic_Closure_Escape_vs_Fall.md |
 | 9 | **Von Φ‑segmentierung Zu Euler_ Beweiskette & Ableitung.md** | ~250 | 🇩🇪 DE | ❌ TODO | → From_Phi_Segmentation_to_Euler_Proof_Chain.md |
-| 10 | **Final Paper — Φ, Β & Euler (segmented Spacetime).md** | ~300 | 🇩🇪 DE | ❌ TODO | → Final_Paper_Phi_Beta_Euler_Segmented_Spacetime.md |
+| 10 | **Final Paper — Φ, Β & Euler (Segmented Spacetime).md** | ~300 | 🇩🇪 DE | ❌ TODO | → Final_Paper_Phi_Beta_Euler_Segmented_Spacetime.md |
 
 **Total Priority 2:** 6 Dateien, ~2,850 Zeilen
 
@@ -329,7 +329,7 @@ Englisch: Segmented_Spacetime_Geometric_Topological_Model.md
 |---------|--------|---------|
 | r_φ | KEEP | SSZ-spezifisch |
 | Δ(M) | KEEP | Model-spezifisch |
-| φ (phi) | KEEP | Golden ratio |
+| φ (phi) | KEEP | Golden Ratio |
 | M_☉ | KEEP | Solar mass symbol |
 | z_geom | KEEP | Technical term |
 | z_obs | KEEP | Technical term |

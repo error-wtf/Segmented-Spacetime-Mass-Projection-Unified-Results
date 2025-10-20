@@ -347,7 +347,7 @@ New configuration system for validation papers directory:
 
 **Path Resolution:**
 ```python
-from ssz.segwave import load_sources_config
+from SSZ.segwave import load_sources_config
 
 config = load_sources_config()
 print(config['base_dir'])    # H:\WINDSURF\VALIDATION_PAPER
@@ -365,11 +365,11 @@ print(config['source'])      # environment/config_windows/config_unix
 - Windows: `setx SSZ_SOURCES_DIR "H:\WINDSURF\VALIDATION_PAPER"`
 - WSL: `export SSZ_SOURCES_DIR=/mnt/h/WINDSURF/VALIDATION_PAPER`
 
-#### Segmented Radiowave Propagation Module (`ssz/segwave/`)
+#### Segmented Radiowave Propagation Module (`SSZ/segwave/`)
 
 **New Feature: SSZ-Rings CLI Tool**
 
-A complete implementation of radiowave propagation through segmented spacetime shells based on the γ_seg(r) formalism.
+A complete implementation of radiowave propagation through Segmented Spacetime shells based on the γ_seg(r) formalism.
 
 **Core Functionality:**
 - `seg_wave_propagation.py`: Mathematical core implementing velocity evolution (v_k = v_{k-1} · q_k^{-α/2}) and frequency shifts
@@ -377,7 +377,7 @@ A complete implementation of radiowave propagation through segmented spacetime s
 - `io.py`: CSV/JSON data handling for ring temperature, density, and velocity data
 - `visuals.py`: Optional matplotlib-based plotting utilities
 
-**CLI Tool (`ssz-rings`):**
+**CLI Tool (`SSZ-rings`):**
 - Command-line interface for velocity profile predictions
 - Fixed or fitted α parameter modes
 - Optional frequency tracking (ν_out = ν_in · γ^{-1/2})
@@ -394,18 +394,18 @@ A complete implementation of radiowave propagation through segmented spacetime s
 - CLI integration tests: `tests/test_segwave_cli.py` (end-to-end workflow validation)
 
 **Integration:**
-- Added `ssz-rings` entry point to `pyproject.toml`
+- Added `SSZ-rings` entry point to `pyproject.toml`
 - No modifications to existing analysis pipelines (pure addition)
 - Compatible with existing SSZ suite infrastructure
 
 **Scientific Basis:**
-- Implements segment-based velocity damping from Casu & Wrede segmented spacetime framework
+- Implements segment-based velocity damping from Casu & Wrede Segmented Spacetime framework
 - Validates against molecular ring observations (CO, NH3, CII tracers)
 - Provides quantitative fit metrics (MAE, RMSE) for model assessment
 
 **Usage Example:**
 ```bash
-ssz-rings --csv data/observations/ring_temperature_data.csv \
+SSZ-rings --csv data/observations/ring_temperature_data.csv \
           --v0 12.5 --fit-alpha \
           --out-table results.csv --out-report summary.txt
 ```

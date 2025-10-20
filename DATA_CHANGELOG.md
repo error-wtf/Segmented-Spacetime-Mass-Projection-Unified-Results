@@ -370,7 +370,7 @@ Status: ✅ RESOLVED (framework validated)
 - ✅ **ALMA** (Atacama Large Millimeter Array)
 - ✅ **Chandra** X-ray Observatory
 - ✅ **VLT/GRAVITY** (Very Large Telescope)
-- ✅ **EHT** (Event Horizon Telescope Collaboration)
+- ✅ **EHT** (Event Horizon Telescope (EHT) (EHT) Collaboration)
 - ESO archives
 - Keck Observatory
 

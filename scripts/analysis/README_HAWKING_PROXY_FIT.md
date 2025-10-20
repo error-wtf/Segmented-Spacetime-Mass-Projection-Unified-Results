@@ -19,7 +19,7 @@ python scripts/data_acquisition/fetch_m87_spectrum.py \
 ```bash
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum m87_spectrum.csv \
-    --ssz data/config/ssz_config_m87_TEMPLATE.json \
+    --SSZ data/config/ssz_config_m87_TEMPLATE.json \
     --out reports/hawking_fit_report.md \
     --plot reports/hawking_fit_plot.png
 ```
@@ -35,7 +35,7 @@ python scripts/analysis/hawking_proxy_fit.py \
 ```bash
 python scripts/analysis/hawking_proxy_fit.py \
     --spectrum <SPECTRUM_CSV> \
-    --ssz <SSZ_CONFIG_JSON> \
+    --SSZ <SSZ_CONFIG_JSON> \
     --C <TEMP_FACTOR> \
     --out <REPORT_MD> \
     --plot <PLOT_PNG>
@@ -46,7 +46,7 @@ python scripts/analysis/hawking_proxy_fit.py \
 | Parameter | Default | Description |
 |-----------|---------|-------------|
 | `--spectrum` | `m87_spectrum.csv` | Input spectrum (freq_Hz, flux_Jy, sigma_Jy) |
-| `--ssz` | `ssz_config.json` | SSZ config with κ_seg |
+| `--SSZ` | `ssz_config.json` | SSZ config with κ_seg |
 | `--C` | `1e30` | Temperature seed factor: T = C × \|κ_seg\| |
 | `--out` | `hawking_fit_report.md` | Output report (Markdown) |
 | `--plot` | `hawking_fit_plot.png` | Output plot (PNG) |
@@ -57,7 +57,7 @@ python scripts/analysis/hawking_proxy_fit.py \
 
 ### **1. Loads data:**
 - Spectrum CSV (from NED or ALMA)
-- SSZ config JSON (κ_seg from segmented spacetime)
+- SSZ config JSON (κ_seg from Segmented Spacetime)
 
 ### **2. Fits two models:**
 

@@ -4,7 +4,7 @@ A 3D dynamic visualization of our Solar System embedded in a **Segmented Spaceti
 
 ## 🎯 Overview
 
-This project creates an interactive 3D visualization where celestial bodies (Sun, planets, asteroids, comets, nearby stars) are embedded in a segmented spacetime mesh representing φ– and π–driven segment structures with gravitational curvature appearing as local mesh deformation.
+This project creates an interactive 3D visualization where celestial bodies (Sun, planets, asteroids, comets, nearby stars) are embedded in a Segmented Spacetime mesh representing φ– and π–driven segment structures with gravitational curvature appearing as local mesh deformation.
 
 ## 📦 Data Sources
 

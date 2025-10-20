@@ -448,7 +448,7 @@ N(r) = N_max / (1 + exp(k·(r - r_natural)))
 - GR: b_shadow = √27·GM/c²
 - SSZ: b_shadow ≈ 0.94·b_GR (6% kleiner)
 
-**Event Horizon Telescope (EHT) kompatibel!**
+**Event Horizon Telescope (EHT) (EHT) (EHT) kompatibel!**
 
 ---
 

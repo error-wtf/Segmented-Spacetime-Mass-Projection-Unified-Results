@@ -16,7 +16,7 @@ This roadmap expands on `docs/SSZ_COSMOS_PLAN.md` and lays out concrete implemen
   - Store raw files under `data/raw/gaia/` and converted standardized sets under `data/processed/`.
 
 - **[P0-3] Testing framework**
-  - Confirm `pytest` (or `unittest`) setup works (`pip install -r requirements.txt`, `pytest -k ssz`).
+  - Confirm `pytest` (or `unittest`) setup works (`pip install -r requirements.txt`, `pytest -k SSZ`).
   - Create placeholder test package `tests/cosmos/`.
 
 Deliverable: Clean repository with data stubs and test scaffolding ready.

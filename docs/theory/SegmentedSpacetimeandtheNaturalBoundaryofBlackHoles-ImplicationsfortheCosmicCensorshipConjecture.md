@@ -52,7 +52,7 @@ normal clock is an ideal timepiece that measures time precisely, unaffected by e
 like gravity or acceleration. Its constant operation makes it a useful reference in experiments 
 and theories. 
 
-In this analysis, we consider a clock with a growth factor based on the golden ratio (ϕ), which 
+In this analysis, we consider a clock with a growth factor based on the Golden Ratio (ϕ), which 
 leads to a spiral structure. When the radius equals 1, the spiral's structure almost aligns with 
 the circle's circumference. At this point, we observe an interesting relationship between ϕ, Pi 
 (π), and the circle's circumference: 
@@ -91,7 +91,7 @@ divides the circular circumference into four equal segments. This division provi
 perspective in which ϕ acts as a segmentation factor, while π describes the overall structure of 
 the circular motion. 
 
-This observation highlights a fascinating connection between the golden ratio, Pi, and the 
+This observation highlights a fascinating connection between the Golden Ratio, Pi, and the 
 mathematics of spiral structures. In the context of physical systems, such as black holes, this 
 relationship could provide valuable insights if similar patterns emerge in their properties or 
 behavior. 
@@ -370,7 +370,7 @@ mathematical ways in which Pi and Phi can be connected to each other through tri
 The function arccos(x) returns the angle whose cosine is equal to x. In other words, it is the 
 inverse of the cosine function that tells which angle corresponds to a certain cosine value. 
 
-ϕ is the golden ratio, which has the value ϕ ≈1.618. If we calculate 
+ϕ is the Golden Ratio, which has the value ϕ ≈1.618. If we calculate 
 
 ϕ
 
@@ -663,7 +663,7 @@ this how strongly space is segmented by gravity.
 Black Holes, pi and phi 
 
 We investigate the possible existence of a connection between the spin-mass limits of 
-astrophysical black holes and the universal fundamental constants π and ϕ (the golden ratio).  
+astrophysical black holes and the universal fundamental constants π and ϕ (the Golden Ratio).  
 
 The aforementioned addition connects the discussed role of Phi in space segmentation to the 
 topic of black holes. It emphasizes that Phi, as a segmentation factor in gravitational fields, 
@@ -1117,7 +1117,7 @@ intensifying gravitational field as one approaches the singularity. This inversi
 segmentation’s influence on spacetime, where the density of segments grows as gravitational 
 forces strengthen, increasing potential. This adaptation underscores the unique nature of our 
 approach, where gravitational intensity is inherently tied to the spatial segmentation defined 
-by fundamental constants Pi and the golden ratio (ϕ). 
+by fundamental constants Pi and the Golden Ratio (ϕ). 
 
 Since the radius r(θ) along the golden spiral grows exponentially, we can use the general 
 
@@ -1329,7 +1329,7 @@ Physically, particles themselves cannot reach the speed of light, but the struct
 drags space in such a way that at this boundary (the ergosphere), an effective light-speed 
 condition is observed. 
 
-So in general relativity, the Kerr solution describes a rotating black hole, that when the spin 
+So in General Relativity (GR) (GR), the Kerr solution describes a rotating black hole, that when the spin 
 parameter a approaches its maximum limit (often normalized as a=1), it implies an extremal 
 Kerr black hole. In this case, the region just outside the event horizon, known as the 
 ergosphere, exhibits intense frame-dragging effects where spacetime itself is "twisted" by the 
@@ -1337,7 +1337,7 @@ rotation. Within the ergosphere, spacetime is so warped that all objects are for
 with the black hole, and theoretically, the rotational velocity of spacetime at the horizon can 
 approach the speed of light. 
 
-While general relativity supports this behavior, the notion of matter moving at or near the 
+While General Relativity (GR) (GR) supports this behavior, the notion of matter moving at or near the 
 speed of light at the event horizon does suggest a point at which classical theories may break 
 down. 
 
@@ -1382,7 +1382,7 @@ and homogeneous structure, marked by a minimal segmentation density of 4ϕ in th
 of gravitational forces. This represents a perfectly balanced environment without additional 
 curvature or distortion due to gravity. As gravitational forces increase, this uniformity is 
 disrupted, introducing segmentation and altering the structure of spacetime. This shift reveals 
-the interplay between gravity and the fundamental constants Pi and the golden ratio (ϕ) in 
+the interplay between gravity and the fundamental constants Pi and the Golden Ratio (ϕ) in 
 shaping spacetime. 
 
 Our findings suggest the existence of a uniform space defined by minimal segmentation (4ϕ) 
@@ -1495,7 +1495,7 @@ If our investigations and findings are correct, then we have demonstrated the ex
 uniform space or the realization that space is fundamentally uniform. This could 
 fundamentally alter existing notions of the structure and dynamics of the spacetime 
 continuum. Our discovery may lead to new insights and understanding of black hole physics, 
-general relativity, and the Cosmic Censorship Conjecture. 
+General Relativity (GR) (GR), and the Cosmic Censorship Conjecture. 
 
 23 
 

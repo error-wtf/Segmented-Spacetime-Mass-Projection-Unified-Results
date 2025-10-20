@@ -105,7 +105,7 @@ where σ is the logistic function for Natural Boundary saturation.
 ```
 τ(x) = φ^(-α · N(x))
 ```
-where φ = (1+√5)/2 is the golden ratio.
+where φ = (1+√5)/2 is the Golden Ratio.
 
 **Refractive Index:**
 ```
@@ -200,13 +200,13 @@ python -m src.app --mesh-subdiv 7 --include-gaia --save-images  # ~2-5 minutes
 1. **Gravitational Field Visualization** - Study curvature around massive bodies
 2. **Time Dilation Mapping** - Visualize relativistic effects in Solar System
 3. **Light Propagation** - Analyze refractive index variations
-4. **φ-Spiral Analysis** - Investigate golden ratio temporal structures
+4. **φ-Spiral Analysis** - Investigate Golden Ratio temporal structures
 5. **Natural Boundary Studies** - Examine singularity resolution mechanisms
 
 ### Educational Applications:
-1. **General Relativity Visualization** - Interactive spacetime curvature
+1. **General Relativity (GR) (GR) Visualization** - Interactive spacetime curvature
 2. **Solar System Dynamics** - Orbital mechanics with relativistic effects
-3. **Mathematical Physics** - Golden ratio φ in physical systems
+3. **Mathematical Physics** - Golden Ratio φ in physical systems
 4. **Computational Astrophysics** - Mesh-based field calculations
 
 ## Citation

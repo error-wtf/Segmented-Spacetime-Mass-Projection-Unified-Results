@@ -54,7 +54,7 @@ complementary fall velocity vfall , derived from a segment-based scaling factor
 1 2⁄
 )
 
-This relation bridges Newtonian gravity, general relativity, and the segmented spacetime framework. 
+This relation bridges Newtonian gravity, General Relativity (GR) (GR), and the Segmented Spacetime framework. 
 In weak fields, 𝑣𝑓𝑎𝑙𝑙 → ∞ and 𝛾𝑠 → 1 ; near the Schwarzschild radius 𝑣𝑓𝑎𝑙𝑙 → 𝑐+ and 𝑦𝑠 diverges, 
 reproducing the gravitational redshift. The formulation this embeds compact-object physics in a 
 natural dual structure of velocities, offering a direct and intuitive connection between classical escape 
@@ -134,7 +134,7 @@ It follows that
 
 This dual view avoids divergences in relativistic treatments by replacing the critical point 𝑣 = 𝑐 with a 
 fall velocity framework that remains finite and physically meaningful, without “relativistic mass”, 
-where 𝛾 → ∞. A finite, testable mapping that ties Newton, GR, and segmented spacetime together. 
+where 𝛾 → ∞. A finite, testable mapping that ties Newton, GR, and Segmented Spacetime together. 
 
 2. Theoretical Framework 
 
@@ -155,7 +155,7 @@ In Newtonian gravity the escape velocity is defined as
 with 𝑟𝑠 = 2𝐺𝑀 𝑐2⁄  the Schwarzschild radius. It measures the kinetic energy required to leave the 
 gravitational potential at distance 𝑟. 
 
-2.2 General Relativity and gravitational redshift 
+2.2 General Relativity (GR) (GR) and gravitational redshift 
 
 In GR the redshift factor of light emitted at 𝒓 and received at infinity is 
 
@@ -181,7 +181,7 @@ limit where time dilation becomes infinite.
  
  
  
-2.3 Segmented spacetime dual - Fall velocity 
+2.3 Segmented Spacetime dual - Fall velocity 
 
 We introduce a complementary fall velocity 
 
@@ -456,11 +456,11 @@ near-horizon physics that ties spectra and timing directly to geometry. The fami
 
 6. References 
 
-1.  Hartle, J. B. 2003, Gravity: An Introduction to Einstein’s General Relativity (San Francisco: 
+1.  Hartle, J. B. 2003, Gravity: An Introduction to Einstein’s General Relativity (GR) (GR) (San Francisco: 
 
 Addison-Wesley). 
 
-2.  Schutz, B. F. 2009, A First Course in General Relativity (Cambridge: CUP). 
+2.  Schutz, B. F. 2009, A First Course in General Relativity (GR) (GR) (Cambridge: CUP). 
 3.  Carroll, S. M. 2004, Spacetime and Geometry (San Francisco: Addison-Wesley). 
 4.  Rindler, W. 2006, Relativity: Special, General, and Cosmological (Oxford: OUP). 
 5.  Schwarzschild, K. 1916, Sitzungsber. Preuss. Akad. Wiss., 189. 
@@ -475,8 +475,8 @@ Holes [Preprint]. ResearchGate.
 8.  Wrede, C., Casu, L., Bingsi (2025). Segmented Spacetime - A Frequency-Based Framework for 
 
 Gravity, Light and Black Holes [Preprint]. ResearchGate.  
-9.  Event Horizon Telescope Collaboration 2019, ApJL, 875, L1–L6. 
-10. Event Horizon Telescope Collaboration 2022, ApJL, 930, L12–L20. 
+9.  Event Horizon Telescope (EHT) (EHT) Collaboration 2019, ApJL, 875, L1–L6. 
+10. Event Horizon Telescope (EHT) (EHT) Collaboration 2022, ApJL, 930, L12–L20. 
 11. Fabian, A. C., Rees, M. J., Stella, L., & White, N. E. 1989, MNRAS, 238, 729. 
 12. Reynolds, C. S. 2014, Space Sci. Rev., 183, 277. 
 

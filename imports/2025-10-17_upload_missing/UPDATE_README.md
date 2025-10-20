@@ -178,7 +178,7 @@ For questions about these updates:
 1. Check the analysis results in the JSON files
 2. Run the validation commands above
 3. Review the failure analysis for object-specific issues
-4. Consult the original segmented spacetime papers for theoretical background
+4. Consult the original Segmented Spacetime papers for theoretical background
 
 ## Changelog
 

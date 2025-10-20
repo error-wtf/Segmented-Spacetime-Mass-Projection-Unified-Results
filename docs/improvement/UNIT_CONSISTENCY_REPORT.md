@@ -235,7 +235,7 @@
 |----------|--------|-------|-------|
 | Gravitational constant | G | 6.67430×10⁻¹¹ | m³ kg⁻¹ s⁻² |
 | Speed of light | c | 299792458 | m s⁻¹ |
-| Golden ratio | φ | 1.618... | dimensionless |
+| Golden Ratio | φ | 1.618... | dimensionless |
 | Solar mass | M☉ | 1.98847×10³⁰ | kg |
 
 ## 🧮 Common Derived Quantities
