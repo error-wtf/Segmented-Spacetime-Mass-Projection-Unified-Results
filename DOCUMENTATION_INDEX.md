@@ -36,11 +36,13 @@
 
 ### 🧪 Testing & Validation
 - **[TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md)** ([🇩🇪 DE](TEST_SUITE_VERIFICATION.md) | [🇬🇧 EN](TEST_SUITE_VERIFICATION_EN.md)) - Test system verification
+- **[PHYSICS_TESTS_COMPLETE_LIST.md](PHYSICS_TESTS_COMPLETE_LIST.md)** - ⭐ UPDATED: All 35 physics tests + 2 validation checks
+- **[DOUBLE_CHECK_VALIDATION_TESTS.md](DOUBLE_CHECK_VALIDATION_TESTS.md)** - ⭐ NEW: Automatic φ-geometry validation
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
-- **[TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md)** - ⭐ NEW: Complete theory→test validation chain
-- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Paired test complete investigation
+- **[TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md)** - ⭐ Complete theory→test validation chain
+- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Scientific findings report (streamlined)
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ Regime-specific paired test analysis
-- **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - ⭐⭐ NEW: Why φ (golden ratio) is the GEOMETRIC BASIS
+- **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - ⭐⭐ Why φ (golden ratio) is the GEOMETRIC BASIS
 - **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ φ-based geometry impact: 0% → 51%
 - **[PAIRED_TEST_FAILURE_ANALYSIS.md](PAIRED_TEST_FAILURE_ANALYSIS.md)** - Detailed data distribution analysis
 - **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test overview
