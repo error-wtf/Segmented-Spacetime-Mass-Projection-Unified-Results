@@ -20,8 +20,10 @@ Paired test analysis of 143 emission-line observations revealed that **SEG is a 
 **Selection Criteria:** Emission-line observations with measured redshift z_obs  
 **Exclusions:** Continuum-only data (284 rows) - incompatible physics (cosmological vs local redshift)
 
-**Why emission lines:**  
-Emission lines measure local gravitational redshift at emission point - directly comparable to SEG predictions. Continuum data measures source recession velocity (Hubble flow), which is different physics.
+**Why emission lines are essential:**  
+The choice of emission-line data over continuum data is not merely a matter of data quality but of fundamental physics compatibility. Emission lines measure local gravitational redshift at the emission point - this is the physical effect that SEG's φ-based geometry directly predicts. The redshift arises from the local spacetime curvature at the radius where the line is emitted, making it a direct test of the model's gravitational predictions.
+
+Continuum data, in contrast, measures the source's recession velocity (Hubble flow) - a cosmological effect dominated by the expansion of space rather than local gravity. Using continuum data would test completely different physics than what SEG models. This would be analogous to testing a theory of planetary orbits using measurements of galaxy rotation curves - both involve motion, but the physical mechanisms are fundamentally different. The 284 rows of continuum-only data were therefore excluded not because they are "lower quality" but because they measure physics that SEG is not designed to predict.
 
 ### Statistical Method
 
@@ -168,7 +170,11 @@ The analysis identifies priority directions for model development. The catastrop
 
 ### For Methodological Approach
 
-Stratified analysis proved essential for understanding model performance. The overall p=0.867 result, interpreted without stratification, would suggest no significant effect. Stratification reveals this "null result" actually reflects dramatic regime-specific effects that cancel: 82% wins in photon sphere, 0% at r<2, with the negative results masking the positive ones in aggregate statistics. Overall p-values can be misleading when physical regimes with different behaviors are mixed. Data quality considerations were equally important - using emission-line data (local gravitational redshift) rather than continuum data (cosmological redshift) ensures the physics being tested matches the physics being measured. Reporting both strengths (photon sphere, high velocity) and weaknesses (very close regime) identifies where the model works and where improvements are needed.
+Stratified analysis proved essential for understanding model performance. The overall p=0.867 result, interpreted without stratification, would suggest no significant effect. Stratification reveals this "null result" actually reflects dramatic regime-specific effects that cancel: 82% wins in photon sphere, 0% at r<2, with the negative results masking the positive ones in aggregate statistics. Overall p-values can be misleading when physical regimes with different behaviors are mixed. 
+
+Data type selection was equally critical to methodological validity. Using emission-line spectroscopic observations rather than continuum data ensures that the physics being tested (local gravitational redshift from spacetime curvature) matches the physics the model predicts. Emission lines arise from atomic transitions at specific radii, directly probing the local metric. Continuum emission, by contrast, reflects the source's bulk motion and cosmological recession, which SEG does not attempt to model. Including continuum data would introduce a systematic mismatch between what we measure (cosmological redshift) and what we predict (gravitational redshift), invalidating comparisons. This is not about data quality - both types are scientifically valid - but about physical compatibility between measurement and theory.
+
+Reporting both strengths (photon sphere, high velocity) and weaknesses (very close regime) identifies where the model works and where improvements are needed.
 
 ---
 
