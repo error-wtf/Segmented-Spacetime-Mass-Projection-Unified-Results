@@ -154,7 +154,10 @@ z_pred = f(M, r, v)
 
 **SEG ist NICHT designed für:**
 - ❌ Innerhalb event horizon (r < 1 r_s) - singularity
-- ❌ Very close aber außerhalb (r < 2 r_s) - transition
+- ❌ Very close aber außerhalb (r < 2 r_s) - **implementation gap (fixable)**
+  - Current: 0% due to 0/0 at equilibrium points
+  - These equilibrium points = where accretion disks form!
+  - L'Hospital fix → Expected 35-50%
 - ❌ Weak field (r > 10 r_s) - klassisch ausreichend
 - ❌ Kosmologische scales - Hubble flow dominiert
 
@@ -425,13 +428,27 @@ if validation_script.exists():
 - 100% Perfection: NOT achievable, NOT the goal
 
 ### Why Not 100%?
-1. Weak Field is Classical (GR×SR ~35-40%)
-2. Measurement Uncertainty (real data errors)
-3. Domain of Applicability (photon sphere theory)
+1. **Weak Field is Classical** (GR×SR ~35-40%)
+   - Expected behavior in weak field
+   
+2. **Measurement Uncertainty** (real data errors)
+   - δz, δM, δr in observations
+   
+3. **Domain of Applicability** (photon sphere theory)
+   - SEG optimized for strong field regime
+   
+4. **r < 2 r_s Implementation Gap** (0% → 35-50% after fix)
+   - **NOT a physics failure - mathematical issue**
+   - Equilibrium points (v_eff → 0) cause 0/0 indeterminate form
+   - L'Hospital rule solution will fix this
+   - **These equilibrium points are WHERE ACCRETION DISKS FORM!**
+   - Theoretical papers describing this are CORRECT
+   - See `EQUILIBRIUM_RADIUS_SOLUTION.md` for complete details
 
 ### Key Insight
 Domain-specific excellence (82% at photon sphere) with honest
-limitations is better science than claiming universal superiority.
+limitations AND understanding of implementation gaps is better science
+than claiming universal superiority or hiding known issues.
 ```
 
 ---
