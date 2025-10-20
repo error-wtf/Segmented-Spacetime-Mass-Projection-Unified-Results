@@ -223,9 +223,9 @@ AFTER z_geom:
 
 ```
 Paired test on COMPATIBLE data:
-  - Original rows only: 79/143 (55.2%)
+  - Original rows only: 73/143 (51%)
   - These have emission-line z_obs
-  - SEG performs well!
+  - SEG and GR×SR perform comparably (p = 0.867)
 
 NED continuum excluded:
   - 284 rows for spectrum analysis
@@ -241,7 +241,7 @@ NED continuum excluded:
 
 **Action:**
 1. Document in README that paired test uses emission-line data only
-2. Update paired test score: "79/143 original rows (55%)"
+2. Update paired test score: "73/143 original rows (51%)"
 3. Note: "NED continuum (284 rows) used for multi-frequency analysis, not redshift tests"
 4. Scientifically correct and transparent
 
@@ -252,7 +252,7 @@ NED continuum excluded:
 - ✅ Immediate solution
 
 **Cons:**
-- ⚠️ Lower apparent data utilization (79/427 vs 79/143)
+- ⚠️ Lower apparent data utilization (73/427 vs 73/143)
 - ⚠️ May seem like "wasted" data
 
 ### **Option B: Separate z_obs for NED**
@@ -327,8 +327,8 @@ NED continuum excluded:
 ```markdown
 ### Paired Test Results
 - Test: SEG vs GR×SR on emission-line redshifts
-- Data: 79/143 original observations (55%)
-- Result: SEG performs better (p < 0.01)
+- Data: 73/143 original observations (51%)
+- Result: SEG and GR×SR comparable (p = 0.867, not significant)
 - Note: NED continuum (284 rows) excluded - used for spectrum analysis
 
 **Why NED excluded:** Continuum data has source redshift, not emission-line
@@ -340,10 +340,10 @@ gravitational redshift (z_geom=0.8 near horizon) is physically meaningless.
 ```markdown
 ### Paired Test Interpretation
 
-**Compatible Data:** 79/143 original rows (55%)
+**Compatible Data:** 73/143 original rows (51%)
 - Emission lines with Doppler shifts
 - Time-series orbital measurements
-- SEG outperforms GR×SR
+- SEG and GR×SR perform comparably (not statistically significant)
 
 **Excluded Data:** 284 NED continuum rows
 - Broadband flux measurements
@@ -392,7 +392,7 @@ rows are used for multi-frequency analysis and Information Preservation tests.
 
 ## 🎯 **Summary**
 
-**Problem:** Paired test stuck at 79/427 (18.5%)
+**Problem:** Paired test score was 73/427 (17%) before data separation
 
 **Root Cause:** NED continuum z_obs is source redshift, not emission redshift
 
