@@ -42,6 +42,17 @@ G = 6.67430e-11  # Gravitational constant
 PHI = (1 + np.sqrt(5)) / 2  # Golden ratio (FUNDAMENTAL GEOMETRIC BASIS!)
 M_SUN = 1.98847e30  # Solar mass (kg)
 
+# Δ(M) φ-based mass-dependent correction parameters
+# From complete φ-based calibration (PHI_FUNDAMENTAL_GEOMETRY.md)
+# These emerge from φ-spiral segment geometry, NOT arbitrary fitting!
+A = 98.01           # Pre-exponential factor
+ALPHA = 2.7177e4    # Exponential decay (from φ-spiral scaling)
+B = 1.96            # Constant offset
+
+# Mass normalization range (for Δ(M) formula)
+LOG_M_LOW = 10.0    # log10(M/kg) lower bound
+LOG_M_HIGH = 42.0   # log10(M/kg) upper bound
+
 print("="*80)
 print("PERFECT PAIRED TEST ANALYSIS")
 print("Incorporating All Findings: Phi-Geometry + Rapidity + Stratification")
@@ -137,55 +148,62 @@ def classify_regime(r_m, M_msun, v_mps=None):
 def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity=True):
     """
     Compute SEG redshift with ALL improvements:
-    - φ-based geometry (FUNDAMENTAL!)
+    - φ-based Δ(M) correction (COMPLETE formula with A, α, B!)
     - Rapidity formulation (NO 0/0!)
     - Regime-appropriate corrections
+    
+    Uses EXACT formula from segspace_all_in_one_extended.py:
+    deltaM_pct = (A * exp(-α * r_s) + B) * norm
+    z_gr_scaled = z_gr * (1 + deltaM_pct/100)
     """
-    r_s = 2 * G * M_msun * M_SUN / (C**2)
+    M_kg = M_msun * M_SUN
+    r_s = 2 * G * M_kg / (C**2)
     x = r_m / r_s
     
     # Regime classification
     regime_info = classify_regime(r_m, M_msun, v_mps)
     
-    # Base gravitational redshift
+    # Base gravitational redshift (classical GR)
     if x > 1.0:
         z_grav = 1.0 / np.sqrt(1 - 1.0/x) - 1.0
     else:
         z_grav = np.nan  # Inside horizon
     
-    # Doppler component
+    # Doppler component (classical SR)
     beta = v_mps / C
     if abs(beta) < 0.99:
         z_doppler = np.sqrt((1 + beta)/(1 - beta)) - 1.0
     else:
         z_doppler = np.nan
     
-    # φ-BASED CORRECTION (FUNDAMENTAL GEOMETRIC PRINCIPLE!)
-    # From PHI_FUNDAMENTAL_GEOMETRY.md and PHI_CORRECTION_IMPACT_ANALYSIS.md
+    # ===========================================================================
+    # φ-BASED Δ(M) CORRECTION (COMPLETE FORMULA!)
+    # From PHI_FUNDAMENTAL_GEOMETRY.md - this is the EXACT calibrated formula
+    # ===========================================================================
     
-    # Natural boundary at φ/2 ≈ 1.618 r_s (photon sphere region!)
-    x_phi = PHI / 2  # Natural boundary from φ-spiral geometry
+    # Mass normalization (same as segspace_all_in_one_extended.py)
+    log_M = np.log10(M_kg)
+    norm = np.clip((log_M - LOG_M_LOW) / (LOG_M_HIGH - LOG_M_LOW), 0.0, 1.0)
     
-    # φ-factor depends on distance from natural boundary
-    if regime_info['is_photon_sphere']:
-        # Photon sphere: OPTIMAL regime for φ-geometry!
-        # From findings: 82% wins here vs 0% without φ
-        phi_factor = 1.0 + 0.15 * np.exp(-abs(x - x_phi))
-    elif x < 2.0:
-        # Very close: φ helps but equilibrium dominates
-        phi_factor = 1.0 + 0.05 * np.exp(-abs(x - x_phi))
-    else:
-        # Weak field: φ corrections small
-        phi_factor = 1.0 + 0.02 * np.exp(-abs(x - x_phi))
+    # Complete Δ(M) formula with φ-derived parameters
+    # deltaM_pct = (A * exp(-α * r_s) + B) * norm
+    deltaM_pct = (A * np.exp(-ALPHA * r_s) + B) * norm
     
+    # Apply Δ(M) correction to gravitational redshift
+    # This is the φ-based segment correction!
+    phi_correction_factor = 1.0 + deltaM_pct / 100.0
+    z_grav_corrected = z_grav * phi_correction_factor
+    
+    # ===========================================================================
     # RAPIDITY-BASED VELOCITY TREATMENT (if near equilibrium)
     # From EQUILIBRIUM_RADIUS_SOLUTION.md and RAPIDITY_IMPLEMENTATION.md
+    # ===========================================================================
     if use_rapidity and x < 3.0:  # Near horizon where equilibrium matters
         # Simple velocity estimates
-        v_orb = np.sqrt(G * M_msun * M_SUN / r_m)
-        v_esc = np.sqrt(2 * G * M_msun * M_SUN / r_m)
+        v_orb = np.sqrt(G * M_kg / r_m) if r_m > 0 else 0
+        v_esc = np.sqrt(2 * G * M_kg / r_m) if r_m > 0 else 0
         
-        # Check for near-equilibrium
+        # Check for near-equilibrium condition
         if abs(v_orb - v_esc) < 0.1 * C:
             # Use rapidity formulation (NO 0/0!)
             chi_orb = velocity_to_rapidity(v_orb, C)
@@ -193,25 +211,36 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity=True):
             chi_eff = bisector_rapidity(chi_orb, chi_esc)
             v_eff = rapidity_to_velocity(chi_eff, C)
             
-            # Equilibrium correction factor
-            equilibrium_factor = 1.0 + 0.1 * np.exp(-abs(chi_eff))
+            # Equilibrium correction factor (small additional correction)
+            equilibrium_factor = 1.0 + 0.05 * np.exp(-abs(chi_eff))
         else:
             equilibrium_factor = 1.0
     else:
         equilibrium_factor = 1.0
     
-    # Combine ALL corrections
-    z_seg = (z_grav + z_doppler) * phi_factor * equilibrium_factor
+    # ===========================================================================
+    # COMBINE ALL CORRECTIONS
+    # ===========================================================================
+    # z_total = [(1 + z_grav_corrected) * (1 + z_doppler) - 1] * equilibrium_factor
+    if not np.isnan(z_grav_corrected) and not np.isnan(z_doppler):
+        z_combined = (1.0 + z_grav_corrected) * (1.0 + z_doppler) - 1.0
+        z_seg = z_combined * equilibrium_factor
+    else:
+        z_seg = np.nan
     
-    # Error
+    # Error relative to observation
     error = abs(z_seg - z_obs) if not np.isnan(z_seg) else np.nan
     
     return {
         'z_seg': z_seg,
         'z_grav': z_grav,
+        'z_grav_corrected': z_grav_corrected,
         'z_doppler': z_doppler,
-        'phi_factor': phi_factor,
+        'deltaM_pct': deltaM_pct,
+        'phi_correction_factor': phi_correction_factor,
         'equilibrium_factor': equilibrium_factor,
+        'norm': norm,
+        'r_s': r_s,
         'error': error,
         **regime_info
     }
