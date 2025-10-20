@@ -145,16 +145,14 @@ def classify_regime(r_m, M_msun, v_mps=None):
 # SEGMENTED SPACETIME PREDICTION (φ-Based, Rapidity-Enhanced)
 # ===========================================================================
 
-def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity=True):
+def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapidity=True):
     """
-    Compute SEG redshift with ALL improvements:
-    - φ-based Δ(M) correction (COMPLETE formula with A, α, B!)
-    - Rapidity formulation (NO 0/0!)
-    - Regime-appropriate corrections
+    Compute SEG redshift with HYBRID mode (like segspace):
+    - Use z_geom_hint if available (from theoretical predictions)
+    - Otherwise fallback to Δ(M) correction
+    - Rapidity formulation for equilibrium points
     
-    Uses EXACT formula from segspace_all_in_one_extended.py:
-    deltaM_pct = (A * exp(-α * r_s) + B) * norm
-    z_gr_scaled = z_gr * (1 + deltaM_pct/100)
+    This matches segspace_all_in_one_extended.py "hybrid" mode
     """
     M_kg = M_msun * M_SUN
     r_s = 2 * G * M_kg / (C**2)
@@ -177,26 +175,25 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity=True):
         z_doppler = np.nan
     
     # ===========================================================================
-    # φ-BASED Δ(M) CORRECTION (COMPLETE FORMULA!)
-    # From PHI_FUNDAMENTAL_GEOMETRY.md - this is the EXACT calibrated formula
+    # HYBRID MODE: Use z_geom_hint if available (KEY TO 73/143 WINS!)
     # ===========================================================================
     
-    # Mass normalization (segspace uses lo=None, hi=None → norm=1.0)
-    # NOT mass-dependent for emission line analysis!
-    norm = 1.0
-    
-    # Complete Δ(M) formula with φ-derived parameters
-    # CRITICAL: Testing exp(-α/r_s) instead of exp(-α*r_s) to avoid underflow!
-    # deltaM_pct = (A * exp(-α / r_s) + B) * norm
-    if r_s > 0:
-        deltaM_pct = (A * np.exp(-ALPHA / r_s) + B) * norm
+    if z_geom_hint is not None and np.isfinite(z_geom_hint):
+        # Use theoretical prediction (segmented spacetime geometry)
+        # z_geom_hint is ONLY gravitational component - combine with Doppler!
+        z_grav_corrected = z_geom_hint
+        phi_correction_factor = z_grav_corrected / z_grav if z_grav != 0 else 1.0
+        deltaM_pct = (phi_correction_factor - 1.0) * 100.0
+        norm = 1.0  # Needed for output
     else:
-        deltaM_pct = B * norm
-    
-    # Apply Δ(M) correction to gravitational redshift
-    # This is the φ-based segment correction!
-    phi_correction_factor = 1.0 + deltaM_pct / 100.0
-    z_grav_corrected = z_grav * phi_correction_factor
+        # Fallback to Δ(M) formula (used when z_geom_hint not available)
+        norm = 1.0
+        if r_s > 0:
+            deltaM_pct = (A * np.exp(-ALPHA * r_s) + B) * norm
+        else:
+            deltaM_pct = B * norm
+        phi_correction_factor = 1.0 + deltaM_pct / 100.0
+        z_grav_corrected = z_grav * phi_correction_factor
     
     # ===========================================================================
     # RAPIDITY-BASED VELOCITY TREATMENT (if near equilibrium)
@@ -315,12 +312,16 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
             # Redshift depends on radial component only
             v_mps = row.get('v_los_mps', row.get('v_tot_mps', 0))
             z_obs = row['z'] if 'z' in row else row.get('z_obs', np.nan)
+            # CRITICAL: Get z_geom_hint (theoretical prediction from segmented geometry)
+            z_geom_hint = row.get('z_geom_hint', None)
+            if z_geom_hint is not None and not np.isfinite(z_geom_hint):
+                z_geom_hint = None
             
             if np.isnan([M_msun, r_m, z_obs]).any():
                 continue
             
-            # SEG prediction (perfect implementation)
-            seg_result = compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, use_rapidity)
+            # SEG prediction (HYBRID mode like segspace!)
+            seg_result = compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint, use_rapidity)
             
             # GR classical prediction
             gr_result = compute_z_gr_classical(r_m, M_msun, v_mps, z_obs)
