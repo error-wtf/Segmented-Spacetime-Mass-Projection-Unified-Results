@@ -2,7 +2,7 @@
 
 **Complete guide to all documentation in the SSZ repository**
 
-**Repository Version:** v1.2.3 (2025-10-19)  
+**Repository Version:** v1.3.0 (2025-10-19)  
 **Status:** ✅ Production-Ready | Cross-Platform Compatible | Bilingual Documentation (EN/DE)  
 **NEW:** 4 Priority 1 files now bilingual (Data & Testing docs)
 
