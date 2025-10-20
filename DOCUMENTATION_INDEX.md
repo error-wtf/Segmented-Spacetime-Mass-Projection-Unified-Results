@@ -16,7 +16,8 @@
 - **[INSTALL_README.md](INSTALL_README.md)** - Installation guide
 - **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - ⭐⭐⭐ **Complete testing documentation (for testers)**
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues & solutions ⭐ NEW
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines ⭐ NEW
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines ⭐ NEW (Fork + PR only!)
+- **[REPOSITORY_SECURITY_PERMISSIONS.md](REPOSITORY_SECURITY_PERMISSIONS.md)** - ⭐⭐ **NEW: Who can push? Access rights explained**
 - **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform compatibility details
 
 ### 🎓 Theory & Code Foundations ⭐ NEW (Bilingual EN/DE)
