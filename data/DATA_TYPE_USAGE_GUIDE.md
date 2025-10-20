@@ -26,7 +26,9 @@ Created: 2025-10-19 11:52:26
 **Why It Works:**
 - z_obs represents actual Doppler shift of emission
 - Can meaningfully compare to predictions
-- SEG better in 143 rows (55%)
+- SEG better in 73/143 rows (51%, p=0.867)
+- **Stratified:** Photon sphere (r=2-3): 82% wins | Very close (r<2): 0% wins
+- See STRATIFIED_PAIRED_TEST_RESULTS.md for details
 
 ---
 
