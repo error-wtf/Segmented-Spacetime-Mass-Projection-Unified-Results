@@ -2,6 +2,7 @@
 
 # Segmented Spacetime – Mass Projection & Unified Results
 
+[![Quality](https://img.shields.io/badge/quality-95.1%25%20(A%2B)-brightgreen)](REPOSITORY_QUALITY_REPORT_v1.3.0.md)
 [![Tests](https://img.shields.io/badge/tests-69%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20WSL%20%7C%20macOS%20%7C%20Colab-brightgreen)](#cross-platform-compatibility)
@@ -9,7 +10,8 @@
 
 © Carmen Wrede & Lino Casu
 
-**Latest Release:** v1.2.1 (2025-10-19) - Multi-Ring Validation Tests
+**Latest Release:** v1.3.0 (2025-10-20) - Documentation Excellence & Quality Assurance  
+📊 **[Repository Quality Report](REPOSITORY_QUALITY_REPORT_v1.3.0.md):** 95.1% (A+) - World-Class Status
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
