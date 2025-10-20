@@ -145,7 +145,7 @@ def classify_regime(r_m, M_msun, v_mps=None):
 # SEGMENTED SPACETIME PREDICTION (φ-Based, Rapidity-Enhanced)
 # ===========================================================================
 
-def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapidity=True):
+def compute_z_seg_perfect(r_m, M_msun, v_los_mps, v_tot_mps, z_obs, z_geom_hint=None, use_rapidity=True):
     """
     Compute SEG redshift with HYBRID mode (like segspace):
     - Use z_geom_hint if available (from theoretical predictions)
@@ -158,8 +158,8 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapid
     r_s = 2 * G * M_kg / (C**2)
     x = r_m / r_s
     
-    # Regime classification
-    regime_info = classify_regime(r_m, M_msun, v_mps)
+    # Regime classification (use total velocity for regime determination)
+    regime_info = classify_regime(r_m, M_msun, v_tot_mps)
     
     # Base gravitational redshift (classical GR)
     if x > 1.0:
@@ -167,12 +167,16 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapid
     else:
         z_grav = np.nan  # Inside horizon
     
-    # Doppler component (classical SR)
-    beta = v_mps / C
-    if abs(beta) < 0.99:
-        z_doppler = np.sqrt((1 + beta)/(1 - beta)) - 1.0
+    # Special relativity component (EXACT segspace formula!)
+    # Uses TOTAL velocity for gamma, line-of-sight for Doppler
+    # This is NOT simple relativistic Doppler!
+    if v_tot_mps is not None and np.isfinite(v_tot_mps) and v_tot_mps > 0:
+        beta_tot = min(abs(v_tot_mps) / C, 0.999999)
+        beta_los = v_los_mps / C
+        gamma = 1.0 / np.sqrt(1.0 - beta_tot**2)
+        z_sr = gamma * (1.0 + beta_los) - 1.0
     else:
-        z_doppler = np.nan
+        z_sr = np.nan
     
     # ===========================================================================
     # HYBRID MODE: Use z_geom_hint if available (KEY TO 73/143 WINS!)
@@ -222,9 +226,9 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapid
     # ===========================================================================
     # COMBINE ALL CORRECTIONS
     # ===========================================================================
-    # z_total = [(1 + z_grav_corrected) * (1 + z_doppler) - 1] * equilibrium_factor
-    if not np.isnan(z_grav_corrected) and not np.isnan(z_doppler):
-        z_combined = (1.0 + z_grav_corrected) * (1.0 + z_doppler) - 1.0
+    # z_total = [(1 + z_grav_corrected) * (1 + z_sr) - 1] * equilibrium_factor
+    if not np.isnan(z_grav_corrected) and not np.isnan(z_sr):
+        z_combined = (1.0 + z_grav_corrected) * (1.0 + z_sr) - 1.0
         z_seg = z_combined * equilibrium_factor
     else:
         z_seg = np.nan
@@ -236,7 +240,7 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapid
         'z_seg': z_seg,
         'z_grav': z_grav,
         'z_grav_corrected': z_grav_corrected,
-        'z_doppler': z_doppler,
+        'z_sr': z_sr,
         'deltaM_pct': deltaM_pct,
         'phi_correction_factor': phi_correction_factor,
         'equilibrium_factor': equilibrium_factor,
@@ -246,8 +250,11 @@ def compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint=None, use_rapid
         **regime_info
     }
 
-def compute_z_gr_classical(r_m, M_msun, v_mps, z_obs):
-    """Classical GR×SR prediction (no φ, no equilibrium treatment)"""
+def compute_z_grsr_classical(r_m, M_msun, v_los_mps, v_tot_mps, z_obs):
+    """
+    Classical GR×SR prediction (no φ, no equilibrium treatment)
+    This is what SEG is compared AGAINST in segspace!
+    """
     r_s = 2 * G * M_msun * M_SUN / (C**2)
     x = r_m / r_s
     
@@ -257,24 +264,28 @@ def compute_z_gr_classical(r_m, M_msun, v_mps, z_obs):
     else:
         z_grav = np.nan
     
-    # Classical Doppler
-    beta = v_mps / C
-    if abs(beta) < 0.99:
-        z_doppler = np.sqrt((1 + beta)/(1 - beta)) - 1.0
+    # Special relativity (EXACT segspace formula!)
+    if v_tot_mps is not None and np.isfinite(v_tot_mps) and v_tot_mps > 0:
+        beta_tot = min(abs(v_tot_mps) / C, 0.999999)
+        beta_los = v_los_mps / C
+        gamma = 1.0 / np.sqrt(1.0 - beta_tot**2)
+        z_sr = gamma * (1.0 + beta_los) - 1.0
     else:
-        z_doppler = np.nan
+        z_sr = np.nan
     
-    # CORRECT relativistic combination (multiplicative, not additive!)
-    # z_total = (1 + z_grav) * (1 + z_doppler) - 1
-    if not np.isnan(z_grav) and not np.isnan(z_doppler):
-        z_gr = (1.0 + z_grav) * (1.0 + z_doppler) - 1.0
+    # CORRECT relativistic combination (multiplicative!)
+    # This is z_grsr in segspace
+    if not np.isnan(z_grav) and not np.isnan(z_sr):
+        z_grsr = (1.0 + z_grav) * (1.0 + z_sr) - 1.0
     else:
-        z_gr = np.nan
+        z_grsr = np.nan
     
-    error = abs(z_gr - z_obs) if not np.isnan(z_gr) else np.nan
+    error = abs(z_grsr - z_obs) if not np.isnan(z_grsr) else np.nan
     
     return {
-        'z_gr': z_gr,
+        'z_grsr': z_grsr,
+        'z_grav': z_grav,
+        'z_sr': z_sr,
         'error': error
     }
 
@@ -308,9 +319,9 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
             # Required columns
             M_msun = row['M_solar'] if 'M_solar' in row else row.get('M_msun', np.nan)
             r_m = row['r_emit_m'] if 'r_emit_m' in row else row.get('r_m', np.nan)
-            # Use line-of-sight velocity (v_los_mps), NOT total velocity!
-            # Redshift depends on radial component only
-            v_mps = row.get('v_los_mps', row.get('v_tot_mps', 0))
+            # Get velocities (segspace uses BOTH v_tot and v_los!)
+            v_los_mps = row.get('v_los_mps', 0)
+            v_tot_mps = row.get('v_tot_mps', v_los_mps)  # Fallback to v_los if no v_tot
             z_obs = row['z'] if 'z' in row else row.get('z_obs', np.nan)
             # CRITICAL: Get z_geom_hint (theoretical prediction from segmented geometry)
             z_geom_hint = row.get('z_geom_hint', None)
@@ -321,26 +332,27 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
                 continue
             
             # SEG prediction (HYBRID mode like segspace!)
-            seg_result = compute_z_seg_perfect(r_m, M_msun, v_mps, z_obs, z_geom_hint, use_rapidity)
+            seg_result = compute_z_seg_perfect(r_m, M_msun, v_los_mps, v_tot_mps, z_obs, z_geom_hint, use_rapidity)
             
-            # GR classical prediction
-            gr_result = compute_z_gr_classical(r_m, M_msun, v_mps, z_obs)
+            # GR×SR classical prediction (what SEG is compared AGAINST!)
+            grsr_result = compute_z_grsr_classical(r_m, M_msun, v_los_mps, v_tot_mps, z_obs)
             
-            # Winner
-            if not np.isnan(seg_result['error']) and not np.isnan(gr_result['error']):
-                seg_wins = seg_result['error'] < gr_result['error']
+            # Winner: SEG better if smaller error
+            if not np.isnan(seg_result['error']) and not np.isnan(grsr_result['error']):
+                seg_wins = seg_result['error'] < grsr_result['error']
             else:
                 seg_wins = None
             
             results.append({
                 'M_msun': M_msun,
                 'r_m': r_m,
-                'v_mps': v_mps,
+                'v_los_mps': v_los_mps,
+                'v_tot_mps': v_tot_mps,
                 'z_obs': z_obs,
                 'z_seg': seg_result['z_seg'],
-                'z_gr': gr_result['z_gr'],
+                'z_grsr': grsr_result['z_grsr'],
                 'error_seg': seg_result['error'],
-                'error_gr': gr_result['error'],
+                'error_grsr': grsr_result['error'],
                 'seg_wins': seg_wins,
                 'regime': seg_result['regime'],
                 'x': seg_result['x'],
@@ -362,7 +374,8 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
     # Overall statistics
     valid_pairs = results_df['seg_wins'].notna()
     n_valid = valid_pairs.sum()
-    seg_wins_total = results_df.loc[valid_pairs, 'seg_wins'].sum()
+    # CRITICAL FIX: Convert to int for proper counting
+    seg_wins_total = int(results_df.loc[valid_pairs, 'seg_wins'].sum())
     
     # Binomial test
     p_value = safe_binom_test(seg_wins_total, n_valid, 0.5, 'two-sided')
@@ -373,7 +386,7 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
         print(f"{'='*80}")
         print(f"Total pairs: {n_valid}")
         print(f"SEG wins: {seg_wins_total}/{n_valid} ({100*seg_wins_total/n_valid:.1f}%)")
-        print(f"GR wins: {n_valid - seg_wins_total}/{n_valid} ({100*(n_valid - seg_wins_total)/n_valid:.1f}%)")
+        print(f"GR×SR wins: {n_valid - seg_wins_total}/{n_valid} ({100*(n_valid - seg_wins_total)/n_valid:.1f}%)")
         print(f"p-value: {p_value:.4f}")
         print(f"Significant: {'YES' if p_value < 0.05 else 'NO'}")
         print(f"{'='*80}")
@@ -391,7 +404,7 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
             
             if len(subset) > 0:
                 n = len(subset)
-                wins = subset['seg_wins'].sum()
+                wins = int(subset['seg_wins'].sum())
                 win_pct = 100 * wins / n
                 p = safe_binom_test(wins, n, 0.5, 'two-sided')
                 
@@ -406,7 +419,7 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
         if high_v_mask.sum() > 0:
             subset = results_df[high_v_mask]
             n = len(subset)
-            wins = subset['seg_wins'].sum()
+            wins = int(subset['seg_wins'].sum())
             win_pct = 100 * wins / n
             p = safe_binom_test(wins, n, 0.5, 'two-sided')
             
@@ -421,7 +434,7 @@ def perfect_paired_test(df, use_rapidity=True, verbose=True):
         if phi_mask.sum() > 0:
             subset = results_df[phi_mask]
             n = len(subset)
-            wins = subset['seg_wins'].sum()
+            wins = int(subset['seg_wins'].sum())
             win_pct = 100 * wins / n
             
             print(f"\nNear φ/2 Boundary (Geometric Optimum):")
