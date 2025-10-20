@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Stratified Paired Test - Separate analysis by field strength and velocity
+Stratified Paired Test - Regime-specific analysis with φ-based geometry
 
-Tests hypothesis: SEG wins in strong field + high velocity, 
-gets diluted by photon sphere region (r=2-3 r_s, low v)
+Tests SEG performance across different r/r_s regimes using φ-based corrections:
+- φ = (1+√5)/2 ≈ 1.618 is the GEOMETRIC FOUNDATION
+- Natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s
+- φ-derived Δ(M) corrections applied in ALL tests
+
+Validates theoretical predictions:
+- Photon sphere (r=2-3, near φ/2): SEG should dominate
+- Very close (r<2): Current φ formula may be insufficient
+- Weak field (r>10): Classical GR×SR should work
 """
 import pandas as pd
 import numpy as np

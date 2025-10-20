@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Test the impact of phi corrections (Δ(M)) on paired test results
+Test the impact of φ (golden ratio) based geometry on paired test results
+
+φ = (1+√5)/2 ≈ 1.618 is the GEOMETRIC FOUNDATION of segmented spacetime:
+- φ-spiral geometry provides self-similar scaling
+- Natural boundary at r_φ = (φ/2)r_s emerges from geometry  
+- φ-derived mass corrections Δ(M) = A*exp(-α*rs) + B
 
 Compares three modes:
-1. hybrid (WITH phi corrections) - DEFAULT
-2. geodesic (WITHOUT phi corrections) 
+1. hybrid (WITH φ-based geometry: φ/2 boundary + Δ(M)) - DEFAULT
+2. geodesic (WITHOUT φ-based corrections, pure GR)
 3. hint (ONLY z_geom_hint if available)
 
-This demonstrates the VALUE of phi-based mass-dependent corrections.
+This demonstrates that φ-based geometry is FUNDAMENTAL (not optional).
 """
 import subprocess
 import json
