@@ -501,8 +501,10 @@ def build_parser() -> argparse.ArgumentParser:
     sub=p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("validate-masses", help="Reconstruct masses from segmented radii")
     sp=sub.add_parser("eval-redshift", help="Evaluate GR/SR/Seg models against a dataset (+stats)")
-    # Use emission-line data for paired test (compatible z_obs vs z_pred)
-    # See data/DATA_TYPE_USAGE_GUIDE.md for details
+    # IMPORTANT: Use emission-line data for paired test (compatible z_obs vs z_pred)
+    # Continuum data (284 NED rows) excluded - z_obs is source cosmological redshift,
+    # not emission redshift. Continuum used for spectrum analysis, not redshift test.
+    # See data/DATA_TYPE_USAGE_GUIDE.md and PAIRED_TEST_ANALYSIS_COMPLETE.md for details.
     sp.add_argument("--csv", type=Path, default=Path("./data/real_data_emission_lines.csv"))
     sp.add_argument("--prefer-z", action="store_true")
     sp.add_argument("--mode", choices=["hint","deltaM","hybrid", "geodesic"], default="hybrid")
@@ -567,7 +569,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.cmd=="all":
         rc=workflow_validate_masses(cfg)
         if rc!=0: return rc
-        # Use emission-line data for paired test (compatible z_obs)
+        # Use emission-line data for paired test (compatible z_obs vs z_pred)
+        # Continuum data excluded - see PAIRED_TEST_ANALYSIS_COMPLETE.md
         csv_path=Path("./data/real_data_emission_lines.csv")
         if csv_path.exists():
             rc=workflow_eval_redshift(cfg, csv_path, prefer_z=True, mode="hybrid", dmA=float(A), dmB=float(B), dmAlpha=float(ALPHA),
