@@ -376,7 +376,15 @@ python segspace_all_in_one_extended.py bound-energy --plots
 - **Frequency range:** 2.3×10¹¹ - 3.0×10¹⁸ Hz (9+ orders)
 - **No synthetic data** - All real observations
 
-**Note:** Paired redshift test uses emission-line data only (143 rows) where z_obs is directly comparable to model predictions. Continuum data (284 rows from M87/Sgr A* NED spectra) is used for multi-frequency analysis and Information Preservation studies but not for z_obs vs z_pred comparisons.
+**Data Selection Rationale:**
+
+Paired redshift test uses **emission-line data only** (143 rows) where z_obs represents local gravitational redshift - the physical effect SEG models. Continuum data (284 rows from M87/Sgr A* NED spectra) is used for multi-frequency spectrum analysis and Information Preservation studies but **not for z_obs vs z_pred comparisons** because continuum z_obs measures Hubble flow (cosmological redshift), not local gravity.
+
+**Rejected Data Sources:**
+- **Hubble/Cosmological data:** Measures universe expansion (z ~ H₀d/c), not local spacetime curvature (z ~ GM/rc²). Wrong physics for testing local gravity theory.
+- **LIGO Gravitational Waves:** Measures dynamic strain h(t) from mergers, not static metric redshift z. Different observables, different physics (wave propagation vs local curvature).
+
+**For detailed explanation:** See [`data/DATA_TYPE_USAGE_GUIDE.md`](data/DATA_TYPE_USAGE_GUIDE.md) - complete rationale for all data source decisions with 5-point LIGO analysis and M87 Hubble flow examples.
 
 ### Performance Metrics
 
