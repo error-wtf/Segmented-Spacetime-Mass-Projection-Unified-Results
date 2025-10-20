@@ -1,7 +1,9 @@
-# Stratified Paired Test Results - The Real Story
+# Stratified Paired Test Results - Complete Analysis
 
 **Date:** 2025-10-20  
-**Discovery:** SEG excels at photon sphere (r=2-3 r_s), fails very close (r<2 r_s)  
+**Discovery:** Stratified analysis reveals SEG is a PHOTON SPHERE theory  
+**Key Finding:** p=0.867 explained by cancellation of opposite effects  
+**CRITICAL:** All results WITH phi corrections (Delta(M)) - phi brings SEG from 0% to 51%!  
 **Status:** MAJOR SCIENTIFIC INSIGHT
 
 ---
@@ -136,6 +138,51 @@ Observation ≈ 0.62 (much closer to GR!)
 - Low velocity (v < 1% c)
 - Win rate: 0-20%
 - GR×SR significantly better
+
+---
+
+## ⚡ **CRITICAL: Role of Phi Corrections**
+
+### **All Results Include Phi Corrections:**
+
+**IMPORTANT:** All stratified results reported above were generated WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-α*rs) + B).
+
+**Comparison test shows phi impact:**
+
+| Mode | SEG Wins | Win % | Impact |
+|------|----------|-------|--------|
+| **hybrid (WITH phi)** | **73/143** | **51.0%** | **DEFAULT - All our results** |
+| **geodesic (NO phi)** | 0/143 | 0.0% | GR×SR always wins |
+| **Improvement** | +73 | **+51.0%** | **Phi is ESSENTIAL** |
+
+### **What This Means:**
+
+**Without phi corrections, SEG would:**
+- Lose EVERY comparison (0/143)
+- Have 0% win rate at ALL radii
+- Be completely non-competitive
+
+**With phi corrections, SEG:**
+- ✅ Dominates at photon sphere (82% → ONLY possible with phi!)
+- ✅ Excels at high velocity (86% → ONLY possible with phi!)
+- ❌ Still fails at r<2 (0% → current phi formula insufficient)
+- ≈ Matches GR×SR overall (51% → brought from 0% by phi)
+
+### **Phi Corrections ARE the Model:**
+
+Phi-based segmentation with mass-dependent corrections is not an "enhancement" - it **IS** SEG:
+- Photon sphere success → **Because of phi**
+- High velocity success → **Because of phi**
+- Very close failure → **Current phi formula needs improvement**
+
+**Parameters used (active in ALL tests):**
+```
+A = 98.01          # Pre-exponential factor
+ALPHA = 2.7177e4   # Exponential decay rate
+B = 1.96           # Constant offset
+```
+
+**See:** PHI_CORRECTION_IMPACT_ANALYSIS.md for complete analysis
 
 ---
 

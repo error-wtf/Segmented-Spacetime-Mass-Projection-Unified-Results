@@ -260,7 +260,8 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 **Paired comparison (emission lines only):** SEG better in 73/143 rows (51%), p = 0.867  
 **Stratified results:** Photon sphere (r=2-3): 82% wins (p<0.0001) | Very close (r<2): 0% wins  
-**See:** [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) for complete analysis
+**CRITICAL:** All results WITH phi corrections (Δ(M)) - without phi: 0/143 (0%) wins!  
+**See:** [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) | [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)
 
 **Mass bins:** SEG < GR×SR in all bins
 

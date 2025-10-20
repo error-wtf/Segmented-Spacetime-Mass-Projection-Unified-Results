@@ -39,6 +39,7 @@
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
 - **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Paired test complete investigation
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ NEW: Regime-specific paired test analysis
+- **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ NEW: Phi brings SEG from 0% to 51%!
 - **[PAIRED_TEST_FAILURE_ANALYSIS.md](PAIRED_TEST_FAILURE_ANALYSIS.md)** - Detailed data distribution analysis
 - **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test overview
 
