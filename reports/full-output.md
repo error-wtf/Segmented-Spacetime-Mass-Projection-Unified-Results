@@ -4481,6 +4481,15 @@ Velocity ratio (v_N / v_0):       1.155x
 INTERPRETATION & QUALITY ASSESSMENT
 ==========================================================================================
 * All-in-one: paired sign-test shows Seg better in 73/143 rows; two-sided p ~ 0.8672499070975925
+  
+  NOTE: Stratified analysis reveals this overall result reflects CANCELLATION of opposite effects:
+  - Photon sphere (r=2-3 r_s, 45 obs): SEG DOMINATES with 82% win rate (p<0.0001)
+  - Very close (r<2 r_s, 29 obs): SEG FAILS with 0% win rate (29 straight losses!)
+  - High velocity (v>5% c, 21 obs): SEG EXCELS with 86% win rate (p=0.0015)
+  - These opposing regimes cancel to give 51% overall (p=0.867)
+  - SEG is a PHOTON SPHERE theory (optimal at r=2-3 r_s), not universally superior
+  - See STRATIFIED_PAIRED_TEST_RESULTS.md for complete regime-specific analysis
+  
 * All-in-one medians |dz|: Seg=0.01988033419242272
 * Bound-energy threshold (from all-in-one): f_thr ~ 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz; lambda ~ 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 * Mass validation: roundtrip reconstruction succeeded on the sample (report present).
