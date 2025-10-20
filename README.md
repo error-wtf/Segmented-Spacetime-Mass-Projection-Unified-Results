@@ -122,13 +122,17 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 
 ### Scientific Insights
 
-1. **SEG is a PHOTON SPHERE theory** - Optimal at r=2-3 r_s, not universally superior
-2. **Phi corrections ARE the model** - Without phi: complete failure across all regimes
-3. **p=0.867 from cancellation** - 82% photon sphere vs 0% very close → 51% overall
-4. **Radius determines performance** - NOT data source, NOT completeness, but PHYSICS
-5. **Honest science** - Both strengths (82%, 86%) AND weaknesses (0% at r<2) reported
+1. **SEG is a PHOTON SPHERE theory** - Optimal at r=2-3 r_s (near φ/2 boundary), not universally superior
+2. **φ-based geometry IS the foundation** - Without φ: complete failure (0%), with φ: competitive (51%)
+3. **p=0.867 from physical cancellation** - 82% photon sphere vs 0% very close → 51% overall
+4. **Physics determines performance** - Radius (r/r_s) is dominant, NOT data source or completeness
+5. **Honest reporting** - Both strengths (82%, 86% with φ) AND weaknesses (0% at r<2) clearly stated
 
-**📚 Full Analysis:** [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) | [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)
+**📚 Full Analysis:**
+- [PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md) - Why φ is the GEOMETRIC FOUNDATION
+- [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) - Regime-specific breakdown
+- [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md) - φ-geometry impact
+- [TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md) - Complete validation chain
 
 ---
 
@@ -329,22 +333,25 @@ All results shown are WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-
 - **Finding:** Completeness makes NO difference (physics dominates)
 
 **KEY INSIGHTS:**
-- ✅ **Phi corrections ARE the model** - ALL successes depend on phi
-- ✅ **Photon sphere is optimal regime** - 82% wins ONLY with phi (+72-77 pp)
-- ✅ **High velocity shows excellence** - 86% wins ONLY with phi (+76 pp)
-- ❌ **Very close needs improvement** - 0% even WITH phi (better formula needed)
-- ✅ **Radius determines performance** - NOT data source or completeness
-- ⚠️ **p=0.867 from cancellation** - 82% photon sphere vs 0% very close
+- ✅ **φ-based geometry IS the foundation** - ALL successes depend on φ (0% without → 51% with)
+- ✅ **Photon sphere is optimal regime** - 82% wins at φ/2 boundary region (+72-77 pp from φ)
+- ✅ **High velocity shows excellence** - 86% wins with φ-geometry (+76 pp from φ)
+- ❌ **Very close needs improvement** - 0% even with current φ formula (need better for r<2)
+- ✅ **Physics determines performance** - Radius (r/r_s) dominant, NOT data source or completeness
+- ⚠️ **p=0.867 from physical cancellation** - 82% photon sphere vs 0% very close → validates regime-specific behavior
 
 **📚 Complete Analysis:**
+- [PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md) - Why φ is the GEOMETRIC FOUNDATION
 - [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) - Regime-specific breakdown
-- [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md) - Phi impact analysis  
-- [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) - Investigation methodology
+- [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md) - φ-geometry impact  
+- [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) - Scientific findings report
+- [TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md) - Complete validation chain
 
 ### Complete Test Output
 
 **📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
-*Last updated: 2025-10-20 15:29:00 - Reports regenerated with stratified analysis insights (73/143 overall)*
+**📄 [Test Run Summary](reports/RUN_SUMMARY.md)** - Compact overview with φ-based geometry framework  
+*Last updated: 2025-10-20 16:55:04 - All reports regenerated with complete φ-geometry integration*
 
 ---
 
