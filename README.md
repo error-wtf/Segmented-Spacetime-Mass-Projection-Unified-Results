@@ -79,6 +79,8 @@ chmod +x install.sh
 
 **📖 Key Terms & Glossary:** See [Technical Glossary](docs/improvement/TERMINOLOGY_GLOSSARY.md) for 200+ terms (EN/DE)
 
+**📚 Complete Documentation:** See [**DOCUMENTATION_INDEX.md**](DOCUMENTATION_INDEX.md) - **Central navigation hub for all 312+ documents** ⭐
+
 ---
 
 ## 📚 Key Terminology
