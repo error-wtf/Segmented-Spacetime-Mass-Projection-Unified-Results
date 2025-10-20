@@ -97,7 +97,7 @@ This documentation explains **all physical and mathematical foundations** of the
 **Three powerful standalone tools for advanced analysis:**
 
 #### A) Rapidity-Based Equilibrium Analysis
-**Script:** `perfect_equilibrium_analysis.py` (428 lines)  
+**Script:** [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) (428 lines)  
 **Documentation:** [RAPIDITY_IMPLEMENTATION.md](../RAPIDITY_IMPLEMENTATION.md)
 
 **Content:**
@@ -109,7 +109,7 @@ This documentation explains **all physical and mathematical foundations** of the
 **Learning Goal:** Understanding equilibrium point treatment with rapidity
 
 #### B) Standalone Interactive Analysis
-**Script:** `perfect_seg_analysis.py` (480 lines)  
+**Script:** [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) (480 lines)  
 **Documentation:** [PERFECT_SEG_ANALYSIS_GUIDE.md](../PERFECT_SEG_ANALYSIS_GUIDE.md)
 
 **Content:**
@@ -121,7 +121,7 @@ This documentation explains **all physical and mathematical foundations** of the
 **Learning Goal:** Analyzing custom datasets with production tools
 
 #### C) Perfect Paired Test Framework
-**Script:** `perfect_paired_test.py` (470 lines)  
+**Script:** [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) (470 lines)  
 **Documentation:** [PERFECT_PAIRED_TEST_GUIDE.md](../PERFECT_PAIRED_TEST_GUIDE.md)
 
 **Content:**
@@ -305,9 +305,9 @@ pytest tests/ -s -v
 - `segspace_all_in_one_extended.py` – Main analysis
 - `ssz_theory_segmented.py` – Theory calculations
 - `run_all_ssz_terminal.py` – Complete test suite
-- `perfect_equilibrium_analysis.py` – ⭐ NEW: Rapidity demonstration
-- `perfect_seg_analysis.py` – ⭐ NEW: Standalone analysis tool
-- `perfect_paired_test.py` – ⭐ NEW: Complete paired test framework
+- [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) – ⭐ NEW: Rapidity demonstration
+- [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) – ⭐ NEW: Standalone analysis tool
+- [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) – ⭐ NEW: Complete paired test framework
 
 **Visualizations:**
 - `segspace_comparison.png` – Model comparison

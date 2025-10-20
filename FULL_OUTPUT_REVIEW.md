@@ -96,9 +96,9 @@
 - PHI_CORRECTION_IMPACT_ANALYSIS.md
 - PAIRED_TEST_ANALYSIS_COMPLETE.md
 - TEST_METHODOLOGY_COMPLETE.md
-- **EQUILIBRIUM_RADIUS_SOLUTION.md** ← NEW (r<2 r_s issue)
-- **RAPIDITY_IMPLEMENTATION.md** ← NEW (production solution)
-- **perfect_equilibrium_analysis.py** ← NEW (working code)
+- **[EQUILIBRIUM_RADIUS_SOLUTION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md)** ← NEW (r<2 r_s issue)
+- **[RAPIDITY_IMPLEMENTATION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md)** ← NEW (production solution)
+- **[perfect_equilibrium_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py)** ← NEW (working code)
 - reports/full-output.md
 
 ### 6. Summary Statistics ✅

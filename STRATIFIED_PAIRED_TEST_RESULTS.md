@@ -38,7 +38,7 @@ p-value: 0.8672 [Not significant]
 | **Weak Field (r>10)** | 40 | 15 | 37.5% | 0.1539 | Not significant |
 | **High Velocity (v>5%)** | 21 | 18 | **85.7%** | **0.0015** | ✅ **HIGHLY SIGNIFICANT** |
 
-*0/0 indeterminate form at equilibrium points (v_eff → 0). NOT fundamental physics failure - mathematical implementation issue. **SOLUTION: Rapidity formulation** (production-ready, see `perfect_equilibrium_analysis.py`, RAPIDITY_IMPLEMENTATION.md, and EQUILIBRIUM_RADIUS_SOLUTION.md). Expected 35-50% after integration.
+*0/0 indeterminate form at equilibrium points (v_eff → 0). NOT fundamental physics failure - mathematical implementation issue. **SOLUTION: Rapidity formulation** (production-ready, see [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py), RAPIDITY_IMPLEMENTATION.md, and EQUILIBRIUM_RADIUS_SOLUTION.md). Expected 35-50% after integration.
 
 ---
 

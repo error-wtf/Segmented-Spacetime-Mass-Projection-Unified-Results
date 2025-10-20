@@ -97,9 +97,9 @@ Status:              ✅ ALL COMMITTED & PUSHED
 ### **✅ Pipeline Integration:**
 ```python
 ✅ run_all_ssz_terminal.py Phase 7:
-   - perfect_equilibrium_analysis.py runs
-   - perfect_paired_test.py runs
-   - perfect_seg_analysis.py noted as interactive
+   - [perfect_equilibrium_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) runs
+   - [perfect_paired_test.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) runs
+   - [perfect_seg_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) noted as interactive
 
 ✅ run_full_suite.py Phase 6.5:
    - Standalone execution of production tools

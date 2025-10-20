@@ -49,14 +49,14 @@
 ## Production-Ready Analysis Scripts (NEW - Oct 2025)
 
 ### Rapidity-Based Tools:
-- `perfect_equilibrium_analysis.py` - Eliminates 0/0 singularities
-- `perfect_seg_analysis.py` - Standalone interactive analysis
-- `perfect_paired_test.py` - Complete paired test framework
+- [[`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) - Eliminates 0/0 singularities
+- [[`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) - Standalone interactive analysis
+- [[`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) - Complete paired test framework
 
 **Documentation:**
-- RAPIDITY_IMPLEMENTATION.md
-- PERFECT_SEG_ANALYSIS_GUIDE.md
-- PERFECT_PAIRED_TEST_GUIDE.md
+- [RAPIDITY_IMPLEMENTATION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md)
+- [PERFECT_SEG_ANALYSIS_GUIDE.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/PERFECT_SEG_ANALYSIS_GUIDE.md)
+- [PERFECT_PAIRED_TEST_GUIDE.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/PERFECT_PAIRED_TEST_GUIDE.md)
 ```
 
 ---

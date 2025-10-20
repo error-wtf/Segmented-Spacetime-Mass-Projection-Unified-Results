@@ -460,9 +460,9 @@ The failure occurs at a specific, theoretically meaningful radius - likely relat
 **SOLUTION NOW AVAILABLE - PRODUCTION READY!**
 
 **Complete technical details:**
-- `EQUILIBRIUM_RADIUS_SOLUTION.md` - Full problem analysis + L'Hospital + Rapidity solution
-- `RAPIDITY_IMPLEMENTATION.md` - ⭐⭐⭐⭐ **Production-ready code with all pitfalls documented**
-- `perfect_equilibrium_analysis.py` - ⭐⭐⭐ Working demonstration (428 lines, fully tested)
+- [`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) - Full problem analysis + L'Hospital + Rapidity solution
+- [`RAPIDITY_IMPLEMENTATION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md) - ⭐⭐⭐⭐ **Production-ready code with all pitfalls documented**
+- [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) - ⭐⭐⭐ Working demonstration (428 lines, fully tested)
 
 **Implementation priority:** HIGH - Rapidity formulation is mathematically rigorous and production-ready
 

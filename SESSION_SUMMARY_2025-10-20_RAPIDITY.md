@@ -387,15 +387,15 @@ Results + regime-specific statistics
 ### Lines of Code
 
 **Created:**
-- perfect_equilibrium_analysis.py: 428 lines
-- perfect_seg_analysis.py: 480 lines
-- RAPIDITY_IMPLEMENTATION.md: ~600 lines
-- PERFECT_SEG_ANALYSIS_GUIDE.md: ~500 lines
+- [perfect_equilibrium_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py): 428 lines
+- [perfect_seg_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py): 480 lines
+- [RAPIDITY_IMPLEMENTATION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md): ~600 lines
+- [PERFECT_SEG_ANALYSIS_GUIDE.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/PERFECT_SEG_ANALYSIS_GUIDE.md): ~500 lines
 - Other updates: ~1,000 lines
 
 **Modified:**
 - PAIRED_TEST_ANALYSIS_COMPLETE.md: +80 lines
-- EQUILIBRIUM_RADIUS_SOLUTION.md: +150 lines
+- [EQUILIBRIUM_RADIUS_SOLUTION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md): +150 lines
 - README.md: +10 lines
 - smoke_test_all.py: +83 lines
 - reports/full-output.md: +10 lines

@@ -75,17 +75,17 @@
 
 **Content:**
 - 11.1 Rapidity-Based Equilibrium Analysis
-  - perfect_equilibrium_analysis.py details
+  - [perfect_equilibrium_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) details
   - Core functions documented
   - Usage examples
   
 - 11.2 Standalone Interactive Analysis
-  - perfect_seg_analysis.py features
+  - [perfect_seg_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) features
   - 3 usage modes explained
   - Documentation links
   
 - 11.3 Perfect Paired Test Framework
-  - perfect_paired_test.py overview
+  - [perfect_paired_test.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) overview
   - All findings incorporated
   - Status and next steps
   
@@ -220,21 +220,21 @@ Key Scientific Advances (Oct 2025):
 ### **All Major Docs Now Mention:**
 
 ✅ **Rapidity Solution:**
-- RAPIDITY_IMPLEMENTATION.md (production code)
-- EQUILIBRIUM_RADIUS_SOLUTION.md (problem analysis)
+- [RAPIDITY_IMPLEMENTATION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md) (production code)
+- [EQUILIBRIUM_RADIUS_SOLUTION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) (problem analysis)
 - PAIRED_TEST_ANALYSIS_COMPLETE.md (scientific context)
 - CODE_IMPLEMENTATION_GUIDE.md (implementation details)
 - README.md (user-facing summary)
 - THEORY_AND_CODE_INDEX.md (learning resources)
 
 ✅ **Standalone Analysis Tool:**
-- PERFECT_SEG_ANALYSIS_GUIDE.md (user guide)
+- [PERFECT_SEG_ANALYSIS_GUIDE.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/PERFECT_SEG_ANALYSIS_GUIDE.md) (user guide)
 - CODE_IMPLEMENTATION_GUIDE.md (technical details)
 - README.md (quick start)
 - THEORY_AND_CODE_INDEX.md (learning goal)
 
 ✅ **Perfect Paired Test:**
-- PERFECT_PAIRED_TEST_GUIDE.md (framework guide)
+- [PERFECT_PAIRED_TEST_GUIDE.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/PERFECT_PAIRED_TEST_GUIDE.md) (framework guide)
 - CODE_IMPLEMENTATION_GUIDE.md (implementation)
 - README.md (overview)
 - THEORY_AND_CODE_INDEX.md (learning path)

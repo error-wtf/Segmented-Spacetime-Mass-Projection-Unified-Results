@@ -412,7 +412,7 @@ source .venv/bin/activate
 **Beyond testing - production tools for analysis:**
 
 ### 1. Rapidity-Based Equilibrium Analysis
-**Script:** `perfect_equilibrium_analysis.py` (428 lines)  
+**Script:** [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) (428 lines)  
 **Purpose:** Eliminates 0/0 singularities at equilibrium points
 
 ```bash
@@ -428,7 +428,7 @@ python perfect_equilibrium_analysis.py
 **Documentation:** [RAPIDITY_IMPLEMENTATION.md](../RAPIDITY_IMPLEMENTATION.md)
 
 ### 2. Standalone Interactive Analysis
-**Script:** `perfect_seg_analysis.py` (480 lines)  
+**Script:** [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) (480 lines)  
 **Purpose:** User-friendly tool for custom datasets
 
 ```bash
@@ -448,7 +448,7 @@ python perfect_seg_analysis.py --csv data.csv --output results.csv
 **Documentation:** [PERFECT_SEG_ANALYSIS_GUIDE.md](../PERFECT_SEG_ANALYSIS_GUIDE.md)
 
 ### 3. Perfect Paired Test Framework
-**Script:** `perfect_paired_test.py` (470 lines)  
+**Script:** [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) (470 lines)  
 **Purpose:** Complete paired test with ALL findings
 
 ```bash

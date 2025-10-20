@@ -250,7 +250,7 @@ These equilibrium points are WHERE ACCRETION DISKS FORM:
 - Theoretical papers are CORRECT when read in full context
 
 **Documentation:**
-- Complete technical details: `EQUILIBRIUM_RADIUS_SOLUTION.md`
+- Complete technical details: [`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md)
 - Statistical analysis: `PAIRED_TEST_ANALYSIS_COMPLETE.md`
 - Implementation status: v1.3.1 (documented), fix pending v1.4.0
 

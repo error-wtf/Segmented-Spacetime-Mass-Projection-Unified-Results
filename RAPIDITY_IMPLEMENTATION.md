@@ -302,7 +302,7 @@ Before deploying to production, verify:
 
 ## 📚 COMPLETE WORKING SCRIPT
 
-See `perfect_equilibrium_analysis.py` for full implementation with:
+See [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) for full implementation with:
 - All core functions
 - Comprehensive tests
 - Demonstration at various velocities

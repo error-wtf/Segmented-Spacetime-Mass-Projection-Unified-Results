@@ -8,7 +8,7 @@
 
 ## 🎯 What This Script Does
 
-`perfect_paired_test.py` is a **comprehensive template** that incorporates ALL key findings:
+[`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) is a **comprehensive template** that incorporates ALL key findings:
 
 ### ✅ Incorporated Findings
 

@@ -99,7 +99,7 @@ python test_energy_conditions.py
 ## Production-Ready Tools (NEW - Oct 2025)
 
 ### 1. Rapidity-Based Equilibrium Analysis ⭐⭐⭐
-**Script:** `perfect_equilibrium_analysis.py` (428 lines)  
+**Script:** [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) (428 lines)  
 **Purpose:** Demonstrates rapidity formulation for equilibrium points  
 **Documentation:** [RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)
 
@@ -121,7 +121,7 @@ bisector_rapidity(chi1, chi2) # Natural origin
 ```
 
 ### 2. Standalone Interactive Analysis ⭐⭐⭐⭐
-**Script:** `perfect_seg_analysis.py` (480 lines)  
+**Script:** [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) (480 lines)  
 **Purpose:** User-friendly standalone tool for custom datasets  
 **Documentation:** [PERFECT_SEG_ANALYSIS_GUIDE.md](PERFECT_SEG_ANALYSIS_GUIDE.md)
 
@@ -144,7 +144,7 @@ python perfect_seg_analysis.py --csv data.csv --output results.csv
 - ✅ Production-ready deployment
 
 ### 3. Perfect Paired Test Framework ⭐⭐⭐
-**Script:** `perfect_paired_test.py` (470 lines)  
+**Script:** [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) (470 lines)  
 **Purpose:** Complete paired test with ALL findings incorporated  
 **Documentation:** [PERFECT_PAIRED_TEST_GUIDE.md](PERFECT_PAIRED_TEST_GUIDE.md)
 
@@ -164,8 +164,8 @@ python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
 - STRATIFIED_PAIRED_TEST_RESULTS.md
 - PHI_FUNDAMENTAL_GEOMETRY.md
 - PHI_CORRECTION_IMPACT_ANALYSIS.md
-- EQUILIBRIUM_RADIUS_SOLUTION.md
-- RAPIDITY_IMPLEMENTATION.md
+- [EQUILIBRIUM_RADIUS_SOLUTION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md)
+- [RAPIDITY_IMPLEMENTATION.md](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md)
 
 ---
 

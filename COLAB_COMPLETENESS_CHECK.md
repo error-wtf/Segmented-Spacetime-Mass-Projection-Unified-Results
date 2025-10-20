@@ -285,7 +285,7 @@ This notebook now includes **three powerful standalone analysis tools**:
 - **Solves 0/0 singularity problem** at equilibrium points (r < 2 r_s)
 - Uses rapidity formulation: χ = arctanh(v/c)
 - Expected improvement: 0% → 35-50%
-- Production-ready code: `perfect_equilibrium_analysis.py`
+- Production-ready code: [[`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py)
 
 ### 2. Standalone Interactive Analysis
 - User-friendly tool for custom datasets
@@ -297,7 +297,7 @@ This notebook now includes **three powerful standalone analysis tools**:
 - Incorporates ALL findings from stratified analysis
 - φ-geometry + Rapidity + Regime stratification
 - Complete statistical validation
-- Framework: `perfect_paired_test.py`
+- Framework: [[`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py)
 
 **Documentation:**
 - [RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)
@@ -390,8 +390,8 @@ else:
 - With Git LFS: ~22-33 minutes (+2-3 min)
 
 **Breakdown of +2-3 minutes:**
-- perfect_equilibrium_analysis.py: ~30-60 seconds
-- perfect_paired_test.py: ~90-120 seconds
+- [perfect_equilibrium_analysis.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py): ~30-60 seconds
+- [perfect_paired_test.py](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py): ~90-120 seconds
 - Overhead: ~30 seconds
 
 **Acceptable:** Yes - minimal impact for major functionality gain
