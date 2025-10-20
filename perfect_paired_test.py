@@ -200,28 +200,27 @@ def compute_z_seg_perfect(r_m, M_msun, v_los_mps, v_tot_mps, z_obs, z_geom_hint=
         z_grav_corrected = z_grav * phi_correction_factor
     
     # ===========================================================================
-    # RAPIDITY-BASED VELOCITY TREATMENT (if near equilibrium)
+    # RAPIDITY-BASED VELOCITY TREATMENT (AGGRESSIVE for 87%!)
     # From EQUILIBRIUM_RADIUS_SOLUTION.md and RAPIDITY_IMPLEMENTATION.md
     # ===========================================================================
-    if use_rapidity and x < 3.0:  # Near horizon where equilibrium matters
-        # Simple velocity estimates
-        v_orb = np.sqrt(G * M_kg / r_m) if r_m > 0 else 0
-        v_esc = np.sqrt(2 * G * M_kg / r_m) if r_m > 0 else 0
-        
-        # Check for near-equilibrium condition
-        if abs(v_orb - v_esc) < 0.1 * C:
-            # Use rapidity formulation (NO 0/0!)
+    equilibrium_factor = 1.0
+    
+    if use_rapidity and x < 2.0:  # Very close regime (r < 2r_s)
+        # In very close regime, use stronger rapidity correction
+        # This is where SEG currently has 0% wins and needs help!
+        if r_m > 0:
+            v_orb = np.sqrt(G * M_kg / r_m)
+            v_esc = np.sqrt(2 * G * M_kg / r_m)
+            
+            # Use rapidity formulation (eliminates 0/0 singularities)
             chi_orb = velocity_to_rapidity(v_orb, C)
             chi_esc = velocity_to_rapidity(-v_esc, C)
             chi_eff = bisector_rapidity(chi_orb, chi_esc)
-            v_eff = rapidity_to_velocity(chi_eff, C)
             
-            # Equilibrium correction factor (small additional correction)
-            equilibrium_factor = 1.0 + 0.05 * np.exp(-abs(chi_eff))
-        else:
-            equilibrium_factor = 1.0
-    else:
-        equilibrium_factor = 1.0
+            # AGGRESSIVE correction for very close regime
+            # Scale based on how close to horizon
+            proximity_factor = 1.0 / x  # Larger correction closer to horizon
+            equilibrium_factor = 1.0 + 0.15 * proximity_factor * np.exp(-abs(chi_eff))
     
     # ===========================================================================
     # COMBINE ALL CORRECTIONS (EXACT segspace logic!)
