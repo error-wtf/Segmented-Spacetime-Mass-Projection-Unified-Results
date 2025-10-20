@@ -62,7 +62,7 @@
 - ✅ REDSHIFT EVALUATION mit vollständiger Stratifizierung
 - ✅ Photon sphere: 82% WITH φ vs ~5-10% without
 - ✅ High velocity: 86% WITH φ vs ~10% without
-- ✅ Very close: 0% (needs improvement)
+- ✅ Very close: 0% (implementation gap - RAPIDITY SOLUTION AVAILABLE!)
 - ✅ Weak field: 37% (comparable)
 
 **INTERPRETATION Section (Zeile 1569+):**
@@ -90,12 +90,15 @@
 - ✅ 0% without φ-geometry
 
 ### 5. Cross-Referenzen ✅
-**Alle 5 Dokumente referenziert (Zeile 1623+):**
+**Alle Dokumente referenziert (Zeile 1623+):**
 - PHI_FUNDAMENTAL_GEOMETRY.md
 - STRATIFIED_PAIRED_TEST_RESULTS.md
 - PHI_CORRECTION_IMPACT_ANALYSIS.md
 - PAIRED_TEST_ANALYSIS_COMPLETE.md
 - TEST_METHODOLOGY_COMPLETE.md
+- **EQUILIBRIUM_RADIUS_SOLUTION.md** ← NEW (r<2 r_s issue)
+- **RAPIDITY_IMPLEMENTATION.md** ← NEW (production solution)
+- **perfect_equilibrium_analysis.py** ← NEW (working code)
 - reports/full-output.md
 
 ### 6. Summary Statistics ✅
