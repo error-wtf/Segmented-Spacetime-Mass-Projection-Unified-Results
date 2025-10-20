@@ -2,9 +2,9 @@
 
 **Complete guide to all documentation in the SSZ repository**
 
-**Repository Version:** v1.3.0 (2025-10-20)  
+**Repository Version:** v1.3.1 (2025-10-20)  
 **Status:** ✅ Production-Ready | Cross-Platform Compatible | Bilingual Documentation (EN/DE)  
-**NEW:** Test reports generated & linked, Quality reports archived
+**NEW:** Final validation analysis, 5 publication plots, complete visual documentation, smoke tests
 
 ---
 
@@ -37,6 +37,7 @@
 ### 🧪 Testing & Validation
 - **[TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md)** ([🇩🇪 DE](TEST_SUITE_VERIFICATION.md) | [🇬🇧 EN](TEST_SUITE_VERIFICATION_EN.md)) - Test system verification
 - **[PHYSICS_TESTS_COMPLETE_LIST.md](PHYSICS_TESTS_COMPLETE_LIST.md)** - ⭐ UPDATED: All 35 physics tests + 2 validation checks
+- **[SMOKE_TESTS_COMPLETE.md](SMOKE_TESTS_COMPLETE.md)** - ⭐ NEW: Quick health checks (2 smoke tests, ~5 seconds)
 - **[DOUBLE_CHECK_VALIDATION_TESTS.md](DOUBLE_CHECK_VALIDATION_TESTS.md)** - ⭐ NEW: Automatic φ-geometry validation
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
 - **[TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md)** - ⭐ Complete theory→test validation chain
@@ -44,6 +45,8 @@
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ Regime-specific paired test analysis
 - **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - ⭐⭐ Why φ (golden ratio) is the GEOMETRIC BASIS
 - **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ φ-based geometry impact: 0% → 51%
+- **[final_validation_findings.py](final_validation_findings.py)** - ⭐⭐ NEW: Can we achieve 100%? (Script + Analysis)
+- **[FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md](FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md)** - ⭐⭐ NEW: Why "perfect" results ≠ 100% accuracy
 - **[PAIRED_TEST_FAILURE_ANALYSIS.md](PAIRED_TEST_FAILURE_ANALYSIS.md)** - Detailed data distribution analysis
 - **[tests/README_TESTS.md](tests/README_TESTS.md)** - Test overview
 
@@ -52,7 +55,8 @@
 - **[reports/full-output.md](reports/full-output.md)** - Complete test output log (231 KB)
 - **[reports/summary-output.md](reports/summary-output.md)** - Brief test summary
 
-### 📊 Scientific Visualizations
+### 📊 Scientific Visualizations ⭐ NEW (v1.3.1)
+- **[PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md)** - ⭐⭐ NEW: Visual guide with embedded images & explanations
 - **[PLOTS_DOCUMENTATION.md](PLOTS_DOCUMENTATION.md)** - ⭐ NEW: Complete plots guide (5 publication-ready figures)
 - **[generate_key_plots.py](generate_key_plots.py)** - Plot generation script (300 DPI, ~30s runtime)
 - **[reports/figures/analysis/](reports/figures/analysis/)** - Generated plots directory
@@ -78,10 +82,17 @@
 
 ### 🔧 Optimization & Future Work
 - **[OPTIMIZATION_ANALYSIS.md](OPTIMIZATION_ANALYSIS.md)** - ⭐ NEW: Script optimization opportunities (r<2 r_s critical issue)
+- **[final_validation_findings.py](final_validation_findings.py)** - ⭐⭐ NEW: Achievable targets analysis (51% → 58% realistic)
+- **[FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md](FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md)** - ⭐⭐ NEW: Complete perfection analysis guide
 - **[FULL_OUTPUT_REVIEW.md](FULL_OUTPUT_REVIEW.md)** - ⭐ NEW: Systematic output review (11/12 score, 92%)
 
+### 📋 Session Summaries & Progress ⭐ NEW (v1.3.1)
+- **[SESSION_SUMMARY_2025-10-20.md](SESSION_SUMMARY_2025-10-20.md)** - ⭐ NEW: Complete v1.3.1 work summary
+- **[FINAL_UPLOAD_SUMMARY.md](FINAL_UPLOAD_SUMMARY.md)** - ⭐ NEW: Upload manifest & verification
+- **[DOCUMENTATION_GAPS_ANALYSIS.md](DOCUMENTATION_GAPS_ANALYSIS.md)** - ⭐ NEW: Completeness check (98%)
+
 ### 📝 Release & Changes
-- **[CHANGELOG.md](CHANGELOG.md)** - Release history
+- **[CHANGELOG.md](CHANGELOG.md)** - Release history (v1.3.1 added)
 - **[GIT_COMMIT_SUMMARY.md](GIT_COMMIT_SUMMARY.md)** - Git commit history
 - **[README_CORRECTIONS_2025-10-19.md](README_CORRECTIONS_2025-10-19.md)** - Recent corrections
 
