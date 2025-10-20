@@ -11,7 +11,7 @@
 © Carmen Wrede & Lino Casu
 
 **Latest Release:** v1.3.0 (2025-10-20) - Documentation Excellence & Quality Assurance  
-📊 **[Repository Quality Report](REPOSITORY_QUALITY_REPORT_v1.3.0.md):** 95.1% (A+) - World-Class Status
+✅ **Status:** 69 automated tests passing | Cross-platform verified | Full documentation
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
@@ -442,14 +442,14 @@ See [LICENSE](LICENSE) for full terms.
 
 ### ✅ φ-Based Geometric Field Theory
 - **Theoretical foundation:** Segmented spacetime structure derived from Euler formula (e^(iφπ))
-- **φ as central constant:** Golden ratio emerges as fundamental structure constant of spacetime
-- **Empirically validated:** φ-lattice test confirms φ-based segmentation (ΔBIC = +926, p < 10⁻⁶⁸)
+- **φ as central constant:** Golden ratio emerges from geometric constraints of piecewise spacetime matching (not chosen a priori)
+- **Statistically tested:** φ-lattice test confirms φ-based segmentation (ΔBIC = +926, p < 10⁻⁶⁸, 427 observations)
 - **Complete formulation:** Lagrangian, stress-energy tensor, variational φ/2 coupling, PPN consistency (β=γ=1)
 
 ### ✅ Statistically Validated Predictions
 - **φ-lattice structure confirmed:** Data clusters around φ-steps with ΔBIC = +926 over uniform distribution
 - **Extreme significance:** Sign test p < 10⁻⁶⁸ (427 observations, 117 independent sources)
-- **4.35× more accurate than GR** for S-stars around Sgr A* (median Δz: SSZ = 2.91×10⁻⁵ vs GR = 1.27×10⁻⁴)
+- **4.35× smaller median residuals than GR** for S-stars around Sgr A* in our test suite (median |Δz|: SSZ = 2.91×10⁻⁵ vs GR = 1.27×10⁻⁴) - statistical comparison on dataset, not claim of superiority
 - **Dual velocity invariant:** v_esc × v_fall = c² verified to machine precision (error = 0.0)
 - **Information preservation:** 100% invertible Jacobian (reconstruction error = 4.69×10⁻¹⁷)
 
@@ -475,7 +475,7 @@ See [LICENSE](LICENSE) for full terms.
 - **Optimal for r ≥ 5r_s** - Energy conditions fully satisfied; r < 5r_s predictions finite but larger residuals
 - **Cosmology & β-calibration** - Algorithms complete and validated; separate publication papers pending
 
-**Status:** φ-structured spacetime framework with statistically validated predictions (ΔBIC=926, 4.35× better than GR) awaiting independent experimental verification and peer review
+**Status:** φ-structured spacetime framework with statistically tested predictions (ΔBIC=926, 4.35× smaller residuals in tests) awaiting independent experimental verification and peer review
 
 ---
 
