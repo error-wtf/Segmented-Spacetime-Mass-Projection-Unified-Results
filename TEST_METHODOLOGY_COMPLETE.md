@@ -58,27 +58,45 @@ Documents:
 **What:** Use ONLY emission-line data where z_obs represents local physics
 
 **Why (from theory):**
+- SEG models LOCAL spacetime geometry (r ~ r_s scale, km to AU)
+- SEG does NOT model cosmological expansion (d ~ Mpc scale, 10¹⁹ km)
 - Δ(M) corrections apply to LOCAL gravitational redshift
-- Continuum z_obs = cosmological redshift (different physics)
-- Mixing them creates meaningless comparisons
+- Continuum z_obs = Hubble flow redshift (cosmological, different physics entirely)
+- Mixing local gravity with cosmology creates physically meaningless comparisons
+
+**Critical Distinction:**
+
+| Data Type | What z_obs Measures | Physical Scale | SEG Models This? |
+|-----------|---------------------|----------------|------------------|
+| **Emission Lines** | Local gravitational redshift at emission radius | r ~ 1-100 r_s (km-AU) | ✅ YES |
+| **Continuum/Hubble** | Cosmological redshift of host galaxy | d ~ Mpc-Gpc (10¹⁹-10²² km) | ❌ NO |
+
+**Why Hubble/Continuum Data is Unsuitable:**
+- **Example:** M87 continuum z=0.0042 from Hubble flow at d~16.8 Mpc
+- **SEG predicts:** Local metric z~0.01-0.15 at r=3-10 r_s near M87* black hole
+- **Problem:** Galaxy recession (cosmology) ≠ Local spacetime curvature (gravity)
+- **Analogy:** Testing Newton's F=ma using galaxy cluster distances
+- **Detailed explanation:** See data/DATA_TYPE_USAGE_GUIDE.md
 
 **Implementation:**
 ```python
 # segspace_all_in_one_extended.py, line 508
 sp.add_argument("--csv", default=Path("./data/real_data_emission_lines.csv"))
-# ↑ Ensures paired test uses ONLY emission-line data
+# ↑ Ensures paired test uses ONLY emission-line data (local gravity)
+# ↑ Excludes continuum data (Hubble flow / cosmology)
 ```
 
 **Files:**
-- `data/real_data_emission_lines.csv` (143 rows) - For paired tests
-- `data/real_data_continuum.csv` (284 rows) - For spectrum analysis
-- `data/real_data_full_typed.csv` (427 rows) - Both with type column
+- `data/real_data_emission_lines.csv` (143 rows) - ✅ LOCAL gravity (use for SEG tests)
+- `data/real_data_continuum.csv` (284 rows) - ❌ Hubble flow (DO NOT use for paired tests)
+- `data/real_data_full_typed.csv` (427 rows) - Both with type column (filter by 'data_type')
 
 **Documentation:**
-- PAIRED_TEST_ANALYSIS_COMPLETE.md - Why separation matters
-- data/DATA_TYPE_USAGE_GUIDE.md - Usage instructions
+- PAIRED_TEST_ANALYSIS_COMPLETE.md - Complete explanation with M87 example
+- data/DATA_TYPE_USAGE_GUIDE.md - Detailed Hubble flow incompatibility analysis
+- See "Why Mixing These is Scientifically Invalid" sections
 
-**Result:** Clean dataset where z_obs and z_pred represent same physics
+**Result:** Clean dataset where z_obs and z_pred represent same physical phenomenon (local gravity)
 
 ---
 
