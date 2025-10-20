@@ -260,6 +260,11 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 **Mass bins:** SEG < GR×SR in all bins
 
+### Complete Test Output
+
+**📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
+*Last updated: 2025-10-19 14:03:27*
+
 ---
 
 ## 📖 Documentation
