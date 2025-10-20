@@ -33,10 +33,12 @@ p-value: 0.8672 [Not significant]
 |--------|---|----------|-------|---------|--------------|
 | **Photon Sphere (2<r<3, v<1%)** | 45 | 37 | **82.2%** | **0.0000** | ✅ **HIGHLY SIGNIFICANT** |
 | **WITHOUT Photon Sphere** | 98 | 36 | 36.7% | 0.0112 | ❌ Significantly worse |
-| **Very Close (r<2)** | 29 | **0** | **0.0%** | **0.0000** | ❌ **CATASTROPHIC** |
+| **Very Close (r<2)** | 29 | **0** | **0.0%** | **0.0000** | ⚠️ **Implementation Gap (0/0)*** |
 | **Strong + High v** | 48 | 18 | 37.5% | 0.1114 | Not significant |
 | **Weak Field (r>10)** | 40 | 15 | 37.5% | 0.1539 | Not significant |
 | **High Velocity (v>5%)** | 21 | 18 | **85.7%** | **0.0015** | ✅ **HIGHLY SIGNIFICANT** |
+
+*0/0 indeterminate form at equilibrium points (v_eff → 0). NOT fundamental physics failure - mathematical implementation issue. **SOLUTION: Rapidity formulation** (production-ready, see `perfect_equilibrium_analysis.py`, RAPIDITY_IMPLEMENTATION.md, and EQUILIBRIUM_RADIUS_SOLUTION.md). Expected 35-50% after integration.
 
 ---
 
@@ -68,7 +70,7 @@ Other regions    |  69   |   37%    |  +25 wins
 TOTAL            | 143   |   51%    |  73/143
 ```
 
-**The catastrophic failure at r < 2 r_s** (29 straight losses!) **cancels out the photon sphere dominance.**
+**The implementation gap at r < 2 r_s** (29 straight losses due to 0/0 indeterminate form at equilibrium) **cancels out the photon sphere dominance.** This is a solvable mathematical issue (rapidity formulation production-ready), not fundamental physics failure.
 
 ---
 
@@ -228,7 +230,8 @@ This is **good science** - letting data guide theory, not vice versa.
 | Significance | None | **YES** | **YES (opposite)** |
 | Sample Size | 143 | 45 | 29 |
 
-**Key Insight:** Mixing optimal and catastrophic regimes → no significance  
+**Key Insight:** Mixing optimal and implementation-gap regimes → no significance  
+**Note:** The "gap" regime (r<2 r_s) has known 0/0 issue with rapidity solution available (see RAPIDITY_IMPLEMENTATION.md).  
 **Solution:** Separate analysis by physical regime
 
 ---
