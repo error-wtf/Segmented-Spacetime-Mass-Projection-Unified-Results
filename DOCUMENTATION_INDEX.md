@@ -14,6 +14,7 @@
 - **[README.md](README.md)** - Main repository overview & quick start
 - **[QUICK_START.md](QUICK_START.md)** - 5-minute quick start guide ⭐ NEW
 - **[INSTALL_README.md](INSTALL_README.md)** - Installation guide
+- **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - ⭐⭐⭐ **Complete testing documentation (for testers)**
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues & solutions ⭐ NEW
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines ⭐ NEW
 - **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform compatibility details
@@ -35,6 +36,7 @@
 - **[data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - Emission vs continuum data
 
 ### 🧪 Testing & Validation
+- **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - ⭐⭐⭐ **START HERE: Complete tester documentation (30KB)**
 - **[TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md)** ([🇩🇪 DE](TEST_SUITE_VERIFICATION.md) | [🇬🇧 EN](TEST_SUITE_VERIFICATION_EN.md)) - Test system verification
 - **[PHYSICS_TESTS_COMPLETE_LIST.md](PHYSICS_TESTS_COMPLETE_LIST.md)** - ⭐ UPDATED: All 35 physics tests + 2 validation checks
 - **[SMOKE_TESTS_COMPLETE.md](SMOKE_TESTS_COMPLETE.md)** - ⭐ NEW: Quick health checks (2 smoke tests, ~5 seconds)
