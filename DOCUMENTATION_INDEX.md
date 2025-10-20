@@ -409,4 +409,26 @@ Documentation/
 - ✅ Documentation verified and cross-referenced
 - ✅ Production-ready status confirmed
 
+---
+
+## 🛠️ Tools & Software Used
+
+**Complete inventory of all development, analysis, and documentation tools:**
+
+- **[TOOLS_AND_SOFTWARE.md](TOOLS_AND_SOFTWARE.md)** - 📋 **Complete tools documentation**
+  - AI-Assisted Development: ChatGPT, Windsurf, Ollama
+  - Programming: Python 3.10+, MATLAB (supplementary)
+  - Data Sources: NED, SIMBAD, Gaia, Planck, VizieR
+  - Scientific Computing: NumPy, SciPy, Pandas, Matplotlib, Astropy
+  - Testing: pytest, GitHub Actions (CI/CD)
+  - Visualization: Matplotlib (300 DPI), Plotly (3D interactive)
+  - Development: VS Code, Windsurf IDE, Jupyter, Google Colab
+  - Version Control: Git, GitHub
+  - Platforms: Windows, Linux, macOS, WSL, Google Colab
+  - **50+ tools documented with purpose, version, and usage**
+
+This repository development benefited from AI-assisted coding (Windsurf Cascade, ChatGPT), open astronomical databases (ESA Gaia, NASA/IPAC NED), and the broader scientific Python ecosystem.
+
+---
+
 © 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4
