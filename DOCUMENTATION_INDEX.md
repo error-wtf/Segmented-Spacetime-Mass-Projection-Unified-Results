@@ -52,6 +52,16 @@
 - **[reports/full-output.md](reports/full-output.md)** - Complete test output log (231 KB)
 - **[reports/summary-output.md](reports/summary-output.md)** - Brief test summary
 
+### 📊 Scientific Visualizations
+- **[PLOTS_DOCUMENTATION.md](PLOTS_DOCUMENTATION.md)** - ⭐ NEW: Complete plots guide (5 publication-ready figures)
+- **[generate_key_plots.py](generate_key_plots.py)** - Plot generation script (300 DPI, ~30s runtime)
+- **[reports/figures/analysis/](reports/figures/analysis/)** - Generated plots directory
+  - `stratified_performance.png` - Performance by regime (Figure 1)
+  - `phi_geometry_impact.png` - WITH vs WITHOUT φ (Figure 2)
+  - `winrate_vs_radius.png` - φ/2 boundary validation (Figure 3)
+  - `stratification_robustness.png` - 3D stratification (Supplementary)
+  - `performance_heatmap.png` - Comprehensive metrics (Supplementary)
+
 ### 📚 Reference
 - **[docs/improvement/TERMINOLOGY_GLOSSARY.md](docs/improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary (200+ terms EN/DE)
 
@@ -65,6 +75,10 @@
 - **[COLAB_README.md](COLAB_README.md)** - Google Colab setup
 - **[DATA_FETCHING_README.md](DATA_FETCHING_README.md)** - Data fetching guide
 - **[SUMMARY_PIPELINE_README.md](SUMMARY_PIPELINE_README.md)** - Summary generation
+
+### 🔧 Optimization & Future Work
+- **[OPTIMIZATION_ANALYSIS.md](OPTIMIZATION_ANALYSIS.md)** - ⭐ NEW: Script optimization opportunities (r<2 r_s critical issue)
+- **[FULL_OUTPUT_REVIEW.md](FULL_OUTPUT_REVIEW.md)** - ⭐ NEW: Systematic output review (11/12 score, 92%)
 
 ### 📝 Release & Changes
 - **[CHANGELOG.md](CHANGELOG.md)** - Release history
