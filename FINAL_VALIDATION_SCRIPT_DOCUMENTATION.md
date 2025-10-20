@@ -443,7 +443,7 @@ if validation_script.exists():
    - L'Hospital rule solution will fix this
    - **These equilibrium points are WHERE ACCRETION DISKS FORM!**
    - Theoretical papers describing this are CORRECT
-   - See `EQUILIBRIUM_RADIUS_SOLUTION.md` for complete details
+   - See [`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) for complete details
 
 ### Key Insight
 Domain-specific excellence (82% at photon sphere) with honest

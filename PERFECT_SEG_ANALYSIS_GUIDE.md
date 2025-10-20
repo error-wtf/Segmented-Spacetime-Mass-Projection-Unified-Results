@@ -9,7 +9,7 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ## 🎯 Overview
 
-`perfect_seg_analysis.py` is a standalone script that provides production-ready analysis of segmented spacetime with rapidity-based formulation. It eliminates 0/0 singularities at equilibrium points and supports:
+[`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) is a standalone script that provides production-ready analysis of segmented spacetime with rapidity-based formulation. It eliminates 0/0 singularities at equilibrium points and supports:
 
 - ✅ User-provided data (CSV files)
 - ✅ Interactive mode with manual input
@@ -339,9 +339,9 @@ ratio = (v_self + v_grav) / (v_self - v_grav) → 0/0
 ### References
 
 **Complete Technical Details:**
-- `EQUILIBRIUM_RADIUS_SOLUTION.md` - Problem analysis
-- `RAPIDITY_IMPLEMENTATION.md` - Production code guide
-- `perfect_equilibrium_analysis.py` - Full demonstration (428 lines)
+- [`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) - Problem analysis
+- [`RAPIDITY_IMPLEMENTATION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md) - Production code guide
+- [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) - Full demonstration (428 lines)
 - `PAIRED_TEST_ANALYSIS_COMPLETE.md` - Scientific findings
 
 ---
@@ -431,12 +431,12 @@ done
 **Core Documentation:**
 - `README.md` - Repository overview
 - `PAIRED_TEST_ANALYSIS_COMPLETE.md` - Scientific findings
-- `EQUILIBRIUM_RADIUS_SOLUTION.md` - Problem analysis
+- [`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) - Problem analysis
 
 **Implementation:**
-- `RAPIDITY_IMPLEMENTATION.md` - Production code guide
-- `perfect_equilibrium_analysis.py` - Full demonstration
-- `perfect_seg_analysis.py` - This interactive script
+- [`RAPIDITY_IMPLEMENTATION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/RAPIDITY_IMPLEMENTATION.md) - Production code guide
+- [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) - Full demonstration
+- [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) - This interactive script
 
 **Testing:**
 - `smoke_test_all.py` - Quick health checks

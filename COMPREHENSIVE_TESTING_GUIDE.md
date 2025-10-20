@@ -1056,7 +1056,7 @@ These equilibrium points are WHERE ACCRETION DISKS FORM ("Einfrierzone"):
 - This does NOT invalidate the theory
 - Theoretical papers describing equilibrium points are CORRECT
 
-**Complete Details:** See `EQUILIBRIUM_RADIUS_SOLUTION.md` and `PAIRED_TEST_ANALYSIS_COMPLETE.md` section "Equilibrium Radius Implementation Gap"
+**Complete Details:** See [[`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md) and `PAIRED_TEST_ANALYSIS_COMPLETE.md` section "Equilibrium Radius Implementation Gap"
 
 ---
 

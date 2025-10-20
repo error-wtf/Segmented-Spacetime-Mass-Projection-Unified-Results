@@ -556,7 +556,7 @@ v_rel = c * tanh(chi_rel)
 
 ### Implementation Example
 
-See `perfect_equilibrium_analysis.py` for complete working implementation.
+See [[`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) for complete working implementation.
 
 **Key Functions:**
 ```python

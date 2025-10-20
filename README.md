@@ -456,7 +456,7 @@ Paired redshift test uses **emission-line data only** (143 rows) where z_obs rep
 **For detailed explanation:** See [`data/DATA_TYPE_USAGE_GUIDE.md`](data/DATA_TYPE_USAGE_GUIDE.md) - complete rationale for all data source decisions with 5-point LIGO analysis and M87 Hubble flow examples.
 
 **Important Note on Theoretical Papers:**
-The theoretical papers describe equilibrium points (where v_eff = 0) as the foundation of accretion disk formation - "leuchtende Bänder" (luminous bands) where matter accumulates in stable orbital layers. This is correct accretion physics. The current 0% wins at r < 2 r_s is a mathematical implementation issue (0/0 indeterminate form) requiring L'Hospital treatment, NOT a flaw in the underlying theory. See [`EQUILIBRIUM_RADIUS_SOLUTION.md`](EQUILIBRIUM_RADIUS_SOLUTION.md) for complete explanation of this solvable implementation gap.
+The theoretical papers describe equilibrium points (where v_eff = 0) as the foundation of accretion disk formation - "leuchtende Bänder" (luminous bands) where matter accumulates in stable orbital layers. This is correct accretion physics. The current 0% wins at r < 2 r_s is a mathematical implementation issue (0/0 indeterminate form) requiring L'Hospital treatment, NOT a flaw in the underlying theory. See [[`EQUILIBRIUM_RADIUS_SOLUTION.md`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/EQUILIBRIUM_RADIUS_SOLUTION.md)](EQUILIBRIUM_RADIUS_SOLUTION.md) for complete explanation of this solvable implementation gap.
 
 ### Performance Metrics
 

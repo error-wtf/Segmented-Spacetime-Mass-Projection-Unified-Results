@@ -673,7 +673,7 @@ if __name__ == "__main__":
 
 **NEW: Eliminates 0/0 singularities at equilibrium points!**
 
-**Location:** `perfect_equilibrium_analysis.py` (428 lines)
+**Location:** [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) (428 lines)
 
 **Purpose:** Demonstrates rapidity formulation for smooth handling of equilibrium points where v_eff → 0.
 
@@ -709,7 +709,7 @@ python perfect_equilibrium_analysis.py
 
 **NEW: User-friendly tool for external data!**
 
-**Location:** `perfect_seg_analysis.py` (480 lines)
+**Location:** [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) (480 lines)
 
 **Purpose:** Production-ready standalone script for analyzing custom datasets with rapidity formulation.
 
@@ -738,7 +738,7 @@ python perfect_seg_analysis.py --csv data.csv --output results.csv
 
 **NEW: Incorporates ALL findings!**
 
-**Location:** `perfect_paired_test.py` (470 lines)
+**Location:** [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) (470 lines)
 
 **Purpose:** Complete paired test framework incorporating all findings from stratified analysis, φ-geometry validation, and rapidity solution.
 
@@ -813,9 +813,9 @@ python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
 **Source code:**
 - `ssz_theory_segmented.py` - Core implementation
 - `segspace_all_in_one_extended.py` - Complete pipeline
-- `perfect_equilibrium_analysis.py` - ⭐ NEW: Rapidity demonstration (428 lines)
-- `perfect_seg_analysis.py` - ⭐ NEW: Standalone analysis (480 lines)
-- `perfect_paired_test.py` - ⭐ NEW: Complete framework (470 lines)
+- [`perfect_equilibrium_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_equilibrium_analysis.py) - ⭐ NEW: Rapidity demonstration (428 lines)
+- [`perfect_seg_analysis.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_seg_analysis.py) - ⭐ NEW: Standalone analysis (480 lines)
+- [`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) - ⭐ NEW: Complete framework (470 lines)
 - `tests/test_*.py` - All physics tests
 
 **Theory papers:**
