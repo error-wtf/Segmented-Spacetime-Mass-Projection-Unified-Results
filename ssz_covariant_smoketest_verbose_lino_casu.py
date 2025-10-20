@@ -7,7 +7,18 @@ SSZ Covariant Smoketest (Verbose, NO NaN, PPN exact)
 Metric fixed: A(U)=1−2U+2U²+ε₃U³ with ε₃=−24/5, B=1/A, U=GM/(rc²).
 PPN via analytic coefficients at U=0 (no fitting): β=1, γ=1.
 """
+import sys
+import os
 import math
+
+# UTF-8 for Windows
+if sys.platform.startswith('win'):
+    os.environ['PYTHONIOENCODING'] = 'utf-8'
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except:
+        pass
 
 # Constants
 G  = 6.67430e-11
