@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Comprehensive Stratification Analysis - 3 Dimensions
+Comprehensive Stratification Analysis - 3D with φ-based geometry
+
+φ = (1+√5)/2 ≈ 1.618 is the GEOMETRIC FOUNDATION of ALL tests.
 
 Performs paired test with THREE stratification dimensions:
-1. By radius (photon sphere, very close, moderate, weak field)
+1. By radius (photon sphere near φ/2, very close, moderate, weak field)
 2. By data type (NED-origin vs non-NED objects)
 3. By completeness (100% complete vs partial data)
 
-Uses segspace_all_in_one_extended.py for each stratified subset.
+ALL tests use φ-based geometry:
+- Natural boundary r_φ = (φ/2)r_s ≈ 1.618 r_s
+- φ-derived Δ(M) = A*exp(-α*r_s) + B corrections
+- Tests validate: radius (physics) dominates, NOT data source/completeness
+
+Uses segspace_all_in_one_extended.py (with φ-based corrections) for each subset.
 """
 import pandas as pd
 import subprocess
