@@ -48,6 +48,9 @@
 - **[EQUILIBRIUM_RADIUS_SOLUTION.md](EQUILIBRIUM_RADIUS_SOLUTION.md)** - ⭐⭐⭐ **Why r < 2 r_s shows 0% (0/0 problem) + Rapidity solution**
 - **[RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)** - ⭐⭐⭐⭐ **PRODUCTION CODE: Rapidity-based solution (eliminates 0/0)**
 - **[perfect_equilibrium_analysis.py](perfect_equilibrium_analysis.py)** - ⭐⭐⭐ **Working demonstration script (428 lines, fully tested)**
+- **[perfect_seg_analysis.py](perfect_seg_analysis.py)** - ⭐⭐⭐⭐ **STANDALONE: Interactive analysis for user data (480 lines, production-ready)**
+- **[PERFECT_SEG_ANALYSIS_GUIDE.md](PERFECT_SEG_ANALYSIS_GUIDE.md)** - ⭐⭐⭐ **Complete user guide for standalone script**
+- **[smoke_test_all.py](smoke_test_all.py)** - ⭐ Quick health checks (7 tests including rapidity validation)
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ Regime-specific paired test analysis
 - **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - ⭐⭐ Why φ (golden ratio) is the GEOMETRIC BASIS
 - **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ φ-based geometry impact: 0% → 51%
