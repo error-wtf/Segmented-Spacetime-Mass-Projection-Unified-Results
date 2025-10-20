@@ -21,7 +21,7 @@
 - Why the Golden Ratio φ is central
 - How mass structures spacetime
 - Why the model avoids singularities
-- Where SSZ agrees with General Relativity (GR) (GR) (GR)
+- Where SSZ agrees with General Relativity (GR)
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### What is a Singularity?
 
-In Einstein's **General Relativity (GR) (GR) (GR)**:
+In Einstein's **General Relativity (GR)**:
 - Mass curves spacetime
 - The closer to the mass, the stronger the curvature
 - **At the center of a black hole:** Infinite curvature = **Singularity**

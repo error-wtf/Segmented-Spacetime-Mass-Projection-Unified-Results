@@ -195,14 +195,18 @@
 | Abbreviation | Full Term | Context |
 |--------------|-----------|----------|
 | SSZ | Segmented Spacetime | Theory name |
-| GR | General Relativity (GR) (GR) | Comparison framework |
+| GR | General Relativity | Comparison framework |
 | PPN | Parametrized Post-Newtonian | Test framework |
 | BH | Black Hole | Astrophysical object |
 | ISCO | Innermost Stable Circular Orbit | Orbital mechanics |
 | WEC/DEC/SEC | Weak/Dominant/Strong Energy Condition | Energy conditions |
 | AGN | Active Galactic Nucleus | Data source |
+| EHT | Event Horizon Telescope | Observational data source |
 | GAIA | GAIA mission | Data source |
 | NED | NASA/IPAC Extragalactic Database | Data source |
+| ALMA | Atacama Large Millimeter Array | Observational data source |
+| VLT | Very Large Telescope | Observational data source |
+| GRAVITY | GRAVITY instrument | Observational data source |
 
 ### ⚠️ Potentially Undefined Abbreviations
 
