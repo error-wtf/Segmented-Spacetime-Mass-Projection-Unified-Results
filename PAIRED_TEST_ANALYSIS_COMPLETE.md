@@ -567,14 +567,29 @@ SEG excels in **strong-field regimes** where phi-based segmentation matters:
 - Strong gravitational redshift (z_grav > 0.1)
 - High velocities (v > 0.1c)
 
-But our emission-line dataset is **dominated by weak-field sources**:
+But our emission-line dataset has a **critical concentration**:
 ```
-Strong field (r < 10 r_s):    ~50/143 (35%) ← SEG wins here
-Intermediate (10-100 r_s):    ~40/143 (28%) ← SEG comparable  
-Weak field (r > 100 r_s):     ~53/143 (37%) ← GR×SR sufficient
+ACTUAL DATA DISTRIBUTION (analyzed 2025-10-20):
+r = 2-3 r_s:              66/143 (46%) ← Photon sphere region!
+Other strong field:       37/143 (26%) ← SEG advantage
+Intermediate/weak field:  40/143 (28%) ← GR×SR sufficient
+
+VELOCITY DISTRIBUTION:
+v < 1% c:    72/143 (50%) ← SR negligible!
+v > 5% c:    21/143 (15%) ← SR important
 ```
 
-**Result:** When you mix all object types, SEG's strong-field advantage gets **diluted** by weak-field cases where GR×SR is already accurate.
+**The Critical Discovery - Why Exactly 51%?**
+
+**46% of data is at r = 2-3 r_s (photon sphere region) with v < 1% c:**
+- At this radius, z_GR ≈ 0.3-0.5 (already strong)
+- Low velocity means z_SR ≈ 0.00001 (negligible)
+- SEG's phi correction adds ~3% improvement
+- Measurement uncertainty: ±1-3%
+- **Result:** SEG advantage (~3%) comparable to measurement scatter
+- **Outcome:** Random 50/50 split → p = 0.867
+
+This isn't dilution by weak-field sources - it's concentration in a regime where **both models perform well** but **measurement precision limits our ability to distinguish them**.
 
 **Evidence from Mass-Binned Analysis:**
 
