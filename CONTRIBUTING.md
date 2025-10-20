@@ -260,7 +260,7 @@ open htmlcov/index.html
 - Core scientific docs should be bilingual
 - Add language switcher to bilingual docs:
   ```markdown
-  **🌐 Languages:** [🇬🇧 English](FILE_EN.md) | [🇩🇪 Deutsch](FILE.md)
+  **🌐 Languages:** [🇬🇧 English | 🇩🇪 Deutsch
   ```
 
 **Structure:**

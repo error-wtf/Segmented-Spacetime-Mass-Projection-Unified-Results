@@ -38,8 +38,8 @@
    - **Action:** Comment out link for now
 
 4. ❌ **ausgabe.md** (referenced in SUMMARY_TOOL_README.md)
-   - **Decision:** This is German "output.md" - likely old reference
-   - **Action:** Comment out or replace with actual output location
+   - **Decision:** This is German "output.md" - example/placeholder only
+   - **Action:** Documented as example parameter (not actual file)
 
 ### Category C: Missing Figures
 **Files:** PAPER_EXPORT_TOOLS_COMPLETE.md, papers/validation/PDR_HII_Molecular_Shell_diagram.md
