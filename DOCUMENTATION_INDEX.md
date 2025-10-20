@@ -27,13 +27,13 @@
 - **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
 
 ### 📊 Data Documentation ⭐ NEW (Bilingual EN/DE)
+- **[data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - ⭐⭐⭐ **COMPLETE data source decisions:** Emission lines (chosen), Continuum (multi-freq only), Hubble data (rejected - cosmology), LIGO (rejected - dynamic waves)
 - **[Sources.md](Sources.md)** - Complete data provenance & citations
 - **[DATA_CHANGELOG.md](DATA_CHANGELOG.md)** - Data version history
 - **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Data quality analysis
 - **[DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)** ([🇩🇪 DE](DATA_IMPROVEMENT_ROADMAP.md) | [🇬🇧 EN](DATA_IMPROVEMENT_ROADMAP_EN.md)) - Future data enhancements
 - **[DATA_IMPROVEMENT_STATUS_REPORT.md](DATA_IMPROVEMENT_STATUS_REPORT.md)** ([🇩🇪 DE](DATA_IMPROVEMENT_STATUS_REPORT.md) | [🇬🇧 EN](DATA_IMPROVEMENT_STATUS_REPORT_EN.md)) - Roadmap status analysis
 - **[TODO_DATA_INTEGRATION.md](TODO_DATA_INTEGRATION.md)** ([🇩🇪 DE](TODO_DATA_INTEGRATION.md) | [🇬🇧 EN](TODO_DATA_INTEGRATION_EN.md)) - Data integration reminder
-- **[data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - Emission vs continuum data
 
 ### 🧪 Testing & Validation
 - **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - ⭐⭐⭐ **START HERE: Complete tester documentation (30KB)**
