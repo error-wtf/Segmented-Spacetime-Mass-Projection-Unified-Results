@@ -224,14 +224,13 @@ def compute_z_seg_perfect(r_m, M_msun, v_los_mps, v_tot_mps, z_obs, z_geom_hint=
         equilibrium_factor = 1.0
     
     # ===========================================================================
-    # COMBINE ALL CORRECTIONS
+    # COMBINE ALL CORRECTIONS (EXACT segspace logic!)
     # ===========================================================================
-    # z_total = [(1 + z_grav_corrected) * (1 + z_sr) - 1] * equilibrium_factor
-    if not np.isnan(z_grav_corrected) and not np.isnan(z_sr):
-        z_combined = (1.0 + z_grav_corrected) * (1.0 + z_sr) - 1.0
-        z_seg = z_combined * equilibrium_factor
-    else:
-        z_seg = np.nan
+    # NaN values are treated as 0 (like in segspace z_combined)
+    zgr_safe = 0.0 if np.isnan(z_grav_corrected) else z_grav_corrected
+    zsr_safe = 0.0 if np.isnan(z_sr) else z_sr
+    z_combined = (1.0 + zgr_safe) * (1.0 + zsr_safe) - 1.0
+    z_seg = z_combined * equilibrium_factor
     
     # Error relative to observation
     error = abs(z_seg - z_obs) if not np.isnan(z_seg) else np.nan
@@ -274,11 +273,10 @@ def compute_z_grsr_classical(r_m, M_msun, v_los_mps, v_tot_mps, z_obs):
         z_sr = np.nan
     
     # CORRECT relativistic combination (multiplicative!)
-    # This is z_grsr in segspace
-    if not np.isnan(z_grav) and not np.isnan(z_sr):
-        z_grsr = (1.0 + z_grav) * (1.0 + z_sr) - 1.0
-    else:
-        z_grsr = np.nan
+    # NaN values treated as 0 (like segspace)
+    zgr_safe = 0.0 if np.isnan(z_grav) else z_grav
+    zsr_safe = 0.0 if np.isnan(z_sr) else z_sr
+    z_grsr = (1.0 + zgr_safe) * (1.0 + zsr_safe) - 1.0
     
     error = abs(z_grsr - z_obs) if not np.isnan(z_grsr) else np.nan
     
