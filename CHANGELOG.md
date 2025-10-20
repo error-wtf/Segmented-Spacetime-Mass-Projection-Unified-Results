@@ -146,7 +146,7 @@ See [REPOSITORY_QUALITY_REPORT_v1.3.0.md](REPOSITORY_QUALITY_REPORT_v1.3.0.md) f
 
 ---
 
-## [1.3.0] - 2025-10-19
+## [1.2.0] - 2025-10-19
 
 ### 🎉 Major Update: Dataset Expansion + Comprehensive Warning System
 
