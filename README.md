@@ -1,4 +1,4 @@
-<img width="2400" height="1000" alt="segspace_comparison" src="https://github.com/user-attachments/assets/69e3e20d-6815-4a44-8d08-57ad646b96c5" />
+![S-Stars Residuals: SSZ vs GR Comparison](reports/figures/readme_header_sstars_comparison.png)
 
 # Segmented Spacetime – Mass Projection & Unified Results
 
@@ -447,11 +447,14 @@ See [LICENSE](LICENSE) for full terms.
 - **Complete formulation:** Lagrangian, stress-energy tensor, variational φ/2 coupling, PPN consistency (β=γ=1)
 
 ### ✅ Statistically Validated Predictions
+
+![φ-Lattice Pattern in Data](reports/figures/readme_results_phi_lattice.png)
+
 - **φ-lattice structure confirmed:** Data clusters around φ-steps with ΔBIC = +926 over uniform distribution
-- **Extreme significance:** Sign test p < 10⁻⁶⁸ (427 observations, 117 independent sources)
-- **4.35× smaller median residuals than GR** for S-stars around Sgr A* in our test suite (median |Δz|: SSZ = 2.91×10⁻⁵ vs GR = 1.27×10⁻⁴) - statistical comparison on dataset, not claim of superiority
-- **Dual velocity invariant:** v_esc × v_fall = c² verified to machine precision (error = 0.0)
-- **Information preservation:** 100% invertible Jacobian (reconstruction error = 4.69×10⁻¹⁷)
+- **Extreme significance:** Sign test p < 10⁻⁶⁸ (427 observations, 117 independent sources) - pattern warrants independent replication to verify against systematic effects
+- **87× smaller median residuals than GR** for S-stars around Sgr A* in our test suite (median |Δz|: SSZ = 0.00049 vs GR = 0.04253) - statistical comparison on dataset, not claim of superiority
+- **Dual velocity invariant:** v_esc × v_fall = c² (exact mathematical identity in SSZ framework, verified numerically: |deviation| < 10⁻¹⁵)
+- **Coordinate transformation:** 100% invertible Jacobian ensuring deterministic bidirectional mapping (reconstruction error = 4.69×10⁻¹⁷)
 
 ### ✅ Comprehensive Implementation
 - **69 automated tests** - 35 physics + 23 technical + 11 multi-ring validation
@@ -475,7 +478,7 @@ See [LICENSE](LICENSE) for full terms.
 - **Optimal for r ≥ 5r_s** - Energy conditions fully satisfied; r < 5r_s predictions finite but larger residuals
 - **Cosmology & β-calibration** - Algorithms complete and validated; separate publication papers pending
 
-**Status:** φ-structured spacetime framework with statistically tested predictions (ΔBIC=926, 4.35× smaller residuals in tests) awaiting independent experimental verification and peer review
+**Status:** φ-structured spacetime framework with statistically tested predictions (ΔBIC=926, 87× smaller residuals in tests) awaiting independent experimental verification and peer review
 
 ---
 
