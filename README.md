@@ -162,6 +162,7 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 - [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) - Scientific findings report
 - [OPTIMIZATION_ANALYSIS.md](OPTIMIZATION_ANALYSIS.md) - Script optimization opportunities
 - [final_validation_findings.py](final_validation_findings.py) - Can we achieve 100%? (Script)
+- [FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md](FINAL_VALIDATION_SCRIPT_DOCUMENTATION.md) - ⭐ Why "perfect" ≠ 100%
 
 ---
 
