@@ -45,7 +45,9 @@
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
 - **[TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md)** - ⭐ Complete theory→test validation chain
 - **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - Scientific findings report (streamlined) + Equilibrium radius gap explained
-- **[EQUILIBRIUM_RADIUS_SOLUTION.md](EQUILIBRIUM_RADIUS_SOLUTION.md)** - ⭐⭐⭐ **NEW: Why r < 2 r_s shows 0% (0/0 problem) - L'Hospital solution**
+- **[EQUILIBRIUM_RADIUS_SOLUTION.md](EQUILIBRIUM_RADIUS_SOLUTION.md)** - ⭐⭐⭐ **Why r < 2 r_s shows 0% (0/0 problem) + Rapidity solution**
+- **[RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)** - ⭐⭐⭐⭐ **PRODUCTION CODE: Rapidity-based solution (eliminates 0/0)**
+- **[perfect_equilibrium_analysis.py](perfect_equilibrium_analysis.py)** - ⭐⭐⭐ **Working demonstration script (428 lines, fully tested)**
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ Regime-specific paired test analysis
 - **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - ⭐⭐ Why φ (golden ratio) is the GEOMETRIC BASIS
 - **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ φ-based geometry impact: 0% → 51%
