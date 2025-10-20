@@ -126,7 +126,7 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 | **Very Close (r<2 r_s)** | 0% wins (p<0.0001) | None* | ⚠️ **Implementation gap** (0/0 at equilibrium)* |
 | **Weak Field (r>10 r_s)** | 37% wins (p=0.154) | +3 pp | ⚠️ **Comparable** (classical works) |
 
-*See EQUILIBRIUM_RADIUS_SOLUTION.md - Mathematical issue (0/0), not physics failure. Equilibrium points = where accretion disks form. L'Hospital fix → Expected 35-50%.
+*See EQUILIBRIUM_RADIUS_SOLUTION.md and RAPIDITY_IMPLEMENTATION.md - Mathematical issue (0/0), not physics failure. **SOLUTION: Rapidity formulation** eliminates singularities. Equilibrium points = where accretion disks form. Expected 35-50% after fix.
 
 ![Stratified Performance by Regime](reports/figures/analysis/stratified_performance.png)
 
