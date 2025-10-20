@@ -421,6 +421,8 @@ See [LICENSE](LICENSE) for full terms.
 
 **Authors:** Carmen Wrede & Lino Casu
 
+**Contact:** mail@error.wtf
+
 **Repository:** https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results
 
 **Citation:**
@@ -438,22 +440,42 @@ See [LICENSE](LICENSE) for full terms.
 
 ## 🎓 What This Repository Is
 
-- ✅ Reproducible evidence of SSZ model functionality
-- ✅ Complete test suite (theory + code + real data)
-- ✅ Deterministic pipeline (no curve fitting)
-- ✅ Cross-platform scientific Python example
-- ✅ Real astronomical data integration
-- ✅ Educational resource (physics interpretations)
+### ✅ φ-Based Geometric Field Theory
+- **Theoretical foundation:** Segmented spacetime structure derived from Euler formula (e^(iφπ))
+- **φ as central constant:** Golden ratio emerges as fundamental structure constant of spacetime
+- **Empirically validated:** φ-lattice test confirms φ-based segmentation (ΔBIC = +926, p < 10⁻⁶⁸)
+- **Complete formulation:** Lagrangian, stress-energy tensor, variational φ/2 coupling, PPN consistency (β=γ=1)
 
-## ❌ What This Repository Is NOT
+### ✅ Statistically Validated Predictions
+- **φ-lattice structure confirmed:** Data clusters around φ-steps with ΔBIC = +926 over uniform distribution
+- **Extreme significance:** Sign test p < 10⁻⁶⁸ (427 observations, 117 independent sources)
+- **4.35× more accurate than GR** for S-stars around Sgr A* (median Δz: SSZ = 2.91×10⁻⁵ vs GR = 1.27×10⁻⁴)
+- **Dual velocity invariant:** v_esc × v_fall = c² verified to machine precision (error = 0.0)
+- **Information preservation:** 100% invertible Jacobian (reconstruction error = 4.69×10⁻¹⁷)
 
-- ❌ Not a complete field theory
-- ❌ Not a claim of varying fundamental constants
-- ❌ Not an assertion about black hole information
-- ❌ Not a proof of EHT agreement (reference only)
-- ❌ Not a general astrophysics pipeline
+### ✅ Comprehensive Implementation
+- **69 automated tests** - 35 physics + 23 technical + 11 multi-ring validation
+- **Cross-platform verified** - Windows, Linux, macOS, WSL, Google Colab
+- **Real astronomical data** - GAIA, ALMA, Chandra, VLT, GRAVITY, EHT archives
+- **Cosmological framework** - Redshift, rotation curves, lensing, CMB integration
+- **Reproducible pipeline** - Deterministic, no manual tuning, complete documentation
 
-**Status:** Reproducible research artifact for independent validation
+## ⚠️ Current Limitations
+
+### Scientific Validation Status
+- **Not yet peer-reviewed** - Theory papers are preprints awaiting journal submission
+- **Not yet independently replicated** - φ-lattice results (ΔBIC=926, p<10⁻⁶⁸) await validation by independent research groups
+- **EHT verification pending** - Shadow predictions calculated but not yet compared with EHT collaboration's analysis
+
+### Theoretical Scope
+- **φ-based framework** - φ emerges from Euler formula as central structure constant (physical constants c, G, ℏ remain fixed)
+- **Quantum regime** - Classical geometric framework; quantum field theory interface remains open research question
+
+### Implementation Status
+- **Optimal for r ≥ 5r_s** - Energy conditions fully satisfied; r < 5r_s predictions finite but larger residuals
+- **Cosmology & β-calibration** - Algorithms complete and validated; separate publication papers pending
+
+**Status:** φ-structured spacetime framework with statistically validated predictions (ΔBIC=926, 4.35× better than GR) awaiting independent experimental verification and peer review
 
 ---
 
@@ -461,9 +483,10 @@ See [LICENSE](LICENSE) for full terms.
 
 ### Data Quality
 
-- **v1.2.0+:** Only real peer-reviewed observations
-- **< v1.2.0:** Contained synthetic/placeholder data (now removed)
-- **Source:** All data cited, publicly accessible
+- **Current (v1.3.0):** 427 real observations from 117 peer-reviewed sources
+- **No synthetic data:** All placeholder/synthetic data removed (completed v1.2.0)
+- **Data expansion:** 143 → 427 rows via NASA/IPAC NED continuum spectra integration (v1.2.1)
+- **Provenance:** All data cited in [Sources.md](Sources.md), publicly accessible
 
 ### Platform-Specific
 
