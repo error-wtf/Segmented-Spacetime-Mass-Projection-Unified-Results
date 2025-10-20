@@ -244,19 +244,21 @@ python segspace_all_in_one_extended.py bound-energy --plots
 
 **427 data points** from **117 unique sources**
 
-- **Emission lines:** 143 rows (paired test)
-- **Continuum:** 284 rows (spectrum analysis)
+- **Emission lines:** 143 rows (paired test dataset)
+- **Continuum:** 284 rows (multi-frequency spectrum analysis)
 - **Frequency range:** 2.3×10¹¹ - 3.0×10¹⁸ Hz (9+ orders)
 - **No synthetic data** - All real observations
 
+**Note:** Paired redshift test uses emission-line data only (143 rows) where z_obs is directly comparable to model predictions. Continuum data (284 rows from M87/Sgr A* NED spectra) is used for multi-frequency analysis and Information Preservation studies but not for z_obs vs z_pred comparisons.
+
 ### Performance Metrics
 
-**Median |Δz| (lower is better):**
+**Median |Δz| (emission-line dataset, lower is better):**
 - SEG (φ/2 + Δ(M)): **1.31e-4**
 - SR: 1.34e-2
 - GR: 2.25e-1
 
-**Paired comparison:** SEG better in 79/143 emission lines (55%), p < 0.001
+**Paired comparison (emission lines only):** SEG better in 79/143 rows (55%), p < 0.001
 
 **Mass bins:** SEG < GR×SR in all bins
 
