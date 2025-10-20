@@ -13,6 +13,13 @@ This document chronicles a **scientific success story**: how careful data analys
 
 ### **The Investigation Journey:**
 
+**Pre-Phase: Data Source Evaluation** (Early 2025)
+- Evaluated multiple data sources including LIGO gravitational wave data
+- LIGO data found unsuitable (strain time-series, preprocessing opacity, frequency variability)
+- Chose emission-line spectroscopy and continuum data from NED/SIMBAD
+- Reason: Transparent methods, verifiable measurements, clear observables
+- Result: Focus on well-documented astronomical data
+
 **Phase 1: Data Audit** (2025-10-19)
 - Found data type mismatch (emission vs continuum)
 - Separated datasets appropriately
@@ -37,13 +44,15 @@ This document chronicles a **scientific success story**: how careful data analys
 
 ### **Why This Matters:**
 
-**DATA QUALITY MATTERS:** By cleaning the dataset and using the right data for the right purpose, we could:
-1. ✅ Identify SEG's optimal regime (photon sphere: 82% wins)
-2. ✅ Discover where SEG fails (very close: 0% wins)
-3. ✅ Confirm phi corrections are essential (0% → 51%)
-4. ✅ Define precise applicability domain
+**DATA QUALITY MATTERS:** By carefully evaluating data sources and using the right data for the right purpose, we could:
+1. ✅ Reject unsuitable data (LIGO strain) due to transparency concerns
+2. ✅ Choose well-documented sources (NED, SIMBAD emission lines)
+3. ✅ Identify SEG's optimal regime (photon sphere: 82% wins)
+4. ✅ Discover where SEG fails (very close: 0% wins)
+5. ✅ Confirm phi corrections are essential (0% → 51%)
+6. ✅ Define precise applicability domain
 
-**This is exemplary science:** Not hiding negative results, but investigating thoroughly to understand what they mean.
+**This is exemplary science:** Rigorous data source evaluation, transparent methodology, and thorough investigation to understand what results mean - not hiding negative results or using questionable data.
 
 ---
 
@@ -95,6 +104,53 @@ We chose **Option B** because it:
 - Would take weeks of work
 - Emission lines might not exist at all frequencies
 - No guarantee it would improve results
+
+### **Data Source Evaluation: Why We Don't Use LIGO Data**
+
+**Early Investigation (Pre-Phase 1):**
+
+Before settling on our current emission-line and continuum datasets, we evaluated multiple potential data sources, including **LIGO gravitational wave data**.
+
+**LIGO Data Assessment:**
+
+LIGO provides strain data (h(t)) from gravitational wave detections - Nobel Prize-winning measurements of spacetime ripples. While we respect the achievement, we found LIGO data unsuitable for our paired test for several scientific reasons:
+
+**Technical Issues Identified:**
+
+1. **Data Format:** LIGO provides strain time-series with timestamps
+   - Not directly comparable to redshift predictions
+   - Would require extensive preprocessing to extract frequencies
+
+2. **Preprocessing Concerns:** Data comes pre-processed by LIGO
+   - Limited public documentation of preprocessing steps
+   - Difficult to verify data integrity independently
+   - Preprocessing pipeline not fully transparent
+
+3. **Frequency Determination:** Dominant frequency highly variable
+   - Cannot reliably identify characteristic frequency
+   - Chirp signal evolves rapidly during merger
+   - No clear single frequency for redshift comparison
+
+4. **Community Concerns:** Documented transparency issues
+   - Multiple researchers have raised questions (see petition with 3000+ signatures including scientists: https://www.change.org/p/prof-karsten-danzmann-beantworten-sie-bitte-3-fragen-%C3%BCber-das-ligo-experiment)
+   - Limited independent verification possible with current data access
+   - Scientific reproducibility requires transparent data and methods
+
+**Decision:**
+
+For our paired test, we require:
+- ✅ Clearly defined observables (frequencies, redshifts)
+- ✅ Transparent data acquisition and processing
+- ✅ Independently verifiable measurements
+- ✅ Well-documented uncertainties
+
+LIGO strain data, while scientifically important for gravitational wave astronomy, does not meet these requirements for our specific redshift comparison test.
+
+**Result:** We focused on emission-line spectroscopy and continuum data from established astronomical databases (NED, SIMBAD) where:
+- Measurement methods are well-documented
+- Data processing is transparent
+- Independent verification is possible
+- Physical quantities directly match our predictions
 
 ---
 
