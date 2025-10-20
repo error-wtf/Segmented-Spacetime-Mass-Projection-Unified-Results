@@ -78,6 +78,20 @@ chmod +x install.sh
 
 **What's New:** See [CHANGELOG.md](CHANGELOG.md) for complete release history
 
+**📖 Key Terms & Glossary:** See [Technical Glossary](docs/improvement/TERMINOLOGY_GLOSSARY.md) for 200+ terms (EN/DE)
+
+---
+
+## 📚 Key Terminology
+
+**SSZ:** Segmented Spacetime (φ-based geometric framework)  
+**GAIA:** ESA's Gaia space observatory (stellar data)  
+**NED:** NASA/IPAC Extragalactic Database  
+**EHT:** Event Horizon Telescope  
+**PPN:** Parametrized Post-Newtonian formalism  
+
+See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) with 200+ terms in English and German.
+
 ---
 
 ## 📦 Installation Details

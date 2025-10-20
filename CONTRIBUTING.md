@@ -269,6 +269,56 @@ open htmlcov/index.html
 - Include examples
 - Add cross-references
 
+### Bilingual Documentation Synchronization ⚠️ IMPORTANT
+
+**For EN/DE bilingual files, ALWAYS update both versions:**
+
+```bash
+# Example: When updating theory docs
+# 1. Edit English version
+vim docs/PHYSICS_FOUNDATIONS.md
+
+# 2. Edit German version
+vim docs/PHYSICS_FOUNDATIONS_DE.md
+
+# 3. Keep structure identical
+# - Same headings
+# - Same examples  
+# - Same formulas
+# - Only language differs
+```
+
+**Checking bilingual coverage:**
+```bash
+# Run bilingual coverage check
+python scripts/tools/analyze_bilingual_coverage.py
+
+# Shows:
+# - Missing translations
+# - Outdated translations
+# - Coverage percentage
+```
+
+**Current bilingual docs (must be kept in sync):**
+- `PHYSICS_FOUNDATIONS.md` / `PHYSICS_FOUNDATIONS_DE.md`
+- `MATHEMATICAL_FORMULAS.md` / `MATHEMATICAL_FORMULAS_DE.md`
+- `CODE_IMPLEMENTATION_GUIDE.md` / `CODE_IMPLEMENTATION_GUIDE_DE.md`
+- `EXAMPLES_AND_APPLICATIONS.md` / `EXAMPLES_AND_APPLICATIONS_DE.md`
+- `THEORY_AND_CODE_INDEX.md` / `THEORY_AND_CODE_INDEX_DE.md`
+- `DATA_IMPROVEMENT_ROADMAP.md` / `DATA_IMPROVEMENT_ROADMAP_EN.md`
+- `DATA_IMPROVEMENT_STATUS_REPORT.md` / `DATA_IMPROVEMENT_STATUS_REPORT_EN.md`
+- `TODO_DATA_INTEGRATION.md` / `TODO_DATA_INTEGRATION_EN.md`
+- `TEST_SUITE_VERIFICATION.md` / `TEST_SUITE_VERIFICATION_EN.md`
+
+**Translation Tips:**
+- Use [Technical Glossary](docs/improvement/TERMINOLOGY_GLOSSARY.md) for consistent terminology
+- Preserve all code blocks exactly
+- Keep LaTeX formulas identical
+- Maintain same formatting/structure
+
+**Community Help Welcome:**
+We appreciate help keeping translations synchronized! If you find outdated translations, please open an issue or PR.
+
 ---
 
 ## 🔄 Submitting Changes
