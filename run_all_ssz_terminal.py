@@ -684,7 +684,14 @@ if paired_info:
         lines.append("  - High velocity (v>5% c, 21 obs): SEG EXCELS with 86% win rate (p=0.0015)")
         lines.append("  - These opposing regimes cancel to give ~51% overall (p~0.867)")
         lines.append("  - SEG is a PHOTON SPHERE theory (optimal at r=2-3 r_s), not universally superior")
-        lines.append("  - See STRATIFIED_PAIRED_TEST_RESULTS.md for complete regime-specific analysis")
+        lines.append("")
+        lines.append("  CRITICAL: All results WITH phi corrections (Delta(M) = A*exp(-alpha*rs) + B)")
+        lines.append("  - WITHOUT phi: 0/143 wins (0%) - GR×SR always wins")
+        lines.append("  - WITH phi: 73/143 wins (51%) - competitive")
+        lines.append("  - Phi brings +51 percentage points improvement")
+        lines.append("  - See PHI_CORRECTION_IMPACT_ANALYSIS.md for complete analysis")
+        lines.append("")
+        lines.append("  See STRATIFIED_PAIRED_TEST_RESULTS.md for complete regime-specific analysis")
         lines.append("")
 
 if medians_info:
