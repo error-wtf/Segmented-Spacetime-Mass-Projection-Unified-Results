@@ -239,6 +239,174 @@ SEG is a **local spacetime geometry theory** that predicts gravitational effects
 - ✅ Emission lines → Test local gravity (SEG domain)
 - ✅ Continuum spectra → Information preservation, Hawking radiation analogs
 - ❌ Hubble flow → Cosmology (NOT SEG domain)
+- ❌ LIGO strain data → Gravitational waves (different physics, see below)
+
+---
+
+## Data Source Evaluation: Why We Don't Use LIGO Gravitational Wave Data
+
+**Initial Consideration (Early 2025):**
+
+Before settling on emission-line and continuum datasets, we evaluated multiple potential data sources, including **LIGO gravitational wave strain data**. While LIGO provides Nobel Prize-winning measurements of spacetime ripples, we found this data **unsuitable for SEG redshift testing** for fundamental scientific and practical reasons.
+
+### LIGO Data: What It Measures
+
+**LIGO detects:**
+- Gravitational wave strain: h(t) - tiny distortions in spacetime
+- Binary inspiral/merger events (black holes, neutron stars)
+- Time-series of strain amplitude vs time
+- Frequency evolution during merger (chirp)
+
+**Physical phenomenon:**
+- Spacetime ripples propagating at speed of light
+- Dynamic geometry changes (not static metric)
+- Wave amplitude typically h ~ 10⁻²¹ (incredibly small)
+
+### Why LIGO Data is Unsuitable for SEG Testing
+
+**1. Fundamentally Different Physics:**
+
+| Aspect | LIGO Measures | SEG Models |
+|--------|---------------|------------|
+| **Phenomenon** | Gravitational waves (dynamic) | Static/quasi-static spacetime geometry |
+| **Observable** | Strain h(t) time-series | Redshift z from static metric |
+| **Time Dependence** | Highly dynamic (milliseconds) | Static or slowly varying (orbits) |
+| **Physics Type** | Wave propagation | Local curvature/time dilation |
+
+- **SEG predicts:** Static metric corrections → gravitational redshift z
+- **LIGO measures:** Dynamic strain h(t) → gravitational wave amplitude
+- **Comparison:** Completely different observables!
+
+**Analogy:** Using ocean wave heights to test predictions about water pressure at depth
+- Both related to water
+- Both valid physics
+- Completely different phenomena
+
+**2. Data Format Incompatibility:**
+
+**LIGO provides:**
+```
+Data: h(t) strain time-series with timestamps
+Format: Time → Strain amplitude
+Example: GW150914 - merger signal ~0.2 seconds
+```
+
+**SEG predicts:**
+```
+Redshift: z = (observable - emitted) / emitted
+Format: Spectral shift (dimensionless)
+Example: S2 star z ~ 2.34×10⁻⁴ from orbit
+```
+
+**Problem:** 
+- Cannot directly compare strain amplitude h(t) to redshift z
+- Would require extensive conversion/interpretation
+- Conversion assumptions would dominate uncertainty
+- Result would test conversion procedure, not SEG
+
+**3. Preprocessing Transparency Concerns:**
+
+**LIGO Data Pipeline:**
+- Raw detector output → Multiple preprocessing stages → Published strain h(t)
+- Includes: Noise subtraction, glitch removal, calibration, filtering
+- Preprocessing details: Partially documented but complex
+- Full pipeline: Not completely transparent to external researchers
+
+**Our Requirements:**
+- ✅ Raw or minimally processed data
+- ✅ Fully transparent measurement procedures
+- ✅ Independently verifiable
+- ✅ Clear uncertainty quantification
+
+**LIGO strain data:**
+- ❌ Heavily preprocessed (necessary for detection, but reduces transparency)
+- ❌ Preprocessing pipeline complex and evolving
+- ❌ Difficult to independently verify without full pipeline access
+- ⚠️ Not a criticism of LIGO science (preprocessing is ESSENTIAL for GW detection)
+- ⚠️ Simply doesn't meet OUR transparency requirements for THIS test
+
+**4. Observable Mismatch:**
+
+**What we need to test SEG:**
+- Direct spectroscopic measurements (wavelengths, frequencies)
+- Gravitational redshift from static/quasi-static fields
+- Clear comparison: z_obs vs z_pred
+- Regime stratification by r/r_s
+
+**What LIGO provides:**
+- Gravitational wave strain from dynamic events
+- Merger/inspiral dynamics (not static geometry)
+- Frequency evolution (chirp), not redshift
+- Event-based (not regime-stratified)
+
+**These don't align!**
+
+**5. Scientific Focus Mismatch:**
+
+**LIGO Science:**
+- Binary inspiral/merger dynamics
+- Gravitational wave propagation
+- Strong-field dynamics (velocities ~ c)
+- Transient events (milliseconds to seconds)
+
+**SEG Science:**
+- Static spacetime geometry
+- Local gravitational redshift
+- Static/quasi-static field (orbits, emission)
+- Stable configurations (hours to years)
+
+**Overlap:** Both involve strong gravity, but different aspects
+
+### Our Data Choice: Emission Lines + Continuum Spectra
+
+**Instead, we chose:**
+
+**Emission Lines (NED, SIMBAD, Literature):**
+- ✅ Direct spectroscopic measurements
+- ✅ Transparent: wavelength → redshift (simple calculation)
+- ✅ Independently verifiable (published spectra)
+- ✅ Tests local gravitational redshift (SEG domain)
+- ✅ Well-documented uncertainties
+- ✅ Covers multiple physical regimes (r/r_s stratification)
+
+**Continuum Spectra (NED):**
+- ✅ Multi-frequency flux measurements
+- ✅ For information preservation tests (different analysis)
+- ✅ Direct from database (minimal processing)
+- ✅ Transparently documented
+
+**Key Advantages:**
+1. **Simplicity:** Wavelength shift → redshift (basic calculation)
+2. **Transparency:** Measurement procedure clear and verifiable
+3. **Compatibility:** Directly tests what SEG predicts (z from static metric)
+4. **Stratification:** Can organize by physical regime (r/r_s)
+5. **Uncertainty:** Clear error bars on measurements
+
+### Summary: Data Source Selection Rationale
+
+**Evaluated:**
+- ✅ Emission-line spectroscopy (NED, SIMBAD) → **CHOSEN** (local gravity)
+- ✅ Continuum spectra (NED) → **CHOSEN** (information tests)
+- ❌ LIGO strain data → **REJECTED** (different physics, format, preprocessing)
+- ❌ Hubble/cosmological redshift → **REJECTED** (cosmology, not local gravity)
+
+**Selection Criteria:**
+1. Measures local gravitational effects (not cosmology, not dynamics)
+2. Transparent, verifiable measurements
+3. Directly comparable to SEG predictions
+4. Allows regime stratification (r/r_s)
+5. Well-documented uncertainties
+
+**LIGO data fails criteria #1, #2, #3, #4** - not because LIGO is bad science, but because it measures different physics than what SEG models!
+
+**Result:** 
+- 143 emission-line observations for paired redshift test
+- 284 continuum frequencies for information preservation
+- Clear physical interpretation
+- Transparent methodology
+- Reproducible analysis
+
+**Note:** This is NOT a criticism of LIGO's scientific achievements (which are extraordinary). LIGO data is perfect for gravitational wave astronomy. It's simply the wrong data type for testing a static metric prediction model like SEG.
 
 ---
 
