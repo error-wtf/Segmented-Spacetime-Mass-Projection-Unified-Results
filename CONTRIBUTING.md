@@ -32,11 +32,25 @@ This project is licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4. By con
 
 ## 🚀 Getting Started
 
+### ⚠️ IMPORTANT: Repository Access
+
+**You CANNOT push directly to this repository.**
+
+This repository is **restricted to owners only** (Carmen Wrede, Lino Casu). All external contributions **must** go through:
+1. **Fork** this repository to your account
+2. **Make changes** in your fork
+3. **Create Pull Request** from your fork
+
+**Any attempt to `git push` to the main repository will fail with 403 Forbidden error.**
+
+For details, see [REPOSITORY_SECURITY_PERMISSIONS.md](REPOSITORY_SECURITY_PERMISSIONS.md)
+
 ### Prerequisites
 
 - Python 3.8 or higher
 - Git
 - Basic knowledge of physics/astrophysics (helpful but not required)
+- GitHub account (for forking and PRs)
 
 ### Areas We Need Help
 

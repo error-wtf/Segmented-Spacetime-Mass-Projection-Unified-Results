@@ -590,11 +590,14 @@ S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,
 
 **This is a research artifact.** Independent replication and peer review are encouraged.
 
+**⚠️ Repository Access:** This repository has **restricted write access** (owners only: Carmen Wrede, Lino Casu). External contributions via **Fork + Pull Request** only. See [REPOSITORY_SECURITY_PERMISSIONS.md](REPOSITORY_SECURITY_PERMISSIONS.md) for details.
+
 **Contributions welcome:**
 - Bug reports → [Issues](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/issues)
-- Platform testing → Submit CI/CD logs
+- Code improvements → Fork repository, create PR (see [CONTRIBUTING.md](CONTRIBUTING.md))
+- Platform testing → Submit CI/CD logs via Issues or PR
 - Data integration → Follow [DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)
-- Documentation → Markdown PRs welcome
+- Documentation → Improvements and translations welcome via PR
 
 ---
 
