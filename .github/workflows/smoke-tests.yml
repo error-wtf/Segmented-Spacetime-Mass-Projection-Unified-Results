@@ -27,10 +27,16 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-order astroquery astropy pyarrow
 
-      - name: Run smoke tests (with small datasets)
+      - name: Run comprehensive smoke tests
         env:
           PYTHONPATH: .
         run: |
-          # Run tests with v1/nightly datasets (small files, immediately available)
-          # Large "real" datasets require Git LFS (~3.6 GB) and are not tested in CI
-          python ci/run_all_tests.py 2025-10-17_gaia_ssz_nightly
+          # Run new comprehensive smoke test suite (6 tests, ~5 seconds)
+          python smoke_test_all.py
+          
+      - name: Run covariant smoke test
+        env:
+          PYTHONPATH: .
+        run: |
+          # Run covariant metric smoke test (~1 second)
+          python ssz_covariant_smoketest_verbose_lino_casu.py
