@@ -20,10 +20,58 @@ Paired test analysis of 143 emission-line observations revealed that **SEG is a 
 **Selection Criteria:** Emission-line observations with measured redshift z_obs  
 **Exclusions:** Continuum-only data (284 rows) - incompatible physics (cosmological vs local redshift)
 
-**Why emission lines are essential:**  
-The choice of emission-line data over continuum data is not merely a matter of data quality but of fundamental physics compatibility. Emission lines measure local gravitational redshift at the emission point - this is the physical effect that SEG's φ-based geometry directly predicts. The redshift arises from the local spacetime curvature at the radius where the line is emitted, making it a direct test of the model's gravitational predictions.
+**Why emission lines are essential and Hubble/continuum data is unsuitable:**
 
-Continuum data, in contrast, measures the source's recession velocity (Hubble flow) - a cosmological effect dominated by the expansion of space rather than local gravity. Using continuum data would test completely different physics than what SEG models. This would be analogous to testing a theory of planetary orbits using measurements of galaxy rotation curves - both involve motion, but the physical mechanisms are fundamentally different. The 284 rows of continuum-only data were therefore excluded not because they are "lower quality" but because they measure physics that SEG is not designed to predict.
+The choice of emission-line data over continuum data is not merely a matter of data quality but of **fundamental physics compatibility**. This distinction is critical to understand:
+
+**Emission Lines - LOCAL Gravity (What SEG Models):**
+- Measure: Local gravitational redshift at specific emission radius
+- Physical scale: r ~ 1-100 r_s from compact object (km to AU scale)
+- Physics: Spacetime curvature and time dilation at emission point
+- Example: S2 star emission line shifted by z ~ 2.34×10⁻⁴ due to Sgr A* gravity
+- SEG prediction: φ-based metric corrections at local radius
+- **This is what SEG is designed to test**
+
+**Continuum Data - Hubble Flow (What SEG Does NOT Model):**
+- Measure: Cosmological redshift of entire host galaxy
+- Physical scale: Distances to sources (Mpc to Gpc scale)
+- Physics: Expansion of space (Hubble flow) + peculiar motion
+- Example: M87 galaxy z = 0.0042 from recession at ~16.8 Mpc distance
+- Calculation: z = H₀·d/c where H₀ ~ 70 km/s/Mpc (Hubble constant)
+- **This is cosmology, not local gravity**
+
+**Why Mixing These is Scientifically Invalid:**
+
+1. **Scale Mismatch:** Testing local spacetime geometry (r ~ r_s ~ km) with cosmological distances (d ~ Mpc ~ 10¹⁹ km) is like using stellar parallax to measure planetary orbits - wrong tool for wrong scale.
+
+2. **Physics Mismatch:** Gravitational time dilation (z ~ GM/rc²) and universe expansion (z ~ H₀d/c) are completely different phenomena. SEG models the first, NOT the second.
+
+3. **Prediction Incompatibility:** SEG computes local metric at emission radius. Continuum z_obs describes galaxy motion. These aren't even the same type of measurement.
+
+**Concrete Example - M87:**
+```
+Continuum Data (UNSUITABLE):
+  z_obs = 0.0042 (Hubble flow)
+  d ≈ 16.8 Mpc (distance to galaxy)
+  v_rec ≈ 1,260 km/s (recession velocity)
+  Physics: Cosmological expansion
+  
+SEG Prediction (LOCAL):
+  At r = 3 r_s: z_local ≈ 0.15 (strong gravity)
+  At r = 10 r_s: z_local ≈ 0.01 (weak field)
+  Physics: Spacetime curvature near M87* black hole
+  
+Problem: Comparing galaxy recession (0.0042) 
+         to local metric prediction (0.01-0.15)
+         is physically meaningless!
+```
+
+**Proper Analogy:**
+- Using emission lines: "Does this ball fall correctly under Earth's gravity?" (testing local gravity)
+- Using Hubble data: "Is the universe expanding?" (testing cosmology)
+- **SEG is a local gravity theory, NOT a cosmological model**
+
+The 284 rows of continuum-only data were therefore excluded not because they are "lower quality" but because **they measure physics that SEG is not designed to predict**. Including them would be like testing Newton's law of gravitation using measurements of galaxy cluster recession - the data is valid, but it's testing the wrong theory.
 
 ### Statistical Method
 
