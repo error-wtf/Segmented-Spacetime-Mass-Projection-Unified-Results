@@ -304,9 +304,6 @@ Vorteil: Klare Trennung, Original bleibt
 Original (DE): Segmentierte Raumzeit – Ein geometrisch-topologisches Modell.md
 Englisch: Segmented_Spacetime_Geometric_Topological_Model.md
 
-Vorteil: Englische Namen für englische Inhalte
-```
-
 ### Language Switcher Format
 ```markdown
 **🌐 Languages:** [🇬🇧 English](FILE_EN.md) | [🇩🇪 Deutsch](FILE.md)

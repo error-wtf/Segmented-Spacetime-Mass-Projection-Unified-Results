@@ -1,8 +1,8 @@
 # Cross-Reference Audit Report
 
-**Generated:** 2025-10-20 00:55:57
-**Files Scanned:** 279
-**Total Links:** 524
+**Generated:** 2025-10-20 02:15:08
+**Files Scanned:** 302
+**Total Links:** 539
 
 ---
 
@@ -10,10 +10,10 @@
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| ✅ Valid | 356 | 67.9% |
+| ✅ Valid | 364 | 67.5% |
 | ❌ Broken | 10 | 1.9% |
-| 🌐 External | 89 | 17.0% |
-| ⚓ Anchor | 69 | 13.2% |
+| 🌐 External | 89 | 16.5% |
+| ⚓ Anchor | 76 | 14.1% |
 | ➖ Skip | 0 | 0.0% |
 | ⚠️ Error | 0 | 0.0% |
 
@@ -23,33 +23,31 @@
 
 **Total:** 10 broken links found
 
+### CONTRIBUTING.md
+
+- **Link text:** `🇬🇧 English`
+  - **URL:** `FILE_EN.md`
+  - **Issue:** File not found: FILE_EN.md
+
+- **Link text:** `🇩🇪 Deutsch`
+  - **URL:** `FILE.md`
+  - **Issue:** File not found: FILE.md
+
 ### PAPER_EXPORT_TOOLS_COMPLETE.md
 
 - **Link text:** `Ring-chain velocity`
   - **URL:** `figures/G79/fig_G79_ringchain_v_vs_k.png`
   - **Issue:** File not found: fig_G79_ringchain_v_vs_k.png
 
-### PERFECTION_ROADMAP.md
-
-- **Link text:** `TROUBLESHOOTING.md`
-  - **URL:** `TROUBLESHOOTING.md`
-  - **Issue:** File not found: TROUBLESHOOTING.md
-
-### REPOSITORY_QUALITY_ASSESSMENT.md
-
-- **Link text:** `Quick Start`
-  - **URL:** `QUICK_START.md`
-  - **Issue:** File not found: QUICK_START.md
-
-- **Link text:** `Contributing`
-  - **URL:** `CONTRIBUTING.md`
-  - **Issue:** File not found: CONTRIBUTING.md
-
 ### SUMMARY_TOOL_README.md
 
-- **Link text:** `ausgabe.md`
-  - **URL:** `ausgabe.md`
-  - **Issue:** File not found: ausgabe.md
+- **Link text:** `output-file.md`
+  - **URL:** `output-file.md`
+  - **Issue:** File not found: output-file.md
+
+- **Link text:** `output-file.md`
+  - **URL:** `output-file.md`
+  - **Issue:** File not found: output-file.md
 
 ### TRANSLATION_ROADMAP.md
 
@@ -61,28 +59,21 @@
   - **URL:** `FILE.md`
   - **Issue:** File not found: FILE.md
 
-### papers\validation\PDR_HII_Molecular_Shell_diagram.md
+### docs\improvement\CROSS_REFERENCE_AUDIT.md
 
-- **Link text:** `Layered ISM schematic`
-  - **URL:** `/mnt/data/ChatGPT Image 16. Okt. 2025, 20_20_04.png`
-  - **Issue:** File not found: ChatGPT Image 16. Okt. 2025, 20_20_04.png
+- **Link text:** `text`
+  - **URL:** `url`
+  - **Issue:** File not found: url
 
-### papers\validation\stu296.pdf.md
+### docs\improvement\QUICK_FIXES_SESSION.md
 
-- **Link text:** `Ar II`
-  - **URL:** ` o r
-[Ne II]`
-  - **Issue:** File not found:  o r
-[Ne II]
+- **Link text:** `ausgabe.md`
+  - **URL:** `ausgabe.md`
+  - **Issue:** File not found: ausgabe.md
 
-### stu296.pdf.md
-
-- **Link text:** `Ar
-II`
-  - **URL:** ` o r
-[Ne II]`
-  - **Issue:** File not found:  o r
-[Ne II]
+- **Link text:** `output-file.md`
+  - **URL:** `output-file.md`
+  - **Issue:** File not found: output-file.md
 
 ---
 
@@ -104,7 +95,7 @@ II`
 | docs\MATHEMATICAL_FORMULAS.md | 14 |
 | docs\MATHEMATICAL_FORMULAS_DE.md | 14 |
 | docs\THEORY_AND_CODE_INDEX.md | 10 |
-| DOCUMENTATION_UPDATES_FINAL.md | 9 |
+| CONTRIBUTING.md | 9 |
 
 ---
 
