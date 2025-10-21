@@ -137,8 +137,9 @@ pytest scripts/tests/ -s -v           # Script tests
 - [INSTALL_README.md](INSTALL_README.md) - Detailed installation
 
 **Data:**
+- [DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md) - How to fetch data (ESO, NED, SIMBAD, GAIA)
 - [Sources.md](Sources.md) - Data provenance
-- [data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md) - Dataset usage
+- [DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md) - Dataset usage
 
 **Testing:**
 - [TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md) - Test system

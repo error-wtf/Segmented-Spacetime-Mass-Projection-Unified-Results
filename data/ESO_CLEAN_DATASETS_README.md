@@ -90,8 +90,9 @@ These 47 observations are curated from ESO Archive for immediate use.
 
 **For additional ESO observations (100+):**
 
-1. **Full ESO Data Acquisition Workflow:**
-   - See [`PAIRED_TEST_ANALYSIS_COMPLETE.md`](../PAIRED_TEST_ANALYSIS_COMPLETE.md) - Section "ESO Data Acquisition"
+1. **Complete Data Acquisition Guide:**
+   - See [`DATA_ACQUISITION_COMPLETE_GUIDE.md`](../docs/DATA_ACQUISITION_COMPLETE_GUIDE.md) - **All methods** (ESO, NED, SIMBAD, GAIA)
+   - [`PAIRED_TEST_ANALYSIS_COMPLETE.md`](../PAIRED_TEST_ANALYSIS_COMPLETE.md) - Section "ESO Data Acquisition"
    - Complete 11-step workflow with ADQL queries, FITS handling, data cleaning
 
 2. **Requirements:**

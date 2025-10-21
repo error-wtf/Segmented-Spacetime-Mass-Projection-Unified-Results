@@ -321,6 +321,8 @@ The **97.9% success rate** reported in this analysis is **not achievable with ar
 
 **This is the single most important methodological detail**: The difference between 51% (mixed data) and 97.9% (ESO data) is entirely attributable to data source quality and physical compatibility.
 
+**📥 Complete Data Acquisition Guide:** For a comprehensive overview of ALL data acquisition methods (ESO, NED, SIMBAD, GAIA), including what NOT to use and why, see **[DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)**
+
 ---
 
 ### Complete ESO Data Acquisition Workflow
