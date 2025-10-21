@@ -102,9 +102,21 @@ These 47 observations are curated from ESO Archive for immediate use.
    - 8-14 hours first-time investment
 
 3. **Scripts:**
+   
+   **ESO Data (requires token):**
    - [`scripts/download_eso_fits.sh`](../scripts/download_eso_fits.sh) - Download FITS files
    - [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) - Process FITS → CSV
    - [`scripts/clean_real_data_emission_lines.py`](../scripts/clean_real_data_emission_lines.py) - Clean dataset
+   
+   **GAIA Data (automatic):**
+   - [`scripts/fetch_gaia_full.py`](../scripts/fetch_gaia_full.py) - Full GAIA catalog
+   - [`scripts/gaia/fetch_gaia_adql.py`](../scripts/gaia/fetch_gaia_adql.py) - ADQL query
+   - [`scripts/gaia/fetch_gaia_conesearch.py`](../scripts/gaia/fetch_gaia_conesearch.py) - Cone search
+   
+   **Other Data Sources (automatic):**
+   - [`scripts/fetch_planck.py`](../scripts/fetch_planck.py) - Planck CMB
+   - [`scripts/sdss/fetch_sdss_catalog.py`](../scripts/sdss/fetch_sdss_catalog.py) - SDSS catalog
+   - [`scripts/data_acquisition/fetch_m87_spectrum.py`](../scripts/data_acquisition/fetch_m87_spectrum.py) - M87 spectrum
 
 4. **Documentation:**
    - Complete step-by-step instructions

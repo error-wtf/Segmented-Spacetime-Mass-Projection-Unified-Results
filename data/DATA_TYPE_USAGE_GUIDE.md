@@ -4,6 +4,12 @@ Created: 2025-10-19 11:52:26
 
 **📥 How to Fetch Data:** See **[DATA_ACQUISITION_COMPLETE_GUIDE.md](../docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** for complete instructions on ESO, NED, SIMBAD, GAIA acquisition
 
+**Quick Script Links:**
+- **ESO (token required):** [`download_eso_fits.sh`](../scripts/download_eso_fits.sh) + [`process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py)
+- **GAIA (automatic):** [`fetch_gaia_full.py`](../scripts/fetch_gaia_full.py) | [`gaia/fetch_gaia_adql.py`](../scripts/gaia/fetch_gaia_adql.py) | [`gaia/fetch_gaia_conesearch.py`](../scripts/gaia/fetch_gaia_conesearch.py)
+- **Planck (automatic):** [`fetch_planck.py`](../scripts/fetch_planck.py) | [`planck/fetch_planck_map.py`](../scripts/planck/fetch_planck_map.py)
+- **Other (automatic):** [`sdss/fetch_sdss_catalog.py`](../scripts/sdss/fetch_sdss_catalog.py) | [`data_acquisition/fetch_m87_spectrum.py`](../scripts/data_acquisition/fetch_m87_spectrum.py)
+
 ---
 
 ## Data Files
