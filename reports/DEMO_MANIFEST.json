@@ -399,6 +399,24 @@
       "path": "reports/figures/demo/fig_demo_scatter.png",
       "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
       "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_heatmap.png",
+      "sha256": "105890260a5d56f28005cfa44689c3dfd7f9c748a9873240a3657f6778ea3776",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_line.png",
+      "sha256": "35b3c3338899499da8cab3a26c9060471b57ab1966d859d9dbce744501fdb192",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_scatter.png",
+      "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
+      "format": "png"
     }
   ]
 }
