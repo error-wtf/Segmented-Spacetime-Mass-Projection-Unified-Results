@@ -91,6 +91,8 @@ print(f"Found {len(results)} observations")
 
 **⚠️ Note:** Automated ESO fetching requires manual token workflow. See **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** for complete instructions.
 
+**⭐ KEY SCRIPT:** After downloading FITS files, use [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) to automatically extract spectra, identify emission lines, and create the validation CSV.
+
 ---
 
 ## Method 2: NED/SIMBAD Catalogs

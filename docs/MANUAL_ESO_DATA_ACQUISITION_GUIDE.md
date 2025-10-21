@@ -35,16 +35,15 @@ Step 4: Get Download Token from Query Results
    ↓
 Step 5: Download FITS Files with curl + Token
    ↓
-Step 6: Extract Spectroscopic Data from FITS
+Step 6-9: ⭐ RUN PROCESSING SCRIPT ⭐
+   ↓    python scripts/process_eso_fits_to_csv.py
+   ↓    (Extracts, identifies lines, calculates z, adds params, exports CSV)
    ↓
-Step 7: Calculate Redshifts from Wavelengths
-   ↓
-Step 8: Add Physical Parameters (Mass, Velocity, Radius)
-   ↓
-Step 9: Export to CSV for Analysis
 ```
 
 **Result:** `real_data_emission_lines_clean.csv` (47 observations, 97.9% validation)
+
+**⭐ RECOMMENDED:** Use the automated processing script ([`process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py)) for Steps 6-9.
 
 ---
 
@@ -265,6 +264,34 @@ gunzip *.fits.Z
 
 ## Step 6: Extract Spectroscopic Data from FITS
 
+⭐ **KEY PROCESSING STEP - Use Ready-Made Script:**
+
+We provide a complete processing script that does Steps 6-9 automatically:
+
+**Script:** [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py)
+
+**Usage:**
+```bash
+python scripts/process_eso_fits_to_csv.py \
+    --fits-dir data/raw_fetch/eso_fits \
+    --output data/real_data_emission_lines_clean.csv \
+    --params data/stellar_parameters_example.json
+```
+
+**What it does:**
+1. Extracts wavelength + flux from all FITS files
+2. Identifies emission lines automatically
+3. Calculates redshifts (z = (λ_obs - λ_rest) / λ_rest)
+4. Adds physical parameters from JSON file
+5. Calculates SEG predictions (z_geom_hint)
+6. Exports complete CSV ready for validation
+
+**Parameters file:** [`data/stellar_parameters_example.json`](../data/stellar_parameters_example.json) (included)
+
+---
+
+### Manual Alternative (if you want to understand the process):
+
 ### 6.1 Install Required Python Libraries
 
 ```bash
@@ -273,7 +300,7 @@ pip install astropy numpy pandas
 
 ### 6.2 Extract Spectrum from FITS File
 
-**Python script: `extract_gravity_spectrum.py`**
+**Python script: `extract_gravity_spectrum.py`** (example - use process_eso_fits_to_csv.py instead)
 
 ```python
 #!/usr/bin/env python3

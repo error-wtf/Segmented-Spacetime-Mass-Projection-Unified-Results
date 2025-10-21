@@ -1,0 +1,56 @@
+{
+  "_comment": "Stellar parameters for ESO FITS processing",
+  "_usage": "python scripts/process_eso_fits_to_csv.py --fits-dir data/raw_fetch/eso_fits --output data/emission_lines.csv --params data/stellar_parameters_example.json",
+  
+  "S2": {
+    "M_solar": 4300000.0,
+    "a_m": 1.53e14,
+    "e": 0.8843,
+    "P_year": 16.05,
+    "r_emit_m": 1.78e13,
+    "v_los_mps": 7400000.0,
+    "v_tot_mps": 7700000.0,
+    "source": "GRAVITY Collaboration 2018"
+  },
+  
+  "S4": {
+    "M_solar": 4300000.0,
+    "a_m": 1.40e14,
+    "e": 0.39,
+    "P_year": 12.0,
+    "r_emit_m": 8.54e13,
+    "v_los_mps": 6500000.0,
+    "v_tot_mps": 6800000.0,
+    "source": "Gillessen et al. 2017"
+  },
+  
+  "S5": {
+    "M_solar": 4300000.0,
+    "a_m": 1.90e14,
+    "e": 0.50,
+    "P_year": 19.2,
+    "r_emit_m": 9.50e13,
+    "v_los_mps": 5800000.0,
+    "v_tot_mps": 6100000.0,
+    "source": "Do et al. 2019"
+  },
+  
+  "Sgr A*": {
+    "_note": "For Sgr A* itself (e.g., hot spot observations)",
+    "M_solar": 4300000.0,
+    "a_m": 0.0,
+    "e": 0.0,
+    "P_year": 0.0,
+    "r_emit_m": 1.2e10,
+    "v_los_mps": 0.0,
+    "v_tot_mps": 0.0,
+    "source": "GRAVITY Collaboration 2020"
+  },
+  
+  "_references": [
+    "GRAVITY Collaboration et al. 2018, A&A, 615, L15",
+    "Gillessen et al. 2017, ApJ, 837, 30",
+    "Do et al. 2019, Science, 365, 664",
+    "GRAVITY Collaboration et al. 2020, A&A, 643, A56"
+  ]
+}
