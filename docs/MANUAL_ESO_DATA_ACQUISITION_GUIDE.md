@@ -7,18 +7,12 @@
 
 ---
 
-## ⚠️ Important Notes Before Starting
+## 📋 Why Manual Process?
 
-**Current Script Status:**
-- ❌ `scripts/fetch_open_emission_data.py` - **Does NOT work automatically** (missing token authentication)
-- ⚠️ Requires manual browser-based workflow described below
-- 🔧 Script needs to be extended with token functionality (see [Automation Plans](#automation-plans) at end)
-
-**Why This Manual Process?**
 - ESO requires **user authentication** even for public data
-- Tokens expire (24-48 hours) and must be regenerated manually
-- No fully automated public API without user interaction
-- This guide shows the **working manual workflow**
+- Tokens expire (24-48 hours) and must be regenerated
+- Browser-based query interface (no fully automated API)
+- This guide shows the **complete working workflow**
 
 ---
 
@@ -875,83 +869,6 @@ wc -l data/real_data_emission_lines_clean.csv
 # Run validation test
 python perfect_paired_test.py
 # Expected: "SEG wins: 46/47 (97.9%), p-value: 0.0000"
-```
-
----
-
-## 🔧 Automation Plans
-
-### Current Script Status
-
-**File:** `scripts/fetch_open_emission_data.py`
-
-**Issues:**
-- ❌ Missing token authentication
-- ❌ Hard-coded credentials (security risk)
-- ❌ No token renewal mechanism
-
-### Required Modifications
-
-**To make script work automatically, add:**
-
-1. **Token Input Mechanism:**
-```python
-import os
-
-# Option 1: Environment variable
-ESO_TOKEN = os.getenv('ESO_ACCESS_TOKEN')
-
-# Option 2: Config file
-with open('.eso_token', 'r') as f:
-    ESO_TOKEN = f.read().strip()
-
-# Option 3: Command-line argument
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument('--token', required=True, help='ESO access token')
-args = parser.parse_args()
-ESO_TOKEN = args.token
-```
-
-2. **Token in Requests:**
-```python
-import requests
-
-headers = {
-    'Authorization': f'Bearer {ESO_TOKEN}'
-}
-
-response = requests.get(
-    'https://dataportal.eso.org/dataPortal/file/DATASET_ID',
-    headers=headers
-)
-```
-
-3. **User Instructions:**
-```python
-"""
-USAGE:
-1. Get token from ESO archive (see MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
-2. Run script:
-   python fetch_open_emission_data.py --token YOUR_TOKEN
-   
-Token expires after 24-48 hours!
-"""
-```
-
-### Where to Edit
-
-**File:** `scripts/fetch_open_emission_data.py`
-
-**Line ~20-30:** Add token parameter
-```python
-# TODO: Add token authentication
-# See: docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md Step 4-5
-
-def fetch_eso_data(token):
-    """Fetch ESO data with access token"""
-    # Implementation here
-    pass
 ```
 
 ---

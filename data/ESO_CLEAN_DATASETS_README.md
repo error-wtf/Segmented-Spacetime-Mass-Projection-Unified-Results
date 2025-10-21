@@ -101,9 +101,10 @@ These 47 observations are curated from ESO Archive for immediate use.
    - FITS file processing knowledge
    - 8-14 hours first-time investment
 
-3. **Automation Scripts:**
-   - ⚠️ `scripts/fetch_open_emission_data.py` - ESO TAP query (requires manual token - see [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](../docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md))
-   - `scripts/clean_real_data_emission_lines.py` - Data cleaning pipeline
+3. **Scripts:**
+   - [`scripts/download_eso_fits.sh`](../scripts/download_eso_fits.sh) - Download FITS files
+   - [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) - Process FITS → CSV
+   - [`scripts/clean_real_data_emission_lines.py`](../scripts/clean_real_data_emission_lines.py) - Clean dataset
 
 4. **Documentation:**
    - Complete step-by-step instructions

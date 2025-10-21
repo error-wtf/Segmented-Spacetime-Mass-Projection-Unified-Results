@@ -509,9 +509,9 @@ awk -F, 'NR==1 || ($7 != "" && $8 ~ /fits/ && $4 == "spectrum")' \
 
 **Automated Script Generation from Metadata:**
 
-⚠️ **Note:** The `scripts/fetch_open_emission_data.py` script requires manual token authentication. See [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) for complete workflow.
+See [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) for the complete ESO download workflow using `download_eso_fits.sh`.
 
-The script (with token) reads the CSV and generates a download script:
+You can also generate download commands from the CSV manually:
 
 ```bash
 # Extract access_url column and generate wget/curl commands
@@ -804,7 +804,8 @@ Anyone attempting to reproduce the **97.9% result** must:
 1. We provide: 
    - Complete workflow documentation (this section)
    - Manual workflow guide: [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
-   - Token-based scripts (`scripts/fetch_open_emission_data.py` - requires manual token)
+   - Download script: [`scripts/download_eso_fits.sh`](scripts/download_eso_fits.sh)
+   - Processing script: [`scripts/process_eso_fits_to_csv.py`](scripts/process_eso_fits_to_csv.py)
    - Example queries and error handling
    - Cleaned metadata CSV (no FITS files)
 
@@ -1380,9 +1381,9 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 ### ESO Data Tools
 
 - **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - ⭐ **Complete step-by-step guide** (browser + token workflow)
-- **[fetch_eso_br_gamma.py](fetch_eso_br_gamma.py)** - ESO fetch example (requires token)
-- **[scripts/fetch_open_emission_data.py](scripts/fetch_open_emission_data.py)** - ⚠️ ESO TAP query (token required)
-- **[data/clean/create_eso_dataset.py](data/clean/create_eso_dataset.py)** - ESO data cleaning workflow
+- **[scripts/download_eso_fits.sh](scripts/download_eso_fits.sh)** - Download script (edit token + dataset IDs)
+- **[scripts/process_eso_fits_to_csv.py](scripts/process_eso_fits_to_csv.py)** - FITS → CSV processing
+- **[scripts/clean_real_data_emission_lines.py](scripts/clean_real_data_emission_lines.py)** - Dataset cleaning
 
 ### External Resources
 
@@ -1424,10 +1425,10 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 - Plots: [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md)
 
 **For Data Scientists:**
-- ESO workflow: [MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) - Complete manual guide
+- ESO workflow: [MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) - Complete guide
 - Overview: This document ([ESO Data Acquisition](#eso-data-acquisition-the-path-to-perfect-results))
-- Scripts: [data/clean/create_eso_dataset.py](data/clean/create_eso_dataset.py)
-- Example: [fetch_eso_br_gamma.py](fetch_eso_br_gamma.py) (requires token)
+- Download: [scripts/download_eso_fits.sh](scripts/download_eso_fits.sh)
+- Processing: [scripts/process_eso_fits_to_csv.py](scripts/process_eso_fits_to_csv.py)
 
 ---
 
