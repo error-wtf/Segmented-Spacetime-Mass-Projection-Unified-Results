@@ -509,7 +509,9 @@ awk -F, 'NR==1 || ($7 != "" && $8 ~ /fits/ && $4 == "spectrum")' \
 
 **Automated Script Generation from Metadata:**
 
-The `scripts/fetch_open_emission_data.py` script (or manual bash scripting) reads the CSV and generates a download script:
+⚠️ **Note:** The `scripts/fetch_open_emission_data.py` script requires manual token authentication. See [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) for complete workflow.
+
+The script (with token) reads the CSV and generates a download script:
 
 ```bash
 # Extract access_url column and generate wget/curl commands
@@ -801,7 +803,8 @@ Anyone attempting to reproduce the **97.9% result** must:
 
 1. We provide: 
    - Complete workflow documentation (this section)
-   - Working scripts (`scripts/fetch_open_emission_data.py`)
+   - Manual workflow guide: [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
+   - Token-based scripts (`scripts/fetch_open_emission_data.py` - requires manual token)
    - Example queries and error handling
    - Cleaned metadata CSV (no FITS files)
 
@@ -1376,10 +1379,10 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 
 ### ESO Data Tools
 
-- **[data/fetch_eso_data.py](data/fetch_eso_data.py)** - ESO TAP query script
+- **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - ⭐ **Complete step-by-step guide** (browser + token workflow)
+- **[fetch_eso_br_gamma.py](fetch_eso_br_gamma.py)** - ESO fetch example (requires token)
+- **[scripts/fetch_open_emission_data.py](scripts/fetch_open_emission_data.py)** - ⚠️ ESO TAP query (token required)
 - **[data/clean/create_eso_dataset.py](data/clean/create_eso_dataset.py)** - ESO data cleaning workflow
-- **[data/fetch_ned_data.py](data/fetch_ned_data.py)** - NED database queries
-- **[data/fetch_simbad_data.py](data/fetch_simbad_data.py)** - SIMBAD database queries
 
 ### External Resources
 
@@ -1421,9 +1424,10 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 - Plots: [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md)
 
 **For Data Scientists:**
-- ESO workflow: This document ([ESO Data Acquisition](#eso-data-acquisition-the-path-to-perfect-results))
+- ESO workflow: [MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) - Complete manual guide
+- Overview: This document ([ESO Data Acquisition](#eso-data-acquisition-the-path-to-perfect-results))
 - Scripts: [data/clean/create_eso_dataset.py](data/clean/create_eso_dataset.py)
-- API: [fetch_eso_data.py](data/fetch_eso_data.py)
+- Example: [fetch_eso_br_gamma.py](fetch_eso_br_gamma.py) (requires token)
 
 ---
 

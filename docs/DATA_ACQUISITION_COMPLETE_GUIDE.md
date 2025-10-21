@@ -89,7 +89,7 @@ results = eso_tap.launch_job(query).get_results()
 print(f"Found {len(results)} observations")
 ```
 
-**Full automation:** [`scripts/fetch_eso_complete.py`](../scripts/fetch_eso_complete.py)
+**⚠️ Note:** Automated ESO fetching requires manual token workflow. See **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** for complete instructions.
 
 ---
 
@@ -248,7 +248,7 @@ Need data?
 - [`data/ESO_CLEAN_DATASETS_README.md`](../data/ESO_CLEAN_DATASETS_README.md) - ESO datasets explained
 
 **Scripts:**
-- [`scripts/fetch_eso_complete.py`](../scripts/fetch_eso_complete.py) - ESO automation
+- [`fetch_eso_br_gamma.py`](../fetch_eso_br_gamma.py) - ESO fetch example (requires token - see manual guide)
 - [`perfect_paired_test.py`](../perfect_paired_test.py) - Validation test
 
 ---
