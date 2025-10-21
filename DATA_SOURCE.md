@@ -1,10 +1,8 @@
 # Data Source Notes for `real_data_full.csv`
 
-⚠️ **Token Authentication Required:** ESO data fetching requires manual token generation from ESO web portal.
+**ESO data acquisition:** See [`docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md) for the complete workflow.
 
-**Complete workflow:** See [`docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
-
-This file is produced by `fetch_eso_br_gamma.py`, which requires an ESO access token.
+This dataset contains GRAVITY spectroscopy of Sgr A* and S-stars.
 
 ## How to generate
 

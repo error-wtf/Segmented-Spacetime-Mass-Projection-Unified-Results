@@ -89,9 +89,9 @@ results = eso_tap.launch_job(query).get_results()
 print(f"Found {len(results)} observations")
 ```
 
-**⚠️ Note:** Automated ESO fetching requires manual token workflow. See **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** for complete instructions.
+**Complete workflow:** See **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** for browser-based query, token generation, and download instructions.
 
-**⭐ KEY SCRIPT:** After downloading FITS files, use [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) to automatically extract spectra, identify emission lines, and create the validation CSV.
+**Processing:** After downloading FITS files, use [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) to extract spectra and create the validation CSV.
 
 ---
 
