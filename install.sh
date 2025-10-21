@@ -341,7 +341,7 @@ print_step "[8/11] Pipeline setup..."
 print_info "ℹ Pipeline execution SKIPPED during installation"
 print_info "To generate pipeline outputs and run comprehensive tests:"
 echo "    python run_all_ssz_terminal.py    # Full pipeline (~10 min)"
-echo "    python run_full_suite.py          # All 58 tests (~5 min)"
+echo "    python run_full_suite.py          # All 69 tests (~5 min)"
 
 # Step 9: Run tests
 if [ "$SKIP_TESTS" = false ]; then
@@ -413,7 +413,7 @@ if [ "$SKIP_TESTS" != "true" ]; then
             echo ""
             echo "  Installation validated successfully!"
             echo ""
-            echo "  To run the full test suite (58 tests, ~5 min):"
+            echo "  To run the full test suite (69 tests, ~5 min):"
             echo "    python run_full_suite.py"
         else
             echo ""
@@ -532,7 +532,7 @@ echo -e "${CYAN}  Quick Validation (recommended first step):${NC}"
 echo -e "    pytest tests/quick_install_tests.py   # 6 tests, 10 seconds ✓"
 echo ""
 echo -e "${CYAN}  Full Test Suite (comprehensive):${NC}"
-echo -e "    python run_full_suite.py              # 58 tests, ~5 min ✓"
+echo -e "    python run_full_suite.py              # 69 tests, ~5 min ✓"
 echo ""
 echo -e "${CYAN}  Individual Physics Tests:${NC}"
 echo -e "    python test_ppn_exact.py              # PPN parameters β=γ=1"

@@ -289,7 +289,7 @@ Write-Host "[8/11] Pipeline setup..." -ForegroundColor Yellow
 Write-Host "  ℹ Pipeline execution SKIPPED during installation" -ForegroundColor Cyan
 Write-Host "  To generate pipeline outputs and run comprehensive tests:" -ForegroundColor Cyan
 Write-Host "    python run_all_ssz_terminal.py    # Full pipeline (~10 min)" -ForegroundColor White
-Write-Host "    python run_full_suite.py          # All 58 tests (~5 min)" -ForegroundColor White
+Write-Host "    python run_full_suite.py          # All 69 tests (~5 min)" -ForegroundColor White
 
 # Step 9: Run installation validation tests
 if (-not $SkipTests) {
@@ -306,7 +306,7 @@ if (-not $SkipTests) {
             Write-Host ""
             Write-Host "  ✓ Installation validated successfully!" -ForegroundColor Green
             Write-Host ""
-            Write-Host "  To run the full test suite (58 tests, ~5 min):" -ForegroundColor Cyan
+            Write-Host "  To run the full test suite (69 tests, ~5 min):" -ForegroundColor Cyan
             Write-Host "    python run_full_suite.py" -ForegroundColor White
         } else {
             Write-Host ""
@@ -437,7 +437,7 @@ Write-Host "  Quick Validation (recommended first step):" -ForegroundColor Cyan
 Write-Host "    pytest tests/quick_install_tests.py   # 6 tests, 10 seconds ✓" -ForegroundColor White
 Write-Host ""
 Write-Host "  Full Test Suite (comprehensive):" -ForegroundColor Cyan
-Write-Host "    python run_full_suite.py              # 58 tests, ~5 min ✓" -ForegroundColor White
+Write-Host "    python run_full_suite.py              # 69 tests, ~5 min ✓" -ForegroundColor White
 Write-Host ""
 Write-Host "  Individual Physics Tests:" -ForegroundColor Cyan
 Write-Host "    python test_ppn_exact.py              # PPN parameters β=γ=1" -ForegroundColor White
