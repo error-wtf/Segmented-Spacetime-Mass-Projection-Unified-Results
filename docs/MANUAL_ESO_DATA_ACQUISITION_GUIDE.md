@@ -163,102 +163,142 @@ Step 6-9: ⭐ RUN PROCESSING SCRIPT ⭐
 1. After selecting datasets, click **"Request Download"** or **"Download Selected"**
 2. A new page opens with download instructions
 
-### 4.3 Copy Download Token
+### 4.3 Get Dataset IDs and Token
 
-**Important:** The ESO archive will display a **download script** that includes a **temporary access token**
+**Important:** You need TWO things from the ESO query results:
 
-**Example download script shown:**
+#### A) Dataset IDs (from query table)
+
+Look at your query results table. Find the **"DP.ID"** or **"Dataset ID"** column.
+
+**Example dataset IDs:**
+```
+GRAVITY.2018-05-27T03:21:09.123
+GRAVITY.2019-04-15T02:15:33.456
+GRAVITY.2020-03-10T01:45:21.789
+```
+
+**Quick extraction:**
+
+1. **Option 1 - Manual:** Copy dataset IDs from table (one per line)
+
+2. **Option 2 - CSV Export:**
+   - Click "Download" → "CSV" in ESO query results
+   - Save as `eso_query.csv`
+   - Run extractor script:
+   ```bash
+   python scripts/extract_dataset_ids_from_query.py eso_query.csv
+   ```
+
+#### B) Download Token
+
+After selecting datasets in ESO interface, click **"Request Download"**
+
+**The ESO archive will display a download script like:**
 ```bash
 #!/bin/bash
 # ESO Archive Download Script
 # Token valid for 48 hours
 
 wget --no-check-certificate \
-  --header="Authorization: Bearer YOUR_TOKEN_HERE" \
-  -O dataset_12345.fits.Z \
+  --header="Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  -O dataset.fits.Z \
   "https://dataportal.eso.org/dataPortal/file/GRAVITY.2018-05-27T03:21:09.123"
 ```
 
-**Extract the token:** Copy the string after `Bearer` (e.g., `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`)
+**Extract the token:** Copy the LONG string after `Bearer` (starts with `eyJ...`, can be 200+ characters)
 
 ---
 
 ## Step 5: Download FITS Files with curl + Token
 
-### 5.1 Prepare Download Directory
+⭐ **USE READY-MADE DOWNLOAD SCRIPT:**
 
+We provide a complete download script: [`scripts/download_eso_fits.sh`](../scripts/download_eso_fits.sh)
+
+### 5.1 Configure Download Script
+
+**Edit `scripts/download_eso_fits.sh`:**
+
+1. **Set your TOKEN** (from Step 4B):
+   ```bash
+   TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."  # Your actual token
+   ```
+
+2. **Add DATASET IDs** (from Step 4A):
+   ```bash
+   DATASETS=(
+       "GRAVITY.2018-05-27T03:21:09.123"
+       "GRAVITY.2019-04-15T02:15:33.456"
+       "GRAVITY.2020-03-10T01:45:21.789"
+       # Paste all your dataset IDs here
+   )
+   ```
+
+**Or use the extractor:**
 ```bash
-# Create directory for downloaded files
-mkdir -p data/raw_fetch/eso_fits
-cd data/raw_fetch/eso_fits
+# If you exported query results as CSV:
+python scripts/extract_dataset_ids_from_query.py eso_query.csv --format bash
+
+# Copy output and paste into download_eso_fits.sh DATASETS array
 ```
 
-### 5.2 Download Individual Files
-
-**For each dataset URL from the download page:**
+### 5.2 Run Download
 
 ```bash
-# Replace YOUR_TOKEN with your actual token
-# Replace DATASET_URL with actual file URL
+# Make executable
+chmod +x scripts/download_eso_fits.sh
 
+# Run download
+bash scripts/download_eso_fits.sh
+```
+
+**What it does:**
+- ✅ Downloads all datasets with proper authentication
+- ✅ Skips already downloaded files
+- ✅ Shows progress (Success/Failed count)
+- ✅ Automatically decompresses .fits.Z files
+- ✅ Creates `data/raw_fetch/eso_fits/` directory
+
+**Expected output:**
+```
+============================================
+ESO FITS Download Script
+============================================
+Output directory: data/raw_fetch/eso_fits
+Number of datasets: 47
+Token: eyJhbGciOiJIUzI1NiIs... (truncated)
+
+----------------------------------------
+Dataset: GRAVITY.2018-05-27T03:21:09.123
+  Downloading...
+  ✓ Downloaded (15234567 bytes, HTTP 200)
+...
+============================================
+Download Summary
+============================================
+Success: 47
+Failed:  0
+Total:   47
+
+✓ Decompressed 47 FITS files
+```
+
+### 5.3 Manual Download (Alternative)
+
+**If you want to download manually:**
+
+```bash
+# Single file example
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-     -o "GRAVITY_2018-05-27_S2.fits.Z" \
+     -o "dataset.fits.Z" \
      "https://dataportal.eso.org/dataPortal/file/GRAVITY.2018-05-27T03:21:09.123"
+
+# Decompress
+gunzip dataset.fits.Z
 ```
 
 **Token expires after 24-48 hours!** Must regenerate if expired.
-
-### 5.3 Batch Download Script
-
-**Create a download script `download_eso_data.sh`:**
-
-```bash
-#!/bin/bash
-# ESO GRAVITY Data Download Script
-# Replace TOKEN with your actual token
-
-TOKEN="YOUR_TOKEN_HERE"
-
-# List of dataset IDs (from query results)
-DATASETS=(
-    "GRAVITY.2018-05-27T03:21:09.123"
-    "GRAVITY.2019-04-15T02:15:33.456"
-    "GRAVITY.2020-03-10T01:45:21.789"
-    # ... add all dataset IDs here
-)
-
-for DATASET in "${DATASETS[@]}"; do
-    echo "Downloading: $DATASET"
-    
-    curl -H "Authorization: Bearer $TOKEN" \
-         -o "${DATASET}.fits.Z" \
-         "https://dataportal.eso.org/dataPortal/file/$DATASET"
-    
-    echo "Downloaded: ${DATASET}.fits.Z"
-done
-
-echo "Download complete!"
-```
-
-**Run download:**
-```bash
-chmod +x download_eso_data.sh
-./download_eso_data.sh
-```
-
-### 5.4 Decompress Files
-
-ESO FITS files are compressed (`.fits.Z`):
-
-```bash
-# Decompress all downloaded files
-uncompress *.fits.Z
-
-# Or use gunzip if uncompress not available
-gunzip *.fits.Z
-
-# Result: *.fits files
-```
 
 ---
 
