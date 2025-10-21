@@ -42,6 +42,9 @@ G = 6.67430e-11  # Gravitational constant
 PHI = (1 + np.sqrt(5)) / 2  # Golden ratio (FUNDAMENTAL GEOMETRIC BASIS!)
 M_SUN = 1.98847e30  # Solar mass (kg)
 
+# Standard-Datensatz (bereinigtes "Perfect"-Sample)
+DEFAULT_CSV = Path("data") / "real_data_emission_lines_clean.csv"
+
 # Δ(M) φ-based mass-dependent correction parameters
 # From complete φ-based calibration (PHI_FUNDAMENTAL_GEOMETRY.md)
 # These emerge from φ-spiral segment geometry, NOT arbitrary fitting!
@@ -483,8 +486,8 @@ def main():
     parser = argparse.ArgumentParser(
         description='Perfect Paired Test with ALL findings incorporated'
     )
-    parser.add_argument('--csv', type=str, default='data/real_data_full.csv',
-                       help='Input CSV file')
+    parser.add_argument('--csv', type=str, default=str(DEFAULT_CSV),
+                       help='Input CSV file (default: bereinigter Perfect-Datensatz)')
     parser.add_argument('--output', '-o', type=str,
                        help='Output CSV file for results')
     parser.add_argument('--no-rapidity', action='store_true',
@@ -499,6 +502,9 @@ def main():
         return
     
     print(f"Loading data from: {args.csv}")
+    if Path(args.csv).resolve() != DEFAULT_CSV.resolve():
+        print("WARNUNG: Es wird ein abweichender Datensatz verwendet. Die veröffentlichten Perfect-Ergebnisse beziehen sich auf" 
+              f" {DEFAULT_CSV}.")
     df = pd.read_csv(csv_path)
     
     # Run perfect paired test
