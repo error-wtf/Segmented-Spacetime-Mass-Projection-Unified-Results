@@ -42,7 +42,14 @@
 
 ### Complete ESO Workflow
 
-**Full documented workflow:** See [`PAIRED_TEST_ANALYSIS_COMPLETE.md`](../PAIRED_TEST_ANALYSIS_COMPLETE.md) Section: "ESO Data Acquisition: The Path to Perfect Results"
+**📖 DETAILED MANUAL GUIDE:** See **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** for complete step-by-step instructions including:
+- Browser-based query interface walkthrough
+- Token generation & authentication
+- FITS download with curl
+- Spectroscopic data extraction
+- CSV export workflow
+
+**Alternative:** See [`PAIRED_TEST_ANALYSIS_COMPLETE.md`](../PAIRED_TEST_ANALYSIS_COMPLETE.md) Section: "ESO Data Acquisition: The Path to Perfect Results"
 
 **11-Step Process:**
 1. Register ESO account (10 min)

@@ -29,6 +29,7 @@
 
 ### 📊 Data Documentation ⭐ NEW (Bilingual EN/DE)
 - **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - 📥 ⭐⭐⭐ **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
+- **[docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - 📖 ⭐⭐⭐⭐ **STEP-BY-STEP ESO GUIDE:** Detailed manual workflow (browser query, token, FITS extraction, CSV export)
 - **[data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - ⭐⭐⭐ **COMPLETE data source decisions:** Emission lines (chosen), Continuum (multi-freq only), Hubble data (rejected - cosmology), LIGO (rejected - dynamic waves)
 - **[data/ESO_CLEAN_DATASETS_README.md](data/ESO_CLEAN_DATASETS_README.md)** - ⭐⭐ **ESO 97.9% datasets** explained (clean + best subsets)
 - **[Sources.md](Sources.md)** - Complete data provenance & citations
