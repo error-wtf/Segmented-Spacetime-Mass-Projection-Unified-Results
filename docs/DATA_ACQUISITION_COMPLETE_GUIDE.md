@@ -184,6 +184,11 @@ WHERE DISTANCE(
 results = Gaia.launch_job(query).get_results()
 ```
 
+**Working Scripts:**
+- [`scripts/fetch_gaia_full.py`](../scripts/fetch_gaia_full.py) - Full GAIA catalog fetch
+- [`scripts/gaia/fetch_gaia_adql.py`](../scripts/gaia/fetch_gaia_adql.py) - ADQL query interface
+- [`scripts/gaia/fetch_gaia_conesearch.py`](../scripts/gaia/fetch_gaia_conesearch.py) - Cone search (specific region)
+
 **Use for:** Positions, proper motions, distances  
 **NOT for:** Gravitational redshift validation
 
@@ -253,6 +258,22 @@ Need data?
 - [`scripts/download_eso_fits.sh`](../scripts/download_eso_fits.sh) - Download FITS files (edit token + dataset IDs)
 - [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) - Process FITS → CSV
 - [`perfect_paired_test.py`](../perfect_paired_test.py) - Validation test
+
+---
+
+## Other Available Scripts
+
+**Planck CMB Data:**
+- [`scripts/fetch_planck.py`](../scripts/fetch_planck.py) - Planck CMB power spectrum (2GB, auto-fetched during install)
+- [`scripts/planck/fetch_planck_map.py`](../scripts/planck/fetch_planck_map.py) - Planck sky maps
+
+**SDSS Catalog:**
+- [`scripts/sdss/fetch_sdss_catalog.py`](../scripts/sdss/fetch_sdss_catalog.py) - SDSS spectroscopic catalog
+
+**M87 Data:**
+- [`scripts/data_acquisition/fetch_m87_spectrum.py`](../scripts/data_acquisition/fetch_m87_spectrum.py) - M87 galaxy spectrum
+
+**Note:** These scripts work automatically (no token required). Use for specific research needs, not for SEG validation (wrong data types).
 
 ---
 
