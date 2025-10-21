@@ -61,7 +61,9 @@ def planck_spectrum(nu, T, A):
         return A * (2 * nu**2 * k_boltzmann * T) / c_light**2
     
     # Full Planck (but will saturate to RJ for our T_seg)
-    return A * (2 * h_planck * nu**3 / c_light**2) / (np.exp(x) - 1 + 1e-100)
+    # Safeguard against overflow in exp()
+    x_safe = np.clip(x, -700, 700)  # exp(700) ≈ 1e304, within float64 range
+    return A * (2 * h_planck * nu**3 / c_light**2) / (np.exp(x_safe) - 1 + 1e-100)
 
 
 def power_law_spectrum(nu, alpha, A):
@@ -275,7 +277,7 @@ def test_hawking_spectrum_continuum():
         print("   Need: data/observations/m87_continuum_spectrum.csv")
         print("   Or use TEMPLATE file for demonstration")
         print("\n✅ Test 4b SKIPPED: No continuum data available")
-        return True
+        return  # pytest expects None, not bool
     
     # Use template if real data doesn't exist
     data_file = spectrum_file if spectrum_file.exists() else template_file
@@ -415,10 +417,9 @@ def test_hawking_spectrum_continuum():
     
     print("="*80)
     print("\n✅ Extended Test 4b PASSED: Continuum spectrum analysis complete")
-    
-    return True
+    # pytest expects None for success, not bool return value
 
 
 if __name__ == "__main__":
-    success = test_hawking_spectrum_continuum()
-    sys.exit(0 if success else 1)
+    test_hawking_spectrum_continuum()
+    sys.exit(0)  # If we got here, test passed
