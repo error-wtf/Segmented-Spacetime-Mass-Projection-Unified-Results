@@ -102,7 +102,7 @@ These 47 observations are curated from ESO Archive for immediate use.
    - 8-14 hours first-time investment
 
 3. **Automation Scripts:**
-   - `scripts/fetch_open_emission_data.py` - ESO TAP query automation
+   - ⚠️ `scripts/fetch_open_emission_data.py` - ESO TAP query (requires manual token - see [`MANUAL_ESO_DATA_ACQUISITION_GUIDE.md`](../docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md))
    - `scripts/clean_real_data_emission_lines.py` - Data cleaning pipeline
 
 4. **Documentation:**
