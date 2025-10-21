@@ -250,7 +250,8 @@ Need data?
 - [`data/ESO_CLEAN_DATASETS_README.md`](../data/ESO_CLEAN_DATASETS_README.md) - ESO datasets explained
 
 **Scripts:**
-- [`fetch_eso_br_gamma.py`](../fetch_eso_br_gamma.py) - ESO fetch example (requires token - see manual guide)
+- [`scripts/download_eso_fits.sh`](../scripts/download_eso_fits.sh) - Download FITS files (edit token + dataset IDs)
+- [`scripts/process_eso_fits_to_csv.py`](../scripts/process_eso_fits_to_csv.py) - Process FITS → CSV
 - [`perfect_paired_test.py`](../perfect_paired_test.py) - Validation test
 
 ---
