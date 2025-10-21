@@ -28,15 +28,21 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 python perfect_seg_analysis.py --mass 1.0 --radius 10000 --redshift 0.001
 ```
 
+**Script:** [`perfect_seg_analysis.py`](perfect_seg_analysis.py)
+
 ### Interactive Mode
 ```bash
 python perfect_seg_analysis.py --interactive
 ```
 
+**Script:** [`perfect_seg_analysis.py`](perfect_seg_analysis.py)
+
 ### Analyze CSV File
 ```bash
 python perfect_seg_analysis.py --csv my_data.csv --output results.csv
 ```
+
+**Script:** [`perfect_seg_analysis.py`](perfect_seg_analysis.py)
 
 ---
 

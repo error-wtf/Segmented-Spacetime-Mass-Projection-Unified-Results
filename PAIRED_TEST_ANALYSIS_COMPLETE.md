@@ -155,6 +155,8 @@ python perfect_paired_test.py --output out/clean_results.csv
 # Runtime: ~10 seconds
 ```
 
+**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
+
 **Full Reproducibility (Acquire ESO Data Yourself):**
 
 The complete 11-step workflow is documented below in the **"ESO Data Acquisition: The Path to Perfect Results"** section. Summary:
@@ -680,6 +682,8 @@ Removed rows : 96
 ```bash
 python perfect_paired_test.py --output out/clean_results.csv
 ```
+
+**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
 
 **Output (Console):**
 ```
