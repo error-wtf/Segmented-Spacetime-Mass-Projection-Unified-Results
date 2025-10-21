@@ -65,6 +65,45 @@ def print_header(title, char="=", length=100):
     print(char * length + "\n")
 
 
+def print_phase_summary(phase_name, results, total_tests=None):
+    """Print phase test statistics with running totals
+    
+    Args:
+        phase_name: Name of the current phase
+        results: Dictionary of all test results so far
+        total_tests: Expected total number of tests in this phase (optional)
+    """
+    # Count phase-specific results (only tests from this phase)
+    phase_passed = sum(1 for name, r in results.items() if phase_name.split(":")[0].upper() in name.upper() and r["success"])
+    phase_total = sum(1 for name in results.keys() if phase_name.split(":")[0].upper() in name.upper())
+    
+    # Overall totals
+    total_passed = sum(1 for r in results.values() if r["success"])
+    total_run = len(results)
+    
+    print(f"\n{'─' * 80}")
+    print(f"📊 PHASE STATISTICS: {phase_name}")
+    print(f"{'─' * 80}")
+    
+    if phase_total > 0:
+        phase_rate = (phase_passed / phase_total * 100) if phase_total > 0 else 0
+        print(f"  This Phase:  {phase_passed}/{phase_total} passed ({phase_rate:.1f}%)")
+    elif total_tests:
+        print(f"  This Phase:  Expected {total_tests} tests")
+    
+    overall_rate = (total_passed / total_run * 100) if total_run > 0 else 0
+    print(f"  Overall:     {total_passed}/{total_run} passed ({overall_rate:.1f}%)")
+    
+    # Visual progress bar
+    if total_run > 0:
+        bar_length = 50
+        filled = int(bar_length * total_passed / total_run)
+        bar = '█' * filled + '░' * (bar_length - filled)
+        print(f"  Progress:    [{bar}] {overall_rate:.1f}%")
+    
+    print(f"{'─' * 80}\n")
+
+
 def run_command(cmd, desc, timeout=None, check=True):
     """Run command and report status (Cross-Platform: Windows & Linux)
     
@@ -250,6 +289,9 @@ def main():
             if not silent:
                 results[desc] = {"success": True, "time": 0.0}
     
+    # Print phase 1 statistics
+    print_phase_summary("PHASE 1: ROOT-LEVEL SSZ TESTS", results)
+    
     # =============================================================================
     # PHASE 2: SegWave Tests (tests/ directory)
     # =============================================================================
@@ -271,6 +313,9 @@ def main():
         elif not success:
             print(f"  [WARNING] Silent test failed: {desc}")
     
+    # Print phase 2 statistics
+    print_phase_summary("PHASE 2: SEGWAVE TESTS", results)
+    
     # =============================================================================
     # PHASE 3: Multi-Ring Dataset Validation Tests (tests/ directory)
     # =============================================================================
@@ -283,6 +328,9 @@ def main():
         results["Multi-Ring Validation Tests"] = {"success": success, "time": elapsed}
     else:
         print(f"  [SKIP] Multi-Ring Validation Tests (file not found)")
+    
+    # Print phase 3 statistics
+    print_phase_summary("PHASE 3: MULTI-RING VALIDATION", results)
     
     # =============================================================================
     # PHASE 4: Scripts Tests (scripts/tests/ directory)
