@@ -23,7 +23,7 @@ if sys.platform.startswith('win'):
     os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 
 # Constants
-PHI = (1 + np.sqrt(5)) / 2
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python)
 LN_PHI = np.log(PHI)
 
 
