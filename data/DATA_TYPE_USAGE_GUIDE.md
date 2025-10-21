@@ -2,6 +2,10 @@
 
 Created: 2025-10-19 11:52:26
 
+**📥 How to Fetch Data:** See **[DATA_ACQUISITION_COMPLETE_GUIDE.md](../docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** for complete instructions on ESO, NED, SIMBAD, GAIA acquisition
+
+---
+
 ## Data Files
 
 ### 1. [`real_data_emission_lines_clean.csv`](real_data_emission_lines_clean.csv) (47 rows) ⭐ PRIMARY DATASET

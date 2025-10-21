@@ -662,6 +662,7 @@ All results shown are WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-
 - **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - ⭐ **Complete investigation methodology**
 
 **Data Quality & Management:**
+- **[DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - 📥 **How to fetch data** (ESO, NED, SIMBAD, GAIA)
 - **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Complete data quality analysis
 - **[DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)** - Future enhancement plan
 - **[DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - Emission vs continuum guide
