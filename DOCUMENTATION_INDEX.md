@@ -28,7 +28,9 @@
 - **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
 
 ### 📊 Data Documentation ⭐ NEW (Bilingual EN/DE)
+- **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - 📥 ⭐⭐⭐ **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
 - **[data/DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - ⭐⭐⭐ **COMPLETE data source decisions:** Emission lines (chosen), Continuum (multi-freq only), Hubble data (rejected - cosmology), LIGO (rejected - dynamic waves)
+- **[data/ESO_CLEAN_DATASETS_README.md](data/ESO_CLEAN_DATASETS_README.md)** - ⭐⭐ **ESO 97.9% datasets** explained (clean + best subsets)
 - **[Sources.md](Sources.md)** - Complete data provenance & citations
 - **[DATA_CHANGELOG.md](DATA_CHANGELOG.md)** - Data version history
 - **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Data quality analysis
