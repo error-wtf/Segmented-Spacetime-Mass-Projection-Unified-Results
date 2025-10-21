@@ -25,11 +25,11 @@ When compared to classical General Relativity + Special Relativity (GR×SR) pred
 
 ---
 
-### ⚠️ The Critical Condition: ESO Archive Spectroscopic Data Required
+### The Critical Condition: ESO Archive Spectroscopic Data Required
 
 **The breakthrough comes with a requirement:** These results are **only achievable** with data from the **ESO (European Southern Observatory) Science Archive** in the correct format:
 
-✅ **What Works (97.9% Success):**
+**What Works (97.9% Success):**
 - **Data Source:** ESO Archive (GRAVITY, XSHOOTER, ESPRESSO instruments)
 - **Data Type:** Emission-line spectroscopy (atomic transitions)
 - **Physical Measurement:** Local gravitational redshift at specific radii (r ≈ 2-10 r_s)
@@ -37,7 +37,7 @@ When compared to classical General Relativity + Special Relativity (GR×SR) pred
 - **Precision:** Sub-percent wavelength accuracy
 - **Format:** FITS spectroscopic files with complete headers
 
-❌ **What Doesn't Work (51% Success):**
+**What Doesn't Work (51% Success):**
 - **Data Source:** Mixed historical databases (NED, SIMBAD, literature)
 - **Data Type:** Continuum photometry, broad-band filters, incomplete spectra
 - **Physical Measurement:** Cosmological redshift (Hubble flow), photometric estimates
@@ -52,7 +52,7 @@ When compared to classical General Relativity + Special Relativity (GR×SR) pred
 
 ---
 
-### 🔑 Why Data Format Determines Everything
+### Why Data Format Determines Everything
 
 **Physical Compatibility is THE Critical Factor:**
 
@@ -81,7 +81,7 @@ SEG predicts **local gravitational redshift** from spacetime curvature at specif
 
 ---
 
-### 📋 How to Reproduce These Results
+### How to Reproduce These Results
 
 **Quick Start (Using Provided Clean Dataset):**
 ```bash
@@ -110,7 +110,7 @@ The complete 11-step workflow is documented below in the **"ESO Data Acquisition
 
 ---
 
-### 🌟 Key Scientific Insight: φ-Geometry + Right Data = Near-Perfect Prediction
+### Key Scientific Insight: φ-Geometry Combined with Appropriate Data Yields Near-Perfect Prediction
 
 **The Golden Ratio (φ) is Fundamental:**
 
@@ -127,7 +127,7 @@ With ESO data, SEG achieves **100% accuracy in the photon sphere** (11/11 wins, 
 
 ---
 
-### 📊 Implications: From Theory to Validated Predictor
+### Implications: From Theoretical Framework to Empirically Validated Predictor
 
 **What This Breakthrough Means:**
 
