@@ -209,12 +209,13 @@ results/
 !final_reports/figures/.gitkeep
 *.out
 
-# Plot outputs (can be regenerated)
-plots/*.png
-plots/*.jpg
-plots/*.pdf
-figures/*.png
-figures/*.jpg
+# Plot outputs - INCLUDE key plots in repo for quick start
+# (can still be regenerated, but available immediately after clone)
+# plots/*.png  # Commented out - include plots
+# plots/*.jpg
+# plots/*.pdf
+# figures/*.png  # Commented out - include plots
+# figures/*.jpg
 
 # HTML reports
 *.html
