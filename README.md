@@ -267,6 +267,10 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 | **High Velocity (v>5% c)** | **94.4%** (17/18) | p=0.0001 | ✅ **EXCELLENT** - SR+GR coupling works |
 | **Overall (ESO clean)** | **97.9%** (46/47) | p<0.0001 | ✅ **BREAKTHROUGH** - World-class performance |
 
+![ESO Breakthrough Results by Regime](reports/figures/analysis/eso_breakthrough_results.png)
+
+**Figure:** SEG performance with professional ESO spectroscopy across physical regimes. Overall: 97.9% (46/47 wins, p<0.0001). Photon Sphere: 100% (11/11, p=0.0010) - perfect validation of φ/2 boundary prediction. Strong Field: 97.2% (35/36, p<0.0001) - near-perfect agreement. High Velocity: 94.4% (17/18, p=0.0001) - excellent SR+GR coupling. These results demonstrate world-class predictive accuracy when tested with high-quality spectroscopic data measuring local gravitational redshift. For historical mixed-catalog comparison (51% overall, 82% photon sphere), see [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) Section 2.
+
 **With Mixed Historical Data (Competitive Performance):**
 
 | Regime | Performance | Significance | Status |
@@ -275,10 +279,6 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 | **High Velocity (v>5% c)** | **86%** (18/21) | p=0.0015 | ✅ **EXCELS** - Strong coupling |
 | **Weak Field (r>10 r_s)** | 37% (15/40) | p=0.154 | Comparable to classical (as expected) |
 | **Overall (mixed)** | 51% (73/143) | p=0.867 | Competitive (data compatibility limited) |
-
-![Stratified Performance by Regime](reports/figures/analysis/stratified_performance.png)
-
-**Figure:** Performance stratified by physical regime using mixed historical data. SEG excels at photon sphere (82%, p<0.0001) and high velocity (86%, p=0.0015) regimes where local spectroscopy dominates. Weak field shows classical-comparable performance (37%) as expected for regions where GR already performs well. See complete analysis documentation for detailed regime breakdown and ESO validation results (97.9% with pure spectroscopy).
 
 ### Key Scientific Findings
 
