@@ -13,7 +13,7 @@
 **Latest Release:** v1.4.0 (2025-10-21) - ESO Breakthrough Validation (97.9%)  
 ✅ **Status:** 116 automated tests passing | ESO validation complete | Publication-ready plots | Complete documentation
 
-Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
+Complete Python implementation and verification suite for the **Segmented Spacetime (SEG) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
 **Status:** ✅ Production-ready | Reproducible evidence of model functionality (theory + code + tests)
 
@@ -21,7 +21,7 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 ## 🏆 BREAKTHROUGH: 97.9% Predictive Accuracy Achieved
 
-**THE SOLUTION: SEG Model Works With ESO Archive Data**
+**THE SOLUTION: Segmented Spacetime (SEG) Model Works With ESO Archive Data**
 
 When tested against **ESO (European Southern Observatory) spectroscopic observations** in the physically appropriate format, the Segmented Spacetime model achieves **near-perfect predictive accuracy**:
 
@@ -33,7 +33,7 @@ When tested against **ESO (European Southern Observatory) spectroscopic observat
 | **High Velocity Systems** | **94.4%** (17/18 wins) | p = 0.0001 (excellent) |
 
 **What This Means:**  
-When compared to classical General Relativity + Special Relativity (GR×SR) predictions, SEG wins in **46 out of 47 cases**. This is **world-class predictive performance** - competitive with established gravitational models.
+When compared to classical General Relativity + Special Relativity (GR×SR) predictions, Segmented Spacetime (SEG) wins in **46 out of 47 cases**. This is **world-class predictive performance** - competitive with established gravitational models.
 
 **Data Quality Matters:**  
 These results demonstrate the importance of **high-quality spectroscopic data**. ESO Archive observations (GRAVITY, XSHOOTER instruments) represent the **gold standard** for local gravitational redshift measurements - providing sub-percent wavelength accuracy, complete kinematic parameters, and pure emission-line spectroscopy. Historical catalog compilations, while valuable for many purposes, often mix cosmological redshift measurements or lack the precision needed for sub-percent gravitational tests.
@@ -42,7 +42,7 @@ These results demonstrate the importance of **high-quality spectroscopic data**.
 - **φ-Geometry is Fundamental:** Without φ-based corrections: 0% success. With φ: 97.9% (high-quality spectroscopy) or 51% (catalog data)
 - **Data Quality Enables Precision:** +47 percentage points difference between ESO spectroscopy (97.9%) and mixed catalogs (51%)
 - **Photon Sphere is Optimal:** 100% accuracy at r ≈ 2-3 r_s where φ/2 natural boundary occurs
-- **Empirically Validated:** SEG transitions from theoretical framework to validated gravitational redshift predictor with professional-grade data
+- **Empirically Validated:** Segmented Spacetime (SEG) transitions from theoretical framework to validated gravitational redshift predictor with professional-grade data
 
 **Quick Verification:**
 ```bash
@@ -62,7 +62,8 @@ python perfect_paired_test.py --output out/clean_results.csv
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                                       ║
-║  KEY FINDING: SEG does NOT fail on specific object types or regimes  ║
+║  KEY FINDING: Segmented Spacetime (SEG) does NOT fail on specific    ║
+║               object types or regimes                                 ║
 ║                                                                       ║
 ║  The difference between 51% (catalog) and 97.9% (ESO) is             ║
 ║  DATA QUALITY, not object-type limitations:                           ║
@@ -84,7 +85,7 @@ python perfect_paired_test.py --output out/clean_results.csv
 ╚═══════════════════════════════════════════════════════════════════════╝
 ```
 
-**Translation:** There are no astronomical object types where SEG fundamentally fails. The 51% catalog result reflects data format compatibility (measuring cosmological vs. local gravitational redshift, incomplete parameters), not model physics limitations. ESO professional spectroscopy measures exactly what SEG predicts and achieves 97.9%. This is a **data quality story**, not a model limitation story.
+**Translation:** There are no astronomical object types where Segmented Spacetime (SEG) fundamentally fails. The 51% catalog result reflects data format compatibility (measuring cosmological vs. local gravitational redshift, incomplete parameters), not model physics limitations. ESO professional spectroscopy measures exactly what SEG predicts and achieves 97.9%. This is a **data quality story**, not a model limitation story.
 
 **See:** [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md#️-critical-insight-no-fundamental-object-type-failures) for detailed analysis.
 
@@ -223,7 +224,7 @@ python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
 
 ## 📚 Key Terminology
 
-**SSZ:** Segmented Spacetime (φ-based geometric framework)  
+**SEG:** Segmented Spacetime (φ-based geometric framework)  
 **GAIA:** ESA's Gaia space observatory (stellar data)  
 **NED:** NASA/IPAC Extragalactic Database  
 **EHT:** Event Horizon Telescope (EHT) (EHT)  
@@ -284,7 +285,7 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 ### Key Scientific Findings
 
 **Rigorous Multi-Source Validation:**
-SEG underwent systematic testing with multiple astronomical data sources (ESO, NED, SIMBAD, literature compilations) across different physical regimes and data types. This comprehensive approach revealed:
+Segmented Spacetime (SEG) underwent systematic testing with multiple astronomical data sources (ESO, NED, SIMBAD, literature compilations) across different physical regimes and data types. This comprehensive approach revealed:
 
 1. **φ-Geometry is Fundamental:** Golden ratio (φ ≈ 1.618) emerges as geometric foundation - enabling transition from 0% to 97.9% success with appropriate data
 2. **Data Type Compatibility is Critical:** Performance strongly correlates with measurement type (local spectroscopy vs. cosmological/photometric data)
