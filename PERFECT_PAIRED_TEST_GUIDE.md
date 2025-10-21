@@ -155,6 +155,8 @@ python perfect_paired_test.py --csv data/real_data_emission_lines.csv --output o
 python perfect_paired_test.py --csv your_data.csv --output results.csv
 ```
 
+**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
+
 **Data Requirements:**
 - Columns: `M_solar`, `r_emit_m`, `v_los_mps` or `v_tot_mps`, `z` (observed redshift)
 - Quality: Professional spectroscopy for best results (ESO-level)
@@ -165,6 +167,8 @@ python perfect_paired_test.py --csv your_data.csv --output results.csv
 ```bash
 python perfect_paired_test.py [OPTIONS]
 ```
+
+**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
 
 **Available Options:**
 

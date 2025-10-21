@@ -92,6 +92,8 @@ SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv --v0 12.5 --fit-a
 python segspace_all_in_one_extended.py all
 ```
 
+**Scripts:** [`run_all_ssz_terminal.py`](run_all_ssz_terminal.py) | [`segspace_all_in_one_extended.py`](segspace_all_in_one_extended.py)
+
 ---
 
 ## 🧪 Run Tests
@@ -107,6 +109,8 @@ python run_full_suite.py --quick
 ```bash
 python run_full_suite.py
 ```
+
+**Script:** [`run_full_suite.py`](run_full_suite.py)
 
 ### Individual Test Categories
 
@@ -154,12 +158,16 @@ python segspace_all_in_one_extended.py --help
 python run_all_ssz_terminal.py --help
 ```
 
+**Scripts:** [`test_ppn_exact.py`](test_ppn_exact.py) | [`test_vfall_duality.py`](test_vfall_duality.py) | [`test_energy_conditions.py`](test_energy_conditions.py) | [`segspace_all_in_one_extended.py`](segspace_all_in_one_extended.py) | [`run_all_ssz_terminal.py`](run_all_ssz_terminal.py)
+
 ### 3. Check Platform Compatibility
 
 ```bash
 # Run compatibility check
 python PLATFORM_COMPATIBILITY_CHECK.py
 ```
+
+**Script:** [`PLATFORM_COMPATIBILITY_CHECK.py`](PLATFORM_COMPATIBILITY_CHECK.py)
 
 **Expected output:**
 ```
@@ -188,6 +196,8 @@ python segspace_all_in_one_extended.py validate-mass
 # Bound energy analysis
 python segspace_all_in_one_extended.py bound-energy --plots
 ```
+
+**Script:** [`segspace_all_in_one_extended.py`](segspace_all_in_one_extended.py)
 
 ### Print All Documentation
 
