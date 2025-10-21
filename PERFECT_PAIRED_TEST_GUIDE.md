@@ -2,14 +2,40 @@
 
 **Status:** ✅ Production - ESO Breakthrough Validation Achieved (97.9%)  
 **Created:** 2025-10-20  
-**Updated:** 2025-10-21 (ESO Validation Results)  
+**Updated:** 2025-10-21 (ESO Validation Results + Complete Linking)  
 **Purpose:** Validates Segmented Spacetime (SEG) predictions against observational data with appropriate data quality
+
+---
+
+## 📑 Table of Contents
+
+- [🏆 BREAKTHROUGH: 97.9% Validation Achieved](#-breakthrough-979-validation-achieved)
+- [🎯 What This Script Does](#-what-this-script-does)
+- [✅ Production Status](#-production-status)
+- [📊 Validated Results](#-validated-results)
+- [💻 Usage](#-usage)
+  - [Command-Line Options](#command-line-options)
+- [📋 Quick Reference](#-quick-reference)
+  - [Input Data Format](#input-data-format)
+  - [Output Data Format](#output-data-format)
+  - [Statistical Outputs](#statistical-outputs)
+- [📈 What Makes This "Perfect"?](#-what-makes-this-perfect)
+- [🔬 Technical Implementation](#-technical-implementation)
+- [📚 Key Documentation & Links](#-key-documentation--links)
+- [🎯 Key Findings Summary](#-key-findings-summary)
+- [🏁 Bottom Line](#-bottom-line)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [📦 Dependencies](#-dependencies)
+- [🔗 Related Tools & Scripts](#-related-tools--scripts)
 
 ---
 
 ## 🏆 BREAKTHROUGH: 97.9% Validation Achieved
 
-[`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) achieves **world-class predictive accuracy** when tested with professional-grade spectroscopic data:
+**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)  
+**GitHub:** [View on GitHub](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py)
+
+This script achieves **world-class predictive accuracy** when tested with professional-grade spectroscopic data:
 
 **ESO Archive Data Results:**
 - **Overall:** 97.9% (46/47 wins, p<0.0001)
@@ -28,7 +54,9 @@
 
 ## 🎯 What This Script Does
 
-[`perfect_paired_test.py`](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/perfect_paired_test.py) is a **production-ready validation tool** that:
+**Main Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
+
+This is a **production-ready validation tool** that:
 
 ### ✅ Incorporated Findings
 
@@ -132,6 +160,65 @@ python perfect_paired_test.py --csv your_data.csv --output results.csv
 - Quality: Professional spectroscopy for best results (ESO-level)
 - Format: CSV with complete kinematic parameters
 
+### Command-Line Options
+
+```bash
+python perfect_paired_test.py [OPTIONS]
+```
+
+**Available Options:**
+
+| Option | Description | Default | Example |
+|--------|-------------|---------|---------|
+| `--csv PATH` | Input CSV file path | `data/clean/eso_archive_clean.csv` | `--csv data/my_data.csv` |
+| `--output PATH` | Output results file | `out/results.csv` | `--output results/test.csv` |
+| `--verbose` | Enable detailed output | `False` | `--verbose` |
+| `--no-plots` | Skip plot generation | `False` | `--no-plots` |
+
+**Full Example:**
+```bash
+python perfect_paired_test.py \
+    --csv data/clean/eso_archive_clean.csv \
+    --output out/eso_validation.csv \
+    --verbose
+```
+
+---
+
+## 📋 Quick Reference
+
+### Input Data Format
+
+**Required Columns:**
+- `M_solar` or `M_msun` or `mass_msun` - Mass in solar masses
+- `r_emit_m` or `r_m` - Emission radius in meters  
+- `v_los_mps` or `v_tot_mps` or `v_mps` - Velocity in m/s
+- `z` or `z_obs` - Observed redshift (dimensionless)
+
+**Optional Columns:**
+- `object_name` - Object identifier (for labeling)
+- `data_source` - Source database (ESO, NED, SIMBAD, etc.)
+- `instrument` - Instrument used (GRAVITY, XSHOOTER, etc.)
+
+### Output Data Format
+
+**Generated Columns:**
+- `z_seg` - Segmented Spacetime predicted redshift
+- `z_gr_sr` - Classical GR×SR predicted redshift
+- `seg_wins` - Boolean: SEG prediction closer to observation
+- `abs_error_seg` - Absolute error for SEG
+- `abs_error_gr_sr` - Absolute error for GR×SR
+- `regime` - Physical regime classification
+
+### Statistical Outputs
+
+**Printed to Console:**
+- Overall win rate (percentage and count)
+- p-value (statistical significance)
+- Effect size (Cohen's d)
+- Regime-stratified breakdown
+- Confidence intervals
+
 ---
 
 ## 📈 What Makes This "Perfect"?
@@ -210,18 +297,36 @@ def filter_spectroscopic_data(df):
 
 ---
 
-## 📚 Key Documentation
+## 📚 Key Documentation & Links
 
-**Complete analysis available in:**
-1. **PAIRED_TEST_ANALYSIS_COMPLETE.md** - ESO breakthrough findings & data quality analysis
-2. **PLOTS_OVERVIEW.md** - All visualization with ESO breakthrough plots (Section 1)
-3. **README.md** - Quick start guide with 97.9% validation highlighted
-4. **data/clean/ESO_CLEAN_DATASETS_README.md** - ESO data acquisition & cleaning workflow
+### Complete Analysis Documents
 
-**Data Sources:**
-- **ESO Archive** - GRAVITY & XSHOOTER instruments (primary validation)
-- **NED** - NASA Extragalactic Database (historical comparison)
-- **SIMBAD** - Set of Identifications, Measurements and Bibliography (complementary)
+1. **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - ESO breakthrough findings & complete data quality analysis
+2. **[PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md)** - All visualizations with ESO breakthrough plots (Section 1)
+3. **[README.md](README.md)** - Quick start guide with 97.9% validation highlighted
+4. **[data/clean/ESO_CLEAN_DATASETS_README.md](data/clean/ESO_CLEAN_DATASETS_README.md)** - ESO data acquisition & cleaning workflow
+
+### Related Analysis Documents
+
+5. **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - Regime-specific breakdown (photon sphere, strong field, etc.)
+6. **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - φ-geometry theoretical foundation
+7. **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - Quantitative φ impact analysis
+
+### Data Files
+
+- **[data/clean/eso_archive_clean.csv](data/clean/eso_archive_clean.csv)** - ESO professional spectroscopy (47 observations)
+- **[data/real_data_emission_lines.csv](data/real_data_emission_lines.csv)** - Mixed historical catalog (143 observations)
+
+### Generated Outputs
+
+- **[out/eso_results.csv](out/eso_results.csv)** - ESO validation results (97.9%)
+- **[out/mixed_results.csv](out/mixed_results.csv)** - Mixed catalog results (51%)
+
+### External Data Sources
+
+- **[ESO Archive](http://archive.eso.org/)** - GRAVITY & XSHOOTER instruments (primary validation)
+- **[NED](https://ned.ipac.caltech.edu/)** - NASA Extragalactic Database (historical comparison)
+- **[SIMBAD](https://simbad.u-strasbg.fr/)** - Set of Identifications, Measurements and Bibliography (complementary)
 
 ---
 
@@ -282,10 +387,107 @@ This script achieves **world-class gravitational redshift prediction** (97.9% wi
 
 ---
 
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Issue: "File not found" error**
+```bash
+FileNotFoundError: data/clean/eso_archive_clean.csv
+```
+**Solution:** Check that data file exists, or specify custom path with `--csv`
+
+**Issue: "Column not found" error**
+```bash
+KeyError: 'M_solar'
+```
+**Solution:** Ensure CSV has required columns (see [Input Data Format](#input-data-format))
+
+**Issue: "No data after filtering"**
+```
+Warning: 0 valid observations after filtering
+```
+**Solution:** Check that data has complete rows (no NaN in required columns)
+
+**Issue: Low win rate**
+```
+SEG wins: 23/100 (23%)
+```
+**Possible Causes:**
+- Mixed data types (cosmological + local redshift)
+- Photometric data instead of spectroscopy
+- Incomplete kinematic parameters
+
+**Solution:** Use professional spectroscopy (ESO-level) for best results
+
+### Getting Help
+
+- **Issues:** [GitHub Issues](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/issues)
+- **Documentation:** [README.md](README.md)
+- **Analysis:** [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)
+
+---
+
+## 📦 Dependencies
+
+### Required Packages
+
+```python
+numpy >= 1.20.0
+pandas >= 1.3.0  
+scipy >= 1.7.0
+matplotlib >= 3.4.0  # For plots (optional with --no-plots)
+```
+
+### Installation
+
+```bash
+pip install numpy pandas scipy matplotlib
+```
+
+**Or from requirements.txt:**
+```bash
+pip install -r requirements.txt
+```
+
+### Python Version
+
+- **Minimum:** Python 3.8
+- **Recommended:** Python 3.10+
+- **Tested:** 3.8, 3.9, 3.10, 3.11, 3.12
+
+---
+
+## 🔗 Related Tools & Scripts
+
+### Core Analysis Scripts
+
+- [`segspace_all_in_one_extended.py`](segspace_all_in_one_extended.py) - Complete SEG implementation
+- [`run_all_ssz_terminal.py`](run_all_ssz_terminal.py) - Full analysis pipeline
+- [`generate_key_plots.py`](generate_key_plots.py) - Plot generation
+
+### Data Processing
+
+- [`data/clean/create_eso_dataset.py`](data/clean/create_eso_dataset.py) - ESO data cleaning workflow
+- [`data/fetch_ned_data.py`](data/fetch_ned_data.py) - NED database queries
+- [`data/fetch_simbad_data.py`](data/fetch_simbad_data.py) - SIMBAD database queries
+
+### Validation Tools
+
+- [`perfect_seg_analysis.py`](perfect_seg_analysis.py) - Interactive single-object analysis
+- [`perfect_equilibrium_analysis.py`](perfect_equilibrium_analysis.py) - Equilibrium point analysis
+
+### Test Suites
+
+- [`run_full_suite.py`](run_full_suite.py) - Complete test suite (116 tests)
+- [`tests/test_ssz_real_data_comprehensive.py`](tests/test_ssz_real_data_comprehensive.py) - Comprehensive data tests
+
+---
+
 **Created:** 2025-10-20  
-**Updated:** 2025-10-21 (ESO Validation)  
+**Updated:** 2025-10-21 (ESO Validation + Complete Links)  
 **Status:** ✅ Production - 97.9% Breakthrough Achieved  
 **Version:** 1.4.0 - ESO Validation Release
 
 © 2025 Carmen Wrede, Lino Casu  
-Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+Licensed under the [ANTI-CAPITALIST SOFTWARE LICENSE v1.4](LICENSE)
