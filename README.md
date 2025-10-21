@@ -2,15 +2,16 @@
 
 # Segmented Spacetime – Mass Projection & Unified Results
 
-[![Tests](https://img.shields.io/badge/tests-69%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20WSL%20%7C%20macOS%20%7C%20Colab-brightgreen)](#cross-platform-compatibility)
+[![ESO Data](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
 © Carmen Wrede & Lino Casu
 
-**Latest Release:** v1.3.1 (2025-10-20) - Complete Documentation & Final Validation  
-✅ **Status:** 69 automated tests + 2 smoke tests passing | Plots generated | Cross-platform verified | Complete documentation
+**Latest Release:** v1.4.0 (2025-10-21) - ESO Breakthrough Validation (97.9%)  
+✅ **Status:** 116 automated tests passing | ESO validation complete | Publication-ready plots | Complete documentation
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
 
