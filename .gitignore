@@ -204,6 +204,9 @@ reports/junit-*.xml
 # Analysis outputs
 output/
 results/
+!results/figures/.gitkeep
+!full_pipeline/figures/.gitkeep
+!final_reports/figures/.gitkeep
 *.out
 
 # Plot outputs (can be regenerated)
