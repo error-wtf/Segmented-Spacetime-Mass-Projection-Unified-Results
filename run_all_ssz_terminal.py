@@ -264,6 +264,18 @@ vfall_dir= HERE / "vfall_out"
 report_dir = HERE / "full_pipeline" / "reports"
 report_dir.mkdir(parents=True, exist_ok=True)
 
+# Create all necessary figure directories
+figure_dirs = [
+    HERE / "reports" / "figures",
+    HERE / "agent_out" / "figures",
+    HERE / "results" / "figures",
+    HERE / "full_pipeline" / "figures",
+    HERE / "final_reports" / "figures",
+    HERE / "vfall_out"
+]
+for fig_dir in figure_dirs:
+    fig_dir.mkdir(parents=True, exist_ok=True)
+
 # All-in-one output locations
 agent_out = HERE / "agent_out"
 reports_ain1 = agent_out / "reports"
