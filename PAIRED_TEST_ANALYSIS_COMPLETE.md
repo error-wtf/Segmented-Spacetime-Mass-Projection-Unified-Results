@@ -10,7 +10,7 @@
 ```
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
-║  KEY FINDING: There are NO object types where SSZ fundamentally fails      ║
+║  KEY FINDING: There are NO object types where SEG fundamentally fails      ║
 ║                                                                            ║
 ║  • Mixed Catalog Data (51% overall):  DATA QUALITY limitations             ║
 ║  • ESO Professional Data (97.9% overall): BREAKTHROUGH validation          ║
@@ -34,7 +34,7 @@
 ║              NOT object type or physical regime.                           ║
 ║                                                                            ║
 ║  With professional spectroscopy measuring the right physics                ║
-║  (local gravitational redshift), SSZ achieves world-class validation.      ║
+║  (local gravitational redshift), SEG achieves world-class validation.      ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 ```
