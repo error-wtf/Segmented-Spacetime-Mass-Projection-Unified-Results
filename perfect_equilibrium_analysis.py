@@ -33,7 +33,7 @@ os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 # Constants
 C = 299792458  # Speed of light (m/s)
 G = 6.67430e-11  # Gravitational constant (m^3/kg/s^2)
-PHI = (1 + np.sqrt(5)) / 2  # Golden ratio
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python)
 
 print("="*80)
 print("PERFECT EQUILIBRIUM ANALYSIS")

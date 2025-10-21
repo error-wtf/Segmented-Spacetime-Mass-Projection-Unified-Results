@@ -41,7 +41,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 h_planck = 6.62607015e-34  # J·s
 c_light = 299792458.0      # m/s
 k_boltzmann = 1.380649e-23 # J/K
-phi = (1 + np.sqrt(5)) / 2  # Golden ratio
+phi = (1 + 5**0.5) / 2  # Golden ratio (pure Python, no numpy dependency)
 
 
 def planck_spectrum(nu, T, A):

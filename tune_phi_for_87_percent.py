@@ -18,7 +18,7 @@ df = pd.read_csv('data/real_data_emission_lines.csv')
 C = 299792458
 G = 6.67430e-11
 M_SUN = 1.98847e30
-PHI = (1 + np.sqrt(5)) / 2
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python)
 
 def z_special_rel(v_tot, v_los):
     if v_tot is None or not np.isfinite(v_tot) or v_tot <= 0:

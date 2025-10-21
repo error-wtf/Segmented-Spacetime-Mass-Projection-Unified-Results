@@ -39,7 +39,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 # Physical constants
 C = 299792458  # Speed of light (m/s)
 G = 6.67430e-11  # Gravitational constant
-PHI = (1 + np.sqrt(5)) / 2  # Golden ratio (FUNDAMENTAL GEOMETRIC BASIS!)
+PHI = (1 + 5**0.5) / 2  # Golden ratio (FUNDAMENTAL GEOMETRIC BASIS! Pure Python)
 M_SUN = 1.98847e30  # Solar mass (kg)
 
 # Standard-Datensatz (bereinigtes "Perfect"-Sample)

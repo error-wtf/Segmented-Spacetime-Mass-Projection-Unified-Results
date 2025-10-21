@@ -28,7 +28,7 @@ from typing import Tuple
 import pytest
 
 # Constants
-PHI = (1 + np.sqrt(5)) / 2  # Golden ratio
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python, no numpy dependency)
 C_SI = 2.99792458e8  # Speed of light [m/s]
 
 # UTF-8 for subprocess safety (Windows compatibility)
@@ -43,9 +43,6 @@ if sys.platform.startswith('win'):
             sys.stderr.reconfigure(encoding='utf-8', errors='replace')
     except (AttributeError, OSError):
         pass  # pytest capture active, skip
-
-# Golden ratio constant
-PHI = (1 + np.sqrt(5)) / 2
 
 
 def load_phi_debug_data(base_path: Path | None = None) -> pd.DataFrame:

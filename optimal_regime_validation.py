@@ -21,7 +21,7 @@ from pathlib import Path
 # UTF-8 setup
 os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
 
-PHI = (1 + np.sqrt(5)) / 2  # Golden ratio
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python)
 
 print("="*80)
 print("OPTIMAL REGIME VALIDATION")

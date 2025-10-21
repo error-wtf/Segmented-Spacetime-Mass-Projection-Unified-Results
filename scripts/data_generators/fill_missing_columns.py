@@ -28,7 +28,7 @@ if sys.platform.startswith('win'):
             sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
 # Constants
-PHI = (1 + np.sqrt(5)) / 2  # Golden ratio
+PHI = (1 + 5**0.5) / 2  # Golden ratio (pure Python)
 C_LIGHT = 299792458.0  # m/s
 G = 6.67430e-11  # m³/(kg·s²)
 M_SUN = 1.98847e30  # kg
