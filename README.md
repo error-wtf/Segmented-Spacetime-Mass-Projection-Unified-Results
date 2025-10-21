@@ -62,25 +62,25 @@ python perfect_paired_test.py --output out/clean_results.csv
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                                       ║
-║  KEY FINDING: Segmented Spacetime (SEG) does NOT fail on specific    ║
+║  KEY FINDING: Segmented Spacetime (SEG) does NOT fail on specific     ║
 ║               object types or regimes                                 ║
 ║                                                                       ║
-║  The difference between 51% (catalog) and 97.9% (ESO) is             ║
+║  The difference between 51% (catalog) and 97.9% (ESO) is              ║
 ║  DATA QUALITY, not object-type limitations:                           ║
 ║                                                                       ║
-║  • Very Close (r<2 r_s): 0% catalog → NO ISSUES ESO (97.9% overall) ║
+║  • Very Close (r<2 r_s): 0% catalog → NO ISSUES ESO (97.9% overall)   ║
 ║    → Catalog had incomplete parameters (data artifact)                ║
 ║                                                                       ║
-║  • Weak Field (r>10 r_s): 37% catalog performance                    ║
-║    → EXPECTED - SEG is strong-field theory, GR already good here     ║
+║  • Weak Field (r>10 r_s): 37% catalog performance                     ║
+║    → EXPECTED - SEG is strong-field theory, GR already good here      ║
 ║                                                                       ║
-║  • Photon Sphere: 82% catalog → 100% ESO (+18 percentage points)    ║
-║  • High Velocity: 86% catalog → 94.4% ESO (+8.4 percentage points)  ║
+║  • Photon Sphere: 82% catalog → 100% ESO (+18 percentage points)      ║
+║  • High Velocity: 86% catalog → 94.4% ESO (+8.4 percentage points)    ║
 ║                                                                       ║
-║  PROOF: Same physics, better data quality = breakthrough results     ║
+║  PROOF: Same physics, better data quality = breakthrough results      ║
 ║                                                                       ║
 ║  With professional spectroscopy measuring local gravitational         ║
-║  redshift (what SEG predicts), world-class validation achieved.      ║
+║  redshift (what SEG predicts), world-class validation achieved.       ║
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 ```
