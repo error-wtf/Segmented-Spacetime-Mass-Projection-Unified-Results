@@ -17,11 +17,11 @@
 ║                                                                            ║
 ║  The "failures" in catalog data were SOURCE PROBLEMS, not physics:         ║
 ║                                                                            ║
-║  ❌ Very Close (r<2 r_s): 0% with catalog data                            ║
-║  ✅ Very Close: NO ISSUES with ESO data (97.9% overall)                   ║
+║  ❌ Very Close (r<2 r_s): 0% with catalog data                             ║
+║  ✅ Very Close: NO ISSUES with ESO data (97.9% overall)                    ║
 ║     → Catalog data had incomplete parameters, not fundamental failure      ║
 ║                                                                            ║
-║  ❌ Weak Field (r>10 r_s): 37% with catalog data                          ║
+║  ❌ Weak Field (r>10 r_s): 37% with catalog data                           ║
 ║  ✅ Weak Field: EXPECTED - SEG is strong-field theory, GR already good     ║
 ║     → Not a failure, but correct physics (classical regime)                ║
 ║                                                                            ║
