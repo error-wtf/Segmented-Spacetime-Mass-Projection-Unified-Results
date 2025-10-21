@@ -21,7 +21,7 @@
 4. ✅ Download results ZIP
 
 **What you get:**
-- ✅ 58 tests executed (35 physics + 23 technical)
+- ✅ 69 tests executed (35 physics + 23 technical + 11 validation)
 - ✅ Complete SSZ analysis (20+ scripts)
 - ✅ All reports and plots
 - ✅ Downloadable ZIP archive
@@ -43,7 +43,7 @@
 **What it does:**
 - Creates virtual environment
 - Installs all dependencies
-- Runs 58 tests
+- Runs 69 tests
 - Verifies installation
 
 ### Linux/WSL/macOS
@@ -60,7 +60,7 @@ chmod +x install.sh
 **What it does:**
 - Creates virtual environment
 - Installs all dependencies
-- Runs 58 tests
+- Runs 69 tests
 - Verifies installation
 
 ---
@@ -295,7 +295,7 @@ pip install -r requirements.txt
 ```
 ✅ Virtual environment created (.venv/)
 ✅ All dependencies installed (numpy, scipy, pandas, etc.)
-✅ 58 tests passing (35 physics + 23 technical)
+✅ 69 tests passing (35 physics + 23 technical + 11 validation)
 ✅ CLI tools available (SSZ-rings, SSZ-print-md)
 ✅ Platform compatibility verified
 ```
@@ -399,7 +399,7 @@ python run_all_ssz_terminal.py
 After setup, you should have:
 
 - ✅ Virtual environment active (`.venv/`)
-- ✅ All 58 tests passing
+- ✅ All 69 tests passing
 - ✅ CLI tools working (`SSZ-rings --help`)
 - ✅ Data files present (427 observations)
 - ✅ Reports directory created (`reports/`)
