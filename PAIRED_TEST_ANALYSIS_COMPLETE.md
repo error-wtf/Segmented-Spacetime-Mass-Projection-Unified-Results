@@ -1378,12 +1378,24 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 - **[segspace_all_in_one_extended.py](segspace_all_in_one_extended.py)** - Complete SEG implementation
 - **[generate_key_plots.py](generate_key_plots.py)** - Plot generation (ESO breakthrough figures)
 
-### ESO Data Tools
+### Data Acquisition Scripts
 
-- **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - ⭐ **Complete step-by-step guide** (browser + token workflow)
+**ESO Data (requires token):**
+- **[MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - ⭐ **Complete step-by-step guide**
 - **[scripts/download_eso_fits.sh](scripts/download_eso_fits.sh)** - Download script (edit token + dataset IDs)
 - **[scripts/process_eso_fits_to_csv.py](scripts/process_eso_fits_to_csv.py)** - FITS → CSV processing
 - **[scripts/clean_real_data_emission_lines.py](scripts/clean_real_data_emission_lines.py)** - Dataset cleaning
+
+**GAIA Data (automatic, no token):**
+- **[scripts/fetch_gaia_full.py](scripts/fetch_gaia_full.py)** - Full GAIA catalog
+- **[scripts/gaia/fetch_gaia_adql.py](scripts/gaia/fetch_gaia_adql.py)** - ADQL query interface
+- **[scripts/gaia/fetch_gaia_conesearch.py](scripts/gaia/fetch_gaia_conesearch.py)** - Cone search
+
+**Other Data Sources (automatic):**
+- **[scripts/fetch_planck.py](scripts/fetch_planck.py)** - Planck CMB power spectrum
+- **[scripts/planck/fetch_planck_map.py](scripts/planck/fetch_planck_map.py)** - Planck sky maps
+- **[scripts/sdss/fetch_sdss_catalog.py](scripts/sdss/fetch_sdss_catalog.py)** - SDSS spectroscopy
+- **[scripts/data_acquisition/fetch_m87_spectrum.py](scripts/data_acquisition/fetch_m87_spectrum.py)** - M87 spectrum
 
 ### External Resources
 
