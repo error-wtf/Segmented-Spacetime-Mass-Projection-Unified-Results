@@ -7,7 +7,7 @@
 
 ## ⚠️ CRITICAL INSIGHT: No Fundamental Object-Type Failures
 
-
+```
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
 ║  KEY FINDING: There are NO object types where SEG fundamentally fails      ║
@@ -37,7 +37,7 @@
 ║  (local gravitational redshift), SEG achieves world-class validation.      ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
-
+```
 
 **Translation:** SEG doesn't fail on specific astronomical objects or regimes. The 51% catalog result was limited by **data format incompatibility** (measuring cosmological redshift instead of local gravitational effects, incomplete kinematic parameters, photometric uncertainties). Professional ESO spectroscopy measures **exactly what SEG predicts** (local gravitational redshift at specific radii with complete velocity data) and achieves **97.9% accuracy**. This is a data quality story, not a model limitation story.
 
