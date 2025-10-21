@@ -6,6 +6,19 @@
 
 ---
 
+## 🔌 OFFLINE MODE - No Internet Required!
+
+**✅ Everything works offline with included data:**
+- [`data/real_data_emission_lines_clean.csv`](../data/real_data_emission_lines_clean.csv) - ⭐ **47 ESO observations (97.9%)**
+- [`data/real_data_emission_lines_best.csv`](../data/real_data_emission_lines_best.csv) - 26 Sgr A* optimal
+- [`perfect_paired_test.py`](../perfect_paired_test.py) - Validation test
+
+**No downloads needed!** The breakthrough 97.9% dataset is included in the repository.
+
+**Fetch scripts below are OPTIONAL** - only use if you want fresh data or other sources.
+
+---
+
 ## 📋 Quick Navigation
 
 - [Method Comparison](#method-comparison)
@@ -184,13 +197,14 @@ WHERE DISTANCE(
 results = Gaia.launch_job(query).get_results()
 ```
 
-**Working Scripts:**
-- [`scripts/fetch_gaia_full.py`](../scripts/fetch_gaia_full.py) - Full GAIA catalog fetch
-- [`scripts/gaia/fetch_gaia_adql.py`](../scripts/gaia/fetch_gaia_adql.py) - ADQL query interface
-- [`scripts/gaia/fetch_gaia_conesearch.py`](../scripts/gaia/fetch_gaia_conesearch.py) - Cone search (specific region)
+**Working Scripts (🌐 Requires Internet):**
+- [`scripts/fetch_gaia_full.py`](../scripts/fetch_gaia_full.py) - 🌐 Full GAIA catalog fetch
+- [`scripts/gaia/fetch_gaia_adql.py`](../scripts/gaia/fetch_gaia_adql.py) - 🌐 ADQL query interface
+- [`scripts/gaia/fetch_gaia_conesearch.py`](../scripts/gaia/fetch_gaia_conesearch.py) - 🌐 Cone search (specific region)
 
 **Use for:** Positions, proper motions, distances  
-**NOT for:** Gravitational redshift validation
+**NOT for:** Gravitational redshift validation  
+**Note:** Small GAIA samples included in [`data/gaia/`](../data/gaia/) for offline testing
 
 ---
 
@@ -263,17 +277,23 @@ Need data?
 
 ## Other Available Scripts
 
+**⚠️ Requires Internet Connection:**
+
 **Planck CMB Data:**
-- [`scripts/fetch_planck.py`](../scripts/fetch_planck.py) - Planck CMB power spectrum (2GB, auto-fetched during install)
-- [`scripts/planck/fetch_planck_map.py`](../scripts/planck/fetch_planck_map.py) - Planck sky maps
+- [`scripts/fetch_planck.py`](../scripts/fetch_planck.py) - 🌐 Planck CMB power spectrum (2GB, auto-fetched during install)
+- [`scripts/planck/fetch_planck_map.py`](../scripts/planck/fetch_planck_map.py) - 🌐 Planck sky maps
 
 **SDSS Catalog:**
-- [`scripts/sdss/fetch_sdss_catalog.py`](../scripts/sdss/fetch_sdss_catalog.py) - SDSS spectroscopic catalog
+- [`scripts/sdss/fetch_sdss_catalog.py`](../scripts/sdss/fetch_sdss_catalog.py) - 🌐 SDSS spectroscopic catalog
 
 **M87 Data:**
-- [`scripts/data_acquisition/fetch_m87_spectrum.py`](../scripts/data_acquisition/fetch_m87_spectrum.py) - M87 galaxy spectrum
+- [`scripts/data_acquisition/fetch_m87_spectrum.py`](../scripts/data_acquisition/fetch_m87_spectrum.py) - 🌐 M87 galaxy spectrum
 
-**Note:** These scripts work automatically (no token required). Use for specific research needs, not for SEG validation (wrong data types).
+**Note:** 
+- 🌐 = Requires internet to download
+- No token required (automatic)
+- Optional - use for specific research needs, not for SEG validation (wrong data types)
+- **Main validation works offline** with included `real_data_emission_lines_clean.csv`
 
 ---
 
