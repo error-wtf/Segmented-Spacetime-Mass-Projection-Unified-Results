@@ -252,9 +252,9 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 - **Φ impact:** Systematic testing confirms φ accounts for model functionality
 - **At photon sphere (optimal regime):** 100% wins (11/11, p=0.0010) with ESO data - **Perfect validation of φ/2 boundary prediction**
 
-![φ-Geometry Impact: WITH vs WITHOUT](reports/figures/analysis/phi_geometry_impact.png)
+![φ-Geometry Impact: WITH vs WITHOUT](reports/figures/analysis/phi_geometry_impact_eso.png)
 
-**Figure:** Impact of φ-based geometry corrections. WITHOUT φ: complete failure (0% overall). WITH φ: competitive performance (51% overall) with excellence in photon sphere (+75 pp) and high velocity (+76 pp). φ-geometry is fundamental to model function.
+**Figure:** Impact of φ-based geometry corrections across data quality levels. WITHOUT φ: complete failure (0% overall). WITH φ + ESO data: breakthrough validation (97.9% overall). WITH φ + catalog data: competitive performance (51% overall). This demonstrates that φ-geometry is fundamental to model function (0% → 97.9%), while data quality determines performance magnitude (51% catalog vs. 97.9% ESO).
 
 ### Regime-Specific Performance
 
