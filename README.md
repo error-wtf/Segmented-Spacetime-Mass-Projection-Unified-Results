@@ -730,15 +730,27 @@ python PLATFORM_COMPATIBILITY_CHECK.py
 **Smart data fetching (only missing files):**
 
 ```bash
-# Planck CMB data (~2 GB)
+# Planck CMB data (~2 GB, auto-fetched during install)
 python scripts/fetch_planck.py
+python scripts/planck/fetch_planck_map.py         # Sky maps
 
-# GAIA stellar data
-python scripts/fetch_gaia_full.py
+# GAIA stellar data (automatic, no token)
+python scripts/fetch_gaia_full.py                 # Full catalog
+python scripts/gaia/fetch_gaia_adql.py           # ADQL query
+python scripts/gaia/fetch_gaia_conesearch.py     # Cone search
 
-# NED spectral data
-python scripts/data_acquisition/fetch_ned_spectra.py
+# SDSS spectroscopic catalog
+python scripts/sdss/fetch_sdss_catalog.py
+
+# M87 galaxy spectrum
+python scripts/data_acquisition/fetch_m87_spectrum.py
+
+# ESO spectroscopy (requires token - see docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
+bash scripts/download_eso_fits.sh                 # Download FITS
+python scripts/process_eso_fits_to_csv.py         # Process FITS → CSV
 ```
+
+**See:** [`docs/DATA_ACQUISITION_COMPLETE_GUIDE.md`](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md) for complete instructions
 
 ### Output Printing
 
