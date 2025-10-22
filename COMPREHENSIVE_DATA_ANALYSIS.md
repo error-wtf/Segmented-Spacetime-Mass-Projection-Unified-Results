@@ -97,6 +97,12 @@ All **4 core predictions** validated with real astronomical observations:
 - S2: GRAVITY Collaboration, A&A 615, L15 (2018)
 - Cyg X-1: Gou et al., ApJ 701, 1076 (2009)
 
+**⚠️ WICHTIG - Laborvergleichbarkeit:**
+- Alle f_obs-Werte wurden in ein **gemeinsames Bezugssystem** transformiert (baryzentrisch)
+- **Grund:** λ ist in jedem Labor unterschiedlich (Gravitation, Bewegung, Kalibration)
+- **Konsequenz:** Formeln die auf f_obs aufbauen sind **nur mit denselben Referenzwerten** (transformiert) vergleichbar
+- **Details:** Siehe `DATA_COLUMNS_README.md` Sektion "Laborvergleichbarkeit von f_obs"
+
 **Output Generated:**
 - `reports/info_preservation_by_source.csv` (4 sources analyzed!)
 

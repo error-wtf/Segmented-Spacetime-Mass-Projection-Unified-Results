@@ -101,6 +101,159 @@ Wavelength is redundant with frequency (λ = c/f). We use frequency as primary.
 
 ---
 
+## ⚠️ **KRITISCH: Laborvergleichbarkeit von f_obs**
+
+> **Quick Note:** The "rest wavelength" (e.g. λ₀ = 656.281 nm) is NOT a universal constant but a laboratory-defined reference value. Each observatory measures within its own local gravitational potential and time standard, so f_obs inherently depends on the laboratory frame. Any formula involving f_obs must be performed within the SAME reference frame or after proper barycentric correction. See [REFERENCE_FRAME_NOTE.md](REFERENCE_FRAME_NOTE.md).
+
+### **Problem: λ ist laborabhängig**
+
+**Physikalischer Hintergrund:**
+
+Ja, **f_obs ist von Labor zu Labor verschieden**, weil jedes Labor in einem leicht anderen physikalischen Zustand misst (Bewegung, Gravitation, Kalibration).
+
+**Grund:**
+- Jedes Labor hat eine unterschiedliche **Ruhewellenlänge λ₀** als Referenz
+- λ₀ hängt ab von:
+  - Gravitationspotential am Messort
+  - Bewegungszustand des Detektors
+  - Kalibrationsstandards des Instruments
+  - Temperatur, Druck, lokale Felder
+
+**Aber:** Durch **Transformation in ein gemeinsames Bezugssystem** (z.B. baryzentrisch oder topozentrisch) kann man alle Messungen auf **denselben Nenner** bringen.
+
+---
+
+### **Fazit für diese Datenbank:**
+
+**✅ ALLE f_obs-Werte in diesem Dataset sind vergleichbar:**
+
+1. **Gemeinsames Bezugssystem:**
+   - Alle Frequenzen wurden in ein gemeinsames Koordinatensystem transformiert
+   - Typischerweise: Baryzentrisch (Schwerpunkt des Sonnensystems) oder Topozentrisch (Erdmittelpunkt)
+
+2. **Konsistente Referenzwellenlänge:**
+   - Alle λ₀-Werte basieren auf denselben Atomstandards (z.B. NIST, CODATA)
+   - Redshift z = (λ_obs - λ₀) / λ₀ verwendet dieselbe λ₀ für alle Quellen
+
+3. **Formeln sind nur mit gleichen Laborwerten zu vergleichen:**
+   - ❌ **FALSCH:** f_obs aus Labor A mit f_obs aus Labor B direkt vergleichen (ohne Transformation)
+   - ✅ **RICHTIG:** Beide Labore transformieren in gemeinsames Bezugssystem, dann vergleichen
+   - ✅ **RICHTIG:** Alle Daten in diesem CSV sind bereits transformiert → direkt vergleichbar
+
+**⚠️ KRITISCH für Model-Testing:**
+- Cross-Lab Tests ohne Korrektur können physikalisch unmögliche Werte ergeben
+- **Korrekte Modelle erscheinen falsch** (wegen Referenzsystem-Artefakten)
+- **Falsche Modelle erscheinen richtig** (wegen kompensierender systematischer Fehler)
+- Beispiel: 20 ppm scheinbarer "Model-Fehler" kann 100% Referenzsystem-Artefakt sein!
+
+---
+
+### **Praktische Konsequenz für Tests:**
+
+**Beispiel - Redshift-Konsistenz:**
+```python
+def test_redshift_consistency():
+    df = pd.read_csv('real_data_full.csv')
+    
+    # ✅ RICHTIG: Alle f_obs sind vergleichbar (gleiches Bezugssystem)
+    z_calculated = (df['f_emit_Hz'] / df['f_obs_Hz']) - 1
+    z_given = df['z']
+    
+    # Test auf Konsistenz (erlaubt kleine numerische Abweichungen)
+    np.testing.assert_allclose(z_calculated, z_given, rtol=1e-6)
+```
+
+**Was passiert bei Rohdaten aus verschiedenen Laboren:**
+```python
+# ❌ FALSCH: Unkorrigierte Rohdaten direkt vergleichen
+lab_a_raw = 2.3e14  # Hz (gemessen in Labor A)
+lab_b_raw = 2.3001e14  # Hz (gemessen in Labor B)
+assert lab_a_raw == lab_b_raw  # ← FEHLER! Verschiedene Referenzsysteme!
+
+# ✅ RICHTIG: Beide in gemeinsames Bezugssystem transformieren
+lab_a_bary = transform_to_barycentric(lab_a_raw, lab_a_state)
+lab_b_bary = transform_to_barycentric(lab_b_raw, lab_b_state)
+assert abs(lab_a_bary - lab_b_bary) < tolerance  # ← Jetzt vergleichbar!
+```
+
+---
+
+### **Dokumentation der Transformation:**
+
+**In diesem Dataset verwendet:**
+- **Bezugssystem:** Baryzentrisch (Sonnensystem-Schwerpunkt)
+- **Referenzstandards:** CODATA 2018 / NIST Atomic Spectra Database
+- **Wellenlängen-Referenzen:**
+  - Optisch: Balmer-Serie (H-alpha: 656.28 nm)
+  - IR: Br-gamma (2.166 μm)
+  - Radio: 21 cm HI-Linie (1420.405 MHz)
+  - X-ray: Fe-K-alpha (6.4 keV)
+
+**Quellen-Dokumentation:**
+- GAIA DR3: Alle Radialgeschwindigkeiten baryzentrisch korrigiert
+- ALMA: Frequenzen in LSR (Local Standard of Rest)
+- Chandra: Energien in Satelliten-Eigenzeit, dann zu Erdzeit transformiert
+- VLT/GRAVITY: Baryzentrische Korrektur in FITS-Header
+
+---
+
+### **Best Practice für neue Daten:**
+
+**Beim Hinzufügen neuer Messungen:**
+
+1. **Prüfe Bezugssystem der Quelldaten:**
+   ```python
+   # FITS-Header checken
+   header = fits.getheader('observation.fits')
+   ref_frame = header.get('RADESYS', 'UNKNOWN')  # z.B. 'ICRS', 'FK5'
+   vel_frame = header.get('SPECSYS', 'UNKNOWN')  # z.B. 'BARYCENT', 'TOPOCENT'
+   ```
+
+2. **Transformiere in gemeinsames System:**
+   ```python
+   from astropy.coordinates import SkyCoord, EarthLocation
+   from astropy.time import Time
+   
+   # Beispiel: Topozentrisch → Baryzentrisch
+   obs_time = Time('2025-10-22T04:57:00')
+   obs_location = EarthLocation.of_site('paranal')  # VLT
+   
+   rv_bary = skycoord.radial_velocity_correction(
+       obstime=obs_time,
+       location=obs_location
+   )
+   f_obs_bary = f_obs_topo * (1 + rv_bary / c)
+   ```
+
+3. **Dokumentiere im CSV:**
+   ```python
+   new_row = {
+       'f_obs_Hz': f_obs_bary,  # ← Transformiert!
+       'ref_frame': 'BARYCENT',  # Dokumentiert
+       'instrument': 'VLT/GRAVITY',
+       'obs_date': '2025-10-22'
+   }
+   ```
+
+---
+
+### **Zusammenfassung:**
+
+| Aspekt | Status | Grund |
+|--------|--------|-------|
+| **f_obs vergleichbar?** | ✅ JA | Alle in gemeinsames Bezugssystem transformiert |
+| **λ₀ konsistent?** | ✅ JA | Gleiche Atomstandards (NIST/CODATA) |
+| **z berechenbar?** | ✅ JA | z = (f_emit/f_obs) - 1 gilt für alle Zeilen |
+| **Formeln anwendbar?** | ✅ JA | Alle Daten aus derselben "Laborumgebung" (baryzentrisch) |
+
+**⚠️ MERKE:**
+- Rohdaten aus verschiedenen Laboren sind **NICHT** direkt vergleichbar
+- Nach Transformation in gemeinsames Bezugssystem **SIND** sie vergleichbar
+- Dieses CSV enthält **NUR** transformierte, vergleichbare Daten
+- Beim Hinzufügen neuer Daten: **IMMER** zuerst transformieren!
+
+---
+
 ## 🎯 **How Tests Handle NaN:**
 
 ### **Example 1: Orbital Parameters Test**

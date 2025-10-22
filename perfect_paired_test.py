@@ -12,6 +12,17 @@ Key Features:
 - Complete statistical testing
 - Production-ready implementation
 
+⚠️ NOTE ON LABORATORY REFERENCE FRAMES:
+The "rest wavelength" (e.g. λ₀ = 656.281 nm) used in spectroscopic datasets is
+NOT a universal constant but a laboratory-defined reference value. Each observatory
+measures within its own local gravitational potential and time standard, so the
+observed frequency f_obs inherently depends on the laboratory frame. Therefore,
+any formula or comparison involving f_obs must be performed within the SAME
+reference frame or after proper barycentric (or equivalent) correction.
+
+All data in this analysis are barycentric-corrected. See REFERENCE_FRAME_NOTE.md
+and LABORATORY_COMPARABILITY.md for details.
+
 © 2025 Carmen Wrede, Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """

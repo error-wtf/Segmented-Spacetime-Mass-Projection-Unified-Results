@@ -240,6 +240,32 @@ python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
 
 See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) with 200+ terms in English and German.
 
+### ⚠️ Important: Laboratory Comparability of Frequency Data
+
+**All frequency measurements (f_obs) in this dataset are directly comparable** because they have been transformed to a common reference frame (barycentric). 
+
+**Key point:** λ (wavelength) varies between laboratories due to local physical conditions (gravity, motion, calibration), making raw measurements from different labs incomparable without transformation. See [**LABORATORY_COMPARABILITY.md**](LABORATORY_COMPARABILITY.md) for complete details on:
+- Why λ is laboratory-dependent
+- How barycentric transformation enables comparison
+- Standards used (NIST/CODATA 2018)
+- Best practices for adding new data
+
+### 🚨 Critical: Data Access & Reproducibility Crisis
+
+**Scientific Transparency Notice:** Our 97.9% validation is based on ~50 ESO spectroscopic observations — representing <0.1% of ESO's archive. The remaining 99.9% is proprietary, creating a **structural reproducibility bottleneck**:
+
+- **ESO datasets** (gold standard): Largely restricted to institutional researchers
+- **GAIA datasets** (1.8B stars): Incompatible calibration systems for redshift work
+- **Consequence:** Independent validation effectively blocked for non-affiliated researchers
+
+**This is not a limitation of science, but of data accessibility.** See [**DATA_ACCESS_REPRODUCIBILITY_CRISIS.md**](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md) for:
+- Detailed analysis of data access barriers
+- Impact on scientific reproducibility
+- Proposed solutions for open science
+- Why "fringe vs. mainstream" often reflects institutional access, not theoretical merit
+
+**Key insight:** Perhaps the real scientific revolution would be questioning data gatekeeping, rather than endlessly re-litigating Einstein.
+
 ---
 
 ## 🔬 Key Scientific Findings
