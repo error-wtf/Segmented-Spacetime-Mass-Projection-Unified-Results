@@ -188,7 +188,117 @@ For a result to be **reproducible**, an independent researcher must be able to:
 
 ---
 
-## 6. Why "No Statistical Evidence" Is the System's Fault (Not the Model's)
+## 6. The Hidden Reproducibility Crisis in Spectroscopy — Why Almost All Non-ESO Approaches Fail
+
+### The Misconception: "You Can Just Recalculate Redshift (z) from Other Missions"
+
+**You cannot.** Absolute frequency comparisons require the same laboratory reference line (e.g., Hα 656.281 nm or Brγ) and a fully documented barycentric correction (BERV/BCORR), plus consistent metadata (CRVAL, CRPIX, CDELT, LSF, PSF, vacuum/air flag, time standard).
+
+Other missions like GAIA, HST, JWST, or SDSS simply don't provide this. They measure different observables:
+
+- **GAIA:** Low-resolution broad-band photometry (BP/RP) — no isolated frequency lines
+- **HST/JWST:** Mission-specific wavelength scales and zero-points — not tied to atomic lab standards
+- **SDSS:** Magnitude and statistical wavelength fits — great for populations, useless for absolute frequency physics
+
+**You can't "convert" a band-average or a mission-defined wavelength into an ESO-calibrated absolute frequency.** That's not a unit conversion → it's a **category error**.
+
+So when people claim they "recalculate z from GAIA/HST data," what they're actually doing is generating a **numerically consistent but physically meaningless surrogate**. It's pseudo-precision—numbers that look scientific but are not comparable in any physical sense.
+
+### Why ESO Is the Only Physically Valid Frame — And Why That's Now a Problem
+
+ESO's instruments (VLT, GRAVITY, SINFONI, MUSE, UVES, etc.) provide the only laboratory-traceable spectroscopic data with published barycentric corrections.
+
+**That's why all real, testable f_obs ↔ f_emit work must be done on ESO data.**
+
+But here's the paradox:
+
+**Even those data are barely accessible.**
+
+- The open portion of the ESO archive represents **less than 0.1%** of the total calibrated data volume
+- Our 97.9% validation (46 out of 47 objects) used the only compatible open GRAVITY files available
+- The remaining **99.9%** sits behind institutional access walls, collaboration accounts, or embargo systems
+
+### The June 16, 2024 Shutdown — The Day Reproducibility Died
+
+Until mid-2024, researchers could query ESO's archive via **TAP/TAB (Table Access Protocol)** — an SQL-like interface allowing structured bulk downloads and reproducible data queries.
+
+**That service was officially shut down on June 16, 2024.**
+
+Since then, the only way to fetch data is by using `curl` with **temporary download tokens**, each valid for roughly **8 hours**.
+
+**Consequences:**
+
+- ❌ No more bulk queries
+- ❌ No more stable URLs
+- ❌ No persistent identifiers for exact reproducibility
+- ❌ Pipelines break as soon as the token expires
+- ❌ Series downloads for statistical samples are rate-limited or terminate mid-run
+
+**In short:** Independent researchers now have **no practical way** to harvest or replicate a statistically meaningful dataset, even if they strictly follow ESO's own metadata standards.
+
+### Why This Kills Validation and "Post-Hoc Recalculation"
+
+Without stable, open access to identical calibration frames:
+
+- You can **no longer verify any published z-value independently**
+- You **cannot reproduce or extend** frequency-based analyses
+- You **cannot even check** whether a theoretical z you calculate matches reality, because there is no longer a reference to compare against
+- **Everything that depends on f_obs becomes non-reproducible by design**
+
+This also means that using other missions (GAIA, HST, JWST) to "fill the gap" doesn't fix anything → **it makes it worse**.
+
+Their data are in **different frames**, with different zero-points, dispersion laws, and correction algorithms. Mixing them doesn't produce a larger sample; it produces a **physically incoherent one**.
+
+### The Systemic Failure
+
+**All non-ESO approaches fail for the same reason:** they rely on data that look spectroscopic, but aren't absolute.
+
+And now, even ESO data → the only physically valid source → have been effectively **locked behind a short-lived token system that destroys reproducibility**.
+
+Independent researchers are thus forced into a paradox:
+
+- If they use open snippets → **too few objects** → no statistical evidence
+- If they try to access full data → **blocked by institutional walls or token expiry**
+- If they switch to other archives → **incompatible definitions**
+
+**The result is a collapse of verifiability across the entire field.**
+
+### The Broader Implication
+
+When reproducibility becomes **structurally impossible**, theory and speculation merge.
+
+Anyone can now postulate → but almost no one can prove. Without empirical data, even nonsense can sound consistent, because **nothing can be falsified**.
+
+This isn't a theoretical crisis; **it's a logistical one**.
+
+We didn't lose the equations → **we lost the access to data to prove it**.
+
+### Circumstantial Evidence vs. Statistical Evidence
+
+Even if you double your dataset (statistical method), **100 data points is way less than 10,000 or more**, which would confirm statistical evidence.
+
+**You have to distinguish between circumstantial evidence and statistical evidence.**
+
+With the current data access restrictions:
+
+- ✅ **Circumstantial evidence is still possible:** Small-N demonstrations (our 97.9% with N=47)
+- ❌ **Statistical evidence is no longer possible:** Cannot reach N>10,000 needed for conclusive validation
+
+**No amount of clever modeling or "recalculation" can substitute for missing, physically consistent data.**
+
+Since the June 16, 2024 shutdown of ESO's TAP/TAB access, the remaining open interface (`curl` with 8-hour tokens) effectively prevents reproducible large-N analyses.
+
+Other missions cannot be converted into ESO's frame, because they measure **different quantities on different definitions**.
+
+In practice, that means:
+
+**There is no reproducible, absolute spectroscopic dataset left that independent researchers can freely use.**
+
+This is the real reproducibility crisis in astrophysics → **not a lack of theory, but a lack of open, stable, physically traceable data.**
+
+---
+
+## 7. Why "No Statistical Evidence" Is the System's Fault (Not the Model's)
 
 Small-N outcomes (1 or 47 objects) are not weak because the models are wrong; they are weak because **no one is allowed to expand N with compatible, open data**. Demanding large-N while blocking access to the very data that would supply it is **a circular standard**—a rhetorical use of "statistics" to delegitimize those excluded from the archive.
 
@@ -223,7 +333,7 @@ Our 97.9% success rate (46/47) gives:
 
 ---
 
-## 7. How This Manufactures "Fringe"
+## 8. How This Manufactures "Fringe"
 
 Labeling independent work "fringe" blends a social mechanism with a technical deficit:
 
@@ -269,7 +379,7 @@ Under this system:
 
 ---
 
-## 8. The Plain Statement
+## 9. The Plain Statement
 
 **"Try fetching the data yourself."**
 
@@ -304,7 +414,7 @@ For those interested in how this dynamic plays out even with foundational theore
 
 ---
 
-## 9. Conclusion: We Are Not Out of Mind — We Are Out of Data
+## 10. Conclusion: We Are Not Out of Mind — We Are Out of Data
 
 Science cannot keep calling itself reproducible while its empirical ground remains inaccessible. Until open, compatible, lab-traceable datasets exist at meaningful scale, **"consensus" will reflect who controls access, not who has the better evidence**. The fix is not another debate about Einstein; it is an end to gatekeeping of data. **With open data, let the best models win. Without it, we all lose.**
 
