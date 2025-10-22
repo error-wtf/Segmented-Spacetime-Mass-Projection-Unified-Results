@@ -250,6 +250,8 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 - Standards used (NIST/CODATA 2018)
 - Best practices for adding new data
 
+**⚠️ CRITICAL LIMITATION:** Cross-instrumental conversion between ESO and GAIA/HST/JWST datasets is **physically invalid**, as their calibration frames, spectral definitions, and barycentric corrections differ non-linearly. Each observatory's data pipeline applies instrument-specific transformations that cannot be reliably inverted or cross-calibrated without introducing systematic errors larger than the gravitational effects being measured (Δz ~ 10⁻⁴). This fundamental incompatibility is why our validation relies on ESO-native spectroscopy rather than attempting to merge heterogeneous datasets.
+
 ### 🚨 Critical: Data Access & Reproducibility Crisis
 
 **Scientific Transparency Notice:** Our 97.9% validation is based on ~50 ESO spectroscopic observations — representing <0.1% of ESO's archive. The remaining 99.9% is proprietary, creating a **structural reproducibility bottleneck**:
@@ -263,6 +265,8 @@ See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) 
 - Impact on scientific reproducibility
 - Proposed solutions for open science
 - Why "fringe vs. mainstream" often reflects institutional access, not theoretical merit
+
+**Personal Statement:** [**OUT_OF_DATA_LINO_CASU_STATEMENT.md**](OUT_OF_DATA_LINO_CASU_STATEMENT.md) - Lino Casu's position paper on how closed spectroscopic archives manufactured a systemic reproducibility crisis
 
 **Key insight:** Perhaps the real scientific revolution would be questioning data gatekeeping, rather than endlessly re-litigating Einstein.
 
@@ -689,6 +693,9 @@ All results shown are WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-
 
 **Data Quality & Management:**
 - **[DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - 📥 **How to fetch data** (ESO, NED, SIMBAD, GAIA)
+- **[DATA_ACCESS_REPRODUCIBILITY_CRISIS.md](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md)** - 🚨 **Structural barriers in modern astrophysics**
+- **[OUT_OF_DATA_LINO_CASU_STATEMENT.md](OUT_OF_DATA_LINO_CASU_STATEMENT.md)** - 📢 **Position paper by Lino Casu** (how closed archives manufactured a reproducibility crisis)
+- **[LABORATORY_COMPARABILITY.md](LABORATORY_COMPARABILITY.md)** - ⚠️ **Why cross-observatory conversion is physically invalid**
 - **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Complete data quality analysis
 - **[DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)** - Future enhancement plan
 - **[DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - Emission vs continuum guide
