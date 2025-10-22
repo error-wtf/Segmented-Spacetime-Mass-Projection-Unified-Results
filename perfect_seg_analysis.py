@@ -5,6 +5,13 @@ Perfect Segmented Spacetime Analysis - Interactive Standalone
 Rapidity-based calculations with NO 0/0 singularities
 Supports custom data, all physical regimes, complete analysis
 
+⚠️ NOTE ON LABORATORY REFERENCE FRAMES:
+The "rest wavelength" (e.g. λ₀ = 656.281 nm) is NOT a universal constant but
+a laboratory-defined reference value. Observed frequency f_obs depends on the
+laboratory frame (gravitational potential, time standard). Any formula involving
+f_obs must use data from the SAME reference frame or after proper barycentric
+correction. All data here are assumed barycentric-corrected. See REFERENCE_FRAME_NOTE.md.
+
 © 2025 Carmen Wrede, Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
