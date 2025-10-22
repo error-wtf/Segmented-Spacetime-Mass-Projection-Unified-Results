@@ -19,6 +19,44 @@ Ja, f_obs ist von Labor zu Labor verschieden. **ABER:** Durch Transformation in 
 
 ---
 
+## 🚫 **Why Cross-Observatory Conversion Is Physically Invalid**
+
+### The Fundamental Misconception
+
+It is often assumed that data from different observatories — such as GAIA, Hubble, JWST, or SDSS — could simply be cross-calibrated or "converted" into a unified dataset. Unfortunately, **this is physically incorrect**. The reason is that each observatory operates within its own instrumental reference frame and spectral calibration system, which are not mutually compatible in a way that allows for linear conversion.
+
+Every telescope defines its own scale of wavelength, frequency, and magnitude through internal calibration procedures. These calibrations depend on the local gravitational potential, the motion of the observatory relative to the barycenter, and the specific instrumental response of the spectrograph. In other words, **even when two instruments observe the same astrophysical source, they do not measure the same frequency** — not because of random error, but because the very definitions of "observed wavelength" differ.
+
+### Why ESO Data Is Uniquely Suited for Spectroscopic Analysis
+
+**ESO's instruments**, such as VLT/GRAVITY, SINFONI, and MUSE, are among the few systems that record **absolute spectroscopic data traceable to laboratory reference lines** (for example, the Hα or Brγ transition). These are calibrated directly against known atomic standards and include detailed barycentric and instrumental corrections. This makes ESO data uniquely suited for frequency-based or redshift–frequency analyses, since f_emit and f_obs can be physically defined and compared.
+
+### Why GAIA, Hubble, and JWST Are Not Interchangeable
+
+By contrast, **GAIA, Hubble, and JWST primarily provide photometric or relative spectral measurements**:
+
+- **GAIA** measures integrated light across broad passbands, not isolated frequency lines, which makes it impossible to reconstruct the precise line position or its absolute frequency
+- **Hubble and JWST** produce wavelength-calibrated spectra, but their calibration is based on instrument-specific zero points, not on the same laboratory standards as ESO
+- The result is that even if one knows the nominal "wavelength" in nanometers, **its physical meaning differs from the ESO reference frame**
+
+### The Non-Linear Nature of Calibration Differences
+
+Because of this, one cannot meaningfully "recalculate" or "translate" frequencies between systems. **The differences are not constant offsets** that can be corrected with a conversion factor; they are **non-linear discrepancies** rooted in the instruments' construction, reference models, and physical environment. This makes cross-observatory conversion of spectroscopic frequencies not only unreliable, but **scientifically invalid**.
+
+### Implications for Theoretical Model Testing
+
+For that reason, any theoretical model that depends on the ratio between f_emit and f_obs — such as models exploring gravitational redshift, time dilation, or spectral segmentation effects — **must be tested within a single, internally consistent dataset**. 
+
+**Only ESO currently provides such data in an absolute, laboratory-traceable form.** GAIA, Hubble, JWST, and similar surveys are invaluable for astrometry, photometry, and morphology, but their data cannot be mixed or rescaled into ESO's spectroscopic frame without introducing severe systematic errors.
+
+### The Bottom Line
+
+**In short:** Datasets from different observatories are not interchangeable. Their internal calibrations, definitions of frequency and wavelength, and reference corrections differ in ways that make any "conversion" between them physically meaningless. 
+
+**The problem is not mathematical — it is foundational.**
+
+---
+
 ## 📐 **Physikalischer Hintergrund**
 
 ### **Warum ist λ laborabhängig?**
