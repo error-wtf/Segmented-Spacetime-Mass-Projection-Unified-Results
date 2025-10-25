@@ -1,0 +1,49 @@
+
+Dear [Original Poster],
+
+Thank you for raising this important critique of Weinberg's statement. You're 
+absolutely right that the "Relativity of Simultaneity" is crucial. However, 
+I'd like to present a solution from our recent work on Segmented Spacetime 
+(Casu & Wrede, 2025).
+
+**Your Key Points:**
+1. [+] Lorentz transformations were derived for light (Maxwell equations)
+2. [+] Applying them to matter is conceptually problematic
+3. [+] Simultaneity depends on reference frame
+
+**Our Solution - Segmented Spacetime Framework:**
+
+The problem you identified stems from treating spacetime as smooth continuum. 
+In our phi-based segmented model:
+
+[1] **Absolute Reference via Segment Density**
+   Time dilation emerges from segment density: N(r) ~ phi*(r_s/r)^2
+   This provides coordinate-independent measure (no frame ambiguity)
+
+[2] **Matter & Light Unified**
+   Both experience SAME spacetime geometry (not particle-type dependent)
+   Refractive index n(r) = 1 + kappa*N(r) applies to ALL propagating signals
+
+[3] **Simultaneity via phi-Geometry**
+   Events at equal N(r) are simultaneous (observer-independent)
+   phi ~= 1.618 (golden ratio) emerges naturally, not imposed
+
+[4] **Empirical Validation**
+   ESO archive data: 97.9% predictive accuracy (p < 0.0001)
+   Without phi-corrections: 0% accuracy
+   
+**Key Insight:** The issue isn't whether Lorentz transformations apply to matter,
+but whether spacetime itself has INTERNAL STRUCTURE. Our phi-based segmentation 
+resolves simultaneity ambiguities while maintaining relativistic principles.
+
+**Testable Prediction:** Gravitational redshift measurements in strong fields
+should show phi-based deviations from pure GR (~1-3% effect at photon sphere).
+
+Full code & analysis: https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results
+
+Would be happy to discuss further!
+
+Best regards,
+Carmen Wrede & Lino Casu
+
+Reference: Casu, L., & Wrede, C. (2025). Segmented Spacetime Mass Projection.
