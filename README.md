@@ -1,6 +1,33 @@
-![S-Stars Residuals: SSZ vs GR Comparison](reports/figures/readme_header_sstars_comparison.png)
-
 # Segmented Spacetime – Mass Projection & Unified Results
+
+## 🌌 Sagittarius A* - Animated Visualization
+
+![Sagittarius A* Segmented Spacetime Animation](media/blackhole_segmented_spacetime.gif)
+
+**Interactive Black Hole Animation** featuring **Sagittarius A*** (4.154 million solar masses) with live mathematical values based on the Segmented Spacetime framework (Casu & Wrede).
+
+**Features:**
+- **φ-Based Geometry:** Golden ratio (φ ≈ 1.618) fundamental boundary at r_φ = 1.618 × r_s
+- **Segment Density:** N(r) ~ φ·(r_s/r)² from φ-spiral geometry
+- **Live Calculations:** Position, time dilation (τ), gravitational redshift (z), velocities, φ-correction
+- **Real Physics:** Schwarzschild radius (r_s = 12,268 Mio km), photon sphere (1.5 r_s), ISCO (3 r_s)
+
+**Usage:**
+```bash
+python blackhole_animation.py
+# Output: blackhole_segmented_spacetime.gif (animation)
+#         blackhole_segmented_spacetime.png (static diagram)
+```
+
+**Mathematical Framework:**
+- Based on `perfect_paired_test.py` physics engine
+- Implements φ-based mass correction: ΔM(%) = A·exp(-α·r_s) + B
+- Time dilation: τ = 1/√(1 - r_s/r)
+- Gravitational redshift: z_grav = 1/√(1 - r_s/r) - 1
+
+---
+
+![S-Stars Residuals: SSZ vs GR Comparison](reports/figures/readme_header_sstars_comparison.png)
 
 [![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
