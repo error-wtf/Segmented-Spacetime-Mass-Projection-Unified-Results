@@ -2,7 +2,9 @@
 
 ## 🌌 Sagittarius A* - Animated Visualization
 
-![Sagittarius A* Segmented Spacetime Animation](media/blackhole_segmented_spacetime.gif)
+<p align="center">
+  <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* Segmented Spacetime Animation" width="100%">
+</p>
 
 **Interactive Black Hole Animation** featuring **Sagittarius A*** (4.154 million solar masses) with live mathematical values based on the Segmented Spacetime framework (Casu & Wrede).
 
