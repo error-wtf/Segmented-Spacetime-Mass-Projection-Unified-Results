@@ -1,0 +1,65 @@
+<html><head>
+<title>Your NED Search Results</title>
+<script>
+ function onSelectSDSSOption(sel) {
+    if (sel.value == 12) {
+   document.getElementById("sdssinfo").action =
+    "http://skyserver.sdss.org/dr" + sel.value + "/en/tools/explore/summary.aspx";
+   }
+    else  {
+      document.getElementById("sdssinfo").action =
+    "http://cas.sdss.org/dr" + sel.value + "/en/tools/explore/obj.asp";
+    }
+    }
+</script>
+<script>
+ function onSelectSDSSOptionPos(sel) {
+    if (sel.value == 12) {
+   document.getElementById("sdssinfoPos").action =
+    "http://skyserver.sdss.org/dr" + sel.value + "/en/tools/explore/summary.aspx";
+   }
+    else  {
+     document.getElementById("sdssinfoPos").action =
+    "http://cas.sdss.org/dr" + sel.value + "/en/tools/explore/obj.asp";
+    }
+    }
+</script>
+<script>
+ function onSelectSDSSOptionInt(sel) {
+   if (sel.value == 12) {
+   document.getElementById("sdssinfoInt").action =
+    "http://skyserver.sdss.org/dr" + sel.value + "/en/tools/chart/navi.aspx";
+   }
+    else  {
+      document.getElementById("sdssinfoInt").action =
+    "http://cas.sdss.org/dr" + sel.value + "/en/tools/chart/navi.asp";
+    }
+    }
+</script>
+</head>
+<body bgcolor=#000000 background="/pics/NEDBkg.jpg">
+<center><font size=6 color=#CC3333><b>N</b></font><font size=4 color=#CCCCCCC><b>ASA/IPAC</b></font>&nbsp;<font size=6 color=#CC3333><b>E</b></font><font size=4 color=#CCCCCCC><b>XTRAGALACTIC</b></font>&nbsp;<font size=6 color=#CC3333><b>D</b></font><font size=4 color=#CCCCCCC><b>ATABASE</b></font></center>
+<center><font size=3 color=#CCCCCCC>Date and Time of the Query: 2025-10-20 T16:19:54 PDT</font></center>
+<center>
+<A HREF="/help/objresult_help.html" target=help><font color="#CCCCCC">Help</font></A><font color="#CCCCCC"> | </font><A HREF="/forms/comment.html"><font color="#CCCCCC">Comment</font></A><font color="#CCCCCC"> | </font><A HREF="/"><font color="#CCCCCC">NED Home</font></A></center><br>
+<font color=#CCCCCCC><h2>You have selected the following parameters to search on:</h2>
+<strong>
+Parameters for Distances and Cosmology: H<sub>o</sub>= 73.0; &#937;<sub>matter</sub> = 0.27; &#937;<sub>vacuum</sub> = 0.73;<br>
+Derived Quantities use a Redshift corrected to a Reference Frame defined by the 3K CMB
+</strong><br>
+<font color=#CCCCCCC><h2>NED results for object NGC 4258</h2>
+<hr width=100%>
+<A NAME="objlist">
+<h3><font color="#CCCCCCC">1 objects found in NED. </font>&nbsp;&nbsp;&nbsp;</h3></font>
+
+<table border=4 cellspacing=1 cellpadding=6 width="98%"> <tr><td bgcolor=lightgrey>
+<b>SOURCE LIST</b><br>
+
+<PRE><strong>
+ Row          Object Name                 EquJ2000.0       Object  Velocity/Redshift    Mag./  Separ.               Number of                                 Row 
+ No.     (* => Essential Note)       RA               DEC  Type     km/s       z   Qual Filter arcmin Refs Notes Phot Posn Vel/z Diam Assoc Images   Spectra  No. 
+</strong><A HREF=/cgi-bin/objsearch?search_type=Obj_id&objid=58626&objname=1&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1 TARGET="ned_dw">1  </A>  MESSIER 106                    12h18m57.5s +47d18m14s G         461  0.001538 S1L &nbsp;8.41V    ...  <A HREF=/cgi-bin/datasearch?search_type=Ref_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw">1437</A>  <A HREF=/cgi-bin/datasearch?search_type=Note_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw">  35</A> <A HREF=/cgi-bin/datasearch?search_type=Photo_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw"> 237</A> <A HREF=/cgi-bin/datasearch?search_type=Posn_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw"> 101</A>  <A HREF=/cgi-bin/datasearch?search_type=z_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw">  90</A> <A HREF=/cgi-bin/datasearch?search_type=Diam_id&objid=58626&objname=MESSIER%20106&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1&of=table TARGET="ned_dw">  12</A>     0 <A HREF=/cgi-bin/imgdata?objname=MESSIER+106&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1 TARGET="ned_dw">Retrieve</A> <A HREF=/cgi-bin/NEDspectra?objname=MESSIER+106&extend=never&detail=0&preview=1&numpp=20&refcode=ANY&bandpass=ANY&line=ANY&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1 TARGET="ned_dw">Retrieve</A> <A HREF=/cgi-bin/objsearch?search_type=Obj_id&objid=58626&objname=1&img_stamp=YES&hconst=73.0&omegam=0.27&omegav=0.73&corr_z=1 TARGET="ned_dw">1   </A>
+</pre>
+</table>
+</A>
+<br><A HREF="/"><font color="#CCCCCC"> Back to NED Home </font></A></body></html>
