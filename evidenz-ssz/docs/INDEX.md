@@ -24,6 +24,7 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 2. Schwarze-Loch-Physik (Penrose-Prozess)
 3. Philosophie (Leben im Universum)
 4. Astrophysik (Sternentwicklung)
+5. Video-Produktion (Audio-First Workflow)
 
 ---
 
@@ -141,11 +142,49 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 
 ---
 
+### 5. Video-Workflow
+**📄 Datei:** [`05_VIDEO_WORKFLOW.md`](./05_VIDEO_WORKFLOW.md)
+
+**Themen:**
+- Audio-First Pipeline (TTS-basiert)
+- espeak-ng Voice-Konfiguration
+- FFmpeg Audio/Video-Verarbeitung
+- YAML-Timeline-Generierung
+- Multi-Language Output (DE/EN/IT)
+- Troubleshooting & Performance
+
+**Kernaussage:**
+> Videos mit synchronisierten Audiobeschreibungen –
+> automatisch generiert in drei Sprachen.
+
+**Schlüsselkonzepte:**
+- TTS (Text-to-Speech) mit espeak-ng
+- Audio-driven Timeline-Anpassung
+- Dual-Panel Animation Rendering
+- FFmpeg Audio-Merge
+- Master-Pipeline-Orchestrierung
+
+**Status:**
+🚧 **In Produktion** (FFmpeg-Abhängigkeit erforderlich)
+
+**Geplante Outputs:**
+- `ssz_intro_de.mp4` (Deutsch, ~35s)
+- `ssz_intro_en.mp4` (English, ~34s)
+- `ssz_intro_it.mp4` (Italiano, ~37s)
+
+**Verknüpfte Scripts:**
+- `ssz_animation_master.py` - Master-Pipeline
+- `ssz_video_renderer.py` - Video-Renderer
+
+---
+
 ## Animationen
 
-### 🎬 Verfügbare GIF-Dateien
+### 🎬 GIF-Animationen (Verfügbar)
 
 **Ordner:** [`../animations/`](../animations/)
+
+**Status:** ✅ 7 Dateien, ~374 MB
 
 #### Wissenschaftliche Versionen
 
@@ -172,6 +211,29 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 
 #### Spezialisiert
 
+### 🎥 MP4-Videos mit Audio (In Produktion)
+
+**Ordner:** `D:\SSZ_Render/video/` (extern)
+
+**Status:** 🚧 Noch nicht generiert
+
+| Datei | Sprache | Dauer | Status |
+|-------|---------|-------|--------|
+| `ssz_intro_de.mp4` | Deutsch | ~35s | ⌛ Geplant |
+| `ssz_intro_en.mp4` | English | ~34s | ⌛ Geplant |
+| `ssz_intro_it.mp4` | Italiano | ~37s | ⌛ Geplant |
+
+**Inhalt:**
+- Dual-Panel Visualization (ΛCDM vs. SSZ)
+- 10 Sätze wissenschaftliche Erklärung (TTS)
+- Automatisch synchronisierte Audio-Spur
+
+📖 **[Video-Workflow Dokumentation](./05_VIDEO_WORKFLOW.md)**
+
+---
+
+### 📦 Weitere Formate
+
 | Datei | Größe | Beschreibung |
 |-------|-------|--------------|
 | `ssz_bomb_animation.gif` | 281 KB | Black Hole Bomb / Penrose Process |
@@ -184,14 +246,55 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 
 **Ordner:** [`../scripts/`](../scripts/)
 
-#### Animations-Scripts
+#### Video-Scripts (Audio + Animation)
+
+**Master-Pipeline:**
+- `ssz_animation_master.py` - 🎬 **Master-Script** (Audio-First Workflow)
+  - TTS-Audio-Generierung (espeak-ng)
+  - Audio-Dauer-Analyse
+  - YAML-Timeline-Erstellung
+  - Video-Rendering-Orchestrierung
+  - Finalisierung & Manifest
+
+- `ssz_video_renderer.py` - 🎥 Video-Renderer
+  - Dual-Panel Matplotlib-Animation
+  - FFmpeg Video-Export
+  - Audio-Spur-Synchronisation
+
+**Verwendung:**
+```bash
+cd evidenz-ssz/scripts/
+
+# Alle 3 Sprachen (DE/EN/IT)
+python ssz_animation_master.py --languages de en it
+
+# Nur einzelne Sprache
+python ssz_animation_master.py --languages de
+
+# Nur Audio (kein Video)
+python ssz_animation_master.py --skip-render
+```
+
+**Output:**
+```
+D:\SSZ_Render/
+├── audio/          # TTS-Audio (DE/EN/IT)
+├── video/          # MP4-Videos mit Audio
+├── timelines/      # YAML-Timelines
+└── final/          # Preview-Collage
+```
+
+📖 **[Ausführliche Dokumentation](./05_VIDEO_WORKFLOW.md)**
+
+---
+
+#### GIF-Animations-Scripts
 
 **Big Bang vs. SSZ:**
 - `ssz_bigbang_vs_ssz_anim.py` - Demo-Version
 - `ssz_animation_perfect.py` - Premium-Version
 - `ssz_animation_scientific.py` - Wissenschaftliche Version
-- `ssz_animation_master.py` - Master-Script
-- `create_all_language_versions.py` - Multi-Language Generator
+- `create_all_language_versions.py` - Multi-Language Generator (DE/EN/IT)
 
 **Verwendung:**
 ```bash
@@ -316,14 +419,16 @@ python ssz_bomb_animation.py
 2. [02_BLACK_HOLE_BOMB.md](./02_BLACK_HOLE_BOMB.md)
 3. [03_LIFE_AS_COSMIC_LOTTERY.md](./03_LIFE_AS_COSMIC_LOTTERY.md)
 4. [04_STARS_AS_LIFE_ENABLERS.md](./04_STARS_AS_LIFE_ENABLERS.md)
+5. [05_VIDEO_WORKFLOW.md](./05_VIDEO_WORKFLOW.md) - ⭐ NEU
 
-**Animationen (GIF):**
-- Alle in [`../animations/`](../animations/)
-- 7 Dateien, ~374 MB total
+**Animationen:**
+- **GIFs:** Alle in [`../animations/`](../animations/) - 7 Dateien, ~374 MB
+- **Videos (MP4):** In Produktion → `D:\SSZ_Render/video/`
 
 **Scripts (Python):**
 - Alle in [`../scripts/`](../scripts/)
-- 32 Scripts, ~400 KB total
+- 32+ Scripts, ~450 KB total
+- **Neu:** `ssz_animation_master.py`, `ssz_video_renderer.py`
 
 ### Nach Sprache
 
@@ -430,10 +535,12 @@ https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results
 **Datum:** Oktober 2025
 
 **Status:**
-- ✅ 4 Dokumentationen vollständig
-- ✅ 7 Animationen verfügbar
-- ✅ 32 Scripts dokumentiert
+- ✅ 5 Dokumentationen vollständig (inkl. Video-Workflow)
+- ✅ 7 GIF-Animationen verfügbar
+- 🚧 3 MP4-Videos in Produktion (DE/EN/IT)
+- ✅ 32+ Scripts dokumentiert
 - ✅ Index systematisch strukturiert
+- ✅ Audio-First Pipeline implementiert
 
 ---
 

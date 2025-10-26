@@ -18,6 +18,7 @@
 - [Black Hole Bomb](./docs/02_BLACK_HOLE_BOMB.md) - Penrose-Prozess & Superradiance
 - [Life as Cosmic Lottery](./docs/03_LIFE_AS_COSMIC_LOTTERY.md) - Der Wert der Existenz
 - [Stars as Life Enablers](./docs/04_STARS_AS_LIFE_ENABLERS.md) - Kosmische Alchemie
+- [Video-Workflow](./docs/05_VIDEO_WORKFLOW.md) - Audio-First Pipeline ⭐ NEU
 
 ---
 
@@ -34,9 +35,28 @@
 
 ---
 
-## 🎬 Animationen
+## 🎬 Animationen & Videos
 
-### Hauptvisualisierung: Big Bang vs. SSZ
+### 🎥 Videos mit Audiobeschreibung (Coming Soon)
+
+**Status:** 🚧 In Produktion
+
+**Geplante Formate:**
+- 🇩🇪 **Deutsch:** `ssz_intro_de.mp4` (TTS-Voiceover)
+- 🇬🇧 **English:** `ssz_intro_en.mp4` (TTS-Voiceover)
+- 🇮🇹 **Italiano:** `ssz_intro_it.mp4` (TTS-Voiceover)
+
+**Inhalt:**
+- Dual-Panel Visualization (ΛCDM vs. SSZ)
+- 10 Sätze wissenschaftliche Erklärung pro Sprache
+- Automatisch synchronisierte Audio-Spur
+- Dauer: ~30-40 Sekunden pro Sprache
+
+📖 **[→ Video-Workflow Dokumentation](./docs/05_VIDEO_WORKFLOW.md)**
+
+---
+
+### 📊 GIF-Animationen (Verfügbar)
 
 **Links (ΛCDM):** Singularität (ρ → ∞) - Mathematisch undefiniert  
 **Rechts (SSZ):** Strukturierter Anfang (ρ_max) - Endliche maximale Dichte
@@ -117,7 +137,48 @@
 
 ## 🚀 Scripts & Reproduktion
 
-### Animationen erstellen
+### Videos mit Audio erstellen (DE/EN/IT)
+
+**Voraussetzungen:**
+```bash
+# FFmpeg installieren (Windows)
+choco install ffmpeg
+
+# Oder: Python moviepy
+pip install moviepy
+
+# espeak-ng (TTS)
+choco install espeak-ng
+```
+
+**Master-Pipeline ausführen:**
+```bash
+cd evidenz-ssz/scripts/
+
+# Alle 3 Sprachen (DE/EN/IT)
+python ssz_animation_master.py --languages de en it
+
+# Nur einzelne Sprache
+python ssz_animation_master.py --languages de
+
+# Nur Audio generieren (kein Video)
+python ssz_animation_master.py --skip-render
+```
+
+**Output:**
+```
+SSZ_Render/
+├── audio/          # TTS-Audio (DE/EN/IT)
+├── video/          # MP4-Videos mit Audio
+├── timelines/      # YAML-Timelines
+└── final/          # Preview-Collage
+```
+
+📖 **[Detaillierter Workflow](./docs/05_VIDEO_WORKFLOW.md)**
+
+---
+
+### GIF-Animationen erstellen
 
 ```bash
 # Ordner wechseln
@@ -141,9 +202,24 @@ python create_all_language_versions.py
 ```
 evidenz-ssz/
 ├── animations/     # 7 GIF-Dateien (~374 MB)
-├── scripts/        # 32 Python-Scripts
-├── docs/           # 5 Markdown-Dokumentationen
+├── scripts/        # 32+ Python-Scripts
+│   ├── ssz_animation_master.py      # Master-Pipeline
+│   ├── ssz_video_renderer.py        # Video-Renderer
+│   └── ssz_bigbang_vs_ssz_anim.py  # GIF-Generator
+├── docs/           # 6 Markdown-Dokumentationen
+│   ├── INDEX.md                     # Systematischer Index
+│   ├── 01_BIG_BANG_VS_SSZ.md
+│   ├── 02_BLACK_HOLE_BOMB.md
+│   ├── 03_LIFE_AS_COSMIC_LOTTERY.md
+│   ├── 04_STARS_AS_LIFE_ENABLERS.md
+│   └── 05_VIDEO_WORKFLOW.md         # Video-Pipeline Docs
 └── README.md       # Diese Datei
+
+SSZ_Render/         # Video-Output (extern)
+├── audio/          # TTS-Audio-Dateien
+├── video/          # MP4-Videos mit Audio
+├── timelines/      # YAML-Konfiguration
+└── final/          # Preview-Collage
 ```
 
 📖 **[Vollständige Script-Dokumentation](./docs/INDEX.md#scripts)**
