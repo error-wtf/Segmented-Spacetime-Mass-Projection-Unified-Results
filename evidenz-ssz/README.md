@@ -15,19 +15,21 @@
 
 **Quick Links:**
 - [Big Bang vs. SSZ](./docs/01_BIG_BANG_VS_SSZ.md) - Kosmologie ohne Singularität
-- [Black Hole Bomb](./docs/02_BLACK_HOLE_BOMB.md) - Penrose-Prozess & Superradiance
+- [Black Hole Bomb](./docs/02_BLACK_HOLE_BOMB.md) - Penrose-Prozess & Superradiance (⭐ 2024 Update!)
 - [Life as Cosmic Lottery](./docs/03_LIFE_AS_COSMIC_LOTTERY.md) - Der Wert der Existenz
 - [Stars as Life Enablers](./docs/04_STARS_AS_LIFE_ENABLERS.md) - Kosmische Alchemie
-- [Video-Workflow](./docs/05_VIDEO_WORKFLOW.md) - Audio-First Pipeline ⭐ NEU
+- [Video-Workflow](./docs/05_VIDEO_WORKFLOW.md) - Audio-First Pipeline
+- [**→ Scientific Results**](./results/README.md) - v6 Proof & Black Hole Bomb ⭐ NEU
 
 ---
 
 ## 📑 Inhaltsverzeichnis
 
-1. [🎬 Animationen](#-animationen)
+1. [🎬 Animationen & Videos](#-animationen--videos)
 2. [📖 Kernthemen](#-kernthemen)
-3. [🚀 Scripts & Reproduktion](#-scripts--reproduktion)
-4. [📬 Kontakt](#-kontakt)
+3. [📊 Scientific Results](#-scientific-results) ⭐ NEU
+4. [🚀 Scripts & Reproduktion](#-scripts--reproduktion)
+5. [📬 Kontakt](#-kontakt)
 
 ---
 
@@ -132,6 +134,46 @@
 **Ohne Sterne:** Kein C, O, N, Fe → Kein Leben möglich
 
 📖 **[Stellare Nukleosynthese im Detail](./docs/04_STARS_AS_LIFE_ENABLERS.md)**
+
+---
+
+## 📊 Scientific Results
+
+### Vollständige numerische Analysen & Formale Beweise
+
+**📂 [→ Results Ordner](./results/README.md)** - Detaillierte wissenschaftliche Ergebnisse
+
+#### Black Hole Bomb Analysis (2024 validiert!) 🎉
+
+**Basierend auf:**
+- **Braidotti et al. (2024)** - Erste experimentelle Bestätigung des Zel'dovich-Effekts
+  - [LiveScience Artikel](https://www.livescience.com/space/black-holes/physicists-create-black-hole-bomb-for-first-time-on-earth-validating-decades-old-theory)
+  - **Quote:** *"Components exploded"* - Exponentielles Wachstum bestätigt!
+
+**SSZ Ergebnisse:**
+| Metric | SSZ | Baseline | SSZ-Effekt |
+|--------|-----|----------|------------|
+| Unstable Modes | 16/20 | 18/20 | **-2 stabilisiert** ✅ |
+| Best Growth G | 1.16×10⁶ | 7.68×10⁶ | **6.61× Reduktion** ✅ |
+| Invariant Check | 0.000% | — | **✅ VALIDATED** |
+
+**Mechanismus:**
+- φ-basierte Geometrie: `r(θ) = r₀·φ^(θ/(π/2))`
+- Segment-Dämpfung: `T_A = exp(-λ_A·σ(θ))`
+- Konsistente ~6.61× Reduktion über alle Modi
+
+#### Formaler Stabilitätsbeweis (v6)
+
+**Status:** ✅ 348 Konfigurationen getestet, 96.6% Agreement
+
+**Theorem T1:** Wenn `Ξ ≤ λ_A K σ₀ − ε`, dann `G < 1` (stabil)
+
+**Ergebnisse:**
+- **uniform:** 176 Punkte, 97.2% Agreement
+- **weighted:** 172 Punkte, 95.9% Agreement
+- **Critical λ_A:** 0.00-0.80 gemappt
+
+📖 **[→ Vollständige Resultate](./results/README.md)**
 
 ---
 

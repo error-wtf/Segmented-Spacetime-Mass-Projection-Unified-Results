@@ -236,19 +236,36 @@ Wachstumsrate: Γ ∝ (aω)^(2l+3)
 
 ### Zel'dovich-Experiment
 
-**1971:** Mechanisches Analogon
+**1971:** Mechanisches Analogon - Theoretische Vorhersage
 
 ```
 Rotierender Zylinder + Absorber + Wellen
-→ Verstärkung beobachtet!
+→ Verstärkung vorhergesagt!
 
 Bedingung: ω < m·Ω (analog zu BH)
 ```
 
-**2020:** Experimentelle Bestätigung
-- Oberflächenwellen auf Wasser
-- Rotierender absorbierender Zylinder
-- Superradiance direkt gemessen!
+**2024:** **ERSTE EXPERIMENTELLE BESTÄTIGUNG!** 🎉
+
+**Team:** Braidotti, Cromb et al. (University of Glasgow & Southampton)
+
+**Setup:**
+- Rotierender Aluminium-Zylinder (elektrischer Motor)
+- 3 Schichten Metallspulen (Spiegel für Magnetfeld)
+- Schwaches Magnetfeld → Zylinder reflektiert STÄRKERES Feld!
+
+**Ergebnis:**
+- ✅ **Superradiance direkt gemessen!**
+- ✅ **Exponentielles Wachstum bestätigt!**
+- ✅ **"Components exploded"** - spontane Wellengenerierung verifiziert
+- ✅ Übergang von Absorption zu Verstärkung dokumentiert
+
+**Quelle:** [LiveScience - Oct 2024](https://www.livescience.com/space/black-holes/physicists-create-black-hole-bomb-for-first-time-on-earth-validating-decades-old-theory)
+
+**Zitat:**
+> *"We sometimes pushed the system so hard that circuit components exploded.  
+> That was both thrilling and a real experimental challenge!"*  
+> — Marion Cromb, Researcher
 
 ---
 
