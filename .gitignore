@@ -204,6 +204,7 @@ reports/junit-*.xml
 # Analysis outputs
 output/
 results/
+!evidenz-ssz/results/**
 !results/figures/.gitkeep
 !full_pipeline/figures/.gitkeep
 !final_reports/figures/.gitkeep
@@ -463,6 +464,7 @@ config/secrets.yaml
 
 # Media files (large)
 *.mp4
+!evidenz-ssz/animations/*.mp4
 *.avi
 *.mov
 *.mkv
