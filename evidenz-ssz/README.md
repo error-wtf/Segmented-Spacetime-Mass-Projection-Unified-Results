@@ -4,22 +4,36 @@
 
 ---
 
-## 🔗 Collaboration & Navigation
+## 📊 Google Colab - Interaktive Notebooks
 
-**📊 Interaktive Notebooks:**
-- [Google Colab](https://colab.research.google.com/) - Öffne die SSZ-Notebooks direkt im Browser
-- Upload: `/evidenz-ssz/notebooks/` (falls vorhanden)
+**Direkter Zugang zu SSZ-Notebooks im Browser:**
 
-**📚 Ausführliche Dokumentation:**
-- **[→ Dokumentations-Index](./docs/INDEX.md)** - Systematischer Zugang zu allen Themen
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-**Quick Links:**
+- **Upload:** `/evidenz-ssz/notebooks/` (falls vorhanden)
+- **Keine Installation nötig** - läuft direkt im Browser
+- **Kostenlose GPU/TPU** verfügbar
+
+---
+
+## 📚 Dokumentation & Quick Links
+
+### 📖 Systematischer Zugang
+**[→ Dokumentations-Index](./docs/INDEX.md)** - Vollständige Übersicht aller Themen
+
+### 🎯 Direkt-Links zu Hauptthemen
+
+**Kosmologie & Physik:**
 - [Big Bang vs. SSZ](./docs/01_BIG_BANG_VS_SSZ.md) - Kosmologie ohne Singularität
-- [Black Hole Bomb](./docs/02_BLACK_HOLE_BOMB.md) - Penrose-Prozess & Superradiance (⭐ 2024 Update!)
-- [Life as Cosmic Lottery](./docs/03_LIFE_AS_COSMIC_LOTTERY.md) - Der Wert der Existenz
+- [Black Hole Bomb](./docs/02_BLACK_HOLE_BOMB.md) - Penrose-Prozess & Superradiance ⭐ **2024 Experiment!**
+
+**Philosophie & Bedeutung:**
+- [Life as Cosmic Lottery](./docs/03_LIFE_AS_COSMIC_LOTTERY.md) - Der Wert der Existenz (P ~ 10⁻⁶⁰⁰)
 - [Stars as Life Enablers](./docs/04_STARS_AS_LIFE_ENABLERS.md) - Kosmische Alchemie
-- [Video-Workflow](./docs/05_VIDEO_WORKFLOW.md) - Audio-First Pipeline
-- [**→ Scientific Results**](./results/README.md) - v6 Proof & Black Hole Bomb ⭐ NEU
+
+**Technische Dokumentation:**
+- [Video-Workflow](./docs/05_VIDEO_WORKFLOW.md) - Audio-First Pipeline (TTS + FFmpeg)
+- [**→ Scientific Results**](./results/README.md) - **v6 Proof & Black Hole Bomb** ⭐ NEU
 
 ---
 
@@ -27,7 +41,7 @@
 
 1. [🎬 Animationen & Videos](#-animationen--videos)
 2. [📖 Kernthemen](#-kernthemen)
-3. [📊 Scientific Results](#-scientific-results) ⭐ NEU
+3. [📊 Scientific Results](#-scientific-results)
 4. [🚀 Scripts & Reproduktion](#-scripts--reproduktion)
 5. [📬 Kontakt](#-kontakt)
 
