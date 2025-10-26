@@ -58,7 +58,7 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 
 ---
 
-### 2. Schwarze-Loch-Bombe
+### 2. Schwarze-Loch-Bombe ⭐ **2024 EXPERIMENT!**
 **📄 Datei:** [`02_BLACK_HOLE_BOMB.md`](./02_BLACK_HOLE_BOMB.md)
 
 **Themen:**
@@ -67,7 +67,13 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 - Superradiance (Wellenverstärkung)
 - Black Hole Bomb (exponentielle Verstärkung)
 - SSZ-Perspektive (keine Singularität)
-- Experimentelle Bestätigung (Zel'dovich 2020)
+- **Experimentelle Bestätigung (2024!)** - Braidotti et al.
+
+**🎉 BREAKING: Erste Labor-Demonstration!**
+- **Team:** University of Glasgow & Southampton
+- **Setup:** Rotierender Aluminium-Zylinder + Magnetfeld-Spiegel
+- **Resultat:** "Components exploded" - Exponentielles Wachstum bestätigt!
+- **Quelle:** [LiveScience Oct 2024](https://www.livescience.com/space/black-holes/physicists-create-black-hole-bomb-for-first-time-on-earth-validating-decades-old-theory)
 
 **Kernaussage:**
 > Ein rotierendes Schwarzes Loch kann Energie abgeben –
@@ -78,6 +84,12 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 - Kerr-Metrik (rotierendes BH)
 - Superradiance-Bedingung: 0 < ω < m·Ω_H
 - Effizienz: η_max = 1 - √(1 - a²/M²)
+- **SSZ Resultat:** -2 unstable modes, 6.61× Dämpfung ✅
+
+**Verknüpfte Ressourcen:**
+- 📊 [Scientific Results](../results/SSZ_BLACKHOLE_BOMB_RESULTS.md) - v6 numerische Analyse
+- 🎬 [Animation](../animations/ssz_bomb_animation.gif) - Superradiance visualization
+- 💻 [Scripts](../results/scripts/) - ssz_blackhole_bomb*.py
 
 **Verknüpfte Animationen:**
 - `ssz_bomb_animation.gif` - Visualisierung
@@ -178,22 +190,59 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 
 ---
 
+---
+
+## 📊 Scientific Results ⭐ NEU!
+
+### v6 Numerical Analysis & Formal Proofs
+
+**Ordner:** [`../results/`](../results/)
+
+**Status:** ✅ 30+ Dateien, vollständig dokumentiert
+
+#### Hauptberichte
+- **[SSZ_BLACKHOLE_BOMB_RESULTS.md](../results/SSZ_BLACKHOLE_BOMB_RESULTS.md)** (13.4 KB)
+  - Komplette Black Hole Bomb Analyse
+  - 2024 Experiment-Validierung
+  - SSZ vs Baseline: -2 unstable modes, 6.61× Dämpfung
+  - Invariant check: 0.000% error
+  
+- **[SSZ_PROOF_SUMMARY_v6.md](../results/SSZ_PROOF_SUMMARY_v6.md)** (6.4 KB)
+  - Formaler Stabilitätsbeweis
+  - 348 Konfigurationen getestet
+  - 96.6% Agreement (Theorem validated)
+  - Theorem T1 + Lemmas L1-L3
+  
+- **[gr_bridge_report.md](../results/gr_bridge_report.md)** (1.7 KB)
+  - GR-SSZ Korrelation: 0.90-0.92
+  - Top Stabilisierungs-Konfigurationen
+  - Segment proxy vs. metric correlation
+
+#### Data & Plots
+- **data/** (15 files): v6 PNGs, CSVs, JSONs (10 plots + 5 data files)
+- **plots/** (4 files): Black Hole Bomb visualizations
+- **scripts/** (7 files): All Python analysis scripts with 2024 citations
+
+📖 **[→ Vollständige Results-Dokumentation](../results/README.md)**
+
+---
+
 ## Animationen
 
 ### 🎬 GIF-Animationen (Verfügbar)
 
 **Ordner:** [`../animations/`](../animations/)
 
-**Status:** ✅ 7 Dateien, ~374 MB
+**Status:** ✅ 10 Dateien, ~456 MB via Git LFS
 
-#### Wissenschaftliche Versionen
+#### Wissenschaftliche Versionen (Multi-Language 🇩🇪 🇬🇧 🇮🇹)
 
 | Datei | Größe | Dauer | Sprache | Beschreibung |
 |-------|-------|-------|---------|--------------|
-| `ssz_scientific.gif` | 90.1 MB | 30s @ 30fps | DE | **Hauptvisualisierung** |
-| `ssz_scientific_de.gif` | 90.1 MB | 30s @ 30fps | Deutsch | Deutsche Version |
-| `ssz_scientific_en.gif` | 90.2 MB | 30s @ 30fps | English | English Version |
-| `ssz_scientific_it.gif` | 90.2 MB | 30s @ 30fps | Italiano | Versione Italiana |
+| `ssz_scientific.gif` | 90.1 MB | ~90s | Original | **Hauptvisualisierung** |
+| `ssz_scientific_de.gif` | 90.1 MB | ~90s | 🇩🇪 Deutsch | Deutsche Beschriftung |
+| `ssz_scientific_en.gif` | 90.2 MB | ~90s | 🇬🇧 English | English labels |
+| `ssz_scientific_it.gif` | 90.2 MB | ~90s | 🇮🇹 Italiano | Etichette italiane |
 
 **Inhalt:**
 - Links: ΛCDM mit Singularität (ρ → ∞)
@@ -201,15 +250,23 @@ Dieser Index bietet einen strukturierten Zugang zu allen Materialien im **eviden
 - Hexagon-Schicht statt Punkt
 - φ-basierte Resonanzmuster
 - Goldene Spiralen
+- Mathematische Herleitungen
 
 #### Demo-Versionen
 
 | Datei | Größe | Dauer | Beschreibung |
 |-------|-------|-------|--------------|
-| `ssz_perfect_demo.gif` | 67.8 MB | 25s @ 30fps | **Premium Quality** |
-| `ssz_bigbang_vs_ssz_demo.gif` | 6.9 MB | 10s @ 15fps | Quick Preview |
+| `ssz_perfect_demo.gif` | 67.8 MB | ~60s | **Perfect-Pair Mathematics** |
+| `ssz_bigbang_vs_ssz_demo.gif` | 7.0 MB | ~10s | Quick Preview |
+| `ssz_bomb_animation.gif` | 0.3 MB | ~2s | Black Hole Bomb Superradiance |
 
-#### Spezialisiert
+#### Astrophysik & Relativität
+
+| Datei | Größe | Dauer | Beschreibung |
+|-------|-------|-------|--------------|
+| `blackhole_segmented_spacetime.gif` | 12.6 MB | ~15s | Rotating BH in SSZ |
+| `sagitarius segmented spacetime.gif` | 2.4 MB | ~5s | Sgr A* with SSZ |
+| `einstein_train_animation.gif` | 1.4 MB | ~3s | Special Relativity intro |
 
 ### 🎥 MP4-Videos mit Audio (In Produktion)
 
