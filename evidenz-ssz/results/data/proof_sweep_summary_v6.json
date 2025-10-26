@@ -1,0 +1,32 @@
+{
+  "base_parameters": {
+    "alpha": 2.5,
+    "eta": 0.0,
+    "omega": 0.25,
+    "m": 4,
+    "Omega0": 0.6,
+    "epsilon": 0.2,
+    "q": 3.0,
+    "lambda_A": 0.1,
+    "K": 64,
+    "sigma0": 0.4,
+    "R": 0.9999,
+    "Kappa": 1e-05,
+    "phi": 1.618034,
+    "r0": 1.0,
+    "theta_samples": 4096
+  },
+  "segment_modes": [
+    "uniform",
+    "weighted"
+  ],
+  "grid_summary": {
+    "points": 348,
+    "agreement_ratio": 0.9655172413793104,
+    "max_abs_diff_lambdaAcrit": 0.652734375,
+    "any_crossings": true,
+    "notes": "Adaptive sweep complete; inspect CSV for detailed transitions.",
+    "crossings_direct": 16,
+    "crossings_criterion": 16
+  }
+}

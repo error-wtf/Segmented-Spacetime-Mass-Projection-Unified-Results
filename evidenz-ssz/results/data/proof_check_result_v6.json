@@ -1,0 +1,36 @@
+{
+  "parameters": {
+    "alpha": 2.5,
+    "eta": 0.0,
+    "omega": 0.25,
+    "m": 4,
+    "Omega0": 0.6,
+    "epsilon": 0.2,
+    "q": 3.0,
+    "lambda_A": 0.1,
+    "K": 64,
+    "sigma0": 0.4,
+    "R": 0.9999,
+    "Kappa": 1e-05,
+    "phi": 1.618034,
+    "r0": 1.0,
+    "theta_samples": 4096,
+    "segment_mode": "weighted"
+  },
+  "result": {
+    "lambda_A": 0.1,
+    "K": 64.0,
+    "Omega0": 0.6,
+    "Xi": 125.57416516804209,
+    "logG": 92.94469872364677,
+    "lhs": 2.5600000000000005,
+    "G": 2.319368624167992e+40,
+    "stable_direct": 0.0,
+    "stable_criterion": 0.0,
+    "near_boundary": 0.0,
+    "criterion_margin": -123.01416516804208,
+    "integral_gamma": 102.87981486829669,
+    "damping_sum": 9.935006139599594,
+    "log_mirror": -0.00011000505033366343
+  }
+}

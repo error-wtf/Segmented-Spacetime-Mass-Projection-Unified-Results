@@ -1,0 +1,2 @@
+alpha,eta,omega,m,epsilon,q,lambda_A,K,Omega0,sigma0,R,Kappa,phi,r0,segment_mode,Xi,logG,lhs,G,stable_direct,stable_criterion,near_boundary,criterion_margin,integral_gamma,damping_sum,log_mirror
+2.5,0.0,0.25,4.0,0.2,3.0,0.1,64.0,0.6,0.4,0.9999,1e-05,1.618034,1.0,weighted,125.57416516804209,92.94469872364677,2.5600000000000005,2.319368624167992e+40,0.0,0.0,0.0,-123.01416516804208,102.87981486829669,9.935006139599594,-0.00011000505033366343
