@@ -48,6 +48,26 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 ---
 
+---
+
+## 🎬 Visual Evidence & Educational Materials
+
+**NEW:** [`evidenz-ssz/`](evidenz-ssz/) - Public-facing visualizations, animations, and educational documentation
+
+### Quick Access
+- **[📚 Documentation Index](evidenz-ssz/docs/INDEX.md)** - Complete educational materials
+- **[🎬 Animations Catalog](evidenz-ssz/animations/README.md)** - 10 GIFs (456 MB, Multi-Language: 🇩🇪 🇬🇧 🇮🇹)
+- **[📊 Scientific Results v6](evidenz-ssz/results/README.md)** - Black Hole Bomb, formal proofs, GR correlation
+
+### Highlights
+- **2024 Experiment Validated:** Black Hole Bomb (Braidotti et al.) - "Components exploded" ⭐
+- **Multi-Language:** German, English, Italian scientific visualizations
+- **Complete Analysis:** 348 configs tested, 96.6% theorem validation
+
+📖 **[→ Full evidenz-ssz Documentation](evidenz-ssz/README.md)**
+
+---
+
 ## 🏆 BREAKTHROUGH: 97.9% Predictive Accuracy Achieved
 
 **THE SOLUTION: Segmented Spacetime (SEG) Model Works With ESO Archive Data**
