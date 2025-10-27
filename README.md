@@ -488,22 +488,7 @@ Contributions, suggestions, and collaborations are welcome.
 
 ## 📌 Quick Links
 
-### Documentation
-- [📖 Documentation Index](docs/INDEX.md) - Complete navigation
-- [📋 TODO List](TODO_DOCUMENTATION_UPLOAD.md) - Current tasks
-- [📝 Changelog](CHANGELOG.md) - Version history
-- [❓ FAQ](evidenz-ssz/docs/FAQ.md) - Common questions
-
-### Key Papers
-- [SSZ Cosmology](papers/SSZ_Cosmology_Full.md) - Main theory
-- [Black Holes](papers/SSZ_Black_Holes.md) - No singularities
-- [Mathematical Proof](papers/SSZ_Mathematical_Proof.md) - C² continuity
-- [ESO Validation](PAIRED_TEST_ANALYSIS_COMPLETE.md) - 97.9% accuracy
-
-### Resources
-- [Plots Guide](PLOTS_OVERVIEW.md) - Analysis plots
-- [Test System](LOGGING_SYSTEM_README.md) - 116 tests
-- [Documentation Index](docs/INDEX.md) - Complete navigation
+**[📖 Documentation Index](docs/INDEX.md)** - Complete navigation for all resources
 
 ---
 
