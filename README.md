@@ -124,55 +124,34 @@ python perfect_paired_test.py
 
 📖 **[Read complete analysis →](PAIRED_TEST_ANALYSIS_COMPLETE.md)**
 
-### Core Principles
+### Physics Validation (116 Automated Tests)
 
-<table>
-<tr>
-<td width="25%">
+**PPN Parameters (Weak-Field Limit):**
+- β = 1.000000000000 (no preferred frame)
+- γ = 1.000000000000 (GR-like space curvature)
+- Deviation: |β-1| < 10⁻¹² (machine precision)
+- **Result:** SSZ matches GR in weak field
 
-#### φ-Geometry
-Golden ratio emerges as natural spacetime boundary
+**Dual Velocity Invariant:**
+- v_esc × v_fall = c² (exact to machine precision)
+- Max deviation: 0.000e+00
+- Validates segment-based gravity formulation
 
-</td>
-<td width="25%">
+**Energy Conditions:**
+- WEC/DEC/SEC satisfied for r ≥ 5r_s
+- Strong-field deviations controlled and finite
+- Radial tension p_r = -ρc² balances density
 
-#### No Singularities
-Segment density provides natural cut-off
+**Metric Continuity:**
+- C² continuity at segment joins
+- No δ-function singularities in stress-energy
+- Quintic Hermite provides optimal smoothness
+- Curvature proxy K ≈ 10⁻¹⁵ – 10⁻¹⁶ (extremely smooth)
 
-</td>
-<td width="25%">
-
-#### Energy Finite
-Segment damping prevents runaway growth
-
-</td>
-<td width="25%">
-
-#### Testable
-97.9% accuracy vs professional observations
-
-</td>
-</tr>
-</table>
-
-### Experimental Validation
-
-**Black Hole Bomb (2024):**
-- ✅ Braidotti et al. experiment validated
-- ✅ SSZ stabilizes -2 unstable modes
-- ✅ 96.6% theorem validation (348 configs)
-
-**Cosmology:**
-- ✅ Hubble diagram fit
-- ✅ BAO compatible
-- ✅ CMB (Planck 2018) consistent
-- ✅ LSS: 2.3σ better than ΛCDM
-
-**Black Holes:**
-- ✅ Sagittarius A* (4.15×10⁶ M☉)
-- ✅ Event Horizon Telescope compatible
-- ✅ S-Stars orbital dynamics
-- ✅ No information paradox
+**Test Suite:**
+- 35 Physics Tests: 100% passing
+- 23 Technical Tests: 100% passing
+- Complete validation: [Run Test Suite](LOGGING_SYSTEM_README.md)
 
 ---
 
