@@ -10,7 +10,7 @@
 [![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
-**Latest Release:** v1.5.0-dev (2025-10-27) - Trilingual Video System + Visual Animations  
+**Latest Release:** v1.5.0-dev (2025-10-27) - Documentation Restructure  
 **Authors:** Carmen Wrede & Lino Casu
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, and experimental validation.
@@ -21,7 +21,6 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 ### For Everyone
 - [🚀 Quick Start](#-quick-start) - Get running in 2 minutes
-- [🌀 Visual Gallery](#-visual-gallery) - Animations & Videos
 - [🏆 Scientific Highlights](#-scientific-highlights) - Breakthrough results
 
 ### For Researchers
@@ -95,55 +94,6 @@ python generate_key_plots.py
 ```
 
 **Troubleshooting:** See [Installation Guide](#-installation)
-
----
-
-## 🌀 Scientific Animations
-
-**5 Key Visualizations** (GIFs available in repository)
-
-### 1️⃣ Big Bang vs. Segmented Spacetime
-No singularity, finite origin - comparison between classical ΛCDM model and SSZ framework.  
-→ [📖 Read detailed explanation](docs/ssz_bigbang_vs_ssz_demo.md)
-
-### 2️⃣ Mathematical Proof v6
-C² continuity and stability analysis showing resonance-driven expansion.  
-→ [📖 Read detailed explanation](docs/ssz_proof_anim_v6.md)
-
-### 3️⃣ Cosmological Comparison
-ΛCDM vs SSZ based on Hubble diagram, BAO, and large-scale structure data.  
-→ [📖 Read detailed explanation](docs/ssz_cosmo_anim.md)
-
-### 4️⃣ Black Holes – Segmented Spacetime
-Sagittarius A* simulation showing no singularity, finite segment density.  
-→ [📖 Read detailed explanation](docs/blackhole_segmented_spacetime.md)
-
-### 5️⃣ Energy is Finite
-Black Hole Bomb experiment validates segment damping mechanism.  
-→ [📖 Read detailed explanation](docs/ssz_bomb_animation.md)
-
-**Note:** All animations available in `assets/ssz_animations/` directory
-
-### Videos (Trilingual Series)
-
-**6-Part Educational Series** (DE 🇩🇪 | EN 🇬🇧 | IT 🇮🇹)
-
-| Part | Topic | Duration | Audio Scripts |
-|------|-------|----------|---------------|
-| 1 | Big Bang vs Segmentation | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-1) |
-| 2 | Cosmological Observations | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-2) |
-| 3 | Mathematical Stability | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-3) |
-| 4 | Black Holes (No Singularity) | 20s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-4) |
-| 5 | Stellar Nucleosynthesis | 21s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-5) |
-| 6 | Energy is Finite | 18s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-6) |
-
-**Total Duration:** ~2 minutes per language  
-**Status:** 🔄 Production in progress  
-**YouTube:** Coming soon
-
-**Resources:**
-- [Audio Scripts Archive](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) - All texts (DE/EN/IT)
-- [Video Production Guide](evidenz-ssz/videos/README.md) - Workflow
 
 ---
 
@@ -233,11 +183,9 @@ Segment damping prevents runaway growth
 **[Documentation Index](docs/INDEX.md)** ← ⭐ **Start here!**
 
 Complete navigation for:
-- Visual Animations (6 detailed explanations)
 - Scientific Papers (theory, proofs, experiments)
 - Code Documentation (API, scripts, examples)
 - Educational Materials (tutorials, workshops, glossary)
-- Videos (production workflow, metadata)
 - Tests & Verification (116 automated tests)
 - Development (contributing, roadmap, TODO)
 
@@ -247,23 +195,22 @@ Complete navigation for:
 |----------|------|-------------|
 | **Papers** | [SSZ_Cosmology_Full.md](papers/SSZ_Cosmology_Full.md) | Main theory |
 | **Validation** | [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) | ESO 97.9% |
-| **Videos** | [SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) | All audio scripts |
-| **Plots** | [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) | Visual guide |
+| **Plots** | [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) | Analysis plots |
 | **Tests** | [LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md) | Test system |
 | **FAQ** | [evidenz-ssz/docs/FAQ.md](evidenz-ssz/docs/FAQ.md) | Common questions |
 
 ### For Different Audiences
 
 **Scientists:**
-- [Visual Animations](#visual-gallery) → [Papers](docs/INDEX.md#-scientific-papers)
-- [Key Results](#-key-results) → [Experimental Validation](#experimental-validation)
+- [Papers](docs/INDEX.md#-scientific-papers) → [Key Results](#-key-results)
+- [Experimental Validation](#experimental-validation) → [Data & Analysis](#-data--analysis)
 
 **Developers:**
 - [Installation](#-installation) → [Code Docs](docs/INDEX.md#-code-documentation)
 - [Testing](#-testing) → [Contributing](#-contributing)
 
 **Students:**
-- [What is SSZ?](evidenz-ssz/docs/WHAT_IS_SSZ.md) → [Visual Gallery](#visual-gallery)
+- [What is SSZ?](evidenz-ssz/docs/WHAT_IS_SSZ.md) → [Documentation Index](docs/INDEX.md)
 - [Glossary](evidenz-ssz/docs/GLOSSARY.md) → [Tutorials](docs/INDEX.md#educational-materials)
 
 ---
@@ -498,16 +445,14 @@ python generate_key_plots.py  # 5 plots, ~30 seconds
 **[📋 TODO List](TODO_DOCUMENTATION_UPLOAD.md)** ← **Current session priorities**
 
 **High Priority:**
-- [ ] Video scripts ins Repo kopieren
-- [ ] Git LFS konfigurieren (große GIFs)
-- [ ] FFmpeg installieren & Videos neu erstellen
-- [ ] YouTube Upload vorbereiten
+- [ ] Papers aktualisieren
+- [ ] GitHub Release v1.5.0
+- [ ] Additional tests
 
 **Medium Priority:**
-- [ ] Papers aktualisieren (Part 5 & 6)
-- [ ] Tests für Video-Production
-- [ ] Animation Creation Guide
-- [ ] GitHub Release v1.5.0
+- [ ] Performance optimizations
+- [ ] Documentation improvements
+- [ ] Extended validation
 
 ### Development Workflow
 
@@ -612,10 +557,9 @@ python generate_key_plots.py  # 5 plots, ~30 seconds
 - [ESO Validation](PAIRED_TEST_ANALYSIS_COMPLETE.md) - 97.9% accuracy
 
 ### Resources
-- [Animation Explanations](docs/) - 6 detailed docs
-- [Audio Scripts](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) - DE/EN/IT texts
-- [Plots Guide](PLOTS_OVERVIEW.md) - Visual analysis
+- [Plots Guide](PLOTS_OVERVIEW.md) - Analysis plots
 - [Test System](LOGGING_SYSTEM_README.md) - 116 tests
+- [Documentation Index](docs/INDEX.md) - Complete navigation
 
 ---
 
