@@ -98,63 +98,31 @@ python generate_key_plots.py
 
 ---
 
-## 🌀 Visual Gallery
+## 🌀 Scientific Animations
 
-### Animations (5 Key Visualizations)
+**5 Key Visualizations** (GIFs available in repository)
 
-<table>
-<tr>
-<td width="50%">
+### 1️⃣ Big Bang vs. Segmented Spacetime
+No singularity, finite origin - comparison between classical ΛCDM model and SSZ framework.  
+→ [📖 Read detailed explanation](docs/ssz_bigbang_vs_ssz_demo.md)
 
-#### 1️⃣ Big Bang vs SSZ
-![Big Bang](assets/ssz_animations/ssz_bigbang_vs_ssz_demo.gif)
-[📖 Explanation](docs/ssz_bigbang_vs_ssz_demo.md)
+### 2️⃣ Mathematical Proof v6
+C² continuity and stability analysis showing resonance-driven expansion.  
+→ [📖 Read detailed explanation](docs/ssz_proof_anim_v6.md)
 
-No singularity, finite origin
+### 3️⃣ Cosmological Comparison
+ΛCDM vs SSZ based on Hubble diagram, BAO, and large-scale structure data.  
+→ [📖 Read detailed explanation](docs/ssz_cosmo_anim.md)
 
-</td>
-<td width="50%">
+### 4️⃣ Black Holes – Segmented Spacetime
+Sagittarius A* simulation showing no singularity, finite segment density.  
+→ [📖 Read detailed explanation](docs/blackhole_segmented_spacetime.md)
 
-#### 2️⃣ Mathematical Proof
-![Proof](assets/ssz_animations/ssz_proof_anim_v6.gif)
-[📖 Explanation](docs/ssz_proof_anim_v6.md)
+### 5️⃣ Energy is Finite
+Black Hole Bomb experiment validates segment damping mechanism.  
+→ [📖 Read detailed explanation](docs/ssz_bomb_animation.md)
 
-C² continuity, stability
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-#### 3️⃣ Cosmology Comparison
-![Cosmology](assets/ssz_animations/ssz_cosmo_anim.gif)
-[📖 Explanation](docs/ssz_cosmo_anim.md)
-
-ΛCDM vs SSZ (Hubble, BAO, LSS)
-
-</td>
-<td width="50%">
-
-#### 4️⃣ Black Holes
-![Black Hole](assets/ssz_animations/blackhole_segmented_spacetime.gif)
-[📖 Explanation](docs/blackhole_segmented_spacetime.md)
-
-Sagittarius A*, no singularity
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center">
-
-#### 5️⃣ Energy is Finite
-![Bomb](assets/ssz_animations/ssz_bomb_animation.gif)
-[📖 Explanation](docs/ssz_bomb_animation.md)
-
-Black Hole Bomb experiment validates segment damping
-
-</td>
-</tr>
-</table>
+**Note:** All animations available in `assets/ssz_animations/` directory
 
 ### Videos (Trilingual Series)
 
