@@ -440,42 +440,9 @@ python generate_key_plots.py  # 5 plots, ~30 seconds
 
 ## 🔧 Contributing
 
-### Development Workflow
+Contributions, suggestions, and collaborations are welcome.
 
-1. **Fork & Clone**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/Segmented-Spacetime-Mass-Projection-Unified-Results.git
-   ```
-
-2. **Create Branch**
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-
-3. **Make Changes**
-   - Follow [Coding Standards](CODING_STANDARDS.md)
-   - Add tests for new features
-   - Update documentation
-
-4. **Test**
-   ```bash
-   python run_full_suite.py
-   pytest -s -v
-   ```
-
-5. **Submit PR**
-   - Clear description
-   - Link related issues
-   - Pass all CI checks
-
-### Guidelines
-
-- **Code:** PEP 8, type hints, docstrings
-- **Tests:** Coverage >80%, physics interpretations
-- **Docs:** Markdown, cross-references, examples
-- **Commits:** Conventional commits format
-
-📖 **[Development Guide →](DEVELOPMENT_SETUP.md)**
+**Contact:** mail@error.wtf
 
 ---
 
@@ -511,20 +478,11 @@ python generate_key_plots.py  # 5 plots, ~30 seconds
 
 ---
 
-## 📧 Contact & Support
+## 📧 Contact
 
-**Authors:**
-- **Carmen Wrede** - carmen.wrede@error-wtf.de
-- **Lino Casu** - lino.casu@error-wtf.de
+**Authors:** Carmen Wrede & Lino Casu
 
-**Community:**
-- **Issues:** [GitHub Issues](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/discussions)
-
-**Collaboration:**
-- Academic partnerships welcome
-- Open source contributions encouraged
-- Educational use permitted (with attribution)
+**Contact:** mail@error.wtf
 
 ---
 
