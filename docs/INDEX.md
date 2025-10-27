@@ -92,19 +92,16 @@
 - **[evidenz-ssz/README.md](evidenz-ssz/README.md)** - Educational materials overview
 - **[evidenz-ssz/docs/INDEX.md](evidenz-ssz/docs/INDEX.md)** - **Complete documentation index** (5 major topics + animations + results)
 - **[evidenz-ssz/docs/01_BIG_BANG_VS_SSZ.md](evidenz-ssz/docs/01_BIG_BANG_VS_SSZ.md)** - Big Bang vs. SSZ cosmology (German)
-- **[evidenz-ssz/docs/02_BLACK_HOLE_BOMB.md](evidenz-ssz/docs/02_BLACK_HOLE_BOMB.md)** - **2024 EXPERIMENT!** Penrose process & superradiance (Braidotti et al.)
 - **[evidenz-ssz/docs/03_LIFE_AS_COSMIC_LOTTERY.md](evidenz-ssz/docs/03_LIFE_AS_COSMIC_LOTTERY.md)** - Probability of existence (P ~ 10⁻⁶⁰⁰)
 - **[evidenz-ssz/docs/04_STARS_AS_LIFE_ENABLERS.md](evidenz-ssz/docs/04_STARS_AS_LIFE_ENABLERS.md)** - Stellar nucleosynthesis
 - **[evidenz-ssz/docs/05_VIDEO_WORKFLOW.md](evidenz-ssz/docs/05_VIDEO_WORKFLOW.md)** - Audio-first video pipeline
 
 #### 📊 Scientific Results (v6)
 - **[evidenz-ssz/results/README.md](evidenz-ssz/results/README.md)** - **Complete v6 results overview**
-- **[evidenz-ssz/results/SSZ_BLACKHOLE_BOMB_RESULTS.md](evidenz-ssz/results/SSZ_BLACKHOLE_BOMB_RESULTS.md)** - Black Hole Bomb analysis (16/20 unstable modes, 6.61× damping)
 - **[evidenz-ssz/results/SSZ_PROOF_SUMMARY_v6.md](evidenz-ssz/results/SSZ_PROOF_SUMMARY_v6.md)** - Formal stability proof (348 configs, 96.6% agreement)
 - **[evidenz-ssz/results/gr_bridge_report.md](evidenz-ssz/results/gr_bridge_report.md)** - GR correlation analysis (0.90-0.92)
-- **[evidenz-ssz/results/data/](evidenz-ssz/results/data/)** - 10 PNGs + 5 data files (v6)
-- **[evidenz-ssz/results/plots/](evidenz-ssz/results/plots/)** - 4 Black Hole Bomb visualizations
-- **[evidenz-ssz/results/scripts/](evidenz-ssz/results/scripts/)** - 7 analysis scripts (2024 citations)
+- **[evidenz-ssz/results/data/](evidenz-ssz/results/data/)** - Data files (v6)
+- **[evidenz-ssz/results/scripts/](evidenz-ssz/results/scripts/)** - Analysis scripts
 
 #### 🎬 Animations (Multi-Language)
 - **[evidenz-ssz/animations/README.md](evidenz-ssz/animations/README.md)** - **10 GIFs catalog** (456 MB via Git LFS)
@@ -114,18 +111,10 @@
  - `ssz_scientific_it.gif` (90.2 MB) - Visualizzazione scientifica italiana
 - **Physics Animations:**
  - `blackhole_segmented_spacetime.gif` (12.6 MB) - Rotating BH in SSZ
- - `ssz_bomb_animation.gif` (0.3 MB) - Superradiance growth
  - `einstein_train_animation.gif` (1.4 MB) - Special relativity
 - **Demo Versions:**
  - `ssz_perfect_demo.gif` (67.8 MB) - Perfect-Pair mathematics
  - `ssz_bigbang_vs_ssz_demo.gif` (7.0 MB) - Cosmology comparison
-
-#### 🔬 2024 Experimental Validation
-**Black Hole Bomb - First Lab Demonstration:**
-- **Team:** Braidotti, Cromb et al. (University of Glasgow & Southampton)
-- **Result:** "Components exploded" - Exponential amplification confirmed
-- **Source:** [LiveScience Oct 2024](https://www.livescience.com/space/black-holes/physicists-create-black-hole-bomb-for-first-time-on-earth-validating-decades-old-theory)
-- **Referenced in:** 6+ documentation files with complete methodology
 
 ### 🔬 Scientific Papers
 - **[papers/validation/](papers/validation/)** - 11 validation papers
