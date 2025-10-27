@@ -1,0 +1,369 @@
+{
+  "project": {
+    "name": "SSZ Animation System - Audio-First Multi-Language Pipeline",
+    "version": "1.0.0",
+    "date": "2025-10-26",
+    "authors": ["Carmen Wrede", "Lino Casu"],
+    "team": "Forschungsteam ZS-α",
+    "license": "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"
+  },
+  
+  "description": {
+    "title_de": "Von der Singularität zur Segmentierung",
+    "title_en": "From Singularity to Segmentation",
+    "title_it": "Dalla Singolarità alla Segmentazione",
+    "purpose": "Generate professional multi-language animations comparing ΛCDM Big Bang model with Segmented Spacetime Theory (SSZ)",
+    "approach": "Audio-first workflow where video duration adapts to TTS narration length"
+  },
+  
+  "core_scripts": {
+    "ssz_animation_master.py": {
+      "role": "Main orchestrator",
+      "functions": [
+        "TTS audio generation (espeak-ng)",
+        "Audio duration analysis",
+        "YAML timeline generation",
+        "Video render coordination",
+        "Final manifest creation"
+      ],
+      "cli_args": [
+        "--languages [de|en|it]",
+        "--use-wsl",
+        "--skip-audio",
+        "--skip-render"
+      ]
+    },
+    
+    "ssz_video_renderer.py": {
+      "role": "Video rendering engine",
+      "functions": [
+        "Dual-panel animation (ΛCDM left, SSZ right)",
+        "Matplotlib-based frame generation",
+        "FFmpeg video encoding",
+        "Audio track synchronization"
+      ],
+      "output": "MP4 @ 1920x1080, 30fps, H.264, 18Mbps"
+    },
+    
+    "run_ssz_animation.ps1": {
+      "role": "Windows PowerShell launcher",
+      "functions": [
+        "Dependency checking (Python, FFmpeg, espeak-ng)",
+        "Package installation (matplotlib, numpy, yaml)",
+        "Pipeline execution with error handling"
+      ]
+    },
+    
+    "test_pipeline_quick.py": {
+      "role": "Quick validation test",
+      "functions": [
+        "System requirements check",
+        "TTS generation test (German only)",
+        "Audio + timeline generation (skip rendering)"
+      ],
+      "duration": "~30 seconds"
+    }
+  },
+  
+  "workflow": {
+    "phase_1": {
+      "name": "TTS Audio Generation",
+      "input": "Embedded voiceover text scripts (10 sentences × 3 languages)",
+      "process": [
+        "Generate individual sentence clips with espeak-ng",
+        "Apply audio cleaning (high-pass filter, normalization)",
+        "Concatenate with 300ms silence gaps",
+        "Export as 48kHz stereo WAV"
+      ],
+      "output": "audio/ssz_intro_{lang}.wav",
+      "duration": "10-30 seconds per language"
+    },
+    
+    "phase_2": {
+      "name": "Audio Duration Analysis",
+      "input": "Generated WAV files",
+      "process": [
+        "Measure exact audio duration using wave module",
+        "Create JSON manifest with durations"
+      ],
+      "output": "durations.json",
+      "duration": "< 1 second"
+    },
+    
+    "phase_3": {
+      "name": "Timeline Generation",
+      "input": "Audio durations from manifest",
+      "process": [
+        "Calculate scene durations (15% intro, 70% main, 15% outro)",
+        "Generate YAML timeline with adapted keyframes",
+        "Define visual elements (no text overlays)"
+      ],
+      "output": "timelines/ssz_anim_{lang}.yaml",
+      "duration": "< 1 second per language"
+    },
+    
+    "phase_4": {
+      "name": "Video Rendering",
+      "input": "YAML timeline + audio WAV",
+      "process": [
+        "Render left panel (ΛCDM radial explosion)",
+        "Render right panel (SSZ φ-spiral with hexagons)",
+        "Composite dual-panel layout",
+        "Encode video with FFmpeg",
+        "Merge audio track"
+      ],
+      "output": "video/ssz_intro_{lang}.mp4",
+      "duration": "2-10 minutes per language"
+    },
+    
+    "phase_5": {
+      "name": "Finalization",
+      "input": "All three rendered videos",
+      "process": [
+        "Create preview collage (3 languages side-by-side)",
+        "Generate final manifest with metadata",
+        "Export as GIF (10fps)"
+      ],
+      "output": [
+        "final/ssz_intro_trilanguage.gif",
+        "final/manifest.json"
+      ],
+      "duration": "10-30 seconds"
+    }
+  },
+  
+  "output_structure": {
+    "base_directory": "D:\\SSZ_Render\\",
+    "subdirectories": {
+      "audio": "TTS narration WAV files (48kHz stereo)",
+      "timelines": "YAML animation timelines",
+      "video": "Final MP4 videos with synchronized audio",
+      "final": "Preview collage and final manifest",
+      "logs": "Error logs and fallback information"
+    },
+    "total_size_estimate": "200-350 MB (all outputs)"
+  },
+  
+  "visual_design": {
+    "left_panel": {
+      "model": "ΛCDM (Lambda Cold Dark Matter)",
+      "concept": "Big Bang singularity → radial expansion",
+      "elements": [
+        "Central white glow (singularity)",
+        "150 expanding particles",
+        "Color gradient: #ffcc00 → #ff6600 → #441144",
+        "Particle size decreases with distance"
+      ]
+    },
+    
+    "right_panel": {
+      "model": "SSZ (Segmented Spacetime)",
+      "concept": "Structured emergence through segmentation",
+      "elements": [
+        "Hexagonal segment grid (5 rings)",
+        "φ-based logarithmic spiral (golden ratio)",
+        "80 orbital particles (stable dynamics)",
+        "Color palette: #00ccff, #1a1f2b, #f7b733"
+      ]
+    },
+    
+    "divider": {
+      "width": "4% of screen",
+      "gradient": "#050505 → #1e1e1e",
+      "purpose": "Visual separation of paradigms"
+    }
+  },
+  
+  "audio_design": {
+    "tts_engine": "espeak-ng",
+    "voice_profiles": {
+      "de": {"voice": "de+f3", "speed": 165, "pitch": 40, "amplitude": 175},
+      "en": {"voice": "en+f3", "speed": 165, "pitch": 40, "amplitude": 175},
+      "it": {"voice": "it+f3", "speed": 165, "pitch": 40, "amplitude": 175}
+    },
+    "characteristics": [
+      "Warm female voice",
+      "Slightly slower than normal (0.9× speed)",
+      "Clear articulation with emphasis on key terms"
+    ],
+    "processing": [
+      "High-pass filter @ 60 Hz",
+      "Dynamic normalization",
+      "Fade in/out (120ms)",
+      "Resampling to 48 kHz stereo",
+      "Final normalization to -1 dBFS"
+    ]
+  },
+  
+  "voiceover_content": {
+    "structure": "10 sentences per language",
+    "themes": [
+      "Introduction: Two cosmological perspectives",
+      "ΛCDM: Singularity and infinite density",
+      "Expansion metaphor and energy spread",
+      "Mathematical challenges of singularities",
+      "SSZ: Ordered origin layer (no singularity)",
+      "Segmentation as space emergence mechanism",
+      "Resonance-driven finite densities",
+      "Observational agreement of both models",
+      "SSZ advantage: Structure over infinity",
+      "Conclusion: Beginning of order, not explosion"
+    ],
+    "total_duration": {
+      "de": "35-40 seconds",
+      "en": "33-38 seconds",
+      "it": "36-41 seconds"
+    }
+  },
+  
+  "technical_specs": {
+    "video": {
+      "resolution": "1920×1080 (1080p)",
+      "framerate": "30 fps",
+      "codec": "H.264 (libx264)",
+      "bitrate": "18 Mbps",
+      "color_space": "sRGB",
+      "pixel_format": "yuv420p"
+    },
+    
+    "audio": {
+      "sample_rate": "48 kHz",
+      "channels": "Stereo",
+      "bit_depth": "16-bit PCM",
+      "codec": "AAC (192 kbps)",
+      "dynamic_range": "~60 dB"
+    },
+    
+    "preview_gif": {
+      "resolution": "1920×360 (3× 640×360 panels)",
+      "framerate": "10 fps",
+      "duration": "5 seconds",
+      "size": "5-15 MB"
+    }
+  },
+  
+  "system_requirements": {
+    "python": "3.10+",
+    "packages": [
+      "matplotlib",
+      "numpy",
+      "pyyaml"
+    ],
+    "external_tools": [
+      "ffmpeg (video encoding)",
+      "espeak-ng (text-to-speech)"
+    ],
+    "optional": [
+      "WSL (Windows Subsystem for Linux) for espeak-ng fallback"
+    ],
+    "storage": "500 MB free space (for outputs)"
+  },
+  
+  "usage_examples": {
+    "full_pipeline": "python ssz_animation_master.py",
+    "specific_languages": "python ssz_animation_master.py --languages de en",
+    "wsl_mode": "python ssz_animation_master.py --use-wsl",
+    "audio_only": "python ssz_animation_master.py --skip-render",
+    "quick_test": "python test_pipeline_quick.py",
+    "windows_launcher": ".\\run_ssz_animation.ps1"
+  },
+  
+  "performance": {
+    "tts_generation": "10-30 seconds per language",
+    "audio_analysis": "< 1 second",
+    "timeline_generation": "< 1 second per language",
+    "video_rendering": "2-10 minutes per language (CPU-dependent)",
+    "preview_collage": "10-30 seconds",
+    "total_pipeline": "7-35 minutes (all 3 languages)"
+  },
+  
+  "file_sizes": {
+    "ssz_intro_de.wav": "~3 MB",
+    "ssz_intro_en.wav": "~3 MB",
+    "ssz_intro_it.wav": "~3 MB",
+    "ssz_intro_de.mp4": "50-100 MB",
+    "ssz_intro_en.mp4": "50-100 MB",
+    "ssz_intro_it.mp4": "50-100 MB",
+    "ssz_intro_trilanguage.gif": "5-15 MB",
+    "total": "200-350 MB"
+  },
+  
+  "troubleshooting": {
+    "espeak_not_found": {
+      "solution": [
+        "Windows: choco install espeak-ng",
+        "WSL: wsl sudo apt install espeak-ng",
+        "Use --use-wsl flag for WSL mode"
+      ]
+    },
+    
+    "ffmpeg_not_found": {
+      "solution": [
+        "Windows: choco install ffmpeg",
+        "Linux: sudo apt install ffmpeg"
+      ]
+    },
+    
+    "audio_too_short": {
+      "cause": "TTS generation failed",
+      "solution": [
+        "Check logs: D:\\SSZ_Render\\logs\\tts_fallback_XX.txt",
+        "Regenerate with slower speed: espeak-ng -s 140"
+      ]
+    },
+    
+    "rendering_slow": {
+      "optimization": [
+        "Reduce FPS to 24",
+        "Reduce resolution to 720p",
+        "Close other applications"
+      ]
+    }
+  },
+  
+  "educational_applications": [
+    "University cosmology lectures",
+    "Conference presentations",
+    "Public science outreach",
+    "Online education (YouTube, MOOCs)",
+    "Museum exhibits",
+    "Science documentaries"
+  ],
+  
+  "future_enhancements": [
+    "Background ambient music (–20 dB)",
+    "GPU acceleration for rendering",
+    "4K resolution support",
+    "Interactive web player (HTML5)",
+    "Subtitle files (SRT format)",
+    "Extended versions (2-5 minutes)"
+  ],
+  
+  "documentation": {
+    "SSZ_ANIMATION_README.md": "Complete user manual (70 KB)",
+    "SSZ_ANIMATION_MANIFEST.json": "System specification (this file)",
+    "last_user_prompts.md": "Reference for stylistic decisions"
+  },
+  
+  "validation": {
+    "test_script": "test_pipeline_quick.py",
+    "coverage": [
+      "System requirements check",
+      "TTS generation (German)",
+      "Audio analysis",
+      "Timeline generation"
+    ],
+    "expected_output": [
+      "D:\\SSZ_Render\\audio\\ssz_intro_de.wav",
+      "D:\\SSZ_Render\\timelines\\ssz_anim_de.yaml",
+      "D:\\SSZ_Render\\durations.json"
+    ]
+  },
+  
+  "contact": {
+    "team": "Carmen Wrede, Lino Casu",
+    "project": "Segmented Spacetime Cosmology",
+    "license": "ANTI-CAPITALIST SOFTWARE LICENSE v1.4",
+    "year": 2025
+  }
+}

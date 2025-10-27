@@ -37,7 +37,7 @@ SSZ Effects:
 
 **Summary:**
 - 🎯 **Data Points:** 348 configurations tested
-- 🎯 **Agreement:** 96.6% (direct vs criterion)
+- 🎯 **Agreement:** 96.6%
 - 🎯 **Stability Boundaries:** λ_A critical values mapped
 - 🎯 **Weighted vs Uniform:** Weighted mode consistently more stable
 

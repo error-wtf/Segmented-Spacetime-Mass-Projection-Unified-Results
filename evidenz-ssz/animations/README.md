@@ -311,5 +311,5 @@ start ./animations/ssz_bomb_animation.gif
 ---
 
 **Generated:** 2025-10-27  
-**Total Animations:** 10 GIFs (456 MB)  
+**Total Animations:** 12 GIFs + 2 MP4s + 5 PNGs + 1 JSON, ~470 MB total via Git LFS  
 **Status:** ✅ PRODUCTION-READY
