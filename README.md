@@ -358,9 +358,9 @@ python test_ppn_exact.py         # PPN parameters
 ### Test Reports
 
 **Generated in `reports/`:**
-- `RUN_SUMMARY.md` - Compact overview
-- `summary-output.md` - Brief summary
-- `full-output.md` - Complete log (231 KB)
+- **[RUN_SUMMARY.md](reports/RUN_SUMMARY.md)** - Compact overview
+- **[summary-output.md](reports/summary-output.md)** - Brief summary
+- **[full-output.md](reports/full-output.md)** - Complete log (231 KB)
 
 **Expected output:**
 ```
