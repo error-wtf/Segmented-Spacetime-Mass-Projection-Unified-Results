@@ -1,1042 +1,662 @@
 # Segmented Spacetime – Mass Projection & Unified Results
 
-## 🌌 Sagittarius A* - Animated Visualization
-
 <p align="center">
-  <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* Segmented Spacetime Animation" width="100%">
+  <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
 </p>
-
-**Interactive Black Hole Animation** featuring **Sagittarius A*** (4.154 million solar masses) with live mathematical values based on the Segmented Spacetime framework (Casu & Wrede).
-
-**Features:**
-- **φ-Based Geometry:** Golden ratio (φ ≈ 1.618) fundamental boundary at r_φ = 1.618 × r_s
-- **Segment Density:** N(r) ~ φ·(r_s/r)² from φ-spiral geometry
-- **Live Calculations:** Position, time dilation (τ), gravitational redshift (z), velocities, φ-correction
-- **Real Physics:** Schwarzschild radius (r_s = 12,268 Mio km), photon sphere (1.5 r_s), ISCO (3 r_s)
-
-**Usage:**
-```bash
-python blackhole_animation.py
-# Output: blackhole_segmented_spacetime.gif (animation)
-#         blackhole_segmented_spacetime.png (static diagram)
-```
-
-**Mathematical Framework:**
-- Based on `perfect_paired_test.py` physics engine
-- Implements φ-based mass correction: ΔM(%) = A·exp(-α·r_s) + B
-- Time dilation: τ = 1/√(1 - r_s/r)
-- Gravitational redshift: z_grav = 1/√(1 - r_s/r) - 1
-
----
-
-![S-Stars Residuals: SSZ vs GR Comparison](reports/figures/readme_header_sstars_comparison.png)
 
 [![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20WSL%20%7C%20macOS%20%7C%20Colab-brightgreen)](#cross-platform-compatibility)
-[![ESO Data](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
+[![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
-© Carmen Wrede & Lino Casu
+**Latest Release:** v1.5.0-dev (2025-10-27) - Trilingual Video System + Visual Animations  
+**Authors:** Carmen Wrede & Lino Casu
 
-**Latest Release:** v1.4.0 (2025-10-21) - ESO Breakthrough Validation (97.9%)  
-✅ **Status:** 116 automated tests passing | ESO validation complete | Publication-ready plots | Complete documentation
-
-Complete Python implementation and verification suite for the **Segmented Spacetime (SEG) Mass Projection Model** with runners, tests, datasets, and plotting routines to reproduce all reported results in a deterministic environment.
-
-**Status:** ✅ Production-ready | Reproducible evidence of model functionality (theory + code + tests)
+Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, and experimental validation.
 
 ---
 
----
+## 📑 Table of Contents
 
-## 🎬 Visual Evidence & Educational Materials
+### For Everyone
+- [🚀 Quick Start](#-quick-start) - Get running in 2 minutes
+- [🌀 Visual Gallery](#-visual-gallery) - Animations & Videos
+- [🏆 Scientific Highlights](#-scientific-highlights) - Breakthrough results
 
-**NEW:** [`evidenz-ssz/`](evidenz-ssz/) - Public-facing visualizations, animations, and educational documentation
+### For Researchers
+- [📚 Complete Documentation](#-complete-documentation) - Papers, guides, API
+- [🔬 Key Results](#-key-results) - ESO validation, cosmology, black holes
+- [📊 Data & Analysis](#-data--analysis) - Datasets, plots, experiments
 
-### Quick Access
-- **[📚 Documentation Index](evidenz-ssz/docs/INDEX.md)** - Complete educational materials
-- **[🎬 Animations Catalog](evidenz-ssz/animations/README.md)** - 10 GIFs (456 MB, Multi-Language: 🇩🇪 🇬🇧 🇮🇹)
-- **[📊 Scientific Results v6](evidenz-ssz/results/README.md)** - Black Hole Bomb, formal proofs, GR correlation
+### For Developers
+- [💻 Installation](#-installation) - All platforms
+- [🧪 Testing](#-testing) - 116 automated tests
+- [🔧 Contributing](#-contributing) - Development workflow
 
-### Highlights
-- **2024 Experiment Validated:** Black Hole Bomb (Braidotti et al.) - "Components exploded" ⭐
-- **Multi-Language:** German, English, Italian scientific visualizations
-- **Complete Analysis:** 348 configs tested, 96.6% theorem validation
-
-📖 **[→ Full evidenz-ssz Documentation](evidenz-ssz/README.md)**
-
----
-
-## 🏆 BREAKTHROUGH: 97.9% Predictive Accuracy Achieved
-
-**THE SOLUTION: Segmented Spacetime (SEG) Model Works With ESO Archive Data**
-
-When tested against **ESO (European Southern Observatory) spectroscopic observations** in the physically appropriate format, the Segmented Spacetime model achieves **near-perfect predictive accuracy**:
-
-| Metric | Value | Significance |
-|--------|-------|-------------|
-| **Overall Success Rate** | **97.9%** (46/47 wins) | p < 0.0001 (highly significant) |
-| **Photon Sphere Regime** | **100%** (11/11 wins) | p = 0.0010 (PERFECT) |
-| **Strong Field Regime** | **97.2%** (35/36 wins) | p < 0.0001 (near-perfect) |
-| **High Velocity Systems** | **94.4%** (17/18 wins) | p = 0.0001 (excellent) |
-
-**What This Means:**  
-When compared to classical General Relativity + Special Relativity (GR×SR) predictions, Segmented Spacetime (SEG) wins in **46 out of 47 cases**. This is **world-class predictive performance** - competitive with established gravitational models.
-
-**Data Quality Matters:**  
-These results demonstrate the importance of **high-quality spectroscopic data**. ESO Archive observations (GRAVITY, XSHOOTER instruments) represent the **gold standard** for local gravitational redshift measurements - providing sub-percent wavelength accuracy, complete kinematic parameters, and pure emission-line spectroscopy. Historical catalog compilations, while valuable for many purposes, often mix cosmological redshift measurements or lack the precision needed for sub-percent gravitational tests.
-
-**Key Scientific Insights:**
-- **φ-Geometry is Fundamental:** Without φ-based corrections: 0% success. With φ: 97.9% (high-quality spectroscopy) or 51% (catalog data)
-- **Data Quality Enables Precision:** +47 percentage points difference between ESO spectroscopy (97.9%) and mixed catalogs (51%)
-- **Photon Sphere is Optimal:** 100% accuracy at r ≈ 2-3 r_s where φ/2 natural boundary occurs
-- **Empirically Validated:** Segmented Spacetime (SEG) transitions from theoretical framework to validated gravitational redshift predictor with professional-grade data
-
-**Quick Verification:**
-```bash
-python perfect_paired_test.py --output out/clean_results.csv
-# Expected: "SEG wins: 46/47 (97.9%), p-value: 0.0000"
-# Runtime: ~10 seconds
-```
-
-**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
-
-**Complete Analysis:** [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) - Solution-first documentation with full ESO data acquisition workflow
-
-**📖 Scientific Journey:** The path from initial mixed-data testing (51%) to final ESO validation (97.9%) demonstrates rigorous model testing across multiple data sources. See [The Scientific Discovery Journey](PAIRED_TEST_ANALYSIS_COMPLETE.md#the-scientific-discovery-journey-from-apparent-limitation-to-complete-validation) section in the complete analysis for how systematic investigation of data compatibility led to breakthrough results.
-
----
-
-## ⚠️ CRITICAL: No Fundamental Object-Type Failures
-
-```
-================================================================================
-
-  KEY FINDING: Segmented Spacetime (SEG) does NOT fail on specific
-               object types or regimes
-
-  The difference between 51% (catalog) and 97.9% (ESO) is
-  DATA QUALITY, not object-type limitations:
-
-  • Very Close (r<2 r_s): 0% catalog → NO ISSUES ESO (97.9% overall)
-    → Catalog had incomplete parameters (data artifact)
-
-  • Weak Field (r>10 r_s): 37% catalog performance
-    → EXPECTED - SEG is strong-field theory, GR already good here
-
-  • Photon Sphere: 82% catalog → 100% ESO (+18 percentage points)
-  • High Velocity: 86% catalog → 94.4% ESO (+8.4 percentage points)
-
-  PROOF: Same physics, better data quality = breakthrough results
-
-  With professional spectroscopy measuring local gravitational
-  redshift (what SEG predicts), world-class validation achieved.
-
-================================================================================
-```
-
-**Translation:** There are no astronomical object types where Segmented Spacetime (SEG) fundamentally fails. The 51% catalog result reflects data format compatibility (measuring cosmological vs. local gravitational redshift, incomplete parameters), not model physics limitations. ESO professional spectroscopy measures exactly what SEG predicts and achieves 97.9%. This is a **data quality story**, not a model limitation story.
-
-**See:** [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md#️-critical-insight-no-fundamental-object-type-failures) for detailed analysis.
+### Quick Links
+- **[📖 Documentation Index](docs/INDEX.md)** ← ⭐ **Complete navigation hub**
+- **[✅ TODO List](TODO_DOCUMENTATION_UPLOAD.md)** ← Current session tasks
+- **[📝 Changelog](CHANGELOG.md)** - Version history
 
 ---
 
 ## 🚀 Quick Start
 
-### Option 1: Google Colab (No Installation)
+<table>
+<tr>
+<td width="50%">
 
-**Run everything in your browser - Zero setup required:**
+### 🌐 Zero Installation (Cloud)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Full_Pipeline_Colab.ipynb)
 
+**Run in browser:**
 1. Click badge above
 2. `Runtime` → `Run all`
 3. Wait ~5-10 minutes
-4. ✅ Download ZIP with all results
+4. ✅ Results ready
 
-### Option 2: Local Installation (One Command)
+</td>
+<td width="50%">
 
-**Windows:**
-```powershell
-.\install.ps1              # ~2 minutes
-```
+### 💻 Local Installation
 
-**Linux/WSL/macOS:**
+**One command install:**
+
 ```bash
-chmod +x install.sh
-./install.sh               # ~2 minutes
+# Windows
+.\install.ps1
+
+# Linux/macOS/WSL
+./install.sh
 ```
 
-**What happens (11 steps):**
-- ✅ [1/11] Checks Python 3.10+
-- ✅ [2/11] Creates virtual environment
-- ✅ [3/11] Activates venv
-- ✅ [4/11] Upgrades pip/setuptools
-- ✅ [5/11] Installs dependencies
-- ✅ [6/11] Fetches data (if missing)
-- ✅ [7/11] Installs SSZ package
-- ✅ [8/11] Generates pipeline outputs
-- ✅ [9/11] Runs 69 tests
-- ✅ [10/11] Verifies installation
-- ✅ [11/11] Generates summary
+**Duration:** ~2 minutes  
+**What it does:** Env + deps + tests
+
+</td>
+</tr>
+</table>
+
+**First steps after install:**
+```bash
+# Activate environment
+source .venv/bin/activate  # Linux/macOS
+.\.venv\Scripts\activate   # Windows
+
+# Run quick validation
+python perfect_paired_test.py
+# Expected: "SEG wins: 46/47 (97.9%)"
+
+# Generate plots
+python generate_key_plots.py
+# Output: reports/figures/analysis/*.png
+```
+
+**Troubleshooting:** See [Installation Guide](#-installation)
 
 ---
 
-## 💻 Production-Ready Analysis Scripts (NEW - Oct 2025)
+## 🌀 Visual Gallery
 
-**Three powerful standalone tools for advanced analysis:**
+### Animations (5 Key Visualizations)
 
-### 1. Rapidity-Based Equilibrium Analysis
+<table>
+<tr>
+<td width="50%">
 
-**Production-ready mathematical solution for equilibrium points:**
+#### 1️⃣ Big Bang vs SSZ
+![Big Bang](assets/ssz_animations/ssz_bigbang_vs_ssz_demo.gif)
+[📖 Explanation](docs/ssz_bigbang_vs_ssz_demo.md)
 
-```bash
-python perfect_equilibrium_analysis.py
-```
+No singularity, finite origin
 
-**Script:** [`perfect_equilibrium_analysis.py`](perfect_equilibrium_analysis.py)
+</td>
+<td width="50%">
 
-- ✅ **Rapidity formulation:** χ = arctanh(v/c) (NO 0/0!)
-- ✅ **Angular bisector:** Natural coordinate origin  
-- ✅ **Smooth at v=0:** Handles equilibrium perfectly
-- ✅ **Mathematical solution:** Addresses equilibrium point handling in mixed catalog data analysis
+#### 2️⃣ Mathematical Proof
+![Proof](assets/ssz_animations/ssz_proof_anim_v6.gif)
+[📖 Explanation](docs/ssz_proof_anim_v6.md)
 
-**Note:** With professional ESO spectroscopy, we already achieve **97.9% overall accuracy** - no mathematical fixes needed for the validation dataset. Rapidity formulation addresses theoretical completeness for catalog data analysis.
+C² continuity, stability
 
-**Documentation:** [RAPIDITY_IMPLEMENTATION.md](RAPIDITY_IMPLEMENTATION.md)
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-### 2. Standalone Interactive Analysis
+#### 3️⃣ Cosmology Comparison
+![Cosmology](assets/ssz_animations/ssz_cosmo_anim.gif)
+[📖 Explanation](docs/ssz_cosmo_anim.md)
 
-**User-friendly tool for custom datasets:**
+ΛCDM vs SSZ (Hubble, BAO, LSS)
 
-```bash
-# Interactive mode
-python perfect_seg_analysis.py --interactive
+</td>
+<td width="50%">
 
-# Single observation
-python perfect_seg_analysis.py --mass 1.0 --radius 10000 --redshift 0.001
+#### 4️⃣ Black Holes
+![Black Hole](assets/ssz_animations/blackhole_segmented_spacetime.gif)
+[📖 Explanation](docs/blackhole_segmented_spacetime.md)
 
-# CSV batch
-python perfect_seg_analysis.py --csv your_data.csv --output results.csv
-```
+Sagittarius A*, no singularity
 
-**Script:** [`perfect_seg_analysis.py`](perfect_seg_analysis.py)
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
 
-- ✅ **3 modes:** Interactive / Single / CSV batch
-- ✅ **Flexible input:** Auto-detects column names
-- ✅ **Regime classification:** All physical regimes
-- ✅ **Rapidity-based:** NO 0/0 singularities
+#### 5️⃣ Energy is Finite
+![Bomb](assets/ssz_animations/ssz_bomb_animation.gif)
+[📖 Explanation](docs/ssz_bomb_animation.md)
 
-**Documentation:** [PERFECT_SEG_ANALYSIS_GUIDE.md](PERFECT_SEG_ANALYSIS_GUIDE.md)
+Black Hole Bomb experiment validates segment damping
 
-### 3. Perfect Paired Test Framework
+</td>
+</tr>
+</table>
 
-**Incorporates ALL findings from stratified analysis:**
+### Videos (Trilingual Series)
 
-```bash
-python perfect_paired_test.py --csv data/real_data_full.csv --output results.csv
-```
+**6-Part Educational Series** (DE 🇩🇪 | EN 🇬🇧 | IT 🇮🇹)
 
-**Script:** [`perfect_paired_test.py`](perfect_paired_test.py)
+| Part | Topic | Duration | Audio Scripts |
+|------|-------|----------|---------------|
+| 1 | Big Bang vs Segmentation | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-1) |
+| 2 | Cosmological Observations | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-2) |
+| 3 | Mathematical Stability | 19s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-3) |
+| 4 | Black Holes (No Singularity) | 20s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-4) |
+| 5 | Stellar Nucleosynthesis | 21s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-5) |
+| 6 | Energy is Finite | 18s | [View](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md#teil-6) |
 
-- ✅ **All findings:** φ-geometry + Rapidity + Stratification
-- ✅ **Regime-specific:** Photon Sphere (82%), High v (86%)
-- ✅ **Complete stats:** Binomial tests, p-values
-- ✅ **Production framework:** Ready for full SEG integration
+**Total Duration:** ~2 minutes per language  
+**Status:** 🔄 Production in progress  
+**YouTube:** Coming soon
 
-**Documentation:** [PERFECT_PAIRED_TEST_GUIDE.md](PERFECT_PAIRED_TEST_GUIDE.md)
-
-**Key Scientific Advances (Oct 2025):**
-- ✅ **Equilibrium solution:** Rapidity formulation eliminates 0/0
-- ✅ **φ-geometry validated:** FUNDAMENTAL basis (not fitting)
-- ✅ **Regime understanding:** Know exactly where SEG excels
-- ✅ **Statistical significance achievable:** p<0.05 possible after integration
-
----
-
-## 🌍 Cross-Platform Compatibility
-
-✅ **Fully tested and supported on ALL platforms:**
-
-| Platform | Status | Installation | Notes |
-|----------|--------|--------------|-------|
-| **Windows** | ✅ Full | `.\install.ps1` | PowerShell, UTF-8 auto-configured |
-| **WSL** | ✅ Full | `./install.sh` | Auto-detected, Linux-compatible |
-| **Linux** | ✅ Full | `./install.sh` | Native, fastest execution |
-| **macOS** | ✅ Full | `./install.sh` | Unix-like, same as Linux |
-| **Google Colab** | ✅ Full | One-click notebooks | No installation needed |
-
-**CI/CD Testing:** 6 configurations (2 OS × 3 Python versions) on every push
-
-**Details:** See [`CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md`](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)
-
-**What's New:** See [CHANGELOG.md](CHANGELOG.md) for complete release history
-
-**📖 Key Terms & Glossary:** See [Technical Glossary](docs/improvement/TERMINOLOGY_GLOSSARY.md) for 200+ terms (EN/DE)
-
-**📚 Complete Documentation:** See [**DOCUMENTATION_INDEX.md**](DOCUMENTATION_INDEX.md) - **Central navigation hub for all 312+ documents** ⭐
+**Resources:**
+- [Audio Scripts Archive](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) - All texts (DE/EN/IT)
+- [Video Production Guide](evidenz-ssz/videos/README.md) - Workflow
 
 ---
 
-## 📚 Key Terminology
+## 🏆 Scientific Highlights
 
-**SEG:** Segmented Spacetime (φ-based geometric framework)  
-**GAIA:** ESA's Gaia space observatory (stellar data)  
-**NED:** NASA/IPAC Extragalactic Database  
-**EHT:** Event Horizon Telescope (EHT) (EHT)  
-**PPN:** Parametrized Post-Newtonian formalism  
+### BREAKTHROUGH: 97.9% Predictive Accuracy
 
-See complete [**Technical Glossary**](docs/improvement/TERMINOLOGY_GLOSSARY.md) with 200+ terms in English and German.
+When tested against **ESO (European Southern Observatory) professional spectroscopy**, Segmented Spacetime achieves **near-perfect validation**:
 
-### ⚠️ Important: Laboratory Comparability of Frequency Data
+| Metric | Performance | Significance |
+|--------|-------------|--------------|
+| **Overall** | **97.9%** (46/47 wins) | p < 0.0001 |
+| **Photon Sphere** | **100%** (11/11 wins) | p = 0.0010 |
+| **Strong Field** | **97.2%** (35/36 wins) | p < 0.0001 |
+| **High Velocity** | **94.4%** (17/18 wins) | p = 0.0001 |
 
-**All frequency measurements (f_obs) in this dataset are directly comparable** because they have been transformed to a common reference frame (barycentric). 
+![ESO Breakthrough](reports/figures/analysis/eso_breakthrough_results.png)
 
-**Key point:** λ (wavelength) varies between laboratories due to local physical conditions (gravity, motion, calibration), making raw measurements from different labs incomparable without transformation. See [**LABORATORY_COMPARABILITY.md**](LABORATORY_COMPARABILITY.md) for complete details on:
-- Why λ is laboratory-dependent
-- How barycentric transformation enables comparison
-- Standards used (NIST/CODATA 2018)
-- Best practices for adding new data
+**What this means:** World-class predictive performance competitive with established gravitational models.
 
-**⚠️ CRITICAL LIMITATION:** Cross-instrumental conversion between ESO and GAIA/HST/JWST datasets is **physically invalid**, as their calibration frames, spectral definitions, and barycentric corrections differ non-linearly. Each observatory's data pipeline applies instrument-specific transformations that cannot be reliably inverted or cross-calibrated without introducing systematic errors larger than the gravitational effects being measured (Δz ~ 10⁻⁴). This fundamental incompatibility is why our validation relies on ESO-native spectroscopy rather than attempting to merge heterogeneous datasets.
+**Key Discovery:** φ (golden ratio) = 1.618... is the **geometric foundation**, not a fitting parameter.
 
-### 🚨 Critical: Data Access & Reproducibility Crisis
+**Quick verification:**
+```bash
+python perfect_paired_test.py
+# Expected output: "SEG wins: 46/47 (97.9%), p-value: 0.0000"
+```
 
-**Scientific Transparency Notice:** Our 97.9% validation is based on ~50 ESO spectroscopic observations — representing <0.1% of ESO's archive. The remaining 99.9% is proprietary, creating a **structural reproducibility bottleneck**:
+📖 **[Read complete analysis →](PAIRED_TEST_ANALYSIS_COMPLETE.md)**
 
-- **ESO datasets** (gold standard): Largely restricted to institutional researchers
-- **GAIA datasets** (1.8B stars): Incompatible calibration systems for redshift work
-- **Consequence:** Independent validation effectively blocked for non-affiliated researchers
+### Core Principles
 
-**This is not a limitation of science, but of data accessibility.** See [**DATA_ACCESS_REPRODUCIBILITY_CRISIS.md**](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md) for:
-- Detailed analysis of data access barriers
-- Impact on scientific reproducibility
-- Proposed solutions for open science
-- Why "fringe vs. mainstream" often reflects institutional access, not theoretical merit
+<table>
+<tr>
+<td width="25%">
 
-**Personal Statement:** [**OUT_OF_DATA_LINO_CASU_STATEMENT.md**](OUT_OF_DATA_LINO_CASU_STATEMENT.md) - Lino Casu's position paper on how closed spectroscopic archives manufactured a systemic reproducibility crisis
+#### φ-Geometry
+Golden ratio emerges as natural spacetime boundary
 
-**Key insight:** Perhaps the real scientific revolution would be questioning data gatekeeping, rather than endlessly re-litigating Einstein.
+</td>
+<td width="25%">
+
+#### No Singularities
+Segment density provides natural cut-off
+
+</td>
+<td width="25%">
+
+#### Energy Finite
+Segment damping prevents runaway growth
+
+</td>
+<td width="25%">
+
+#### Testable
+97.9% accuracy vs professional observations
+
+</td>
+</tr>
+</table>
+
+### Experimental Validation
+
+**Black Hole Bomb (2024):**
+- ✅ Braidotti et al. experiment validated
+- ✅ SSZ stabilizes -2 unstable modes
+- ✅ 96.6% theorem validation (348 configs)
+
+**Cosmology:**
+- ✅ Hubble diagram fit
+- ✅ BAO compatible
+- ✅ CMB (Planck 2018) consistent
+- ✅ LSS: 2.3σ better than ΛCDM
+
+**Black Holes:**
+- ✅ Sagittarius A* (4.15×10⁶ M☉)
+- ✅ Event Horizon Telescope compatible
+- ✅ S-Stars orbital dynamics
+- ✅ No information paradox
 
 ---
 
-## 🔬 Key Scientific Findings
+## 📚 Complete Documentation
 
-### Main Result: Φ (Golden Ratio) is the Geometric Foundation
+### 📖 Central Hub
 
-**Critical Discovery:** φ = (1+√5)/2 ≈ 1.618 is not a parameter but the **GEOMETRIC BASIS** of segmented spacetime.
+**[Documentation Index](docs/INDEX.md)** ← ⭐ **Start here!**
+
+Complete navigation for:
+- Visual Animations (6 detailed explanations)
+- Scientific Papers (theory, proofs, experiments)
+- Code Documentation (API, scripts, examples)
+- Educational Materials (tutorials, workshops, glossary)
+- Videos (production workflow, metadata)
+- Tests & Verification (116 automated tests)
+- Development (contributing, roadmap, TODO)
+
+### Quick Access
+
+| Category | Link | Description |
+|----------|------|-------------|
+| **Papers** | [SSZ_Cosmology_Full.md](papers/SSZ_Cosmology_Full.md) | Main theory |
+| **Validation** | [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) | ESO 97.9% |
+| **Videos** | [SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) | All audio scripts |
+| **Plots** | [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) | Visual guide |
+| **Tests** | [LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md) | Test system |
+| **FAQ** | [evidenz-ssz/docs/FAQ.md](evidenz-ssz/docs/FAQ.md) | Common questions |
+
+### For Different Audiences
+
+**Scientists:**
+- [Visual Animations](#visual-gallery) → [Papers](docs/INDEX.md#-scientific-papers)
+- [Key Results](#-key-results) → [Experimental Validation](#experimental-validation)
+
+**Developers:**
+- [Installation](#-installation) → [Code Docs](docs/INDEX.md#-code-documentation)
+- [Testing](#-testing) → [Contributing](#-contributing)
+
+**Students:**
+- [What is SSZ?](evidenz-ssz/docs/WHAT_IS_SSZ.md) → [Visual Gallery](#visual-gallery)
+- [Glossary](evidenz-ssz/docs/GLOSSARY.md) → [Tutorials](docs/INDEX.md#educational-materials)
+
+---
+
+## 🔬 Key Results
+
+### φ-Geometry Foundation
+
+**Critical Discovery:** φ = (1+√5)/2 ≈ 1.618 is **geometric**, not empirical.
+
+**Evidence:**
+- **Without φ:** 0% success (complete failure)
+- **With φ + ESO:** 97.9% success (breakthrough)
+- **With φ + catalog:** 51% success (robust)
+
+![φ-Geometry Impact](reports/figures/analysis/phi_geometry_impact_eso.png)
 
 **Why φ?**
-- φ-spiral geometry provides self-similar scaling (like galaxies, hurricanes)
-- Natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s emerges from geometry
-- φ-derived mass corrections Δ(M) = A*exp(-α*rs) + B enable universal scaling
-- Dimensionless φ → same physics across 3 orders of magnitude in mass
+- φ-spiral geometry (self-similar scaling)
+- Natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s
+- Dimensionless → universal across mass scales
 
-**Empirical Validation (Systematic Multi-Source Testing):**
-- **Rigorous Testing Protocol:** Model tested with and without φ-corrections across multiple data sources
-- **Without φ-based geometry:** 0% success - Confirms φ is essential, not optional
-- **With φ-geometry + ESO data:** 97.9% success (46/47 wins, p<0.0001) - **Near-perfect validation**
-- **With φ-geometry + mixed data:** 51% success (73/143 wins) - Demonstrates robustness across data types
-- **Φ impact:** Systematic testing confirms φ accounts for model functionality
-- **At photon sphere (optimal regime):** 100% wins (11/11, p=0.0010) with ESO data - **Perfect validation of φ/2 boundary prediction**
-
-![φ-Geometry Impact: WITH vs WITHOUT](reports/figures/analysis/phi_geometry_impact_eso.png)
-
-**Figure:** Impact of φ-based geometry corrections across data quality levels. WITHOUT φ: complete failure (0% overall). WITH φ + ESO data: breakthrough validation (97.9% overall). WITH φ + catalog data: competitive performance (51% overall). This demonstrates that φ-geometry is fundamental to model function (0% → 97.9%), while data quality determines performance magnitude (51% catalog vs. 97.9% ESO).
+📖 **[Why φ is Fundamental →](PHI_FUNDAMENTAL_GEOMETRY.md)**
 
 ### Regime-Specific Performance
 
-**With ESO Archive Data (Near-Perfect Performance):**
+**Photon Sphere (r = 2-3 r_s):** 100% accuracy  
+**Strong Field (r = 3-10 r_s):** 97.2% accuracy  
+**High Velocity (v > 0.05c):** 94.4% accuracy
 
-| Regime | Performance | Significance | Status |
-|--------|-------------|------------|--------|
-| **Photon Sphere (r=2-3 r_s)** | **100%** (11/11) | p=0.0010 | ✅ **PERFECT** - Theory confirmed |
-| **Strong Field (r=3-10 r_s)** | **97.2%** (35/36) | p<0.0001 | ✅ **NEAR-PERFECT** - Excellent agreement |
-| **High Velocity (v>5% c)** | **94.4%** (17/18) | p=0.0001 | ✅ **EXCELLENT** - SR+GR coupling works |
-| **Overall (ESO clean)** | **97.9%** (46/47) | p<0.0001 | ✅ **BREAKTHROUGH** - World-class performance |
+**Photon Sphere Excellence validates φ/2 boundary prediction**
 
-![ESO Breakthrough Results by Regime](reports/figures/analysis/eso_breakthrough_results.png)
+![Win Rate vs Radius](reports/figures/analysis/winrate_vs_radius.png)
 
-**Figure:** SEG performance with professional ESO spectroscopy across physical regimes. Overall: 97.9% (46/47 wins, p<0.0001). Photon Sphere: 100% (11/11, p=0.0010) - perfect validation of φ/2 boundary prediction. Strong Field: 97.2% (35/36, p<0.0001) - near-perfect agreement. High Velocity: 94.4% (17/18, p=0.0001) - excellent SR+GR coupling. These results demonstrate world-class predictive accuracy when tested with high-quality spectroscopic data measuring local gravitational redshift. For historical mixed-catalog comparison (51% overall, 82% photon sphere), see [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) Section 2.
+📖 **[Stratified Results →](STRATIFIED_PAIRED_TEST_RESULTS.md)**
 
-**With Mixed Historical Data (Competitive Performance):**
+### Data Quality Impact
 
-| Regime | Performance | Significance | Status |
-|--------|-------------|------------|--------|
-| **Photon Sphere (r=2-3 r_s)** | **82%** (37/45) | p<0.0001 | ✅ **DOMINATES** - Optimal regime |
-| **High Velocity (v>5% c)** | **86%** (18/21) | p=0.0015 | ✅ **EXCELS** - Strong coupling |
-| **Weak Field (r>10 r_s)** | 37% (15/40) | p=0.154 | Comparable to classical (as expected) |
-| **Overall (mixed)** | 51% (73/143) | p=0.867 | Competitive (data compatibility limited) |
+| Data Type | Success Rate | Measurement |
+|-----------|--------------|-------------|
+| **ESO Spectroscopy** | **97.9%** | Local gravitational redshift |
+| **Catalog Compilations** | **51%** | Mixed (cosmo + local) |
 
-### Key Scientific Findings
+**+47 percentage points** demonstrates importance of data compatibility.
 
-**Rigorous Multi-Source Validation:**
-Segmented Spacetime (SEG) underwent systematic testing with multiple astronomical data sources (ESO, NED, SIMBAD, literature compilations) across different physical regimes and data types. This comprehensive approach revealed:
-
-1. **φ-Geometry is Fundamental:** Golden ratio (φ ≈ 1.618) emerges as geometric foundation - enabling transition from 0% to 97.9% success with appropriate data
-2. **Data Type Compatibility is Critical:** Performance strongly correlates with measurement type (local spectroscopy vs. cosmological/photometric data)
-3. **Photon Sphere Excellence:** 100% accuracy at r ≈ 2-3 r_s (ESO data) validates theoretical prediction of φ/2 natural boundary
-4. **Regime-Specific Performance Understood:** Strong field (97.2%), high velocity (94.4%) show where φ-corrections provide maximum benefit
-5. **Comprehensive Testing Validates Model:** Testing across inappropriate data types (cosmological redshift, photometry) confirmed model specificity - SEG predicts local gravitational effects, not universe expansion
-
-**Outcome:** When tested against physically compatible observations (ESO emission-line spectroscopy measuring local gravitational redshift), SEG achieves world-class 97.9% predictive accuracy. Systematic multi-source testing demonstrates both model capabilities and proper validation requirements.
-
-### Data Quality Impact on Results
-
-**Current Achievement:** **97.9%** with professional-grade spectroscopy (46/47 wins, p<0.0001)
-
-**Why Data Quality Matters:**
-
-**Professional Spectroscopy - Gold Standard (97.9%):**
-- **Source:** ESO Archive (GRAVITY, XSHOOTER) - research-grade instruments
-- **Measurement:** Direct local gravitational redshift (what SEG predicts)
-- **Completeness:** All parameters measured (M, r, v_los, v_tot, λ, z_geom_hint)
-- **Precision:** Sub-percent wavelength accuracy (λ/Δλ > 10,000)
-- **Coverage:** Photon sphere regime (r ≈ 2-10 r_s) where φ-geometry excels
-
-**Catalog Compilations (51%):**
-- **Source:** Historical databases (NED, SIMBAD) - literature aggregations
-- **Measurement:** Often cosmological redshift (Hubble flow), not local gravity
-- **Completeness:** Frequently missing parameters (v_tot, z_geom_hint, precise r)
-- **Precision:** Photometric estimates (~1-5% uncertainty)
-- **Coverage:** Mixed scales (galaxy + stellar), heterogeneous measurements
-
-**The Quality Difference:**
-- Professional spectroscopy: **97.9%** - measures the right physics with precision
-- Catalog compilations: **51%** - often different physics, lower precision
-- **+47 percentage points** demonstrates that precision gravitational testing requires professional-grade observations
-- Both results validate model: 51% shows robustness even with suboptimal data
-
-**Key Insight:** Professional-grade spectroscopy delivers world-class validation. The need for high-quality data is standard in precision gravitational physics - not a limitation but a requirement of accurate testing.
-
-**📚 Complete Documentation:**
-- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - ⭐ **START HERE:** Complete validation report with ESO workflow, scientific discovery journey (51%→97.9%), and comprehensive methodology
-- [PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md) - Why φ is the geometric foundation (mathematical basis)
-- [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) - Detailed regime-specific performance breakdown
-- [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md) - φ-geometry impact analysis (0%→97.9% transition)
-- [EQUILIBRIUM_RADIUS_SOLUTION.md](EQUILIBRIUM_RADIUS_SOLUTION.md) - Mathematical solutions for equilibrium points
-- [OPTIMIZATION_ANALYSIS.md](OPTIMIZATION_ANALYSIS.md) - Computational optimization opportunities
+Both results validate model:
+- 97.9% → World-class with appropriate data
+- 51% → Robust even with suboptimal data
 
 ---
 
-## 📊 Visual Analysis & Plots
+## 💻 Installation
 
-**5 Publication-Ready Scientific Plots** (300 DPI)
+### Platforms
 
-Generated by [`generate_key_plots.py`](generate_key_plots.py) in ~30 seconds:
+✅ **Fully tested on:**
+- Windows (PowerShell, UTF-8 auto-configured)
+- Linux (Native, fastest)
+- macOS (Unix-like)
+- WSL (Auto-detected)
+- Google Colab (Zero install)
 
-1. **Stratified Performance** - Performance by regime (82% photon sphere, 86% high velocity)
-2. **φ-Geometry Impact** - WITH vs WITHOUT φ comparison (0% → 51%)
-3. **Win Rate vs Radius** - φ/2 boundary validation (peak at photon sphere)
-4. **Stratification Robustness** - Physics dominates (82pp effect), not data artifacts
-5. **Performance Heatmap** - All metrics simultaneously (comprehensive overview)
+### Quick Install
 
-![Win Rate vs Radius - φ/2 Boundary Validation](reports/figures/analysis/winrate_vs_radius.png)
+<details>
+<summary><b>Windows (PowerShell)</b></summary>
 
-**Figure:** Win rate vs radius showing empirical validation of φ/2 boundary at ≈1.618 r_s. Performance peaks (83%) at photon sphere region (1.5-3 r_s, green shaded) containing φ/2 boundary (gold line). This validates the theoretical prediction that φ-spiral geometry has a natural optimal region.
+```powershell
+# Clone repository
+git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
-**📚 Complete Plots Documentation:**
-- [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) - ⭐ **Visual guide with all plots and explanations**
-- [PLOTS_DOCUMENTATION.md](PLOTS_DOCUMENTATION.md) - Technical details, generation, customization
-- All plots in `reports/figures/analysis/`
+# One-command install
+.\install.ps1
 
-**Generate Plots:**
-```bash
-python generate_key_plots.py  # ~30 seconds, 5 plots
+# Activate environment
+.\.venv\Scripts\activate
+
+# Verify
+python perfect_paired_test.py
 ```
 
-**Script:** [`generate_key_plots.py`](generate_key_plots.py)
+</details>
 
----
-
-## 📦 Installation Details
-
-### Dependencies
-
-**Core Scientific:**
-- numpy, scipy, pandas, matplotlib, sympy
-
-**Astronomy & Data:**
-- astropy, astroquery, pyarrow
-
-**Testing:**
-- pytest, pytest-timeout, pytest-cov, colorama
-
-**See [`requirements.txt`](requirements.txt) for complete list**
-
-### Installation Options
+<details>
+<summary><b>Linux / macOS / WSL</b></summary>
 
 ```bash
-# Standard install (recommended)
-./install.sh               # Linux/WSL/macOS
-.\install.ps1              # Windows
+# Clone repository
+git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
-# With full test suite (~10-15 min)
-./install_and_test.sh      # Linux/WSL/macOS
-.\install_and_test.ps1     # Windows
+# One-command install
+chmod +x install.sh
+./install.sh
 
-# Quick tests only (~2 min)
-./install_and_test.sh --quick    # Linux/WSL/macOS
-.\install_and_test.ps1 -Quick    # Windows
+# Activate environment
+source .venv/bin/activate
 
-# Dry-run (see what would be done)
-./install.sh --dry-run     # Linux/WSL/macOS
-.\install.ps1 -DryRun      # Windows
+# Verify
+python perfect_paired_test.py
 ```
 
-### Manual Installation
+</details>
+
+<details>
+<summary><b>Manual Installation</b></summary>
 
 ```bash
+# Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # Linux/WSL/macOS
-.\.venv\Scripts\activate.ps1  # Windows
 
+# Activate
+source .venv/bin/activate  # Linux/macOS
+.\.venv\Scripts\activate   # Windows
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Install package
 pip install -e .
 
 # Verify
 SSZ-rings --help
-SSZ-print-md --help
 ```
+
+</details>
+
+### Dependencies
+
+**Core:** numpy, scipy, pandas, matplotlib, sympy  
+**Astronomy:** astropy, astroquery  
+**Testing:** pytest, pytest-cov
+
+📄 **[Complete list →](requirements.txt)**
 
 ---
 
-## 🧪 Testing System
+## 🧪 Testing
 
 ### Test Overview
 
-**Total: 69 Tests**
-- **35 Physics Tests** - Detailed output with physical interpretations
-- **23 Technical Tests** - Silent mode (background validation)
-- **11 Multi-Ring Validation Tests** - Real astronomical ring datasets (G79, Cygnus X)
+**116 Automated Tests:**
+- 35 Physics Tests (detailed output)
+- 23 Technical Tests (silent mode)
+- 58 Additional Validation Tests
 
 ### Run Tests
 
 ```bash
-# Activate virtual environment first
-source .venv/bin/activate  # Linux/WSL/macOS
-.\.venv\Scripts\activate.ps1  # Windows
+# Activate environment first
+source .venv/bin/activate  # Linux/macOS
+.\.venv\Scripts\activate   # Windows
 
-# Complete test suite
-python [**`run_full_suite.py`**](run_full_suite.py)              # ~2-3 minutes
+# Complete suite (~2-3 minutes)
+python run_full_suite.py
 
-# Quick tests only
-python [**`run_full_suite.py`**](run_full_suite.py) --quick      # ~30 seconds
+# Quick tests (~30 seconds)
+python run_full_suite.py --quick
 
-# Individual test categories
-python test_ppn_exact.py              # PPN parameters
-python test_vfall_duality.py          # Dual velocity
-pytest tests/ -s -v                   # All pytest tests
-pytest scripts/tests/ -s -v           # Script tests
+# Specific categories
+pytest tests/ -s -v              # Core tests
+pytest scripts/tests/ -s -v      # Script tests
+python test_ppn_exact.py         # PPN parameters
 ```
 
 ### Test Reports
 
-Generated in `reports/` by `run_full_suite.py`:
-- **[RUN_SUMMARY.md](reports/RUN_SUMMARY.md)** - Compact overview
-- **[full-output.md](reports/full-output.md)** - Complete detailed log (231 KB)
-- **[summary-output.md](reports/summary-output.md)** - Brief summary (1.1 KB)
+**Generated in `reports/`:**
+- `RUN_SUMMARY.md` - Compact overview
+- `summary-output.md` - Brief summary
+- `full-output.md` - Complete log (231 KB)
 
-**Critical:** Always use `-s` flag with pytest (NOT `--disable-warnings`)
+**Expected output:**
+```
+Total Physics Tests: 35
+Passed: 35/35
+Failed: 0/35
+Success Rate: 100.0%
+```
 
-### Smoke Tests (Quick Health Checks)
+📖 **[Test System Documentation →](LOGGING_SYSTEM_README.md)**
 
-**Total: 2 Smoke Tests** - Fast validation that critical components work
+---
+
+## 📊 Data & Analysis
+
+### Datasets
+
+**Included:**
+- `data/real_data_full.csv` - 427 observations from 117 sources
+- `data/gaia/` - GAIA DR3 samples (G79, Cygnus X)
+- `data/planck/` - CMB power spectra (auto-fetched, 2 GB)
+
+**External Sources:**
+- ESO Archive (GRAVITY, XSHOOTER)
+- Planck 2018 (CMB)
+- SDSS DR7 (BAO, galaxies)
+
+### Analysis Scripts
 
 ```bash
-# Covariant smoke test (~1 second)
-python ssz_covariant_smoketest_verbose_lino_casu.py
+# ESO validation (97.9%)
+python perfect_paired_test.py
 
-# Comprehensive smoke test suite (~5 seconds)
-python smoke_test_all.py
+# Cosmology comparison
+python scripts/cosmology/ssz_cosmo_animator.py
+
+# Black hole dynamics
+python blackhole_animation.py
+
+# Generate plots
+python generate_key_plots.py  # 5 plots, ~30 seconds
 ```
 
-**Scripts:** [`ssz_covariant_smoketest_verbose_lino_casu.py`](ssz_covariant_smoketest_verbose_lino_casu.py) | [`smoke_test_all.py`](smoke_test_all.py)
+### Key Plots
 
-**What's Tested:**
-- ✅ Critical imports (numpy, scipy, pandas, matplotlib, astropy)
-- ✅ φ (golden ratio) calculation (deviation: 8.95e-13)
-- ✅ Data files accessible (real_data_full.csv, gaia samples)
-- ✅ Output directories writable (reports, out)
-- ✅ Matplotlib operational (can create and save plots)
-- ✅ High-precision calculations (Decimal math)
-- ✅ PPN parameters (β=1, γ=1)
-- ✅ Weak-field & strong-field metric validation
+1. **Stratified Performance** - By regime
+2. **φ-Geometry Impact** - WITH vs WITHOUT
+3. **Win Rate vs Radius** - φ/2 boundary validation
+4. **ESO Breakthrough** - 97.9% results
+5. **Performance Heatmap** - Comprehensive
 
-**Documentation:** [SMOKE_TESTS_COMPLETE.md](SMOKE_TESTS_COMPLETE.md)
+📖 **[Plots Guide →](PLOTS_OVERVIEW.md)**
 
 ---
 
-## 🔬 Scientific Analysis Pipeline
+## 🔧 Contributing
 
-### Complete SSZ Analysis
+### Current Tasks
 
-```bash
-python run_all_ssz_terminal.py
-```
+**[📋 TODO List](TODO_DOCUMENTATION_UPLOAD.md)** ← **Current session priorities**
 
-**Script:** [`run_all_ssz_terminal.py`](run_all_ssz_terminal.py)
+**High Priority:**
+- [ ] Video scripts ins Repo kopieren
+- [ ] Git LFS konfigurieren (große GIFs)
+- [ ] FFmpeg installieren & Videos neu erstellen
+- [ ] YouTube Upload vorbereiten
 
-**Runs 20+ scripts:**
-- Redshift analysis (emission lines + continuum)
-- Mass validation & roundtrip
-- PPN parameters (β, γ)
-- Shadow predictions (M87*, Sgr A*)
-- QNM eikonal checks
-- φ-lattice model selection
-- Lagrangian tests
-- Stress-energy tensor
-- Extended theory calculations
+**Medium Priority:**
+- [ ] Papers aktualisieren (Part 5 & 6)
+- [ ] Tests für Video-Production
+- [ ] Animation Creation Guide
+- [ ] GitHub Release v1.5.0
 
-**Output:** `reports/summary_full_terminal_v4.json` + detailed CSV/MD files
+### Development Workflow
 
-### SegWave Ring Analysis
+1. **Fork & Clone**
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+   ```
 
-```bash
-# G79+0.46 (ALMA CO + NH₃)
-SSZ-rings --csv data/observations/G79_29+0_46_CO_NH3_rings.csv \
-          --v0 12.5 --fit-alpha
+2. **Create Branch**
+   ```bash
+   git checkout -b feature/your-feature
+   ```
 
-# Cygnus X Diamond Ring (C II)
-SSZ-rings --csv data/observations/CygnusX_DiamondRing_CII_rings.csv \
-          --v0 1.3
-```
+3. **Make Changes**
+   - Follow [Coding Standards](CODING_STANDARDS.md)
+   - Add tests for new features
+   - Update documentation
 
-### All-in-One Enhanced Runner
+4. **Test**
+   ```bash
+   python run_full_suite.py
+   pytest -s -v
+   ```
 
-```bash
-# Full pipeline
-python segspace_all_in_one_extended.py all
+5. **Submit PR**
+   - Clear description
+   - Link related issues
+   - Pass all CI checks
 
-# Redshift evaluation only
-python segspace_all_in_one_extended.py eval-redshift \
-       --csv ./data/real_data_emission_lines.csv \
-       --mode hybrid --ci 2000 --plots
+### Guidelines
 
-# Mass validation
-python segspace_all_in_one_extended.py validate-mass
+- **Code:** PEP 8, type hints, docstrings
+- **Tests:** Coverage >80%, physics interpretations
+- **Docs:** Markdown, cross-references, examples
+- **Commits:** Conventional commits format
 
-# Bound energy plots
-python segspace_all_in_one_extended.py bound-energy --plots
-```
-
-**Script:** [`segspace_all_in_one_extended.py`](segspace_all_in_one_extended.py)
-
----
-
-## 📊 Key Results
-
-### Current Dataset (v1.3.1)
-
-**427 data points** from **117 unique sources**
-
-- **Emission lines:** 143 rows (paired test dataset)
-- **Continuum:** 284 rows (multi-frequency spectrum analysis)
-- **Frequency range:** 2.3×10¹¹ - 3.0×10¹⁸ Hz (9+ orders)
-- **No synthetic data** - All real observations
-
-**Data Selection Rationale:**
-
-Paired redshift test uses **emission-line data only** (143 rows) where z_obs represents local gravitational redshift - the physical effect SEG models. Continuum data (284 rows from M87/Sgr A* NED spectra) is used for multi-frequency spectrum analysis and Information Preservation studies but **not for z_obs vs z_pred comparisons** because continuum z_obs measures Hubble flow (cosmological redshift), not local gravity.
-
-**Rejected Data Sources:**
-- **Hubble/Cosmological data:** Measures universe expansion (z ~ H₀d/c), not local spacetime curvature (z ~ GM/rc²). Wrong physics for testing local gravity theory.
-- **LIGO Gravitational Waves:** Measures dynamic strain h(t) from mergers, not static metric redshift z. Different observables, different physics (wave propagation vs local curvature).
-
-**For detailed explanation:** See [`data/DATA_TYPE_USAGE_GUIDE.md`](data/DATA_TYPE_USAGE_GUIDE.md) - complete rationale for all data source decisions with 5-point LIGO analysis and M87 Hubble flow examples.
-
-**Important Note on Mixed Catalog Data Limitations:**
-The theoretical papers describe equilibrium points (where v_eff = 0) as the foundation of accretion disk formation - "leuchtende Bänder" (luminous bands) where matter accumulates in stable orbital layers. This is correct accretion physics. The 0% wins at r < 2 r_s with mixed catalog data was a **data quality artifact** (incomplete parameters, photometric uncertainties), NOT a fundamental model limitation. **With professional ESO spectroscopy, SEG achieves 97.9% overall with no r<2 issues**, proving the theory works across all regimes when appropriate data is available. See [CRITICAL INSIGHT](#️-critical-no-fundamental-object-type-failures) section above for complete explanation.
-
-### Performance Metrics
-
-**Median |Δz| (emission-line dataset, lower is better):**
-- SEG (φ/2 + Δ(M)): **1.31e-4**
-- SR: 1.34e-2
-- GR: 2.25e-1
-
-#### Paired Test Results: Comprehensive Analysis
-
-**Overall (emission lines, n=143):** SEG better in 73/143 rows (51%), p = 0.867  
-
-**⚡ CRITICAL FINDING: Phi Corrections Are FUNDAMENTAL**
-
-All results shown are WITH phi-based mass-dependent corrections (Δ(M) = A*exp(-α*rs) + B).  
-**WITHOUT phi corrections:** 0/143 wins (0%) - Total failure!  
-**WITH phi corrections:** 73/143 wins (51%) - Competitive with GR×SR  
-**Phi impact:** +51 percentage points (from complete failure to parity)
-
-**Comprehensive 3-Dimensional Stratification (Mixed Catalog Data):**
-
-**IMPORTANT:** The following results (51% overall, 82% photon sphere) apply to **mixed historical catalog compilations**. With **professional ESO spectroscopy**, SEG achieves **97.9% overall** (see breakthrough section above) - a completely different magnitude demonstrating the critical importance of data quality.
-
-**1. BY RADIUS (Mixed Catalog Data - 143 observations):**
-| Regime | Win % | p-value | Phi Impact | Status |
-|--------|-------|---------|------------|--------|
-| **Photon Sphere (r=2-3 r_s)** | **82%** | **<0.0001** | **+72-77 pp** | ✅ **SEG DOMINATES** |
-| Very Close (r<2 r_s) | 0% | <0.0001 | None* | Catalog data limitations at equilibrium |
-| High Velocity (v>5% c) | **86%** | **0.0015** | **+76 pp** | ✅ **SEG EXCELS** |
-| Weak Field (r>10 r_s) | 37% | 0.154 | +3 pp | Comparable to classical |
-
-*Note: ESO professional spectroscopy (47 observations) achieves **97.9% overall** with **100% in photon sphere** and no r<2 issues - demonstrating that "Very Close" challenges were catalog data artifacts, not fundamental model limitations.
-
-**2. BY DATA SOURCE** (no significant effect):
-- NED-origin objects: ~45% wins - Comparable
-- Non-NED objects: ~53% wins - Comparable
-- **Finding:** Source type makes NO difference (physics dominates)
-
-**3. BY COMPLETENESS** (no significant effect):
-- 100% complete data: ~52% wins - Comparable
-- Partial data: ~48% wins - Comparable
-- **Finding:** Completeness makes NO difference (physics dominates)
-
-**KEY INSIGHTS (Mixed Catalog Data Analysis):**
-- ✅ **φ-based geometry IS the foundation** - ALL successes depend on φ (0% without → 51% with catalog data, 97.9% with ESO)
-- ✅ **Photon sphere is optimal regime** - 82% with catalogs, **100% with ESO spectroscopy**
-- ✅ **High velocity shows excellence** - 86% with catalogs, **94.4% with ESO**
-- ✅ **Data quality determines magnitude** - Catalog data (51% overall) vs. ESO spectroscopy (97.9% overall) - completely different performance scale
-- ✅ **Physics determines regime patterns** - Radius (r/r_s) dominant factor across all data types
-- ✅ **Professional spectroscopy eliminates artifacts** - ESO data shows no equilibrium issues (97.9% overall), confirming catalog limitations were data-related
-
-**📚 Complete Analysis:**
-- [PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md) - Why φ is the GEOMETRIC FOUNDATION
-- [STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md) - Regime-specific breakdown
-- [PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md) - φ-geometry impact  
-- [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) - Scientific findings report
-- [TEST_METHODOLOGY_COMPLETE.md](TEST_METHODOLOGY_COMPLETE.md) - Complete validation chain
-
-### Complete Test Output
-
-**📄 [Full Test Suite Output](reports/full-output.md)** - Complete log of all 69 tests with detailed results  
-**📄 [Test Run Summary](reports/RUN_SUMMARY.md)** - Compact overview with φ-based geometry framework  
-*Last updated: 2025-10-20 17:20:14 - All reports regenerated with complete φ-geometry integration*
-
-**✓ Built-in Double-Check Validation:** Every pipeline run automatically verifies:
-- φ (golden ratio) value: 1.618033988749... (deviation < 1e-10)
-- Δ(M) parameters: A=98.01, α=2.7177e4, B=1.96
-- φ/2 natural boundary: ≈ 0.809
-- Critical findings: 82%, 86%, 0%, 51% (validated by stratified analysis)
+📖 **[Development Guide →](DEVELOPMENT_SETUP.md)**
 
 ---
 
-## 📖 Documentation
+## 📜 License & Citation
 
-### Core Documentation
-
-- **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - 📚 **Central documentation navigator** (START HERE)
-- **[QUICK_START_GUIDE.md](QUICK_START_GUIDE.md)** - 🚀 **Get started in < 5 minutes**
-- **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - ✅ Platform compatibility analysis
-- **[Sources.md](Sources.md)** - Complete data provenance (117 sources)
-- **[DATA_CHANGELOG.md](DATA_CHANGELOG.md)** - Data version history
-- **[CHANGELOG.md](CHANGELOG.md)** - Release history
-- **[INSTALL_README.md](INSTALL_README.md)** - Installation guide
-- **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging
-
-### Data & Analysis Documentation
-
-**🌟 Key Scientific Results:**
-- **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - ⭐ **Regime-specific performance analysis**
-- **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - ⭐ **Why phi corrections are fundamental**
-- **[PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md)** - ⭐ **Complete investigation methodology**
-
-**Data Quality & Management:**
-- **[DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - 📥 **How to fetch data** (ESO, NED, SIMBAD, GAIA)
-- **[DATA_ACCESS_REPRODUCIBILITY_CRISIS.md](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md)** - 🚨 **Structural barriers in modern astrophysics**
-- **[OUT_OF_DATA_LINO_CASU_STATEMENT.md](OUT_OF_DATA_LINO_CASU_STATEMENT.md)** - 📢 **Position paper by Lino Casu** (how closed archives manufactured a reproducibility crisis)
-- **[LABORATORY_COMPARABILITY.md](LABORATORY_COMPARABILITY.md)** - ⚠️ **Why cross-observatory conversion is physically invalid**
-- **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Complete data quality analysis
-- **[DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)** - Future enhancement plan
-- **[DATA_TYPE_USAGE_GUIDE.md](data/DATA_TYPE_USAGE_GUIDE.md)** - Emission vs continuum guide
-
-### Theory & Validation
-
-- **[papers/validation/](papers/validation/)** - 11 validation papers
-- **[docs/theory/](docs/theory/)** - 21 theory papers
-- **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Complete pipeline docs
-
-### Generated Test Reports
-
-- **[reports/RUN_SUMMARY.md](reports/RUN_SUMMARY.md)** - Compact test suite summary
-- **[reports/full-output.md](reports/full-output.md)** - Complete test output log (231 KB)
-- **[reports/summary-output.md](reports/summary-output.md)** - Brief output summary
-
-*Reports are generated by running `python run_full_suite.py`*
-
----
-
-## 🎯 Use Cases
-
-### For Researchers
-
-- Reproduce all SSZ results deterministically
-- Validate theory predictions with real data
-- Extend analysis with custom datasets
-- Compare SEG vs GR/SR predictions
-
-### For Developers
-
-- Cross-platform Python scientific code example
-- Comprehensive test system (69 tests)
-- CI/CD integration (GitHub Actions)
-- UTF-8 handling best practices
-
-### For Students
-
-- Interactive Colab notebooks (no setup)
-- Step-by-step physics test outputs
-- Real astronomical data from ALMA/Chandra/VLT
-- Educational physics interpretations
-
----
-
-## 🔧 Advanced Features
-
-### Platform Compatibility Check
-
-```bash
-python PLATFORM_COMPATIBILITY_CHECK.py
-```
-
-**Script:** [`PLATFORM_COMPATIBILITY_CHECK.py`](PLATFORM_COMPATIBILITY_CHECK.py)
-
-**Tests:**
-- Python version compatibility
-- UTF-8 encoding support
-- Path separator handling
-- Platform-specific features
-- Data file accessibility
-
-### Data Fetching
-
-**Smart data fetching (only missing files):**
-
-```bash
-# Planck CMB data (~2 GB, auto-fetched during install)
-python scripts/fetch_planck.py
-python scripts/planck/fetch_planck_map.py         # Sky maps
-
-# GAIA stellar data (automatic, no token)
-python scripts/fetch_gaia_full.py                 # Full catalog
-python scripts/gaia/fetch_gaia_adql.py           # ADQL query
-python scripts/gaia/fetch_gaia_conesearch.py     # Cone search
-
-# SDSS spectroscopic catalog
-python scripts/sdss/fetch_sdss_catalog.py
-
-# M87 galaxy spectrum
-python scripts/data_acquisition/fetch_m87_spectrum.py
-
-# ESO spectroscopy (requires token - see docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)
-bash scripts/download_eso_fits.sh                 # Download FITS
-python scripts/process_eso_fits_to_csv.py         # Process FITS → CSV
-```
-
-**See:** [`docs/DATA_ACQUISITION_COMPLETE_GUIDE.md`](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md) for complete instructions
-
-### Output Printing
-
-```bash
-# Print all Markdown documentation
-SSZ-print-md --root . --order path    # Alphabetical
-SSZ-print-md --root . --order depth   # Shallow-first
-SSZ-print-md --root papers            # Papers only
-SSZ-print-md --root reports           # Reports only
-```
-
----
-
-## 📝 Dataset Schema
-
-**Minimum CSV header:**
-
-```csv
-case,category,M_solar,a_m,e,P_year,T0_year,f_true_deg,z,
-f_emit_Hz,f_obs_Hz,lambda_emit_nm,lambda_obs_nm,
-v_los_mps,v_tot_mps,z_geom_hint,N0,source,r_emit_m
-```
-
-**Key columns:**
-- `a_m` - Semi-major axis in **meters**
-- `M_solar` - Mass in solar masses
-- `z` - Redshift (optional if frequencies given)
-- `f_emit_Hz`, `f_obs_Hz` - Emitted and observed frequency
-- `source` - Data provenance (required)
-
-**Example (S2 star 2018 pericenter):**
-```csv
-S2_SgrA*,S-stars,4297000.0,1.530889e+14,0.8843,16.0518,2018.379,0.0,
-0.0006671281903963041,,,,,0,,0.0003584,1.0000000028,GRAVITY 2018
-```
-
----
-
-## 🤝 Contributing
-
-**This is a research artifact.** Independent replication and peer review are encouraged.
-
-**⚠️ Repository Access:** This repository has **restricted write access** (owners only: Carmen Wrede, Lino Casu). External contributions via **Fork + Pull Request** only. See [REPOSITORY_SECURITY_PERMISSIONS.md](REPOSITORY_SECURITY_PERMISSIONS.md) for details.
-
-**Contributions welcome:**
-- Bug reports → [Issues](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/issues)
-- Code improvements → Fork repository, create PR (see [CONTRIBUTING.md](CONTRIBUTING.md))
-- Platform testing → Submit CI/CD logs via Issues or PR
-- Data integration → Follow [DATA_IMPROVEMENT_ROADMAP.md](DATA_IMPROVEMENT_ROADMAP.md)
-- Documentation → Improvements and translations welcome via PR
-
----
-
-## ⚖️ License
+### License
 
 **ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
-See [LICENSE](LICENSE) for full terms.
+- ✅ Use for research, education, non-profit
+- ✅ Modify and redistribute
+- ❌ Commercial use without permission
+- ❌ Patent claims
 
-**TL;DR:**
-- ✅ Free for personal, research, educational use
-- ✅ Free for non-profit organizations
-- ✅ Source code must remain open
-- ❌ No commercial/proprietary use without permission
-- ❌ No military use
+📄 **[Full License →](LICENSE)**
 
----
+### Citation
 
-## 📞 Contact & Citation
-
-**Authors:** Carmen Wrede & Lino Casu
-
-**Contact:** mail@error.wtf
-
-**Repository:** https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results
-
-**Citation:**
 ```bibtex
-@software{wrede_casu_ssz_2025,
+@software{ssz_framework_2025,
+  title = {Segmented Spacetime: Mass Projection \& Unified Results},
   author = {Wrede, Carmen and Casu, Lino},
-  title = {Segmented Spacetime Mass Projection \& Unified Results},
   year = {2025},
-  version = {1.3.1},
-  url = {https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results}
+  version = {1.5.0-dev},
+  url = {https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results},
+  license = {ANTI-CAPITALIST SOFTWARE LICENSE v1.4}
 }
 ```
 
----
-
-## 🎓 What This Repository Is
-
-### ✅ φ-Based Geometric Field Theory
-- **Theoretical foundation:** Segmented spacetime structure derived from Euler formula (e^(iφπ))
-- **φ as central constant:** Golden ratio emerges from geometric constraints of piecewise spacetime matching (not chosen a priori)
-- **Statistically tested:** φ-lattice test confirms φ-based segmentation (ΔBIC = +926, p < 10⁻⁶⁸, 427 observations)
-- **Complete formulation:** Lagrangian, stress-energy tensor, variational φ/2 coupling, PPN consistency (β=γ=1)
-
-### ✅ Statistically Validated Predictions
-
-![φ-Lattice Pattern in Data](reports/figures/readme_results_phi_lattice.png)
-
-- **φ-lattice structure confirmed:** Data clusters around φ-steps with ΔBIC = +926 over uniform distribution
-- **Extreme significance:** Sign test p < 10⁻⁶⁸ (427 observations, 117 independent sources) - pattern warrants independent replication to verify against systematic effects
-- **87× smaller median residuals than GR** for S-stars around Sgr A* in our test suite (median |Δz|: SSZ = 0.00049 vs GR = 0.04253) - statistical comparison on dataset, not claim of superiority
-- **Dual velocity invariant:** v_esc × v_fall = c² (exact mathematical identity in SSZ framework, verified numerically: |deviation| < 10⁻¹⁵)
-- **Coordinate transformation:** 100% invertible Jacobian ensuring deterministic bidirectional mapping (reconstruction error = 4.69×10⁻¹⁷)
-
-### ✅ Comprehensive Implementation
-- **69 automated tests** - 35 physics + 23 technical + 11 multi-ring validation
-- **Cross-platform verified** - Windows, Linux, macOS, WSL, Google Colab
-- **Real astronomical data** - GAIA, ALMA, Chandra, VLT, GRAVITY, EHT archives
-- **Cosmological framework** - Redshift, rotation curves, lensing, CMB integration
-- **Reproducible pipeline** - Deterministic, no manual tuning, complete documentation
-
-## 📋 Current Status & Next Steps
-
-### Achievements
-- ✅ **97.9% predictive accuracy** with ESO spectroscopic data (46/47 wins, p<0.0001)
-- ✅ **100% in photon sphere** (11/11 wins) - perfect validation of φ/2 boundary prediction
-- ✅ **φ-lattice confirmed** (ΔBIC=926, p<10⁻⁶⁸) - strong statistical evidence for φ-based structure
-- ✅ **69 automated tests passing** - comprehensive validation suite
-- ✅ **Cross-platform verified** - Windows, Linux, macOS, WSL, Colab
-- ✅ **Production-ready code** - reproducible, deterministic, fully documented
-
-### Ongoing Work
-- 📄 **Peer Review:** Theory papers submitted for journal publication
-- 🔬 **Independent Replication:** φ-lattice results (ΔBIC=926) available for verification by independent groups
-- 🌌 **EHT Comparison:** Shadow predictions calculated, awaiting detailed comparison with EHT collaboration analysis
-- 🔭 **ESO Data Expansion:** Extending to additional ESO instruments (MUSE, KMOS, SINFONI)
-- 📊 **Cosmological Framework:** Algorithms complete, separate publication papers in preparation
-
-### Framework Scope
-- **Geometric Foundation:** φ-based segmented spacetime structure (φ emerges from Euler formula constraints)
-- **Validated Regime:** Photon sphere (r ≈ 2-3 r_s) with 100% ESO accuracy; strong field (r ≈ 3-10 r_s) with 97.2%
-- **Classical Framework:** Geometric approach to spacetime; quantum field theory interface remains future research direction
-- **Empirical Validation:** 97.9% with appropriate data demonstrates transition from theory to validated predictor
-
-**Current Status:** Empirically validated gravitational redshift predictor with near-perfect performance in optimal data regime, undergoing peer review and independent verification
+**Papers (when published):**
+- Wrede & Casu (2025): "Segmented Spacetime: φ-Based Framework" (in prep)
+- Wrede & Casu (2025): "ESO Validation of SSZ Predictions" (in prep)
 
 ---
 
-## 🚨 Important Notes
+## 📧 Contact & Support
 
-### Data Quality
+**Authors:**
+- **Carmen Wrede** - carmen.wrede@error-wtf.de
+- **Lino Casu** - lino.casu@error-wtf.de
 
-- **Current (v1.3.1):** 427 real observations from 117 peer-reviewed sources
-- **No synthetic data:** All placeholder/synthetic data removed (completed v1.2.0)
-- **Data expansion:** 143 → 427 rows via NASA/IPAC NED continuum spectra integration (v1.2.1)
-- **Provenance:** All data cited in [Sources.md](Sources.md), publicly accessible
+**Community:**
+- **Issues:** [GitHub Issues](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/discussions)
 
-### Platform-Specific
-
-- **Windows:** UTF-8 auto-configured, PowerShell recommended
-- **WSL:** Auto-detected, behaves like Linux
-- **Colab:** Ubuntu-based, Python 3 pre-installed
-- **CI/CD:** Tested on ubuntu-latest + windows-latest
-
-### Test System
-
-- **Physics tests:** Verbose, detailed interpretations
-- **Technical tests:** Silent, background validation
-- **Critical:** Use `pytest -s` NOT `pytest --disable-warnings`
+**Collaboration:**
+- Academic partnerships welcome
+- Open source contributions encouraged
+- Educational use permitted (with attribution)
 
 ---
 
-## 📂 Repository Structure
+## 📌 Quick Links
 
-```
-Segmented-Spacetime-Mass-Projection-Unified-Results/
-├── data/                           # Real astronomical data
-│   ├── real_data_full.csv         # Complete dataset (427 rows)
-│   ├── real_data_emission_lines.csv  # Emission data (143 rows)
-│   ├── real_data_continuum.csv    # Continuum data (284 rows)
-│   ├── observations/              # Ring observations (G79, Cygnus X)
-│   └── gaia/                      # GAIA stellar catalogs
-├── scripts/                        # Analysis & data acquisition
-│   ├── tests/                     # Script-level tests
-│   ├── analysis/                  # Analysis tools
-│   └── data_acquisition/          # Data fetchers
-├── tests/                          # Main test suite
-│   ├── test_segwave_core.py       # SegWave tests
-│   ├── test_segwave_cli.py        # CLI tests
-│   └── cosmos/                    # Cosmology tests
-├── papers/                         # Documentation
-│   ├── validation/                # 11 validation papers
-│   └── theory/                    # Theory papers (moved to docs/)
-├── docs/                           # Theory documentation
-│   └── theory/                    # 21 theory papers
-├── reports/                        # Generated reports
-├── out/                           # Output data
-├── install.sh                      # Linux/WSL/macOS installer
-├── install.ps1                     # Windows installer
-├── run_full_suite.py              # Complete test runner
-├── run_all_ssz_terminal.py        # SSZ pipeline runner
-├── segspace_all_in_one_extended.py  # All-in-one CLI
-└── SSZ_*.ipynb                    # Google Colab notebooks
-```
+### Documentation
+- [📖 Documentation Index](docs/INDEX.md) - Complete navigation
+- [📋 TODO List](TODO_DOCUMENTATION_UPLOAD.md) - Current tasks
+- [📝 Changelog](CHANGELOG.md) - Version history
+- [❓ FAQ](evidenz-ssz/docs/FAQ.md) - Common questions
+
+### Key Papers
+- [SSZ Cosmology](papers/SSZ_Cosmology_Full.md) - Main theory
+- [Black Holes](papers/SSZ_Black_Holes.md) - No singularities
+- [Mathematical Proof](papers/SSZ_Mathematical_Proof.md) - C² continuity
+- [ESO Validation](PAIRED_TEST_ANALYSIS_COMPLETE.md) - 97.9% accuracy
+
+### Resources
+- [Animation Explanations](docs/) - 6 detailed docs
+- [Audio Scripts](docs/SSZ_VIDEO_AUDIOTEXTE_ALLE_TEILE.md) - DE/EN/IT texts
+- [Plots Guide](PLOTS_OVERVIEW.md) - Visual analysis
+- [Test System](LOGGING_SYSTEM_README.md) - 116 tests
 
 ---
 
-**Version:** v1.3.1 (2025-10-20)  
-**Status:** ✅ Production-Ready | Cross-Platform Compatible  
-**Tests:** 71 passing (69 automated + 2 smoke)  
-**Data:** 427 real observations from 117 sources + 13 multi-ring structures  
-**New in v1.3.1:** 5 publication plots (300 DPI) + Final validation analysis + Comprehensive testing guide
+<p align="center">
+  <b>Segmented Spacetime Framework</b><br>
+  © 2025 Carmen Wrede & Lino Casu<br>
+  Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+</p>
 
-© 2025 Carmen Wrede & Lino Casu | ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+<p align="center">
+  <a href="#-table-of-contents">↑ Back to Top</a>
+</p>
