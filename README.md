@@ -440,20 +440,6 @@ python generate_key_plots.py  # 5 plots, ~30 seconds
 
 ## 🔧 Contributing
 
-### Current Tasks
-
-**[📋 TODO List](TODO_DOCUMENTATION_UPLOAD.md)** ← **Current session priorities**
-
-**High Priority:**
-- [ ] Papers aktualisieren
-- [ ] GitHub Release v1.5.0
-- [ ] Additional tests
-
-**Medium Priority:**
-- [ ] Performance optimizations
-- [ ] Documentation improvements
-- [ ] Extended validation
-
 ### Development Workflow
 
 1. **Fork & Clone**
