@@ -75,3 +75,16 @@ Write-Host "  TEST_SUITE_README.md                   # Testing guide" -Foregroun
 Write-Host ""
 Write-Host "Repository: https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "="*80 -ForegroundColor Cyan
+Write-Host "TO ACTIVATE VIRTUAL ENVIRONMENT:" -ForegroundColor Yellow
+Write-Host "="*80 -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Windows (PowerShell):" -ForegroundColor Yellow
+Write-Host "  .\.venv\Scripts\Activate.ps1" -ForegroundColor Green
+Write-Host ""
+Write-Host "Windows (CMD):" -ForegroundColor Yellow
+Write-Host "  .venv\Scripts\activate.bat" -ForegroundColor Green
+Write-Host ""
+Write-Host "Linux/Mac:" -ForegroundColor Yellow
+Write-Host "  source .venv/bin/activate" -ForegroundColor Green
+Write-Host ""
