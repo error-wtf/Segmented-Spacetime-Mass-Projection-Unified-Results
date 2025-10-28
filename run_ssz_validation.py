@@ -189,7 +189,7 @@ print(f"  ~14% region (±3%): r/r_s in {delta_14_range}")
 
 # Redshift comparison
 z_gr_ns = redshift_gr(r_ns_arr, rs)
-z_ssz_ns = redshift_ssz(r_ns_arr, rs, xi_max, phi)
+z_ssz_ns = redshift_ssz(r_ns_arr, rs)
 
 df_ns = pd.DataFrame({
     'r_over_rs': r_ns_arr / rs,

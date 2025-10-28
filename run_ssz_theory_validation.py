@@ -459,9 +459,27 @@ print("🌟 φ IS UNIVERSAL")
 print()
 print("="*80)
 
-# Save results
+# Save results (with numpy type conversion)
+def convert_numpy(obj):
+    """Convert numpy types to Python types for JSON serialization"""
+    import numpy as np
+    if isinstance(obj, np.bool_):
+        return bool(obj)
+    elif isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {k: convert_numpy(v) for k, v in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [convert_numpy(item) for item in obj]
+    return obj
+
+results_converted = convert_numpy(results)
 with open(OUTPUT_DIR / 'theory_validation_results.json', 'w', encoding='utf-8') as f:
-    json.dump(results, f, indent=2, ensure_ascii=False)
+    json.dump(results_converted, f, indent=2, ensure_ascii=False)
 
 print(f"✓ Saved: theory_validation_results.json")
 print()
