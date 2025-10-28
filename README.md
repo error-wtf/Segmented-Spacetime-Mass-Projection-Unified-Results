@@ -8,7 +8,11 @@
 
 ---
 
+## 📊 **[→ EXECUTIVE SUMMARY (5 pages)](SSZ_EXECUTIVE_SUMMARY.md)** 📊
+
 ## 🌟 **[→ COMPLETE FINAL REPORT (60+ pages)](SSZ_COMPLETE_FINAL_REPORT.md)** 🌟
+
+## 🔬 **[→ UNIFIED VALIDATION (11 steps)](UNIFIED_VALIDATION_README.md)** 🔬
 
 ---
 
