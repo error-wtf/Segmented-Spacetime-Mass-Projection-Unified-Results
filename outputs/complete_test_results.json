@@ -1,22 +1,239 @@
 {
-  "timestamp": "2025-10-28T06:12:45.517539",
+  "timestamp": "2025-10-28T09:10:25.349148",
   "categories": {
     "root_level": [
       {
-        "file": "ssz_complete_tests.py",
+        "file": "calculation_test.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "0.26s",
+        "returncode": 2,
+        "stdout_length": 27,
+        "stderr_length": 144,
+        "interpretation": null,
+        "error": "usage: calculation_test.py [-h] [--rphi RPHI] [--demo]\ncalculation_test.py: error: Please specify --rphi <value> or --demo to run calculations.\n"
+      },
+      {
+        "file": "conftest.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "2.57s",
+        "duration": "0.29s",
         "returncode": 0,
-        "stdout_length": 3473,
+        "stdout_length": 0,
         "stderr_length": 0,
         "interpretation": null
+      },
+      {
+        "file": "extend_all_tests.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.30s",
+        "returncode": 0,
+        "stdout_length": 1316,
+        "stderr_length": 0,
+        "interpretation": "EXTEND ALL TESTS WITH PHYSICAL INTERPRETATIONS\n================================================================================\n"
+      },
+      {
+        "file": "final_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.16s",
+        "returncode": 0,
+        "stdout_length": 493,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "generate_test_data.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.26s",
+        "returncode": 0,
+        "stdout_length": 412,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "investigate_paired_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "1.74s",
+        "returncode": 0,
+        "stdout_length": 6222,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "lagrangian_tests.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "0.20s",
+        "returncode": 2,
+        "stdout_length": 0,
+        "stderr_length": 180,
+        "interpretation": null,
+        "error": "usage: lagrangian_tests.py [-h] [--object {sun,sgrA}] [--mass MASS]\n                           [--label LABEL] [--eps3 EPS3]\nlagrangian_tests.py: error: Provide --object or --mass\n"
+      },
+      {
+        "file": "lino_qed_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "1.17s",
+        "returncode": 0,
+        "stdout_length": 3505,
+        "stderr_length": 0,
+        "interpretation": "Numerically fine demo, corrected interpretation. With partial coupling (or\nconstant alpha), the check aligns with observations and remains non-circular.\n"
+      },
+      {
+        "file": "perfect_paired_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "2.89s",
+        "returncode": 0,
+        "stdout_length": 3021,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "phi_bic_test.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "1.51s",
+        "returncode": 2,
+        "stdout_length": 0,
+        "stderr_length": 410,
+        "interpretation": null,
+        "error": "usage: phi_bic_test.py [-h] --in INP --outdir OUTDIR [--tol TOL] [--phi PHI]\n                       [--ratio-col RATIO_COL] [--z-col Z_COL]\n                       [--f-emit F_EMIT] [--f-obs F_OBS]\n                       [--lambda-obs LAMBDA_OBS] [--lambda-rest LAMBDA_REST]\n                       [--jitter JITTER] [--n-rand N_RAND]\nphi_bic_test.py: error: the following arguments are required: --in, --outdir\n"
+      },
+      {
+        "file": "phi_test.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "1.87s",
+        "returncode": 2,
+        "stdout_length": 0,
+        "stderr_length": 319,
+        "interpretation": null,
+        "error": "usage: phi_test.py [-h] --in INP --outdir OUTDIR [--tol TOL]\n                   [--ratio-col RATIO_COL] [--f-emit F_EMIT] [--f-obs F_OBS]\n                   [--lambda-obs LAMBDA_OBS] [--lambda-rest LAMBDA_REST]\n                   [--z-col Z_COL]\nphi_test.py: error: the following arguments are required: --in, --outdir\n"
+      },
+      {
+        "file": "run_comprehensive_tests.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "7.21s",
+        "returncode": 1,
+        "stdout_length": 1785,
+        "stderr_length": 2982,
+        "interpretation": null,
+        "error": "orig()\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 659, in pop_outerr_to_orig\n    out, err = self.readouterr()\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 706, in readouterr\n    out = self.out.snap() if self.out else \"\"\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 591, in snap\n    self.tmpfile.seek(0)\nValueError: I/O operation on closed file.\n"
+      },
+      {
+        "file": "segspacetime_quick_tests.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "2.76s",
+        "returncode": 0,
+        "stdout_length": 686,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "segspace_enhanced_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "1.62s",
+        "returncode": 0,
+        "stdout_length": 731,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "segspace_enhanced_test_better.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "1.71s",
+        "returncode": 0,
+        "stdout_length": 997,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "segspace_enhanced_test_better_final.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "1.71s",
+        "returncode": 0,
+        "stdout_length": 30376,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "segspace_final_test.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "2.38s",
+        "returncode": 0,
+        "stdout_length": 198,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "segspace_pairtest_vs_sr.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "0.52s",
+        "returncode": 2,
+        "stdout_length": 138,
+        "stderr_length": 0,
+        "interpretation": null,
+        "error": "Unknown error"
+      },
+      {
+        "file": "smoke_test_all.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "3.17s",
+        "returncode": 0,
+        "stdout_length": 3191,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_blackhole_bomb_template.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "112.60s",
+        "returncode": 0,
+        "stdout_length": 1375,
+        "stderr_length": 0,
+        "interpretation": "PHYSIKALISCHE INTERPRETATION:\n--------------------------------------------------------------------------------\n- Phi-Grenze bei r = 1.618 r_s ist fundamental (Goldener Schnitt!)\n- Photonen-Sphaere bei r = 1.5 r_s (instabile Licht-Orbits)\n- ISCO bei r = 3 r_s (innermost stable circular orbit)\n- Segment-Dichte N(r) ~ Phi*(r_s/r)^2 aus Phi-Spirale\n- Zeitdilatation tau -> unendlich am Event Horizon\n================================================================================\n"
+      },
+      {
+        "file": "ssz_covariant_smoketest_verbose_lino_casu.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.67s",
+        "returncode": 0,
+        "stdout_length": 2811,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_interactive_gui.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "4.62s",
+        "returncode": 1,
+        "stdout_length": 86,
+        "stderr_length": 1007,
+        "interpretation": null,
+        "error": " self.update_plots()\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\ssz_interactive_gui.py\", line 328, in update_plots\n    self.update_parameter_study()\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\ssz_interactive_gui.py\", line 349, in update_parameter_study\n    axes = self.fig_comparison.subplots(1, 2, figsize=(10, 4))\nTypeError: FigureBase.subplots() got an unexpected keyword argument 'figsize'\n"
       },
       {
         "file": "ssz_stability_animation.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "55.68s",
+        "duration": "42.05s",
         "returncode": 0,
         "stdout_length": 473,
         "stderr_length": 0,
@@ -26,40 +243,305 @@
         "file": "ssz_stability_three_figures.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "4.83s",
+        "duration": "4.58s",
         "returncode": 0,
         "stdout_length": 831,
         "stderr_length": 0,
         "interpretation": null
       },
       {
-        "file": "ssz_time_chaos_animation.py",
+        "file": "ssz_test_suite.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "25.88s",
+        "returncode": 1,
+        "stdout_length": 1356,
+        "stderr_length": 0,
+        "interpretation": null,
+        "error": "Unknown error"
+      },
+      {
+        "file": "ssz_theory_segmented.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "2.20s",
+        "returncode": 2,
+        "stdout_length": 0,
+        "stderr_length": 1092,
+        "interpretation": null,
+        "error": "0 RHO0]\n                               [--max-step-rs MAX_STEP_RS]\n                               [--abort-on-horizon]\n                               [--horizon-margin HORIZON_MARGIN]\n                               [--seg-frac SEG_FRAC]\n                               [--seg-scale {r_s,r_phi,auto}]\n                               [--kernel {gauss,exp,box}] [--eps3 EPS3]\n                               [--rphi-hint RPHI_HINT]\nssz_theory_segmented.py: error: the following arguments are required: --M\n"
+      },
+      {
+        "file": "ssz_unified_suite.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "3.12s",
+        "returncode": 1,
+        "stdout_length": 582,
+        "stderr_length": 1443,
+        "interpretation": null,
+        "error": "am Files\\Python310\\lib\\json\\encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 438, in _iterencode\n    o = _default(o)\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 179, in default\n    raise TypeError(f'Object of type {o.__class__.__name__} '\nTypeError: Object of type bool is not JSON serializable\n"
+      },
+      {
+        "file": "stratified_paired_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "97.81s",
+        "duration": "12.51s",
         "returncode": 0,
-        "stdout_length": 1418,
+        "stdout_length": 4263,
         "stderr_length": 0,
         "interpretation": null
       },
       {
-        "file": "ssz_time_segmentation_animation.py",
+        "file": "test_c1_segments.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "110.33s",
+        "duration": "0.27s",
         "returncode": 0,
-        "stdout_length": 1541,
+        "stdout_length": 1505,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • C1 continuity ensures smooth metric transition\n  • No discontinuities in curvature tensor\n  • φ-based blending preserves segment structure\n  • Hermite interpolation maintains derivative continuity\n"
+      },
+      {
+        "file": "test_c2_curvature_proxy.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.36s",
+        "returncode": 0,
+        "stdout_length": 1446,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • Curvature proxy remains finite across joins\n  • K ≈ 10⁻¹⁵ – 10⁻¹⁶ (extremely smooth)\n  • C2 continuity ensures smooth Ricci tensor\n  • No numerical artifacts or discontinuities\n"
+      },
+      {
+        "file": "test_c2_segments_strict.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.17s",
+        "returncode": 0,
+        "stdout_length": 1258,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • C2 continuity ensures smooth Ricci curvature\n  • No δ-function singularities in stress-energy\n  • Analytic matching (machine-precision accuracy)\n  • Quintic Hermite provides optimal smoothness\n"
+      },
+      {
+        "file": "test_clone_and_verify.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "0.61s",
+        "returncode": 1,
+        "stdout_length": 635,
+        "stderr_length": 1386,
+        "interpretation": null,
+        "error": "ram Files\\Python310\\lib\\shutil.py\", line 620, in _rmtree_unsafe\n    onerror(os.unlink, fullname, sys.exc_info())\n  File \"C:\\Program Files\\Python310\\lib\\shutil.py\", line 618, in _rmtree_unsafe\n    os.unlink(fullname)\nPermissionError: [WinError 5] Zugriff verweigert: 'H:\\\\WINDSURF\\\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\\\temp_test_clone\\\\Segmented-Spacetime-Mass-Projection-Unified-Results\\\\.git\\\\objects\\\\pack\\\\pack-6ddaf2e49d841dd3391c8fc7fcde982aadb7e202.idx'\n"
+      },
+      {
+        "file": "test_energy_conditions.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.16s",
+        "returncode": 0,
+        "stdout_length": 1983,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • p_r = -ρc² (radial tension balances density)\n  • WEC/DEC/SEC violations confined to r < 5r_s\n  • For r ≥ 5r_s: All energy conditions satisfied\n  • Strong-field deviations controlled and finite\n"
+      },
+      {
+        "file": "test_phi_impact.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "4.17s",
+        "returncode": 0,
+        "stdout_length": 2277,
         "stderr_length": 0,
         "interpretation": null
       },
       {
-        "file": "ssz_time_stability_combined.py",
+        "file": "test_ppn_exact.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "154.46s",
+        "duration": "0.16s",
         "returncode": 0,
-        "stdout_length": 1405,
-        "stderr_length": 206,
+        "stdout_length": 921,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • β = 1 → No preferred reference frame\n  • γ = 1 → GR-like space curvature\n  • SSZ matches GR in weak-field limit\n  • Post-Newtonian tests (perihelion, bending) reproduce GR\n"
+      },
+      {
+        "file": "test_theory_predictions_cross_platform.py",
+        "category": "root_level",
+        "status": "FAILED",
+        "duration": "3.63s",
+        "returncode": 1,
+        "stdout_length": 8392,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n",
+        "error": "Unknown error"
+      },
+      {
+        "file": "test_utf8_encoding.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.64s",
+        "returncode": 0,
+        "stdout_length": 544,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "test_vfall_duality.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "0.21s",
+        "returncode": 0,
+        "stdout_length": 2505,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • Dual velocity invariant holds to machine precision\n  • v_fall can exceed c (dual scaling, not physical velocity)\n  • γ_GR and γ_dual match exactly (consistent kinematics)\n  • Validates SSZ segment-based gravity formulation\n"
+      }
+    ],
+    "scripts": [
+      {
+        "file": "check_test_documentation.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "115.37s",
+        "returncode": 0,
+        "stdout_length": 878,
+        "stderr_length": 0,
+        "interpretation": "  Physical interpretations: 0\n  Average doc score: 72.0\n  Doc files: 42\n"
+      },
+      {
+        "file": "conftest.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "0.17s",
+        "returncode": 0,
+        "stdout_length": 0,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "test_cosmo_fields.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "1.94s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 296,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_cosmo_fields.py\", line 2, in <module>\n    from scripts.ssz.cosmology import build_cosmo_fields\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+      },
+      {
+        "file": "test_cosmo_multibody.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "0.43s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 300,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_cosmo_multibody.py\", line 2, in <module>\n    from ssz_cosmos.field import MultiBodyField, BodyState\nModuleNotFoundError: No module named 'ssz_cosmos'\n"
+      },
+      {
+        "file": "test_data_fetch.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "1.77s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 334,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_data_fetch.py\", line 4, in <module>\n    from scripts.tests.data_smoke_fetch import fetch_gaia_quick, fetch_sdss_quick, smoke_paths\nModuleNotFoundError: No module named 'scripts.tests'\n"
+      },
+      {
+        "file": "test_data_validation.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "2.82s",
+        "returncode": 1,
+        "stdout_length": 5886,
+        "stderr_length": 0,
+        "interpretation": null,
+        "error": "Unknown error"
+      },
+      {
+        "file": "test_gaia_required_columns.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "1.60s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 362,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_gaia_required_columns.py\", line 5, in <module>\n    from scripts.preprocess.gaia_clean_map import REQUIRED_COLUMNS, SOFT_REQUIRED_ERROR, harmonize_columns\nModuleNotFoundError: No module named 'scripts.preprocess'\n"
+      },
+      {
+        "file": "test_hawking_spectrum_continuum.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "3.96s",
+        "returncode": 0,
+        "stdout_length": 1877,
+        "stderr_length": 236,
+        "interpretation": null
+      },
+      {
+        "file": "test_horizon_hawking_predictions.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "2.83s",
+        "returncode": 0,
+        "stdout_length": 6346,
+        "stderr_length": 0,
+        "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n"
+      },
+      {
+        "file": "test_plot_ssz_maps.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "2.35s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 308,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_plot_ssz_maps.py\", line 3, in <module>\n    from scripts.viz.plot_ssz_maps import plot_mollweide, VizConfig\nModuleNotFoundError: No module named 'scripts.viz'\n"
+      },
+      {
+        "file": "test_segmenter.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "1.35s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 304,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_segmenter.py\", line 2, in <module>\n    from scripts.ssz.segmenter import assign_segments_xy, SegParams\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+      },
+      {
+        "file": "test_ssz_invariants.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "1.38s",
+        "returncode": 0,
+        "stdout_length": 0,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "test_ssz_kernel.py",
+        "category": "scripts",
+        "status": "FAILED",
+        "duration": "0.42s",
+        "returncode": 1,
+        "stdout_length": 0,
+        "stderr_length": 294,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_ssz_kernel.py\", line 2, in <module>\n    from scripts.ssz.gamma import gamma_seg_from_density\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+      },
+      {
+        "file": "test_utf8_encoding.py",
+        "category": "scripts",
+        "status": "PASSED",
+        "duration": "0.71s",
+        "returncode": 0,
+        "stdout_length": 0,
+        "stderr_length": 0,
         "interpretation": null
       }
     ],
@@ -67,85 +549,305 @@
       {
         "file": "run_ssz_validation.py",
         "category": "validation",
-        "status": "PASSED",
-        "duration": "5.46s",
-        "returncode": 0,
-        "stdout_length": 2114,
-        "stderr_length": 0,
-        "interpretation": null
-      },
-      {
-        "file": "gr_ssz_intersection_analysis.py",
-        "category": "validation",
-        "status": "PASSED",
-        "duration": "4.24s",
-        "returncode": 0,
-        "stdout_length": 2012,
-        "stderr_length": 0,
-        "interpretation": null
-      },
-      {
-        "file": "gr_vs_ssz_time_dilation.py",
-        "category": "validation",
-        "status": "PASSED",
-        "duration": "3.13s",
-        "returncode": 0,
-        "stdout_length": 1450,
-        "stderr_length": 0,
-        "interpretation": null
-      }
-    ],
-    "animations": [
-      {
-        "file": "ssz_time_segmentation_animation.py",
-        "category": "animations",
-        "status": "PASSED",
-        "duration": "98.34s",
-        "returncode": 0,
-        "stdout_length": 1541,
-        "stderr_length": 0,
-        "interpretation": null
-      },
-      {
-        "file": "ssz_time_chaos_animation.py",
-        "category": "animations",
-        "status": "PASSED",
-        "duration": "81.29s",
-        "returncode": 0,
-        "stdout_length": 1418,
-        "stderr_length": 0,
-        "interpretation": null
-      },
-      {
-        "file": "ssz_time_stability_combined.py",
-        "category": "animations",
-        "status": "PASSED",
-        "duration": "151.52s",
-        "returncode": 0,
-        "stdout_length": 1405,
-        "stderr_length": 206,
-        "interpretation": null
-      },
-      {
-        "file": "generate_animated_overview.py",
-        "category": "animations",
-        "status": "PASSED",
-        "duration": "38.67s",
-        "returncode": 0,
-        "stdout_length": 1563,
-        "stderr_length": 0,
-        "interpretation": null
+        "status": "FAILED",
+        "duration": "3.24s",
+        "returncode": 1,
+        "stdout_length": 238,
+        "stderr_length": 265,
+        "interpretation": null,
+        "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\run_ssz_validation.py\", line 96, in <module>\n    r_over_rs = intersection['r_over_rs']\nTypeError: 'float' object is not subscriptable\n"
       }
     ]
   },
   "summary": {
-    "total_tests": 13,
-    "passed": 13,
-    "failed": 0,
+    "total_tests": 53,
+    "passed": 32,
+    "failed": 21,
     "timeout": 0,
     "error": 0,
-    "success_rate": "100.0%"
+    "success_rate": "60.4%"
   },
-  "failures": [],
-  "interpretations": []
+  "failures": [
+    {
+      "file": "calculation_test.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "0.26s",
+      "returncode": 2,
+      "stdout_length": 27,
+      "stderr_length": 144,
+      "interpretation": null,
+      "error": "usage: calculation_test.py [-h] [--rphi RPHI] [--demo]\ncalculation_test.py: error: Please specify --rphi <value> or --demo to run calculations.\n"
+    },
+    {
+      "file": "lagrangian_tests.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "0.20s",
+      "returncode": 2,
+      "stdout_length": 0,
+      "stderr_length": 180,
+      "interpretation": null,
+      "error": "usage: lagrangian_tests.py [-h] [--object {sun,sgrA}] [--mass MASS]\n                           [--label LABEL] [--eps3 EPS3]\nlagrangian_tests.py: error: Provide --object or --mass\n"
+    },
+    {
+      "file": "phi_bic_test.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "1.51s",
+      "returncode": 2,
+      "stdout_length": 0,
+      "stderr_length": 410,
+      "interpretation": null,
+      "error": "usage: phi_bic_test.py [-h] --in INP --outdir OUTDIR [--tol TOL] [--phi PHI]\n                       [--ratio-col RATIO_COL] [--z-col Z_COL]\n                       [--f-emit F_EMIT] [--f-obs F_OBS]\n                       [--lambda-obs LAMBDA_OBS] [--lambda-rest LAMBDA_REST]\n                       [--jitter JITTER] [--n-rand N_RAND]\nphi_bic_test.py: error: the following arguments are required: --in, --outdir\n"
+    },
+    {
+      "file": "phi_test.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "1.87s",
+      "returncode": 2,
+      "stdout_length": 0,
+      "stderr_length": 319,
+      "interpretation": null,
+      "error": "usage: phi_test.py [-h] --in INP --outdir OUTDIR [--tol TOL]\n                   [--ratio-col RATIO_COL] [--f-emit F_EMIT] [--f-obs F_OBS]\n                   [--lambda-obs LAMBDA_OBS] [--lambda-rest LAMBDA_REST]\n                   [--z-col Z_COL]\nphi_test.py: error: the following arguments are required: --in, --outdir\n"
+    },
+    {
+      "file": "run_comprehensive_tests.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "7.21s",
+      "returncode": 1,
+      "stdout_length": 1785,
+      "stderr_length": 2982,
+      "interpretation": null,
+      "error": "orig()\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 659, in pop_outerr_to_orig\n    out, err = self.readouterr()\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 706, in readouterr\n    out = self.out.snap() if self.out else \"\"\n  File \"C:\\Users\\linoc\\AppData\\Roaming\\Python\\Python310\\site-packages\\_pytest\\capture.py\", line 591, in snap\n    self.tmpfile.seek(0)\nValueError: I/O operation on closed file.\n"
+    },
+    {
+      "file": "segspace_pairtest_vs_sr.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "0.52s",
+      "returncode": 2,
+      "stdout_length": 138,
+      "stderr_length": 0,
+      "interpretation": null,
+      "error": "Unknown error"
+    },
+    {
+      "file": "ssz_interactive_gui.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "4.62s",
+      "returncode": 1,
+      "stdout_length": 86,
+      "stderr_length": 1007,
+      "interpretation": null,
+      "error": " self.update_plots()\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\ssz_interactive_gui.py\", line 328, in update_plots\n    self.update_parameter_study()\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\ssz_interactive_gui.py\", line 349, in update_parameter_study\n    axes = self.fig_comparison.subplots(1, 2, figsize=(10, 4))\nTypeError: FigureBase.subplots() got an unexpected keyword argument 'figsize'\n"
+    },
+    {
+      "file": "ssz_test_suite.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "25.88s",
+      "returncode": 1,
+      "stdout_length": 1356,
+      "stderr_length": 0,
+      "interpretation": null,
+      "error": "Unknown error"
+    },
+    {
+      "file": "ssz_theory_segmented.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "2.20s",
+      "returncode": 2,
+      "stdout_length": 0,
+      "stderr_length": 1092,
+      "interpretation": null,
+      "error": "0 RHO0]\n                               [--max-step-rs MAX_STEP_RS]\n                               [--abort-on-horizon]\n                               [--horizon-margin HORIZON_MARGIN]\n                               [--seg-frac SEG_FRAC]\n                               [--seg-scale {r_s,r_phi,auto}]\n                               [--kernel {gauss,exp,box}] [--eps3 EPS3]\n                               [--rphi-hint RPHI_HINT]\nssz_theory_segmented.py: error: the following arguments are required: --M\n"
+    },
+    {
+      "file": "ssz_unified_suite.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "3.12s",
+      "returncode": 1,
+      "stdout_length": 582,
+      "stderr_length": 1443,
+      "interpretation": null,
+      "error": "am Files\\Python310\\lib\\json\\encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 438, in _iterencode\n    o = _default(o)\n  File \"C:\\Program Files\\Python310\\lib\\json\\encoder.py\", line 179, in default\n    raise TypeError(f'Object of type {o.__class__.__name__} '\nTypeError: Object of type bool is not JSON serializable\n"
+    },
+    {
+      "file": "test_clone_and_verify.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "0.61s",
+      "returncode": 1,
+      "stdout_length": 635,
+      "stderr_length": 1386,
+      "interpretation": null,
+      "error": "ram Files\\Python310\\lib\\shutil.py\", line 620, in _rmtree_unsafe\n    onerror(os.unlink, fullname, sys.exc_info())\n  File \"C:\\Program Files\\Python310\\lib\\shutil.py\", line 618, in _rmtree_unsafe\n    os.unlink(fullname)\nPermissionError: [WinError 5] Zugriff verweigert: 'H:\\\\WINDSURF\\\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\\\temp_test_clone\\\\Segmented-Spacetime-Mass-Projection-Unified-Results\\\\.git\\\\objects\\\\pack\\\\pack-6ddaf2e49d841dd3391c8fc7fcde982aadb7e202.idx'\n"
+    },
+    {
+      "file": "test_theory_predictions_cross_platform.py",
+      "category": "root_level",
+      "status": "FAILED",
+      "duration": "3.63s",
+      "returncode": 1,
+      "stdout_length": 8392,
+      "stderr_length": 0,
+      "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n",
+      "error": "Unknown error"
+    },
+    {
+      "file": "test_cosmo_fields.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "1.94s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 296,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_cosmo_fields.py\", line 2, in <module>\n    from scripts.ssz.cosmology import build_cosmo_fields\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+    },
+    {
+      "file": "test_cosmo_multibody.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "0.43s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 300,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_cosmo_multibody.py\", line 2, in <module>\n    from ssz_cosmos.field import MultiBodyField, BodyState\nModuleNotFoundError: No module named 'ssz_cosmos'\n"
+    },
+    {
+      "file": "test_data_fetch.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "1.77s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 334,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_data_fetch.py\", line 4, in <module>\n    from scripts.tests.data_smoke_fetch import fetch_gaia_quick, fetch_sdss_quick, smoke_paths\nModuleNotFoundError: No module named 'scripts.tests'\n"
+    },
+    {
+      "file": "test_data_validation.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "2.82s",
+      "returncode": 1,
+      "stdout_length": 5886,
+      "stderr_length": 0,
+      "interpretation": null,
+      "error": "Unknown error"
+    },
+    {
+      "file": "test_gaia_required_columns.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "1.60s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 362,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_gaia_required_columns.py\", line 5, in <module>\n    from scripts.preprocess.gaia_clean_map import REQUIRED_COLUMNS, SOFT_REQUIRED_ERROR, harmonize_columns\nModuleNotFoundError: No module named 'scripts.preprocess'\n"
+    },
+    {
+      "file": "test_plot_ssz_maps.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "2.35s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 308,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_plot_ssz_maps.py\", line 3, in <module>\n    from scripts.viz.plot_ssz_maps import plot_mollweide, VizConfig\nModuleNotFoundError: No module named 'scripts.viz'\n"
+    },
+    {
+      "file": "test_segmenter.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "1.35s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 304,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_segmenter.py\", line 2, in <module>\n    from scripts.ssz.segmenter import assign_segments_xy, SegParams\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+    },
+    {
+      "file": "test_ssz_kernel.py",
+      "category": "scripts",
+      "status": "FAILED",
+      "duration": "0.42s",
+      "returncode": 1,
+      "stdout_length": 0,
+      "stderr_length": 294,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\scripts\\tests\\test_ssz_kernel.py\", line 2, in <module>\n    from scripts.ssz.gamma import gamma_seg_from_density\nModuleNotFoundError: No module named 'scripts.ssz'\n"
+    },
+    {
+      "file": "run_ssz_validation.py",
+      "category": "validation",
+      "status": "FAILED",
+      "duration": "3.24s",
+      "returncode": 1,
+      "stdout_length": 238,
+      "stderr_length": 265,
+      "interpretation": null,
+      "error": "Traceback (most recent call last):\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\run_ssz_validation.py\", line 96, in <module>\n    r_over_rs = intersection['r_over_rs']\nTypeError: 'float' object is not subscriptable\n"
+    }
+  ],
+  "interpretations": [
+    {
+      "file": "extend_all_tests.py",
+      "interpretation": "EXTEND ALL TESTS WITH PHYSICAL INTERPRETATIONS\n================================================================================\n"
+    },
+    {
+      "file": "lino_qed_test.py",
+      "interpretation": "Numerically fine demo, corrected interpretation. With partial coupling (or\nconstant alpha), the check aligns with observations and remains non-circular.\n"
+    },
+    {
+      "file": "ssz_blackhole_bomb_template.py",
+      "interpretation": "PHYSIKALISCHE INTERPRETATION:\n--------------------------------------------------------------------------------\n- Phi-Grenze bei r = 1.618 r_s ist fundamental (Goldener Schnitt!)\n- Photonen-Sphaere bei r = 1.5 r_s (instabile Licht-Orbits)\n- ISCO bei r = 3 r_s (innermost stable circular orbit)\n- Segment-Dichte N(r) ~ Phi*(r_s/r)^2 aus Phi-Spirale\n- Zeitdilatation tau -> unendlich am Event Horizon\n================================================================================\n"
+    },
+    {
+      "file": "test_c1_segments.py",
+      "interpretation": "Physical Interpretation:\n  • C1 continuity ensures smooth metric transition\n  • No discontinuities in curvature tensor\n  • φ-based blending preserves segment structure\n  • Hermite interpolation maintains derivative continuity\n"
+    },
+    {
+      "file": "test_c2_curvature_proxy.py",
+      "interpretation": "Physical Interpretation:\n  • Curvature proxy remains finite across joins\n  • K ≈ 10⁻¹⁵ – 10⁻¹⁶ (extremely smooth)\n  • C2 continuity ensures smooth Ricci tensor\n  • No numerical artifacts or discontinuities\n"
+    },
+    {
+      "file": "test_c2_segments_strict.py",
+      "interpretation": "Physical Interpretation:\n  • C2 continuity ensures smooth Ricci curvature\n  • No δ-function singularities in stress-energy\n  • Analytic matching (machine-precision accuracy)\n  • Quintic Hermite provides optimal smoothness\n"
+    },
+    {
+      "file": "test_energy_conditions.py",
+      "interpretation": "Physical Interpretation:\n  • p_r = -ρc² (radial tension balances density)\n  • WEC/DEC/SEC violations confined to r < 5r_s\n  • For r ≥ 5r_s: All energy conditions satisfied\n  • Strong-field deviations controlled and finite\n"
+    },
+    {
+      "file": "test_ppn_exact.py",
+      "interpretation": "Physical Interpretation:\n  • β = 1 → No preferred reference frame\n  • γ = 1 → GR-like space curvature\n  • SSZ matches GR in weak-field limit\n  • Post-Newtonian tests (perihelion, bending) reproduce GR\n"
+    },
+    {
+      "file": "test_theory_predictions_cross_platform.py",
+      "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n"
+    },
+    {
+      "file": "test_vfall_duality.py",
+      "interpretation": "Physical Interpretation:\n  • Dual velocity invariant holds to machine precision\n  • v_fall can exceed c (dual scaling, not physical velocity)\n  • γ_GR and γ_dual match exactly (consistent kinematics)\n  • Validates SSZ segment-based gravity formulation\n"
+    },
+    {
+      "file": "check_test_documentation.py",
+      "interpretation": "  Physical interpretations: 0\n  Average doc score: 72.0\n  Doc files: 42\n"
+    },
+    {
+      "file": "test_horizon_hawking_predictions.py",
+      "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n"
+    }
+  ]
 }
