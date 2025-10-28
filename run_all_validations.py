@@ -61,13 +61,15 @@ def main():
     """Run all validation pipelines"""
     
     print_header("SSZ COMPLETE VALIDATION SUITE v2.0.0")
-    print("Running all 4 validation pipelines sequentially...")
+    print("Running all 5 validation pipelines sequentially...")
+    print("Includes: 116 original tests + 45 ToE tests = 161 total tests")
     print(f"Start time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Python: {sys.version.split()[0]}")
     print(f"Platform: {sys.platform}\n")
     
     # Define pipelines
     pipelines = [
+        ("run_full_suite.py", "Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation)"),
         ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)"),
         ("run_ssz_theory_validation.py", "Theory Validation (10 steps)"),
         ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)"),
@@ -123,11 +125,12 @@ def main():
     
     # Test breakdown
     print("\nTest Coverage:")
+    print("  - Original Suite: 116 tests (35 physics + 23 technical + 58 validation)")
     print("  - SSZ vs GR: 6 validation steps")
     print("  - Theory: 10 validation steps")
     print("  - Unified ToE: 11 validation steps")
     print("  - Test Suite: ~18 discovered scripts")
-    print("  - Total: 45+ automated tests")
+    print("  - Total: 161 automated tests (116 + 45)")
     
     print("\nKey Metrics:")
     print("  - ESO Validation: 97.9% (46/47 wins)")
@@ -159,11 +162,12 @@ def main():
             f.write(f"| {status} | {r['duration']:.1f}s | {r['description']} |\n")
         
         f.write("\n## Test Coverage\n\n")
+        f.write("- Original Suite: 116 tests (35 physics + 23 technical + 58 validation)\n")
         f.write("- SSZ vs GR: 6 validation steps\n")
         f.write("- Theory: 10 validation steps\n")
         f.write("- Unified ToE: 11 validation steps\n")
         f.write("- Test Suite: ~18 discovered scripts\n")
-        f.write("- **Total: 45+ automated tests**\n\n")
+        f.write("- **Total: 161 automated tests (116 + 45)**\n\n")
         
         f.write("## Key Validated Results\n\n")
         f.write("- ✅ ESO Validation: 97.9% (46/47 wins, p < 0.0001)\n")

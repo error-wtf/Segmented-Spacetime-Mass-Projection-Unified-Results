@@ -41,7 +41,7 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 - [📚 Complete Documentation](#-complete-documentation) - Papers, guides, API
 - [🔬 Key Results](#-key-results) - ESO validation, cosmology, black holes
 - [📊 Data & Analysis](#-data--analysis) - Datasets, plots, experiments
-- [🧪 ToE Validation](#-toe-validation-pipelines) - 4 pipelines, 45+ tests
+- [🧪 ToE Validation](#-toe-validation-pipelines) - 5 pipelines, 161 tests
 
 ### For Developers
 - [💻 Installation](#-installation) - All platforms
@@ -103,9 +103,9 @@ source .venv/bin/activate  # Linux/macOS
 python perfect_paired_test.py
 # Expected: "SEG wins: 46/47 (97.9%)"
 
-# Run complete ToE validation (83.3%)
+# Run complete validation suite (161 tests total)
 python run_all_validations.py
-# Duration: ~10-15 min, validates all 4 pipelines
+# Duration: ~15-20 min, validates all 5 pipelines (116 + 45 tests)
 
 # Generate plots
 python generate_key_plots.py
@@ -215,12 +215,12 @@ python perfect_paired_test.py
 
 ### ToE Validation Pipelines
 
-**4 Complete Validation Systems (45+ Tests, 83.3% Consistency Score):**
+**5 Complete Validation Systems (161 Total Tests: 116 Original + 45 ToE):**
 
 ```bash
-# Run ALL 4 pipelines sequentially (recommended)
+# Run ALL 5 pipelines sequentially (recommended - 161 total tests)
 python run_all_validations.py
-# Duration: ~10-15 minutes
+# Duration: ~15-20 minutes
 # Generates unified summary report
 
 # Or run individual pipelines:
@@ -433,7 +433,8 @@ SSZ-rings --help
 - 35 Physics Tests (detailed output)
 - 23 Technical Tests (silent mode)
 - 58 Additional Validation Tests
-- **45 Theory of Everything Tests** (4 pipelines) ⭐ NEW
+- **45 Theory of Everything Tests** (added to original 116) ⭐ NEW
+- **Total: 161 tests across 5 pipelines** (run_all_validations.py executes all)
 
 ### Run Tests
 
@@ -445,8 +446,8 @@ source .venv/bin/activate  # Linux/macOS
 # Complete suite (~2-3 minutes) - Original 116 tests
 python run_full_suite.py
 
-# Complete ToE Validation - ALL 4 pipelines (~10-15 min)
-python run_all_validations.py           # Recommended: Runs all 4 sequentially
+# Complete Validation Suite - ALL 5 pipelines (161 tests, ~15-20 min)
+python run_all_validations.py           # Recommended: Runs all 5 sequentially
 
 # Or run ToE pipelines individually (~2 min each):
 python run_ssz_unified_validation.py     # 11-step complete ToE proof
