@@ -18,8 +18,8 @@ build/
 .DS_Store
 Thumbs.db
 
-# Large animations (optional - kann später angepasst werden)
-# *.gif größer als 50MB ausschließen falls nötig
+# Large animations (>100 MB - GitHub limit)
+ssz_stability_30s_repeat.gif
 
 # Temp files
 *.tmp

@@ -1,0 +1,11 @@
+{
+  "r_over_rs": 1.3865616196486958,
+  "D_star": 0.5280071198891444,
+  "xi_star": 0.8939138551956476,
+  "xi_max": 1.0,
+  "phi": 1.618033988749895,
+  "target_r_over_rs": 1.386562,
+  "target_D_star": 0.528007,
+  "tolerance": 0.01,
+  "validation_passed": true
+}
