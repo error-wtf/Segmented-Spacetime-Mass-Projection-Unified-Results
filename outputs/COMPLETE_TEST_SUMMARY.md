@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-10-28 10:12:42
+**Generated:** 2025-10-28 10:28:43
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -36,44 +36,44 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| calculation_test.py | ❌ FAILED | 0.24s |
-| conftest.py | ✅ PASSED | 0.21s |
-| extend_all_tests.py | ✅ PASSED | 0.27s |
-| final_test.py | ✅ PASSED | 0.18s |
-| generate_test_data.py | ✅ PASSED | 0.46s |
-| investigate_paired_test.py | ✅ PASSED | 2.23s |
-| lagrangian_tests.py | ❌ FAILED | 0.23s |
-| lino_qed_test.py | ✅ PASSED | 0.64s |
-| perfect_paired_test.py | ✅ PASSED | 3.26s |
-| phi_bic_test.py | ❌ FAILED | 1.50s |
-| phi_test.py | ❌ FAILED | 2.09s |
-| run_comprehensive_tests.py | ❌ FAILED | 7.14s |
-| segspacetime_quick_tests.py | ✅ PASSED | 2.14s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.61s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.71s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.73s |
-| segspace_final_test.py | ✅ PASSED | 2.09s |
-| segspace_pairtest_vs_sr.py | ❌ FAILED | 0.62s |
-| smoke_test_all.py | ✅ PASSED | 3.68s |
-| ssz_blackhole_bomb_template.py | ✅ PASSED | 152.08s |
-| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.17s |
-| ssz_interactive_gui.py | ❌ FAILED | 4.25s |
-| ssz_stability_animation.py | ✅ PASSED | 39.70s |
-| ssz_stability_three_figures.py | ✅ PASSED | 3.96s |
-| ssz_test_suite.py | ❌ FAILED | 8.76s |
-| ssz_theory_segmented.py | ❌ FAILED | 1.98s |
-| ssz_unified_suite.py | ❌ FAILED | 3.21s |
-| stratified_paired_test.py | ✅ PASSED | 12.00s |
-| test_c1_segments.py | ✅ PASSED | 0.13s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.21s |
-| test_c2_segments_strict.py | ✅ PASSED | 0.13s |
-| test_clone_and_verify.py | ❌ FAILED | 0.24s |
-| test_energy_conditions.py | ✅ PASSED | 0.13s |
-| test_phi_impact.py | ✅ PASSED | 4.27s |
-| test_ppn_exact.py | ✅ PASSED | 0.13s |
-| test_theory_predictions_cross_platform.py | ❌ FAILED | 2.90s |
-| test_utf8_encoding.py | ✅ PASSED | 0.82s |
-| test_vfall_duality.py | ✅ PASSED | 0.24s |
+| calculation_test.py | ❌ FAILED | 0.43s |
+| conftest.py | ✅ PASSED | 0.20s |
+| extend_all_tests.py | ✅ PASSED | 0.29s |
+| final_test.py | ✅ PASSED | 0.21s |
+| generate_test_data.py | ✅ PASSED | 0.38s |
+| investigate_paired_test.py | ✅ PASSED | 3.01s |
+| lagrangian_tests.py | ❌ FAILED | 0.31s |
+| lino_qed_test.py | ✅ PASSED | 0.65s |
+| perfect_paired_test.py | ✅ PASSED | 8.66s |
+| phi_bic_test.py | ❌ FAILED | 1.80s |
+| phi_test.py | ❌ FAILED | 3.19s |
+| run_comprehensive_tests.py | ❌ FAILED | 8.30s |
+| segspacetime_quick_tests.py | ✅ PASSED | 3.06s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.57s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 2.44s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.72s |
+| segspace_final_test.py | ✅ PASSED | 3.03s |
+| segspace_pairtest_vs_sr.py | ❌ FAILED | 0.52s |
+| smoke_test_all.py | ✅ PASSED | 3.91s |
+| ssz_blackhole_bomb_template.py | ✅ PASSED | 126.43s |
+| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.25s |
+| ssz_interactive_gui.py | ❌ FAILED | 7.47s |
+| ssz_stability_animation.py | ✅ PASSED | 45.13s |
+| ssz_stability_three_figures.py | ✅ PASSED | 4.45s |
+| ssz_test_suite.py | ❌ FAILED | 8.46s |
+| ssz_theory_segmented.py | ❌ FAILED | 2.51s |
+| ssz_unified_suite.py | ❌ FAILED | 4.73s |
+| stratified_paired_test.py | ✅ PASSED | 14.52s |
+| test_c1_segments.py | ✅ PASSED | 0.20s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.20s |
+| test_c2_segments_strict.py | ✅ PASSED | 0.23s |
+| test_clone_and_verify.py | ❌ FAILED | 0.39s |
+| test_energy_conditions.py | ✅ PASSED | 0.26s |
+| test_phi_impact.py | ✅ PASSED | 4.59s |
+| test_ppn_exact.py | ✅ PASSED | 0.19s |
+| test_theory_predictions_cross_platform.py | ❌ FAILED | 5.22s |
+| test_utf8_encoding.py | ✅ PASSED | 1.22s |
+| test_vfall_duality.py | ✅ PASSED | 0.34s |
 
 ### Scripts
 
@@ -81,20 +81,20 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 8.85s |
-| conftest.py | ✅ PASSED | 0.13s |
-| test_cosmo_fields.py | ❌ FAILED | 2.01s |
-| test_cosmo_multibody.py | ❌ FAILED | 0.32s |
-| test_data_fetch.py | ❌ FAILED | 1.44s |
-| test_data_validation.py | ❌ FAILED | 1.52s |
-| test_gaia_required_columns.py | ❌ FAILED | 1.44s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.76s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 2.49s |
-| test_plot_ssz_maps.py | ❌ FAILED | 2.06s |
-| test_segmenter.py | ❌ FAILED | 1.26s |
-| test_ssz_invariants.py | ✅ PASSED | 1.25s |
-| test_ssz_kernel.py | ❌ FAILED | 0.33s |
-| test_utf8_encoding.py | ✅ PASSED | 0.48s |
+| check_test_documentation.py | ✅ PASSED | 34.82s |
+| conftest.py | ✅ PASSED | 0.44s |
+| test_cosmo_fields.py | ❌ FAILED | 1.61s |
+| test_cosmo_multibody.py | ❌ FAILED | 3.16s |
+| test_data_fetch.py | ❌ FAILED | 1.81s |
+| test_data_validation.py | ❌ FAILED | 2.02s |
+| test_gaia_required_columns.py | ❌ FAILED | 2.19s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 10.88s |
+| test_horizon_hawking_predictions.py | ✅ PASSED | 5.24s |
+| test_plot_ssz_maps.py | ❌ FAILED | 3.21s |
+| test_segmenter.py | ❌ FAILED | 2.54s |
+| test_ssz_invariants.py | ✅ PASSED | 2.38s |
+| test_ssz_kernel.py | ❌ FAILED | 0.63s |
+| test_utf8_encoding.py | ✅ PASSED | 0.66s |
 
 ### Validation
 
@@ -102,7 +102,7 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ✅ PASSED | 3.85s |
+| run_ssz_validation.py | ✅ PASSED | 4.78s |
 
 ---
 
@@ -168,12 +168,11 @@ phi_test.py: error: the following arguments are required: --in, --outdir
 **Status:** FAILED  
 **Error:**
 ```
-orig()
-  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\_pytest\capture.py", line 659, in pop_outerr_to_orig
+ne 659, in pop_outerr_to_orig
     out, err = self.readouterr()
-  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\_pytest\capture.py", line 706, in readouterr
+  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\.venv\lib\site-packages\_pytest\capture.py", line 706, in readouterr
     out = self.out.snap() if self.out else ""
-  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\_pytest\capture.py", line 591, in snap
+  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\.venv\lib\site-packages\_pytest\capture.py", line 591, in snap
     self.tmpfile.seek(0)
 ValueError: I/O operation on closed file.
 
@@ -280,7 +279,7 @@ Unknown error
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_cosmo_fields.py", line 2, in <module>
     from scripts.ssz.cosmology import build_cosmo_fields
-ModuleNotFoundError: No module named 'scripts.ssz'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 
@@ -290,10 +289,12 @@ ModuleNotFoundError: No module named 'scripts.ssz'
 **Status:** FAILED  
 **Error:**
 ```
-Traceback (most recent call last):
-  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_cosmo_multibody.py", line 2, in <module>
-    from ssz_cosmos.field import MultiBodyField, BodyState
-ModuleNotFoundError: No module named 'ssz_cosmos'
+d import MultiBodyField, BodyState
+  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\.venv\lib\site-packages\ssz_cosmos\__init__.py", line 6, in <module>
+    from .field import MultiBodyField
+  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\.venv\lib\site-packages\ssz_cosmos\field.py", line 10, in <module>
+    from ssz_unified_suite import SSZCore
+ModuleNotFoundError: No module named 'ssz_unified_suite'
 
 ```
 
@@ -306,7 +307,7 @@ ModuleNotFoundError: No module named 'ssz_cosmos'
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_data_fetch.py", line 4, in <module>
     from scripts.tests.data_smoke_fetch import fetch_gaia_quick, fetch_sdss_quick, smoke_paths
-ModuleNotFoundError: No module named 'scripts.tests'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 
@@ -328,7 +329,7 @@ Unknown error
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_gaia_required_columns.py", line 5, in <module>
     from scripts.preprocess.gaia_clean_map import REQUIRED_COLUMNS, SOFT_REQUIRED_ERROR, harmonize_columns
-ModuleNotFoundError: No module named 'scripts.preprocess'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 
@@ -341,7 +342,7 @@ ModuleNotFoundError: No module named 'scripts.preprocess'
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_plot_ssz_maps.py", line 3, in <module>
     from scripts.viz.plot_ssz_maps import plot_mollweide, VizConfig
-ModuleNotFoundError: No module named 'scripts.viz'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 
@@ -354,7 +355,7 @@ ModuleNotFoundError: No module named 'scripts.viz'
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_segmenter.py", line 2, in <module>
     from scripts.ssz.segmenter import assign_segments_xy, SegParams
-ModuleNotFoundError: No module named 'scripts.ssz'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 
@@ -367,7 +368,7 @@ ModuleNotFoundError: No module named 'scripts.ssz'
 Traceback (most recent call last):
   File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\scripts\tests\test_ssz_kernel.py", line 2, in <module>
     from scripts.ssz.gamma import gamma_seg_from_density
-ModuleNotFoundError: No module named 'scripts.ssz'
+ModuleNotFoundError: No module named 'scripts'
 
 ```
 

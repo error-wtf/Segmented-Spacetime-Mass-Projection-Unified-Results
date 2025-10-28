@@ -1,6 +1,6 @@
 # SSZ Complete Validation Suite - Summary Report
 
-**Generated:** 2025-10-28 10:12:42
+**Generated:** 2025-10-28 10:28:43
 
 ## Overview
 
@@ -8,17 +8,17 @@
 - **Passed:** 2/5
 - **Failed:** 3/5
 - **Success Rate:** 40.0%
-- **Total Duration:** 525.3s (8.8 min)
+- **Total Duration:** 640.7s (10.7 min)
 
 ## Pipeline Results
 
 | Status | Duration | Pipeline |
 |--------|----------|----------|
-| ❌ FAIL | 184.2s | Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation) |
-| ✅ PASS | 5.2s | SSZ vs GR Validation (6 steps) |
-| ❌ FAIL | 4.8s | Theory Validation (10 steps) |
-| ✅ PASS | 6.4s | Unified ToE Validation (11 steps) |
-| ❌ FAIL | 324.8s | Complete Test Suite (~18 scripts) |
+| ❌ FAIL | 201.8s | Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation) |
+| ✅ PASS | 53.2s | SSZ vs GR Validation (6 steps) |
+| ❌ FAIL | 5.3s | Theory Validation (10 steps) |
+| ✅ PASS | 6.2s | Unified ToE Validation (11 steps) |
+| ❌ FAIL | 374.1s | Complete Test Suite (~18 scripts) |
 
 ## Test Coverage
 
