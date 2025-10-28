@@ -76,15 +76,24 @@ Write-Host ""
 Write-Host "Repository: https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "="*80 -ForegroundColor Cyan
-Write-Host "TO ACTIVATE VIRTUAL ENVIRONMENT:" -ForegroundColor Yellow
+Write-Host "ACTIVATING VIRTUAL ENVIRONMENT..." -ForegroundColor Yellow
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Windows (PowerShell):" -ForegroundColor Yellow
+
+# Auto-activate venv for current shell
+& .\.venv\Scripts\Activate.ps1
+
+Write-Host "✅ Virtual environment activated!" -ForegroundColor Green
+Write-Host ""
+Write-Host "You are now in the SSZ virtual environment." -ForegroundColor Cyan
+$pythonPath = (Get-Command python).Source
+$pipPath = (Get-Command pip).Source
+Write-Host "Python: $pythonPath" -ForegroundColor White
+Write-Host "Pip: $pipPath" -ForegroundColor White
+Write-Host ""
+Write-Host "To deactivate later, run:" -ForegroundColor Yellow
+Write-Host "  deactivate" -ForegroundColor Green
+Write-Host ""
+Write-Host "To reactivate in a new shell:" -ForegroundColor Yellow
 Write-Host "  .\.venv\Scripts\Activate.ps1" -ForegroundColor Green
-Write-Host ""
-Write-Host "Windows (CMD):" -ForegroundColor Yellow
-Write-Host "  .venv\Scripts\activate.bat" -ForegroundColor Green
-Write-Host ""
-Write-Host "Linux/Mac:" -ForegroundColor Yellow
-Write-Host "  source .venv/bin/activate" -ForegroundColor Green
 Write-Host ""
