@@ -310,11 +310,11 @@ def main():
     print_header("PHASE 2: SEGWAVE TESTS", "-")
     
     tests_phase2 = [
-        (["python", "-m", "pytest", "tests/test_segwave_core.py", "-s", "-v", "--tb=short"],
+        (["python", "-m", "pytest", "tests/test_segwave_core.py", "-s", "-v", "--tb=short", "--cache-clear"],
          "SegWave Core Math Tests", 60, False),  # Physics - show in summary
-        (["python", "-m", "pytest", "tests/test_segwave_cli.py", "-s", "-v", "--tb=short"],
+        (["python", "-m", "pytest", "tests/test_segwave_cli.py", "-s", "-v", "--tb=short", "--cache-clear"],
          "SegWave CLI & Dataset Tests", 120, True),  # Technical - silent
-        (["python", "-m", "pytest", "tests/test_print_all_md.py", "-s", "-v", "--tb=short"],
+        (["python", "-m", "pytest", "tests/test_print_all_md.py", "-s", "-v", "--tb=short", "--cache-clear"],
          "MD Print Tool Tests", 30, True),  # Technical - silent
     ]
     
@@ -335,7 +335,7 @@ def main():
     
     ring_test_file = Path("tests/test_ring_datasets.py")
     if ring_test_file.exists():
-        cmd = ["python", "-m", "pytest", str(ring_test_file), "-s", "-v", "--tb=short"]
+        cmd = ["python", "-m", "pytest", str(ring_test_file), "-s", "-v", "--tb=short", "--cache-clear"]
         success, elapsed = run_command(cmd, "Multi-Ring Dataset Validation Tests", 60, check=False)
         results["Multi-Ring Validation Tests"] = {"success": success, "time": elapsed}
     else:
@@ -351,15 +351,15 @@ def main():
         print_header("PHASE 4: SCRIPTS/TESTS", "-")
         
         tests_phase4 = [
-            (["python", "-m", "pytest", "scripts/tests/test_ssz_kernel.py", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "scripts/tests/test_ssz_kernel.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "SSZ Kernel Tests", 60),
-            (["python", "-m", "pytest", "scripts/tests/test_ssz_invariants.py", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "scripts/tests/test_ssz_invariants.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "SSZ Invariants Tests", 60),
-            (["python", "-m", "pytest", "scripts/tests/test_segmenter.py", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "scripts/tests/test_segmenter.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "Segmenter Tests", 60),
-            (["python", "-m", "pytest", "scripts/tests/test_cosmo_fields.py", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "scripts/tests/test_cosmo_fields.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "Cosmo Fields Tests", 60),
-            (["python", "-m", "pytest", "scripts/tests/test_cosmo_multibody.py", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "scripts/tests/test_cosmo_multibody.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "Cosmo Multibody Tests", 60),
         ]
         
@@ -377,7 +377,7 @@ def main():
         print_header("PHASE 5: COSMOS TESTS", "-")
         
         tests_phase5 = [
-            (["python", "-m", "pytest", "tests/cosmos/", "-s", "-v", "--tb=short"],
+            (["python", "-m", "pytest", "tests/cosmos/", "-s", "-v", "--tb=short", "--cache-clear"],
              "Cosmos Multi-Body Sigma Tests", 60),
         ]
         
