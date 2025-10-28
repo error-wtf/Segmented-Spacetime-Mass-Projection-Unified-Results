@@ -90,12 +90,19 @@ for f in ROOT.glob('*.py'):
         if f.name != Path(__file__).name:  # Skip self
             test_files['root_level'].append(f)
 
-# Scripts tests
+# Scripts tests (including scripts/tests/ subdirectory)
 scripts_dir = ROOT / 'scripts'
 if scripts_dir.exists():
-    for f in scripts_dir.rglob('*.py'):
+    # Search in scripts/ root
+    for f in scripts_dir.glob('*.py'):
         if 'test' in f.name.lower():
             test_files['scripts'].append(f)
+    # Search in scripts/tests/ subdirectory
+    scripts_tests_dir = scripts_dir / 'tests'
+    if scripts_tests_dir.exists():
+        for f in scripts_tests_dir.glob('*.py'):
+            if 'test' in f.name.lower():
+                test_files['scripts'].append(f)
 
 # Experiments
 exp_dir = ROOT / 'experiments'
