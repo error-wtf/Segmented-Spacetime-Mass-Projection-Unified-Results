@@ -1,0 +1,22 @@
+[0:00] This visualization shows the intersection point
+where General Relativity and Segmented Spacetime
+predict the same time dilation.
+
+[0:08] At one point three eight six Schwarzschild radii,
+both theories agree.
+
+[0:14] The time dilation factor is zero point five two eight.
+
+[0:20] Beyond this radius, General Relativity predicts infinite slowdown,
+collapsing into a singularity.
+
+[0:28] But Segmented Spacetime saturates.
+Time slows, but never stops.
+
+[0:34] This confirms that both models share the same low-field limit,
+but SSZ remains physically defined at high curvature.
+
+[0:42] The intersection marks the transition
+from continuous to segmented spacetime.
+
+[0:48] Time does not disappear — it becomes granular.

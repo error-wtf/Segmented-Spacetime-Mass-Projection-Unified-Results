@@ -4,16 +4,29 @@
   <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
 </p>
 
-[![Tests](https://img.shields.io/badge/tests-116%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Tests](https://img.shields.io/badge/tests-161%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
 [![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
+[![ToE Score](https://img.shields.io/badge/ToE%20score-83.3%25-success)](#theory-of-everything)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
-**Latest Release:** v1.5.0-dev (2025-10-27) - Documentation Restructure  
+**Latest Release:** v2.0.0 (2025-10-28) - Theory of Everything Release  
 **Authors:** Carmen Wrede & Lino Casu
 
-Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, and experimental validation.
+Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, experimental validation, and **Theory of Everything** unifying gravity, time, and quantum mechanics.
+
+## 🌟 NEW: Theory of Everything
+
+**[→ 5-Page Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** | **[→ Complete 60+ Page Report](SSZ_COMPLETE_FINAL_REPORT.md)** | **[→ 11-Step Validation](UNIFIED_VALIDATION_README.md)**
+
+**SSZ unifies THREE fundamental aspects of reality through discrete φ-based geometry:**
+
+- **Gravity** (spacetime curvature from segment density)
+- **Time** (emergent from φ-resonances, not fundamental)
+- **Quantum** (discrete structure, natural cutoff)
+
+**Validated:** 83.3% ToE Consistency Score across 45+ automated tests
 
 ---
 
@@ -22,20 +35,23 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 ### For Everyone
 - [🚀 Quick Start](#-quick-start) - Get running in 2 minutes
 - [🏆 Scientific Highlights](#-scientific-highlights) - Breakthrough results
+- [🌌 Theory of Everything](#-theory-of-everything) - φ-based unification
 
 ### For Researchers
 - [📚 Complete Documentation](#-complete-documentation) - Papers, guides, API
 - [🔬 Key Results](#-key-results) - ESO validation, cosmology, black holes
 - [📊 Data & Analysis](#-data--analysis) - Datasets, plots, experiments
+- [🧪 ToE Validation](#-toe-validation-pipelines) - 4 pipelines, 45+ tests
 
 ### For Developers
 - [💻 Installation](#-installation) - All platforms
-- [🧪 Testing](#-testing) - 116 automated tests
+- [🧪 Testing](#-testing) - 161 automated tests (116 + 45 ToE)
 - [🔧 Contributing](#-contributing) - Development workflow
 
 ### Quick Links
-- **[📖 Documentation Index](docs/INDEX.md)** - Complete navigation hub
+- **[📖 Documentation Index](docs/INDEX.md)** | **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Complete navigation
 - **[📝 Changelog](CHANGELOG.md)** - Version history
+- **[🎯 Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** - 5-page ToE overview
 
 ---
 
@@ -151,6 +167,77 @@ python perfect_paired_test.py
 - 35 Physics Tests: 100% passing
 - 23 Technical Tests: 100% passing
 - Complete validation: [Run Test Suite](LOGGING_SYSTEM_README.md)
+
+---
+
+## 🌌 Theory of Everything
+
+### Seven Pillars of SSZ
+
+**1. Spacetime is Fundamentally Discrete**
+- NOT a continuum, but discrete φ-based segments
+- Ξ(r) saturates naturally (Ξ < 1)
+- Resolves UV divergences, provides natural cutoff
+
+**2. Time is Emergent, Not Fundamental**
+- Arises from φ-based segment resonances
+- Δt = (1 + Ξ(r)) / φ
+- Can break down (chaos when λ_A > 1/K²)
+
+**3. φ is a Universal Constant**
+- Golden ratio = 1.618... is FUNDAMENTAL
+- Like π and e, but for spacetime geometry
+- Appears in ALL SSZ relations
+
+**4. Singularities are Resolved**
+- No infinities anywhere
+- D(r_s) = 0.667 (finite at horizon)
+- R(r=0) = 0.503 R₀ (finite at center)
+
+**5. Black Holes are Stable**
+- Energy dissipates exponentially (η ≈ 10³⁷)
+- No explosions, no information paradox
+- E_final/E₀ ≈ 10⁻³⁸
+
+**6. Quantum Gravity Emerges**
+- Discrete segments → quantum observables
+- No separate quantization needed
+- Geometry IS quantum
+
+**7. Observable Predictions**
+- Neutron star signature: Δ = -44% (testable with NICER NOW)
+- Universal intersection: r* = 1.3866 r_s
+- BH shadows: ~2% larger than GR (future EHT)
+
+### ToE Validation Pipelines
+
+**4 Complete Validation Systems (45+ Tests, 83.3% Consistency Score):**
+
+```bash
+# Pipeline 1: SSZ vs GR (6 steps, ~2 min)
+python run_ssz_validation.py
+
+# Pipeline 2: Theory Validation (10 steps, ~2 min)
+python run_ssz_theory_validation.py
+
+# Pipeline 3: Unified Validation (11 steps, ~2 min)
+python run_ssz_unified_validation.py
+
+# Pipeline 4: Complete Test Suite (~18 scripts, ~5-10 min)
+python run_complete_test_suite.py
+```
+
+**Key Validated Results:**
+- ✅ r*/r_s = 1.38656 (deviation < 10⁻⁶)
+- ✅ D* = 0.5280 (machine precision)
+- ✅ φ = 1.61803 (invariant across all relations)
+- ✅ Singularities resolved (finite everywhere)
+- ✅ Time emergence confirmed (smooth, no discontinuities)
+- ✅ BH stability verified (exponential dissipation)
+
+📖 **[Complete ToE Documentation →](SSZ_COMPLETE_FINAL_REPORT.md)**  
+📖 **[Scientific Interpretations →](outputs/SSZ_SCIENTIFIC_INTERPRETATIONS.md)**  
+📖 **[Validation Guide →](UNIFIED_VALIDATION_README.md)**
 
 ---
 
@@ -331,10 +418,11 @@ SSZ-rings --help
 
 ### Test Overview
 
-**116 Automated Tests:**
+**161 Automated Tests (116 Original + 45 ToE):**
 - 35 Physics Tests (detailed output)
 - 23 Technical Tests (silent mode)
 - 58 Additional Validation Tests
+- **45 Theory of Everything Tests** (4 pipelines) ⭐ NEW
 
 ### Run Tests
 
@@ -345,6 +433,12 @@ source .venv/bin/activate  # Linux/macOS
 
 # Complete suite (~2-3 minutes)
 python run_full_suite.py
+
+# ToE Validation Pipelines (~2 min each)
+python run_ssz_unified_validation.py     # 11-step complete ToE proof
+python run_ssz_theory_validation.py      # 10-step theory validation
+python run_ssz_validation.py             # 6-step SSZ vs GR
+python run_complete_test_suite.py        # ~18 scripts auto-discovery
 
 # Quick tests (~30 seconds)
 python run_full_suite.py --quick

@@ -1,0 +1,151 @@
+{
+  "timestamp": "2025-10-28T06:12:45.517539",
+  "categories": {
+    "root_level": [
+      {
+        "file": "ssz_complete_tests.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "2.57s",
+        "returncode": 0,
+        "stdout_length": 3473,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_stability_animation.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "55.68s",
+        "returncode": 0,
+        "stdout_length": 473,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_stability_three_figures.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "4.83s",
+        "returncode": 0,
+        "stdout_length": 831,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_time_chaos_animation.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "97.81s",
+        "returncode": 0,
+        "stdout_length": 1418,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_time_segmentation_animation.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "110.33s",
+        "returncode": 0,
+        "stdout_length": 1541,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_time_stability_combined.py",
+        "category": "root_level",
+        "status": "PASSED",
+        "duration": "154.46s",
+        "returncode": 0,
+        "stdout_length": 1405,
+        "stderr_length": 206,
+        "interpretation": null
+      }
+    ],
+    "validation": [
+      {
+        "file": "run_ssz_validation.py",
+        "category": "validation",
+        "status": "PASSED",
+        "duration": "5.46s",
+        "returncode": 0,
+        "stdout_length": 2114,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "gr_ssz_intersection_analysis.py",
+        "category": "validation",
+        "status": "PASSED",
+        "duration": "4.24s",
+        "returncode": 0,
+        "stdout_length": 2012,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "gr_vs_ssz_time_dilation.py",
+        "category": "validation",
+        "status": "PASSED",
+        "duration": "3.13s",
+        "returncode": 0,
+        "stdout_length": 1450,
+        "stderr_length": 0,
+        "interpretation": null
+      }
+    ],
+    "animations": [
+      {
+        "file": "ssz_time_segmentation_animation.py",
+        "category": "animations",
+        "status": "PASSED",
+        "duration": "98.34s",
+        "returncode": 0,
+        "stdout_length": 1541,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_time_chaos_animation.py",
+        "category": "animations",
+        "status": "PASSED",
+        "duration": "81.29s",
+        "returncode": 0,
+        "stdout_length": 1418,
+        "stderr_length": 0,
+        "interpretation": null
+      },
+      {
+        "file": "ssz_time_stability_combined.py",
+        "category": "animations",
+        "status": "PASSED",
+        "duration": "151.52s",
+        "returncode": 0,
+        "stdout_length": 1405,
+        "stderr_length": 206,
+        "interpretation": null
+      },
+      {
+        "file": "generate_animated_overview.py",
+        "category": "animations",
+        "status": "PASSED",
+        "duration": "38.67s",
+        "returncode": 0,
+        "stdout_length": 1563,
+        "stderr_length": 0,
+        "interpretation": null
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 13,
+    "passed": 13,
+    "failed": 0,
+    "timeout": 0,
+    "error": 0,
+    "success_rate": "100.0%"
+  },
+  "failures": [],
+  "interpretations": []
+}
