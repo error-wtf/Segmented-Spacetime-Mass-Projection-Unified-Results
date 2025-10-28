@@ -196,10 +196,198 @@ def test_precision():
         print(f"✗ Precision test failed: {e}")
         return False
 
+def test_ssz_core_modules():
+    """Test SSZ core module imports"""
+    print("\n" + "="*80)
+    print("TEST 7: SSZ Core Modules")
+    print("="*80)
+    
+    try:
+        # Test SSZ package imports
+        from ssz.segwave import compute_q_factor, predict_velocity_profile
+        from ssz_cosmos.bodies import BodyDefinition
+        from ssz_cosmos.field import BodyState, MultiBodyField
+        
+        print("✓ ssz.segwave module")
+        print("✓ ssz_cosmos.bodies module")
+        print("✓ ssz_cosmos.field module")
+        
+        # Test basic functionality
+        q = compute_q_factor(T_curr=80.0, T_prev=100.0, beta=1.0)
+        if abs(q - 0.8) > 1e-6:
+            print(f"✗ Q-factor calculation failed: {q} != 0.8")
+            return False
+        print(f"✓ Q-factor calculation: {q:.6f}")
+        
+        # Test multi-body field
+        field = MultiBodyField()
+        import numpy as np
+        core_points = np.array([[1.0, 0.0, 0.0]])
+        M_earth = 5.97219e24
+        states = [BodyState("Earth", np.zeros(3), M_earth, 1.0, 0.015)]
+        sigma = field.sigma(core_points, states)
+        
+        if sigma[0] <= 0:
+            print(f"✗ Sigma calculation failed: {sigma[0]}")
+            return False
+        print(f"✓ Multi-body field: σ = {float(sigma[0]):.6e}")
+        
+        print("✅ SSZ core modules functional")
+        return True
+        
+    except Exception as e:
+        print(f"✗ SSZ modules test failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
+def test_astropy_functionality():
+    """Test Astropy functionality"""
+    print("\n" + "="*80)
+    print("TEST 8: Astropy Functionality")
+    print("="*80)
+    
+    try:
+        from astropy import units as u
+        from astropy.coordinates import SkyCoord
+        from astropy.cosmology import Planck18
+        
+        # Test units
+        distance = 10 * u.pc
+        distance_m = distance.to(u.m)
+        print(f"✓ Units: 10 pc = {distance_m.value:.2e} m")
+        
+        # Test coordinates
+        coord = SkyCoord(ra=10*u.degree, dec=20*u.degree, distance=100*u.pc)
+        print(f"✓ Coordinates: RA={coord.ra}, Dec={coord.dec}")
+        
+        # Test cosmology
+        H0 = Planck18.H0
+        print(f"✓ Cosmology: H0 = {H0}")
+        
+        print("✅ Astropy functional")
+        return True
+        
+    except Exception as e:
+        print(f"✗ Astropy test failed: {e}")
+        return False
+
+def test_plotly_functionality():
+    """Test Plotly 3D plotting"""
+    print("\n" + "="*80)
+    print("TEST 9: Plotly 3D Visualization")
+    print("="*80)
+    
+    try:
+        import plotly.graph_objects as go
+        import numpy as np
+        
+        # Create simple 3D scatter
+        x = np.random.randn(10)
+        y = np.random.randn(10)
+        z = np.random.randn(10)
+        
+        fig = go.Figure(data=[go.Scatter3d(
+            x=x, y=y, z=z,
+            mode='markers',
+            marker=dict(size=5, color=z, colorscale='Viridis')
+        )])
+        
+        fig.update_layout(title="Smoke Test 3D")
+        
+        # Try to save
+        test_file = Path("out/smoke_test_3d.html")
+        test_file.parent.mkdir(parents=True, exist_ok=True)
+        fig.write_html(test_file)
+        
+        if test_file.exists():
+            size = test_file.stat().st_size / 1024
+            print(f"✓ Created 3D plot ({size:.1f} KB)")
+            test_file.unlink()  # Clean up
+            print("✅ Plotly 3D functional")
+            return True
+        else:
+            print("✗ 3D plot file not created")
+            return False
+            
+    except Exception as e:
+        print(f"✗ Plotly test failed: {e}")
+        return False
+
+def test_pandas_parquet():
+    """Test Pandas with Parquet support"""
+    print("\n" + "="*80)
+    print("TEST 10: Pandas + Parquet")
+    print("="*80)
+    
+    try:
+        import pandas as pd
+        import numpy as np
+        
+        # Create test dataframe
+        df = pd.DataFrame({
+            'mass': np.random.rand(100),
+            'distance': np.random.rand(100),
+            'velocity': np.random.rand(100)
+        })
+        
+        # Try to save as parquet
+        test_file = Path("out/smoke_test.parquet")
+        test_file.parent.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(test_file)
+        
+        # Try to read back
+        df_read = pd.read_parquet(test_file)
+        
+        if len(df_read) != len(df):
+            print(f"✗ Parquet roundtrip failed: {len(df_read)} != {len(df)}")
+            return False
+        
+        size = test_file.stat().st_size / 1024
+        print(f"✓ Parquet write/read ({size:.1f} KB)")
+        test_file.unlink()  # Clean up
+        
+        print("✅ Pandas + Parquet functional")
+        return True
+        
+    except Exception as e:
+        print(f"✗ Pandas/Parquet test failed: {e}")
+        return False
+
+def test_pytest_availability():
+    """Test pytest is available"""
+    print("\n" + "="*80)
+    print("TEST 11: Pytest Availability")
+    print("="*80)
+    
+    try:
+        import pytest
+        print(f"✓ pytest version: {pytest.__version__}")
+        
+        # Check pytest plugins
+        try:
+            import pytest_timeout
+            print(f"✓ pytest-timeout available")
+        except ImportError:
+            print("⚠️  pytest-timeout not available (optional)")
+        
+        try:
+            import pytest_cov
+            print(f"✓ pytest-cov available")
+        except ImportError:
+            print("⚠️  pytest-cov not available (optional)")
+        
+        print("✅ Pytest functional")
+        return True
+        
+    except Exception as e:
+        print(f"✗ Pytest test failed: {e}")
+        return False
+
 def test_rapidity_equilibrium():
     """Test rapidity-based equilibrium analysis (perfect script)"""
     print("\n" + "="*80)
-    print("TEST 7: Rapidity Equilibrium Analysis")
+    print("TEST 12: Rapidity Equilibrium Analysis")
     print("="*80)
     
     try:
@@ -292,6 +480,11 @@ def main():
         ("Output Directories", test_output_directories),
         ("Matplotlib", test_matplotlib),
         ("Precision", test_precision),
+        ("SSZ Core Modules", test_ssz_core_modules),
+        ("Astropy Functionality", test_astropy_functionality),
+        ("Plotly 3D", test_plotly_functionality),
+        ("Pandas + Parquet", test_pandas_parquet),
+        ("Pytest Availability", test_pytest_availability),
         ("Rapidity Equilibrium", test_rapidity_equilibrium),
     ]
     
