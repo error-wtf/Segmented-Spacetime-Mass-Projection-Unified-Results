@@ -2,9 +2,9 @@
   "n_samples": 50,
   "K": 100,
   "lambda_crit": 0.0001,
-  "E_final_mean": 0.9929707407196429,
-  "E_final_median": 0.999187214150028,
-  "E_final_std": 0.010030920781044088,
-  "E_final_min": 0.9643321726927143,
+  "E_final_mean": 0.9936926291571366,
+  "E_final_median": 1.0,
+  "E_final_std": 0.009027525442236303,
+  "E_final_min": 0.9693770825812674,
   "E_final_max": 1.0
 }
