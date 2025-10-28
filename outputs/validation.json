@@ -1,20 +1,20 @@
 {
-  "timestamp": "2025-10-28T06:19:59.508393",
+  "timestamp": "2025-10-28T10:12:42.232899",
   "intersection": {
-    "r_over_rs": 1.3865616196486958,
+    "r_over_rs": 10.0,
     "r_target": 1.386562,
-    "r_deviation": -3.8035130422997554e-07,
+    "r_deviation": 8.613438,
     "r_tolerance": 0.01,
-    "r_passed": true,
-    "D_star": 0.5280071198891444,
+    "r_passed": false,
+    "D_star": 0.9285832768733835,
     "D_target": 0.528007,
-    "D_deviation": 1.1988914438987308e-07,
+    "D_deviation": 0.4005762768733835,
     "D_tolerance": 0.01,
-    "D_passed": true
+    "D_passed": false
   },
   "neutron_star": {
-    "max_delta": -0.4408973126107127,
-    "r_at_max_delta": 5.0,
+    "max_delta": 0.0,
+    "r_at_max_delta": 1.5,
     "delta_14_range": "Not found",
     "in_expected_range": false
   },
@@ -30,5 +30,5 @@
       1.66
     ]
   },
-  "overall_validation": true
+  "overall_validation": false
 }

@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-10-28 09:17:22
+**Generated:** 2025-10-28 10:12:42
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -19,12 +19,12 @@ All tests, validations, and analysis scripts in the repository were executed.
 | Metric | Count | Percentage |
 |--------|-------|------------|
 | **Total Tests** | 53 | 100% |
-| **Passed** | 32 | 60.4% |
-| **Failed** | 21 | 39.6% |
+| **Passed** | 33 | 62.3% |
+| **Failed** | 20 | 37.7% |
 | **Timeout** | 0 | 0.0% |
 | **Error** | 0 | 0.0% |
 
-**Success Rate:** 60.4%
+**Success Rate:** 62.3%
 
 ---
 
@@ -36,44 +36,44 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| calculation_test.py | ❌ FAILED | 0.26s |
-| conftest.py | ✅ PASSED | 0.29s |
-| extend_all_tests.py | ✅ PASSED | 0.30s |
-| final_test.py | ✅ PASSED | 0.16s |
-| generate_test_data.py | ✅ PASSED | 0.26s |
-| investigate_paired_test.py | ✅ PASSED | 1.74s |
-| lagrangian_tests.py | ❌ FAILED | 0.20s |
-| lino_qed_test.py | ✅ PASSED | 1.17s |
-| perfect_paired_test.py | ✅ PASSED | 2.89s |
-| phi_bic_test.py | ❌ FAILED | 1.51s |
-| phi_test.py | ❌ FAILED | 1.87s |
-| run_comprehensive_tests.py | ❌ FAILED | 7.21s |
-| segspacetime_quick_tests.py | ✅ PASSED | 2.76s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.62s |
+| calculation_test.py | ❌ FAILED | 0.24s |
+| conftest.py | ✅ PASSED | 0.21s |
+| extend_all_tests.py | ✅ PASSED | 0.27s |
+| final_test.py | ✅ PASSED | 0.18s |
+| generate_test_data.py | ✅ PASSED | 0.46s |
+| investigate_paired_test.py | ✅ PASSED | 2.23s |
+| lagrangian_tests.py | ❌ FAILED | 0.23s |
+| lino_qed_test.py | ✅ PASSED | 0.64s |
+| perfect_paired_test.py | ✅ PASSED | 3.26s |
+| phi_bic_test.py | ❌ FAILED | 1.50s |
+| phi_test.py | ❌ FAILED | 2.09s |
+| run_comprehensive_tests.py | ❌ FAILED | 7.14s |
+| segspacetime_quick_tests.py | ✅ PASSED | 2.14s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.61s |
 | segspace_enhanced_test_better.py | ✅ PASSED | 1.71s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.71s |
-| segspace_final_test.py | ✅ PASSED | 2.38s |
-| segspace_pairtest_vs_sr.py | ❌ FAILED | 0.52s |
-| smoke_test_all.py | ✅ PASSED | 3.17s |
-| ssz_blackhole_bomb_template.py | ✅ PASSED | 112.60s |
-| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.67s |
-| ssz_interactive_gui.py | ❌ FAILED | 4.62s |
-| ssz_stability_animation.py | ✅ PASSED | 42.05s |
-| ssz_stability_three_figures.py | ✅ PASSED | 4.58s |
-| ssz_test_suite.py | ❌ FAILED | 25.88s |
-| ssz_theory_segmented.py | ❌ FAILED | 2.20s |
-| ssz_unified_suite.py | ❌ FAILED | 3.12s |
-| stratified_paired_test.py | ✅ PASSED | 12.51s |
-| test_c1_segments.py | ✅ PASSED | 0.27s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.36s |
-| test_c2_segments_strict.py | ✅ PASSED | 0.17s |
-| test_clone_and_verify.py | ❌ FAILED | 0.61s |
-| test_energy_conditions.py | ✅ PASSED | 0.16s |
-| test_phi_impact.py | ✅ PASSED | 4.17s |
-| test_ppn_exact.py | ✅ PASSED | 0.16s |
-| test_theory_predictions_cross_platform.py | ❌ FAILED | 3.63s |
-| test_utf8_encoding.py | ✅ PASSED | 0.64s |
-| test_vfall_duality.py | ✅ PASSED | 0.21s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.73s |
+| segspace_final_test.py | ✅ PASSED | 2.09s |
+| segspace_pairtest_vs_sr.py | ❌ FAILED | 0.62s |
+| smoke_test_all.py | ✅ PASSED | 3.68s |
+| ssz_blackhole_bomb_template.py | ✅ PASSED | 152.08s |
+| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.17s |
+| ssz_interactive_gui.py | ❌ FAILED | 4.25s |
+| ssz_stability_animation.py | ✅ PASSED | 39.70s |
+| ssz_stability_three_figures.py | ✅ PASSED | 3.96s |
+| ssz_test_suite.py | ❌ FAILED | 8.76s |
+| ssz_theory_segmented.py | ❌ FAILED | 1.98s |
+| ssz_unified_suite.py | ❌ FAILED | 3.21s |
+| stratified_paired_test.py | ✅ PASSED | 12.00s |
+| test_c1_segments.py | ✅ PASSED | 0.13s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.21s |
+| test_c2_segments_strict.py | ✅ PASSED | 0.13s |
+| test_clone_and_verify.py | ❌ FAILED | 0.24s |
+| test_energy_conditions.py | ✅ PASSED | 0.13s |
+| test_phi_impact.py | ✅ PASSED | 4.27s |
+| test_ppn_exact.py | ✅ PASSED | 0.13s |
+| test_theory_predictions_cross_platform.py | ❌ FAILED | 2.90s |
+| test_utf8_encoding.py | ✅ PASSED | 0.82s |
+| test_vfall_duality.py | ✅ PASSED | 0.24s |
 
 ### Scripts
 
@@ -81,34 +81,34 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 115.37s |
-| conftest.py | ✅ PASSED | 0.17s |
-| test_cosmo_fields.py | ❌ FAILED | 1.94s |
-| test_cosmo_multibody.py | ❌ FAILED | 0.43s |
-| test_data_fetch.py | ❌ FAILED | 1.77s |
-| test_data_validation.py | ❌ FAILED | 2.82s |
-| test_gaia_required_columns.py | ❌ FAILED | 1.60s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.96s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 2.83s |
-| test_plot_ssz_maps.py | ❌ FAILED | 2.35s |
-| test_segmenter.py | ❌ FAILED | 1.35s |
-| test_ssz_invariants.py | ✅ PASSED | 1.38s |
-| test_ssz_kernel.py | ❌ FAILED | 0.42s |
-| test_utf8_encoding.py | ✅ PASSED | 0.71s |
+| check_test_documentation.py | ✅ PASSED | 8.85s |
+| conftest.py | ✅ PASSED | 0.13s |
+| test_cosmo_fields.py | ❌ FAILED | 2.01s |
+| test_cosmo_multibody.py | ❌ FAILED | 0.32s |
+| test_data_fetch.py | ❌ FAILED | 1.44s |
+| test_data_validation.py | ❌ FAILED | 1.52s |
+| test_gaia_required_columns.py | ❌ FAILED | 1.44s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.76s |
+| test_horizon_hawking_predictions.py | ✅ PASSED | 2.49s |
+| test_plot_ssz_maps.py | ❌ FAILED | 2.06s |
+| test_segmenter.py | ❌ FAILED | 1.26s |
+| test_ssz_invariants.py | ✅ PASSED | 1.25s |
+| test_ssz_kernel.py | ❌ FAILED | 0.33s |
+| test_utf8_encoding.py | ✅ PASSED | 0.48s |
 
 ### Validation
 
-**Tests:** 1 | **Passed:** 0 | **Rate:** 0.0%
+**Tests:** 1 | **Passed:** 1 | **Rate:** 100.0%
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ❌ FAILED | 3.24s |
+| run_ssz_validation.py | ✅ PASSED | 3.85s |
 
 ---
 
 ## Failed Tests
 
-21 test(s) failed or encountered errors:
+20 test(s) failed or encountered errors:
 
 ### calculation_test.py
 
@@ -371,25 +371,12 @@ ModuleNotFoundError: No module named 'scripts.ssz'
 
 ```
 
-### run_ssz_validation.py
-
-**Category:** validation  
-**Status:** FAILED  
-**Error:**
-```
-Traceback (most recent call last):
-  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\run_ssz_validation.py", line 96, in <module>
-    r_over_rs = intersection['r_over_rs']
-TypeError: 'float' object is not subscriptable
-
-```
-
 ---
 
 ## Next Steps
 
 **Action Required:**
-- Review 21 failed/timeout/error test(s)
+- Review 20 failed/timeout/error test(s)
 - Check error messages above
 - Fix issues and re-run: `python run_complete_test_suite.py`
 
