@@ -37,10 +37,38 @@ if sys.platform == 'win32':
     except AttributeError:
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent / 'src'))
-from models import (schwarzschild_rs, xi_exponential, time_dilation_ssz, 
-                   time_dilation_gr, find_intersection, PHI)
+# Define constants and functions inline
+PHI = (1 + np.sqrt(5)) / 2  # Golden ratio
+G = 6.674e-11  # Gravitational constant
+c = 2.998e8    # Speed of light
+
+def schwarzschild_rs(M):
+    """Schwarzschild radius"""
+    return 2 * G * M / c**2
+
+def xi_exponential(r, M, xi_max=1.0):
+    """Segment density field (exponential saturation)"""
+    r_s = schwarzschild_rs(M)
+    return xi_max * (1 - np.exp(-r_s / r))
+
+def time_dilation_ssz(r, M, xi_max=1.0, alpha=1.0):
+    """SSZ time dilation: D = φ^(-α·Ξ)"""
+    xi = xi_exponential(r, M, xi_max)
+    return PHI ** (-alpha * xi)
+
+def time_dilation_gr(r, M):
+    """GR time dilation: D = sqrt(1 - r_s/r)"""
+    r_s = schwarzschild_rs(M)
+    return np.sqrt(1 - r_s / r)
+
+def find_intersection(M, xi_max=1.0, alpha=1.0):
+    """Find r* where SSZ = GR"""
+    from scipy.optimize import brentq
+    r_s = schwarzschild_rs(M)
+    def diff(r):
+        return time_dilation_ssz(r, M, xi_max, alpha) - time_dilation_gr(r, M)
+    r_star = brentq(diff, r_s * 1.01, r_s * 10)
+    return r_star
 
 # Output directory
 OUTPUT_DIR = Path('outputs')
