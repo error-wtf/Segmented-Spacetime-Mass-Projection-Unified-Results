@@ -170,6 +170,18 @@ def main():
     """Run the full test suite"""
     suite_start = time.time()
     
+    # Clear pytest cache to avoid stale test results
+    import shutil
+    cache_dirs = ['.pytest_cache', '__pycache__', 'tests/__pycache__', 
+                  'tests/cosmos/__pycache__', 'scripts/tests/__pycache__']
+    for cache_dir in cache_dirs:
+        cache_path = Path(cache_dir)
+        if cache_path.exists():
+            try:
+                shutil.rmtree(cache_path)
+            except Exception:
+                pass  # Ignore errors if cache can't be deleted
+    
     # Create output log buffer
     output_log = io.StringIO()
     

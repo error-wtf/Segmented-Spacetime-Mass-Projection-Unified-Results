@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-28 15:43:24
+**Date:** 2025-10-28 16:31:34
 
 ## Overview
 
@@ -10,32 +10,32 @@
 - **Passed:** 20
 - **Failed:** 2
 - **Success Rate:** 90.9%
-- **Total Test Time:** 154.4s
-- **Total Suite Time:** 204.3s
+- **Total Test Time:** 155.6s
+- **Total Suite Time:** 202.3s
 
 ## Physics Test Results
 
-- **PPN Exact Tests:** ✅ PASS (0.2s)
+- **PPN Exact Tests:** ✅ PASS (0.1s)
 - **Dual Velocity Tests:** ✅ PASS (0.2s)
-- **Energy Conditions Tests:** ✅ PASS (0.2s)
-- **C1 Segments Tests:** ✅ PASS (0.2s)
-- **C2 Segments Strict Tests:** ✅ PASS (0.2s)
-- **C2 Curvature Proxy Tests:** ✅ PASS (0.2s)
-- **SegWave Core Math Tests:** ❌ FAIL (7.5s)
+- **Energy Conditions Tests:** ✅ PASS (1.5s)
+- **C1 Segments Tests:** ✅ PASS (0.3s)
+- **C2 Segments Strict Tests:** ✅ PASS (0.1s)
+- **C2 Curvature Proxy Tests:** ✅ PASS (0.4s)
+- **SegWave Core Math Tests:** ❌ FAIL (5.6s)
 - **Multi-Ring Validation Tests:** ✅ PASS (6.8s)
-- **SSZ Kernel Tests:** ✅ PASS (7.1s)
-- **SSZ Invariants Tests:** ✅ PASS (7.0s)
-- **Segmenter Tests:** ✅ PASS (6.5s)
-- **Cosmo Fields Tests:** ✅ PASS (6.5s)
-- **Cosmo Multibody Tests:** ✅ PASS (8.1s)
-- **Cosmos Multi-Body Sigma Tests:** ❌ FAIL (6.4s)
-- **SSZ Complete Analysis:** ✅ PASS (77.7s)
+- **SSZ Kernel Tests:** ✅ PASS (7.0s)
+- **SSZ Invariants Tests:** ✅ PASS (6.9s)
+- **Segmenter Tests:** ✅ PASS (6.2s)
+- **Cosmo Fields Tests:** ✅ PASS (6.4s)
+- **Cosmo Multibody Tests:** ✅ PASS (8.0s)
+- **Cosmos Multi-Body Sigma Tests:** ❌ FAIL (6.6s)
+- **SSZ Complete Analysis:** ✅ PASS (79.8s)
 - **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.4s)
-- **SSZ Theory Predictions:** ✅ PASS (3.0s)
-- **G79 Analysis:** ✅ PASS (2.8s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.3s)
+- **SSZ Theory Predictions:** ✅ PASS (3.1s)
+- **G79 Analysis:** ✅ PASS (3.1s)
 - **Cygnus X Analysis:** ✅ PASS (2.8s)
-- **Paper Export Tools:** ✅ PASS (5.9s)
+- **Paper Export Tools:** ✅ PASS (5.6s)
 - **Final Validation:** ✅ PASS (0.2s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
