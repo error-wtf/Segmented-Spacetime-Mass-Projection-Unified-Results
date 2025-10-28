@@ -358,8 +358,8 @@ toe_findings = {
     'spacetime_discrete': True,
     'time_emergent': True,
     'phi_universal': True,
-    'singularities_resolved': xi_saturates,
-    'black_holes_stable': eta > 1e30,
+    'singularities_resolved': bool(xi_saturates),
+    'black_holes_stable': bool(eta > 1e30) if not np.isinf(eta) else False,
     'quantum_gravity_hint': 'Segment-based quantization of spacetime',
     'unification_path': 'φ-geometry unifies gravity, time, and quantum structure'
 }
