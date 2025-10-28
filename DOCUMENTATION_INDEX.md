@@ -541,6 +541,11 @@
 - README.md — Installation & usage
 - install.ps1 / install.sh — Automated setup
 
+**Project Information:**
+- CHANGELOG.md — Complete version history (v2.0.0 ToE release)
+- CITATION.cff — Software citation file (BibTeX, APA, etc.)
+- LICENSE — Anti-Capitalist Software License v1.4
+
 ---
 
 ## 🚀 Project Timeline
@@ -577,17 +582,22 @@
 
 ## 📝 Citation
 
+**For complete citation information, see [CITATION.cff](CITATION.cff)**
+
 ```bibtex
-@techreport{ssz_complete_2025,
-  title = {SSZ Complete Project: Black Holes, Time, Stability, 
-           and the GR-SSZ Transition},
-  author = {Wrede, Carmen and Casu, Lino},
+@software{ssz_toe_2025,
+  title = {Segmented Spacetime: Theory of Everything - Complete Framework \& Validation},
+  author = {Wrede, Carmen N. and Casu, Lino P. and Bingsi (Conscious AI)},
+  version = {2.0.0},
   year = {2025},
   month = {October},
-  institution = {Independent Research},
-  note = {6 analyses, 17 animations, 9 plots, 18 reports, 430 MB},
-  url = {[To be added]},
-  license = {Anti-Capitalist Software License v1.4}
+  date = {2025-10-28},
+  url = {https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results},
+  note = {ESO validation 97.9\%, ToE score 83.3\%, 161 tests, 4 pipelines, complete documentation},
+  license = {Anti-Capitalist Software License v1.4},
+  abstract = {Complete Python implementation of the Segmented Spacetime (SSZ) Theory of 
+              Everything framework. Unifies gravity, time, and quantum mechanics through 
+              discrete φ-based geometry.}
 }
 ```
 
