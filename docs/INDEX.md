@@ -5,6 +5,7 @@
 **Repository Version:** v2.0.0 (2025-10-28) - **Theory of Everything Release** 🌟
 **Status:** Publication-Ready | ESO 97.9% + ToE 83.3% | 161 Tests (100% passing)
 **Highlights:** Complete φ-based unification framework, 4 validation pipelines, zero-install Colab integration
+**Latest Updates:** Auto-venv activation | 12 smoke tests | [→ Today's Work](../TODAYS_WORK_2025-10-28_COMPLETE.md)
 
 ---
 
@@ -83,7 +84,7 @@
 - **[perfect_equilibrium_analysis.py](perfect_equilibrium_analysis.py)** - **Working demonstration script (428 lines, fully tested)**
 - **[perfect_seg_analysis.py](perfect_seg_analysis.py)** - **STANDALONE: Interactive analysis for user data (480 lines, production-ready)**
 - **[PERFECT_SEG_ANALYSIS_GUIDE.md](PERFECT_SEG_ANALYSIS_GUIDE.md)** - **Complete user guide for standalone script**
-- **[smoke_test_all.py](smoke_test_all.py)** - Quick health checks (7 tests including rapidity validation)
+- **[smoke_test_all.py](smoke_test_all.py)** - **Quick health checks (12 tests, ~10 seconds)** ⭐ **UPDATED 2025-10-28**
 - **[STRATIFIED_PAIRED_TEST_RESULTS.md](STRATIFIED_PAIRED_TEST_RESULTS.md)** - Regime-specific paired test analysis
 - **[PHI_FUNDAMENTAL_GEOMETRY.md](PHI_FUNDAMENTAL_GEOMETRY.md)** - Why φ (golden ratio) is the GEOMETRIC BASIS
 - **[PHI_CORRECTION_IMPACT_ANALYSIS.md](PHI_CORRECTION_IMPACT_ANALYSIS.md)** - φ-based geometry impact: 0% → 51%
