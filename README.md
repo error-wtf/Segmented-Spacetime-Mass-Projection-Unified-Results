@@ -273,7 +273,7 @@ Complete navigation for:
 | **Validation** | [PAIRED_TEST_ANALYSIS_COMPLETE.md](PAIRED_TEST_ANALYSIS_COMPLETE.md) | ESO 97.9% |
 | **Plots** | [PLOTS_OVERVIEW.md](PLOTS_OVERVIEW.md) | Analysis plots |
 | **Tests** | [LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md) | Test system |
-| **FAQ** | [evidenz-ssz/docs/FAQ.md](evidenz-ssz/docs/FAQ.md) | Common questions |
+| **Glossary** | [docs/improvement/TERMINOLOGY_GLOSSARY.md](docs/improvement/TERMINOLOGY_GLOSSARY.md) | 200+ terms |
 
 ### For Different Audiences
 
@@ -286,8 +286,8 @@ Complete navigation for:
 - [Testing](#-testing) → [Contributing](#-contributing)
 
 **Students:**
-- [What is SSZ?](evidenz-ssz/docs/WHAT_IS_SSZ.md) → [Documentation Index](docs/INDEX.md)
-- [Glossary](evidenz-ssz/docs/GLOSSARY.md) → [Tutorials](docs/INDEX.md#educational-materials)
+- [Executive Summary](SSZ_EXECUTIVE_SUMMARY.md) → [Documentation Index](docs/INDEX.md)
+- [Glossary](docs/improvement/TERMINOLOGY_GLOSSARY.md) → [Complete Report](SSZ_COMPLETE_FINAL_REPORT.md)
 
 ---
 
