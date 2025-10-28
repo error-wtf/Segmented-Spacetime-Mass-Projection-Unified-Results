@@ -72,7 +72,12 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 **Or manual setup:**
 ```python
-# Clone repository
+# IMPORTANT: Install Git LFS first!
+!curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+!apt-get install -y git-lfs
+!git lfs install
+
+# Clone repository (with LFS support)
 !git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
 %cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
@@ -83,8 +88,9 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 !python smoke_test_all.py
 ```
 
-**Duration:** ~30 seconds  
-**What it does:** Clone + install + test
+**Duration:** ~1 minute  
+**What it does:** LFS + clone + install + test  
+**Issues?** See [COLAB_COMPLETE_SETUP_GUIDE.md](COLAB_COMPLETE_SETUP_GUIDE.md)
 
 </td>
 <td width="50%" valign="top">
