@@ -12,7 +12,8 @@
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
 **Latest Release:** v2.0.0 (2025-10-28) - Theory of Everything Release  
-**Authors:** Carmen Wrede & Lino Casu
+**Authors:** Carmen Wrede & Lino Casu  
+**New:** Auto-venv activation | 12 smoke tests | Colab verified | [→ Today's Work](TODAYS_WORK_2025-10-28_COMPLETE.md)
 
 > **📊 [→ SESSION ANALYSIS & COMPLETION REPORT](SESSION_ANALYSIS_2025-10-28.md)** - Complete session timeline, validation results, technical improvements, and publication-ready status assessment
 
@@ -98,9 +99,13 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 **First steps after install:**
 ```bash
-# Activate environment
-source .venv/bin/activate  # Linux/macOS
-.\.venv\Scripts\activate   # Windows
+# Environment auto-activates after install! ✨
+# (Or manually: source .venv/bin/activate on Linux/macOS)
+# (Or manually: .\.venv\Scripts\activate on Windows)
+
+# Quick smoke tests (12 tests, ~10 seconds)
+python smoke_test_all.py
+# Expected: "12/12 passed (100%)"
 
 # Run ESO validation (97.9%)
 python perfect_paired_test.py
