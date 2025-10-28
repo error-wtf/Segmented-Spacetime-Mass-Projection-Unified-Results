@@ -56,12 +56,17 @@ Write-Host "INSTALLATION COMPLETE" -ForegroundColor Cyan
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Available Commands:" -ForegroundColor Yellow
+Write-Host "  python run_all_validations.py          # MASTER: All 161 tests (5 pipelines, ~15-20 min)" -ForegroundColor Green
+Write-Host ""
+Write-Host "Individual Pipelines:" -ForegroundColor Yellow
+Write-Host "  python run_full_suite.py               # Original 116 tests (~2-3 min)" -ForegroundColor White
 Write-Host "  python run_ssz_validation.py           # SSZ vs GR (6 steps, ~2 min)" -ForegroundColor White
 Write-Host "  python run_ssz_theory_validation.py    # Theory validation (10 steps, ~2 min)" -ForegroundColor White
 Write-Host "  python run_ssz_unified_validation.py   # Unified ToE proof (11 steps, ~2 min)" -ForegroundColor White
-Write-Host "  python run_complete_test_suite.py      # All tests (~18 scripts, ~5-10 min)" -ForegroundColor White
+Write-Host "  python run_complete_test_suite.py      # Complete test suite (~18 scripts, ~5-10 min)" -ForegroundColor White
 Write-Host ""
-Write-Host "Total: 4 pipelines, 45+ validations, 83.3% ToE consistency score" -ForegroundColor Cyan
+Write-Host "Total: 161 tests (116 original + 45 ToE) across 5 pipelines" -ForegroundColor Cyan
+Write-Host "ToE Consistency Score: 83.3% | ESO Validation: 97.9%" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Documentation:" -ForegroundColor Yellow
 Write-Host "  README.md                              # Overview" -ForegroundColor White
