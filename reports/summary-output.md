@@ -1,41 +1,41 @@
 # SSZ Suite - Summary Output
 
-**Generated:** 2025-10-28 07:18:13
+**Generated:** 2025-10-28 09:14:06
 
 ---
 
 ## Test Results Summary
 
 - **Total Test Suites:** 22
-- **Passed:** 22
-- **Failed:** 0
-- **Success Rate:** 100.0%
-- **Total Test Time:** 205.9s
-- **Total Suite Time:** 252.6s
+- **Passed:** 20
+- **Failed:** 2
+- **Success Rate:** 90.9%
+- **Total Test Time:** 149.3s
+- **Total Suite Time:** 196.5s
 
 ## Test Details
 
 - ✅ **PPN Exact Tests** (0.1s)
 - ✅ **Dual Velocity Tests** (0.2s)
-- ✅ **Energy Conditions Tests** (0.2s)
-- ✅ **C1 Segments Tests** (0.2s)
-- ✅ **C2 Segments Strict Tests** (0.2s)
-- ✅ **C2 Curvature Proxy Tests** (0.2s)
-- ✅ **SegWave Core Math Tests** (9.5s)
-- ✅ **Multi-Ring Validation Tests** (6.7s)
-- ✅ **SSZ Kernel Tests** (8.7s)
-- ✅ **SSZ Invariants Tests** (9.9s)
-- ✅ **Segmenter Tests** (6.8s)
-- ✅ **Cosmo Fields Tests** (6.1s)
-- ✅ **Cosmo Multibody Tests** (8.7s)
-- ✅ **Cosmos Multi-Body Sigma Tests** (8.5s)
-- ✅ **SSZ Complete Analysis** (119.1s)
-- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.6s)
-- ✅ **Perfect Paired Test (All Findings Framework)** (3.8s)
-- ✅ **SSZ Theory Predictions** (3.4s)
-- ✅ **G79 Analysis** (3.0s)
+- ✅ **Energy Conditions Tests** (0.1s)
+- ✅ **C1 Segments Tests** (0.1s)
+- ✅ **C2 Segments Strict Tests** (0.1s)
+- ✅ **C2 Curvature Proxy Tests** (0.1s)
+- ❌ **SegWave Core Math Tests** (5.3s)
+- ✅ **Multi-Ring Validation Tests** (6.6s)
+- ✅ **SSZ Kernel Tests** (6.6s)
+- ✅ **SSZ Invariants Tests** (6.7s)
+- ✅ **Segmenter Tests** (6.4s)
+- ✅ **Cosmo Fields Tests** (6.5s)
+- ✅ **Cosmo Multibody Tests** (8.4s)
+- ❌ **Cosmos Multi-Body Sigma Tests** (6.3s)
+- ✅ **SSZ Complete Analysis** (75.9s)
+- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (2.1s)
+- ✅ **Perfect Paired Test (All Findings Framework)** (3.9s)
+- ✅ **SSZ Theory Predictions** (3.0s)
+- ✅ **G79 Analysis** (2.8s)
 - ✅ **Cygnus X Analysis** (3.0s)
-- ✅ **Paper Export Tools** (5.7s)
+- ✅ **Paper Export Tools** (4.8s)
 - ✅ **Final Validation** (0.2s)
 
 ---
