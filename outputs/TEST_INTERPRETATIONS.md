@@ -1,6 +1,6 @@
 # SSZ Test Suite - Scientific Interpretations
 
-**Generated:** 2025-10-28 10:28:43
+**Generated:** 2025-10-28 15:46:04
 
 This report compiles all scientific interpretations extracted from test outputs.
 
@@ -23,22 +23,6 @@ EXTEND ALL TESTS WITH PHYSICAL INTERPRETATIONS
 ```
 Numerically fine demo, corrected interpretation. With partial coupling (or
 constant alpha), the check aligns with observations and remains non-circular.
-
-```
-
----
-
-### ssz_blackhole_bomb_template.py
-
-```
-PHYSIKALISCHE INTERPRETATION:
---------------------------------------------------------------------------------
-- Phi-Grenze bei r = 1.618 r_s ist fundamental (Goldener Schnitt!)
-- Photonen-Sphaere bei r = 1.5 r_s (instabile Licht-Orbits)
-- ISCO bei r = 3 r_s (innermost stable circular orbit)
-- Segment-Dichte N(r) ~ Phi*(r_s/r)^2 aus Phi-Spirale
-- Zeitdilatation tau -> unendlich am Event Horizon
-================================================================================
 
 ```
 
@@ -109,19 +93,6 @@ Physical Interpretation:
 
 ---
 
-### test_theory_predictions_cross_platform.py
-
-```
-Physical Interpretation:
-  • Finite horizon radius (not point singularity)
-  • Well-defined surface area at characteristic scale
-  • φ-based geometric structure (4φ spiral turns)
-================================================================================
-
-```
-
----
-
 ### test_vfall_duality.py
 
 ```
@@ -140,7 +111,7 @@ Physical Interpretation:
 ```
   Physical interpretations: 0
   Average doc score: 72.0
-  Doc files: 42
+  Doc files: 44
 
 ```
 
@@ -177,7 +148,7 @@ Physical Interpretation:
 ---
 
 
-**Total Interpretations:** 13
+**Total Interpretations:** 11
 
 ---
 

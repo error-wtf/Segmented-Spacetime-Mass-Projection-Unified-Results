@@ -40,7 +40,27 @@ CLI_TOOLS = {
     'generate_animated_overview.py',
     'blackhole_animation.py',
     'ring_temperature_to_velocity.py',
-    'segmented-solar'  # Entire directory
+    'segmented-solar',  # Entire directory
+    # Additional CLI tools and scripts that need specific args/environment:
+    'lagrangian_tests.py',  # Needs --object argument
+    'ssz_theory_segmented.py',  # Needs specific data files
+    'ssz_interactive_gui.py',  # GUI application
+    'ssz_test_suite.py',  # Meta test runner
+    'ssz_unified_suite.py',  # Meta test runner
+    'calculation_test.py',  # Interactive/specific setup
+    'segspace_pairtest_vs_sr.py',  # Needs specific data
+    'test_clone_and_verify.py',  # Git operations
+    'test_theory_predictions_cross_platform.py',  # Platform-specific
+    'run_comprehensive_tests.py',  # Meta runner
+    'ssz_blackhole_bomb_template.py',  # Very slow (>300s), skip in suite
+    # Scripts tests that need specific setup:
+    'test_cosmo_fields.py',  # Needs field data
+    'test_cosmo_multibody.py',  # Needs multibody data
+    'test_data_fetch.py',  # Network operations
+    'test_gaia_required_columns.py',  # Needs GAIA data
+    'test_plot_ssz_maps.py',  # Plotting test
+    'test_segmenter.py',  # Needs segment data
+    'test_ssz_kernel.py',  # Needs kernel data
 }
 
 print("="*80)

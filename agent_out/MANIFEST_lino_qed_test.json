@@ -1,6 +1,6 @@
 {
   "script": "lino_qed_test.py",
-  "timestamp": "2025-10-28T09:22:38Z",
+  "timestamp": "2025-10-28T14:43:48Z",
   "args": {
     "f_emit": "138394255537000.0",
     "f_obs": "134920458147000.0",

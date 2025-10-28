@@ -1,6 +1,6 @@
 # SSZ vs GR Validation Summary
 
-**Generated:** 2025-10-28 10:28:42
+**Generated:** 2025-10-28 15:46:03
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -162,7 +162,7 @@ All results generated from:
 - `gr_ssz_sensitivity_map.png` - Parameter heatmap
 
 ### Total Size
-~12.1 MB
+~12.0 MB
 
 ---
 

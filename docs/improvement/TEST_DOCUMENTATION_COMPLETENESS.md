@@ -1,8 +1,8 @@
 # Test Documentation Completeness Report
 
-**Generated:** 2025-10-28 10:27:53
+**Generated:** 2025-10-28 15:45:41
 **Test Files Analyzed:** 20
-**Test Docs Analyzed:** 42
+**Test Docs Analyzed:** 44
 
 ---
 
@@ -41,10 +41,10 @@
 
 ## 📄 Test Documentation Files
 
-- **Total Doc Files:** 42
-- **Test Lists:** 52
-- **Results Sections:** 319
-- **Physics Explanations:** 765
+- **Total Doc Files:** 44
+- **Test Lists:** 60
+- **Results Sections:** 324
+- **Physics Explanations:** 767
 
 ### Documentation Files
 
@@ -58,8 +58,10 @@
 - **HAWKING_SPECTRUM_TEST_INTERPRETATION.md** (5.2 KB) - 4 tests listed
 - **HAWKING_TOOLKIT_PLATFORM_TEST.md** (8.9 KB) - 0 tests listed
 - **HOW_TO_UPDATE_PAIRED_TEST_ANALYSIS.md** (14.6 KB) - 0 tests listed
+- **IMPORTANT_TEST_ARCHITECTURE.md** (7.0 KB) - 2 tests listed
 - **INSTALL_TEST_CHANGES_SUMMARY.md** (7.5 KB) - 0 tests listed
 - **INSTALL_TEST_SIMPLIFICATION_PROPOSAL.md** (8.8 KB) - 1 tests listed
+- **LINUX_TEST_FAILURE_ANALYSIS.md** (4.8 KB) - 6 tests listed
 - **LINUX_TEST_PLAN.md** (13.3 KB) - 0 tests listed
 - **PAIRED_TEST_ANALYSIS_COMPLETE.md** (78.4 KB) - 0 tests listed
 - **PAIRED_TEST_FAILURE_ANALYSIS.md** (5.6 KB) - 1 tests listed

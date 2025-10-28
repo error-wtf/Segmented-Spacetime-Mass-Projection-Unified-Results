@@ -1331,6 +1331,222 @@
       "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
       "sha256": "55f4c0c697033468dd0b18917dd33b9a977c6774260ac7f0dc5b3855bd71d5b4",
       "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "32c3805ddbffb4cd3718d47bb4194393c523e6022a3206808952ef7ac0d53fb1",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "8b1ec404005b84ed891e77586a0ea4c938809f92c21f5381a86029e344275918",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "309caca72e8194bc9e162dcf6d7b26c78b0356d3b1a7f5550f353e9e77971544",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "1c8a1f7b6d7fa82b70b22217cd25d310206ff1d50832237fadf377effa6ee776",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "f168d65157a38a0dc00ddb13ad9b575e9fa2b33b1b258667234e29c3bec1315d",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "1b3fd5ea86dd4931c8c65e5eb4ab48872708a6b4f16445e21ddc0b4d3e5a7159",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "39bc010ad6204677d96e8368114083cdfc752b7854450bf569333672831f929f",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "a306364b7776471188da900b967215afce18a3035a26833f05e9e60a40376296",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "beacc6b5be8418ca57d07c8c4af1c5472614126341398ba31da9e4e387db9144",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "98bfff616705dba8a0d51562abbc726804b8f1ce1906826b1b277b661fa513a9",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "e8726c49d7562e8eba62c6994eb6e4cb98c52fc059d68d8b708846d9333bba88",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "8bc337ba66870db1883e5ea4917e1cf225152b5890584b1298574f01d6ddd9fb",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "200b98e7d4b2329b65816796bfe094d41b710ae2cc2979953586d6158fc5a7f5",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "768dd5a12dbc9a9ac9ef8ce7037e7c114fd48b7642e6a8846bdb63da0559a308",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "b19e9c6818bad8bb74fde62dc42b401a145cd3002dd38b0fd5f1960763b619d0",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "5f008c60d145aec85ece33b877a8bcf7596f33e5582ea7ecbadbd6596f46b738",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "a19e0243b8c6ad1fdef18cbe93038dd4f5531c3f554ddd3f3c66d96a6260cc02",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "d9a8f1ff87e1609499a09f9861b7b91fe0e9e1334ba9386a96070029da3ae4a2",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "0abb251d91ede1886610141a63f000055b661ff42ef0cc04498df6e28aacc243",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "2edf8ea61a9c368b13bd07e520f18a108877a2a69483ab6a1944a960a7b09778",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "d6cfa97a9580606b399faf8fd6b1e77c519ca176e9b27bda3e3576e613fffd5c",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "4857938aafede1eef870c19885eba310d16988ed7a6bedb892a6bc9987c2ed84",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "0ab554dc6bc4e749c5a90e9b85dc6af03e360cfb4363d4dfffc03ad1631fb2ec",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "3a91a9ffa513e22c83dbfbbdd69a07fd9405be5d76ba8fca43cdeb9f7e16f298",
+      "format": "svg"
     }
   ],
   "figure_index": "reports/figures/FIGURE_INDEX.md"
