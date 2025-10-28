@@ -1,0 +1,32 @@
+# Google Colab Compatible Requirements
+# Use this in Colab instead of requirements.txt
+#
+# Colab pre-installs: numpy, scipy, matplotlib, pandas, requests
+# We only install packages NOT pre-installed in Colab
+
+# Astronomy & Physics
+astropy>=5.3.0
+astroquery>=0.4.6
+
+# Visualization
+plotly>=5.14.0
+dash>=2.14.0
+
+# Data formats
+pyarrow>=12.0.0
+h5py>=3.8.0
+
+# Testing
+pytest>=7.4.0
+pytest-timeout>=2.1.0
+
+# Utilities
+tqdm>=4.65.0
+pyyaml>=6.0
+
+# Note: The following are pre-installed in Colab and should NOT be reinstalled:
+# - numpy (1.25.x)
+# - scipy (1.11.x)
+# - matplotlib (3.7.x)
+# - pandas (2.0.x)
+# - requests (2.31.0) ← Pinned by google-colab, do not upgrade!

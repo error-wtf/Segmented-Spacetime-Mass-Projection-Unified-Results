@@ -65,18 +65,29 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 <tr>
 <td width="50%">
 
-### 🌐 Zero Installation (Cloud)
+### 🌐 Google Colab (Zero Install)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Complete_Analysis_Colab.ipynb)
+**Click to run:**  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/notebooks/SSZ_Quick_Demo.ipynb)
 
-**Run in browser:**
-1. Click badge above
-2. `Runtime` → `Run all` 
-3. Wait ~15-20 minutes
-4. ✅ Results ready (ESO 97.9% + ToE 83.3%)
+**Or manual setup:**
+```python
+# Clone repository
+!git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+%cd Segmented-Spacetime-Mass-Projection-Unified-Results
+
+# Install Colab-compatible requirements
+!pip install -q -r requirements-colab.txt
+
+# Run smoke tests
+!python smoke_test_all.py
+```
+
+**Duration:** ~30 seconds  
+**What it does:** Clone + install + test
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 💻 Local Installation
 
