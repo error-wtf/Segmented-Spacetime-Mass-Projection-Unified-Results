@@ -99,9 +99,13 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 source .venv/bin/activate  # Linux/macOS
 .\.venv\Scripts\activate   # Windows
 
-# Run quick validation
+# Run ESO validation (97.9%)
 python perfect_paired_test.py
 # Expected: "SEG wins: 46/47 (97.9%)"
+
+# Run complete ToE validation (83.3%)
+python run_all_validations.py
+# Duration: ~10-15 min, validates all 4 pipelines
 
 # Generate plots
 python generate_key_plots.py
@@ -214,6 +218,13 @@ python perfect_paired_test.py
 **4 Complete Validation Systems (45+ Tests, 83.3% Consistency Score):**
 
 ```bash
+# Run ALL 4 pipelines sequentially (recommended)
+python run_all_validations.py
+# Duration: ~10-15 minutes
+# Generates unified summary report
+
+# Or run individual pipelines:
+
 # Pipeline 1: SSZ vs GR (6 steps, ~2 min)
 python run_ssz_validation.py
 
@@ -431,10 +442,13 @@ SSZ-rings --help
 source .venv/bin/activate  # Linux/macOS
 .\.venv\Scripts\activate   # Windows
 
-# Complete suite (~2-3 minutes)
+# Complete suite (~2-3 minutes) - Original 116 tests
 python run_full_suite.py
 
-# ToE Validation Pipelines (~2 min each)
+# Complete ToE Validation - ALL 4 pipelines (~10-15 min)
+python run_all_validations.py           # Recommended: Runs all 4 sequentially
+
+# Or run ToE pipelines individually (~2 min each):
 python run_ssz_unified_validation.py     # 11-step complete ToE proof
 python run_ssz_theory_validation.py      # 10-step theory validation
 python run_ssz_validation.py             # 6-step SSZ vs GR
