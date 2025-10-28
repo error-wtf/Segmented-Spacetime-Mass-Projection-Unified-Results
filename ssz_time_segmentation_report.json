@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-10-28T03:35:59.029275",
+  "parameters": {
+    "phi": 1.618033988749895,
+    "xi_max": 1.0,
+    "r_max": 5.0,
+    "samples": 200,
+    "duration_seconds": 10,
+    "fps": 20,
+    "total_frames": 200
+  },
+  "physics": {
+    "xi_range": [
+      0.0,
+      0.8017118471377938
+    ],
+    "delta_t_range": [
+      0.5550277096687818,
+      1.0
+    ],
+    "omega_range": [
+      0.8980536989420976,
+      1.618033988749895
+    ],
+    "time_slowdown_factor": 1.8017118471377938
+  },
+  "outputs": {
+    "gif_original": {
+      "file": "d:\\ssz_kruemung\\ssz_time_segmentation.gif",
+      "size_mb": 1.2309131622314453,
+      "exists": true
+    },
+    "gif_enhanced": {
+      "file": "d:\\ssz_kruemung\\ssz_time_segmentation_enhanced.gif",
+      "size_mb": 11.09753131866455,
+      "exists": true
+    }
+  },
+  "captions": [
+    {
+      "time": 0,
+      "text": "At low gravity, segment density is sparse \u2014 time flows fast."
+    },
+    {
+      "time": 3,
+      "text": "As gravity increases, segments compress \u2014 \u0394t increases."
+    },
+    {
+      "time": 6,
+      "text": "Time slows down, not by stretching space, but by resonance delay."
+    },
+    {
+      "time": 9,
+      "text": "At \u039e_max, local time reaches \u03c6-saturation \u2014 no further compression."
+    }
+  ],
+  "status": "PASSED"
+}

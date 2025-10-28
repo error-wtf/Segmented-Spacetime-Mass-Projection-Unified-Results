@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-10-28T03:50:27.451747",
+  "stable_params": {
+    "K": 32,
+    "lambda_A": 0.0006,
+    "lambda_crit": 0.0009765625,
+    "ratio": 0.6144,
+    "delta_t_range": [
+      0.5358967003091489,
+      1.04425851509165
+    ],
+    "status": "STABLE (\u03bb < \u03bb_crit)"
+  },
+  "unstable_params": {
+    "K": 16,
+    "lambda_A": 0.02,
+    "lambda_crit": 0.00390625,
+    "ratio": 5.12,
+    "delta_t_range": [
+      -0.19360357941989936,
+      1.412855737397748
+    ],
+    "status": "UNSTABLE (\u03bb > \u03bb_crit)"
+  },
+  "chaos_metrics": {
+    "stable_variance": 0.013749288148544026,
+    "unstable_variance": 0.0731079336463256,
+    "variance_ratio": 5.317215906488027
+  },
+  "output": {
+    "file": "d:\\ssz_kruemung\\ssz_time_chaos.gif",
+    "size_mb": 3.8989267349243164,
+    "duration_s": 12,
+    "fps": 20,
+    "frames": 240
+  },
+  "status": "PASSED"
+}

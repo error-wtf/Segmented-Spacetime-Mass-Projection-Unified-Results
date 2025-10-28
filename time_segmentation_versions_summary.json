@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-10-28T03:38:36.684928",
+  "base_animation": "ssz_time_segmentation",
+  "versions": {
+    "original": {
+      "file": "ssz_time_segmentation_enhanced.gif",
+      "duration_s": 9.85,
+      "frames": 197,
+      "fps": 20,
+      "size_mb": 11.1
+    },
+    "preview_5s": {
+      "file": "ssz_time_segmentation_5s.gif",
+      "duration_s": 5.0,
+      "frames": 100,
+      "fps": 20,
+      "size_mb": 5.39
+    },
+    "repeat_30s": {
+      "file": "ssz_time_segmentation_30s_repeat.gif",
+      "duration_s": 29.55,
+      "frames": 591,
+      "fps": 20,
+      "size_mb": 33.29
+    },
+    "slow_30s": {
+      "file": "ssz_time_segmentation_30s_slow.gif",
+      "duration_s": 32.8,
+      "frames": 197,
+      "fps": 6,
+      "size_mb": 11.1
+    }
+  },
+  "status": "COMPLETE"
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-10-28T03:59:56.626512",
+  "animation": "ssz_time_vs_stability",
+  "versions": {
+    "original": {
+      "file": "ssz_time_vs_stability.gif",
+      "duration_s": 15,
+      "size_mb": 1.77
+    },
+    "preview_5s": {
+      "file": "ssz_time_vs_stability_5s.gif",
+      "duration_s": 5,
+      "size_mb": 7.22
+    },
+    "repeat_30s": {
+      "file": "ssz_time_vs_stability_30s_repeat.gif",
+      "duration_s": 16.1,
+      "size_mb": 23.23
+    },
+    "slow_30s": {
+      "file": "ssz_time_vs_stability_30s_slow.gif",
+      "duration_s": 25.1,
+      "size_mb": 11.62
+    }
+  },
+  "status": "COMPLETE"
+}

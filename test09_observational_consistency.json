@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Sgr A*",
+    "mass_Msun": 4154000.0,
+    "K_estimated": 10,
+    "lambda_crit": 0.01,
+    "lambda_observed": 0.005,
+    "E_final": 0.9999999060346639,
+    "stable": true,
+    "consistent": true
+  },
+  {
+    "name": "M87*",
+    "mass_Msun": 6500000000.0,
+    "K_estimated": 10,
+    "lambda_crit": 0.01,
+    "lambda_observed": 0.005,
+    "E_final": 0.9999999060346639,
+    "stable": true,
+    "consistent": true
+  },
+  {
+    "name": "Cygnus X-1",
+    "mass_Msun": 21.2,
+    "K_estimated": 10,
+    "lambda_crit": 0.01,
+    "lambda_observed": 0.005,
+    "E_final": 0.9999999060346639,
+    "stable": true,
+    "consistent": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-10-28T03:57:32.374065",
+  "input_files": {
+    "time_report": "d:\\ssz_kruemung\\ssz_time_segmentation_report.json",
+    "stability_report": "d:\\ssz_kruemung\\test05_time_evolution.json"
+  },
+  "physics_parameters": {
+    "phi": 1.618033988749895,
+    "xi_max": 1.0,
+    "r_max": 5.0,
+    "slowdown_factor": 1.8017118471377938
+  },
+  "stability_parameters": {
+    "K_stable": [
+      32,
+      64,
+      100
+    ],
+    "lambda_stable": [
+      0.0006,
+      0.0002,
+      0.0001
+    ],
+    "K_unstable": [
+      16,
+      32,
+      50
+    ],
+    "lambda_unstable": [
+      0.02,
+      0.005,
+      0.001
+    ]
+  },
+  "output": {
+    "file": "d:\\ssz_kruemung\\ssz_time_vs_stability.gif",
+    "size_mb": 1.7740659713745117,
+    "duration_s": 15,
+    "fps": 25,
+    "frames": 375
+  },
+  "correlations": {
+    "time_slowdown_vs_segmentation": "\u0394t \u221d 1/(1 + \u039e)",
+    "stability_threshold": "\u03bb_A < 1/K\u00b2",
+    "physical_link": "High \u039e \u2192 slow time; \u03bb_A > \u03bb_crit \u2192 time coherence breaks"
+  },
+  "status": "PASSED"
+}

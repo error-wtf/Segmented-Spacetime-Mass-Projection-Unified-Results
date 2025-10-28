@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-10-28T02:47:48.350245",
+  "trim_duration_seconds": 5,
+  "fps": 20,
+  "expected_frames": 100,
+  "checks": [
+    {
+      "test": "Trimmed GIF exists",
+      "expected": "d:\\ssz_kruemung\\ssz_stability_preview_0to5s.gif",
+      "passed": true
+    },
+    {
+      "test": "Frame count correct",
+      "expected": 100,
+      "actual": 100,
+      "passed": true
+    },
+    {
+      "test": "Duration correct",
+      "expected": 5,
+      "actual": 5.0,
+      "passed": true
+    }
+  ],
+  "status": "PASSED"
+}

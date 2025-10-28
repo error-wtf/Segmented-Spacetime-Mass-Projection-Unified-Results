@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-10-28T03:53:18.247287",
+  "animation": "ssz_time_chaos",
+  "versions": {
+    "original": {
+      "file": "ssz_time_chaos.gif",
+      "duration_s": 12,
+      "size_mb": 3.9
+    },
+    "preview_5s": {
+      "file": "ssz_time_chaos_5s.gif",
+      "duration_s": 5,
+      "size_mb": 6.9
+    },
+    "repeat_30s": {
+      "file": "ssz_time_chaos_30s_repeat.gif",
+      "duration_s": 36,
+      "size_mb": 49.74
+    },
+    "slow_30s": {
+      "file": "ssz_time_chaos_30s_slow.gif",
+      "duration_s": 40.0,
+      "size_mb": 16.58
+    }
+  },
+  "status": "COMPLETE"
+}

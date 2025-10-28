@@ -1,0 +1,127 @@
+[
+  {
+    "Name": "MANIFEST.json",
+    "Length": 0,
+    "LastWriteTime": "2025-10-28T01:21:46.4641219+01:00"
+  },
+  {
+    "Name": "QUICK_REFERENCE.md",
+    "Length": 2722,
+    "LastWriteTime": "2025-10-28T00:55:20.3988081+01:00"
+  },
+  {
+    "Name": "README_COMPLETE.md",
+    "Length": 10553,
+    "LastWriteTime": "2025-10-28T01:21:23.6331857+01:00"
+  },
+  {
+    "Name": "README_FIGURES.md",
+    "Length": 7233,
+    "LastWriteTime": "2025-10-28T00:53:37.7913563+01:00"
+  },
+  {
+    "Name": "SSZ_BLACK_HOLE_STABILITY_ANALYSIS.md",
+    "Length": 10144,
+    "LastWriteTime": "2025-10-28T00:52:04.1023334+01:00"
+  },
+  {
+    "Name": "ssz_bomb_evolution.gif",
+    "Length": 1302239,
+    "LastWriteTime": "2025-10-28T01:16:47.43857+01:00"
+  },
+  {
+    "Name": "ssz_complete_tests.py",
+    "Length": 19325,
+    "LastWriteTime": "2025-10-28T01:19:26.9607072+01:00"
+  },
+  {
+    "Name": "ssz_formal_fig_energy_series.png",
+    "Length": 311732,
+    "LastWriteTime": "2025-10-28T01:15:51.8541585+01:00"
+  },
+  {
+    "Name": "ssz_formal_fig_stability_map.png",
+    "Length": 356756,
+    "LastWriteTime": "2025-10-28T01:15:50.5399881+01:00"
+  },
+  {
+    "Name": "ssz_formal_fig_Xi_Rproxy.png",
+    "Length": 188620,
+    "LastWriteTime": "2025-10-28T01:15:49.2234628+01:00"
+  },
+  {
+    "Name": "ssz_stability_animation.py",
+    "Length": 4821,
+    "LastWriteTime": "2025-10-28T00:52:36.4026328+01:00"
+  },
+  {
+    "Name": "SSZ_STABILITY_COMPLETE_SUMMARY.md",
+    "Length": 8624,
+    "LastWriteTime": "2025-10-28T00:54:52.5951167+01:00"
+  },
+  {
+    "Name": "ssz_stability_three_figures.py",
+    "Length": 7090,
+    "LastWriteTime": "2025-10-28T00:50:19.6026551+01:00"
+  },
+  {
+    "Name": "TEST_SUMMARY.json",
+    "Length": 172,
+    "LastWriteTime": "2025-10-28T01:19:46.036172+01:00"
+  },
+  {
+    "Name": "test02_parameter_sweeps.json",
+    "Length": 1313,
+    "LastWriteTime": "2025-10-28T01:19:44.8368285+01:00"
+  },
+  {
+    "Name": "test03_stability_boundaries.json",
+    "Length": 774,
+    "LastWriteTime": "2025-10-28T01:19:44.87932+01:00"
+  },
+  {
+    "Name": "test04_golden_ratio.json",
+    "Length": 203,
+    "LastWriteTime": "2025-10-28T01:19:44.8803286+01:00"
+  },
+  {
+    "Name": "test05_time_evolution.json",
+    "Length": 438,
+    "LastWriteTime": "2025-10-28T01:19:44.8823472+01:00"
+  },
+  {
+    "Name": "test06a_R_proxy_detail.png",
+    "Length": 80023,
+    "LastWriteTime": "2025-10-28T01:19:45.2498819+01:00"
+  },
+  {
+    "Name": "test06b_energy_comparison.png",
+    "Length": 100294,
+    "LastWriteTime": "2025-10-28T01:19:45.8073334+01:00"
+  },
+  {
+    "Name": "test07_statistical_analysis.json",
+    "Length": 242,
+    "LastWriteTime": "2025-10-28T01:19:45.9848475+01:00"
+  },
+  {
+    "Name": "test08_convergence.json",
+    "Length": 195,
+    "LastWriteTime": "2025-10-28T01:19:45.9976905+01:00"
+  },
+  {
+    "Name": "test09_observational_consistency.json",
+    "Length": 678,
+    "LastWriteTime": "2025-10-28T01:19:46.0012087+01:00"
+  },
+  {
+    "Name": "test10_complete_dataset.csv",
+    "Length": 4792,
+    "LastWriteTime": "2025-10-28T01:19:46.0300923+01:00"
+  },
+  {
+    "Name": "test10_complete_dataset.json",
+    "Length": 14361,
+    "LastWriteTime": "2025-10-28T01:19:46.0346547+01:00"
+  }
+]

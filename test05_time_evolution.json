@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Stable",
+    "K": 32,
+    "lambda": 0.0006,
+    "E_final": 1.0,
+    "E_max": 1.0,
+    "time_to_2x": null,
+    "time_to_saturation": null,
+    "growth_rate": 0.0
+  },
+  {
+    "name": "Unstable",
+    "K": 16,
+    "lambda": 0.02,
+    "E_final": 4.90627049548997e-38,
+    "E_max": 0.9999999999942886,
+    "time_to_2x": null,
+    "time_to_saturation": null,
+    "growth_rate": -0.08240000000000003
+  }
+]

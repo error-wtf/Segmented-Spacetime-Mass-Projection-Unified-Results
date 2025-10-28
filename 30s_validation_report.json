@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-10-28T02:52:07.516916",
+  "target_duration_seconds": 30,
+  "methods": [
+    {
+      "method": "3\u00d7 repeat",
+      "file": "d:\\ssz_kruemung\\ssz_stability_30s_repeat.gif",
+      "size_mb": 114.92,
+      "frames": 564,
+      "expected_frames": 600,
+      "duration_seconds": 28.2,
+      "fps": 20,
+      "validation": {
+        "exists": true,
+        "duration_correct": false
+      }
+    },
+    {
+      "method": "slow motion",
+      "file": "d:\\ssz_kruemung\\ssz_stability_30s_slow.gif",
+      "size_mb": 38.31,
+      "frames": 188,
+      "expected_frames": 200,
+      "duration_seconds": 31.33,
+      "fps": 6,
+      "validation": {
+        "exists": true,
+        "duration_correct": false
+      }
+    }
+  ],
+  "status": "WARNING"
+}
