@@ -37,8 +37,8 @@ echo "  ✓ Virtual environment activated"
 echo ""
 echo "[4/5] Installing dependencies..."
 pip install --quiet --upgrade pip
-pip install --quiet numpy scipy matplotlib pandas pillow
-echo "  ✓ Installed: numpy, scipy, matplotlib, pandas, pillow"
+pip install --quiet -r requirements.txt
+echo "  ✓ Installed: numpy, scipy, matplotlib, pandas, pillow, pyarrow"
 
 # Run validation
 echo ""

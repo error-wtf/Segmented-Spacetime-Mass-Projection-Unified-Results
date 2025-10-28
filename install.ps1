@@ -36,8 +36,8 @@ Write-Host "  ✓ Virtual environment activated" -ForegroundColor Green
 Write-Host ""
 Write-Host "[4/5] Installing dependencies..." -ForegroundColor Yellow
 pip install --quiet --upgrade pip
-pip install --quiet numpy scipy matplotlib pandas pillow
-Write-Host "  ✓ Installed: numpy, scipy, matplotlib, pandas, pillow" -ForegroundColor Green
+pip install --quiet -r requirements.txt
+Write-Host "  ✓ Installed: numpy, scipy, matplotlib, pandas, pillow, pyarrow" -ForegroundColor Green
 
 # Run validation
 Write-Host ""
