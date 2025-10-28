@@ -469,6 +469,17 @@ config/secrets.yaml
 *.mov
 *.mkv
 
+# Large GIF animations (>10 MB) - exclude from repo, keep locally
+# These can be regenerated with scripts
+assets/ssz_animations/ssz_scientific*.gif
+assets/ssz_animations/ssz_perfect_demo.gif
+assets/ssz_animations/blackhole_segmented_spacetime.gif
+evidenz-ssz/animations/ssz_scientific*.gif
+evidenz-ssz/animations/ssz_perfect_demo.gif
+evidenz-ssz/animations/blackhole_segmented_spacetime.gif
+media/blackhole_segmented_spacetime.gif
+outputs/gr_ssz_intersection.gif
+
 # Backups
 *_backup/
 backup/
