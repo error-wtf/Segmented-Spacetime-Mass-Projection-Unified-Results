@@ -37,6 +37,15 @@ del /s /q *.pyo 2>nul
 echo   ^> Done
 echo.
 
+REM 5. Delete pytest cache
+echo [5/5] Deleting pytest cache directories...
+for /d /r . %%d in (.pytest_cache) do @if exist "%%d" (
+    echo   ^> Deleting: %%d
+    rd /s /q "%%d" 2>nul
+)
+echo   ^> Done
+echo.
+
 echo ================================================================================
 echo CACHE CLEARED!
 echo ================================================================================

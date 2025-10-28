@@ -29,6 +29,12 @@ find . -type f -name "*.pyo" -delete 2>/dev/null
 echo "  > Done"
 echo ""
 
+# 5. Delete pytest cache
+echo "[5/5] Deleting pytest cache directories..."
+find . -type d -name ".pytest_cache" -exec rm -rf {} + 2>/dev/null
+echo "  > Done"
+echo ""
+
 echo "================================================================================"
 echo "CACHE CLEARED!"
 echo "================================================================================"

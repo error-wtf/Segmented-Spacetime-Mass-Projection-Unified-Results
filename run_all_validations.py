@@ -76,18 +76,19 @@ def main():
     print(f"Python: {sys.version.split()[0]}")
     print(f"Platform: {sys.platform}\n")
     
-    # Define pipelines with custom timeouts (script, description, timeout_seconds)
+    # Define pipelines with custom timeouts and dependencies
+    # Format: (script, description, timeout_seconds, depends_on_previous)
     pipelines = [
-        ("run_full_suite.py", "Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation)", 1200),  # 20 min
-        ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)", 600),  # 10 min
-        ("run_ssz_theory_validation.py", "Theory Validation (10 steps)", 300),  # 5 min
-        ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)", 180),  # 3 min
-        ("run_complete_test_suite.py", "Complete Test Suite (~18 scripts)", 1800)  # 30 min
+        ("run_full_suite.py", "Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation)", 1200, False),  # 20 min - Independent
+        ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)", 600, True),  # 10 min - Depends on full suite
+        ("run_ssz_theory_validation.py", "Theory Validation (10 steps)", 300, True),  # 5 min - Depends on validation
+        ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)", 180, True),  # 3 min - Depends on theory
+        ("run_complete_test_suite.py", "Complete Test Suite (~18 scripts)", 1800, False)  # 30 min - Independent check
     ]
     
     # Check if all scripts exist
     missing = []
-    for script, _, _ in pipelines:
+    for script, _, _, _ in pipelines:  # Now 4 elements: script, desc, timeout, depends
         if not os.path.exists(script):
             missing.append(script)
     
@@ -101,36 +102,66 @@ def main():
     # Run all pipelines
     results = []
     total_start = time.time()
+    previous_success = True  # Track if previous dependent pipeline passed
     
-    for script, description, timeout in pipelines:
+    for i, (script, description, timeout, depends_on_previous) in enumerate(pipelines):
+        # Check if we should skip due to failed dependency
+        if depends_on_previous and not previous_success:
+            print_header(f"Pipeline: {description}")
+            print(f"⏭️  SKIPPED - Previous pipeline failed (dependency not met)\n")
+            results.append({
+                'script': script,
+                'description': description,
+                'success': None,  # None = skipped
+                'duration': 0.0,
+                'timeout': timeout,
+                'skipped': True,
+                'reason': 'Dependency failed'
+            })
+            continue
+        
         success, duration = run_pipeline(script, description, timeout)
         results.append({
             'script': script,
             'description': description,
             'success': success,
             'duration': duration,
-            'timeout': timeout
+            'timeout': timeout,
+            'skipped': False,
+            'reason': None
         })
+        
+        # Update previous_success for next iteration
+        previous_success = success
     
     total_duration = time.time() - total_start
     
     # Print summary
     print_header("VALIDATION SUITE SUMMARY")
     
-    passed = sum(1 for r in results if r['success'])
-    failed = len(results) - passed
+    passed = sum(1 for r in results if r['success'] is True)
+    failed = sum(1 for r in results if r['success'] is False)
+    skipped = sum(1 for r in results if r['success'] is None)
     
     print(f"Total Pipelines: {len(results)}")
     print(f"Passed: {passed}/{len(results)}")
     print(f"Failed: {failed}/{len(results)}")
-    print(f"Success Rate: {(passed/len(results)*100):.1f}%")
+    print(f"Skipped: {skipped}/{len(results)}")
+    if passed + failed > 0:
+        print(f"Success Rate: {(passed/(passed+failed)*100):.1f}% (of executed)")
     print(f"Total Duration: {total_duration:.1f}s ({total_duration/60:.1f} min)\n")
     
     print("Pipeline Results:")
     print("-" * 80)
     for r in results:
-        status = "✅ PASS" if r['success'] else "❌ FAIL"
-        print(f"{status} | {r['duration']:6.1f}s | {r['description']}")
+        if r['success'] is True:
+            status = "✅ PASS"
+        elif r['success'] is False:
+            status = "❌ FAIL"
+        else:
+            status = "⏭️  SKIP"
+        reason = f" ({r['reason']})" if r.get('reason') else ""
+        print(f"{status} | {r['duration']:6.1f}s | {r['description']}{reason}")
     print("-" * 80)
     
     # Test breakdown
@@ -161,15 +192,23 @@ def main():
         f.write(f"- **Total Pipelines:** {len(results)}\n")
         f.write(f"- **Passed:** {passed}/{len(results)}\n")
         f.write(f"- **Failed:** {failed}/{len(results)}\n")
-        f.write(f"- **Success Rate:** {(passed/len(results)*100):.1f}%\n")
+        f.write(f"- **Skipped:** {skipped}/{len(results)}\n")
+        if passed + failed > 0:
+            f.write(f"- **Success Rate:** {(passed/(passed+failed)*100):.1f}% (of executed)\n")
         f.write(f"- **Total Duration:** {total_duration:.1f}s ({total_duration/60:.1f} min)\n\n")
         
         f.write("## Pipeline Results\n\n")
         f.write("| Status | Duration | Pipeline |\n")
         f.write("|--------|----------|----------|\n")
         for r in results:
-            status = "✅ PASS" if r['success'] else "❌ FAIL"
-            f.write(f"| {status} | {r['duration']:.1f}s | {r['description']} |\n")
+            if r['success'] is True:
+                status = "✅ PASS"
+            elif r['success'] is False:
+                status = "❌ FAIL"
+            else:
+                status = "⏭️ SKIP"
+            reason = f" ({r['reason']})" if r.get('reason') else ""
+            f.write(f"| {status} | {r['duration']:.1f}s | {r['description']}{reason} |\n")
         
         f.write("\n## Test Coverage\n\n")
         f.write("- Original Suite: 116 tests (35 physics + 23 technical + 58 validation)\n")
@@ -196,6 +235,12 @@ def main():
     # Exit with appropriate code
     if failed > 0:
         print("\n⚠️  Some pipelines failed. Please review the output above.")
+        if skipped > 0:
+            print(f"   ({skipped} pipeline(s) skipped due to failed dependencies)")
+        sys.exit(1)
+    elif skipped > 0:
+        print(f"\n⚠️  {skipped} pipeline(s) skipped due to failed dependencies.")
+        print("   All executed pipelines passed, but full validation incomplete.")
         sys.exit(1)
     else:
         print("\n🎊 All pipelines completed successfully!")

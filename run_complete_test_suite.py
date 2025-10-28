@@ -53,6 +53,7 @@ CLI_TOOLS = {
     'test_theory_predictions_cross_platform.py',  # Platform-specific
     'run_comprehensive_tests.py',  # Meta runner
     'ssz_blackhole_bomb_template.py',  # Very slow (>300s), skip in suite
+    'ssz_bigbang_vs_ssz_anim.py',  # Animation renderer (slow, needs imageio/ffmpeg)
     # Scripts tests that need specific setup:
     'test_cosmo_fields.py',  # Needs field data
     'test_cosmo_multibody.py',  # Needs multibody data
