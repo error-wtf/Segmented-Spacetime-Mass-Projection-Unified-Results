@@ -1,14 +1,18 @@
 # SSZ Complete Analysis Project
 
+## 🌟 **[→ COMPLETE FINAL REPORT (50 pages)](SSZ_COMPLETE_FINAL_REPORT.md)** 🌟
+
+---
+
 **Segmented Spacetime Theory: Black Holes, Time, Stability, and GR Transition**
 
 © 2025 Carmen Wrede & Lino Casu
 
 ---
 
-## 🌟 START HERE: COMPLETE FINAL REPORT
+## 📘 START HERE: COMPLETE FINAL REPORT
 
-### **📘 [SSZ_COMPLETE_FINAL_REPORT.md](SSZ_COMPLETE_FINAL_REPORT.md)**
+### **[SSZ_COMPLETE_FINAL_REPORT.md](SSZ_COMPLETE_FINAL_REPORT.md)**
 
 **→ 50 pages, 8000 words — THE comprehensive project overview**
 
