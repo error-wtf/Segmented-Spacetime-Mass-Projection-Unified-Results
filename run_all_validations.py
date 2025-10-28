@@ -10,12 +10,20 @@ Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 import os
 import sys
+import io
 import subprocess
 import time
 from datetime import datetime
 
 # UTF-8 setup (Windows compatibility)
 os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except AttributeError:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
 def print_header(text):
     """Print formatted header"""
