@@ -65,10 +65,14 @@
 - **[DATA_IMPROVEMENT_STATUS_REPORT.md](DATA_IMPROVEMENT_STATUS_REPORT.md)** ([🇩🇪 DE](DATA_IMPROVEMENT_STATUS_REPORT.md) | [🇬🇧 EN](DATA_IMPROVEMENT_STATUS_REPORT_EN.md)) - Roadmap status analysis
 - **[TODO_DATA_INTEGRATION.md](TODO_DATA_INTEGRATION.md)** ([🇩🇪 DE](TODO_DATA_INTEGRATION.md) | [🇬🇧 EN](TODO_DATA_INTEGRATION_EN.md)) - Data integration reminder
 
-### 🧪 Testing & Validation
-- **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - **START HERE: Complete tester documentation (30KB)**
+### 🧪 Testing & Validation (Updated for v2.0.0 - 161 Tests)
+- **[../TEST_SUITE_README.md](../TEST_SUITE_README.md)** ⭐ - **NEW ToE Testing Documentation (161 tests: 116 + 45)**
+- **[../run_all_validations.py](../run_all_validations.py)** - **MASTER: Run all 4 ToE pipelines sequentially**
+- **[../outputs/COMPLETE_TEST_SUMMARY.md](../outputs/COMPLETE_TEST_SUMMARY.md)** - Latest test results (all passed)
+- **[../outputs/SSZ_VALIDATION_SUMMARY.md](../outputs/SSZ_VALIDATION_SUMMARY.md)** - SSZ vs GR validation results
+- **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - Complete tester documentation (original 116 tests)
 - **[TEST_SUITE_VERIFICATION.md](TEST_SUITE_VERIFICATION.md)** ([🇩🇪 DE](TEST_SUITE_VERIFICATION.md) | [🇬🇧 EN](TEST_SUITE_VERIFICATION_EN.md)) - Test system verification
-- **[PHYSICS_TESTS_COMPLETE_LIST.md](PHYSICS_TESTS_COMPLETE_LIST.md)** -All 35 physics tests + 2 validation checks
+- **[PHYSICS_TESTS_COMPLETE_LIST.md](PHYSICS_TESTS_COMPLETE_LIST.md)** - All 35 physics tests + 2 validation checks
 - **[SMOKE_TESTS_COMPLETE.md](SMOKE_TESTS_COMPLETE.md)** - Quick health checks (2 smoke tests, ~5 seconds)
 - **[DOUBLE_CHECK_VALIDATION_TESTS.md](DOUBLE_CHECK_VALIDATION_TESTS.md)** - Automatic φ-geometry validation
 - **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Test logging details
@@ -102,10 +106,12 @@
 - **[papers/validation/README.md](papers/validation/README.md)** - Papers overview
 
 ### 💻 Technical Documentation
+- **[../SSZ_Complete_Analysis_Colab.ipynb](../SSZ_Complete_Analysis_Colab.ipynb)** ⭐ **NEW: Zero-install Colab (v2.0.0 - All 161 tests)**
 - **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Complete pipeline guide
-- **[COLAB_README.md](COLAB_README.md)** - Google Colab setup
+- **[COLAB_README.md](COLAB_README.md)** - Google Colab setup (original)
 - **[DATA_FETCHING_README.md](DATA_FETCHING_README.md)** - Data fetching guide
 - **[SUMMARY_PIPELINE_README.md](SUMMARY_PIPELINE_README.md)** - Summary generation
+- **[../install.ps1](../install.ps1)** / **[../install.sh](../install.sh)** - One-click installation (Windows/Linux/Mac)
 
 ### 🔧 Optimization & Future Work
 - **[OPTIMIZATION_ANALYSIS.md](OPTIMIZATION_ANALYSIS.md)** - Script optimization opportunities (r<2 r_s critical issue)
@@ -118,8 +124,11 @@
 - **[FINAL_UPLOAD_SUMMARY.md](FINAL_UPLOAD_SUMMARY.md)** - Upload manifest & verification
 - **[DOCUMENTATION_GAPS_ANALYSIS.md](DOCUMENTATION_GAPS_ANALYSIS.md)** - Completeness check (98%)
 
-### 📝 Release & Changes
-- **[CHANGELOG.md](CHANGELOG.md)** - Release history (v1.3.1 added)
+### 📝 Release & Changes (v2.0.0 - Theory of Everything)
+- **[../CHANGELOG.md](../CHANGELOG.md)** ⭐ - **Release history (v2.0.0 ToE release added - 2025-10-28)**
+- **[../CITATION.cff](../CITATION.cff)** ⭐ - **Software citation file (v2.0.0, academic references)**
+- **[../SSZ_BLACK_HOLE_STABILITY_ANALYSIS.md](../SSZ_BLACK_HOLE_STABILITY_ANALYSIS.md)** - BH stability analysis
+- **[../SSZ_STABILITY_COMPLETE_SUMMARY.md](../SSZ_STABILITY_COMPLETE_SUMMARY.md)** - Stability summary
 - **[GIT_COMMIT_SUMMARY.md](GIT_COMMIT_SUMMARY.md)** - Git commit history
 - **[README_CORRECTIONS_2025-10-19.md](README_CORRECTIONS_2025-10-19.md)** - Recent corrections
 
