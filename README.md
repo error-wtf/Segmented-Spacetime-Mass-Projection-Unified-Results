@@ -56,18 +56,74 @@
 ### Run Complete Analysis (Colab)
 Click the Colab badge above. Runs everything in 10-15 minutes.
 
-### Run Locally
+### Run Locally (Windows)
+```powershell
+# Clone repository
+git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
+cd Segmented-Spacetime-Mass-Projection-Unified-Results
+
+# Install (automated)
+.\install.ps1
+
+# Or manually run validations
+python run_ssz_validation.py          # SSZ vs GR (~2 min)
+python run_ssz_theory_validation.py   # 10-step ToE (~2 min)  
+python run_complete_test_suite.py     # All tests (~5-10 min)
+```
+
+### Run Locally (Linux/Mac)
 ```bash
 # Clone repository
 git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
 cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
-# Run complete validation
-python run_ssz_theory_validation.py  # ~2 minutes
+# Install (automated)
+chmod +x install.sh
+./install.sh
 
-# Or run full test suite
-python run_complete_test_suite.py    # ~5-10 minutes
+# Or manually run validations
+python3 run_ssz_validation.py         # SSZ vs GR (~2 min)
+python3 run_ssz_theory_validation.py  # 10-step ToE (~2 min)
+python3 run_complete_test_suite.py    # All tests (~5-10 min)
 ```
+
+---
+
+## 🧪 Test & Validation Coverage
+
+**3 Complete Validation Pipelines:**
+
+### 1. SSZ vs GR Validation (`run_ssz_validation.py`)
+- **Tests:** 6 validation steps
+- **Duration:** ~2 minutes
+- **Outputs:** 3 plots, 2 CSVs, 2 JSON files, 1 markdown report
+- **Validates:** Universal intersection, NS comparison, parameter sensitivity
+
+### 2. Theory of Everything Validation (`run_ssz_theory_validation.py`)
+- **Tests:** 10 comprehensive steps
+- **Duration:** ~2 minutes
+- **Outputs:** 3 plots, 1 JSON result file
+- **Validates:** All 7 Pillars + ToE extensions
+
+### 3. Complete Test Suite (`run_complete_test_suite.py`)
+- **Tests:** Auto-discovers all Python scripts in repo (~18 files)
+- **Duration:** ~5-10 minutes (depending on discovered tests)
+- **Outputs:** Complete test results JSON, summary MD, interpretations MD
+- **Validates:** Entire codebase consistency
+
+**Total Coverage:**
+- ✅ **6 validation steps** (SSZ vs GR)
+- ✅ **10 theory validation steps** (ToE framework)
+- ✅ **~18 analysis scripts** (auto-discovered)
+- ✅ **34+ total validations** across all pipelines
+
+**Test Types:**
+- Numerical validation (intersection, parameters)
+- Theoretical proofs (stability, emergence)
+- Comparative analysis (SSZ vs GR)
+- Parameter sensitivity (81 combinations)
+- Visualization generation (9+ plots)
+- Scientific interpretation extraction
 
 ---
 
