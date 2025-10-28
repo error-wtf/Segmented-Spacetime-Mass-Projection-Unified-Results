@@ -60,13 +60,24 @@ def redshift_gr(r, M):
     return 1/D - 1
 
 def find_intersection(M, xi_max=1.0, alpha=1.0):
-    """Find r* where SSZ = GR"""
+    """Find r* where SSZ = GR and return detailed results"""
     from scipy.optimize import brentq
     r_s = schwarzschild_rs(M)
     def diff(r):
         return time_dilation_ssz(r, M, xi_max, alpha) - time_dilation_gr(r, M)
     r_star = brentq(diff, r_s * 1.01, r_s * 10)
-    return r_star
+    
+    # Calculate values at intersection
+    r_over_rs = r_star / r_s
+    D_star = time_dilation_ssz(r_star, M, xi_max, alpha)
+    xi_star = xi_exponential(r_star, M, xi_max)
+    
+    return {
+        'r_star': r_star,
+        'r_over_rs': r_over_rs,
+        'D_star': D_star,
+        'xi_star': xi_star
+    }
 
 # Set seeds for reproducibility
 np.random.seed(42)
@@ -129,8 +140,8 @@ with open(OUTPUT_DIR / 'gr_ssz_intersection_summary.json', 'w') as f:
 # Generate detailed CSV
 r_arr = np.linspace(1.05 * rs, 6 * rs, 5001)
 d_gr = time_dilation_gr(r_arr, rs)
-d_ssz = time_dilation_ssz(r_arr, rs, xi_max, phi)
-xi_arr = xi_exponential(r_arr, rs, xi_max, phi)
+d_ssz = time_dilation_ssz(r_arr, rs, xi_max)
+xi_arr = xi_exponential(r_arr, rs, xi_max)
 
 df_intersection = pd.DataFrame({
     'r_over_rs': r_arr / rs,
@@ -153,7 +164,7 @@ print("[2/6] Neutron star comparison (14% effect)...")
 r_ns_arr = np.linspace(1.5 * rs, 5.0 * rs, 5001)
 
 d_gr_ns = time_dilation_gr(r_ns_arr, rs)
-d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max, phi)
+d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max)
 
 # Relative difference
 delta = (d_ssz_ns - d_gr_ns) / d_gr_ns

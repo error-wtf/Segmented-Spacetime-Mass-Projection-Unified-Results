@@ -62,13 +62,24 @@ def time_dilation_gr(r, M):
     return np.sqrt(1 - r_s / r)
 
 def find_intersection(M, xi_max=1.0, alpha=1.0):
-    """Find r* where SSZ = GR"""
+    """Find r* where SSZ = GR and return detailed results"""
     from scipy.optimize import brentq
     r_s = schwarzschild_rs(M)
     def diff(r):
         return time_dilation_ssz(r, M, xi_max, alpha) - time_dilation_gr(r, M)
     r_star = brentq(diff, r_s * 1.01, r_s * 10)
-    return r_star
+    
+    # Calculate values at intersection
+    r_over_rs = r_star / r_s
+    D_star = time_dilation_ssz(r_star, M, xi_max, alpha)
+    xi_star = xi_exponential(r_star, M, xi_max)
+    
+    return {
+        'r_star': r_star,
+        'r_over_rs': r_over_rs,
+        'D_star': D_star,
+        'xi_star': xi_star
+    }
 
 # Output directory
 OUTPUT_DIR = Path('outputs')
@@ -128,13 +139,13 @@ print("[STEP 2/10] Segment Density Saturation")
 print("-" * 80)
 
 r_arr = np.linspace(0.01 * rs, 10 * rs, 1000)
-xi_arr = xi_exponential(r_arr, rs, xi_max, phi)
+xi_arr = xi_exponential(r_arr, rs, xi_max)
 
 xi_max_measured = float(xi_arr.max())
 xi_saturates = xi_max_measured < 1.0
 
 # Time dilation at horizon
-d_horizon = time_dilation_ssz(rs, rs, xi_max, phi)
+d_horizon = time_dilation_ssz(rs, rs, xi_max)
 
 print(f"  Ξ_max = {xi_max} (saturated: {xi_max < 1.0})")
 print(f"  max(Ξ(r)) = {xi_max_measured:.6f}")
@@ -193,8 +204,8 @@ print("[STEP 4/10] Time Emergence from Resonances")
 print("-" * 80)
 
 r_time = np.linspace(1.01 * rs, 10 * rs, 100)
-delta_t = (1 + xi_exponential(r_time, rs, xi_max, phi)) / phi
-omega = phi / (1 + xi_exponential(r_time, rs, xi_max, phi))
+delta_t = (1 + xi_exponential(r_time, rs, xi_max)) / phi
+omega = phi / (1 + xi_exponential(r_time, rs, xi_max))
 
 slowdown_factor = delta_t.max() / delta_t.min()
 
@@ -244,7 +255,7 @@ print("-" * 80)
 
 r_ns = np.linspace(1.5 * rs, 5.0 * rs, 100)
 d_gr_ns = time_dilation_gr(r_ns, rs)
-d_ssz_ns = time_dilation_ssz(r_ns, rs, xi_max, phi)
+d_ssz_ns = time_dilation_ssz(r_ns, rs, xi_max)
 
 delta_ns = (d_ssz_ns - d_gr_ns) / d_gr_ns * 100
 
@@ -304,7 +315,7 @@ print("-" * 80)
 fig, ax = plt.subplots(figsize=(12, 7), dpi=180)
 r_plot = np.linspace(1.05 * rs, 6 * rs, 1000)
 ax.plot(r_plot/rs, time_dilation_gr(r_plot, rs), 'b-', linewidth=2, label='GR')
-ax.plot(r_plot/rs, time_dilation_ssz(r_plot, rs, xi_max, phi), 'r-', linewidth=2, label='SSZ')
+ax.plot(r_plot/rs, time_dilation_ssz(r_plot, rs, xi_max), 'r-', linewidth=2, label='SSZ')
 ax.axvline(r_over_rs, color='green', linestyle='--', alpha=0.5)
 ax.plot(r_over_rs, D_star, 'go', markersize=10, label=f'r*={r_over_rs:.3f}')
 ax.set_xlabel('r / r_s', fontsize=14)
