@@ -31,10 +31,11 @@ def print_header(text):
     print(f"  {text}")
     print("="*80 + "\n")
 
-def run_pipeline(script_name, description):
-    """Run a validation pipeline and return status"""
+def run_pipeline(script_name, description, timeout=600):
+    """Run a validation pipeline with custom timeout and return status"""
     print_header(f"Pipeline: {description}")
     print(f"Script: {script_name}")
+    print(f"Timeout: {timeout}s ({timeout/60:.1f} min)")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     
     start_time = time.time()
@@ -44,7 +45,7 @@ def run_pipeline(script_name, description):
             [sys.executable, script_name],
             encoding='utf-8',
             errors='replace',
-            timeout=600  # 10 minutes max per pipeline
+            timeout=timeout  # Custom timeout per pipeline
         )
         
         duration = time.time() - start_time
@@ -75,18 +76,18 @@ def main():
     print(f"Python: {sys.version.split()[0]}")
     print(f"Platform: {sys.platform}\n")
     
-    # Define pipelines
+    # Define pipelines with custom timeouts (script, description, timeout_seconds)
     pipelines = [
-        ("run_full_suite.py", "Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation)"),
-        ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)"),
-        ("run_ssz_theory_validation.py", "Theory Validation (10 steps)"),
-        ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)"),
-        ("run_complete_test_suite.py", "Complete Test Suite (~18 scripts)")
+        ("run_full_suite.py", "Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation)", 1200),  # 20 min
+        ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)", 600),  # 10 min
+        ("run_ssz_theory_validation.py", "Theory Validation (10 steps)", 300),  # 5 min
+        ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)", 180),  # 3 min
+        ("run_complete_test_suite.py", "Complete Test Suite (~18 scripts)", 1800)  # 30 min
     ]
     
     # Check if all scripts exist
     missing = []
-    for script, _ in pipelines:
+    for script, _, _ in pipelines:
         if not os.path.exists(script):
             missing.append(script)
     
@@ -101,13 +102,14 @@ def main():
     results = []
     total_start = time.time()
     
-    for script, description in pipelines:
-        success, duration = run_pipeline(script, description)
+    for script, description, timeout in pipelines:
+        success, duration = run_pipeline(script, description, timeout)
         results.append({
             'script': script,
             'description': description,
             'success': success,
-            'duration': duration
+            'duration': duration,
+            'timeout': timeout
         })
     
     total_duration = time.time() - total_start
