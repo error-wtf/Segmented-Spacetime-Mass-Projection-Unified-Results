@@ -50,6 +50,7 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 ### Quick Links
 - **[📖 Documentation Index](docs/INDEX.md)** | **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Complete navigation
+- **[❓ FAQ](FAQ.md)** - Frequently Asked Questions (50+ answers)
 - **[📝 Changelog](CHANGELOG.md)** - Version history
 - **[🎯 Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** - 5-page ToE overview
 
@@ -562,6 +563,48 @@ Contributions, suggestions, and collaborations are welcome.
 **Papers (when published):**
 - Wrede & Casu (2025): "Segmented Spacetime: φ-Based Framework" (in prep)
 - Wrede & Casu (2025): "ESO Validation of SSZ Predictions" (in prep)
+
+---
+
+## ❓ FAQ - Frequently Asked Questions
+
+**[→ Complete FAQ](FAQ.md)** - Comprehensive answers to all questions
+
+### Quick Answers
+
+**What is SSZ?**  
+φ-based geometric framework unifying gravity, time, and quantum mechanics.
+
+**Is it tested?**  
+161 automated tests, 100% passing, 97.9% ESO validation, 83.3% ToE consistency.
+
+**How to install?**  
+`./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Complete_Analysis_Colab.ipynb) (zero install)
+
+**Main prediction?**  
+Neutron stars show Δ = -44% time dilation difference vs GR (testable with NICER NOW).
+
+**Why φ?**  
+Geometric necessity from pentagon, not empirical fit. φ = (1+√5)/2 ≈ 1.618.
+
+**Singularities?**  
+Resolved naturally through segment saturation. Finite curvature everywhere.
+
+**License?**  
+Anti-Capitalist Software License v1.4 (free for research/education).
+
+### Common Topics
+
+| Question | Answer | Details |
+|----------|--------|---------|
+| **Installation** | `./install.sh` or Colab | [FAQ: Installation](FAQ.md#installation--setup) |
+| **Running Tests** | `python run_all_validations.py` | [FAQ: Testing](FAQ.md#running-tests--validation) |
+| **Data Sources** | ESO (427 obs), GAIA, Planck | [FAQ: Data](FAQ.md#data--results) |
+| **Citation** | See `CITATION.cff` | [FAQ: Citation](FAQ.md#citation--usage) |
+| **Contributing** | Fork + PR only | [FAQ: Contributing](FAQ.md#contributing--collaboration) |
+| **Troubleshooting** | Check Python 3.10+ | [FAQ: Troubleshooting](FAQ.md#troubleshooting) |
+
+**📖 [Complete FAQ with 50+ Questions →](FAQ.md)**
 
 ---
 
