@@ -213,22 +213,47 @@ After `git pull`, verify:
 git log --oneline -3
 
 # 2. Check pyarrow
-python -c "import pyarrow; print(f'pyarrow {pyarrow.__version__}')"
+python3 -c "import pyarrow; print(f'pyarrow {pyarrow.__version__}')"
 
 # 3. Run individual pipelines to test
-python run_ssz_theory_validation.py
+python3 run_ssz_theory_validation.py
 # Expected: ✅ PASS: Exploratory analysis complete (exit 0)
 
-python run_ssz_unified_validation.py
+python3 run_ssz_unified_validation.py
 # Expected: ✅ Validated: r*/r_s = 1.38656 (exit 0)
 
-python run_complete_test_suite.py
+python3 run_complete_test_suite.py
 # Expected: ✅ PASS: 80%+ success rate (exit 0)
 
 # 4. Run all 5 pipelines
-python run_all_validations.py
+python3 run_all_validations.py
 # Expected: 5/5 PASSED (100%)
 ```
+
+---
+
+## ⚠️ WICHTIG: TEST-ARCHITEKTUR
+
+**Die "pytest" Tests sind KEINE pytest-Tests!**
+
+Sie sind **normale Python-Skripte** die direkt ausführbar sind:
+
+```bash
+# Direkt ausführen (EMPFOHLEN):
+python3 tests/test_segwave_core.py
+python3 scripts/tests/test_ssz_kernel.py
+
+# pytest funktioniert auch, ist aber OPTIONAL:
+pytest tests/  # Nicht nötig, aber funktioniert
+```
+
+**Siehe:** `IMPORTANT_TEST_ARCHITECTURE.md` für Details
+
+**Warum das wichtig ist:**
+- Tests haben KEINE pytest-Abhängigkeit
+- Funktionieren ohne pytest-Installation
+- Sind normale Python-Skripte mit `if __name__ == "__main__":`
+- run_full_suite.py startet sie via subprocess, nicht pytest.main()
 
 ---
 
