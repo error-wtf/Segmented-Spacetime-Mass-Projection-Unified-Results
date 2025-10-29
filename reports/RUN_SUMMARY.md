@@ -1,17 +1,17 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-29 20:02:25
+**Date:** 2025-10-29 20:20:35
 
 ## Overview
 
 - **Physics Test Suites:** 22
 - **Silent Technical Tests:** 3 (UTF-8, CLI, MD Print)
 - **Multi-Ring Validation Tests:** 11 (G79, Cygnus X)
-- **Passed:** 22
-- **Failed:** 0
-- **Success Rate:** 100.0%
-- **Total Test Time:** 171.9s
-- **Total Suite Time:** 220.1s
+- **Passed:** 21
+- **Failed:** 1
+- **Success Rate:** 95.5%
+- **Total Test Time:** 150.5s
+- **Total Suite Time:** 202.8s
 
 ## Physics Test Results
 
@@ -21,22 +21,22 @@
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (6.2s)
-- **Multi-Ring Validation Tests:** ✅ PASS (6.0s)
-- **SSZ Kernel Tests:** ✅ PASS (5.7s)
-- **SSZ Invariants Tests:** ✅ PASS (5.6s)
-- **Segmenter Tests:** ✅ PASS (5.4s)
-- **Cosmo Fields Tests:** ✅ PASS (5.4s)
-- **Cosmo Multibody Tests:** ✅ PASS (7.1s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (6.6s)
-- **SSZ Complete Analysis:** ✅ PASS (104.0s)
+- **SegWave Core Math Tests:** ✅ PASS (7.0s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.8s)
+- **SSZ Kernel Tests:** ✅ PASS (6.7s)
+- **SSZ Invariants Tests:** ✅ PASS (6.9s)
+- **Segmenter Tests:** ✅ PASS (6.8s)
+- **Cosmo Fields Tests:** ✅ PASS (6.8s)
+- **Cosmo Multibody Tests:** ✅ PASS (8.9s)
+- **Cosmos Multi-Body Sigma Tests:** ❌ FAIL (6.9s)
+- **SSZ Complete Analysis:** ✅ PASS (74.7s)
 - **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
 - **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.4s)
-- **SSZ Theory Predictions:** ✅ PASS (3.2s)
-- **G79 Analysis:** ✅ PASS (2.9s)
-- **Cygnus X Analysis:** ✅ PASS (2.9s)
-- **Paper Export Tools:** ✅ PASS (5.0s)
-- **Final Validation:** ✅ PASS (0.2s)
+- **SSZ Theory Predictions:** ✅ PASS (3.5s)
+- **G79 Analysis:** ✅ PASS (2.7s)
+- **Cygnus X Analysis:** ✅ PASS (3.1s)
+- **Paper Export Tools:** ✅ PASS (4.0s)
+- **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
 > Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.
