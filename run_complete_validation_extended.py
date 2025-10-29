@@ -86,6 +86,14 @@ PIPELINE = [
         'category': 'validation'
     },
     {
+        'id': 'perfect_paired',
+        'name': 'Perfect Paired Test (ESO 97.9%)',
+        'script': 'perfect_paired_test.py',
+        'timeout': 120,
+        'critical': True,
+        'category': 'validation'
+    },
+    {
         'id': 'test_suite',
         'name': 'Complete Test Suite (22 tests)',
         'script': 'run_full_suite.py',
