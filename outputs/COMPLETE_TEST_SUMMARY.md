@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-10-28 19:00:50
+**Generated:** 2025-10-29 19:51:03
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -37,43 +37,43 @@ All tests, validations, and analysis scripts in the repository were executed.
 | File | Status | Duration |
 |------|--------|----------|
 | calculation_test.py | ⚠️ SKIPPED | 0.00s |
-| conftest.py | ✅ PASSED | 0.15s |
-| extend_all_tests.py | ✅ PASSED | 0.25s |
-| final_test.py | ✅ PASSED | 0.17s |
-| generate_test_data.py | ✅ PASSED | 0.23s |
-| investigate_paired_test.py | ✅ PASSED | 2.22s |
+| conftest.py | ✅ PASSED | 0.14s |
+| extend_all_tests.py | ✅ PASSED | 0.16s |
+| final_test.py | ✅ PASSED | 0.39s |
+| generate_test_data.py | ✅ PASSED | 0.15s |
+| investigate_paired_test.py | ✅ PASSED | 1.85s |
 | lagrangian_tests.py | ⚠️ SKIPPED | 0.00s |
-| lino_qed_test.py | ✅ PASSED | 0.94s |
-| perfect_paired_test.py | ✅ PASSED | 3.47s |
+| lino_qed_test.py | ✅ PASSED | 0.48s |
+| perfect_paired_test.py | ✅ PASSED | 3.77s |
 | phi_bic_test.py | ⚠️ SKIPPED | 0.00s |
 | phi_test.py | ⚠️ SKIPPED | 0.00s |
 | run_comprehensive_tests.py | ⚠️ SKIPPED | 0.00s |
-| segspacetime_quick_tests.py | ✅ PASSED | 2.33s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.70s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.81s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.81s |
+| segspacetime_quick_tests.py | ✅ PASSED | 2.48s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.35s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 1.50s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.68s |
 | segspace_final_test.py | ✅ PASSED | 2.21s |
 | segspace_pairtest_vs_sr.py | ⚠️ SKIPPED | 0.00s |
-| smoke_test_all.py | ✅ PASSED | 7.87s |
+| smoke_test_all.py | ✅ PASSED | 7.17s |
 | ssz_blackhole_bomb_template.py | ⚠️ SKIPPED | 0.00s |
-| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.18s |
+| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.17s |
 | ssz_interactive_gui.py | ⚠️ SKIPPED | 0.00s |
-| ssz_stability_animation.py | ✅ PASSED | 51.00s |
-| ssz_stability_three_figures.py | ✅ PASSED | 4.34s |
+| ssz_stability_animation.py | ✅ PASSED | 38.99s |
+| ssz_stability_three_figures.py | ✅ PASSED | 3.88s |
 | ssz_test_suite.py | ⚠️ SKIPPED | 0.00s |
 | ssz_theory_segmented.py | ⚠️ SKIPPED | 0.00s |
 | ssz_unified_suite.py | ⚠️ SKIPPED | 0.00s |
-| stratified_paired_test.py | ✅ PASSED | 12.56s |
-| test_c1_segments.py | ✅ PASSED | 0.14s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.14s |
+| stratified_paired_test.py | ✅ PASSED | 11.91s |
+| test_c1_segments.py | ✅ PASSED | 0.13s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.16s |
 | test_c2_segments_strict.py | ✅ PASSED | 0.13s |
 | test_clone_and_verify.py | ⚠️ SKIPPED | 0.00s |
-| test_energy_conditions.py | ✅ PASSED | 0.14s |
-| test_phi_impact.py | ✅ PASSED | 4.28s |
-| test_ppn_exact.py | ✅ PASSED | 0.14s |
+| test_energy_conditions.py | ✅ PASSED | 0.13s |
+| test_phi_impact.py | ✅ PASSED | 4.18s |
+| test_ppn_exact.py | ✅ PASSED | 0.12s |
 | test_theory_predictions_cross_platform.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.57s |
-| test_vfall_duality.py | ✅ PASSED | 0.19s |
+| test_utf8_encoding.py | ✅ PASSED | 0.62s |
+| test_vfall_duality.py | ✅ PASSED | 0.17s |
 
 ### Scripts
 
@@ -81,20 +81,20 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 18.97s |
-| conftest.py | ✅ PASSED | 0.19s |
+| check_test_documentation.py | ✅ PASSED | 3.30s |
+| conftest.py | ✅ PASSED | 1.22s |
 | test_cosmo_fields.py | ⚠️ SKIPPED | 0.00s |
 | test_cosmo_multibody.py | ⚠️ SKIPPED | 0.00s |
 | test_data_fetch.py | ⚠️ SKIPPED | 0.00s |
-| test_data_validation.py | ✅ PASSED | 1.80s |
+| test_data_validation.py | ✅ PASSED | 2.34s |
 | test_gaia_required_columns.py | ⚠️ SKIPPED | 0.00s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.28s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 3.03s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.89s |
+| test_horizon_hawking_predictions.py | ✅ PASSED | 2.94s |
 | test_plot_ssz_maps.py | ⚠️ SKIPPED | 0.00s |
 | test_segmenter.py | ⚠️ SKIPPED | 0.00s |
-| test_ssz_invariants.py | ✅ PASSED | 1.44s |
+| test_ssz_invariants.py | ✅ PASSED | 1.63s |
 | test_ssz_kernel.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.52s |
+| test_utf8_encoding.py | ✅ PASSED | 0.49s |
 
 ### Validation
 
@@ -102,7 +102,7 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ✅ PASSED | 5.90s |
+| run_ssz_validation.py | ✅ PASSED | 4.15s |
 
 ---
 

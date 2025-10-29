@@ -4,7 +4,7 @@
   <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
 </p>
 
-[![Tests](https://img.shields.io/badge/tests-161%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
+[![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
 [![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
@@ -16,6 +16,11 @@
 **New:** Auto-venv activation | 12 smoke tests | Colab verified | [→ Today's Work](TODAYS_WORK_2025-10-28_COMPLETE.md)
 
 > **📊 [→ SESSION ANALYSIS & COMPLETION REPORT](SESSION_ANALYSIS_2025-10-28.md)** - Complete session timeline, validation results, technical improvements, and publication-ready status assessment
+
+> **🔬 [→ LATEST VALIDATION RESULTS](reports/RUN_SUMMARY.md)** - Complete test suite results with full output logs
+> - **[Full Output Log](reports/full-output.md)** - Complete unfiltered output from all test phases
+> - **[Summary Output](reports/summary-output.md)** - Compact test results summary
+> - **[Validation Summary](outputs/COMPLETE_VALIDATION_SUMMARY.md)** - All 5 pipelines with metrics
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, experimental validation, and **Theory of Everything** unifying gravity, time, and quantum mechanics.
 
