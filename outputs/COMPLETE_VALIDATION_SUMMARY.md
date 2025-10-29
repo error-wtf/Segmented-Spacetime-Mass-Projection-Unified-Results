@@ -1,25 +1,26 @@
 # SSZ Complete Validation Suite - Summary Report
 
-**Generated:** 2025-10-29 05:59:33
+**Generated:** 2025-10-29 14:35:08
 
 ## Overview
 
-- **Total Pipelines:** 5
-- **Passed:** 1/5
-- **Failed:** 1/5
-- **Skipped:** 3/5
-- **Success Rate:** 50.0% (of executed)
-- **Total Duration:** 330.4s (5.5 min)
+- **Total Pipelines:** 6
+- **Passed:** 0/6
+- **Failed:** 3/6
+- **Skipped:** 3/6
+- **Success Rate:** 0.0% (of executed)
+- **Total Duration:** 884.4s (14.7 min)
 
 ## Pipeline Results
 
 | Status | Duration | Pipeline |
 |--------|----------|----------|
-| ❌ FAIL | 200.2s | Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation) |
+| ❌ FAIL | 194.3s | Original Test Suite (116 tests: 35 physics + 23 technical + 58 validation) |
 | ⏭️ SKIP | 0.0s | SSZ vs GR Validation (6 steps) (Dependency failed) |
 | ⏭️ SKIP | 0.0s | Theory Validation (10 steps) (Dependency failed) |
 | ⏭️ SKIP | 0.0s | Unified ToE Validation (11 steps) (Dependency failed) |
-| ✅ PASS | 130.2s | Complete Test Suite (~18 scripts) |
+| ❌ FAIL | 236.8s | Black Hole Bomb Tests (7 scripts) |
+| ❌ FAIL | 453.3s | Complete Test Suite (~18 scripts) |
 
 ## Test Coverage
 
