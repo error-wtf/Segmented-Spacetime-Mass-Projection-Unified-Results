@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-BLACK HOLE BOMB TESTS - SSZ Framework Validation
-Run all black hole bomb scripts (non-animation) for scientific validation
+Run all Black Hole Bomb Tests.
 
-© 2025 Carmen Wrede, Lino Casu
+This script runs all 7 bomb test scripts (excluding animations).
 """
 import subprocess
 import sys
+import os
 from pathlib import Path
+
+# UTF-8 setup for Windows
+os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except:
+    pass
 
 def run_script(script_path):
     """Run a Python script and return success status"""
@@ -23,16 +31,16 @@ def run_script(script_path):
             timeout=300
         )
         if result.returncode == 0:
-            print(f"✅ {script_path.name} completed successfully")
+            print(f"[PASS] {script_path.name} completed successfully")
             return True
         else:
-            print(f"❌ {script_path.name} failed with exit code {result.returncode}")
+            print(f"[FAIL] {script_path.name} failed with exit code {result.returncode}")
             return False
     except subprocess.TimeoutExpired:
-        print(f"⏱️ {script_path.name} timed out (>5 min)")
+        print(f"[TIMEOUT] {script_path.name} timed out after 300s")
         return False
     except Exception as e:
-        print(f"❌ {script_path.name} error: {e}")
+        print(f"[FAIL] {script_path.name} error: {e}")
         return False
 
 def main():
@@ -40,7 +48,7 @@ def main():
     bomb_dir = Path("evidenz-ssz/scripts/black_hole_bomb")
     
     if not bomb_dir.exists():
-        print(f"❌ Bomb scripts directory not found: {bomb_dir}")
+        print(f"[ERROR] Bomb scripts directory not found: {bomb_dir}")
         return False
     
     # Scripts to run (excluding animations)
