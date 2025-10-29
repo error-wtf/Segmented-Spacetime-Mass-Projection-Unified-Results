@@ -38,10 +38,11 @@ class TestQFactor:
         T_curr, T_prev, beta = 80.0, 100.0, 1.0
         q = compute_q_factor(T_curr=T_curr, T_prev=T_prev, beta=beta)
         
+        # Physical interpretation
         print("\n" + "="*80)
         print("Q-FACTOR: Temperature Ratio (β=1)")
         print("="*80)
-        print(f"Temperature:")
+        print(f"Temperature:")    
         print(f"  Current ring: T_curr = {T_curr:.1f} K")
         print(f"  Previous ring: T_prev = {T_prev:.1f} K")
         print(f"  β parameter: {beta:.1f}")
