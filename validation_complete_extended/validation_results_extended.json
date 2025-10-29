@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-29T16:42:57.643633",
+  "timestamp": "2025-10-29T18:57:50.888333",
   "results": [
     {
       "step": "verify_formulas",
@@ -13,9 +13,9 @@
     {
       "step": "test_suite",
       "name": "Complete Test Suite (22 tests)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true,
+      "success": false,
+      "exit_code": 1,
+      "critical": false,
       "category": "validation",
       "runtime": null
     },
@@ -38,109 +38,54 @@
       "runtime": null
     },
     {
-      "step": "grid_convergence",
-      "name": "Grid Convergence Test (F-16)",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "validation",
-      "runtime": null
-    },
-    {
-      "step": "proper_time",
-      "name": "Proper Time Validation",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "extended",
-      "runtime": null
-    },
-    {
-      "step": "theory_validation",
-      "name": "Theory Validation",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "extended",
-      "runtime": null
-    },
-    {
-      "step": "test_ppn",
-      "name": "PPN Parameters Test",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "physics",
-      "runtime": null
-    },
-    {
-      "step": "test_vfall",
-      "name": "Velocity Duality Test",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "physics",
-      "runtime": null
-    },
-    {
-      "step": "test_energy",
-      "name": "Energy Conditions Test",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "physics",
-      "runtime": null
-    },
-    {
-      "step": "analysis_main",
-      "name": "Main SSZ Analysis",
+      "step": "bomb_tests",
+      "name": "Black Hole Bomb Tests (7 scripts)",
       "success": false,
-      "exit_code": 2,
-      "critical": false,
-      "category": "analysis",
-      "runtime": null
-    },
-    {
-      "step": "shadow_predictions",
-      "name": "Shadow Predictions",
-      "success": true,
-      "exit_code": 0,
-      "critical": false,
-      "category": "analysis",
+      "exit_code": 1,
+      "critical": true,
+      "category": "validation",
       "runtime": null
     }
   ],
   "statistics": {
-    "total": 12,
-    "passed": 11,
-    "failed": 1,
+    "total": 5,
+    "passed": 3,
+    "failed": 2,
     "skipped": 0,
-    "critical_failed": 0,
-    "success_rate": 91.66666666666666
+    "critical_failed": 1,
+    "success_rate": 60.0
   },
   "error_summary": {
-    "total_errors": 1,
+    "total_errors": 2,
     "by_type": {
-      "ScriptFailure": 1
+      "ScriptFailure": 2
     },
     "by_step": {
-      "Main SSZ Analysis": 1
+      "Complete Test Suite (22 tests)": 1,
+      "Black Hole Bomb Tests (7 scripts)": 1
     },
     "errors": [
       {
-        "timestamp": "2025-10-29T16:42:56.619093",
-        "step": "Main SSZ Analysis",
+        "timestamp": "2025-10-29T18:57:41.351440",
+        "step": "Complete Test Suite (22 tests)",
         "type": "ScriptFailure",
-        "message": "Exit code: 2",
-        "traceback": "usage: segspace_all_in_one_FINAL_v2 [-h] [--outdir OUTDIR] [--seed SEED]\n                                    [--prec PREC]\n                                    {validate-masses,eval-redshift,bound-energy,use-original,all}\n                                    ...\nsegspace_all_in_one_FINAL_v2: error: the following arguments are required: cmd\n"
+        "message": "Exit code: 1",
+        "traceback": "Traceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_gaia_ssz_pipeline.py\", line 420, in <module>\n    main()\n  File \"E:\\clone\\doublecheck\\run_gaia_ssz_pipeline.py\", line 289, in main\n    sdss_paths = ensure_both_formats(sdss_base, prefer_parquet=prefer_parquet)\n  File \"E:\\clone\\doublecheck\\scripts\\preprocess\\io_utils.py\", line 55, in ensure_both_formats\n    raise FileNotFoundError(f\"Neither CSV nor Parquet found for base path {base}\")\nFileNotFoundError: Neither CSV nor Parquet found for base path data\\raw\\sdss\\2025-10-17_gaia_ssz_v1\\sdss_catalog\n2025-10-29 18:56:37,888 [INFO] TEST_GAIA: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185637.log\n2025-10-29 18:56:38,045 [INFO] TEST_GAIA: GAIA smoke rows=5000\n2025-10-29 18:56:38,051 [INFO] TEST_SDSS: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185638.log\n2025-10-29 18:56:38,062 [INFO] TEST_SDSS: SDSS smoke rows=5000\n2025-10-29 18:56:38,065 [INFO] TEST_PLANCK: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185638.log\n2025-10-29 18:56:38,066 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\\planck\\COM_PowerSpect_CMB-TT-full_R3.01.txt\n"
+      },
+      {
+        "timestamp": "2025-10-29T18:57:49.972440",
+        "step": "Black Hole Bomb Tests (7 scripts)",
+        "type": "ScriptFailure",
+        "message": "Exit code: 1",
+        "traceback": "Traceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 26, in run_script\n    print(f\"\\u2705 {script_path.name} completed successfully\")\n  File \"C:\\Program Files\\Python310\\lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2705' in position 0: character maps to <undefined>\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 85, in <module>\n    success = main()\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 62, in main\n    success = run_script(script_path)\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 35, in run_script\n    print(f\"\\u274c {script_path.name} error: {e}\")\n  File \"C:\\Program Files\\Python310\\lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u274c' in position 0: character maps to <undefined>\n"
       }
     ]
   },
-  "overall_pass": true,
+  "overall_pass": false,
   "outputs": {
     "plots": 38,
-    "reports": 331,
+    "reports": 338,
     "data": 17,
-    "logs": 12
+    "logs": 5
   }
 }

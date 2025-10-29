@@ -1,6 +1,6 @@
 # SSZ Test Suite - Scientific Interpretations
 
-**Generated:** 2025-10-29 14:35:08
+**Generated:** 2025-10-29 18:04:43
 
 This report compiles all scientific interpretations extracted from test outputs.
 
@@ -111,7 +111,7 @@ Physical Interpretation:
 ```
   Physical interpretations: 0
   Average doc score: 72.0
-  Doc files: 49
+  Doc files: 52
 
 ```
 
@@ -130,8 +130,25 @@ Physical Interpretation:
 
 ---
 
+### run_ssz_validation.py
 
-**Total Interpretations:** 10
+```
+  - SSZ_SCIENTIFIC_INTERPRETATIONS.md (0.02 MB)
+  - SSZ_VALIDATION_SUMMARY.md (0.00 MB)
+  - TEST_INTERPRETATIONS.md (0.00 MB)
+  - theory_validation_chaos.png (0.06 MB)
+  - theory_validation_dilation.png (0.08 MB)
+  - theory_validation_results.json (0.00 MB)
+  - theory_validation_stability.png (0.06 MB)
+  - unified_validation (0.00 MB)
+  - validation.json (0.00 MB)
+
+```
+
+---
+
+
+**Total Interpretations:** 11
 
 ---
 

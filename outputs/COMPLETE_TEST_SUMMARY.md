@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-10-29 14:35:08
+**Generated:** 2025-10-29 18:04:43
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -18,13 +18,13 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | Metric | Count | Percentage |
 |--------|-------|------------|
-| **Total Tests** | 54 | 100% |
-| **Passed** | 32 | 59.3% |
-| **Failed** | 1 | 1.9% |
-| **Timeout** | 1 | 1.9% |
+| **Total Tests** | 55 | 100% |
+| **Passed** | 34 | 61.8% |
+| **Failed** | 0 | 0.0% |
+| **Timeout** | 1 | 1.8% |
 | **Error** | 0 | 0.0% |
 
-**Success Rate:** 94.1%
+**Success Rate:** 97.1%
 
 ---
 
@@ -32,49 +32,50 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 ### Root Level
 
-**Tests:** 39 | **Passed:** 25 | **Rate:** 64.1%
+**Tests:** 40 | **Passed:** 26 | **Rate:** 65.0%
 
 | File | Status | Duration |
 |------|--------|----------|
 | calculation_test.py | ⚠️ SKIPPED | 0.00s |
-| conftest.py | ✅ PASSED | 0.15s |
-| extend_all_tests.py | ✅ PASSED | 0.18s |
-| final_test.py | ✅ PASSED | 0.16s |
-| generate_test_data.py | ✅ PASSED | 0.16s |
-| investigate_paired_test.py | ✅ PASSED | 2.21s |
+| conftest.py | ✅ PASSED | 0.13s |
+| extend_all_tests.py | ✅ PASSED | 0.15s |
+| final_test.py | ✅ PASSED | 0.15s |
+| generate_test_data.py | ✅ PASSED | 0.14s |
+| investigate_paired_test.py | ✅ PASSED | 1.81s |
 | lagrangian_tests.py | ⚠️ SKIPPED | 0.00s |
-| lino_qed_test.py | ✅ PASSED | 0.55s |
-| perfect_paired_test.py | ✅ PASSED | 3.34s |
+| lino_qed_test.py | ✅ PASSED | 0.46s |
+| perfect_paired_test.py | ✅ PASSED | 2.93s |
 | phi_bic_test.py | ⚠️ SKIPPED | 0.00s |
 | phi_test.py | ⚠️ SKIPPED | 0.00s |
 | run_bomb_tests.py | ⏱️ TIMEOUT | 300s |
 | run_comprehensive_tests.py | ⚠️ SKIPPED | 0.00s |
-| segspacetime_quick_tests.py | ✅ PASSED | 1.63s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.29s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.34s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.39s |
-| segspace_final_test.py | ✅ PASSED | 1.61s |
+| segspacetime_quick_tests.py | ✅ PASSED | 2.03s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.35s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 1.39s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.45s |
+| segspace_final_test.py | ✅ PASSED | 4.17s |
 | segspace_pairtest_vs_sr.py | ⚠️ SKIPPED | 0.00s |
-| smoke_test_all.py | ✅ PASSED | 5.86s |
+| smoke_test_all.py | ✅ PASSED | 8.09s |
 | ssz_blackhole_bomb_template.py | ⚠️ SKIPPED | 0.00s |
-| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.16s |
+| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.14s |
 | ssz_interactive_gui.py | ⚠️ SKIPPED | 0.00s |
-| ssz_stability_animation.py | ✅ PASSED | 41.67s |
-| ssz_stability_three_figures.py | ✅ PASSED | 3.98s |
+| ssz_stability_animation.py | ✅ PASSED | 39.06s |
+| ssz_stability_three_figures.py | ✅ PASSED | 3.89s |
 | ssz_test_suite.py | ⚠️ SKIPPED | 0.00s |
 | ssz_theory_segmented.py | ⚠️ SKIPPED | 0.00s |
 | ssz_unified_suite.py | ⚠️ SKIPPED | 0.00s |
-| stratified_paired_test.py | ✅ PASSED | 11.91s |
-| test_c1_segments.py | ✅ PASSED | 0.14s |
+| stratified_paired_test.py | ✅ PASSED | 13.20s |
+| test_c1_segments.py | ✅ PASSED | 0.17s |
 | test_c2_curvature_proxy.py | ✅ PASSED | 0.15s |
-| test_c2_segments_strict.py | ✅ PASSED | 0.13s |
+| test_c2_segments_strict.py | ✅ PASSED | 0.14s |
 | test_clone_and_verify.py | ⚠️ SKIPPED | 0.00s |
 | test_energy_conditions.py | ✅ PASSED | 0.14s |
-| test_phi_impact.py | ✅ PASSED | 4.14s |
-| test_ppn_exact.py | ✅ PASSED | 0.14s |
+| test_grid_convergence.py | ✅ PASSED | 0.40s |
+| test_phi_impact.py | ✅ PASSED | 4.58s |
+| test_ppn_exact.py | ✅ PASSED | 0.16s |
 | test_theory_predictions_cross_platform.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.50s |
-| test_vfall_duality.py | ✅ PASSED | 0.20s |
+| test_utf8_encoding.py | ✅ PASSED | 0.54s |
+| test_vfall_duality.py | ✅ PASSED | 0.21s |
 
 ### Scripts
 
@@ -82,57 +83,35 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 4.15s |
-| conftest.py | ✅ PASSED | 0.15s |
+| check_test_documentation.py | ✅ PASSED | 4.57s |
+| conftest.py | ✅ PASSED | 0.16s |
 | test_cosmo_fields.py | ⚠️ SKIPPED | 0.00s |
 | test_cosmo_multibody.py | ⚠️ SKIPPED | 0.00s |
 | test_data_fetch.py | ⚠️ SKIPPED | 0.00s |
-| test_data_validation.py | ✅ PASSED | 1.79s |
+| test_data_validation.py | ✅ PASSED | 1.80s |
 | test_gaia_required_columns.py | ⚠️ SKIPPED | 0.00s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.05s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 2.57s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.19s |
+| test_horizon_hawking_predictions.py | ✅ PASSED | 3.21s |
 | test_plot_ssz_maps.py | ⚠️ SKIPPED | 0.00s |
 | test_segmenter.py | ⚠️ SKIPPED | 0.00s |
-| test_ssz_invariants.py | ✅ PASSED | 1.35s |
+| test_ssz_invariants.py | ✅ PASSED | 1.64s |
 | test_ssz_kernel.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.45s |
+| test_utf8_encoding.py | ✅ PASSED | 0.58s |
 
 ### Validation
 
-**Tests:** 1 | **Passed:** 0 | **Rate:** 0.0%
+**Tests:** 1 | **Passed:** 1 | **Rate:** 100.0%
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ❌ FAILED | 2.92s |
-
----
-
-## Failed Tests
-
-1 test(s) failed or encountered errors:
-
-### run_ssz_validation.py
-
-**Category:** validation  
-**Status:** FAILED  
-**Error:**
-```
-check\run_ssz_validation.py", line 105, in <module>
-    intersection = find_intersection(rs, xi_max=xi_max, alpha=1.0)
-  File "E:\clone\doublecheck\run_ssz_validation.py", line 68, in find_intersection
-    r_star = brentq(diff, r_s * 1.01, r_s * 10)
-  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\scipy\optimize\_zeros_py.py", line 798, in brentq
-    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
-ValueError: f(a) and f(b) must have different signs
-
-```
+| run_ssz_validation.py | ✅ PASSED | 5.24s |
 
 ---
 
 ## Next Steps
 
 **Action Required:**
-- Review 2 failed/timeout/error test(s)
+- Review 1 failed/timeout/error test(s)
 - Check error messages above
 - Fix issues and re-run: `python run_complete_test_suite.py`
 

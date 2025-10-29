@@ -19,3 +19,114 @@ usage: segspace_all_in_one_FINAL_v2 [-h] [--outdir OUTDIR] [--seed SEED]
 segspace_all_in_one_FINAL_v2: error: the following arguments are required: cmd
 
 ================================================================================
+
+================================================================================
+ERROR in Main SSZ Analysis
+Time: 2025-10-29T17:23:01.136447
+Type: ScriptFailure
+Message: Exit code: 2
+Traceback:
+usage: segspace_all_in_one_FINAL_v2 [-h] [--outdir OUTDIR] [--seed SEED]
+                                    [--prec PREC]
+                                    {validate-masses,eval-redshift,bound-energy,use-original,all}
+                                    ...
+segspace_all_in_one_FINAL_v2: error: the following arguments are required: cmd
+
+================================================================================
+
+================================================================================
+ERROR in Complete Test Suite (22 tests)
+Time: 2025-10-29T18:17:48.400968
+Type: ScriptFailure
+Message: Exit code: 1
+Traceback:
+Traceback (most recent call last):
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 420, in <module>
+    main()
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 289, in main
+    sdss_paths = ensure_both_formats(sdss_base, prefer_parquet=prefer_parquet)
+  File "E:\clone\doublecheck\scripts\preprocess\io_utils.py", line 55, in ensure_both_formats
+    raise FileNotFoundError(f"Neither CSV nor Parquet found for base path {base}")
+FileNotFoundError: Neither CSV nor Parquet found for base path data\raw\sdss\2025-10-17_gaia_ssz_v1\sdss_catalog
+2025-10-29 18:16:45,533 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_181645.log
+2025-10-29 18:16:45,684 [INFO] TEST_GAIA: GAIA smoke rows=5000
+2025-10-29 18:16:45,690 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_181645.log
+2025-10-29 18:16:45,700 [INFO] TEST_SDSS: SDSS smoke rows=5000
+2025-10-29 18:16:45,703 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_181645.log
+2025-10-29 18:16:45,703 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
+
+================================================================================
+
+================================================================================
+ERROR in Complete Test Suite (22 tests)
+Time: 2025-10-29T18:32:40.913971
+Type: ScriptFailure
+Message: Exit code: 1
+Traceback:
+Traceback (most recent call last):
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 420, in <module>
+    main()
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 289, in main
+    sdss_paths = ensure_both_formats(sdss_base, prefer_parquet=prefer_parquet)
+  File "E:\clone\doublecheck\scripts\preprocess\io_utils.py", line 55, in ensure_both_formats
+    raise FileNotFoundError(f"Neither CSV nor Parquet found for base path {base}")
+FileNotFoundError: Neither CSV nor Parquet found for base path data\raw\sdss\2025-10-17_gaia_ssz_v1\sdss_catalog
+2025-10-29 18:31:34,765 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_183134.log
+2025-10-29 18:31:34,910 [INFO] TEST_GAIA: GAIA smoke rows=5000
+2025-10-29 18:31:34,917 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_183134.log
+2025-10-29 18:31:34,928 [INFO] TEST_SDSS: SDSS smoke rows=5000
+2025-10-29 18:31:34,932 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_183134.log
+2025-10-29 18:31:34,932 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
+
+================================================================================
+
+================================================================================
+ERROR in Complete Test Suite (22 tests)
+Time: 2025-10-29T18:57:41.351440
+Type: ScriptFailure
+Message: Exit code: 1
+Traceback:
+Traceback (most recent call last):
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 420, in <module>
+    main()
+  File "E:\clone\doublecheck\run_gaia_ssz_pipeline.py", line 289, in main
+    sdss_paths = ensure_both_formats(sdss_base, prefer_parquet=prefer_parquet)
+  File "E:\clone\doublecheck\scripts\preprocess\io_utils.py", line 55, in ensure_both_formats
+    raise FileNotFoundError(f"Neither CSV nor Parquet found for base path {base}")
+FileNotFoundError: Neither CSV nor Parquet found for base path data\raw\sdss\2025-10-17_gaia_ssz_v1\sdss_catalog
+2025-10-29 18:56:37,888 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_185637.log
+2025-10-29 18:56:38,045 [INFO] TEST_GAIA: GAIA smoke rows=5000
+2025-10-29 18:56:38,051 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_185638.log
+2025-10-29 18:56:38,062 [INFO] TEST_SDSS: SDSS smoke rows=5000
+2025-10-29 18:56:38,065 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251029_185638.log
+2025-10-29 18:56:38,066 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
+
+================================================================================
+
+================================================================================
+ERROR in Black Hole Bomb Tests (7 scripts)
+Time: 2025-10-29T18:57:49.972440
+Type: ScriptFailure
+Message: Exit code: 1
+Traceback:
+Traceback (most recent call last):
+  File "E:\clone\doublecheck\run_bomb_tests.py", line 26, in run_script
+    print(f"\u2705 {script_path.name} completed successfully")
+  File "C:\Program Files\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\clone\doublecheck\run_bomb_tests.py", line 85, in <module>
+    success = main()
+  File "E:\clone\doublecheck\run_bomb_tests.py", line 62, in main
+    success = run_script(script_path)
+  File "E:\clone\doublecheck\run_bomb_tests.py", line 35, in run_script
+    print(f"\u274c {script_path.name} error: {e}")
+  File "C:\Program Files\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
+
+================================================================================
