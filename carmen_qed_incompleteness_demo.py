@@ -71,7 +71,7 @@ FIG_DIR = OUTDIR / "figures"
 # Utilities
 # ──────────────────────────────────────────────────────────────────────────────
 def now_str() -> str:
-    return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.datetime.now(datetime.datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def ensure_dirs() -> None:
     for d in (OUTDIR, REPORT_DIR, DATA_DIR, FIG_DIR):

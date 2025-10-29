@@ -52,13 +52,13 @@ def ensure_dirs(run_id: str, data_root: Path, experiments_root: Path, models_roo
     model_solar_dir = models_root / "solar_system" / run_id
     viz_dir = experiments_root / run_id / "viz"
     qa_dir = experiments_root / run_id / "qa"
-    backup_dir = Path("backups") / f"{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}_{run_id}"
+    backup_dir = Path("backups") / f"{datetime.now(datetime.UTC).strftime('%Y%m%d_%H%M%S')}_{run_id}"
 
     for directory in [raw_dir, interim_dir, cache_dir, logs_dir, model_cosmo_dir, model_solar_dir, viz_dir, qa_dir, backup_dir]:
         directory.mkdir(parents=True, exist_ok=True)
 
     (backup_dir / "metadata.json").write_text(
-        json.dumps({"run_id": run_id, "created": datetime.utcnow().isoformat()}, indent=2),
+        json.dumps({"run_id": run_id, "created": datetime.now(datetime.UTC).isoformat()}, indent=2),
         encoding="utf-8",
     )
 
@@ -227,7 +227,7 @@ def run_ssz_cosmo(
 
 def main() -> None:
     args = parse_args()
-    start = datetime.utcnow()
+    start = datetime.now(datetime.UTC)
 
     prefer_parquet = str(args.prefer_parquet).strip().lower() in {"1", "true", "t", "yes", "y"}
 
@@ -402,7 +402,7 @@ def main() -> None:
         "run_id": args.run_id,
         "timestamp": {
             "started": start.isoformat(),
-            "finished": datetime.utcnow().isoformat(),
+            "finished": datetime.now(datetime.UTC).isoformat(),
         },
         "inputs": gather_files([args.adql, args.cfg_ssz, args.cfg_frame] + ([args.cones_config] if args.cones_config else [])),
         "outputs": gather_files(outputs),

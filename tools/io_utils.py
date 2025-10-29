@@ -215,7 +215,7 @@ def register_artifact(manifest_path: str, role: str, path: str,
         "path": str(Path(path).as_posix()),  # Use forward slashes
         "sha256": sha256_file(path) if Path(path).exists() else None,
         "format": format or Path(path).suffix[1:],  # Remove leading dot
-        "created_utc": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        "created_utc": datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     }
     
     if metadata:
@@ -246,7 +246,7 @@ def create_manifest(manifest_path: str, meta: dict = None, params: dict = None):
     }
     
     # Add creation timestamp
-    manifest["meta"]["created_utc"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    manifest["meta"]["created_utc"] = datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     
     return safe_write_json(manifest_path, manifest)
 
@@ -263,7 +263,7 @@ def finalize_manifest(manifest_path: str, status: str = "success",
     """
     update_data = {
         "status": status,
-        "completed_utc": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        "completed_utc": datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     }
     
     if error:

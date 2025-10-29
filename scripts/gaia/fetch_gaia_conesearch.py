@@ -61,7 +61,7 @@ def run_cone_search(region: Dict[str, object]) -> Table:
 
 
 def write_output(table: Table, region_name: str, out_dir: Path, run_id: str, fmt: str, index: int) -> Path:
-    timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    timestamp = datetime.now(datetime.UTC).strftime("%Y%m%dT%H%M%S")
     base = f"{run_id}__{region_name}__part{index:02d}_{timestamp}"
     if fmt == "parquet":
         path = out_dir / f"{base}.parquet"
