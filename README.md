@@ -39,6 +39,7 @@
 - **[Grid Convergence Test](test_grid_convergence.py)** - Numerical stability verified
 
 ### 📚 Reports  
+- **[Full Validation Report](FULL_VALIDATION_REPORT.md)** - Complete validation including BH bomb tests
 - **[Complete Final Report](SSZ_COMPLETE_FINAL_REPORT.md)** - 60+ page theory document
 - **[Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** - 5-page overview
 - **[Complete Validation Report](SSZ_COMPLETE_VALIDATION_REPORT.md)** - All validation results

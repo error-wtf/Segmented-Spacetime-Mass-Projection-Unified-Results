@@ -20,6 +20,7 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 - ✅ **97.9% Empirical Accuracy** (ESO professional data)
 
 **Key Validation Files:**
+- [Full Validation Report](../../FULL_VALIDATION_REPORT.md) - Complete validation including BH bomb tests
 - [Complete Validation Summary](../../validation_complete/COMPLETE_VALIDATION_SUMMARY.md)
 - [Full Output Log](../../validation_complete/full-output.md)
 - [Validation Results JSON](../../validation_complete/validation_results.json)

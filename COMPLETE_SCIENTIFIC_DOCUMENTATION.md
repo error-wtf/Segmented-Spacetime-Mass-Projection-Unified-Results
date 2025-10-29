@@ -40,6 +40,7 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ### Executive Summary
 - **[5-Page Overview](SSZ_EXECUTIVE_SUMMARY.md)** - Quick introduction
+- **[Full Validation Report](FULL_VALIDATION_REPORT.md)** - Complete validation including BH bomb tests
 - **[Complete Report (60+ pages)](SSZ_COMPLETE_FINAL_REPORT.md)** - Full theory
 - **[Validation Report](SSZ_COMPLETE_VALIDATION_REPORT.md)** - Test results
 
