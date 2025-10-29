@@ -46,15 +46,15 @@
 - **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform compatibility details
 
 ### 🎓 Theory & Code Foundations (Bilingual EN/DE)
-- **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** ([🇩🇪 DE](docs/THEORY_AND_CODE_INDEX_DE.md)) - Complete theory & implementation guide
-- **[docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md)** ([🇩🇪 DE](docs/PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts explained (no heavy math)
-- **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** ([🇩🇪 DE](docs/MATHEMATICAL_FORMULAS_DE.md)) - All formulas with derivations
-- **[docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md)** ([🇩🇪 DE](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) - Core algorithms & implementation
-- **[docs/EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
+- **[THEORY_AND_CODE_INDEX.md](THEORY_AND_CODE_INDEX.md)** ([🇩🇪 DE](THEORY_AND_CODE_INDEX_DE.md)) - Complete theory & implementation guide
+- **[PHYSICS_FOUNDATIONS.md](PHYSICS_FOUNDATIONS.md)** ([🇩🇪 DE](PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts explained (no heavy math)
+- **[MATHEMATICAL_FORMULAS.md](MATHEMATICAL_FORMULAS.md)** ([🇩🇪 DE](MATHEMATICAL_FORMULAS_DE.md)) - All formulas with derivations
+- **[CODE_IMPLEMENTATION_GUIDE.md](CODE_IMPLEMENTATION_GUIDE.md)** ([🇩🇪 DE](CODE_IMPLEMENTATION_GUIDE_DE.md)) - Core algorithms & implementation
+- **[EXAMPLES_AND_APPLICATIONS.md](EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
 
 ### 📊 Data Documentation (Bilingual EN/DE)
-- **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](docs/DATA_ACQUISITION_COMPLETE_GUIDE.md)** - **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
-- **[docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - **STEP-BY-STEP ESO GUIDE:** Detailed manual workflow (browser query, token, FITS extraction, CSV export)
+- **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](../DATA_ACQUISITION_COMPLETE_GUIDE.md)** - **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
+- **[docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](../MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - **STEP-BY-STEP ESO GUIDE:** Detailed manual workflow (browser query, token, FITS extraction, CSV export)
 - **[DATA_ACCESS_REPRODUCIBILITY_CRISIS.md](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md)** - **CRITICAL:** Structural barriers in modern astrophysics (data gatekeeping, reproducibility crisis, fringe-by-exclusion mechanism)
 - **[OUT_OF_DATA_LINO_CASU_STATEMENT.md](OUT_OF_DATA_LINO_CASU_STATEMENT.md)** - **POSITION PAPER by Lino Casu:** How closed spectroscopic archives manufactured a systemic reproducibility crisis (47 objects = 0.1% of ESO archive)
 - **[LABORATORY_COMPARABILITY.md](LABORATORY_COMPARABILITY.md)** - **Why cross-observatory conversion is physically invalid** (ESO vs GAIA/HST/JWST calibration incompatibility)
@@ -101,11 +101,11 @@
 - **[reports/summary-output.md](reports/summary-output.md)** - Brief test summary
 
 ### 📚 Reference
-- **[docs/improvement/TERMINOLOGY_GLOSSARY.md](docs/improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary (200+ terms EN/DE)
+- **[docs/improvement/TERMINOLOGY_GLOSSARY.md](../improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary (200+ terms EN/DE)
 
 ### 🔬 Scientific Papers
 - **[papers/validation/](papers/validation/)** - 11 validation papers
-- **[docs/theory/](docs/theory/)** - 21 theory papers
+- **[docs/theory/](../theory/)** - 21 theory papers
 - **[papers/validation/README.md](papers/validation/README.md)** - Papers overview
 
 ### 💻 Technical Documentation
@@ -143,11 +143,11 @@
 
 | File | Languages | Description | Audience |
 |------|-----------|-------------|----------|
-| [THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) | [🇬🇧](docs/THEORY_AND_CODE_INDEX.md) [🇩🇪](docs/THEORY_AND_CODE_INDEX_DE.md) | Main theory & code index | Everyone |
-| [PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) | [🇬🇧](docs/PHYSICS_FOUNDATIONS.md) [🇩🇪](docs/PHYSICS_FOUNDATIONS_DE.md) | Physical concepts (560 lines) | Physicists, Students |
-| [MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) | [🇬🇧](docs/MATHEMATICAL_FORMULAS.md) [🇩🇪](docs/MATHEMATICAL_FORMULAS_DE.md) | Complete math formulation (465 lines) | Theorists, Mathematicians |
-| [CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) | [🇬🇧](docs/CODE_IMPLEMENTATION_GUIDE.md) [🇩🇪](docs/CODE_IMPLEMENTATION_GUIDE_DE.md) | Code algorithms & implementation (669 lines) | Developers |
-| [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) | [🇬🇧](docs/EXAMPLES_AND_APPLICATIONS.md) [🇩🇪](docs/EXAMPLES_AND_APPLICATIONS_DE.md) | Practical examples (774 lines) | Researchers |
+| [THEORY_AND_CODE_INDEX.md](../THEORY_AND_CODE_INDEX.md) | [🇬🇧](../THEORY_AND_CODE_INDEX.md) [🇩🇪](../THEORY_AND_CODE_INDEX_DE.md) | Main theory & code index | Everyone |
+| [PHYSICS_FOUNDATIONS.md](../PHYSICS_FOUNDATIONS.md) | [🇬🇧](../PHYSICS_FOUNDATIONS.md) [🇩🇪](../PHYSICS_FOUNDATIONS_DE.md) | Physical concepts (560 lines) | Physicists, Students |
+| [MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md) | [🇬🇧](../MATHEMATICAL_FORMULAS.md) [🇩🇪](../MATHEMATICAL_FORMULAS_DE.md) | Complete math formulation (465 lines) | Theorists, Mathematicians |
+| [CODE_IMPLEMENTATION_GUIDE.md](../CODE_IMPLEMENTATION_GUIDE.md) | [🇬🇧](../CODE_IMPLEMENTATION_GUIDE.md) [🇩🇪](../CODE_IMPLEMENTATION_GUIDE_DE.md) | Code algorithms & implementation (669 lines) | Developers |
+| [EXAMPLES_AND_APPLICATIONS.md](../EXAMPLES_AND_APPLICATIONS.md) | [🇬🇧](../EXAMPLES_AND_APPLICATIONS.md) [🇩🇪](../EXAMPLES_AND_APPLICATIONS_DE.md) | Practical examples (774 lines) | Researchers |
 
 ### 2. Installation & Setup
 
@@ -189,7 +189,7 @@
 | [reports/summary-output.md](reports/summary-output.md) | Brief summary | run_full_suite.py |
 
 **Reference Materials:**
-- [docs/improvement/TERMINOLOGY_GLOSSARY.md](docs/improvement/TERMINOLOGY_GLOSSARY.md) - Technical glossary (200+ terms EN/DE)
+- [docs/improvement/TERMINOLOGY_GLOSSARY.md](../improvement/TERMINOLOGY_GLOSSARY.md) - Technical glossary (200+ terms EN/DE)
 
 *Note: Internal quality audit reports available in `docs/improvement/` directory (not actively maintained)*
 
@@ -198,7 +198,7 @@
 | Location | Count | Description |
 |----------|-------|-------------|
 | [papers/validation/](papers/validation/) | 11 papers | Validation & benchmarks |
-| [docs/theory/](docs/theory/) | 21 papers | Theoretical foundation |
+| [docs/theory/](../theory/) | 21 papers | Theoretical foundation |
 | [papers/validation/README.md](papers/validation/README.md) | Index | Papers overview |
 
 ### 9. Pipeline Documentation
@@ -225,20 +225,20 @@
 ### For New Users
 
 1. **[README.md](README.md)** - Start here
-2. **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** - Understand the theory 
+2. **[docs/THEORY_AND_CODE_INDEX.md](../THEORY_AND_CODE_INDEX.md)** - Understand the theory 
 3. **[INSTALL_README.md](INSTALL_README.md)** - Installation
 4. **[COLAB_README.md](COLAB_README.md)** - Try online first
 
 ### For Physics Students & Learners
 
-1. **[docs/PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md)** - Start here (intuitive explanations) 
-2. **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** - Mathematical details 
-3. **[docs/theory/](docs/theory/)** - Advanced papers
+1. **[docs/PHYSICS_FOUNDATIONS.md](../PHYSICS_FOUNDATIONS.md)** - Start here (intuitive explanations) 
+2. **[docs/MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md)** - Mathematical details 
+3. **[docs/theory/](../theory/)** - Advanced papers
 4. **[papers/validation/](papers/validation/)** - Empirical validation
 
 ### For Researchers
 
-1. **[docs/THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md)** - Theory overview 
+1. **[docs/THEORY_AND_CODE_INDEX.md](../THEORY_AND_CODE_INDEX.md)** - Theory overview 
 2. **[Sources.md](Sources.md)** - Data provenance
 3. **[papers/validation/](papers/validation/)** - Validation papers
 4. **[COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)** - Data quality
@@ -246,8 +246,8 @@
 
 ### For Developers
 
-1. **[docs/CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md)** ([🇩🇪 DE](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) - Core algorithms 
-2. **[docs/MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md)** ([🇩🇪 DE](docs/MATHEMATICAL_FORMULAS_DE.md)) - All formulas 
+1. **[docs/CODE_IMPLEMENTATION_GUIDE.md](../CODE_IMPLEMENTATION_GUIDE.md)** ([🇩🇪 DE](../CODE_IMPLEMENTATION_GUIDE_DE.md)) - Core algorithms 
+2. **[docs/MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md)** ([🇩🇪 DE](../MATHEMATICAL_FORMULAS_DE.md)) - All formulas 
 3. **[CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md](CROSS_PLATFORM_COMPATIBILITY_ANALYSIS.md)** - Platform details
 4. **[LOGGING_SYSTEM_README.md](LOGGING_SYSTEM_README.md)** - Testing system
 5. **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Pipeline internals
@@ -265,10 +265,10 @@
 ## 🔍 Finding Specific Information
 
 ### Understanding the Theory
-- Physical concepts: [PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) ([🇩🇪 DE](docs/PHYSICS_FOUNDATIONS_DE.md)) 
-- Mathematical formulas: [MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) ([🇩🇪 DE](docs/MATHEMATICAL_FORMULAS_DE.md)) 
-- Code implementation: [CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) ([🇩🇪 DE](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) 
-- Full theory index: [THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) ([🇩🇪 DE](docs/THEORY_AND_CODE_INDEX_DE.md)) 
+- Physical concepts: [PHYSICS_FOUNDATIONS.md](../PHYSICS_FOUNDATIONS.md) ([🇩🇪 DE](../PHYSICS_FOUNDATIONS_DE.md)) 
+- Mathematical formulas: [MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md) ([🇩🇪 DE](../MATHEMATICAL_FORMULAS_DE.md)) 
+- Code implementation: [CODE_IMPLEMENTATION_GUIDE.md](../CODE_IMPLEMENTATION_GUIDE.md) ([🇩🇪 DE](../CODE_IMPLEMENTATION_GUIDE_DE.md)) 
+- Full theory index: [THEORY_AND_CODE_INDEX.md](../THEORY_AND_CODE_INDEX.md) ([🇩🇪 DE](../THEORY_AND_CODE_INDEX_DE.md)) 
 
 ### Installation Issues
 - Windows: [INSTALL_README.md](INSTALL_README.md) → Windows section
@@ -290,7 +290,7 @@
 
 ### Scientific Validation
 - Papers: [papers/validation/README.md](papers/validation/README.md)
-- Theory: [docs/theory/README.md](docs/theory/README.md)
+- Theory: [docs/theory/README.md](../theory/README.md)
 - Data analysis: [COMPREHENSIVE_DATA_ANALYSIS.md](COMPREHENSIVE_DATA_ANALYSIS.md)
 - Results: [README.md](README.md) → Key Results section
 
@@ -358,11 +358,11 @@ Documentation/
 ### v1.2.2 Updates (2025-10-19)
 
 **Complete: Theory & Code Foundations Documentation (Bilingual EN/DE):**
-- [THEORY_AND_CODE_INDEX.md](docs/THEORY_AND_CODE_INDEX.md) ([🇩🇪](docs/THEORY_AND_CODE_INDEX_DE.md)) - Theory & code index 
-- [PHYSICS_FOUNDATIONS.md](docs/PHYSICS_FOUNDATIONS.md) ([🇩🇪](docs/PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts (560 lines) 
-- [MATHEMATICAL_FORMULAS.md](docs/MATHEMATICAL_FORMULAS.md) ([🇩🇪](docs/MATHEMATICAL_FORMULAS_DE.md)) - All formulas (465 lines) 
-- [CODE_IMPLEMENTATION_GUIDE.md](docs/CODE_IMPLEMENTATION_GUIDE.md) ([🇩🇪](docs/CODE_IMPLEMENTATION_GUIDE_DE.md)) - Implementation (669 lines) 
-- [EXAMPLES_AND_APPLICATIONS.md](docs/EXAMPLES_AND_APPLICATIONS.md) ([🇩🇪](docs/EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples (774 lines) 
+- [THEORY_AND_CODE_INDEX.md](../THEORY_AND_CODE_INDEX.md) ([🇩🇪](../THEORY_AND_CODE_INDEX_DE.md)) - Theory & code index 
+- [PHYSICS_FOUNDATIONS.md](../PHYSICS_FOUNDATIONS.md) ([🇩🇪](../PHYSICS_FOUNDATIONS_DE.md)) - Physical concepts (560 lines) 
+- [MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md) ([🇩🇪](../MATHEMATICAL_FORMULAS_DE.md)) - All formulas (465 lines) 
+- [CODE_IMPLEMENTATION_GUIDE.md](../CODE_IMPLEMENTATION_GUIDE.md) ([🇩🇪](../CODE_IMPLEMENTATION_GUIDE_DE.md)) - Implementation (669 lines) 
+- [EXAMPLES_AND_APPLICATIONS.md](../EXAMPLES_AND_APPLICATIONS.md) ([🇩🇪](../EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples (774 lines) 
 
 **All bilingual documentation complete with:**
 - 🇬🇧 English versions (primary)
