@@ -22,7 +22,25 @@
 > - **[Summary Output](reports/summary-output.md)** - Compact test results summary
 > - **[Validation Summary](outputs/COMPLETE_VALIDATION_SUMMARY.md)** - All 5 pipelines with metrics
 
-Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, experimental validation, and **Theory of Everything** unifying gravity, time, and quantum mechanics.
+## Quick Overview
+
+**Segmented Spacetime (SSZ)** is a geometric theory of gravity that:
+
+### Core SSZ Formulas
+
+```python
+# Segment density (exponential saturation)
+Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+
+# Time dilation
+D_SSZ(r) = 1 / (1 + Ξ(r))
+
+# Universal intersection with GR
+r* = 1.386562 · r_s  (mass-independent!)
+D* = 0.528007
+```
+
+**SSZ**: φ-based geometry, cosmological predictions, experimental validation, and **Theory of Everything** unifying gravity, time, and quantum mechanics.
 
 ## 🌟 NEW: Theory of Everything
 

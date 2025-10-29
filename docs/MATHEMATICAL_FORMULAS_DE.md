@@ -63,7 +63,61 @@ M_☉ = 1.98847 × 10^30 kg                    Sonnenmasse
 
 ---
 
-## 2. Segment-Radius r_φ
+## 2. Kern-SSZ-Formeln (KORREKT)
+
+### 2.1 Segmentdichtefeld
+
+**Exponentielles Sättigungsmodell:**
+```
+Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+```
+
+**Wobei:**
+- Ξ_max = 1.0 (Sättigungswert)
+- φ = (1+√5)/2 ≈ 1.618034 (Goldener Schnitt)
+- r_s = 2GM/c² (Schwarzschild-Radius)
+
+**Eigenschaften:**
+- Ξ(r) → 0 für r → 0 (keine Segmente im Zentrum)
+- Ξ(r) → Ξ_max für r → ∞ (sättigt)
+- φ im Exponenten sorgt für φ-basierte Skalierung
+
+### 2.2 Zeitdilatation
+
+**SSZ-Zeitdilatation (relativ zur Unendlichkeit):**
+```
+D_SSZ(r) = 1 / (1 + Ξ(r))
+```
+
+**GR-Zeitdilatation (Schwarzschild):**
+```
+D_GR(r) = √(1 - r_s/r)
+```
+
+**Universeller Schnittpunkt:**
+```
+Bei r* = 1.386562 · r_s:
+  D_SSZ(r*) = D_GR(r*) = 0.528007
+  Ξ(r*) = 0.893914
+```
+
+Dieser Schnittpunkt ist **massenunabhängig** und markiert den Übergang zwischen GR- und SSZ-Regime.
+
+### 2.3 Rotverschiebung
+
+**SSZ-Gravitationsrotverschiebung:**
+```
+z_SSZ = 1/D_SSZ - 1 = Ξ(r)
+```
+
+**GR-Gravitationsrotverschiebung:**
+```
+z_GR = 1/D_GR - 1 = 1/√(1-r_s/r) - 1
+```
+
+---
+
+## 3. Segment-Radius r_φ
 
 ### 2.1 Hauptformel
 
