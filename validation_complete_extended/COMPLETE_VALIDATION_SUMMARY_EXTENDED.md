@@ -1,67 +1,42 @@
 # Extended Validation Summary
 
-**Date:** 2025-10-29 16:42:57  
-**Status:** ✅ PASS  
-**Success Rate:** 91.7%
+**Date:** 2025-10-29 18:57:50  
+**Status:** ❌ FAIL  
+**Success Rate:** 60.0%
 
 ## Overview
 
-- Total Steps: 12
-- Passed: 11
-- Failed: 1
+- Total Steps: 5
+- Passed: 3
+- Failed: 2
 - Skipped: 0
-- Critical Failures: 0
+- Critical Failures: 1
 
 ## Results by Category
 
 
-### Analysis
-
-- Total: 2
-- Passed: 1/2
-
-- ❌ **Main SSZ Analysis**
-- ✅ **Shadow Predictions**
-
-### Extended
-
-- Total: 2
-- Passed: 2/2
-
-- ✅ **Proper Time Validation**
-- ✅ **Theory Validation**
-
-### Physics
-
-- Total: 3
-- Passed: 3/3
-
-- ✅ **PPN Parameters Test**
-- ✅ **Velocity Duality Test**
-- ✅ **Energy Conditions Test**
-
 ### Validation
 
 - Total: 5
-- Passed: 5/5
+- Passed: 3/5
 
 - ✅ **Formula Verification** **(CRITICAL)**
-- ✅ **Complete Test Suite (22 tests)** **(CRITICAL)**
+- ❌ **Complete Test Suite (22 tests)**
 - ✅ **ToE Unified Validation (11 steps)** **(CRITICAL)**
 - ✅ **ToE Validation v2 (6 pillars)** **(CRITICAL)**
-- ✅ **Grid Convergence Test (F-16)**
+- ❌ **Black Hole Bomb Tests (7 scripts)** **(CRITICAL)**
 
 
 ## Outputs Generated
 
 - **Plots:** 38 files
-- **Reports:** 331 files
+- **Reports:** 338 files
 - **Data:** 17 files
-- **Logs:** 12 individual logs
+- **Logs:** 5 individual logs
 
 ## Error Summary
 
-- **Total Errors:** 1
+- **Total Errors:** 2
 - **Error Log:** `error_log.txt`
 
 ## Files
@@ -76,9 +51,9 @@
 ### Directories
 
 - `plots/` - All generated plots (38 files)
-- `reports/` - All reports and summaries (331 files)
+- `reports/` - All reports and summaries (338 files)
 - `data/` - All CSV data files (17 files)
-- `logs/` - Individual step logs (12 files)
+- `logs/` - Individual step logs (5 files)
 
 ---
 

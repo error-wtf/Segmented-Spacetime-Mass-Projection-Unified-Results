@@ -1,0 +1,132 @@
+# SSZ Theory of Everything - Required Python Packages
+# © 2025 Carmen Wrede & Lino Casu
+# Version: 1.0 Final
+
+# ============================================================================
+# CORE DEPENDENCIES (Required for all scripts)
+# ============================================================================
+
+# Core numerical computing
+numpy>=1.24.0,<3.0.0
+scipy>=1.10.0,<2.0.0
+
+# Plotting and visualization
+matplotlib>=3.7.0,<4.0.0
+seaborn>=0.12.0,<1.0.0  # Statistical data visualization
+seaborn>=0.12.0,<1.0.0  # Statistical data visualization
+
+# Data handling
+pandas>=2.0.0,<3.0.0
+pyarrow>=10.0.0,<22.0.0  # Required for parquet file support
+
+# Image processing (for animations/GIFs)
+pillow>=10.0.0,<13.0.0
+imageio>=2.31.0,<3.0.0  # Required for GIF/video generation
+imageio-ffmpeg>=0.4.0,<1.0.0  # FFmpeg wrapper for video encoding
+imageio>=2.31.0,<3.0.0  # Required for GIF/video generation
+imageio-ffmpeg>=0.4.0,<1.0.0  # FFmpeg wrapper for video encoding
+
+# ============================================================================
+# ASTRONOMY & ASTROPHYSICS (Required for GAIA data, cosmology)
+# ============================================================================
+
+# Astronomy tools
+astropy>=6.0.0,<7.0.0  # Required for FITS files, coordinates, cosmology
+astroquery>=0.4.0,<1.0.0  # Required for GAIA DR3 queries, VizieR access
+
+# ============================================================================
+# INTERACTIVE VISUALIZATION (Required for 3D plots, dashboards)
+# ============================================================================
+
+# Interactive plotting
+plotly>=5.0.0,<7.0.0  # Required for 3D visualizations, WebGL rendering
+
+# Web dashboard (optional, for interactive apps)
+dash>=2.0.0,<3.0.0  # Required for interactive parameter adjustment
+
+# ============================================================================
+# PERFORMANCE OPTIMIZATION (Optional but recommended)
+# ============================================================================
+
+# JIT compilation for fast numerical computations
+numba>=0.57.0,<1.0.0  # Speeds up segment field calculations
+
+# ============================================================================
+# DATA FETCHING & NETWORKING (Required for remote data access)
+# ============================================================================
+
+# HTTP requests
+requests>=2.28.0,<3.0.0  # Required for Planck data download, API access
+
+# Progress bars for downloads
+tqdm>=4.65.0,<5.0.0  # Required for download progress indicators
+
+# ============================================================================
+# ADDITIONAL UTILITIES (Optional but useful)
+# ============================================================================
+
+# YAML configuration files
+PyYAML>=6.0,<7.0  # Required for config file parsing
+
+# JSON schema validation
+jsonschema>=4.0.0,<5.0.0  # Required for validation result schemas
+
+# Tabular data display
+tabulate>=0.9.0,<1.0.0  # Pretty-print tables in terminal
+
+# Colorized terminal output
+colorama>=0.4.6,<1.0.0  # Cross-platform colored terminal text
+
+# ============================================================================
+# ADDITIONAL UTILITIES (Optional but useful)
+# ============================================================================
+
+# YAML configuration files
+PyYAML>=6.0,<7.0  # Required for config file parsing
+
+# JSON schema validation
+jsonschema>=4.0.0,<5.0.0  # Required for validation result schemas
+
+# Tabular data display
+tabulate>=0.9.0,<1.0.0  # Pretty-print tables in terminal
+
+# Colorized terminal output
+colorama>=0.4.6,<1.0.0  # Cross-platform colored terminal text
+
+# ============================================================================
+# JUPYTER NOTEBOOKS (Optional, for interactive analysis)
+# ============================================================================
+
+# Jupyter environment
+jupyter>=1.0.0,<2.0.0  # Full Jupyter suite
+ipython>=8.0.0,<9.0.0  # Enhanced Python shell
+jupyterlab>=4.0.0,<5.0.0  # Modern Jupyter interface
+
+# ============================================================================
+# TESTING FRAMEWORK (Required for test suite)
+# ============================================================================
+
+# Testing tools
+pytest>=7.0.0,<9.0.0  # Test framework
+pytest-timeout>=2.0.0,<3.0.0  # Timeout support for long tests
+pytest-cov>=4.0.0,<5.0.0  # Code coverage reporting
+
+# ============================================================================
+# INSTALLATION INSTRUCTIONS
+# ============================================================================
+
+# Minimal installation (core only):
+#   pip install numpy scipy matplotlib pandas pyarrow pillow
+#
+# Full installation (all features):
+#   pip install -r requirements.txt
+#
+# Or use the automated install scripts:
+#   Windows: .\install.ps1
+#   Linux/Mac: ./install.sh
+#
+# Note: The install scripts will automatically:
+#   - Create virtual environment
+#   - Install all dependencies
+#   - Fetch missing data files (Planck 2GB)
+#   - Run test suite to verify installation
