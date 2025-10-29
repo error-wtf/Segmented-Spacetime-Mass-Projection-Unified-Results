@@ -106,7 +106,7 @@ def test_grid_convergence():
         ok = ok_order and ok_error
         
         status = "✓ PASS" if ok else "✗ FAIL"
-        print(f"\n  Order ≥ {p_min}: {ok_order}")
+        print(f"\n  Order >= {p_min}: {ok_order}")
         print(f"  Error < {error_max*100:.1f}%: {ok_error}")
         print(f"  Status: {status}")
         print()
@@ -132,7 +132,7 @@ def test_grid_convergence():
     n_total = len(results)
     
     print(f"Passed: {n_pass}/{n_total}")
-    print(f"Status: {'✅ ALL PASS' if all_pass else '❌ SOME FAILURES'}")
+    print(f"Status: {'[OK] ALL PASS' if all_pass else '[FAIL] SOME FAILURES'}")
     print()
     
     if not all_pass:
@@ -146,13 +146,13 @@ def test_grid_convergence():
     
     # Hard fail if any test fails
     if not all_pass:
-        print("\n❌ GRID CONVERGENCE TEST FAILED")
+        print("\n[FAIL] GRID CONVERGENCE TEST FAILED")
         print("   Grid refinement does not show proper convergence!")
         print("   This indicates numerical instability or insufficient resolution.")
         sys.exit(1)
     else:
-        print("\n✅ GRID CONVERGENCE TEST PASSED")
-        print("   All quantities show Richardson convergence order ≥ 1.8")
+        print("\n[OK] GRID CONVERGENCE TEST PASSED")
+        print("   All quantities show Richardson convergence order >= 1.8")
         print("   Extrapolation errors < 1%")
     
     return results
