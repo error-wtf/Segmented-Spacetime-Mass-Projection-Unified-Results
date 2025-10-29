@@ -1,0 +1,58 @@
+{
+  "config": {
+    "phi": 1.618033988749895,
+    "Xi_max": 1.0,
+    "masses_Msun": [
+      2.0,
+      4100000.0
+    ],
+    "rmin_factor": 1.01,
+    "rmax_factor": 10.0,
+    "N_scan": 20000,
+    "tol": 1e-10,
+    "plot_xlim_rs": [
+      1.0,
+      5.0
+    ],
+    "outdir": "outputs_intersection"
+  },
+  "expected": {
+    "r_star_over_rs": 1.386562,
+    "D_star": 0.528007,
+    "source": "SSZ_COMPLETE_FINAL_REPORT.md Analysis 6"
+  },
+  "cases": [
+    {
+      "M_Msun": 2.0,
+      "rs_m": 5906.678764133757,
+      "root_r_m": 8189.974073941845,
+      "root_r_over_rs": 1.3865616196486934,
+      "checks": {
+        "D_at_root_match": true,
+        "r_star_match_expected": true,
+        "D_star_match_expected": true,
+        "D_GR": 0.5280071198891432,
+        "D_SSZ": 0.5280071198891445,
+        "Xi_star": 0.8939138551956471,
+        "deviation_r": 3.803513066724662e-07,
+        "deviation_D": 1.1988914316862775e-07
+      }
+    },
+    {
+      "M_Msun": 4100000.0,
+      "rs_m": 12108691466.474201,
+      "root_r_m": 16789446851.580812,
+      "root_r_over_rs": 1.386561619648696,
+      "checks": {
+        "D_at_root_match": true,
+        "r_star_match_expected": true,
+        "D_star_match_expected": true,
+        "D_GR": 0.5280071198891445,
+        "D_SSZ": 0.5280071198891444,
+        "Xi_star": 0.8939138551956476,
+        "deviation_r": 3.8035130400793093e-07,
+        "deviation_D": 1.1988914450089538e-07
+      }
+    }
+  ]
+}

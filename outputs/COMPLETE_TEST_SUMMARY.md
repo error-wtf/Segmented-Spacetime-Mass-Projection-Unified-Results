@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-10-29 05:59:33
+**Generated:** 2025-10-29 14:35:08
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-**Overall Status:** ✅ ALL PASSED
+**Overall Status:** ⚠️ SOME ISSUES
 
 All tests, validations, and analysis scripts in the repository were executed.
 
@@ -18,13 +18,13 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | Metric | Count | Percentage |
 |--------|-------|------------|
-| **Total Tests** | 53 | 100% |
-| **Passed** | 33 | 62.3% |
-| **Failed** | 0 | 0.0% |
-| **Timeout** | 0 | 0.0% |
+| **Total Tests** | 54 | 100% |
+| **Passed** | 32 | 59.3% |
+| **Failed** | 1 | 1.9% |
+| **Timeout** | 1 | 1.9% |
 | **Error** | 0 | 0.0% |
 
-**Success Rate:** 100.0%
+**Success Rate:** 94.1%
 
 ---
 
@@ -32,48 +32,49 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 ### Root Level
 
-**Tests:** 38 | **Passed:** 25 | **Rate:** 65.8%
+**Tests:** 39 | **Passed:** 25 | **Rate:** 64.1%
 
 | File | Status | Duration |
 |------|--------|----------|
 | calculation_test.py | ⚠️ SKIPPED | 0.00s |
-| conftest.py | ✅ PASSED | 0.14s |
+| conftest.py | ✅ PASSED | 0.15s |
 | extend_all_tests.py | ✅ PASSED | 0.18s |
 | final_test.py | ✅ PASSED | 0.16s |
-| generate_test_data.py | ✅ PASSED | 0.17s |
-| investigate_paired_test.py | ✅ PASSED | 2.15s |
+| generate_test_data.py | ✅ PASSED | 0.16s |
+| investigate_paired_test.py | ✅ PASSED | 2.21s |
 | lagrangian_tests.py | ⚠️ SKIPPED | 0.00s |
-| lino_qed_test.py | ✅ PASSED | 0.54s |
-| perfect_paired_test.py | ✅ PASSED | 3.30s |
+| lino_qed_test.py | ✅ PASSED | 0.55s |
+| perfect_paired_test.py | ✅ PASSED | 3.34s |
 | phi_bic_test.py | ⚠️ SKIPPED | 0.00s |
 | phi_test.py | ⚠️ SKIPPED | 0.00s |
+| run_bomb_tests.py | ⏱️ TIMEOUT | 300s |
 | run_comprehensive_tests.py | ⚠️ SKIPPED | 0.00s |
-| segspacetime_quick_tests.py | ✅ PASSED | 2.18s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.56s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.69s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.60s |
-| segspace_final_test.py | ✅ PASSED | 1.90s |
+| segspacetime_quick_tests.py | ✅ PASSED | 1.63s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.29s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 1.34s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.39s |
+| segspace_final_test.py | ✅ PASSED | 1.61s |
 | segspace_pairtest_vs_sr.py | ⚠️ SKIPPED | 0.00s |
-| smoke_test_all.py | ✅ PASSED | 7.14s |
+| smoke_test_all.py | ✅ PASSED | 5.86s |
 | ssz_blackhole_bomb_template.py | ⚠️ SKIPPED | 0.00s |
 | ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.16s |
 | ssz_interactive_gui.py | ⚠️ SKIPPED | 0.00s |
-| ssz_stability_animation.py | ✅ PASSED | 42.91s |
-| ssz_stability_three_figures.py | ✅ PASSED | 4.41s |
+| ssz_stability_animation.py | ✅ PASSED | 41.67s |
+| ssz_stability_three_figures.py | ✅ PASSED | 3.98s |
 | ssz_test_suite.py | ⚠️ SKIPPED | 0.00s |
 | ssz_theory_segmented.py | ⚠️ SKIPPED | 0.00s |
 | ssz_unified_suite.py | ⚠️ SKIPPED | 0.00s |
-| stratified_paired_test.py | ✅ PASSED | 11.98s |
-| test_c1_segments.py | ✅ PASSED | 0.15s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.13s |
-| test_c2_segments_strict.py | ✅ PASSED | 0.12s |
+| stratified_paired_test.py | ✅ PASSED | 11.91s |
+| test_c1_segments.py | ✅ PASSED | 0.14s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.15s |
+| test_c2_segments_strict.py | ✅ PASSED | 0.13s |
 | test_clone_and_verify.py | ⚠️ SKIPPED | 0.00s |
-| test_energy_conditions.py | ✅ PASSED | 0.12s |
-| test_phi_impact.py | ✅ PASSED | 3.48s |
-| test_ppn_exact.py | ✅ PASSED | 0.12s |
+| test_energy_conditions.py | ✅ PASSED | 0.14s |
+| test_phi_impact.py | ✅ PASSED | 4.14s |
+| test_ppn_exact.py | ✅ PASSED | 0.14s |
 | test_theory_predictions_cross_platform.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.57s |
-| test_vfall_duality.py | ✅ PASSED | 0.17s |
+| test_utf8_encoding.py | ✅ PASSED | 0.50s |
+| test_vfall_duality.py | ✅ PASSED | 0.20s |
 
 ### Scripts
 
@@ -81,37 +82,59 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 3.36s |
-| conftest.py | ✅ PASSED | 0.14s |
+| check_test_documentation.py | ✅ PASSED | 4.15s |
+| conftest.py | ✅ PASSED | 0.15s |
 | test_cosmo_fields.py | ⚠️ SKIPPED | 0.00s |
 | test_cosmo_multibody.py | ⚠️ SKIPPED | 0.00s |
 | test_data_fetch.py | ⚠️ SKIPPED | 0.00s |
-| test_data_validation.py | ✅ PASSED | 1.48s |
+| test_data_validation.py | ✅ PASSED | 1.79s |
 | test_gaia_required_columns.py | ⚠️ SKIPPED | 0.00s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.86s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 2.47s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.05s |
+| test_horizon_hawking_predictions.py | ✅ PASSED | 2.57s |
 | test_plot_ssz_maps.py | ⚠️ SKIPPED | 0.00s |
 | test_segmenter.py | ⚠️ SKIPPED | 0.00s |
-| test_ssz_invariants.py | ✅ PASSED | 1.25s |
+| test_ssz_invariants.py | ✅ PASSED | 1.35s |
 | test_ssz_kernel.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.46s |
+| test_utf8_encoding.py | ✅ PASSED | 0.45s |
 
 ### Validation
 
-**Tests:** 1 | **Passed:** 1 | **Rate:** 100.0%
+**Tests:** 1 | **Passed:** 0 | **Rate:** 0.0%
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ✅ PASSED | 3.96s |
+| run_ssz_validation.py | ❌ FAILED | 2.92s |
+
+---
+
+## Failed Tests
+
+1 test(s) failed or encountered errors:
+
+### run_ssz_validation.py
+
+**Category:** validation  
+**Status:** FAILED  
+**Error:**
+```
+check\run_ssz_validation.py", line 105, in <module>
+    intersection = find_intersection(rs, xi_max=xi_max, alpha=1.0)
+  File "E:\clone\doublecheck\run_ssz_validation.py", line 68, in find_intersection
+    r_star = brentq(diff, r_s * 1.01, r_s * 10)
+  File "C:\Users\linoc\AppData\Roaming\Python\Python310\site-packages\scipy\optimize\_zeros_py.py", line 798, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs
+
+```
 
 ---
 
 ## Next Steps
 
-**✅ All Clear:**
-- All tests passed successfully
-- Repository is in good state
-- Ready for deployment/release
+**Action Required:**
+- Review 2 failed/timeout/error test(s)
+- Check error messages above
+- Fix issues and re-run: `python run_complete_test_suite.py`
 
 ---
 
