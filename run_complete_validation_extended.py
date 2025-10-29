@@ -90,7 +90,7 @@ PIPELINE = [
         'name': 'Complete Test Suite (22 tests)',
         'script': 'run_full_suite.py',
         'timeout': 600,
-        'critical': False,  # Changed to False - contains optional SDSS test
+        'critical': True,  # Back to True - SDSS now skipped gracefully in run_full_suite.py
         'category': 'validation'
     },
     {
