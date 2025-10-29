@@ -1047,6 +1047,78 @@
       "path": "reports/figures/demo/fig_demo_scatter.png",
       "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
       "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_heatmap.png",
+      "sha256": "e5e59940cee977966cfaf632c210831e80207910875fd61812d3df42e4d26cda",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_line.png",
+      "sha256": "795efc695da3754b574676178ec380698b1bd31f740a110966d8003a08aed1c5",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_scatter.png",
+      "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_heatmap.png",
+      "sha256": "2f63b9116b87625fc940cfca69e0133c527169df48328143981bdc6e4bf2a92b",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_line.png",
+      "sha256": "3324e74fc3bb3fc240c5fcba44dec606bfea783137879655dd6066992f7a4934",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_scatter.png",
+      "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_heatmap.png",
+      "sha256": "d8ea817176e6d0e37fe4ae31d1725ccaa47b9218a02cec6e051bdd344e9fc4e4",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_line.png",
+      "sha256": "3c70cceec178c09412129986ba40179e1cde6b9c399682c88e79667bf90878fd",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_scatter.png",
+      "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_heatmap.png",
+      "sha256": "471b332cca9c2a6d5a610c94b35a55809cf0a91768d6ede6ec1796d94bbd0803",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_line.png",
+      "sha256": "5eaf41e501db6a5be80d4e1181f7b827633321611c72a11af0f5f69e8d51db74",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/demo/fig_demo_scatter.png",
+      "sha256": "fb91de9166400f2314b58d058557b3fbd51a834f5e1f09a7ac9f931a2ee96664",
+      "format": "png"
     }
   ]
 }

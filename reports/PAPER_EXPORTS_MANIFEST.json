@@ -2087,6 +2087,150 @@
       "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
       "sha256": "e654f2a6b6eac6d6afddc46466b4c0749069407b2c398dadd925deaf40530167",
       "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "78335c355b0b4a5cf0b4f4c498fd736fa9288d1472110b5f0b355d69076fff26",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "52c1ee7676a088474fa98539ae8df7c5437d99d18546a45a665f481b1146f9b4",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "1784621f799f4ce4ca80d396ece759ae51571148a93ec443d0e6f5f9977012b7",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "41605320d9609bf4ac824e0be111b197c7c6e161daa9c625f45da11070a2f6a0",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "313669f856c805227892bf9be6f94768df1e503699a281fe31a16db3188f10b1",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "66b0996d796ffcfc5c700c585b636c7bba6e13b442e6e53dc96787f35bb60a5f",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "426e4f540eb60164e6a516e58ca7ab6df2d9be24894387fbaee191b0f29ce565",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "adfbde01dd1540de62d11af32c1af8a1ca14af029f8814aa3b942b0298a92eac",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "ff4d7ffba4d982ee608b9887838cfbeb8d7d402439e989a654b595521a39c888",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "c5c0d4d5ce6246708fcf86a204d26a4f873504185159f2f31b7682290bc3bb5a",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "c0b4609826d0603a33a52894d849d364b377d7ec78ee9c73fd3164193e70deed",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "479ad54cfc5e565c4a058b8525a7d1855323f39135a71e2c6bb0e7a593a3e7b6",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.png",
+      "sha256": "b9b6a576e081eb9fe23274fb42ec3f5de6b1ad5a4730e017e4df4199b573a573",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_ringchain_v_vs_k.svg",
+      "sha256": "d0a993d0ddac0ed672665554ae21ffe4ede0bfad6713c19cd95e58b20cae40e0",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.png",
+      "sha256": "9387ed20eb11585285882cd630cd12d0cbba3c3036bd612820e97f2d4baaebba",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_gamma_log_vs_k.svg",
+      "sha256": "91de63ee50ef7172fd75aa09cbe68706bf8fdbac3519aac2359020369e481373",
+      "format": "svg"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.png",
+      "sha256": "4124e0cc637cf559118805d76eaf8d12c6bcdc6b03f16f428d1a992dbc57f72a",
+      "format": "png"
+    },
+    {
+      "role": "figure",
+      "path": "reports/figures/DemoObject/fig_DemoObject_freqshift_vs_gamma.svg",
+      "sha256": "bf28e1a7d9cbc1e3a7300d16a62e0abf25bfe70d97b2187b8c078ec453a40b88",
+      "format": "svg"
     }
   ],
   "figure_index": "reports/figures/FIGURE_INDEX.md"
