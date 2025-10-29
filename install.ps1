@@ -56,17 +56,27 @@ Write-Host "INSTALLATION COMPLETE" -ForegroundColor Cyan
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Available Commands:" -ForegroundColor Yellow
-Write-Host "  python run_all_validations.py          # MASTER: All 161 tests (5 pipelines, ~15-20 min)" -ForegroundColor Green
+Write-Host ""
+Write-Host "MAIN PIPELINE (Extended):" -ForegroundColor Cyan
+Write-Host "  python run_complete_validation_extended.py  # MASTER: 12 steps (11/12 PASS, ~10-15 min)" -ForegroundColor Green
+Write-Host "      Includes: Formula verification, 22 tests, ToE unified (11 steps)," -ForegroundColor DarkGray
+Write-Host "                ToE v2 (6 pillars), grid convergence, proper time," -ForegroundColor DarkGray
+Write-Host "                theory validation, PPN, velocity duality, energy conditions" -ForegroundColor DarkGray
+Write-Host "      Output: validation_complete_extended/ (388 files: 38 plots, 333 reports)" -ForegroundColor DarkGray
+Write-Host ""
+Write-Host "ALTERNATIVE: Original Master Pipeline:" -ForegroundColor Yellow
+Write-Host "  python run_all_validations.py          # All 161 tests (5 pipelines, ~15-20 min)" -ForegroundColor White
 Write-Host ""
 Write-Host "Individual Pipelines:" -ForegroundColor Yellow
 Write-Host "  python run_full_suite.py               # Original 116 tests (~2-3 min)" -ForegroundColor White
 Write-Host "  python run_ssz_validation.py           # SSZ vs GR (6 steps, ~2 min)" -ForegroundColor White
 Write-Host "  python run_ssz_theory_validation.py    # Theory validation (10 steps, ~2 min)" -ForegroundColor White
 Write-Host "  python run_ssz_unified_validation.py   # Unified ToE proof (11 steps, ~2 min)" -ForegroundColor White
+Write-Host "  python run_toe_validation_v2.py        # ToE v2 deterministic (6 pillars, ~2 min)" -ForegroundColor White
 Write-Host "  python run_complete_test_suite.py      # Complete test suite (~18 scripts, ~5-10 min)" -ForegroundColor White
 Write-Host ""
-Write-Host "Total: 161 tests (116 original + 45 ToE) across 5 pipelines" -ForegroundColor Cyan
-Write-Host "ToE Consistency Score: 83.3% | ESO Validation: 97.9%" -ForegroundColor Cyan
+Write-Host "Total: 161+ tests across multiple pipelines" -ForegroundColor Cyan
+Write-Host "Expected: Critical 100% PASS | Overall 91.7% PASS" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Documentation:" -ForegroundColor Yellow
 Write-Host "  README.md                              # Overview" -ForegroundColor White
@@ -74,6 +84,21 @@ Write-Host "  SSZ_COMPLETE_FINAL_REPORT.md          # Complete 60+ page report" 
 Write-Host "  TEST_SUITE_README.md                   # Testing guide" -ForegroundColor White
 Write-Host ""
 Write-Host "Repository: https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "="*80 -ForegroundColor Cyan
+Write-Host "TROUBLESHOOTING: CLEAR CACHE IF TESTS FAIL" -ForegroundColor Yellow
+Write-Host "="*80 -ForegroundColor Cyan
+Write-Host ""
+Write-Host "If you encounter test failures during repeated runs, clear the Python cache:" -ForegroundColor White
+Write-Host ""
+Write-Host "Windows (PowerShell):" -ForegroundColor Yellow
+Write-Host "  .\CLEAR_CACHE.bat" -ForegroundColor Green
+Write-Host "  # OR manually:" -ForegroundColor DarkGray
+Write-Host "  Get-ChildItem -Recurse -Directory -Filter '__pycache__' | Remove-Item -Recurse -Force" -ForegroundColor DarkGray
+Write-Host "  Get-ChildItem -Recurse -Directory -Filter '.pytest_cache' | Remove-Item -Recurse -Force" -ForegroundColor DarkGray
+Write-Host "  Get-ChildItem -Recurse -File -Include '*.pyc','*.pyo' | Remove-Item -Force" -ForegroundColor DarkGray
+Write-Host ""
+Write-Host "Then re-run your tests. Cache corruption can cause false failures!" -ForegroundColor White
 Write-Host ""
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host "ACTIVATING VIRTUAL ENVIRONMENT..." -ForegroundColor Yellow
