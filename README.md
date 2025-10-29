@@ -4,7 +4,8 @@
   <img src="assets/ssz_animations/sagitarius%20segmented%20spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
 </p>
 
-[![Tests](https://img.shields.io/badge/Tests-22%2F22_PASS-brightgreen)](validation_complete/COMPLETE_VALIDATION_SUMMARY.md)
+[![Tests](https://img.shields.io/badge/Tests-168%2B_Total-brightgreen)](validation_complete_extended/COMPLETE_VALIDATION_SUMMARY_EXTENDED.md)
+[![Extended Pipeline](https://img.shields.io/badge/Extended_Pipeline-11%2F12_PASS-brightgreen)](validation_complete_extended/)
 [![ToE Pillars](https://img.shields.io/badge/ToE_Pillars-6%2F6_Validated-brightgreen)](TOE_VALIDATION_STATUS.md)
 [![Scientific Score](https://img.shields.io/badge/Scientific_Validation-98.8%25-brightgreen)](SCIENTIFIC_VERIFICATION_CHECKLIST.md)
 [![Empirical](https://img.shields.io/badge/Empirical_Accuracy-97.9%25-blue)](SSZ_COMPLETE_VALIDATION_REPORT.md)
@@ -14,17 +15,18 @@
 
 **Latest Release:** v1.0 Final (2025-10-29) - Complete Validation & Publication Ready  
 **Authors:** Carmen Wrede & Lino Casu  
-**Status:** ✅ All validations complete | 22/22 tests PASS | 6/6 ToE pillars validated
+**Status:** ✅ All validations complete | 168+ tests across 6 pipelines | Extended: 11/12 PASS (91.7%) | 6/6 ToE pillars validated
 
 ---
 
 ## 🎯 Quick Links
 
 ### 📊 Validation Results
-- **[Complete Validation Pipeline](validation_complete/)** - Full validation outputs (26 plots, 323 reports, 17 data files)
-- **[Full Output Log](validation_complete/full-output.md)** - Complete validation log
-- **[Validation Summary](validation_complete/COMPLETE_VALIDATION_SUMMARY.md)** - Test results summary
-- **[Validation Results JSON](validation_complete/validation_results.json)** - Machine-readable results
+- **[Extended Validation Pipeline](validation_complete_extended/)** - Latest complete validation (388 files: 38 plots, 333 reports, 17 data)
+- **[Extended Validation Summary](validation_complete_extended/COMPLETE_VALIDATION_SUMMARY_EXTENDED.md)** - 12 steps, 11/12 PASS (91.7%)
+- **[Full Output Log Extended](validation_complete_extended/full-output-extended.md)** - Complete validation log
+- **[Validation Results JSON](validation_complete_extended/validation_results_extended.json)** - Machine-readable results
+- **[Original Validation Pipeline](validation_complete/)** - Previous validation (26 plots, 323 reports, 17 data files)
 
 ### 📖 Documentation
 - **[Complete Scientific Documentation](COMPLETE_SCIENTIFIC_DOCUMENTATION.md)** - Master documentation index
@@ -37,7 +39,9 @@
 - **[Theory Documentation](docs/theory/INDEX.md)** - Complete theory framework
 
 ### 📈 Test Results
-- **[Test Suite Status](TEST_SUITE_STATUS.md)** - 22/22 tests PASS (100%)
+- **[Extended Pipeline Status](validation_complete_extended/COMPLETE_VALIDATION_SUMMARY_EXTENDED.md)** - 11/12 steps PASS (91.7%), Critical 100%
+- **[Test Suite Status](TEST_SUITE_STATUS.md)** - 168+ tests total across 6 pipelines
+- **[Original Suite](reports/RUN_SUMMARY.md)** - 116 tests (35 physics + 23 technical + 58 validation)
 - **[ToE Missing Tests Roadmap](TOE_MISSING_TESTS_ROADMAP.md)** - 19 future tests planned
 - **[Grid Convergence Test](test_grid_convergence.py)** - Numerical stability verified
 
@@ -176,9 +180,14 @@ python smoke_test_all.py
 python perfect_paired_test.py
 # Expected: "SEG wins: 46/47 (97.9%)"
 
-# Run complete validation suite (161 tests total)
+# Run EXTENDED validation pipeline (12 steps, RECOMMENDED)
+python run_complete_validation_extended.py
+# Duration: ~10-15 min, 11/12 PASS (91.7%), Critical 100%
+# Output: validation_complete_extended/ (388 files)
+
+# Or run ALL pipelines (168+ tests total)
 python run_all_validations.py
-# Duration: ~15-20 min, validates all 5 pipelines (116 + 45 tests)
+# Duration: ~90 min, validates 6 pipelines sequentially
 
 # Generate plots
 python generate_key_plots.py
@@ -288,26 +297,44 @@ python perfect_paired_test.py
 
 ### ToE Validation Pipelines
 
-**5 Complete Validation Systems (161 Total Tests: 116 Original + 45 ToE):**
+**7 Complete Validation Systems (168+ Total Tests):**
 
 ```bash
-# Run ALL 5 pipelines sequentially (recommended - 161 total tests)
+# RECOMMENDED: Extended validation pipeline (12 steps, ~10-15 min)
+python run_complete_validation_extended.py
+# → 11/12 PASS (91.7%), Critical 100%
+# → Generates validation_complete_extended/ (388 files)
+
+# ALTERNATIVE: Run ALL 6 pipelines sequentially (168+ tests, ~90 min)
 python run_all_validations.py
-# Duration: ~15-20 minutes
-# Generates unified summary report
+# → Includes: run_full_suite.py (116 tests)
+#            run_ssz_validation.py (6 steps)
+#            run_ssz_theory_validation.py (10 steps)
+#            run_ssz_unified_validation.py (11 steps)
+#            run_bomb_tests.py (7 tests)
+#            run_complete_test_suite.py (~18 scripts)
 
 # Or run individual pipelines:
 
-# Pipeline 1: SSZ vs GR (6 steps, ~2 min)
+# Pipeline 1: Original Test Suite (116 tests, ~2-3 min)
+python run_full_suite.py
+
+# Pipeline 2: SSZ vs GR (6 steps, ~2 min)
 python run_ssz_validation.py
 
-# Pipeline 2: Theory Validation (10 steps, ~2 min)
+# Pipeline 3: Theory Validation (10 steps, ~2 min)
 python run_ssz_theory_validation.py
 
-# Pipeline 3: Unified Validation (11 steps, ~2 min)
+# Pipeline 4: Unified Validation (11 steps, ~2 min)
 python run_ssz_unified_validation.py
 
-# Pipeline 4: Complete Test Suite (~18 scripts, ~5-10 min)
+# Pipeline 5: ToE v2 Deterministic (6 pillars, ~2 min)
+python run_toe_validation_v2.py
+
+# Pipeline 6: Bomb Tests (7 tests, ~25 min)
+python run_bomb_tests.py
+
+# Pipeline 7: Complete Test Suite (~18 scripts, ~5-10 min)
 python run_complete_test_suite.py
 ```
 
@@ -502,12 +529,28 @@ SSZ-rings --help
 
 ### Test Overview
 
-**161 Automated Tests (116 Original + 45 ToE):**
-- 35 Physics Tests (detailed output)
-- 23 Technical Tests (silent mode)
-- 58 Additional Validation Tests
-- **45 Theory of Everything Tests** (added to original 116) ⭐ NEW
-- **Total: 161 tests across 5 pipelines** (run_all_validations.py executes all)
+**168+ Automated Tests Across 7 Pipelines:**
+
+**Extended Pipeline (RECOMMENDED):**
+- `run_complete_validation_extended.py` - 12 steps, 11/12 PASS (91.7%)
+- Includes: Formula verification, 22 tests, ToE unified (11 steps), ToE v2 (6 pillars)
+- Output: validation_complete_extended/ (388 files: 38 plots, 333 reports, 17 data)
+
+**Original Suite:**
+- `run_full_suite.py` - 116 tests (35 physics + 23 technical + 58 validation)
+
+**ToE Pipelines:**
+- `run_ssz_validation.py` - 6 validation steps
+- `run_ssz_theory_validation.py` - 10 theory steps
+- `run_ssz_unified_validation.py` - 11 unified steps
+- `run_toe_validation_v2.py` - 6 deterministic pillars ⭐ NEW
+
+**Additional:**
+- `run_bomb_tests.py` - 7 black hole bomb tests
+- `run_complete_test_suite.py` - ~18 auto-discovered scripts
+
+**Master Runner:**
+- `run_all_validations.py` - Executes all 6 pipelines sequentially (~90 min)
 
 ### Run Tests
 
@@ -516,16 +559,22 @@ SSZ-rings --help
 source .venv/bin/activate  # Linux/macOS
 .\.venv\Scripts\activate   # Windows
 
-# Complete suite (~2-3 minutes) - Original 116 tests
+# RECOMMENDED: Extended validation pipeline (~10-15 min)
+python run_complete_validation_extended.py
+# → 11/12 PASS (91.7%), Critical 100%, 388 files output
+
+# Complete suite - Original 116 tests (~2-3 min)
 python run_full_suite.py
 
-# Complete Validation Suite - ALL 5 pipelines (161 tests, ~15-20 min)
-python run_all_validations.py           # Recommended: Runs all 5 sequentially
+# Master runner - ALL 6 pipelines (168+ tests, ~90 min)
+python run_all_validations.py
 
-# Or run ToE pipelines individually (~2 min each):
+# Or run individual pipelines (~2 min each):
 python run_ssz_unified_validation.py     # 11-step complete ToE proof
 python run_ssz_theory_validation.py      # 10-step theory validation
 python run_ssz_validation.py             # 6-step SSZ vs GR
+python run_toe_validation_v2.py          # 6 pillars deterministic ⭐ NEW
+python run_bomb_tests.py                 # 7 black hole bomb tests (~25 min)
 python run_complete_test_suite.py        # ~18 scripts auto-discovery
 
 # Quick tests (~30 seconds)
@@ -544,7 +593,16 @@ python test_ppn_exact.py         # PPN parameters
 - **[summary-output.md](reports/summary-output.md)** - Brief summary
 - **[full-output.md](reports/full-output.md)** - Complete log (231 KB)
 
-**Expected output:**
+**Expected output (run_complete_validation_extended.py):**
+```
+Extended Validation Pipeline - 12 Steps
+Passed: 11/12 (91.7%)
+Critical Tests: 5/5 (100%)
+Overall Success: 11/12 PASS
+Total Files Generated: 388 (38 plots, 333 reports, 17 data, 12 logs)
+```
+
+**Expected output (run_full_suite.py):**
 ```
 Total Physics Tests: 35
 Passed: 35/35
