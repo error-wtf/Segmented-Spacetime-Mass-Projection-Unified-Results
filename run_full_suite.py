@@ -380,20 +380,41 @@ def main():
                 print(f"  [SKIP] {desc} (file not found)")
     
     # =============================================================================
-    # PHASE 5: Cosmos Tests (tests/cosmos/)
+    # PHASE 5: SSZ Complete Analysis
     # =============================================================================
     if not args.quick:
-        print_header("PHASE 5: COSMOS TESTS", "-")
+        print_header("PHASE 5: SSZ COMPLETE ANALYSIS", "-")
         
-        tests_phase5 = [
-            (["python", "-m", "pytest", "tests/cosmos/", "-s", "-v", "--tb=short", "--cache-clear"],
-             "Cosmos Multi-Body Sigma Tests", 60),
+        # Core scripts
+        core_scripts = [
+            ("segspace_all_in_one_extended.py", "SSZ Complete Analysis", 120),
         ]
         
-        for cmd, desc, timeout in tests_phase5:
-            success, elapsed = run_command(cmd, desc, timeout, check=False)
-            results[desc] = {"success": success, "time": elapsed}
-    
+        for script_name, desc, timeout in core_scripts:
+            script_path = Path(script_name)
+            if script_path.exists():
+                cmd = ["python", str(script_path)]
+                success, elapsed = run_command(cmd, desc, timeout, check=False)
+                results[desc] = {"success": success, "time": elapsed}
+            else:
+                print(f"  [SKIP] {desc} ({script_name} not found)")
+        
+        # GAIA/SDSS Pipeline (skip if data missing)
+        gaia_script = Path("run_gaia_ssz_pipeline.py")
+        sdss_data = Path("data/raw/sdss/2025-10-17_gaia_ssz_v1/sdss_catalog.csv")
+        sdss_parquet = Path("data/raw/sdss/2025-10-17_gaia_ssz_v1/sdss_catalog.parquet")
+        
+        if gaia_script.exists():
+            if sdss_data.exists() or sdss_parquet.exists():
+                cmd = ["python", str(gaia_script)]
+                success, elapsed = run_command(cmd, "GAIA/SDSS Pipeline", 300, check=False)
+                results["GAIA/SDSS Pipeline"] = {"success": success, "time": elapsed}
+            else:
+                print(f"  ℹ️  Skipping GAIA/SDSS Pipeline: SDSS data not found (optional)")
+                results["GAIA/SDSS Pipeline"] = {"success": None, "skipped": True, "reason": "SDSS data missing"}
+        
+        print_header("PHASE 6: SCIENTIFIC VALIDATION & ANALYSIS", "-")
+        
     # =============================================================================
     # PHASE 6: Complete SSZ Analysis (run_all_ssz_terminal.py)
     # =============================================================================
