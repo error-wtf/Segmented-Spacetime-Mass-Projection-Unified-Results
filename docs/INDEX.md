@@ -2,9 +2,9 @@
 
 **Complete guide to all documentation in the SSZ repository**
 
-**Repository Version:** v2.0.0 (2025-10-28) - **Theory of Everything Release** 🌟
-**Status:** Publication-Ready | ESO 97.9% + ToE 83.3% | 161 Tests (100% passing)
-**Highlights:** Complete φ-based unification framework, 4 validation pipelines, zero-install Colab integration
+**Repository Version:** v2.0.1 (2025-10-29) - **Theory of Everything + Black Hole Bomb** 🌟
+**Status:** Publication-Ready | ESO 97.9% + ToE 83.3% + Bomb Validated | 168 Tests (100% passing)
+**Highlights:** Complete φ-based unification framework, 6 validation pipelines (incl. bomb tests), zero-install Colab integration
 **Latest Updates:** Auto-venv activation | 12 smoke tests | [→ Today's Work](../TODAYS_WORK_2025-10-28_COMPLETE.md)
 
 ---
@@ -18,12 +18,13 @@
 - **[UNIFIED_VALIDATION_README.md](../UNIFIED_VALIDATION_README.md)** - 11-step unified validation guide
 - **[outputs/SSZ_SCIENTIFIC_INTERPRETATIONS.md](../outputs/SSZ_SCIENTIFIC_INTERPRETATIONS.md)** - 561-line scientific analysis
 
-### Validation Pipelines (4 Systems, 45+ Tests)
-- **[run_all_validations.py](../run_all_validations.py)** - MASTER: All 4 pipelines (~10-15 min)
+### Validation Pipelines (6 Systems, 52+ Tests)
+- **[run_all_validations.py](../run_all_validations.py)** - MASTER: All 6 pipelines (~15-20 min)
 - **[run_ssz_unified_validation.py](../run_ssz_unified_validation.py)** - Pipeline 3: Unified ToE (11 steps)
 - **[run_ssz_theory_validation.py](../run_ssz_theory_validation.py)** - Pipeline 2: Theory (10 steps)
 - **[run_ssz_validation.py](../run_ssz_validation.py)** - Pipeline 1: SSZ vs GR (6 steps)
-- **[run_complete_test_suite.py](../run_complete_test_suite.py)** - Pipeline 4: Complete suite (~18 scripts)
+- **[run_bomb_tests.py](../run_bomb_tests.py)** - Pipeline 5: Black Hole Bomb Tests (7 scripts, ~25 min)
+- **[run_complete_test_suite.py](../run_complete_test_suite.py)** - Pipeline 6: Complete suite (~18 scripts)
 
 ### Project Information
 - **[CHANGELOG.md](../CHANGELOG.md)** - Complete version history (v2.0.0 ToE release)
@@ -66,9 +67,10 @@
 - **[DATA_IMPROVEMENT_STATUS_REPORT.md](DATA_IMPROVEMENT_STATUS_REPORT.md)** ([🇩🇪 DE](DATA_IMPROVEMENT_STATUS_REPORT.md) | [🇬🇧 EN](DATA_IMPROVEMENT_STATUS_REPORT_EN.md)) - Roadmap status analysis
 - **[TODO_DATA_INTEGRATION.md](TODO_DATA_INTEGRATION.md)** ([🇩🇪 DE](TODO_DATA_INTEGRATION.md) | [🇬🇧 EN](TODO_DATA_INTEGRATION_EN.md)) - Data integration reminder
 
-### 🧪 Testing & Validation (Updated for v2.0.0 - 161 Tests)
-- **[../TEST_SUITE_README.md](../TEST_SUITE_README.md)** ⭐ - **NEW ToE Testing Documentation (161 tests: 116 + 45)**
-- **[../run_all_validations.py](../run_all_validations.py)** - **MASTER: Run all 4 ToE pipelines sequentially**
+### 🧪 Testing & Validation (Updated for v2.0.1 - 168 Tests)
+- **[../TEST_SUITE_README.md](../TEST_SUITE_README.md)** ⭐ - **NEW ToE Testing Documentation (168 tests: 116 + 45 + 7)**
+- **[../run_all_validations.py](../run_all_validations.py)** - MASTER: All 6 pipelines (~15-20 min)
+- **[../run_bomb_tests.py](../run_bomb_tests.py)** - **Black Hole Bomb Tests (7 scripts, superradiant ring-resonator validation)**
 - **[../outputs/COMPLETE_TEST_SUMMARY.md](../outputs/COMPLETE_TEST_SUMMARY.md)** - Latest test results (all passed)
 - **[../outputs/SSZ_VALIDATION_SUMMARY.md](../outputs/SSZ_VALIDATION_SUMMARY.md)** - SSZ vs GR validation results
 - **[COMPREHENSIVE_TESTING_GUIDE.md](COMPREHENSIVE_TESTING_GUIDE.md)** - Complete tester documentation (original 116 tests)
@@ -107,7 +109,7 @@
 - **[papers/validation/README.md](papers/validation/README.md)** - Papers overview
 
 ### 💻 Technical Documentation
-- **[../SSZ_Complete_Analysis_Colab.ipynb](../SSZ_Complete_Analysis_Colab.ipynb)** ⭐ **NEW: Zero-install Colab (v2.0.0 - All 161 tests)**
+- **[../SSZ_Complete_Analysis_Colab.ipynb](../SSZ_Complete_Analysis_Colab.ipynb)** ⭐ **NEW: Zero-install Colab (v2.0.1 - All 168 tests)**
 - **[SSZ_COMPLETE_PIPELINE.md](SSZ_COMPLETE_PIPELINE.md)** - Complete pipeline guide
 - **[COLAB_README.md](COLAB_README.md)** - Google Colab setup (original)
 - **[DATA_FETCHING_README.md](DATA_FETCHING_README.md)** - Data fetching guide
@@ -125,9 +127,9 @@
 - **[FINAL_UPLOAD_SUMMARY.md](FINAL_UPLOAD_SUMMARY.md)** - Upload manifest & verification
 - **[DOCUMENTATION_GAPS_ANALYSIS.md](DOCUMENTATION_GAPS_ANALYSIS.md)** - Completeness check (98%)
 
-### 📝 Release & Changes (v2.0.0 - Theory of Everything)
-- **[../CHANGELOG.md](../CHANGELOG.md)** ⭐ - **Release history (v2.0.0 ToE release added - 2025-10-28)**
-- **[../CITATION.cff](../CITATION.cff)** ⭐ - **Software citation file (v2.0.0, academic references)**
+### 📝 Release & Changes (v2.0.1 - Theory of Everything + Bomb Tests)
+- **[../CHANGELOG.md](../CHANGELOG.md)** ⭐ - **Release history (v2.0.1 Bomb Tests added - 2025-10-29)**
+- **[../CITATION.cff](../CITATION.cff)** ⭐ - **Software citation file (v2.0.1, academic references)**
 - **[../SSZ_BLACK_HOLE_STABILITY_ANALYSIS.md](../SSZ_BLACK_HOLE_STABILITY_ANALYSIS.md)** - BH stability analysis
 - **[../SSZ_STABILITY_COMPLETE_SUMMARY.md](../SSZ_STABILITY_COMPLETE_SUMMARY.md)** - Stability summary
 - **[GIT_COMMIT_SUMMARY.md](GIT_COMMIT_SUMMARY.md)** - Git commit history
@@ -426,9 +428,9 @@ Documentation/
 
 ---
 
-**Last Updated:** 2025-10-20 
-**Documentation Version:** v1.3.0 
-**Total Documents:** 91+ files 
+**Last Updated:** 2025-10-29 
+**Documentation Version:** v2.0.1 
+**Total Documents:** 92+ files 
 **Production Status:** Ready 
 
 **Bilingual Coverage:**
@@ -437,12 +439,18 @@ Documentation/
 - Testing: 1 doc (EN + DE) 
 **Total Bilingual:** 9 documentation sets = 18 files (EN/DE)
 
-**NEW in v1.3.0 (2025-10-20):**
-- New user guides: QUICK_START.md, TROUBLESHOOTING.md, CONTRIBUTING.md
-- Test reports generated and linked
-- Terminology Glossary: 200+ terms (EN/DE)
-- Documentation verified and cross-referenced
-- Production-ready status confirmed
+**NEW in v2.0.1 (2025-10-29):**
+- Black Hole Bomb Tests integrated (7 scripts, superradiant validation)
+- Pipeline expanded: 6 validation systems (was 5)
+- Test suite: 168 tests total (was 161)
+- Full scientific validation: SSZ framework + ToE + Bomb physics
+- All test files repaired and verified (100% passing)
+
+**NEW in v2.0.0 (2025-10-28):**
+- Theory of Everything complete (Section 16 in Final Report)
+- 11-step unified validation pipeline
+- Zero-install Colab notebook
+- Scientific interpretation: 561-line analysis
 
 ---
 
