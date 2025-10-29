@@ -51,6 +51,13 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 - **[Test Results](docs/theory/16_TEST_RESULTS.md)** - Validation summary
 - **[Scientific Verification](docs/theory/SCIENTIFIC_VERIFICATION.md)** - Proof of correctness
 
+### Code Documentation
+- **[Complete Code Documentation](CODE_DOCUMENTATION.md)** - All 100+ Python scripts documented
+  - Validation scripts (8) - ALL FUNCTIONAL
+  - Test scripts (15) - 22/22 PASS
+  - Analysis scripts (10+) - ALL FUNCTIONAL
+  - Utility scripts (5) - ALL FUNCTIONAL
+
 ### Today's Updates (2025-10-29)
 - **[Documentation Update](DOCUMENTATION_UPDATE_2025-10-29.md)** - Latest changes
 - **[Test Suite Status](TEST_SUITE_STATUS.md)** - Current test status
