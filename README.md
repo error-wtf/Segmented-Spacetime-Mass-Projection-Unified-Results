@@ -90,10 +90,6 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 **Note:** Subsequent runs are faster (~5-10 min) with cached data
 
-**Alternative Notebooks:**
-- [SSZ_Colab_Simple.ipynb](SSZ_Colab_Simple.ipynb) - **Recommended** (6 cells, simple)
-- [SSZ_Colab_AutoRunner.ipynb](SSZ_Colab_AutoRunner.ipynb) - Advanced (all pipelines)
-
 **Issues?** See [COLAB_COMPLETE_SETUP_GUIDE.md](COLAB_COMPLETE_SETUP_GUIDE.md)
 
 </td>
