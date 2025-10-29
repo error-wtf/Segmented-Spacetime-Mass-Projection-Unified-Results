@@ -1,0 +1,39 @@
+{
+  "config": {
+    "masses_Msun": [
+      2.0,
+      4100000.0
+    ],
+    "rmin_factor": 1.05,
+    "rmax_factor": 200.0,
+    "impact_params_rs": [
+      1.2,
+      1.5,
+      2.0,
+      3.0,
+      5.0,
+      10.0
+    ],
+    "N_path": 200000,
+    "Xi_max": 1.0,
+    "alpha": 1.0,
+    "phi": 1.618033988749895,
+    "outdir": "outputs_shapiro_proxy"
+  },
+  "cases": [
+    {
+      "M_Msun": 2.0,
+      "rs_m": 5906.678764133757,
+      "max_abs_diff_s": 0.007725805639566636,
+      "relative_agreement": -32.75041105507948,
+      "num_points": 6
+    },
+    {
+      "M_Msun": 4100000.0,
+      "rs_m": 12108691466.474201,
+      "max_abs_diff_s": 15837.901561111605,
+      "relative_agreement": -32.75041105507949,
+      "num_points": 6
+    }
+  ]
+}
