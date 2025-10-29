@@ -105,7 +105,7 @@ def test_grid_convergence():
         ok_error = error < error_max
         ok = ok_order and ok_error
         
-        status = "✓ PASS" if ok else "✗ FAIL"
+        status = "[OK] PASS" if ok else "[FAIL] FAIL"
         print(f"\n  Order >= {p_min}: {ok_order}")
         print(f"  Error < {error_max*100:.1f}%: {ok_error}")
         print(f"  Status: {status}")

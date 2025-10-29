@@ -1,0 +1,45 @@
+{
+  "thresholds": {
+    "intersection_L2_max": 0.5,
+    "intersection_bracket_tol": 0.0001,
+    "phi_abs_tol": 5e-06,
+    "ns_band_relwidth_max": 0.35,
+    "curvature_sup_max": 1.05,
+    "bh_gain_reduction_min": 6.0,
+    "hubble_rmse_max": 0.12,
+    "bao_rmse_max": 0.12,
+    "f_sigma8_rmse_max": 0.1,
+    "toe_consistency_min": 0.8
+  },
+  "pillars": [
+    {
+      "id": "intersection",
+      "name": "1. Universeller Schnittpunkt (GR \u27c2 SSZ)"
+    },
+    {
+      "id": "phi_invariance",
+      "name": "2. \u03c6-Invarianz (goldene Zahl)"
+    },
+    {
+      "id": "neutron_star",
+      "name": "3. Neutronenstern-Signatur"
+    },
+    {
+      "id": "singularity_resolution",
+      "name": "4. Aufl\u00f6sung der Singularit\u00e4t"
+    },
+    {
+      "id": "bh_stability",
+      "name": "5. Stabilit\u00e4t Schwarzer L\u00f6cher"
+    },
+    {
+      "id": "cosmology_fit",
+      "name": "6. Kosmologischer Fit (SN/BAO/f\u03c38)"
+    }
+  ],
+  "constants": {
+    "PHI": 1.618033988749895,
+    "XI_MAX": 1.0,
+    "R_S": 1.0
+  }
+}

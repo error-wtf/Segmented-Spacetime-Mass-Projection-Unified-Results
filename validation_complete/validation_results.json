@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-10-29T16:07:06.503193",
+  "results": [
+    {
+      "step": "verify_formulas",
+      "name": "Formula Verification",
+      "success": false,
+      "exit_code": 1,
+      "critical": true
+    }
+  ],
+  "statistics": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "critical_failed": 1,
+    "success_rate": 0.0
+  },
+  "overall_pass": false
+}
