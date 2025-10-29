@@ -43,14 +43,13 @@ class TestQFactor:
         print("Q-FACTOR: Temperature Ratio (β=1)")
         print("="*80)
         print(f"Temperature:")        
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Temperature Only Basic")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
-    print("="*80)
-    
+        print("\n" + "="*80)
+        print("Test Temperature Only Basic")
+        print("="*80)
+        print(f"Physical Meaning:")
+        print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
+        print("="*80)
+        
         print(f"  Current ring: T_curr = {T_curr:.1f} K")
         print(f"  Previous ring: T_prev = {T_prev:.1f} K")
         print(f"  β parameter: {beta:.1f}")
