@@ -385,19 +385,20 @@ def main():
     if not args.quick:
         print_header("PHASE 5: SSZ COMPLETE ANALYSIS", "-")
         
-        # Core scripts
-        core_scripts = [
-            ("segspace_all_in_one_extended.py", "SSZ Complete Analysis", 120),
-        ]
-        
-        for script_name, desc, timeout in core_scripts:
-            script_path = Path(script_name)
-            if script_path.exists():
-                cmd = ["python", str(script_path)]
-                success, elapsed = run_command(cmd, desc, timeout, check=False)
-                results[desc] = {"success": success, "time": elapsed}
+        # Run segspace_all_in_one_extended.py with correct ESO data
+        script_path = Path("segspace_all_in_one_extended.py")
+        if script_path.exists():
+            # Use ESO emission lines data (correct primary data)
+            eso_data = Path("data/real_data_emission_lines_clean.csv")
+            if eso_data.exists():
+                cmd = ["python", str(script_path), "all", "--csv", str(eso_data)]
+                success, elapsed = run_command(cmd, "SSZ Complete Analysis (ESO Data)", 120, check=False)
+                results["SSZ Complete Analysis"] = {"success": success, "time": elapsed}
             else:
-                print(f"  [SKIP] {desc} ({script_name} not found)")
+                print(f"  ⚠️  ESO data not found: {eso_data}")
+                results["SSZ Complete Analysis"] = {"success": False, "time": 0.0, "reason": "ESO data missing"}
+        else:
+            print(f"  [SKIP] SSZ Complete Analysis (script not found)")
         
         # GAIA/SDSS Pipeline (skip if data missing)
         gaia_script = Path("run_gaia_ssz_pipeline.py")
@@ -552,11 +553,12 @@ def main():
     
     print_header("SUMMARY REPORT", "=")
     
-    passed = sum(1 for r in results.values() if r["success"])
-    failed = len(results) - passed  # Only count actual failures in results
+    passed = sum(1 for r in results.values() if r.get("success"))
+    skipped = sum(1 for r in results.values() if r.get("skipped"))
+    failed = len(results) - passed - skipped  # Only count actual failures
     silent_test_count = 3  # UTF-8 Encoding, CLI Tests, MD Print Tests
     ring_test_count = 11  # Multi-Ring Validation Tests (G79 + Cygnus X)
-    total_test_time = sum(r["time"] for r in results.values())
+    total_test_time = sum(r.get("time", 0.0) for r in results.values())
     
     print(f"Total Phases: {len(results)}")
     print(f"Passed: {passed}")
@@ -568,8 +570,11 @@ def main():
     
     print("Detailed Results:")
     for name, result in results.items():
-        status = "[PASS]" if result["success"] else "[FAIL]"
-        print(f"  {status} {name:40s} ({result['time']:.1f}s)")
+        status = "✅" if result.get("success") else "❌"
+        elapsed = result.get("time", 0.0)
+        if result.get("skipped"):
+            status = "⏭️"
+        print(f"  {status} {name:50} ({elapsed:.1f}s)")
     
     # Write summary to file
     summary_file = Path("reports/RUN_SUMMARY.md")
