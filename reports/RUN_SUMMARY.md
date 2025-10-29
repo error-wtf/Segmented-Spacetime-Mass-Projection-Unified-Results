@@ -1,17 +1,17 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-29 20:20:35
+**Date:** 2025-10-29 21:11:44
 
 ## Overview
 
 - **Physics Test Suites:** 22
 - **Silent Technical Tests:** 3 (UTF-8, CLI, MD Print)
 - **Multi-Ring Validation Tests:** 11 (G79, Cygnus X)
-- **Passed:** 21
-- **Failed:** 1
-- **Success Rate:** 95.5%
-- **Total Test Time:** 150.5s
-- **Total Suite Time:** 202.8s
+- **Passed:** 22
+- **Failed:** 0
+- **Success Rate:** 100.0%
+- **Total Test Time:** 192.6s
+- **Total Suite Time:** 247.7s
 
 ## Physics Test Results
 
@@ -21,21 +21,21 @@
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (7.0s)
-- **Multi-Ring Validation Tests:** ✅ PASS (6.8s)
-- **SSZ Kernel Tests:** ✅ PASS (6.7s)
-- **SSZ Invariants Tests:** ✅ PASS (6.9s)
-- **Segmenter Tests:** ✅ PASS (6.8s)
-- **Cosmo Fields Tests:** ✅ PASS (6.8s)
-- **Cosmo Multibody Tests:** ✅ PASS (8.9s)
-- **Cosmos Multi-Body Sigma Tests:** ❌ FAIL (6.9s)
-- **SSZ Complete Analysis:** ✅ PASS (74.7s)
+- **SegWave Core Math Tests:** ✅ PASS (7.1s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.7s)
+- **SSZ Kernel Tests:** ✅ PASS (6.6s)
+- **SSZ Invariants Tests:** ✅ PASS (6.8s)
+- **Segmenter Tests:** ✅ PASS (6.7s)
+- **Cosmo Fields Tests:** ✅ PASS (6.7s)
+- **Cosmo Multibody Tests:** ✅ PASS (8.7s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.8s)
+- **SSZ Complete Analysis:** ✅ PASS (115.0s)
 - **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.4s)
-- **SSZ Theory Predictions:** ✅ PASS (3.5s)
-- **G79 Analysis:** ✅ PASS (2.7s)
-- **Cygnus X Analysis:** ✅ PASS (3.1s)
-- **Paper Export Tools:** ✅ PASS (4.0s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.3s)
+- **SSZ Theory Predictions:** ✅ PASS (3.0s)
+- **G79 Analysis:** ✅ PASS (2.8s)
+- **Cygnus X Analysis:** ✅ PASS (2.8s)
+- **Paper Export Tools:** ✅ PASS (4.9s)
 - **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
