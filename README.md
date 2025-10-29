@@ -120,7 +120,7 @@ D* = 0.528007
 ### 🌐 Google Colab (Zero Install)
 
 **Click to run:**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/notebooks/SSZ_Quick_Demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Master_Complete_Pipeline_Colab.ipynb)
 
 **Or manual setup:**
 ```python
