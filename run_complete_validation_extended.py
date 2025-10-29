@@ -167,15 +167,15 @@ PIPELINE = [
         'critical': False,
         'category': 'physics'
     },
-    # Analysis scripts
-    {
-        'id': 'analysis_main',
-        'name': 'Main SSZ Analysis',
-        'script': 'segspace_all_in_one_extended.py',
-        'timeout': 120,
-        'critical': False,
-        'category': 'analysis'
-    },
+    # Analysis scripts - SKIP (requires command argument, run separately if needed)
+    # {
+    #     'id': 'analysis_main',
+    #     'name': 'Main SSZ Analysis',
+    #     'script': 'segspace_all_in_one_extended.py',
+    #     'timeout': 120,
+    #     'critical': False,
+    #     'category': 'analysis'
+    # },
     {
         'id': 'shadow_predictions',
         'name': 'Shadow Predictions',
