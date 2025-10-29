@@ -63,7 +63,61 @@ M_☉ = 1.98847 × 10^30 kg                    Solar mass
 
 ---
 
-## 2. Segment Radius r_φ
+## 2. Core SSZ Formulas (CORRECT)
+
+### 2.1 Segment Density Field
+
+**Exponential saturation model:**
+```
+Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+```
+
+**Where:**
+- Ξ_max = 1.0 (saturation value)
+- φ = (1+√5)/2 ≈ 1.618034 (golden ratio)
+- r_s = 2GM/c² (Schwarzschild radius)
+
+**Properties:**
+- Ξ(r) → 0 as r → 0 (no segments at center)
+- Ξ(r) → Ξ_max as r → ∞ (saturates)
+- φ in exponent ensures φ-based scaling
+
+### 2.2 Time Dilation
+
+**SSZ time dilation (relative to infinity):**
+```
+D_SSZ(r) = 1 / (1 + Ξ(r))
+```
+
+**GR time dilation (Schwarzschild):**
+```
+D_GR(r) = √(1 - r_s/r)
+```
+
+**Universal Intersection:**
+```
+At r* = 1.386562 · r_s:
+  D_SSZ(r*) = D_GR(r*) = 0.528007
+  Ξ(r*) = 0.893914
+```
+
+This intersection is **mass-independent** and marks the transition between GR and SSZ regimes.
+
+### 2.3 Redshift
+
+**SSZ gravitational redshift:**
+```
+z_SSZ = 1/D_SSZ - 1 = Ξ(r)
+```
+
+**GR gravitational redshift:**
+```
+z_GR = 1/D_GR - 1 = 1/√(1-r_s/r) - 1
+```
+
+---
+
+## 3. Segment Radius r_φ
 
 ### 2.0 Physical Motivation: The Singularity Problem
 
@@ -208,7 +262,7 @@ r_φ ≈ φ·(GM/c²)·1.02 ≈ 0.83·r_s  (SSZ effects)
 
 ---
 
-## 3. Metric Tensor
+## 4. Metric Tensor
 
 ### 3.1 SSZ Metric (Spherical)
 
@@ -336,7 +390,7 @@ A(U) = 1 - 2U + 2U² - 24/5·U³ + ...
 
 ---
 
-## 4. PPN Parameters
+## 5. PPN Parameters
 
 ### 4.1 Post-Newtonian Formalism
 
@@ -374,7 +428,7 @@ B(r) = 1 + 2U + ...
 
 ---
 
-## 5. Dual Velocities
+## 6. Dual Velocities
 
 ### 5.0 Physical Definitions
 
@@ -440,7 +494,7 @@ v_esc · v_fall = v_esc · (c²/v_esc) = c²  ∎
 
 ---
 
-## 6. Redshift Formulas
+## 7. Redshift Formulas (Detailed)
 
 ### 6.1 Gravitational Redshift (GR)
 
@@ -477,7 +531,7 @@ z_GR,scaled = z_GR · (1 + Δ(M)/100)
 
 ---
 
-## 7. Energy Conditions
+## 8. Energy Conditions
 
 ### 7.1 Energy-Momentum Tensor
 
@@ -514,7 +568,7 @@ T_μν = (ρ + p)u_μu_ν + p·g_μν
 
 ---
 
-## 8. Black Holes
+## 9. Black Holes
 
 ### 8.1 Horizon Structure
 
@@ -551,7 +605,7 @@ Difference: ~6%
 
 ---
 
-## 9. Numerical Methods
+## 10. Numerical Methods
 
 ### 9.1 Mass Inversion
 
@@ -589,7 +643,7 @@ getcontext().prec = 200  # 200 digits
 
 ---
 
-## 10. Statistical Tests
+## 11. Statistical Tests
 
 ### 10.1 Paired Sign Test
 

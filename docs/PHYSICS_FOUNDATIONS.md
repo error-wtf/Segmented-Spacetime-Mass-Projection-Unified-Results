@@ -98,39 +98,44 @@ In Einstein's **General Relativity (GR)**:
 - Structured by φ
 - Time progresses segment-wise
 
-### Segment Density N(x)
+### Segment Density Ξ(r)
 
 **Physical meaning:**
-- N(x) = Number of segments per volume at location x
+- Ξ(r) = Normalized segment concentration at radius r
 - **High density:** Many segments → time runs slowly
 - **Low density:** Few segments → time runs normally
 
 **Where does the density come from?**
 - Mass creates segments
-- The more mass, the higher N(x)
+- The more mass, the higher Ξ(r)
 - **Gravitation = Gradient of segment density**
 
-**Formula (simplified):**
+**Formula (CORRECT):**
 ```
-N(x) = Σ [Mass_i × Kernel(distance to Mass_i)]
+Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
 ```
 
-### Time Dilation τ(x)
+Where:
+- Ξ_max = 1.0 (maximum saturation)
+- φ = 1.618... (golden ratio)
+- r_s = 2GM/c² (Schwarzschild radius)
+
+### Time Dilation D(r)
 
 **Physical meaning:**
-- τ(x) = How fast does time pass at location x?
-- τ < 1: Time runs slower (near mass)
-- τ = 1: Time runs normally (far away)
+- D(r) = How fast does time pass at radius r?
+- D < 1: Time runs slower (near mass)
+- D = 1: Time runs normally (far away)
 
-**Formula:**
+**Formula (CORRECT):**
 ```
-τ(x) = φ^(-α·N(x))
+D(r) = 1 / (1 + Ξ(r))
 ```
 
 **Interpretation:**
-- High segment density → large N(x)
-- Large N(x) → small τ(x)
-- Small τ(x) → **Time runs slower**
+- High segment density → large Ξ(r)
+- Large Ξ(r) → small D(r)
+- Small D(r) → **Time runs slower**
 
 **This is gravitation!**
 - Einstein: Gravitation = Spacetime curvature
