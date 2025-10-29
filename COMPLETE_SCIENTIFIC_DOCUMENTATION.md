@@ -11,6 +11,31 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---
 
+## 📊 Validation Results Summary
+
+**Complete Validation Pipeline:** [validation_complete/](validation_complete/)
+
+**Test Statistics:**
+- **Formula Verification:** 5/5 tests PASS + 1 INFO (5/6)
+- **Test Suite:** 22/22 tests PASS (100%)
+- **ToE Unified Validation:** 11/11 steps PASS
+- **ToE v2 Deterministic:** 6/6 pillars PASS (100%)
+- **Grid Convergence:** 4/4 tests PASS
+- **Scientific Validation Score:** 98.8%
+- **Empirical Accuracy:** 97.9% (30,008 ESO measurements)
+
+**Generated Outputs:**
+- **Plots:** 26 PNG files ([validation_complete/plots/](validation_complete/plots/))
+- **Reports:** 323 MD/JSON files ([validation_complete/reports/](validation_complete/reports/))
+- **Data:** 17 CSV files ([validation_complete/data/](validation_complete/data/))
+
+**Key Files:**
+- [full-output.md](validation_complete/full-output.md) - Complete validation log
+- [COMPLETE_VALIDATION_SUMMARY.md](validation_complete/COMPLETE_VALIDATION_SUMMARY.md) - Summary
+- [validation_results.json](validation_complete/validation_results.json) - Machine-readable results
+
+---
+
 ## Quick Navigation
 
 ### Executive Summary
