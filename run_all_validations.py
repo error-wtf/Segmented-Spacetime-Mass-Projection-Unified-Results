@@ -69,9 +69,9 @@ def run_pipeline(script_name, description, timeout=600):
 def main():
     """Run all validation pipelines"""
     
-    print_header("SSZ COMPLETE VALIDATION SUITE v2.0.0")
-    print("Running all 5 validation pipelines sequentially...")
-    print("Includes: 116 original tests + 45 ToE tests = 161 total tests")
+    print_header("SSZ COMPLETE VALIDATION SUITE v2.0.1")
+    print("Running all 6 validation pipelines sequentially...")
+    print("Includes: 116 original tests + 45 ToE tests + 7 bomb tests = 168 total tests")
     print(f"Start time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Python: {sys.version.split()[0]}")
     print(f"Platform: {sys.platform}\n")
@@ -83,6 +83,7 @@ def main():
         ("run_ssz_validation.py", "SSZ vs GR Validation (6 steps)", 600, True),  # 10 min - Depends on full suite
         ("run_ssz_theory_validation.py", "Theory Validation (10 steps)", 300, True),  # 5 min - Depends on validation
         ("run_ssz_unified_validation.py", "Unified ToE Validation (11 steps)", 180, True),  # 3 min - Depends on theory
+        ("run_bomb_tests.py", "Black Hole Bomb Tests (7 scripts)", 1500, False),  # 25 min - Independent scientific validation
         ("run_complete_test_suite.py", "Complete Test Suite (~18 scripts)", 1800, False)  # 30 min - Independent check
     ]
     

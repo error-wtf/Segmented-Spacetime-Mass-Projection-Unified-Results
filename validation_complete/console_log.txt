@@ -1,0 +1,65 @@
+================================================================================
+SSZ THEORY - COMPLETE VALIDATION PIPELINE
+================================================================================
+Started: 2025-10-29 16:07:03
+Output Directory: validation_complete
+
+
+[1/7] Formula Verification
+--------------------------------------------------------------------------------
+
+[FAIL] CRITICAL STEP FAILED: Formula Verification
+  Stopping pipeline.
+
+================================================================================
+COLLECTING ALL OUTPUTS
+================================================================================
+
+================================================================================
+COLLECTING OUTPUTS
+================================================================================
+  [OK] step2_intersection.png
+  [OK] step3_bh_stability.png
+  [OK] step4_time_emergence.png
+  [OK] step5_chaos_boundary.png
+  [OK] step6_ns_prediction.png
+  [OK] step9_toe_architecture.png
+  [OK] D_of_r_M2.png
+  [OK] D_of_r_M4.1e+06.png
+  [OK] redshift_M2.png
+  [OK] redshift_M4.1e+06.png
+  [OK] sensitivity_heatmap_M2.png
+  [OK] sensitivity_heatmap_M4.1e+06.png
+  [OK] shapiro_proxy_M2.png
+  [OK] shapiro_proxy_M4.1e+06.png
+  [OK] ToE_DASHBOARD.png
+  [OK] debug_alpha_sweep.png
+  [OK] gr_ssz_intersection_neutron_star_2_mmsun.png
+  [OK] gr_ssz_intersection_sgr_a_4p1x10_mmsun.png
+  [OK] gr_ssz_sensitivity_map.png
+  [OK] gr_ssz_time_dilation_plot.png
+  [OK] gr_vs_ssz_ns.png
+  [OK] gr_vs_ssz_sensitivity.png
+  [OK] gr_vs_ssz_sgra.png
+  [OK] theory_validation_chaos.png
+  [OK] theory_validation_dilation.png
+  [OK] theory_validation_stability.png
+
+Collected 26 plots
+Collected 323 reports
+Collected 17 data files
+
+================================================================================
+SAVING OUTPUTS
+================================================================================
+  [OK] validation_complete\full-output.md
+  [OK] validation_complete\COMPLETE_VALIDATION_SUMMARY.md
+  [OK] validation_complete\validation_results.json
+
+================================================================================
+VALIDATION PIPELINE COMPLETE
+================================================================================
+Status: [FAIL] FAILURES DETECTED
+Outputs: validation_complete/
+Completed: 2025-10-29 16:07:06
+================================================================================

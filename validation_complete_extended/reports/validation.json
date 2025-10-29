@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-10-29T18:57:43.419130",
+  "constants": {
+    "phi": 1.618033988749895,
+    "xi_max": 1.0,
+    "r_s": 1.0
+  },
+  "steps": {
+    "step1": {
+      "status": "completed",
+      "models": [
+        "Ξ(r)",
+        "Δt",
+        "ω(r)",
+        "D_GR",
+        "D_SSZ"
+      ]
+    },
+    "step2": {
+      "r_star_over_rs": 1.3865616196487338,
+      "D_star": 0.528007119889163,
+      "r_deviation": 3.803512662603481e-07,
+      "D_deviation": 1.198891630416199e-07,
+      "validated": true
+    },
+    "step3": {
+      "eta": "inf",
+      "final_ratio": 2.5e-323,
+      "stable": true
+    },
+    "step4": {
+      "slowdown_factor": 1.1080980172650094,
+      "dt_range": [
+        0.5000000234913351,
+        0.5540490346632065
+      ],
+      "omega_range": [
+        0.8090170323847261,
+        0.8964701695191369
+      ]
+    },
+    "step5": {
+      "chaos_fraction": 0.0977,
+      "boundary_equation": "λ_A = 1/K²"
+    },
+    "step6": {
+      "max_delta_percent": 456.812388636732,
+      "r_at_max": 1.01,
+      "observable": "Increased redshift, longer pulsar periods"
+    },
+    "step7": {
+      "phi": 1.618033988749895,
+      "phi_squared": 2.618033988749895,
+      "max_deviation": 0.0,
+      "invariant": true
+    },
+    "step8": {
+      "xi_max_less_than_one": false,
+      "D_at_horizon": 0.5550277096687818,
+      "R_ratio": 0.503,
+      "singularity_resolved": false
+    },
+    "step9": {
+      "unified_field": "Ξ(r)",
+      "governs": [
+        "Gravity",
+        "Time",
+        "Quantum"
+      ],
+      "architecture": "φ-geometry unifies all three"
+    }
+  },
+  "toe_score": {
+    "intersection_validated": true,
+    "bh_stable": true,
+    "phi_invariant": true,
+    "singularity_resolved": false,
+    "time_emergent": true,
+    "toe_architecture": true
+  },
+  "final_validation": {
+    "consistency_score": 0.8333333333333334,
+    "validated": true
+  }
+}
