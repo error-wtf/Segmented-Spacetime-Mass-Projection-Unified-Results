@@ -1,7 +1,7 @@
 # Segmented Spacetime – Mass Projection & Unified Results
 
 <p align="center">
-  <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
+  <img src="assets/ssz_animations/sagitarius%20segmented%20spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
 </p>
 
 [![Tests](https://img.shields.io/badge/tests-161%20passing-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
@@ -16,6 +16,11 @@
 **New:** Auto-venv activation | 12 smoke tests | Colab verified | [→ Today's Work](TODAYS_WORK_2025-10-28_COMPLETE.md)
 
 > **📊 [→ SESSION ANALYSIS & COMPLETION REPORT](SESSION_ANALYSIS_2025-10-28.md)** - Complete session timeline, validation results, technical improvements, and publication-ready status assessment
+
+> **🔬 [→ LATEST VALIDATION RESULTS](reports/RUN_SUMMARY.md)** - Complete test suite results with full output logs
+> - **[Full Output Log](reports/full-output.md)** - Complete unfiltered output from all test phases
+> - **[Summary Output](reports/summary-output.md)** - Compact test results summary
+> - **[Validation Summary](outputs/COMPLETE_VALIDATION_SUMMARY.md)** - All 5 pipelines with metrics
 
 Complete Python implementation and verification suite for the **Segmented Spacetime (SSZ)** framework with φ-based geometry, cosmological predictions, experimental validation, and **Theory of Everything** unifying gravity, time, and quantum mechanics.
 
