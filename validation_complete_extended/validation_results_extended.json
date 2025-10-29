@@ -1,0 +1,146 @@
+{
+  "timestamp": "2025-10-29T16:42:57.643633",
+  "results": [
+    {
+      "step": "verify_formulas",
+      "name": "Formula Verification",
+      "success": true,
+      "exit_code": 0,
+      "critical": true,
+      "category": "validation",
+      "runtime": null
+    },
+    {
+      "step": "test_suite",
+      "name": "Complete Test Suite (22 tests)",
+      "success": true,
+      "exit_code": 0,
+      "critical": true,
+      "category": "validation",
+      "runtime": null
+    },
+    {
+      "step": "toe_unified",
+      "name": "ToE Unified Validation (11 steps)",
+      "success": true,
+      "exit_code": 0,
+      "critical": true,
+      "category": "validation",
+      "runtime": null
+    },
+    {
+      "step": "toe_v2",
+      "name": "ToE Validation v2 (6 pillars)",
+      "success": true,
+      "exit_code": 0,
+      "critical": true,
+      "category": "validation",
+      "runtime": null
+    },
+    {
+      "step": "grid_convergence",
+      "name": "Grid Convergence Test (F-16)",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "validation",
+      "runtime": null
+    },
+    {
+      "step": "proper_time",
+      "name": "Proper Time Validation",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "extended",
+      "runtime": null
+    },
+    {
+      "step": "theory_validation",
+      "name": "Theory Validation",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "extended",
+      "runtime": null
+    },
+    {
+      "step": "test_ppn",
+      "name": "PPN Parameters Test",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "physics",
+      "runtime": null
+    },
+    {
+      "step": "test_vfall",
+      "name": "Velocity Duality Test",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "physics",
+      "runtime": null
+    },
+    {
+      "step": "test_energy",
+      "name": "Energy Conditions Test",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "physics",
+      "runtime": null
+    },
+    {
+      "step": "analysis_main",
+      "name": "Main SSZ Analysis",
+      "success": false,
+      "exit_code": 2,
+      "critical": false,
+      "category": "analysis",
+      "runtime": null
+    },
+    {
+      "step": "shadow_predictions",
+      "name": "Shadow Predictions",
+      "success": true,
+      "exit_code": 0,
+      "critical": false,
+      "category": "analysis",
+      "runtime": null
+    }
+  ],
+  "statistics": {
+    "total": 12,
+    "passed": 11,
+    "failed": 1,
+    "skipped": 0,
+    "critical_failed": 0,
+    "success_rate": 91.66666666666666
+  },
+  "error_summary": {
+    "total_errors": 1,
+    "by_type": {
+      "ScriptFailure": 1
+    },
+    "by_step": {
+      "Main SSZ Analysis": 1
+    },
+    "errors": [
+      {
+        "timestamp": "2025-10-29T16:42:56.619093",
+        "step": "Main SSZ Analysis",
+        "type": "ScriptFailure",
+        "message": "Exit code: 2",
+        "traceback": "usage: segspace_all_in_one_FINAL_v2 [-h] [--outdir OUTDIR] [--seed SEED]\n                                    [--prec PREC]\n                                    {validate-masses,eval-redshift,bound-energy,use-original,all}\n                                    ...\nsegspace_all_in_one_FINAL_v2: error: the following arguments are required: cmd\n"
+      }
+    ]
+  },
+  "overall_pass": true,
+  "outputs": {
+    "plots": 38,
+    "reports": 331,
+    "data": 17,
+    "logs": 12
+  }
+}

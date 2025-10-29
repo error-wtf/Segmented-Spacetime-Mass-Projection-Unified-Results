@@ -29,6 +29,8 @@
 ### 📖 Documentation
 - **[Complete Scientific Documentation](COMPLETE_SCIENTIFIC_DOCUMENTATION.md)** - Master documentation index
 - **[Code Documentation](CODE_DOCUMENTATION.md)** - Complete reference for all 100+ Python scripts
+- **[Usage Guide & FAQ](USAGE_FAQ.md)** - Installation, usage, troubleshooting, reproduction
+- **[Script Guides](SCRIPT_GUIDES.md)** - Detailed usage instructions for every script
 - **[Scientific Verification Checklist](SCIENTIFIC_VERIFICATION_CHECKLIST.md)** - 98.8% validation score
 - **[Theory of Everything Status](TOE_VALIDATION_STATUS.md)** - 6/6 pillars validated
 - **[Complete Status Checklist](COMPLETE_STATUS_CHECKLIST.md)** - Online, offline & Colab status
