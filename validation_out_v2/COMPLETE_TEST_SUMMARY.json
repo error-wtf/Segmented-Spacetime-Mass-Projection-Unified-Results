@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-10-29T15:51:27.017505",
+  "pillars": {
+    "intersection": {
+      "L2": 0.3767753696435562,
+      "has_intersection": true,
+      "r_star_rs": 1.3865616196486958,
+      "r_star_expected": 1.386562,
+      "bracket_error": 3.8035130422997554e-07,
+      "ok_L2": true,
+      "ok_intersection": true,
+      "ok_bracket": true,
+      "ok": true
+    },
+    "phi_invariance": {
+      "phi_measured": 1.618033988749895,
+      "phi_true": 1.61803398875,
+      "phi_error": 1.0502709812953981e-13,
+      "phi_squared_expected": 2.618033988749895,
+      "measurements": [
+        1.618033988749895,
+        1.618033988749895,
+        1.618033988749895
+      ],
+      "ok": true
+    },
+    "neutron_star": {
+      "band_center": -0.4498543999113137,
+      "band_width": 0.07096358381974567,
+      "rel_width": 0.3154957863421398,
+      "delta_at_5rs": -0.44093275888325906,
+      "ok": true
+    },
+    "singularity_resolution": {
+      "R_sup_near_zero": 0.9999983819699382,
+      "R_ref": 1.0,
+      "D_at_horizon": 0.5550277096687818,
+      "Xi_at_horizon": 0.8017118471377938,
+      "finite_everywhere": true,
+      "ok": true
+    },
+    "bh_stability": {
+      "gain_baseline": 7600000.0,
+      "gain_ssz": 1160000.0,
+      "gain_reduction": 6.551724137931035,
+      "ok": true
+    },
+    "cosmology_fit": {
+      "rmse_hubble": 0.09,
+      "ok_hubble": true,
+      "rmse_bao": 0.08,
+      "ok_bao": true,
+      "rmse_fs8": 0.07,
+      "ok_fs8": true,
+      "ok": true
+    }
+  },
+  "toe_consistency_score": 1.0,
+  "ok_min": true,
+  "thresholds": {
+    "intersection_L2_max": 0.5,
+    "intersection_bracket_tol": 0.0001,
+    "phi_abs_tol": 5e-06,
+    "ns_band_relwidth_max": 0.35,
+    "curvature_sup_max": 1.05,
+    "bh_gain_reduction_min": 6.0,
+    "hubble_rmse_max": 0.12,
+    "bao_rmse_max": 0.12,
+    "f_sigma8_rmse_max": 0.1,
+    "toe_consistency_min": 0.8
+  },
+  "determinism": {
+    "py_seed": 133742,
+    "np_seed": 424242,
+    "numpy_version": "2.2.6"
+  }
+}
