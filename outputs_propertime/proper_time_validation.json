@@ -1,0 +1,88 @@
+{
+  "config": {
+    "phi": 1.618033988749895,
+    "Xi_max": 1.0,
+    "alpha": 1.0,
+    "masses_Msun": [
+      2.0,
+      4100000.0
+    ],
+    "rstar_hint": 1.386562,
+    "r_grid": [
+      1.01,
+      5.0
+    ],
+    "r_points": [
+      1.05,
+      1.2,
+      1.5,
+      2.0,
+      3.0,
+      5.0
+    ],
+    "orbits_r": [
+      3.0,
+      4.0,
+      6.0,
+      10.0
+    ],
+    "dt_total": 1000.0,
+    "radial_profiles": [
+      [
+        1.8,
+        1.2,
+        2000
+      ],
+      [
+        3.0,
+        1.2,
+        4000
+      ]
+    ],
+    "sens_Xi": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "sens_alpha": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "outdir": "outputs_propertime",
+    "tol": 1e-06
+  },
+  "cases": [
+    {
+      "M_Msun": 2.0,
+      "rs_m": 5906.678764133757,
+      "causality_ok": true,
+      "crossover_ok": true,
+      "convergence_ok": false,
+      "limit_ok": false,
+      "D_star": {
+        "GR": 0.5280073072317646,
+        "SSZ": 0.5280071016875,
+        "diff": 2.0554426460872577e-07
+      }
+    },
+    {
+      "M_Msun": 4100000.0,
+      "rs_m": 12108691466.474201,
+      "causality_ok": true,
+      "crossover_ok": true,
+      "convergence_ok": false,
+      "limit_ok": false,
+      "D_star": {
+        "GR": 0.5280073072317645,
+        "SSZ": 0.5280071016875,
+        "diff": 2.0554426449770347e-07
+      }
+    }
+  ],
+  "summary": {
+    "all_causality_ok": true,
+    "all_crossover_ok": true,
+    "all_convergence_ok": false
+  }
+}
