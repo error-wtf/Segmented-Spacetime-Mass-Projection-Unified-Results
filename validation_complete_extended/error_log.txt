@@ -1,0 +1,21 @@
+
+================================================================================
+ERROR in Formula Verification
+Time: 2025-10-29T16:33:36.400069
+Type: ScriptFailure
+Message: Exit code: 1
+================================================================================
+
+================================================================================
+ERROR in Main SSZ Analysis
+Time: 2025-10-29T16:42:56.619093
+Type: ScriptFailure
+Message: Exit code: 2
+Traceback:
+usage: segspace_all_in_one_FINAL_v2 [-h] [--outdir OUTDIR] [--seed SEED]
+                                    [--prec PREC]
+                                    {validate-masses,eval-redshift,bound-energy,use-original,all}
+                                    ...
+segspace_all_in_one_FINAL_v2: error: the following arguments are required: cmd
+
+================================================================================
