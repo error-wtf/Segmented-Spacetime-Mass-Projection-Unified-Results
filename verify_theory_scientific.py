@@ -63,7 +63,7 @@ def main():
     test1_pass = (abs(Xi_calc - Xi_expected) < 1e-5 and 
                   abs(D_calc - D_expected) < 1e-5)
     
-    print(f"  ✓ PASS" if test1_pass else f"  ✗ FAIL")
+    print(f"  [OK] PASS" if test1_pass else f"  [FAIL] FAIL")
     print()
     
     # Test 2: Comparison with test data
@@ -84,10 +84,10 @@ def main():
         print(f"  Differenz: {diff:.3f}s ({rel_diff:.3f}%)")
         
         test2_pass = diff < 1.0  # Less than 1 second difference
-        print(f"  ✓ PASS (< 1s)" if test2_pass else f"  ✗ FAIL")
+        print(f"  [OK] PASS (< 1s)" if test2_pass else f"  [FAIL] FAIL")
         
     except Exception as e:
-        print(f"  ⚠ WARNING: Could not load test data: {e}")
+        print(f"  [WARN] WARNING: Could not load test data: {e}")
         test2_pass = None
     
     print()
@@ -120,7 +120,7 @@ def main():
     print(f"  Abweichung: {D_diff:.8f}")
     
     test3_pass = (r_diff < 1e-5 and D_diff < 1e-5)
-    print(f"  ✓ PASS (< 1e-5)" if test3_pass else f"  ✗ FAIL")
+    print(f"  [OK] PASS (< 1e-5)" if test3_pass else f"  [FAIL] FAIL")
     print()
     
     # Test 4: Causality
@@ -135,13 +135,13 @@ def main():
     D_min = min(D_values)
     D_max = max(D_values)
     
-    print(f"  Tested range: r ∈ [1.01r_s, 10r_s]")
+    print(f"  Tested range: r in [1.01r_s, 10r_s]")
     print(f"  D_min = {D_min:.6f}")
     print(f"  D_max = {D_max:.6f}")
     print(f"  0 < D <= 1: {causality_ok}")
     
     test4_pass = causality_ok
-    print(f"  ✓ PASS" if test4_pass else f"  ✗ FAIL")
+    print(f"  [OK] PASS" if test4_pass else f"  [FAIL] FAIL")
     print()
     
     # Test 5: Monotonicity
@@ -155,10 +155,10 @@ def main():
     print(f"  Min dD/dr: {min(dD_values):.8f}")
     
     test5_pass = monotonic
-    print(f"  ✓ PASS" if test5_pass else f"  ✗ FAIL")
+    print(f"  [OK] PASS" if test5_pass else f"  [FAIL] FAIL")
     print()
     
-    # Test 6: Golden ratio verification
+    # Test 6: GOLDEN RATIO VERIFICATION
     print("[TEST 6] GOLDEN RATIO VERIFICATION")
     print("-" * 80)
     
@@ -167,9 +167,9 @@ def main():
     
     phi_diff = abs(phi_calc - phi_expected)
     
-    print(f"  φ = (1 + √5) / 2")
-    print(f"  Berechnet: φ = {phi_calc:.6f}")
-    print(f"  Verwendet: φ = {phi_expected}")
+    print(f"  phi = (1 + sqrt(5)) / 2")
+    print(f"  Berechnet: phi = {phi_calc:.6f}")
+    print(f"  Verwendet: phi = {phi_expected}")
     print(f"  Abweichung: {phi_diff:.8f}")
     
     # Golden ratio properties
@@ -177,12 +177,12 @@ def main():
     phi_plus_one = phi_calc + 1
     
     print()
-    print(f"  φ² = {phi_squared:.6f}")
-    print(f"  φ + 1 = {phi_plus_one:.6f}")
-    print(f"  φ² = φ + 1: {abs(phi_squared - phi_plus_one) < 1e-6}")
+    print(f"  phi^2 = {phi_squared:.6f}")
+    print(f"  phi + 1 = {phi_plus_one:.6f}")
+    print(f"  phi^2 = phi + 1: {abs(phi_squared - phi_plus_one) < 1e-6}")
     
     test6_pass = phi_diff < 1e-6
-    print(f"  ✓ PASS" if test6_pass else f"  ✗ FAIL")
+    print(f"  [OK] PASS" if test6_pass else f"  [FAIL] FAIL")
     print()
     
     # Summary
@@ -204,12 +204,12 @@ def main():
     
     for name, result in tests:
         if result is True:
-            status = "✓ PASS"
+            status = "[OK] PASS"
         elif result is False:
-            status = "✗ FAIL"
+            status = "[FAIL] FAIL"
         else:
-            status = "⚠ SKIP"
-        print(f"  [{status}] {name}")
+            status = "[SKIP] SKIP"
+        print(f"  {status} {name}")
     
     print()
     print(f"Ergebnis: {passed}/{total} Tests bestanden")
@@ -217,13 +217,13 @@ def main():
     if passed == total:
         print()
         print("="*80)
-        print("✓✓✓ ALLE FORMELN WISSENSCHAFTLICH KORREKT ✓✓✓")
+        print("[OK][OK][OK] ALLE FORMELN WISSENSCHAFTLICH KORREKT [OK][OK][OK]")
         print("="*80)
         return 0
     else:
         print()
         print("="*80)
-        print("✗✗✗ FEHLER GEFUNDEN - DOKUMENTATION PRÜFEN ✗✗✗")
+        print("[FAIL][FAIL][FAIL] FEHLER GEFUNDEN - DOKUMENTATION PRÜFEN [FAIL][FAIL][FAIL]")
         print("="*80)
         return 1
 
