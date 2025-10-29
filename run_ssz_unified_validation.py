@@ -65,24 +65,25 @@ print("[STEP 1/11] Model Initialization")
 print("-" * 80)
 
 def xi(r, rs=R_S, xi_max=XI_MAX, phi=PHI):
-    """Segment density field"""
-    return xi_max * (1 - np.exp(-phi * r / rs))
+    """Segment density field (CORRECT exponential form)"""
+    return xi_max * (1 - np.exp(-rs / r))
 
-def delta_t(r, rs=R_S, xi_max=XI_MAX, phi=PHI):
-    """Emergent time"""
-    return (1 + xi(r, rs, xi_max, phi)) / phi
+def delta_t(r, rs=R_S, xi_max=XI_MAX, phi=PHI, alpha=1.0):
+    """Emergent time (τ = φ^(-α·Ξ))"""
+    return phi ** (-alpha * xi(r, rs, xi_max, phi))
 
-def omega(r, rs=R_S, xi_max=XI_MAX, phi=PHI):
-    """Resonance frequency"""
-    return phi / (1 + xi(r, rs, xi_max, phi))
+def omega(r, rs=R_S, xi_max=XI_MAX, phi=PHI, alpha=1.0):
+    """Resonance frequency (ω ∝ 1/τ)"""
+    tau = phi ** (-alpha * xi(r, rs, xi_max, phi))
+    return 1.0 / tau if tau > 0 else 0
 
 def D_GR(r, rs=R_S):
     """GR time dilation"""
     return np.sqrt(1 - rs/r)
 
-def D_SSZ(r, rs=R_S, xi_max=XI_MAX, phi=PHI):
-    """SSZ time dilation"""
-    return 1 / (1 + xi(r, rs, xi_max, phi))
+def D_SSZ(r, rs=R_S, xi_max=XI_MAX, phi=PHI, alpha=1.0):
+    """SSZ time dilation (CORRECT: D = φ^(-α·Ξ))"""
+    return phi ** (-alpha * xi(r, rs, xi_max, phi))
 
 r_array = np.linspace(1.01 * R_S, 10 * R_S, 1000)
 

@@ -101,8 +101,8 @@ rs = 1.0
 xi_max = 1.0  # From existing analysis
 phi = PHI
 
-# Find intersection
-intersection = find_intersection(rs, xi_max, phi)
+# Find intersection (CRITICAL: alpha=1.0, NOT phi!)
+intersection = find_intersection(rs, xi_max=xi_max, alpha=1.0)
 
 r_over_rs = intersection['r_over_rs']
 D_star = intersection['D_star']
@@ -140,7 +140,7 @@ with open(OUTPUT_DIR / 'gr_ssz_intersection_summary.json', 'w') as f:
 # Generate detailed CSV
 r_arr = np.linspace(1.05 * rs, 6 * rs, 5001)
 d_gr = time_dilation_gr(r_arr, rs)
-d_ssz = time_dilation_ssz(r_arr, rs, xi_max)
+d_ssz = time_dilation_ssz(r_arr, rs, xi_max, alpha=1.0)
 xi_arr = xi_exponential(r_arr, rs, xi_max)
 
 df_intersection = pd.DataFrame({
@@ -164,7 +164,7 @@ print("[2/6] Neutron star comparison (14% effect)...")
 r_ns_arr = np.linspace(1.5 * rs, 5.0 * rs, 5001)
 
 d_gr_ns = time_dilation_gr(r_ns_arr, rs)
-d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max)
+d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max, alpha=1.0)
 
 # Relative difference
 delta = (d_ssz_ns - d_gr_ns) / d_gr_ns

@@ -108,8 +108,8 @@ rs = 1.0
 xi_max = 1.0
 phi = PHI
 
-# Compute intersection
-intersection = find_intersection(rs, xi_max, phi)
+# Compute intersection (CRITICAL: alpha=1.0, NOT phi!)
+intersection = find_intersection(rs, xi_max=xi_max, alpha=1.0)
 r_over_rs = intersection['r_over_rs']
 D_star = intersection['D_star']
 
