@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-10-29 14:55:01",
+  "total_runtime_s": 9.926451444625854,
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "timeout": 0,
+    "error": 0,
+    "overall": "PASS"
+  },
+  "tests": [
+    {
+      "test": "Basic SSZ Validation",
+      "status": "PASS",
+      "runtime_s": 3.940513849258423,
+      "returncode": 0
+    },
+    {
+      "test": "Proper Time Validation",
+      "status": "PASS",
+      "runtime_s": 3.8994951248168945,
+      "returncode": 0
+    },
+    {
+      "test": "Shapiro Delay Validation",
+      "status": "PASS",
+      "runtime_s": 2.086442470550537,
+      "returncode": 0
+    }
+  ]
+}
