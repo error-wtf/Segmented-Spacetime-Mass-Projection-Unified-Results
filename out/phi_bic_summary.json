@@ -32,7 +32,7 @@
     ]
   },
   "files": {
-    "perrow_csv": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\out\\phi_bic_perrow.csv",
-    "residuals_csv_alias": "H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\out\\phi_bic_residuals.csv"
+    "perrow_csv": "E:\\clone\\doublecheck\\out\\phi_bic_perrow.csv",
+    "residuals_csv_alias": "E:\\clone\\doublecheck\\out\\phi_bic_residuals.csv"
   }
 }

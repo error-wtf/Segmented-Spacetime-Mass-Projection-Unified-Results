@@ -94,39 +94,44 @@ In der **Allgemeinen Relativitätstheorie (GR)** von Einstein:
 - Strukturiert durch φ
 - Zeit verläuft segmentweise
 
-### Segment-Dichte N(x)
+### Segmentdichte Ξ(r)
 
 **Physikalische Bedeutung:**
-- N(x) = Anzahl der Segmente pro Volumen am Ort x
-- **Hohe Dichte:** Viele Segmente → Zeit läuft langsam
-- **Niedrige Dichte:** Wenige Segmente → Zeit läuft normal
+- Ξ(r) = Normierte Segmentkonzentration bei Radius r
+- **Hohe Dichte:** Viele Segmente → Zeit verläuft langsam
+- **Niedrige Dichte:** Wenige Segmente → Zeit verläuft normal
 
-**Wo kommt die Dichte her?**
+**Woher kommt die Dichte?**
 - Masse erzeugt Segmente
-- Je mehr Masse, desto höher N(x)
-- **Gravitation = Gradient der Segment-Dichte**
+- Je mehr Masse, desto höher Ξ(r)
+- **Gravitation = Gradient der Segmentdichte**
 
-**Formel (vereinfacht):**
+**Formel (KORREKT):**
 ```
-N(x) = Σ [Masse_i × Kernel(Abstand zu Masse_i)]
+Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
 ```
 
-### Zeit-Dilatation τ(x)
+Wobei:
+- Ξ_max = 1.0 (maximale Sättigung)
+- φ = 1.618... (Goldener Schnitt)
+- r_s = 2GM/c² (Schwarzschild-Radius)
+
+### Zeitdilatation D(r)
 
 **Physikalische Bedeutung:**
-- τ(x) = Wie schnell vergeht die Zeit am Ort x?
-- τ < 1: Zeit läuft langsamer (nahe Masse)
-- τ = 1: Zeit läuft normal (weit weg)
+- D(r) = Wie schnell verläuft die Zeit bei Radius r?
+- D < 1: Zeit verläuft langsamer (nahe Masse)
+- D = 1: Zeit verläuft normal (weit entfernt)
 
-**Formel:**
+**Formel (KORREKT):**
 ```
-τ(x) = φ^(-α·N(x))
+D(r) = 1 / (1 + Ξ(r))
 ```
 
 **Interpretation:**
-- Hohe Segment-Dichte → großes N(x)
-- Großes N(x) → kleines τ(x)
-- Kleines τ(x) → **Zeit läuft langsamer**
+- Hohe Segmentdichte → großes Ξ(r)
+- Großes Ξ(r) → kleines D(r)
+- Kleines D(r) → **Zeit verläuft langsamer**
 
 **Das ist Gravitation!**
 - Einstein: Gravitation = Raumzeit-Krümmung

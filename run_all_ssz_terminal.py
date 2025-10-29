@@ -399,6 +399,25 @@ run([PY, str(HERE / "qnm_eikonal.py")])
 run([PY, str(HERE / "test_vfall_duality.py"), "--mass", "Earth", "--r-mults", "1.1,2.0"])
 
 # ---------------------------------------
+# 1.4) Generate Model Files for SSZ Invariants Tests
+# ---------------------------------------
+print("\n--- Generating model files for SSZ Invariants Tests ---")
+run_id = "2025-10-17_gaia_ssz_v1"
+gaia_pipeline = HERE / "run_gaia_ssz_pipeline.py"
+if gaia_pipeline.exists():
+    # Run with minimal configuration - use existing GAIA data
+    gaia_data_path = HERE / "data" / "raw" / "gaia" / run_id / "mock_gaia"
+    print(f"  Using GAIA data at: {gaia_data_path}")
+    run([PY, str(gaia_pipeline), 
+         "--run-id", run_id,
+         "--gaia-base", str(gaia_data_path),  # Point to existing mock data
+         "--skip-fetch",  # Skip data fetching (use existing data)
+         "--skip-cones"])  # Skip cone searches (not needed for tests)
+    print("  Model files generated successfully")
+else:
+    print("[WARN] run_gaia_ssz_pipeline.py not found; SSZ Invariants Tests may fail.")
+
+# ---------------------------------------
 # 1.5) Pytest Unit Tests (tests/ and scripts/tests/)
 # ---------------------------------------
 print("\n--- Running pytest unit tests ---")

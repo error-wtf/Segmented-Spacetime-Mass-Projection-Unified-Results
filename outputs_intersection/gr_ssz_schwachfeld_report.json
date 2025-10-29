@@ -1,0 +1,26 @@
+{
+  "config": {
+    "phi": 1.618033988749895,
+    "Xi_max": 0.802,
+    "alpha": 1.0,
+    "masses_Msun": [
+      2.0,
+      4100000.0
+    ],
+    "outdir": "outputs_intersection"
+  },
+  "expected": {
+    "r_star_over_rs": 1.386562,
+    "D_star": 0.528007
+  },
+  "cases": [
+    {
+      "M_Msun": 2.0,
+      "error": "no_intersection"
+    },
+    {
+      "M_Msun": 4100000.0,
+      "error": "no_intersection"
+    }
+  ]
+}
