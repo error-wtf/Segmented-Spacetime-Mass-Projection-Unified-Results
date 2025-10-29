@@ -1,42 +1,42 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-29 16:42:39
+**Date:** 2025-10-29 18:17:48
 
 ## Overview
 
 - **Physics Test Suites:** 22
 - **Silent Technical Tests:** 3 (UTF-8, CLI, MD Print)
 - **Multi-Ring Validation Tests:** 11 (G79, Cygnus X)
-- **Passed:** 22
-- **Failed:** 0
-- **Success Rate:** 100.0%
-- **Total Test Time:** 156.6s
-- **Total Suite Time:** 211.2s
+- **Passed:** 20
+- **Failed:** 2
+- **Success Rate:** 90.9%
+- **Total Test Time:** 127.7s
+- **Total Suite Time:** 174.5s
 
 ## Physics Test Results
 
-- **PPN Exact Tests:** ✅ PASS (0.2s)
+- **PPN Exact Tests:** ✅ PASS (0.1s)
 - **Dual Velocity Tests:** ✅ PASS (0.2s)
-- **Energy Conditions Tests:** ✅ PASS (0.2s)
+- **Energy Conditions Tests:** ✅ PASS (0.1s)
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (7.7s)
-- **Multi-Ring Validation Tests:** ✅ PASS (6.6s)
-- **SSZ Kernel Tests:** ✅ PASS (6.1s)
-- **SSZ Invariants Tests:** ✅ PASS (6.7s)
-- **Segmenter Tests:** ✅ PASS (5.6s)
-- **Cosmo Fields Tests:** ✅ PASS (5.0s)
-- **Cosmo Multibody Tests:** ✅ PASS (6.5s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (6.2s)
-- **SSZ Complete Analysis:** ✅ PASS (90.0s)
-- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.2s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (2.7s)
-- **SSZ Theory Predictions:** ✅ PASS (2.7s)
-- **G79 Analysis:** ✅ PASS (2.3s)
-- **Cygnus X Analysis:** ✅ PASS (2.3s)
-- **Paper Export Tools:** ✅ PASS (3.8s)
-- **Final Validation:** ✅ PASS (0.1s)
+- **SegWave Core Math Tests:** ❌ FAIL (5.1s)
+- **Multi-Ring Validation Tests:** ✅ PASS (5.4s)
+- **SSZ Kernel Tests:** ✅ PASS (5.1s)
+- **SSZ Invariants Tests:** ✅ PASS (5.5s)
+- **Segmenter Tests:** ✅ PASS (5.2s)
+- **Cosmo Fields Tests:** ✅ PASS (5.2s)
+- **Cosmo Multibody Tests:** ✅ PASS (6.6s)
+- **Cosmos Multi-Body Sigma Tests:** ❌ FAIL (5.0s)
+- **SSZ Complete Analysis:** ✅ PASS (64.4s)
+- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.3s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (4.0s)
+- **SSZ Theory Predictions:** ✅ PASS (2.8s)
+- **G79 Analysis:** ✅ PASS (2.5s)
+- **Cygnus X Analysis:** ✅ PASS (4.6s)
+- **Paper Export Tools:** ✅ PASS (4.1s)
+- **Final Validation:** ✅ PASS (0.2s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
 > Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.
