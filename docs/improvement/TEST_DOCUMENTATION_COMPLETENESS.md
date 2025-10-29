@@ -1,8 +1,8 @@
 # Test Documentation Completeness Report
 
-**Generated:** 2025-10-28 19:00:26
+**Generated:** 2025-10-29 05:59:13
 **Test Files Analyzed:** 20
-**Test Docs Analyzed:** 45
+**Test Docs Analyzed:** 49
 
 ---
 
@@ -41,14 +41,15 @@
 
 ## 📄 Test Documentation Files
 
-- **Total Doc Files:** 45
-- **Test Lists:** 60
-- **Results Sections:** 344
-- **Physics Explanations:** 768
+- **Total Doc Files:** 49
+- **Test Lists:** 70
+- **Results Sections:** 359
+- **Physics Explanations:** 774
 
 ### Documentation Files
 
 - **COMPLETE_REPOSITORY_TEST_REPORT.md** (10.6 KB) - 0 tests listed
+- **COMPREHENSIVE_SCRIPT_TEST_PLAN.md** (3.5 KB) - 1 tests listed
 - **COMPREHENSIVE_TESTING_GUIDE.md** (25.8 KB) - 8 tests listed
 - **COMPREHENSIVE_TESTS_SUMMARY.md** (11.7 KB) - 0 tests listed
 - **CRITICAL_TEST_ISSUES.md** (8.9 KB) - 6 tests listed
@@ -63,6 +64,7 @@
 - **INSTALL_TEST_SIMPLIFICATION_PROPOSAL.md** (8.8 KB) - 1 tests listed
 - **LINUX_TEST_FAILURE_ANALYSIS.md** (4.8 KB) - 6 tests listed
 - **LINUX_TEST_PLAN.md** (13.3 KB) - 0 tests listed
+- **LINUX_TEST_STATUS.md** (5.7 KB) - 7 tests listed
 - **PAIRED_TEST_ANALYSIS_COMPLETE.md** (78.4 KB) - 0 tests listed
 - **PAIRED_TEST_FAILURE_ANALYSIS.md** (5.6 KB) - 1 tests listed
 - **PERFECT_PAIRED_TEST_GUIDE.md** (17.0 KB) - 0 tests listed
@@ -71,12 +73,14 @@
 - **PYTEST_CRASH_FIX.md** (6.9 KB) - 0 tests listed
 - **QUICK_TEST_COMMANDS.md** (4.8 KB) - 0 tests listed
 - **RUN_TESTS_QUICK.md** (6.3 KB) - 0 tests listed
+- **SCRIPT_TEST_RESULTS.md** (7.9 KB) - 0 tests listed
 - **SILENT_TESTS.md** (4.0 KB) - 0 tests listed
 - **SMOKE_TESTS_COMPLETE.md** (6.3 KB) - 0 tests listed
 - **STRATIFIED_PAIRED_TEST_RESULTS.md** (9.4 KB) - 0 tests listed
 - **TESTING_COMPLETE_GUIDE.md** (12.6 KB) - 17 tests listed
 - **TESTING_PAPER_EXPORTS.md** (11.0 KB) - 0 tests listed
 - **TEST_COLAB_CLONE.md** (9.2 KB) - 0 tests listed
+- **TEST_FAILURES_ANALYSIS.md** (6.5 KB) - 2 tests listed
 - **TEST_METHODOLOGY_COMPLETE.md** (14.8 KB) - 1 tests listed
 - **TEST_SUITE_README.md** (7.0 KB) - 0 tests listed
 - **TEST_SUITE_VERIFICATION.md** (8.3 KB) - 0 tests listed
