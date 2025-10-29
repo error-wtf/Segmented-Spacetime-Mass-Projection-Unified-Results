@@ -261,22 +261,26 @@ def run_step(step, output_buffer, error_logger):
         }
     
     try:
-        # Run the script
+        # Run command
         result = subprocess.run(
-            [sys.executable, step['script']],
+            ['python', step['script']],
             capture_output=True,
             text=True,
             timeout=step['timeout'],
             encoding='utf-8',
-            errors='replace',
-            cwd=str(Path.cwd())
+            errors='replace'
         )
         
-        # Write output
-        print(result.stdout, file=output_buffer)
+        # Write output to buffer AND console
+        output_text = result.stdout if result.stdout else "(No output)"
+        print(output_text, file=output_buffer)
+        print(output_text)  # Also print to console for user to see
+        
         if result.stderr:
-            print("\nSTDERR:", file=output_buffer)
+            print("\n=== STDERR ===", file=output_buffer)
             print(result.stderr, file=output_buffer)
+            if result.returncode != 0:
+                print("\nSTDERR:", result.stderr)  # Also to console
         
         success = result.returncode == 0
         
