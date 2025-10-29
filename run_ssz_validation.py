@@ -35,14 +35,24 @@ def schwarzschild_rs(M):
     return 2 * G * M / c**2
 
 def xi_exponential(r, M, xi_max=1.0):
-    """Segment density field (exponential saturation)"""
+    """Segment density field (CORRECT exponential form)
+    
+    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    
+    Note: phi in exponent, not exp(-r_s/r)!
+    """
     r_s = schwarzschild_rs(M)
-    return xi_max * (1 - np.exp(-r_s / r))
+    return xi_max * (1 - np.exp(-PHI * r / r_s))
 
 def time_dilation_ssz(r, M, xi_max=1.0, alpha=1.0):
-    """SSZ time dilation: D = φ^(-α·Ξ)"""
+    """SSZ time dilation (CORRECT formula)
+    
+    D = 1 / (1 + Xi)
+    
+    NOT phi**(-alpha*xi)!
+    """
     xi = xi_exponential(r, M, xi_max)
-    return PHI ** (-alpha * xi)
+    return 1.0 / (1.0 + xi)
 
 def time_dilation_gr(r, M):
     """GR time dilation: D = sqrt(1 - r_s/r)"""
@@ -60,12 +70,15 @@ def redshift_gr(r, M):
     return 1/D - 1
 
 def find_intersection(M, xi_max=1.0, alpha=1.0):
-    """Find r* where SSZ = GR and return detailed results"""
+    """Find r* where SSZ = GR and return detailed results
+    
+    Note: alpha parameter kept for compatibility but not used in D formula
+    """
     from scipy.optimize import brentq
     r_s = schwarzschild_rs(M)
     def diff(r):
-        return time_dilation_ssz(r, M, xi_max, alpha) - time_dilation_gr(r, M)
-    r_star = brentq(diff, r_s * 1.01, r_s * 10)
+        return time_dilation_ssz(r, M, xi_max) - time_dilation_gr(r, M)
+    r_star = brentq(diff, r_s * 1.01, r_s * 3.0)
     
     # Calculate values at intersection
     r_over_rs = r_star / r_s
@@ -101,8 +114,8 @@ rs = 1.0
 xi_max = 1.0  # From existing analysis
 phi = PHI
 
-# Find intersection (CRITICAL: alpha=1.0, NOT phi!)
-intersection = find_intersection(rs, xi_max=xi_max, alpha=1.0)
+# Find intersection
+intersection = find_intersection(rs, xi_max=xi_max)
 
 r_over_rs = intersection['r_over_rs']
 D_star = intersection['D_star']
@@ -140,7 +153,7 @@ with open(OUTPUT_DIR / 'gr_ssz_intersection_summary.json', 'w') as f:
 # Generate detailed CSV
 r_arr = np.linspace(1.05 * rs, 6 * rs, 5001)
 d_gr = time_dilation_gr(r_arr, rs)
-d_ssz = time_dilation_ssz(r_arr, rs, xi_max, alpha=1.0)
+d_ssz = time_dilation_ssz(r_arr, rs, xi_max)
 xi_arr = xi_exponential(r_arr, rs, xi_max)
 
 df_intersection = pd.DataFrame({
@@ -164,7 +177,7 @@ print("[2/6] Neutron star comparison (14% effect)...")
 r_ns_arr = np.linspace(1.5 * rs, 5.0 * rs, 5001)
 
 d_gr_ns = time_dilation_gr(r_ns_arr, rs)
-d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max, alpha=1.0)
+d_ssz_ns = time_dilation_ssz(r_ns_arr, rs, xi_max)
 
 # Relative difference
 delta = (d_ssz_ns - d_gr_ns) / d_gr_ns
