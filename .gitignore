@@ -196,7 +196,22 @@ reports/*_temp.md
 reports/*.log
 reports/junit-*.xml
 
-# Keep in repo:
+# JSON manifests (always regenerated, never commit changes)
+**/MANIFEST.json
+**/*_MANIFEST.json
+**/*_manifest.json
+out/**/*.json
+vfall_out/**/*.json
+agent_out/**/*.json
+full_pipeline/reports/**/*.json
+reports/DEMO_MANIFEST.json
+reports/PAPER_EXPORTS_MANIFEST.json
+
+# Generated figures from tests (regenerated every run)
+reports/figures/DemoObject/**
+reports/figures/demo/**
+
+# Keep in repo ONLY these stable reports:
 # - reports/RUN_SUMMARY.md (compact summary)
 # - reports/summary-output.md (quick overview)
 # - reports/full-output.md (complete detailed log)
