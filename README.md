@@ -84,9 +84,11 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 
 **Then: Runtime → Run All**
 
-**Duration:** ~3-4 minutes  
-**What it does:** Clone + Install + Clear Cache + Run 22 Test Suites  
+**Duration:** ~25 minutes (first run with fresh install)  
+**What it does:** Clone + Install + Clear Cache + Run 22 Test Suites + Data Loading + Analysis  
 **Expected:** 100% Pass Rate (22/22)
+
+**Note:** Subsequent runs are faster (~5-10 min) with cached data
 
 **Alternative Notebooks:**
 - [SSZ_Colab_Simple.ipynb](SSZ_Colab_Simple.ipynb) - **Recommended** (6 cells, simple)
