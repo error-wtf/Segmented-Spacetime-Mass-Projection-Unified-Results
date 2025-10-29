@@ -7,6 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb)
 [![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
 [![ToE Score](https://img.shields.io/badge/ToE%20score-83.3%25-success)](#theory-of-everything)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
@@ -75,31 +76,22 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 <tr>
 <td width="50%">
 
-### 🌐 Google Colab (Zero Install)
+### ☁️ Google Colab (Zero Setup)
 
-**Click to run:**  
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/notebooks/SSZ_Quick_Demo.ipynb)
+**Click to run:**
 
-**Or manual setup:**
-```python
-# IMPORTANT: Install Git LFS first!
-!curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-!apt-get install -y git-lfs
-!git lfs install
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb)
 
-# Clone repository (with LFS support)
-!git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
-%cd Segmented-Spacetime-Mass-Projection-Unified-Results
+**Then: Runtime → Run All**
 
-# Install Colab-compatible requirements
-!pip install -q -r requirements-colab.txt
+**Duration:** ~3-4 minutes  
+**What it does:** Clone + Install + Clear Cache + Run 22 Test Suites  
+**Expected:** 100% Pass Rate (22/22)
 
-# Run smoke tests
-!python smoke_test_all.py
-```
+**Alternative Notebooks:**
+- [SSZ_Colab_Simple.ipynb](SSZ_Colab_Simple.ipynb) - **Recommended** (6 cells, simple)
+- [SSZ_Colab_AutoRunner.ipynb](SSZ_Colab_AutoRunner.ipynb) - Advanced (all pipelines)
 
-**Duration:** ~1 minute  
-**What it does:** LFS + clone + install + test  
 **Issues?** See [COLAB_COMPLETE_SETUP_GUIDE.md](COLAB_COMPLETE_SETUP_GUIDE.md)
 
 </td>
