@@ -605,7 +605,7 @@ Contributions, suggestions, and collaborations are welcome.
 161 automated tests, 100% passing, 97.9% ESO validation, 83.3% ToE consistency.
 
 **How to install?**  
-`./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Complete_Analysis_Colab.ipynb) (zero install)
+`./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb) (zero install)
 
 **Main prediction?**  
 Neutron stars show Δ = -44% time dilation difference vs GR (testable with NICER NOW).
