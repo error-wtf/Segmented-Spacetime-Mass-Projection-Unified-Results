@@ -110,6 +110,14 @@ PIPELINE = [
         'category': 'validation'
     },
     {
+        'id': 'bomb_tests',
+        'name': 'Black Hole Bomb Tests (7 scripts)',
+        'script': 'run_bomb_tests.py',
+        'timeout': 1500,
+        'critical': True,
+        'category': 'validation'
+    },
+    {
         'id': 'grid_convergence',
         'name': 'Grid Convergence Test (F-16)',
         'script': 'test_grid_convergence.py',
