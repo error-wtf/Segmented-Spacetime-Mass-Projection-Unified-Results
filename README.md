@@ -7,7 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb)
 [![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
 [![ToE Score](https://img.shields.io/badge/ToE%20score-83.3%25-success)](#theory-of-everything)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
@@ -76,19 +76,22 @@ Complete Python implementation and verification suite for the **Segmented Spacet
 <tr>
 <td width="50%">
 
-### ☁️ Google Colab (Zero Setup)
+### ☁️ Google Colab (One-Click, Zero Setup)
 
-**Click to run:**
+**🚀 Just click and run:**
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb)
 
-**Then: Runtime → Run All**
+**Features:**
+- ✅ **LFS Support** - Auto-downloads large files (427 observations)
+- ✅ **Complete Pipeline** - 22 test suites + analysis + plots
+- ✅ **Inline Plots** - 5 key visualizations displayed
+- ✅ **Auto-Download** - Results ZIP auto-downloads
+- ✅ **Detailed Explanations** - Each step explained
 
-**Duration:** ~25 minutes (first run with fresh install)  
-**What it does:** Clone + Install + Clear Cache + Run 22 Test Suites + Data Loading + Analysis  
-**Expected:** 100% Pass Rate (22/22)
+**Usage:** Click badge → `Runtime → Run All` → Wait ~25 min → Done!
 
-**Note:** Subsequent runs are faster (~5-10 min) with cached data
+**Expected:** 100% Pass (22/22) + 97.9% ESO Validation + 5 Plots
 
 **Issues?** See [COLAB_COMPLETE_SETUP_GUIDE.md](COLAB_COMPLETE_SETUP_GUIDE.md)
 
@@ -603,7 +606,7 @@ Contributions, suggestions, and collaborations are welcome.
 161 automated tests, 100% passing, 97.9% ESO validation, 83.3% ToE consistency.
 
 **How to install?**  
-`./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Simple.ipynb) (zero install)
+`./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb) (zero install)
 
 **Main prediction?**  
 Neutron stars show Δ = -44% time dilation difference vs GR (testable with NICER NOW).
