@@ -1,6 +1,6 @@
 # SSZ Test Suite - Scientific Interpretations
 
-**Generated:** 2025-10-28 19:00:50
+**Generated:** 2025-10-29 19:51:03
 
 This report compiles all scientific interpretations extracted from test outputs.
 
@@ -111,7 +111,7 @@ Physical Interpretation:
 ```
   Physical interpretations: 0
   Average doc score: 72.0
-  Doc files: 45
+  Doc files: 49
 
 ```
 
