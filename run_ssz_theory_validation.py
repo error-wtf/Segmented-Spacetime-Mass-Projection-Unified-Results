@@ -46,35 +46,32 @@ def schwarzschild_rs(M):
     """Schwarzschild radius"""
     return 2 * G * M / c**2
 
-def xi_exponential(r, M, xi_max=1.0):
+def xi_exponential(r, r_s, xi_max=1.0):
     """Segment density field (CORRECT exponential form)
     Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
     """
-    r_s = schwarzschild_rs(M)
     return xi_max * (1 - np.exp(-PHI * r / r_s))
 
-def time_dilation_ssz(r, M, xi_max=1.0, alpha=1.0):
+def time_dilation_ssz(r, r_s, xi_max=1.0, alpha=1.0):
     """SSZ time dilation (CORRECT): D = 1 / (1 + Xi)"""
-    xi = xi_exponential(r, M, xi_max)
+    xi = xi_exponential(r, r_s, xi_max)
     return 1.0 / (1.0 + xi)
 
-def time_dilation_gr(r, M):
+def time_dilation_gr(r, r_s):
     """GR time dilation: D = sqrt(1 - r_s/r)"""
-    r_s = schwarzschild_rs(M)
     return np.sqrt(1 - r_s / r)
 
-def find_intersection(M, xi_max=1.0, alpha=1.0):
+def find_intersection(r_s, xi_max=1.0, alpha=1.0):
     """Find r* where SSZ = GR and return detailed results"""
     from scipy.optimize import brentq
-    r_s = schwarzschild_rs(M)
     def diff(r):
-        return time_dilation_ssz(r, M, xi_max) - time_dilation_gr(r, M)
-    r_star = brentq(diff, r_s * 1.01, r_s * 3.0)
+        return time_dilation_ssz(r, r_s, xi_max) - time_dilation_gr(r, r_s)
+    r_star = brentq(diff, r_s * 1.01, r_s * 2.0)
     
     # Calculate values at intersection
     r_over_rs = r_star / r_s
-    D_star = time_dilation_ssz(r_star, M, xi_max, alpha)
-    xi_star = xi_exponential(r_star, M, xi_max)
+    D_star = time_dilation_ssz(r_star, r_s, xi_max)
+    xi_star = xi_exponential(r_star, r_s, xi_max)
     
     return {
         'r_star': r_star,
