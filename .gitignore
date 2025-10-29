@@ -530,6 +530,7 @@ validation_temp/
 
 # Documentation (keep)
 !docs/**/*.md
+!docs/**/*.pdf
 !papers/**/*.md
 !papers/**/*.pdf
 

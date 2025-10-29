@@ -53,8 +53,8 @@
 - **[EXAMPLES_AND_APPLICATIONS.md](EXAMPLES_AND_APPLICATIONS.md)** ([🇩🇪 DE](EXAMPLES_AND_APPLICATIONS_DE.md)) - Practical examples & applications
 
 ### 📊 Data Documentation (Bilingual EN/DE)
-- **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](../DATA_ACQUISITION_COMPLETE_GUIDE.md)** - **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
-- **[docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](../MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - **STEP-BY-STEP ESO GUIDE:** Detailed manual workflow (browser query, token, FITS extraction, CSV export)
+- **[docs/DATA_ACQUISITION_COMPLETE_GUIDE.md](DATA_ACQUISITION_COMPLETE_GUIDE.md)** - **HOW TO FETCH DATA:** Complete guide for ESO, NED, SIMBAD, GAIA (+ what NOT to use)
+- **[docs/MANUAL_ESO_DATA_ACQUISITION_GUIDE.md](MANUAL_ESO_DATA_ACQUISITION_GUIDE.md)** - **STEP-BY-STEP ESO GUIDE:** Detailed manual workflow (browser query, token, FITS extraction, CSV export)
 - **[DATA_ACCESS_REPRODUCIBILITY_CRISIS.md](DATA_ACCESS_REPRODUCIBILITY_CRISIS.md)** - **CRITICAL:** Structural barriers in modern astrophysics (data gatekeeping, reproducibility crisis, fringe-by-exclusion mechanism)
 - **[OUT_OF_DATA_LINO_CASU_STATEMENT.md](OUT_OF_DATA_LINO_CASU_STATEMENT.md)** - **POSITION PAPER by Lino Casu:** How closed spectroscopic archives manufactured a systemic reproducibility crisis (47 objects = 0.1% of ESO archive)
 - **[LABORATORY_COMPARABILITY.md](LABORATORY_COMPARABILITY.md)** - **Why cross-observatory conversion is physically invalid** (ESO vs GAIA/HST/JWST calibration incompatibility)
@@ -101,11 +101,11 @@
 - **[reports/summary-output.md](reports/summary-output.md)** - Brief test summary
 
 ### 📚 Reference
-- **[docs/improvement/TERMINOLOGY_GLOSSARY.md](../improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary (200+ terms EN/DE)
+- **[docs/improvement/TERMINOLOGY_GLOSSARY.md](improvement/TERMINOLOGY_GLOSSARY.md)** - Technical glossary (200+ terms EN/DE)
 
 ### 🔬 Scientific Papers
 - **[papers/validation/](papers/validation/)** - 11 validation papers
-- **[docs/theory/](../theory/)** - 21 theory papers
+- **[docs/theory/](theory/)** - 21 theory papers
 - **[papers/validation/README.md](papers/validation/README.md)** - Papers overview
 
 ### 💻 Technical Documentation
@@ -189,7 +189,7 @@
 | [reports/summary-output.md](reports/summary-output.md) | Brief summary | run_full_suite.py |
 
 **Reference Materials:**
-- [docs/improvement/TERMINOLOGY_GLOSSARY.md](../improvement/TERMINOLOGY_GLOSSARY.md) - Technical glossary (200+ terms EN/DE)
+- [docs/improvement/TERMINOLOGY_GLOSSARY.md](improvement/TERMINOLOGY_GLOSSARY.md) - Technical glossary (200+ terms EN/DE)
 
 *Note: Internal quality audit reports available in `docs/improvement/` directory (not actively maintained)*
 
@@ -198,7 +198,7 @@
 | Location | Count | Description |
 |----------|-------|-------------|
 | [papers/validation/](papers/validation/) | 11 papers | Validation & benchmarks |
-| [docs/theory/](../theory/) | 21 papers | Theoretical foundation |
+| [docs/theory/](theory/) | 21 papers | Theoretical foundation |
 | [papers/validation/README.md](papers/validation/README.md) | Index | Papers overview |
 
 ### 9. Pipeline Documentation
@@ -233,7 +233,7 @@
 
 1. **[docs/PHYSICS_FOUNDATIONS.md](../PHYSICS_FOUNDATIONS.md)** - Start here (intuitive explanations) 
 2. **[docs/MATHEMATICAL_FORMULAS.md](../MATHEMATICAL_FORMULAS.md)** - Mathematical details 
-3. **[docs/theory/](../theory/)** - Advanced papers
+3. **[docs/theory/](theory/)** - Advanced papers
 4. **[papers/validation/](papers/validation/)** - Empirical validation
 
 ### For Researchers
