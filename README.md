@@ -147,9 +147,31 @@ D* = 0.528007
 </td>
 <td width="50%" valign="top">
 
-### 💻 Local Installation
+### 💻 Local Installation & Testing
 
-**One command install:**
+#### Complete Validation Pipeline (All Tests)
+
+Run the **master validation pipeline** that executes all 168+ tests across 6 pipelines:
+
+```bash
+# Run complete validation (12 steps, ~45-60 minutes)
+python run_complete_validation_extended.py
+```
+
+**What it runs:**
+- ✅ Formula Verification (CRITICAL) - 5/5 tests
+- ✅ Complete Test Suite (22 tests with ESO data)
+- ✅ ToE Unified Validation (11 steps)
+- ✅ ToE Validation v2 (6 pillars)
+- ✅ Black Hole Bomb Tests (7 scripts)
+- ✅ Grid Convergence, Theory Validation, Physics Tests
+
+**Expected:** 11/12 PASS (91.7%), all critical tests ✅  
+**Output:** `validation_complete_extended/` (388 files: 38 plots, 333 reports, 17 data)
+
+---
+
+**Clone the repository:**
 
 ```bash
 # Windows
