@@ -45,18 +45,10 @@ def test_two_body_sigma_superposition():
     print(f"  sigma_total approx sigma_A + sigma_B: {np.allclose(sigma_total, sigma_A + sigma_B, rtol=0.1)}")
     print(f"  Relative difference: {abs(float(sigma_total) - float(sigma_A + sigma_B))/float(sigma_total)*100:.2f}%")
     print(f"\nPhysical Interpretation:")
-    print(f"  - Segment fields add linearly (superposition)")
-    print(f"  - Consistent with weak-field GR limit")
-    print(f"  - Bot    
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Two Body Sigma Superposition")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • Segment density σ adds linearly for multiple bodies")
-    print("="*80)
-    h bodies contribute to spacetime structure")
-    print(f"  - No non-linear effects at this scale")
+    print(f"  • Segment fields add linearly (superposition)")
+    print(f"  • Consistent with weak-field GR limit")
+    print(f"  • Both bodies contribute to spacetime structure")
+    print(f"  • No non-linear effects at this scale")
     print("="*80)
     
     assert sigma_total.shape == (1,)
