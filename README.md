@@ -178,7 +178,7 @@ python smoke_test_all.py
 
 # Run ESO validation (97.9%)
 python perfect_paired_test.py
-# Expected: "SEG wins: 46/47 (97.9%)"
+# Expected: "SSZ wins: 46/47 (97.9%)"
 
 # Run EXTENDED validation pipeline (12 steps, RECOMMENDED)
 python run_complete_validation_extended.py
@@ -220,7 +220,7 @@ When tested against **ESO (European Southern Observatory) professional spectrosc
 **Quick verification:**
 ```bash
 python perfect_paired_test.py
-# Expected output: "SEG wins: 46/47 (97.9%), p-value: 0.0000"
+# Expected output: "SSZ wins: 46/47 (97.9%), p-value: 0.0000"
 ```
 
 📖 **[Read complete analysis →](PAIRED_TEST_ANALYSIS_COMPLETE.md)**

@@ -13,8 +13,8 @@
 
 Stratified analysis revealed that our hypothesis was **completely wrong**.
 
-**We thought:** SEG's advantage gets diluted by photon sphere region  
-**Reality:** SEG **EXCELS** at photon sphere, **FAILS** very close to horizon
+**We thought:** SSZ's advantage gets diluted by photon sphere region  
+**Reality:** SSZ **EXCELS** at photon sphere, **FAILS** very close to horizon
 
 ---
 
@@ -23,13 +23,13 @@ Stratified analysis revealed that our hypothesis was **completely wrong**.
 ### **Full Dataset (Baseline)**
 ```
 Sample: 143 observations
-SEG wins: 73/143 (51.0%)
+SSZ wins: 73/143 (51.0%)
 p-value: 0.8672 [Not significant]
 ```
 
 ### **By Region:**
 
-| Region | n | SEG Wins | Win % | p-value | Significance |
+| Region | n | SSZ Wins | Win % | p-value | Significance |
 |--------|---|----------|-------|---------|--------------|
 | **Photon Sphere (2<r<3, v<1%)** | 45 | 37 | **82.2%** | **0.0000** | ✅ **HIGHLY SIGNIFICANT** |
 | **WITHOUT Photon Sphere** | 98 | 36 | 36.7% | 0.0112 | ❌ Significantly worse |
@@ -44,12 +44,12 @@ p-value: 0.8672 [Not significant]
 
 ## 💥 **The Shocking Discovery**
 
-### **SEG's True Performance Profile:**
+### **SSZ's True Performance Profile:**
 
 ```
-r < 2 r_s:        0% win rate   ← SEG FAILS completely
-r = 2-3 r_s:     82% win rate   ← SEG DOMINATES (photon sphere!)
-r > 3 r_s:       37% win rate   ← SEG underperforms
+r < 2 r_s:        0% win rate   ← SSZ FAILS completely
+r = 2-3 r_s:     82% win rate   ← SSZ DOMINATES (photon sphere!)
+r > 3 r_s:       37% win rate   ← SSZ underperforms
 
 v > 5% c:        86% win rate   ← High velocity helps everywhere
 ```
@@ -76,13 +76,13 @@ TOTAL            | 143   |   51%    |  73/143
 
 ## 🎓 **Physical Interpretation**
 
-### **Why SEG Dominates at Photon Sphere (r = 2-3 r_s):**
+### **Why SSZ Dominates at Photon Sphere (r = 2-3 r_s):**
 
 **This is where phi-based segmentation is OPTIMAL:**
 - Gravitational field strong but not extreme
 - Phi gradient well-defined
 - Segmentation corrections are ~10-20%
-- GR approximations break down, SEG corrections crucial
+- GR approximations break down, SSZ corrections crucial
 
 **Example at r = 2.5 r_s:**
 ```
@@ -90,10 +90,10 @@ z_GR ≈ 0.36        (classical approximation)
 z_SEG ≈ 0.40       (phi-corrected, ~11% improvement)
 Observation ≈ 0.39 (closer to SEG!)
 
-→ SEG wins
+→ SSZ wins
 ```
 
-### **Why SEG Fails Very Close (r < 2 r_s):**
+### **Why SSZ Fails Very Close (r < 2 r_s):**
 
 **Too close to horizon - extreme regime:**
 - Non-linear effects dominate
@@ -114,7 +114,7 @@ Observation ≈ 0.62 (much closer to GR!)
 
 **SR term becomes significant:**
 - z_SR ≈ 0.001-0.01 (no longer negligible)
-- SEG handles SR+GR coupling better
+- SSZ handles SR+GR coupling better
 - GR×SR simple multiplication may not capture coupling
 - 86% win rate across all r
 
@@ -122,7 +122,7 @@ Observation ≈ 0.62 (much closer to GR!)
 
 ## 📈 **Revised Model Applicability Domain**
 
-### **SEG's Optimal Regime:**
+### **SSZ's Optimal Regime:**
 
 ✅ **EXCELLENT Performance:**
 - **Photon sphere region (2 < r < 3 r_s)**
@@ -152,7 +152,7 @@ Observation ≈ 0.62 (much closer to GR!)
 
 **Comparison test shows phi impact:**
 
-| Mode | SEG Wins | Win % | Impact |
+| Mode | SSZ Wins | Win % | Impact |
 |------|----------|-------|--------|
 | **hybrid (WITH phi)** | **73/143** | **51.0%** | **DEFAULT - All our results** |
 | **geodesic (NO phi)** | 0/143 | 0.0% | GR×SR always wins |
@@ -160,7 +160,7 @@ Observation ≈ 0.62 (much closer to GR!)
 
 ### **What This Means:**
 
-**Without phi corrections, SEG would:**
+**Without phi corrections, SSZ would:**
 - Lose EVERY comparison (0/143)
 - Have 0% win rate at ALL radii
 - Be completely non-competitive
@@ -193,10 +193,10 @@ B = 1.96           # Constant offset
 
 ### **What This Means:**
 
-1. **SEG is NOT a "stronger field = better performance" theory**
-2. **SEG is a PHOTON SPHERE theory** with optimal regime at r = 2-3 r_s
+1. **SSZ is NOT a "stronger field = better performance" theory**
+2. **SSZ is a PHOTON SPHERE theory** with optimal regime at r = 2-3 r_s
 3. **Very close regime (r < 2 r_s) needs better physics**
-4. **High velocity regime is where SEG consistently excels**
+4. **High velocity regime is where SSZ consistently excels**
 
 ### **Immediate Actions:**
 
@@ -207,7 +207,7 @@ B = 1.96           # Constant offset
 4. ✅ Investigate phi-based corrections at horizon
 
 **DON'T:**
-1. ❌ Claim SEG works best at r < 2 r_s (data shows opposite!)
+1. ❌ Claim SSZ works best at r < 2 r_s (data shows opposite!)
 2. ❌ Ignore velocity dependence
 3. ❌ Test on mixed data and expect significance
 
@@ -225,7 +225,7 @@ This is **good science** - letting data guide theory, not vice versa.
 
 | Metric | Full Dataset | Photon Sphere Only | Very Close Only |
 |--------|--------------|-------------------|-----------------|
-| SEG Win % | 51.0% | **82.2%** | **0.0%** |
+| SSZ Win % | 51.0% | **82.2%** | **0.0%** |
 | p-value | 0.867 | **0.0000** | **0.0000** |
 | Significance | None | **YES** | **YES (opposite)** |
 | Sample Size | 143 | 45 | 29 |
@@ -249,7 +249,7 @@ This is **good science** - letting data guide theory, not vice versa.
 ### **Statistical Test:**
 
 - Binomial test (two-sided)
-- Null hypothesis: SEG = GR×SR (50% win rate)
+- Null hypothesis: SSZ = GR×SR (50% win rate)
 - Significance level: α = 0.05
 
 ### **Data Quality:**
@@ -266,12 +266,12 @@ This is **good science** - letting data guide theory, not vice versa.
 **p = 0.867 is not a failure - it's mixing two opposite effects:**
 
 ```
-Photon sphere:  82% win rate  ← SEG dominates
-Very close:      0% win rate  ← SEG fails
+Photon sphere:  82% win rate  ← SSZ dominates
+Very close:      0% win rate  ← SSZ fails
 Mixed:          51% win rate  ← Cancels out → p = 0.867
 ```
 
-**SEG has clear strengths and weaknesses.**  
+**SSZ has clear strengths and weaknesses.**  
 **Knowing WHERE it works is more valuable than claiming it works everywhere.**
 
 This is **honest, rigorous science.**

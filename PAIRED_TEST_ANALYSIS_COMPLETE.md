@@ -37,7 +37,7 @@
 ```
 ================================================================================
   
-  KEY FINDING: There are NO object types where SEG fundamentally fails
+  KEY FINDING: There are NO object types where SSZ fundamentally fails
   
   • Mixed Catalog Data (51% overall):  DATA QUALITY limitations
   • ESO Professional Data (97.9% overall): BREAKTHROUGH validation
@@ -49,7 +49,7 @@
      → Catalog data had incomplete parameters, not fundamental failure
   
   ❌ Weak Field (r>10 r_s): 37% with catalog data
-  ✅ Weak Field: EXPECTED - SEG is strong-field theory, GR already good
+  ✅ Weak Field: EXPECTED - SSZ is strong-field theory, GR already good
      → Not a failure, but correct physics (classical regime)
   
   PROOF: Same objects, better data = breakthrough results
@@ -61,12 +61,12 @@
               NOT object type or physical regime.
   
   With professional spectroscopy measuring the right physics
-  (local gravitational redshift), SEG achieves world-class validation.
+  (local gravitational redshift), SSZ achieves world-class validation.
   
 ================================================================================
 ```
 
-**Translation:** SEG doesn't fail on specific astronomical objects or regimes. The 51% catalog result was limited by **data format incompatibility** (measuring cosmological redshift instead of local gravitational effects, incomplete kinematic parameters, photometric uncertainties). Professional ESO spectroscopy measures **exactly what SEG predicts** (local gravitational redshift at specific radii with complete velocity data) and achieves **97.9% accuracy**. This is a data quality story, not a model limitation story.
+**Translation:** SSZ doesn't fail on specific astronomical objects or regimes. The 51% catalog result was limited by **data format incompatibility** (measuring cosmological redshift instead of local gravitational effects, incomplete kinematic parameters, photometric uncertainties). Professional ESO spectroscopy measures **exactly what SSZ predicts** (local gravitational redshift at specific radii with complete velocity data) and achieves **97.9% accuracy**. This is a data quality story, not a model limitation story.
 
 ---
 
@@ -74,7 +74,7 @@
 
 ### 97.9% Predictive Accuracy Achieved
 
-**Bottom Line Up Front:** The Segmented Spacetime (SEG) model achieves **near-perfect predictive accuracy** when tested against observational data **in the correct format**. This is not a theoretical possibility but an **empirically demonstrated fact**.
+**Bottom Line Up Front:** The Segmented Spacetime (SSZ) model achieves **near-perfect predictive accuracy** when tested against observational data **in the correct format**. This is not a theoretical possibility but an **empirically demonstrated fact**.
 
 **The Results (ESO Archive Data):**
 
@@ -86,7 +86,7 @@
 | **High Velocity Systems** | **94.4%** (17/18 wins) | p = 0.0001 (excellent) |
 
 **What This Means:**  
-When compared to classical General Relativity + Special Relativity (GR×SR) predictions, SEG wins in 46 out of 47 cases. This is **world-class predictive performance** - competitive with established gravitational models.
+When compared to classical General Relativity + Special Relativity (GR×SR) predictions, SSZ wins in 46 out of 47 cases. This is **world-class predictive performance** - competitive with established gravitational models.
 
 ---
 
@@ -111,7 +111,7 @@ When compared to classical General Relativity + Special Relativity (GR×SR) pred
 - **Format:** Tabulated catalog values without spectroscopic context
 
 **Why Data Quality Matters:**
-- Professional Spectroscopy (ESO): **97.9%** (46/47 wins, p < 0.0001) - measures what SEG predicts
+- Professional Spectroscopy (ESO): **97.9%** (46/47 wins, p < 0.0001) - measures what SSZ predicts
 - Catalog Compilations: **51%** (73/143 wins, p = 0.867) - often measures different physics
 - **Quality Difference: +47 percentage points** - demonstrates precision gravitational testing requires professional-grade spectroscopy
 
@@ -121,12 +121,12 @@ When compared to classical General Relativity + Special Relativity (GR×SR) pred
 
 **Physical Compatibility is THE Critical Factor:**
 
-SEG predicts **local gravitational redshift** from spacetime curvature at specific radii around compact objects. This is fundamentally different from:
+SSZ predicts **local gravitational redshift** from spacetime curvature at specific radii around compact objects. This is fundamentally different from:
 - Cosmological redshift (universe expansion)
 - Photometric color shifts (broad-band filters)
 - Doppler estimates (bulk galaxy motion)
 
-**ESO Data Measures Exactly What SEG Predicts:**
+**ESO Data Measures Exactly What SSZ Predicts:**
 
 1. **Local Metric Probing:** Emission lines from gas/stars orbiting at r ≈ 2-10 r_s (photon sphere regime)
 2. **Atomic Transition Precision:** H-α, Br-γ, forbidden lines at rest wavelengths known to 0.001%
@@ -142,7 +142,7 @@ SEG predicts **local gravitational redshift** from spacetime curvature at specif
 4. **Large Uncertainties:** Photometric z estimates with 5-10% errors
 5. **Scale Mismatch:** Galaxy-scale (kpc) mixed with stellar-scale (AU) observations
 
-**This is not about "data quality" in the traditional sense.** Both ESO and historical datasets are scientifically rigorous. The difference is **what they measure**: ESO measures local gravitational effects (what SEG predicts), while historical data often measures cosmological/photometric effects (what SEG does NOT predict).
+**This is not about "data quality" in the traditional sense.** Both ESO and historical datasets are scientifically rigorous. The difference is **what they measure**: ESO measures local gravitational effects (what SSZ predicts), while historical data often measures cosmological/photometric effects (what SSZ does NOT predict).
 
 ---
 
@@ -151,7 +151,7 @@ SEG predicts **local gravitational redshift** from spacetime curvature at specif
 **Quick Start (Using Provided Clean Dataset):**
 ```bash
 python perfect_paired_test.py --output out/clean_results.csv
-# Expected: "SEG wins: 46/47 (97.9%), p-value: 0.0000"
+# Expected: "SSZ wins: 46/47 (97.9%), p-value: 0.0000"
 # Runtime: ~10 seconds
 ```
 
@@ -165,9 +165,9 @@ The complete 11-step workflow is documented below in the **"ESO Data Acquisition
 2. **TAP Query:** Query `ivoa.ObsCore` table for GRAVITY spectroscopic data (~1-2 hours to learn ADQL)
 3. **Download FITS:** Retrieve FITS spectroscopic files (~20-60 min, 500 MB-1 GB)
 4. **Extract Data:** Parse wavelength/flux arrays, derive redshifts (~2-4 hours with astropy)
-5. **Compute SEG Predictions:** Calculate z_geom_hint (theoretical φ-based prediction, ~1-2 hours)
+5. **Compute SSZ Predictions:** Calculate z_geom_hint (theoretical φ-based prediction, ~1-2 hours)
 6. **Clean Dataset:** Filter to complete observations (47 rows survive from 143)
-7. **Run Test:** Execute paired comparison (SEG vs GR×SR)
+7. **Run Test:** Execute paired comparison (SSZ vs GR×SR)
 
 **Time Investment:**
 - First-time execution: 8-14 hours (expert-level astronomy/programming skills required)
@@ -190,7 +190,7 @@ The analysis establishes that **φ = (1+√5)/2 ≈ 1.618** is not a fitting par
 This is analogous to how the speed of light (c) is not adjustable in relativity but defines the geometric structure of spacetime. Here, φ defines the geometric structure of segmentation itself - specifically the **natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s** where the photon sphere regime begins.
 
 **Empirical Validation:**
-With ESO data, SEG achieves **100% accuracy in the photon sphere** (11/11 wins, p=0.0010) - precisely where φ-geometry predicts the optimal transition region. This is not post-hoc fitting; φ was incorporated on geometric grounds before any performance testing.
+With ESO data, SSZ achieves **100% accuracy in the photon sphere** (11/11 wins, p=0.0010) - precisely where φ-geometry predicts the optimal transition region. This is not post-hoc fitting; φ was incorporated on geometric grounds before any performance testing.
 
 ---
 
@@ -198,15 +198,15 @@ With ESO data, SEG achieves **100% accuracy in the photon sphere** (11/11 wins, 
 
 **What This Breakthrough Means:**
 
-1. **SEG Works:** Not "might work" or "could work" - it **demonstrably works** at 97.9% accuracy with appropriate data
+1. **SSZ Works:** Not "might work" or "could work" - it **demonstrably works** at 97.9% accuracy with appropriate data
 2. **Data Format is Critical:** The 51% → 97.9% jump proves that **what you measure** must match **what the model predicts**
-3. **ESO Archive is the Gold Standard:** For SEG validation, prioritize ESO spectroscopic observations
+3. **ESO Archive is the Gold Standard:** For SSZ validation, prioritize ESO spectroscopic observations
 4. **φ-Geometry is Mandatory:** Without φ, there is no model (0% success); with φ, near-perfect performance
-5. **Photon Sphere is Optimal:** SEG excels at r ≈ 2-3 r_s (100% success) where φ-geometry naturally applies
+5. **Photon Sphere is Optimal:** SSZ excels at r ≈ 2-3 r_s (100% success) where φ-geometry naturally applies
 
 **From "Interesting Framework" to "Empirically Validated Predictor":**
 
-These results transition SEG from a speculative theoretical framework to an empirically validated gravitational redshift predictor operating at world-class accuracy levels - **when tested against physically compatible observations**.
+These results transition SSZ from a speculative theoretical framework to an empirically validated gravitational redshift predictor operating at world-class accuracy levels - **when tested against physically compatible observations**.
 
 ---
 
@@ -225,7 +225,7 @@ At first glance, achieving only 51% overall success suggested the model might ha
 ### The Critical Investigation: Why Does Performance Vary?
 
 **The Question That Changed Everything:**
-Instead of accepting 51% as a model limitation, we asked: **"Why does SEG excel in photon sphere (82%) but achieve only 51% overall?"**
+Instead of accepting 51% as a model limitation, we asked: **"Why does SSZ excel in photon sphere (82%) but achieve only 51% overall?"**
 
 **Systematic Analysis Revealed:**
 1. **Photon Sphere Excellence (82%):** Data from emission-line spectroscopy, complete parameters, local metric measurements
@@ -236,7 +236,7 @@ Instead of accepting 51% as a model limitation, we asked: **"Why does SEG excel 
 
 ### The Breakthrough Realization: It's Not the Model - It's the Data Format
 
-**Discovery:** The "limitation" wasn't in SEG's physics but in **what the data actually measured**:
+**Discovery:** The "limitation" wasn't in SSZ's physics but in **what the data actually measured**:
 
 **Mixed Historical Data Measures:**
 - Cosmological redshift (Hubble flow: z = H₀·d/c) - NOT local gravity
@@ -244,7 +244,7 @@ Instead of accepting 51% as a model limitation, we asked: **"Why does SEG excel 
 - Galaxy recession velocities - NOT local orbital kinematics
 - Photometric estimates (5-10% uncertainty) - NOT sub-percent spectroscopy
 
-**SEG Predicts:**
+**SSZ Predicts:**
 - Local gravitational redshift at specific radii
 - Emission-line wavelength shifts from atomic transitions
 - Spacetime curvature effects in photon sphere regime
@@ -254,7 +254,7 @@ Instead of accepting 51% as a model limitation, we asked: **"Why does SEG excel 
 
 ### The Solution: ESO Archive Spectroscopic Data
 
-**Hypothesis:** If we test SEG against data that measures **exactly what it predicts** (local gravitational redshift from emission lines), performance should improve dramatically.
+**Hypothesis:** If we test SSZ against data that measures **exactly what it predicts** (local gravitational redshift from emission lines), performance should improve dramatically.
 
 **Testing the Hypothesis (ESO GRAVITY, XSHOOTER Data):**
 - Data type: Pure emission-line spectroscopy
@@ -269,13 +269,13 @@ Instead of accepting 51% as a model limitation, we asked: **"Why does SEG excel 
 
 **The 51% Result Was Not a Failure - It Was a Diagnostic:**
 
-The mixed-data performance (51%) revealed exactly where SEG works and why:
+The mixed-data performance (51%) revealed exactly where SSZ works and why:
 1. **High performance (82-86%)** with emission-line spectroscopy → Model works when tested correctly
 2. **Low performance (37%)** with cosmological data → Model shouldn't predict this physics anyway
 3. **The overall 51%** → Average of "correct physics" and "wrong physics" tests
 
 **The Journey Summary:**
-1. **Stage 1 (Initial):** "SEG achieves 51% - appears to have limitations"
+1. **Stage 1 (Initial):** "SSZ achieves 51% - appears to have limitations"
 2. **Stage 2 (Investigation):** "Why 82% here but 37% there? What's different?"
 3. **Stage 3 (Discovery):** "It's the data type - cosmological vs. local measurements!"
 4. **Stage 4 (Validation):** "With pure local spectroscopy (ESO): 97.9% - complete validation!"
@@ -288,10 +288,10 @@ The mixed-data performance (51%) revealed exactly where SEG works and why:
 - **Validation Quality:** ESO 97.9% vs Mixed 51% - worth the effort for proper validation
 
 **The Scientific Lesson:**
-The difficulty of obtaining ESO data is not a limitation of SEG but a **requirement of precise scientific testing**. Proper validation requires data that measures what your theory predicts. Easy access to inappropriate data doesn't help; difficult access to appropriate data is essential.
+The difficulty of obtaining ESO data is not a limitation of SSZ but a **requirement of precise scientific testing**. Proper validation requires data that measures what your theory predicts. Easy access to inappropriate data doesn't help; difficult access to appropriate data is essential.
 
 **What Initially Appeared as Model Limitations:**
-- ❌ "SEG only achieves 51% overall"
+- ❌ "SSZ only achieves 51% overall"
 - ❌ "Not statistically significant (p=0.867)"
 - ❌ "Regime-specific, not universal"
 
@@ -301,7 +301,7 @@ The difficulty of obtaining ESO data is not a limitation of SEG but a **requirem
 - ✅ Regime-specific excellence confirms φ-geometry predictions
 - ✅ ESO data, though challenging to obtain, validates everything
 
-**Conclusion:** The 51% result was never a model failure. It was our **roadmap to proper validation**, showing us that SEG requires - and deserves - data measuring the physics it actually predicts. ESO spectroscopic observations, despite acquisition complexity, provide complete empirical validation of the segmented spacetime framework.
+**Conclusion:** The 51% result was never a model failure. It was our **roadmap to proper validation**, showing us that SSZ requires - and deserves - data measuring the physics it actually predicts. ESO spectroscopic observations, despite acquisition complexity, provide complete empirical validation of the segmented spacetime framework.
 
 ---
 
@@ -311,7 +311,7 @@ The difficulty of obtaining ESO data is not a limitation of SEG but a **requirem
 
 The **97.9% success rate** reported in this analysis is **not achievable with arbitrary astronomical data**. It requires a specific, carefully executed data acquisition workflow that accesses the **ESO Science Archive** - Europe's premier repository for ground-based optical/infrared observations. This section documents the complete process, including **all manual steps, technical challenges, and time investments** required to reproduce these results.
 
-**Key Finding:** While the cleaned ESO dataset enables near-perfect SEG performance, **obtaining this data is non-trivial** and requires:
+**Key Finding:** While the cleaned ESO dataset enables near-perfect SSZ performance, **obtaining this data is non-trivial** and requires:
 - ESO user account (free but registration required)
 - Manual authentication (username/password or time-limited tokens)
 - Understanding of TAP (Table Access Protocol) queries and ADQL (Astronomical Data Query Language)
@@ -610,9 +610,9 @@ def extract_emission_line_data(fits_path):
 
 **Note:** Header keyword names vary by instrument! Must inspect actual FITS headers to determine correct keys.
 
-#### Step 9: Compute SEG Theoretical Predictions (z_geom_hint)
+#### Step 9: Compute SSZ Theoretical Predictions (z_geom_hint)
 
-**Critical Step:** For maximum SEG performance, each observation needs a `z_geom_hint` - the theoretical gravitational redshift prediction from segmented spacetime geometry.
+**Critical Step:** For maximum SSZ performance, each observation needs a `z_geom_hint` - the theoretical gravitational redshift prediction from segmented spacetime geometry.
 
 **Computation (from segspace framework):**
 
@@ -620,7 +620,7 @@ def extract_emission_line_data(fits_path):
 from segspace_core import compute_seg_redshift
 
 def add_seg_predictions(df):
-    """Add z_geom_hint column using SEG theoretical model"""
+    """Add z_geom_hint column using SSZ theoretical model"""
     z_geom_hints = []
     
     for idx, row in df.iterrows():
@@ -628,7 +628,7 @@ def add_seg_predictions(df):
         r_s = 2 * G * M_kg / C**2
         x = row['r_emit_m'] / r_s
         
-        # SEG gravitational redshift with φ-corrections
+        # SSZ gravitational redshift with φ-corrections
         if x > 1.0:
             z_grav_classical = 1.0 / np.sqrt(1 - 1.0/x) - 1.0
             
@@ -702,7 +702,7 @@ Rapidity formulation: ENABLED
 OVERALL RESULTS
 ================================================================================
 Total pairs: 47
-SEG wins: 46/47 (97.9%)
+SSZ wins: 46/47 (97.9%)
 GR×SR wins: 1/47 (2.1%)
 p-value: 0.0000
 Significant: YES
@@ -713,19 +713,19 @@ STRATIFIED RESULTS BY REGIME
 
 Photon Sphere:
   n = 11
-  SEG wins = 11/11 (100.0%)
+  SSZ wins = 11/11 (100.0%)
   p-value = 0.0010
   Status: SIGNIFICANT
 
 Strong Field:
   n = 36
-  SEG wins = 35/36 (97.2%)
+  SSZ wins = 35/36 (97.2%)
   p-value = 0.0000
   Status: SIGNIFICANT
 
 High Velocity (v > 5%c):
   n = 18
-  SEG wins = 17/18 (94.4%)
+  SSZ wins = 17/18 (94.4%)
   p-value = 0.0001
   Status: EXCELLENT!
 ```
@@ -748,7 +748,7 @@ High Velocity (v > 5%c):
 | 6. Download script generation | 15 minutes | Intermediate |
 | 7. FITS file download | 20-60 minutes | Beginner |
 | 8. Spectroscopic extraction | 2-4 hours | Advanced |
-| 9. SEG predictions (z_geom_hint) | 1-2 hours | Expert |
+| 9. SSZ predictions (z_geom_hint) | 1-2 hours | Expert |
 | 10. Data cleaning | 30 minutes | Intermediate |
 | 11. Paired test execution | 5 minutes | Beginner |
 | **TOTAL** | **8-14 hours** | **Advanced/Expert** |
@@ -777,7 +777,7 @@ Anyone attempting to reproduce the **97.9% result** must:
 3. Debug authentication issues
 4. Handle format conversion (VOTable → CSV)
 5. Extract FITS spectroscopic data
-6. Compute SEG theoretical predictions
+6. Compute SSZ theoretical predictions
 7. Execute cleaning pipeline
 
 **This is not "download a file and run a script" - it requires significant astronomical data expertise.**
@@ -838,7 +838,7 @@ We provide `data/real_data_emission_lines_clean.csv` - the **final cleaned datas
 
 ### Statistical Method
 
-**Test:** Paired comparison (SEG vs GR×SR)  
+**Test:** Paired comparison (SSZ vs GR×SR)  
 **Metric:** Win/loss count with binomial test  
 **Stratification:** 3-dimensional (radius, data source, completeness)  
 **Primary stratification variable:** r/r_s (radius in Schwarzschild radii)  
@@ -892,7 +892,7 @@ This finding elevates φ from a mathematical parameter to a physical principle, 
 
 Systematic testing across different physical regimes reveals a clear pattern of performance that aligns precisely with theoretical expectations:
 
-| Physical Regime | Sample Size (n) | SEG Wins | Win Rate | Statistical Significance (p-value) | Notes |
+| Physical Regime | Sample Size (n) | SSZ Wins | Win Rate | Statistical Significance (p-value) | Notes |
 |-----------------|----------------|----------|----------|-----------------------------------|-------|
 | **Photon Sphere (r = 2-3 r_s) [ESO]** | **11** | **11** | **100%** | **0.0010 (highly significant)** | **Perfect performance!** |
 | **Strong Field (r = 3-10 r_s) [ESO]** | **36** | **35** | **97.2%** | **<0.0001 (highly significant)** | **Near-perfect** |
@@ -915,7 +915,7 @@ The φ impact estimates derive from systematic comparison with φ-disabled geode
 The observed performance pattern is not random but follows directly from theoretical predictions:
 
 **Perfect Performance at Photon Sphere (r = 2-3 r_s) with ESO Data:**  
-This regime contains the theoretically predicted φ/2 natural boundary at r_φ ≈ 1.618 r_s. The photon sphere in Schwarzschild geometry occurs at exactly r = 1.5 r_s, remarkably close to the φ-based prediction. With ESO archive data, SEG achieves **100% win rate** (11/11 observations, p=0.0010), demonstrating that φ-spiral geometry **perfectly identifies** the optimal transition region when tested against appropriate data. This is not post-hoc fitting - the φ value was incorporated on geometric grounds before performance testing.
+This regime contains the theoretically predicted φ/2 natural boundary at r_φ ≈ 1.618 r_s. The photon sphere in Schwarzschild geometry occurs at exactly r = 1.5 r_s, remarkably close to the φ-based prediction. With ESO archive data, SSZ achieves **100% win rate** (11/11 observations, p=0.0010), demonstrating that φ-spiral geometry **perfectly identifies** the optimal transition region when tested against appropriate data. This is not post-hoc fitting - the φ value was incorporated on geometric grounds before performance testing.
 
 **Excellence in High-Velocity Regimes (v > 5% c) with ESO Data:**  
 Systems with significant kinematic velocities show **94.4% success rate** (17/18, p=0.0001), indicating that φ-geometry successfully captures the coupling between special relativistic effects and gravitational field dynamics. The model's ability to handle these combined effects substantially exceeds simple multiplicative combinations of separate GR and SR corrections.
@@ -935,7 +935,7 @@ ESO observations in the strong field regime achieve **97.2% success** (35/36, p<
 - **Overall Performance:** 46 wins out of 47 observations (97.9% success rate)
 - **Statistical Significance:** p < 0.0001 (highly significant)
 - **Data Quality:** Complete spectroscopic parameters, emission-line focused
-- **Interpretation:** **SEG model validated with appropriate data**
+- **Interpretation:** **SSZ model validated with appropriate data**
 
 **Mixed Historical Sources (Previous Analysis):**
 - **Overall Performance:** 73 wins out of 143 observations (51% success rate)
@@ -1015,24 +1015,24 @@ Physics determines performance, not data artifacts. Radius stratification is **r
 
 ## Scientific Insights
 
-### SEG's Optimal Domain
+### SSZ's Optimal Domain
 
-Through systematic stratified analysis, we have identified the precise physical regimes where the Segmented Spacetime (SEG) model excels and where it faces limitations.
+Through systematic stratified analysis, we have identified the precise physical regimes where the Segmented Spacetime (SSZ) model excels and where it faces limitations.
 
 **Excellence in Strong-Field Photon Sphere Region:**
 The model demonstrates exceptional performance in photon sphere observations, specifically in the radius range r = 2-3 r_s, achieving an 82% win rate with high statistical significance (p<0.0001, n=45). This regime represents moderate-to-strong gravitational fields where classical approximations begin to break down but conditions are not yet extreme. The φ-based segmentation corrections are optimally calibrated for this physical regime, providing improvements of 72-77 percentage points over the φ-disabled baseline.
 
 **Excellence in High-Velocity Systems:**
-For systems with significant kinematic velocities exceeding 5% of light speed, SEG achieves 86% wins (p=0.0015, n=21). This demonstrates that the model successfully handles the coupling between special relativistic effects and gravitational field dynamics, performing substantially better than simple multiplicative combinations of GR and SR corrections. The φ-geometry framework appears well-suited to capture these combined effects, with a 76 percentage point improvement attributable to φ-based corrections.
+For systems with significant kinematic velocities exceeding 5% of light speed, SSZ achieves 86% wins (p=0.0015, n=21). This demonstrates that the model successfully handles the coupling between special relativistic effects and gravitational field dynamics, performing substantially better than simple multiplicative combinations of GR and SR corrections. The φ-geometry framework appears well-suited to capture these combined effects, with a 76 percentage point improvement attributable to φ-based corrections.
 
 **Failure Very Close to Horizon:**
 The model completely fails in the extreme near-horizon regime (r < 2 r_s), achieving 0% wins across 29 observations. This represents a catastrophic breakdown where even the φ-based corrections are insufficient. The current Δ(M) parametrization, while successful at moderate distances, cannot adequately capture the highly non-linear gravitational effects that dominate in this regime. This identifies a critical area requiring theoretical development of improved φ-formula extensions or alternative correction schemes specifically tailored to extreme-field conditions.
 
 **Comparable Performance in Weak Fields:**
-In the weak-field regime (r > 10 r_s, n=40), SEG achieves 37% wins with p=0.154 (not statistically significant). This is expected and physically reasonable: classical GR×SR approximations are already highly accurate in weak gravitational fields, leaving little room for improvement. The φ-corrections, designed primarily for strong-field effects, naturally have minimal impact here (only +3 percentage points). This is not a failure but rather confirmation that the model correctly reduces to classical behavior where it should.
+In the weak-field regime (r > 10 r_s, n=40), SSZ achieves 37% wins with p=0.154 (not statistically significant). This is expected and physically reasonable: classical GR×SR approximations are already highly accurate in weak gravitational fields, leaving little room for improvement. The φ-corrections, designed primarily for strong-field effects, naturally have minimal impact here (only +3 percentage points). This is not a failure but rather confirmation that the model correctly reduces to classical behavior where it should.
 
 **The Value of Precise Domain Knowledge:**
-Detailed reporting of both strengths and weaknesses serves multiple purposes. It identifies where improvements are needed (r<2 r_s) for future theoretical development. It informs observational strategies by showing which types of systems are most suitable for testing SEG predictions (photon sphere observations, high-velocity systems). The regime-dependent behavior follows from the underlying φ-geometry principles, not arbitrary parameter tuning, indicating the model has a physical basis rather than being a general-purpose fitting exercise.
+Detailed reporting of both strengths and weaknesses serves multiple purposes. It identifies where improvements are needed (r<2 r_s) for future theoretical development. It informs observational strategies by showing which types of systems are most suitable for testing SSZ predictions (photon sphere observations, high-velocity systems). The regime-dependent behavior follows from the underlying φ-geometry principles, not arbitrary parameter tuning, indicating the model has a physical basis rather than being a general-purpose fitting exercise.
 
 ---
 
@@ -1044,7 +1044,7 @@ One of the most significant findings from this analysis is the empirical validat
 The segmented spacetime framework predicts that the optimal transition radius should occur at r_φ = (φ/2)r_s ≈ 1.618 r_s, where φ = (1+√5)/2 is the golden ratio. This value is not chosen for mathematical convenience or aesthetic appeal, but emerges directly from the φ-spiral geometry that underlies the segment structure. The theory predicts that performance should peak in regions where the radius is close to this natural boundary.
 
 **Observational Reality:**
-Empirical testing reveals that SEG performance indeed peaks sharply in the photon sphere region (r = 1.5-3 r_s), which contains the predicted φ/2 boundary. Within this region, the model achieves 82% wins with overwhelming statistical significance (p<0.0001, n=45). The photon sphere itself occurs at r = 1.5 r_s in Schwarzschild geometry, remarkably close to the φ-based natural boundary of ≈1.618 r_s.
+Empirical testing reveals that SSZ performance indeed peaks sharply in the photon sphere region (r = 1.5-3 r_s), which contains the predicted φ/2 boundary. Within this region, the model achieves 82% wins with overwhelming statistical significance (p<0.0001, n=45). The photon sphere itself occurs at r = 1.5 r_s in Schwarzschild geometry, remarkably close to the φ-based natural boundary of ≈1.618 r_s.
 
 **The Significance of This Agreement:**
 This correspondence between theoretical prediction and empirical performance is not a coincidence or the result of post-hoc fitting. The φ value was incorporated into the model on geometric grounds before any performance testing. The fact that performance peaks precisely where φ-geometry predicts it should provides strong support for φ as a fundamental geometric principle of segmented spacetime, rather than an arbitrary mathematical convenience. This represents a successful prediction of the theory - the geometry told us where to look, and observations confirmed it.
@@ -1080,7 +1080,7 @@ The analysis identifies priority directions for model development. The catastrop
 
 Stratified analysis proved essential for understanding model performance. The overall p=0.867 result, interpreted without stratification, would suggest no significant effect. Stratification reveals this "null result" actually reflects dramatic regime-specific effects that cancel: 82% wins in photon sphere, 0% at r<2, with the negative results masking the positive ones in aggregate statistics. Overall p-values can be misleading when physical regimes with different behaviors are mixed. 
 
-Data type selection was equally critical to methodological validity. Using emission-line spectroscopic observations rather than continuum data ensures that the physics being tested (local gravitational redshift from spacetime curvature) matches the physics the model predicts. Emission lines arise from atomic transitions at specific radii, directly probing the local metric. Continuum emission, by contrast, reflects the source's bulk motion and cosmological recession, which SEG does not attempt to model. Including continuum data would introduce a systematic mismatch between what we measure (cosmological redshift) and what we predict (gravitational redshift), invalidating comparisons. This is not about data quality - both types are scientifically valid - but about physical compatibility between measurement and theory.
+Data type selection was equally critical to methodological validity. Using emission-line spectroscopic observations rather than continuum data ensures that the physics being tested (local gravitational redshift from spacetime curvature) matches the physics the model predicts. Emission lines arise from atomic transitions at specific radii, directly probing the local metric. Continuum emission, by contrast, reflects the source's bulk motion and cosmological recession, which SSZ does not attempt to model. Including continuum data would introduce a systematic mismatch between what we measure (cosmological redshift) and what we predict (gravitational redshift), invalidating comparisons. This is not about data quality - both types are scientifically valid - but about physical compatibility between measurement and theory.
 
 Reporting both strengths (photon sphere, high velocity) and weaknesses (very close regime) identifies where the model works and where improvements are needed.
 
@@ -1088,7 +1088,7 @@ Reporting both strengths (photon sphere, high velocity) and weaknesses (very clo
 
 ## Historical Note: Equilibrium Radius Artifacts in Mixed Catalog Data
 
-**IMPORTANT CONTEXT:** This section documents findings from **mixed historical catalog data analysis** (143 observations, 51% overall). With **professional ESO spectroscopy** (47 observations), SEG achieves **97.9% overall accuracy** with **no r < 2 r_s issues** - demonstrating these challenges were catalog data artifacts, not fundamental limitations.
+**IMPORTANT CONTEXT:** This section documents findings from **mixed historical catalog data analysis** (143 observations, 51% overall). With **professional ESO spectroscopy** (47 observations), SSZ achieves **97.9% overall accuracy** with **no r < 2 r_s issues** - demonstrating these challenges were catalog data artifacts, not fundamental limitations.
 
 ### The r < 2 r_s Catalog Data Artifact: 0% Wins (Historical Mixed Data Only)
 
@@ -1212,9 +1212,9 @@ Differentiate with respect to radius instead of direct division.
 
 This finding transforms our interpretation of the entire validation:
 
-**Previous interpretation:** "SEG needs mathematical fixes for equilibrium points"  
-**Actual reality:** "SEG achieves 97.9% with professional spectroscopy - catalog data limitations created artifacts"  
-**Key insight:** Data quality, not mathematical implementation, determines validation outcomes - professional ESO spectroscopy validates SEG at world-class levels
+**Previous interpretation:** "SSZ needs mathematical fixes for equilibrium points"  
+**Actual reality:** "SSZ achieves 97.9% with professional spectroscopy - catalog data limitations created artifacts"  
+**Key insight:** Data quality, not mathematical implementation, determines validation outcomes - professional ESO spectroscopy validates SSZ at world-class levels
 
 The failure occurs at a specific, theoretically meaningful radius - likely related to φ-geometry - where proper mathematical treatment can resolve the issue. This is a solvable implementation problem, not an insurmountable physics barrier.
 
@@ -1265,14 +1265,14 @@ The 0/0 mathematical issue in current implementation does NOT invalidate this ph
 
 **The theory is sound. The mathematics is rigorous. The implementation solution exists.**
 
-The 0/0 issue actually **VALIDATES** the theory - it shows SEG is correctly predicting physically meaningful equilibrium points (where accretion disks form) that simply need correct mathematical treatment (rapidity with angular bisector as coordinate origin).
+The 0/0 issue actually **VALIDATES** the theory - it shows SSZ is correctly predicting physically meaningful equilibrium points (where accretion disks form) that simply need correct mathematical treatment (rapidity with angular bisector as coordinate origin).
 
 ---
 
 ## Bottom Line
 
 **From Historical Uncertainty to Breakthrough Validation:**
-What initially appeared as a discouraging mixed-data result (51%, p=0.867, not statistically significant) has been **completely transformed** through systematic data source investigation. The discovery: **SEG achieves 97.9% predictive accuracy** (46/47 wins, p<0.0001) when tested against **ESO archive spectroscopic data** - the physically appropriate test bed for local gravitational redshift predictions. This is not incremental improvement; it is **near-perfect agreement** between theory and observation.
+What initially appeared as a discouraging mixed-data result (51%, p=0.867, not statistically significant) has been **completely transformed** through systematic data source investigation. The discovery: **SSZ achieves 97.9% predictive accuracy** (46/47 wins, p<0.0001) when tested against **ESO archive spectroscopic data** - the physically appropriate test bed for local gravitational redshift predictions. This is not incremental improvement; it is **near-perfect agreement** between theory and observation.
 
 **The Critical Discovery - Data Source Determines Everything:**
 The 47-percentage-point difference between mixed historical data (51%) and ESO archive data (97.9%) is entirely attributable to **data quality and physical compatibility**:
@@ -1280,19 +1280,19 @@ The 47-percentage-point difference between mixed historical data (51%) and ESO a
 - **ESO Advantage:** Complete spectroscopic parameters (M, r, v_los, v_tot, λ), emission-line focus, photon sphere regime coverage, sub-percent wavelength precision
 - **Historical Limitations:** Continuum contamination (cosmological redshift, not local gravity), missing parameters, scale mismatches, photometric approximations
 
-**This is the single most important finding:** SEG's "modest" historical performance was not a model limitation but a **data compatibility issue**. When tested against what it actually predicts (local gravitational redshift from emission lines), SEG performs at **world-class levels**.
+**This is the single most important finding:** SSZ's "modest" historical performance was not a model limitation but a **data compatibility issue**. When tested against what it actually predicts (local gravitational redshift from emission lines), SSZ performs at **world-class levels**.
 
 **The Physical Mechanism:**
 The analysis confirms that φ-spiral geometry, with its natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s, provides the geometric foundation that enables the model's successes. This is not arbitrary mathematics but geometry that emerges from self-similar scaling principles analogous to those observed in natural systems (galaxies, hurricanes, shells). With ESO data, performance reaches **100% in the photon sphere** - precisely where this geometry predicts the optimal transition region should lie.
 
 **The Operating Domain (ESO-Validated):**
-We can now definitively state SEG's operational characteristics with appropriate data:
+We can now definitively state SSZ's operational characteristics with appropriate data:
 - **Photon Sphere (r = 2-3 r_s):** 100% accuracy (11/11, p=0.0010) - **PERFECT**
 - **Strong Field (r = 3-10 r_s):** 97.2% accuracy (35/36, p<0.0001) - **NEAR-PERFECT**
 - **High Velocity (v > 5% c):** 94.4% accuracy (17/18, p=0.0001) - **EXCELLENT**
 - **Overall (ESO clean):** 97.9% accuracy (46/47, p<0.0001) - **BREAKTHROUGH**
 
-The well-defined domain of applicability, combined with empirical validation at near-perfect levels, demonstrates that SEG has transitioned from theoretical framework to **empirically validated predictive model**.
+The well-defined domain of applicability, combined with empirical validation at near-perfect levels, demonstrates that SSZ has transitioned from theoretical framework to **empirically validated predictive model**.
 
 **The Fundamental Basis:**
 Perhaps most importantly, we've demonstrated that φ (golden ratio) is not a free parameter or aesthetic choice but the geometric basis that makes segmented spacetime function. Without φ-based corrections, performance drops to 0%; with φ-geometry and ESO-quality data, performance reaches **97.9%**. This establishes φ as fundamental to the model, not optional.
@@ -1305,17 +1305,17 @@ This investigation employed:
 4. **Transparent reporting** of both successes (97.9% ESO) and limitations (data acquisition complexity)
 5. **Physical mechanism focus** rather than mere statistical fitting
 
-The result is not just improved statistics but **transformative understanding**: SEG works, the data must match what SEG predicts, and when that match occurs, agreement is near-perfect.
+The result is not just improved statistics but **transformative understanding**: SSZ works, the data must match what SSZ predicts, and when that match occurs, agreement is near-perfect.
 
 **The Path Forward:**
 Future work should:
-1. **Prioritize ESO archive data** for all SEG validation studies
+1. **Prioritize ESO archive data** for all SSZ validation studies
 2. **Expand to additional ESO instruments** (MUSE, KMOS, SINFONI for spatially resolved spectroscopy)
 3. **Develop automated ESO pipeline** to reduce 8-14 hour manual workflow to <1 hour
 4. **Collaborate with ESO** for direct archive access with reduced authentication overhead
-5. **Target photon sphere observations** where SEG achieves 100% accuracy
+5. **Target photon sphere observations** where SSZ achieves 100% accuracy
 
-With appropriate data, SEG is no longer a speculative framework but an **empirically validated gravitational redshift predictor** operating at competitive accuracy levels.
+With appropriate data, SSZ is no longer a speculative framework but an **empirically validated gravitational redshift predictor** operating at competitive accuracy levels.
 
 ---
 
@@ -1328,12 +1328,12 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 - **Parameters:** A=98.01, α=2.7177e4, B=1.96 (φ-based Δ(M) calibration)
 - **Random seed:** Deterministic (no randomization)
 - **Expected runtime:** ~10 seconds on standard hardware
-- **Expected output:** "SEG wins: 46/47 (97.9%), p-value: 0.0000"
+- **Expected output:** "SSZ wins: 46/47 (97.9%), p-value: 0.0000"
 
 **Historical Dataset (Mixed Sources - 51% Result):**
 - **Data:** `data/real_data_emission_lines_full.csv` (143 rows, mixed quality)
 - **Script:** `perfect_paired_test.py --csv data/real_data_emission_lines_full.csv`
-- **Expected output:** "SEG wins: ~73/143 (51%), p-value: ~0.867" (data-limited)
+- **Expected output:** "SSZ wins: ~73/143 (51%), p-value: ~0.867" (data-limited)
 
 **ESO Data Acquisition (Required for Full Reproducibility):**
 - **See:** "ESO Data Acquisition: The Path to Perfect Results" section above
@@ -1375,7 +1375,7 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 ### Analysis Scripts
 
 - **[perfect_paired_test.py](perfect_paired_test.py)** - Main validation script (ESO & mixed data)
-- **[segspace_all_in_one_extended.py](segspace_all_in_one_extended.py)** - Complete SEG implementation
+- **[segspace_all_in_one_extended.py](segspace_all_in_one_extended.py)** - Complete SSZ implementation
 - **[generate_key_plots.py](generate_key_plots.py)** - Plot generation (ESO breakthrough figures)
 
 ### Data Acquisition Scripts
@@ -1419,7 +1419,7 @@ With appropriate data, SEG is no longer a speculative framework but an **empiric
 
 **Key Concepts:**
 - φ-based spacetime geometry and golden ratio emergence
-- Segmented Spacetime (SEG) mass projection model
+- Segmented Spacetime (SSZ) mass projection model
 - Local gravitational redshift vs cosmological redshift
 - Photon sphere as optimal testing regime (r = 2-3 r_s)
 
