@@ -1,7 +1,8 @@
 # Segmented Spacetime – Mass Projection & Unified Results
 
 <p align="center">
-  <img src="media/blackhole_segmented_spacetime.gif" alt="Sagittarius A* in Segmented Spacetime" width="100%">
+  ![blackhole_segmented_spacetime---resize](https://github.com/user-attachments/assets/797ef2cf-ff50-458b-8b35-4fe0904c89ee)
+
 </p>
 
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
