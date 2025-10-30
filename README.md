@@ -1,12 +1,7 @@
 # Segmented Spacetime – Mass Projection & Unified Results
 
 <p align="center">
-  <img
-  src="https://raw.githubusercontent.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/main/assets/ssz_animations/sagittarius%20segmented%20spacetime.gif"
-  alt="Sagittarius — Segmented Spacetime"
-  width="640"
-  loading="lazy"
-/>
+  <img src="https://raw.githubusercontent.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/main/assets/ssz_animations/sagittarius%20segmented%20spacetime.gif" alt="Sagittarius — Segmented Spacetime" />
 </p>
 
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
