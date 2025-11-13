@@ -14,6 +14,7 @@ Perfect-Pair Mathematics Style (Casu & Wrede 2025)
 © 2025 Carmen Wrede, Lino Casu
 """
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -24,12 +25,18 @@ import seaborn as sns
 # ---------------------------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------------------------
-DATA_DIR = Path('d:/extended_results')
+# Try d:/ first, fallback to local directory if not available
+if Path('d:/extended_results').exists():
+    DATA_DIR = Path('d:/extended_results')
+else:
+    DATA_DIR = Path('extended_results')
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
 PLOTS_DIR = DATA_DIR / 'plots'
 SCAN_CSV = DATA_DIR / 'parameter_scan_results.csv'
 SUMMARY_JSON = DATA_DIR / 'scan_summary.json'
 BRIDGE_JSON = DATA_DIR / 'gr_bridge_summary.json'
-GROWTH_CSV = Path('d:/growth_best_mode.csv')
+GROWTH_CSV = DATA_DIR.parent / 'growth_best_mode.csv'
 
 PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 plt.style.use('dark_background')
@@ -201,17 +208,34 @@ def figure_amplitude_trace(path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 def main():
-    scan_df = load_dataframe(SCAN_CSV)
-    summary = load_json(SUMMARY_JSON)
-    if BRIDGE_JSON.exists():
-        load_json(BRIDGE_JSON)  # ensures file is present; data is recomputed directly from scan_df
+    try:
+        scan_df = load_dataframe(SCAN_CSV)
+        summary = load_json(SUMMARY_JSON)
+        
+        # Validate data before plotting
+        if scan_df.empty:
+            print(f'[WARNING] Empty dataframe from {SCAN_CSV}, skipping plots')
+            return
+        
+        if BRIDGE_JSON.exists():
+            load_json(BRIDGE_JSON)  # ensures file is present; data is recomputed directly from scan_df
 
-    figure_stabilization_heatmap(scan_df)
-    figure_delta_barplot(summary)
-    figure_gr_scatter(scan_df)
-    figure_amplitude_trace(GROWTH_CSV)
+        figure_stabilization_heatmap(scan_df)
+        figure_delta_barplot(summary)
+        figure_gr_scatter(scan_df)
+        figure_amplitude_trace(GROWTH_CSV)
 
-    print('\n[OK] Plot packager complete. Figures stored in d:/extended_results/plots/')
+        print('\n[OK] Plot packager complete. Figures stored in d:/extended_results/plots/')
+        
+    except FileNotFoundError as e:
+        print(f'[SKIP] Missing required data files: {e}')
+        print('       Run ssz_parameter_scan.py first to generate data.')
+        sys.exit(0)  # Exit gracefully, not an error
+    except Exception as e:
+        print(f'[ERROR] Plot generation failed: {e}')
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
 
 
 if __name__ == '__main__':

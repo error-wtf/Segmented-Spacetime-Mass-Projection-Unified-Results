@@ -4,6 +4,30 @@
   <img src="assets/ssz_animations/sagitarius%20segmented%20spacetime.gif"  alt="Sagittarius — Segmented Spacetime" />
 </p>
 
+---
+
+## 🔗 Related SSZ Repositories
+
+This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
+
+- **📐 [SSZ Metric Pure](https://github.com/error-wtf/ssz-metric-pure)** (this repository)
+  - Complete 4D tensor formulation
+  - Symbolic computation tools (SymPy)
+  - Mathematical foundations & proofs
+
+- **🌌 [Segmented Spacetime Mass Projection - Unified Results](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)**
+  - Comprehensive physical validation (97.9% ESO accuracy)
+  - Black hole tests (PPN, photon sphere, shadow)
+  - Empirical data analysis & statistical tests
+
+- **🌟 [G79 Cygnus Tests](https://github.com/error-wtf/g79-cygnus-tests)**
+  - LBV nebula G79.29+0.46 application
+  - Molecular zone predictions
+  - Temperature inversion validation
+ 
+  ---
+
+
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing%20(22%2F22)-brightgreen)](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)

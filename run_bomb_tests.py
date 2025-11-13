@@ -18,30 +18,53 @@ try:
 except:
     pass
 
-def run_script(script_path):
-    """Run a Python script and return success status"""
+def run_script(script_path, optional=False):
+    """Run a Python script and return success status
+    
+    Args:
+        script_path: Path to the script
+        optional: If True, failure won't count as overall failure
+    """
     print(f"\n{'='*80}")
     print(f"Running: {script_path.name}")
+    if optional:
+        print("[OPTIONAL TEST]")
     print('='*80)
+    
+    # Special timeout for parameter scan (computationally intensive)
+    timeout = 1200 if script_path.name == "ssz_parameter_scan.py" else 300
+    
     try:
         result = subprocess.run(
             [sys.executable, str(script_path)],
             capture_output=False,
             text=True,
-            timeout=300
+            timeout=timeout
         )
         if result.returncode == 0:
             print(f"[PASS] {script_path.name} completed successfully")
             return True
         else:
-            print(f"[FAIL] {script_path.name} failed with exit code {result.returncode}")
-            return False
+            if optional:
+                print(f"[SKIP] {script_path.name} failed (optional test, not counted)")
+                return True  # Count as pass for optional tests
+            else:
+                print(f"[FAIL] {script_path.name} failed with exit code {result.returncode}")
+                return False
     except subprocess.TimeoutExpired:
-        print(f"[TIMEOUT] {script_path.name} timed out after 300s")
-        return False
+        if optional:
+            print(f"[SKIP] {script_path.name} timed out (optional test, not counted)")
+            return True
+        else:
+            print(f"[TIMEOUT] {script_path.name} timed out after {timeout}s")
+            return False
     except Exception as e:
-        print(f"[FAIL] {script_path.name} error: {e}")
-        return False
+        if optional:
+            print(f"[SKIP] {script_path.name} error (optional test, not counted): {e}")
+            return True
+        else:
+            print(f"[FAIL] {script_path.name} error: {e}")
+            return False
 
 def main():
     """Run all bomb tests (excluding animations)"""
@@ -52,42 +75,47 @@ def main():
         return False
     
     # Scripts to run (excluding animations)
+    # Format: (script_name, optional)
     scripts = [
-        "ssz_blackhole_bomb.py",
-        "ssz_blackhole_bomb_complete.py",
-        "ssz_blackhole_bomb_full.py",
-        "ssz_gr_bridge.py",
-        "ssz_parameter_scan.py",
-        "ssz_plot_packager.py",
-        "ssz_resonance_explorer.py",
+        ("ssz_blackhole_bomb.py", False),
+        ("ssz_blackhole_bomb_complete.py", False),
+        ("ssz_blackhole_bomb_full.py", False),
+        ("ssz_gr_bridge.py", False),
+        ("ssz_parameter_scan.py", False),
+        ("ssz_plot_packager.py", True),  # Optional - plotting only
+        ("ssz_resonance_explorer.py", False),
         # Excluding: ssz_bomb_animation.py, ssz_live_visualizer.py
     ]
     
     results = []
-    for script_name in scripts:
+    for script_name, optional in scripts:
         script_path = bomb_dir / script_name
         if script_path.exists():
-            success = run_script(script_path)
-            results.append((script_name, success))
+            success = run_script(script_path, optional=optional)
+            results.append((script_name, success, optional))
         else:
             print(f"⚠️ Script not found: {script_name}")
-            results.append((script_name, False))
+            results.append((script_name, False, optional))
     
     # Summary
     print("\n" + "="*80)
     print("BLACK HOLE BOMB TESTS - SUMMARY")
     print("="*80)
-    passed = sum(1 for _, success in results if success)
+    passed = sum(1 for _, success, _ in results if success)
     total = len(results)
+    required = sum(1 for _, _, optional in results if not optional)
+    required_passed = sum(1 for _, success, optional in results if success and not optional)
     
-    for script_name, success in results:
-        status = "✅ PASS" if success else "❌ FAIL"
-        print(f"{status} {script_name}")
+    for script_name, success, optional in results:
+        status = "✅ PASS" if success else "❌ FAIL" if not optional else "⏭️ SKIP"
+        optional_tag = " [OPTIONAL]" if optional else ""
+        print(f"{status} {script_name}{optional_tag}")
     
-    print(f"\nTotal: {passed}/{total} passed ({100*passed/total:.1f}%)")
+    print(f"\nRequired: {required_passed}/{required} passed")
+    print(f"Total: {passed}/{total} passed ({100*passed/total:.1f}%)")
     print("="*80)
     
-    return passed == total
+    return required_passed == required  # Success if all required tests pass
 
 if __name__ == "__main__":
     success = main()

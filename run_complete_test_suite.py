@@ -30,8 +30,9 @@ if sys.platform == 'win32':
 OUTPUT_DIR = Path('outputs')
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# CLI tools that require command-line arguments (skip these)
+# CLI tools and scripts to skip (require arguments, specific setup, or are meta-runners)
 CLI_TOOLS = {
+    # Basic CLI tools
     'phi_test.py',
     'phi_bic_test.py',
     'bound_energy.py',
@@ -41,27 +42,54 @@ CLI_TOOLS = {
     'blackhole_animation.py',
     'ring_temperature_to_velocity.py',
     'segmented-solar',  # Entire directory
-    # Additional CLI tools and scripts that need specific args/environment:
-    'lagrangian_tests.py',  # Needs --object argument
-    'ssz_theory_segmented.py',  # Needs specific data files
-    'ssz_interactive_gui.py',  # GUI application
+    
+    # Meta runners (run other scripts)
+    'run_complete_test_suite.py',  # This script itself
+    'run_full_suite.py',  # Already tested separately
+    'run_all_validations.py',  # Meta runner
+    'run_bomb_tests.py',  # Already tested separately
+    'run_ssz_validation.py',  # Already tested separately
+    'run_ssz_theory_validation.py',  # Already tested separately
+    'run_ssz_unified_validation.py',  # Already tested separately
+    'run_comprehensive_tests.py',  # Meta runner
     'ssz_test_suite.py',  # Meta test runner
     'ssz_unified_suite.py',  # Meta test runner
+    
+    # GUI/Interactive applications
+    'ssz_interactive_gui.py',  # GUI application
     'calculation_test.py',  # Interactive/specific setup
+    
+    # Scripts needing specific arguments
+    'lagrangian_tests.py',  # Needs --object argument
+    'ssz_theory_segmented.py',  # Needs specific data files
     'segspace_pairtest_vs_sr.py',  # Needs specific data
+    
+    # Platform/environment specific
     'test_clone_and_verify.py',  # Git operations
     'test_theory_predictions_cross_platform.py',  # Platform-specific
-    'run_comprehensive_tests.py',  # Meta runner
-    'ssz_blackhole_bomb_template.py',  # Very slow (>300s), skip in suite
-    'ssz_bigbang_vs_ssz_anim.py',  # Animation renderer (slow, needs imageio/ffmpeg)
-    # Scripts tests that need specific setup:
-    'test_cosmo_fields.py',  # Needs field data
-    'test_cosmo_multibody.py',  # Needs multibody data
     'test_data_fetch.py',  # Network operations
-    'test_gaia_required_columns.py',  # Needs GAIA data
-    'test_plot_ssz_maps.py',  # Plotting test
-    'test_segmenter.py',  # Needs segment data
-    'test_ssz_kernel.py',  # Needs kernel data
+    
+    # Very slow or animation renderers
+    'ssz_blackhole_bomb_template.py',  # Very slow (>300s)
+    'ssz_bigbang_vs_ssz_anim.py',  # Animation renderer (slow, needs imageio/ffmpeg)
+    'ssz_time_segmentation_animation.py',  # Animation
+    'ssz_time_chaos_animation.py',  # Animation
+    'ssz_time_stability_combined.py',  # Animation
+    
+    # Already run via pytest in run_full_suite.py
+    'test_cosmo_fields.py',  # Run via pytest
+    'test_cosmo_multibody.py',  # Run via pytest
+    'test_gaia_required_columns.py',  # Run via pytest
+    'test_plot_ssz_maps.py',  # Run via pytest
+    'test_segmenter.py',  # Run via pytest
+    'test_ssz_kernel.py',  # Run via pytest
+    'test_ssz_invariants.py',  # Run via pytest
+    'test_data_validation.py',  # Run via pytest
+    'test_horizon_hawking_predictions.py',  # Run via pytest
+    
+    # Scripts that are imports/modules, not standalone
+    'fetch_planck.py',  # Data fetcher, not a test
+    'ssz_audio_generator.py',  # Audio generator, not a test
 }
 
 print("="*80)

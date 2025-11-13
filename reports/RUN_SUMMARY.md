@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-10-29 21:11:44
+**Date:** 2025-11-14 00:14:39
 
 ## Overview
 
@@ -10,31 +10,31 @@
 - **Passed:** 22
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 192.6s
-- **Total Suite Time:** 247.7s
+- **Total Test Time:** 213.3s
+- **Total Suite Time:** 278.9s
 
 ## Physics Test Results
 
-- **PPN Exact Tests:** ✅ PASS (0.1s)
+- **PPN Exact Tests:** ✅ PASS (0.2s)
 - **Dual Velocity Tests:** ✅ PASS (0.2s)
 - **Energy Conditions Tests:** ✅ PASS (0.1s)
 - **C1 Segments Tests:** ✅ PASS (0.1s)
-- **C2 Segments Strict Tests:** ✅ PASS (0.1s)
+- **C2 Segments Strict Tests:** ✅ PASS (0.2s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (7.1s)
-- **Multi-Ring Validation Tests:** ✅ PASS (6.7s)
-- **SSZ Kernel Tests:** ✅ PASS (6.6s)
-- **SSZ Invariants Tests:** ✅ PASS (6.8s)
-- **Segmenter Tests:** ✅ PASS (6.7s)
-- **Cosmo Fields Tests:** ✅ PASS (6.7s)
-- **Cosmo Multibody Tests:** ✅ PASS (8.7s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.8s)
-- **SSZ Complete Analysis:** ✅ PASS (115.0s)
-- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.3s)
-- **SSZ Theory Predictions:** ✅ PASS (3.0s)
-- **G79 Analysis:** ✅ PASS (2.8s)
-- **Cygnus X Analysis:** ✅ PASS (2.8s)
+- **SegWave Core Math Tests:** ✅ PASS (8.0s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.6s)
+- **SSZ Kernel Tests:** ✅ PASS (7.2s)
+- **SSZ Invariants Tests:** ✅ PASS (6.9s)
+- **Segmenter Tests:** ✅ PASS (7.3s)
+- **Cosmo Fields Tests:** ✅ PASS (6.9s)
+- **Cosmo Multibody Tests:** ✅ PASS (9.7s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.5s)
+- **SSZ Complete Analysis:** ✅ PASS (128.7s)
+- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.7s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (4.6s)
+- **SSZ Theory Predictions:** ✅ PASS (4.6s)
+- **G79 Analysis:** ✅ PASS (2.9s)
+- **Cygnus X Analysis:** ✅ PASS (3.7s)
 - **Paper Export Tools:** ✅ PASS (4.9s)
 - **Final Validation:** ✅ PASS (0.1s)
 
