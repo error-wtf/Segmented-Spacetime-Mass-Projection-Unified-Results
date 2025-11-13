@@ -119,21 +119,21 @@ def sweep(params, ssz_mode=True):
 # ============================================================================
 
 BASE_CONFIG = {
-    "omega_grid": [0.1, 0.15, 0.2, 0.25, 0.3],
-    "m_grid": [1, 2, 3, 4],
+    "omega_grid": [0.1, 0.2, 0.3],  # Reduced from 5 to 3 for speed
+    "m_grid": [1, 2, 3],  # Reduced from 4 to 3 for speed
     "epsilon": 0.1, "q": 2,
     "alpha": 0.8, "eta": 0.05,
     "R": 0.98, "K_coupling": 0.02,
     "sigma0": 1.0, "phi": PHI, "r0": 1.0,
-    "M_theta": 2048, "N_max": 200, "seed": 1234
+    "M_theta": 512, "N_max": 100, "seed": 1234  # Reduced from 2048/200 for speed
 }
 
-# Parameter grids for scan
+# Parameter grids for scan (reduced for practical runtime)
 SCAN_GRIDS = {
-    "lambda_A_grid": [0.00, 0.01, 0.02, 0.03, 0.05],
-    "lambda_phi_grid": [0.00, 0.01, 0.02, 0.03, 0.05],
-    "K_segments_grid": [8, 16, 32, 64],
-    "Omega0_grid": [0.2, 0.3, 0.4]
+    "lambda_A_grid": [0.00, 0.01, 0.05],  # Reduced from 5 to 3
+    "lambda_phi_grid": [0.00, 0.01, 0.05],  # Reduced from 5 to 3
+    "K_segments_grid": [8, 16, 32],  # Reduced from 4 to 3
+    "Omega0_grid": [0.2, 0.3, 0.4]  # Keep 3 values
 }
 
 def parameter_scan():
