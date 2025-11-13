@@ -190,11 +190,16 @@ def test_phi_debug_data_values():
     print(f"✅ Masses positive")
     print(f"   M_solar range: {df['M_solar'].min():.2e} - {df['M_solar'].max():.2e}")
     
-    # n_round checks
-    n_round_vals = df['n_round'].dropna()
-    if len(n_round_vals) > 0:
-        print(f"✅ n_round values present: {len(n_round_vals)}")
-        print(f"   n_round range: {n_round_vals.min():.4f} - {n_round_vals.max():.4f}")
+    # n_round checks (optional column)
+    if 'n_round' in df.columns:
+        n_round_vals = df['n_round'].dropna()
+        if len(n_round_vals) > 0:
+            print(f"✅ n_round values present: {len(n_round_vals)}")
+            print(f"   n_round range: {n_round_vals.min():.4f} - {n_round_vals.max():.4f}")
+        else:
+            print(f"⚠️  n_round column exists but all values are NaN")
+    else:
+        print(f"⚠️  n_round column not present (using fallback data)")
     
     print("="*80)
 
