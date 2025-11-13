@@ -1,16 +1,16 @@
 {
-  "timestamp": "2025-10-28T22:15:27.930233",
+  "timestamp": "2025-11-13T23:22:06.502964",
   "steps": {
     "step1_intersection": {
-      "r_over_rs": 10.0,
-      "D_star": 0.9285832768733835,
-      "validated": false,
+      "r_over_rs": 1.3865616196486958,
+      "D_star": 0.5280071198891444,
+      "validated": true,
       "interpretation": "Universal mass-independent crossover confirmed at r* = 1.387 r_s"
     },
     "step2_saturation": {
       "xi_max": 1.0,
       "xi_saturates": true,
-      "d_horizon": 1.0,
+      "d_horizon": 0.5550277096687818,
       "interpretation": "Segment density saturates below 1.0 → curvature and time dilation remain finite"
     },
     "step3_stability": {
@@ -21,7 +21,7 @@
       "interpretation": "Energy dissipates exponentially → No BH explosions possible"
     },
     "step4_time_emergence": {
-      "slowdown_factor": 1.0,
+      "slowdown_factor": 1.1080980172650094,
       "interpretation": "Time is emergent from φ-based segment resonances → not fundamental"
     },
     "step5_chaos": {
@@ -29,8 +29,8 @@
       "interpretation": "Time becomes chaotic when amplification exceeds coupling threshold"
     },
     "step6_neutron_star": {
-      "max_delta_percent": 0.0,
-      "r_at_max": 1.5,
+      "max_delta_percent": -44.08973126107127,
+      "r_at_max": 5.0,
       "interpretation": "Observable NS signature: increased redshift and period lengthening"
     },
     "step7_phi_fundamental": {
@@ -50,12 +50,12 @@
     "unification_path": "φ-geometry unifies gravity, time, and quantum structure"
   },
   "final_validation": {
-    "intersection_verified": false,
+    "intersection_verified": true,
     "saturation_confirmed": true,
     "stability_proven": false,
-    "time_emergent": false,
+    "time_emergent": true,
     "chaos_mapped": true,
-    "ns_signature": false,
+    "ns_signature": true,
     "phi_invariant": true,
     "all_validated": false
   }
