@@ -211,11 +211,11 @@ Run the **complete SSZ validation pipeline** in your browser with zero installat
 - ✅ **Results Archive** - Auto-downloads ZIP with everything
 
 **Included Plots (Inline Display):**
-1. ESO Breakthrough Results (97.9% validation)
-2. Stratified Performance Comparison
-3. φ-Geometry Impact (WITH vs WITHOUT)
-4. Win Rate vs Radius (φ/2 boundary)
-5. Performance Heatmap
+1. Stratified Performance by Regime
+2. φ-Geometry Impact (WITH vs WITHOUT)
+3. Win Rate vs Radius (φ/2 boundary validation)
+4. 3D Stratification (Physics Dominates)
+5. Performance Metrics Heatmap
 
 ### ⏰ Timeline
 
@@ -252,11 +252,11 @@ ssz_complete_results_TIMESTAMP.zip
 │   ├── summary-output.md        # Compact summary (1.3 KB)
 │   └── TEST_INTERPRETATIONS.md  # Physics interpretations
 ├── reports/figures/analysis/
-│   ├── eso_breakthrough_results.png
-│   ├── stratified_performance_comparison.png
-│   ├── phi_geometry_impact_comparison.png
-│   ├── win_rate_vs_radius_detailed.png
-│   └── performance_heatmap_comprehensive.png
+│   ├── stratified_performance.png
+│   ├── phi_geometry_impact.png
+│   ├── winrate_vs_radius.png
+│   ├── stratification_robustness.png
+│   └── performance_heatmap.png
 └── All JSON metadata files
 ```
 
@@ -302,7 +302,7 @@ When tested against **ESO (European Southern Observatory) professional spectrosc
 | **Strong Field** | **97.2%** (35/36 wins) | p < 0.0001 |
 | **High Velocity** | **94.4%** (17/18 wins) | p = 0.0001 |
 
-![ESO Breakthrough](reports/figures/analysis/eso_breakthrough_results.png)
+![Stratified Performance](reports/figures/analysis/stratified_performance.png)
 
 **What this means:** World-class predictive performance competitive with established gravitational models.
 
