@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-11-13 23:22:00
+**Date:** 2025-11-14 00:14:39
 
 ## Overview
 
@@ -10,32 +10,32 @@
 - **Passed:** 22
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 192.4s
-- **Total Suite Time:** 249.2s
+- **Total Test Time:** 213.3s
+- **Total Suite Time:** 278.9s
 
 ## Physics Test Results
 
-- **PPN Exact Tests:** ✅ PASS (0.1s)
+- **PPN Exact Tests:** ✅ PASS (0.2s)
 - **Dual Velocity Tests:** ✅ PASS (0.2s)
 - **Energy Conditions Tests:** ✅ PASS (0.1s)
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.2s)
-- **C2 Curvature Proxy Tests:** ✅ PASS (0.2s)
-- **SegWave Core Math Tests:** ✅ PASS (7.9s)
-- **Multi-Ring Validation Tests:** ✅ PASS (6.7s)
-- **SSZ Kernel Tests:** ✅ PASS (6.8s)
-- **SSZ Invariants Tests:** ✅ PASS (7.2s)
-- **Segmenter Tests:** ✅ PASS (6.8s)
-- **Cosmo Fields Tests:** ✅ PASS (6.6s)
-- **Cosmo Multibody Tests:** ✅ PASS (8.6s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.3s)
-- **SSZ Complete Analysis:** ✅ PASS (114.6s)
-- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.3s)
-- **SSZ Theory Predictions:** ✅ PASS (3.0s)
-- **G79 Analysis:** ✅ PASS (3.1s)
-- **Cygnus X Analysis:** ✅ PASS (2.6s)
-- **Paper Export Tools:** ✅ PASS (4.5s)
+- **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
+- **SegWave Core Math Tests:** ✅ PASS (8.0s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.6s)
+- **SSZ Kernel Tests:** ✅ PASS (7.2s)
+- **SSZ Invariants Tests:** ✅ PASS (6.9s)
+- **Segmenter Tests:** ✅ PASS (7.3s)
+- **Cosmo Fields Tests:** ✅ PASS (6.9s)
+- **Cosmo Multibody Tests:** ✅ PASS (9.7s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.5s)
+- **SSZ Complete Analysis:** ✅ PASS (128.7s)
+- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.7s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (4.6s)
+- **SSZ Theory Predictions:** ✅ PASS (4.6s)
+- **G79 Analysis:** ✅ PASS (2.9s)
+- **Cygnus X Analysis:** ✅ PASS (3.7s)
+- **Paper Export Tools:** ✅ PASS (4.9s)
 - **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
