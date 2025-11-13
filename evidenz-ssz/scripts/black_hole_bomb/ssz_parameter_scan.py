@@ -155,8 +155,14 @@ def parameter_scan():
     print(f"Modes per config:     {len(BASE_CONFIG['omega_grid']) * len(BASE_CONFIG['m_grid'])}")
     print(f"Total simulations:    {total * len(BASE_CONFIG['omega_grid']) * len(BASE_CONFIG['m_grid'])}")
     
-    # Create output directory
-    os.makedirs("d:/extended_results", exist_ok=True)
+    # Create output directory (try d:/ first, fallback to local)
+    from pathlib import Path
+    if Path('d:/').exists():
+        output_dir = "d:/extended_results"
+    else:
+        output_dir = "extended_results"
+    os.makedirs(output_dir, exist_ok=True)
+    print(f"\nOutput directory: {output_dir}")
     
     results_all = []
     count = 0
@@ -252,8 +258,15 @@ def analyze_and_export(results):
         print(f"     S={r['stabilization_index']:+.3f}, dUnstable={r['delta_unstable']:+d}, "
               f"dlogG={r['avg_delta_log_G']:.3f}")
     
+    # Determine output directory
+    from pathlib import Path
+    if Path('d:/').exists():
+        output_dir = "d:/extended_results"
+    else:
+        output_dir = "extended_results"
+    
     # Save CSV
-    csv_file = "d:/extended_results/parameter_scan_results.csv"
+    csv_file = f"{output_dir}/parameter_scan_results.csv"
     with open(csv_file, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=results[0].keys())
         writer.writeheader()
@@ -280,7 +293,7 @@ def analyze_and_export(results):
         }
     }
     
-    json_file = "d:/extended_results/scan_summary.json"
+    json_file = f"{output_dir}/scan_summary.json"
     with open(json_file, 'w') as f:
         json.dump(summary, f, indent=2)
     print(f"[OK] {json_file}")
