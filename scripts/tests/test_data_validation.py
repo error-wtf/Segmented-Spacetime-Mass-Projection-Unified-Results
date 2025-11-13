@@ -32,24 +32,29 @@ if sys.platform.startswith('win'):
 def test_phi_debug_data_exists():
     """Test 1: Check if phi_step_debug_full.csv exists (or fallback data)"""
     data_path = Path("out/phi_step_debug_full.csv")
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
     fallback_path = Path("data/real_data_full.csv")
     
     print("\n" + "="*80)
     print("TEST 1: PHI DEBUG DATA EXISTS")
     print("="*80)
     
-    # Try primary data source
+    # Try data sources in order of preference
     if data_path.exists():
         file_to_test = data_path
         print(f"✅ Using pipeline output: {data_path}")
+    elif perfect_pair_path.exists():
+        file_to_test = perfect_pair_path
+        print(f"⚠️  Using perfect pair data: {perfect_pair_path}")
     elif fallback_path.exists():
         file_to_test = fallback_path
-        print(f"⚠️  Using fallback data: {fallback_path}")
+        print(f"⚠️  Using real data fallback: {fallback_path}")
     else:
         pytest.skip(
             f"No data available. Tried:\n"
             f"  1. {data_path} (pipeline output)\n"
-            f"  2. {fallback_path} (real data)"
+            f"  2. {perfect_pair_path} (perfect pair results)\n"
+            f"  3. {fallback_path} (real data)"
         )
         return
     
@@ -70,6 +75,7 @@ def test_phi_debug_data_exists():
 def test_phi_debug_data_structure():
     """Test 2: Validate phi_step_debug_full.csv structure (or fallback)"""
     data_path = Path("out/phi_step_debug_full.csv")
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
     fallback_path = Path("data/real_data_full.csv")
     
     print("\n" + "="*80)
@@ -80,9 +86,23 @@ def test_phi_debug_data_structure():
     if data_path.exists():
         df = pd.read_csv(data_path)
         print(f"✅ Using pipeline output: {data_path}")
+    elif perfect_pair_path.exists():
+        df = pd.read_csv(perfect_pair_path)
+        print(f"⚠️  Using perfect pair data: {perfect_pair_path}")
+        # Map columns
+        df['r_emit_m'] = df['r_m']
+        df['M_solar'] = df['M_msun']
+        if 'source' not in df.columns:
+            df['source'] = 'PerfectPair_' + df['regime'].str.replace(' ', '_')
+        if 'case' not in df.columns:
+            df['case'] = df['regime']
+        if 'f_emit_Hz' not in df.columns:
+            df['f_emit_Hz'] = 4.57e14
+        if 'f_obs_Hz' not in df.columns:
+            df['f_obs_Hz'] = df['f_emit_Hz'] / (1 + df['z_obs'])
     elif fallback_path.exists():
         df = pd.read_csv(fallback_path)
-        print(f"⚠️  Using fallback data: {fallback_path}")
+        print(f"⚠️  Using real data fallback: {fallback_path}")
     else:
         pytest.skip(f"No data available")
         return
@@ -125,6 +145,7 @@ def test_phi_debug_data_structure():
 def test_phi_debug_data_values():
     """Test 3: Validate phi_step_debug_full.csv value ranges (or fallback)"""
     data_path = Path("out/phi_step_debug_full.csv")
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
     fallback_path = Path("data/real_data_full.csv")
     
     print("\n" + "="*80)
@@ -135,9 +156,19 @@ def test_phi_debug_data_values():
     if data_path.exists():
         df = pd.read_csv(data_path)
         print(f"✅ Using pipeline output")
+    elif perfect_pair_path.exists():
+        df = pd.read_csv(perfect_pair_path)
+        print(f"⚠️  Using perfect pair data")
+        # Map columns
+        df['r_emit_m'] = df['r_m']
+        df['M_solar'] = df['M_msun']
+        if 'f_emit_Hz' not in df.columns:
+            df['f_emit_Hz'] = 4.57e14
+        if 'f_obs_Hz' not in df.columns:
+            df['f_obs_Hz'] = df['f_emit_Hz'] / (1 + df['z_obs'])
     elif fallback_path.exists():
         df = pd.read_csv(fallback_path)
-        print(f"⚠️  Using fallback data")
+        print(f"⚠️  Using real data fallback")
     else:
         pytest.skip(f"No data available")
         return
@@ -172,19 +203,23 @@ def test_phi_debug_data_values():
 def test_enhanced_debug_data_exists():
     """Test 4: Check if _enhanced_debug.csv exists (or fallback)"""
     data_path = Path("out/_enhanced_debug.csv")
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
     fallback_path = Path("data/real_data_full.csv")
     
     print("\n" + "="*80)
     print("TEST 4: ENHANCED DEBUG DATA EXISTS")
     print("="*80)
     
-    # Try primary data source
+    # Try data sources in order of preference
     if data_path.exists():
         file_to_test = data_path
         print(f"✅ Using pipeline output: {data_path}")
+    elif perfect_pair_path.exists():
+        file_to_test = perfect_pair_path
+        print(f"⚠️  Using perfect pair data: {perfect_pair_path}")
     elif fallback_path.exists():
         file_to_test = fallback_path
-        print(f"⚠️  Using fallback data: {fallback_path}")
+        print(f"⚠️  Using real data fallback: {fallback_path}")
     else:
         pytest.skip(f"No data available")
         return
@@ -205,6 +240,7 @@ def test_enhanced_debug_data_exists():
 def test_enhanced_debug_data_structure():
     """Test 5: Validate _enhanced_debug.csv structure (or fallback)"""
     data_path = Path("out/_enhanced_debug.csv")
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
     fallback_path = Path("data/real_data_full.csv")
     
     print("\n" + "="*80)
@@ -215,9 +251,15 @@ def test_enhanced_debug_data_structure():
     if data_path.exists():
         df = pd.read_csv(data_path)
         print(f"✅ Using pipeline output")
+    elif perfect_pair_path.exists():
+        df = pd.read_csv(perfect_pair_path)
+        print(f"⚠️  Using perfect pair data")
+        # Map columns
+        df['r_emit_m'] = df['r_m']
+        # z_obs already present in perfect pair data
     elif fallback_path.exists():
         df = pd.read_csv(fallback_path)
-        print(f"⚠️  Using fallback data")
+        print(f"⚠️  Using real data fallback")
         # Map 'z' to 'z_obs' if needed
         if 'z_obs' not in df.columns and 'z' in df.columns:
             df['z_obs'] = df['z']

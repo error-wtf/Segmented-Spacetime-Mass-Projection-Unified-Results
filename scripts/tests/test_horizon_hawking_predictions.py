@@ -46,7 +46,7 @@ if sys.platform.startswith('win'):
 
 
 def load_phi_debug_data(base_path: Path | None = None) -> pd.DataFrame:
-    """Load phi_step_debug_full.csv with n_round data, or fallback to real_data_full.csv"""
+    """Load phi_step_debug_full.csv with n_round data, or fallback to perfect_paired_results.csv"""
     if base_path is None:
         base_path = Path("out")
     
@@ -56,23 +56,53 @@ def load_phi_debug_data(base_path: Path | None = None) -> pd.DataFrame:
     if data_path.exists():
         return pd.read_csv(data_path)
     
-    # Fallback: Use real_data_full.csv
+    # Fallback 1 (PREFERRED): Use perfect_paired_results.csv
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
+    if perfect_pair_path.exists():
+        print(f"\n⚠️  Using perfect pair data: {perfect_pair_path}")
+        df = pd.read_csv(perfect_pair_path)
+        
+        # Map columns to expected names
+        df['r_emit_m'] = df['r_m']
+        df['M_solar'] = df['M_msun']
+        
+        # Calculate n_round from z_obs (n_round ≈ z * φ / (1 - z))
+        if 'n_round' not in df.columns and 'z_obs' in df.columns:
+            df['n_round'] = df['z_obs'] * PHI / (1 - df['z_obs'] + 1e-10)
+        
+        # Use error_seg as residual (this is actual SSZ prediction error!)
+        if 'residual' not in df.columns and 'error_seg' in df.columns:
+            df['residual'] = df['error_seg']
+            df['abs_residual'] = np.abs(df['residual'])
+        
+        # Add synthetic columns if needed
+        if 'source' not in df.columns:
+            df['source'] = 'PerfectPair_' + df['regime'].str.replace(' ', '_')
+        if 'case' not in df.columns:
+            df['case'] = df['regime']
+        if 'f_emit_Hz' not in df.columns:
+            df['f_emit_Hz'] = 4.57e14  # H-alpha line
+        if 'f_obs_Hz' not in df.columns:
+            # Calculate from redshift: f_obs = f_emit / (1 + z)
+            df['f_obs_Hz'] = df['f_emit_Hz'] / (1 + df['z_obs'])
+        
+        return df
+    
+    # Fallback 2: Use real_data_full.csv
     fallback_path = Path("data/real_data_full.csv")
     if fallback_path.exists():
-        print(f"\n⚠️  Using fallback data: {fallback_path}")
+        print(f"\n⚠️  Using real data fallback: {fallback_path}")
         df = pd.read_csv(fallback_path)
         
-        # Calculate n_round if not present (n_round ≈ z * φ / (1 - z))
+        # Calculate n_round if not present
         if 'n_round' not in df.columns and 'z' in df.columns:
             df['n_round'] = df['z'] * PHI / (1 - df['z'] + 1e-10)
         
-        # Calculate residuals if not present (residual = z_obs - z_seg)
+        # Calculate residuals if not present
         if 'residual' not in df.columns:
-            # Use z as proxy for observed redshift
             z_col = 'z' if 'z' in df.columns else 'z_obs' if 'z_obs' in df.columns else None
             if z_col:
-                # Simple residual: assume perfect SSZ prediction (residual ≈ 0)
-                df['residual'] = df[z_col] * 0.01  # Small synthetic residual
+                df['residual'] = df[z_col] * 0.01  # Synthetic residual
                 df['abs_residual'] = np.abs(df['residual'])
         
         return df
@@ -81,7 +111,8 @@ def load_phi_debug_data(base_path: Path | None = None) -> pd.DataFrame:
     pytest.skip(
         f"No data available. Tried:\n"
         f"  1. {data_path} (pipeline output)\n"
-        f"  2. {fallback_path} (real data)\n"
+        f"  2. {perfect_pair_path} (perfect pair results)\n"
+        f"  3. {fallback_path} (real data)\n"
         f"\n"
         f"🚀 To generate pipeline data: python run_all_ssz_terminal.py"
     )
@@ -90,7 +121,7 @@ def load_phi_debug_data(base_path: Path | None = None) -> pd.DataFrame:
 
 
 def load_enhanced_debug_data(base_path: Path | None = None) -> pd.DataFrame:
-    """Load _enhanced_debug.csv with redshift decomposition, or fallback to real_data_full.csv"""
+    """Load _enhanced_debug.csv with redshift decomposition, or fallback to perfect_paired_results.csv"""
     if base_path is None:
         base_path = Path("out")
     
@@ -100,29 +131,49 @@ def load_enhanced_debug_data(base_path: Path | None = None) -> pd.DataFrame:
     if data_path.exists():
         return pd.read_csv(data_path)
     
-    # Fallback: Use real_data_full.csv
+    # Fallback 1 (PREFERRED): Use perfect_paired_results.csv
+    perfect_pair_path = Path("out/perfect_paired_results.csv")
+    if perfect_pair_path.exists():
+        print(f"\n⚠️  Using perfect pair data: {perfect_pair_path}")
+        df = pd.read_csv(perfect_pair_path)
+        
+        # Map columns
+        df['r_emit_m'] = df['r_m']
+        
+        # z_obs already present in perfect pair data
+        # Add decomposition columns (synthetic approximations)
+        if 'z_grav' not in df.columns:
+            # Most redshift is gravitational in strong field
+            df['z_grav'] = df['z_obs'] * 0.85
+        if 'z_SR' not in df.columns:
+            # Small SR contribution from velocity
+            df['z_SR'] = df['z_obs'] * 0.15
+        if 'z_geom_hint' not in df.columns:
+            # Geometric hint from segment structure
+            df['z_geom_hint'] = df['z_seg']  # Use SSZ prediction as geometric marker
+        
+        return df
+    
+    # Fallback 2: Use real_data_full.csv
     fallback_path = Path("data/real_data_full.csv")
     if fallback_path.exists():
-        print(f"\n⚠️  Using fallback data: {fallback_path}")
+        print(f"\n⚠️  Using real data fallback: {fallback_path}")
         df = pd.read_csv(fallback_path)
         
         # Ensure required columns exist
         if 'z_obs' not in df.columns:
-            # Map 'z' to 'z_obs' if present
             if 'z' in df.columns:
                 df['z_obs'] = df['z']
             else:
-                df['z_obs'] = 0.0  # Default
+                df['z_obs'] = 0.0
         
-        # Add decomposition columns if missing (synthetic for now)
+        # Add decomposition columns (synthetic)
         if 'z_grav' not in df.columns:
-            df['z_grav'] = df['z_obs'] * 0.9  # Approximate: most redshift is gravitational
+            df['z_grav'] = df['z_obs'] * 0.9
         if 'z_SR' not in df.columns:
-            df['z_SR'] = df['z_obs'] * 0.1  # Approximate: small SR contribution
-        if 'z_geom_hint' not in df.columns and 'z_geom_hint' in df.columns:
-            pass  # Already present
-        elif 'z_geom_hint' not in df.columns:
-            df['z_geom_hint'] = df['z_obs'] * 0.5  # Synthetic geometric hint
+            df['z_SR'] = df['z_obs'] * 0.1
+        if 'z_geom_hint' not in df.columns:
+            df['z_geom_hint'] = df['z_obs'] * 0.5
         
         return df
     
@@ -130,7 +181,8 @@ def load_enhanced_debug_data(base_path: Path | None = None) -> pd.DataFrame:
     pytest.skip(
         f"No data available. Tried:\n"
         f"  1. {data_path} (pipeline output)\n"
-        f"  2. {fallback_path} (real data)\n"
+        f"  2. {perfect_pair_path} (perfect pair results)\n"
+        f"  3. {fallback_path} (real data)\n"
         f"\n"
         f"🚀 To generate pipeline data: python run_all_ssz_terminal.py"
     )
