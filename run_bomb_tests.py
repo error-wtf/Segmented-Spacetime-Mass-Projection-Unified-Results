@@ -23,12 +23,16 @@ def run_script(script_path):
     print(f"\n{'='*80}")
     print(f"Running: {script_path.name}")
     print('='*80)
+    
+    # Special timeout for parameter scan (computationally intensive)
+    timeout = 1200 if script_path.name == "ssz_parameter_scan.py" else 300
+    
     try:
         result = subprocess.run(
             [sys.executable, str(script_path)],
             capture_output=False,
             text=True,
-            timeout=300
+            timeout=timeout
         )
         if result.returncode == 0:
             print(f"[PASS] {script_path.name} completed successfully")
@@ -37,7 +41,7 @@ def run_script(script_path):
             print(f"[FAIL] {script_path.name} failed with exit code {result.returncode}")
             return False
     except subprocess.TimeoutExpired:
-        print(f"[TIMEOUT] {script_path.name} timed out after 300s")
+        print(f"[TIMEOUT] {script_path.name} timed out after {timeout}s")
         return False
     except Exception as e:
         print(f"[FAIL] {script_path.name} error: {e}")
