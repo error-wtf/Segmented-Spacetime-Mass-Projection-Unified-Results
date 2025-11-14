@@ -370,6 +370,8 @@ def main():
              "Cosmo Fields Tests", 60),
             (["python", "-m", "pytest", "scripts/tests/test_cosmo_multibody.py", "-s", "-v", "--tb=short", "--cache-clear"],
              "Cosmo Multibody Tests", 60),
+            (["python", "-m", "pytest", "scripts/tests/test_data_validation.py", "-s", "-v", "--tb=short", "--cache-clear"],
+             "Data Validation Tests", 60),
         ]
         
         for cmd, desc, timeout in tests_phase4:
