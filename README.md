@@ -805,6 +805,34 @@ Comprehensive analysis documents connecting all three SSZ repositories:
 
 ---
 
+## PS: GAIA / SDSS real-data note
+
+We initially attempted to run the SSZ pipeline directly on the provided GAIA
+(and GAIA+SDSS) catalogues. However, the released tables did not match the
+assumptions of our analysis:
+
+- several columns required by the pipeline were completely missing,
+- some fields had different semantics than documented,
+- and key quantities (e.g. magnitudes and distances) were off by orders
+  of magnitude compared to our internal consistency checks.
+
+Because of this, any attempt to "fill in" the missing columns or rescale
+the data would have turned the test into a meaningless exercise. We decided
+instead to:
+
+1) keep the GAIA/SDSS *pipeline code* in the repository,  
+2) mark the corresponding test as skipped in the automated suite, and  
+3) explicitly document that the real GAIA/SDSS tables in their current form
+   are not suitable for a fair SSZ vs. GR comparison.
+
+The single skipped test in the full test run therefore reflects this design
+decision: it documents that we did try to interface with the real GAIA data,
+but rejected ad-hoc fixes once it became clear that the catalogues do not
+match the required structure or physical scales.
+
+
+---
+
 <p align="center">
   <b>Segmented Spacetime Framework</b><br>
   © 2025 Carmen Wrede & Lino Casu<br>
