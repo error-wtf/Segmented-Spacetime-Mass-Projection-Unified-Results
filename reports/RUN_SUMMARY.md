@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-11-14 01:08:21
+**Date:** 2025-11-14 01:22:07
 
 ## Overview
 
@@ -10,34 +10,34 @@
 - **Passed:** 23
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 215.7s
-- **Total Suite Time:** 273.3s
+- **Total Test Time:** 201.4s
+- **Total Suite Time:** 257.5s
 
 ## Physics Test Results
 
-- **PPN Exact Tests:** ✅ PASS (0.1s)
-- **Dual Velocity Tests:** ✅ PASS (0.4s)
-- **Energy Conditions Tests:** ✅ PASS (0.1s)
-- **C1 Segments Tests:** ✅ PASS (0.3s)
-- **C2 Segments Strict Tests:** ✅ PASS (0.3s)
+- **PPN Exact Tests:** ✅ PASS (0.3s)
+- **Dual Velocity Tests:** ✅ PASS (0.5s)
+- **Energy Conditions Tests:** ✅ PASS (0.3s)
+- **C1 Segments Tests:** ✅ PASS (0.2s)
+- **C2 Segments Strict Tests:** ✅ PASS (0.2s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.2s)
-- **SegWave Core Math Tests:** ✅ PASS (8.3s)
-- **Multi-Ring Validation Tests:** ✅ PASS (7.1s)
-- **SSZ Kernel Tests:** ✅ PASS (6.9s)
-- **SSZ Invariants Tests:** ✅ PASS (7.2s)
-- **Segmenter Tests:** ✅ PASS (7.1s)
-- **Cosmo Fields Tests:** ✅ PASS (7.6s)
-- **Cosmo Multibody Tests:** ✅ PASS (11.6s)
-- **Data Validation Tests:** ✅ PASS (7.1s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (10.1s)
-- **SSZ Complete Analysis:** ✅ PASS (120.1s)
+- **SegWave Core Math Tests:** ✅ PASS (8.2s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.4s)
+- **SSZ Kernel Tests:** ✅ PASS (6.4s)
+- **SSZ Invariants Tests:** ✅ PASS (7.0s)
+- **Segmenter Tests:** ✅ PASS (6.4s)
+- **Cosmo Fields Tests:** ✅ PASS (6.8s)
+- **Cosmo Multibody Tests:** ✅ PASS (8.5s)
+- **Data Validation Tests:** ✅ PASS (6.3s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (7.8s)
+- **SSZ Complete Analysis:** ✅ PASS (116.1s)
 - **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (2.2s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.6s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.2s)
 - **SSZ Theory Predictions:** ✅ PASS (3.7s)
-- **G79 Analysis:** ✅ PASS (3.0s)
-- **Cygnus X Analysis:** ✅ PASS (3.6s)
-- **Paper Export Tools:** ✅ PASS (4.8s)
-- **Final Validation:** ✅ PASS (0.2s)
+- **G79 Analysis:** ✅ PASS (2.8s)
+- **Cygnus X Analysis:** ✅ PASS (3.4s)
+- **Paper Export Tools:** ✅ PASS (4.4s)
+- **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
 > Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.
