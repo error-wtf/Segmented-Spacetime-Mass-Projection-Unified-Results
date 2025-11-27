@@ -16,6 +16,18 @@ from pathlib import Path
 from decimal import Decimal as D, getcontext
 from typing import Any, Dict, List, Optional, Tuple
 from datetime import datetime
+import io
+
+# UTF-8 encoding for Windows (prevents UnicodeEncodeError with Greek letters α, β, γ)
+os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except AttributeError:
+        # Fallback for older Python
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
 # Optional deps
 try:
@@ -483,11 +495,29 @@ def workflow_eval_redshift(cfg: PreflightConfig, csv_path: Path, prefer_z: bool,
     echo("[INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv")
     return 0
 
-def workflow_bound_energy(cfg: PreflightConfig) -> int:
-    echo_section("WORKFLOW: BOUND ENERGY & α")
+def workflow_electron_bound_energy_alpha(cfg: PreflightConfig) -> int:
+    """
+    Elektronische Bound Energy Berechnung mit Feinstrukturkonstante α.
+    
+    Berechnet die gebundene Energie des Elektrons gemäß Paper-Herleitung:
+    E_bound = α·m_e·c²  (Feinstrukturkonstante × Elektronen-Ruheenergie)
+    
+    Dies ist die KORREKTE Implementierung der echten Bound Energy!
+    
+    NICHT zu verwechseln mit:
+    - bound_energy_english.py (DEPRECATED - berechnet nur Redshift, KEINE Bound Energy)
+    - bound_energy_plot.py (DEPRECATED - berechnet nur Redshift, KEINE Bound Energy)
+    
+    Für standalone Version siehe: bound_energy.py (mit --selftest)
+    
+    Returns:
+        int: Exit code (0 = success)
+    """
+    echo_section("WORKFLOW: ELECTRON BOUND ENERGY (α·m_e·c²)")
     m_e=D('9.10938356e-31')
     E_bound=alpha_fs*m_e*(c**D(2)); f_thr=E_bound/h; lam=h/(alpha_fs*m_e*c)
     echo(f"E_bound = {E_bound} J | f_thr = {f_thr} Hz | lambda = {lam} m")
+    echo(f"[NOTE] Dies ist echte Bound Energy (E = α·m_e·c²), nicht Redshift!")
     write_text(cfg.reports_dir/"bound_energy.txt", f"E_bound={E_bound}\n f_thr={f_thr} Hz\n lambda={lam} m\n"); return 0
 
 # ───────── original loader (no code loss) ─────────
@@ -541,7 +571,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--bins", type=int, default=0, help="Number of log10(M) bins for per-bin medians (0=off)")
     sp.add_argument("--plots", action="store_true", help="Save hist/ECDF/box plots under figures/")
     sp.add_argument("--filter-complete-gr", action="store_true", help="Restrict rows to those with finite GR (fair GR median)")
-    sub.add_parser("bound-energy", help="Compute bound energy thresholds (α)")
+    sub.add_parser("bound-energy", help="Compute electron bound energy with fine-structure constant (E = α·m_e·c²)")
     sub.add_parser("use-original", help="Load & introspect ./segspace_all_in_one.py")
     sub.add_parser("all", help="Run full pipeline (if CSV present)")
     return p
@@ -583,7 +613,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return workflow_eval_redshift(cfg, args.csv, args.prefer_z, args.mode, args.dmA, args.dmB, args.dmAlpha,
                                       args.lo, args.hi, args.drop_na, args.paired_stats, args.ci, args.bins,
                                       args.plots, args.filter_complete_gr)
-    if args.cmd=="bound-energy": return workflow_bound_energy(cfg)
+    if args.cmd=="bound-energy": return workflow_electron_bound_energy_alpha(cfg)
     if args.cmd=="use-original":
         load_original_from_disk()
         return 0
@@ -598,7 +628,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                                       lo=None, hi=None, drop_na=False, paired_stats=True, n_boot=0, bins=0, do_plots=False,
                                       filter_complete_gr=False)
             if rc!=0: return rc
-        rc=workflow_bound_energy(cfg)
+        rc=workflow_electron_bound_energy_alpha(cfg)
         
         # ═══════════════════════════════════════════════════════════════════════════
         # DOUBLE-CHECK VALIDATION

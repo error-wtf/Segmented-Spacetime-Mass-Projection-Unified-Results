@@ -52,6 +52,7 @@ class TestQFactor:
         print(f"  • q_k < 1 indicates cooling between rings")
         print(f"  • Energy ratio = {q:.1%} of previous ring")
         print(f"  • Velocity will scale as q_k^(-α/2)")
+        print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
         print("="*80)
         
         assert q == pytest.approx(0.8, rel=1e-6)
@@ -181,12 +182,11 @@ class TestVelocityProfile:
         assert df['v_pred'].iloc[0] == pytest.approx(v0, rel=1e-6)
         assert df['q_k'].iloc[0] == pytest.approx(1.0, rel=1e-6)
     
-        
     def test_two_shells_alpha_one(self):
         """Test two shells with α=1
         
         Physical Meaning:
-        Velocity propagates between rings via v_k = v_{k-1} × q_k^(-α/2).
+        Velocity propagates between rings via v_k = v_(k-1) × q_k^(-α/2).
         This is the core SSZ ring velocity prediction formula.
         """
         rings = np.array([1, 2])
@@ -303,7 +303,7 @@ class TestVelocityProfile:
         
         Physical Meaning:
         Both temperature AND density affect q_k.
-        q_k = (T_k/T_{k-1})^β × (n_k/n_{k-1})^η
+        q_k = (T_k/T_(k-1))^β × (n_k/n_(k-1))^η
         Combined effect amplifies velocity changes.
         """
         rings = np.array([1, 2, 3])

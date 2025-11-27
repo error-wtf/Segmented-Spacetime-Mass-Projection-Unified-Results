@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-11-13 23:35:44
+**Generated:** 2025-11-27 01:34:00
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-**Overall Status:** ⚠️ SOME ISSUES
+**Overall Status:** ✅ ALL PASSED
 
 All tests, validations, and analysis scripts in the repository were executed.
 
@@ -19,12 +19,12 @@ All tests, validations, and analysis scripts in the repository were executed.
 | Metric | Count | Percentage |
 |--------|-------|------------|
 | **Total Tests** | 56 | 100% |
-| **Passed** | 34 | 60.7% |
-| **Failed** | 1 | 1.8% |
-| **Timeout** | 1 | 1.8% |
+| **Passed** | 31 | 55.4% |
+| **Failed** | 0 | 0.0% |
+| **Timeout** | 0 | 0.0% |
 | **Error** | 0 | 0.0% |
 
-**Success Rate:** 94.4%
+**Success Rate:** 100.0%
 
 ---
 
@@ -32,111 +32,89 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 ### Root Level
 
-**Tests:** 41 | **Passed:** 26 | **Rate:** 63.4%
+**Tests:** 41 | **Passed:** 27 | **Rate:** 65.9%
 
 | File | Status | Duration |
 |------|--------|----------|
 | calculation_test.py | ⚠️ SKIPPED | 0.00s |
-| conftest.py | ✅ PASSED | 0.16s |
-| extend_all_tests.py | ✅ PASSED | 0.19s |
-| final_test.py | ✅ PASSED | 0.18s |
-| generate_test_data.py | ✅ PASSED | 0.30s |
-| investigate_paired_test.py | ✅ PASSED | 2.12s |
+| conftest.py | ✅ PASSED | 0.14s |
+| extend_all_tests.py | ✅ PASSED | 0.16s |
+| final_test.py | ✅ PASSED | 0.15s |
+| generate_test_data.py | ✅ PASSED | 0.28s |
+| investigate_paired_test.py | ✅ PASSED | 1.94s |
 | lagrangian_tests.py | ⚠️ SKIPPED | 0.00s |
-| lino_qed_test.py | ❌ FAILED | 0.53s |
-| perfect_paired_test.py | ✅ PASSED | 3.28s |
+| lino_qed_test.py | ✅ PASSED | 0.50s |
+| perfect_paired_test.py | ✅ PASSED | 3.14s |
 | phi_bic_test.py | ⚠️ SKIPPED | 0.00s |
 | phi_test.py | ⚠️ SKIPPED | 0.00s |
-| run_bomb_tests.py | ⏱️ TIMEOUT | 300s |
+| run_bomb_tests.py | ⚠️ SKIPPED | 0.00s |
 | run_comprehensive_tests.py | ⚠️ SKIPPED | 0.00s |
-| segspacetime_quick_tests.py | ✅ PASSED | 2.35s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.61s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.68s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.68s |
-| segspace_final_test.py | ✅ PASSED | 2.09s |
+| segspacetime_quick_tests.py | ✅ PASSED | 1.44s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.98s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 1.45s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.58s |
+| segspace_final_test.py | ✅ PASSED | 2.01s |
 | segspace_pairtest_vs_sr.py | ⚠️ SKIPPED | 0.00s |
-| smoke_test_all.py | ✅ PASSED | 10.49s |
+| smoke_test_all.py | ✅ PASSED | 8.83s |
 | ssz_blackhole_bomb_template.py | ⚠️ SKIPPED | 0.00s |
 | ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.18s |
 | ssz_interactive_gui.py | ⚠️ SKIPPED | 0.00s |
-| ssz_stability_animation.py | ✅ PASSED | 52.19s |
-| ssz_stability_three_figures.py | ✅ PASSED | 4.61s |
+| ssz_stability_animation.py | ✅ PASSED | 44.64s |
+| ssz_stability_three_figures.py | ✅ PASSED | 5.42s |
 | ssz_test_suite.py | ⚠️ SKIPPED | 0.00s |
 | ssz_theory_segmented.py | ⚠️ SKIPPED | 0.00s |
 | ssz_unified_suite.py | ⚠️ SKIPPED | 0.00s |
-| stratified_paired_test.py | ✅ PASSED | 13.39s |
-| test_c1_segments.py | ✅ PASSED | 0.17s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.18s |
-| test_c2_segments_strict.py | ✅ PASSED | 0.17s |
+| stratified_paired_test.py | ✅ PASSED | 11.90s |
+| test_c1_segments.py | ✅ PASSED | 0.14s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.13s |
+| test_c2_segments_strict.py | ✅ PASSED | 0.15s |
 | test_clone_and_verify.py | ⚠️ SKIPPED | 0.00s |
-| test_energy_conditions.py | ✅ PASSED | 0.64s |
-| test_grid_convergence.py | ✅ PASSED | 0.71s |
+| test_energy_conditions.py | ✅ PASSED | 0.14s |
+| test_grid_convergence.py | ✅ PASSED | 0.72s |
 | test_output_script.py | ✅ PASSED | 0.15s |
-| test_phi_impact.py | ✅ PASSED | 4.86s |
-| test_ppn_exact.py | ✅ PASSED | 0.15s |
+| test_phi_impact.py | ✅ PASSED | 3.78s |
+| test_ppn_exact.py | ✅ PASSED | 0.14s |
 | test_theory_predictions_cross_platform.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.64s |
-| test_vfall_duality.py | ✅ PASSED | 0.21s |
+| test_utf8_encoding.py | ✅ PASSED | 0.55s |
+| test_vfall_duality.py | ✅ PASSED | 0.20s |
 
 ### Scripts
 
-**Tests:** 14 | **Passed:** 7 | **Rate:** 50.0%
+**Tests:** 14 | **Passed:** 4 | **Rate:** 28.6%
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 4.52s |
-| conftest.py | ✅ PASSED | 0.20s |
+| check_test_documentation.py | ✅ PASSED | 3.84s |
+| conftest.py | ✅ PASSED | 0.14s |
 | test_cosmo_fields.py | ⚠️ SKIPPED | 0.00s |
 | test_cosmo_multibody.py | ⚠️ SKIPPED | 0.00s |
 | test_data_fetch.py | ⚠️ SKIPPED | 0.00s |
-| test_data_validation.py | ✅ PASSED | 2.47s |
+| test_data_validation.py | ⚠️ SKIPPED | 0.00s |
 | test_gaia_required_columns.py | ⚠️ SKIPPED | 0.00s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 3.16s |
-| test_horizon_hawking_predictions.py | ✅ PASSED | 2.81s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.60s |
+| test_horizon_hawking_predictions.py | ⚠️ SKIPPED | 0.00s |
 | test_plot_ssz_maps.py | ⚠️ SKIPPED | 0.00s |
 | test_segmenter.py | ⚠️ SKIPPED | 0.00s |
-| test_ssz_invariants.py | ✅ PASSED | 1.73s |
+| test_ssz_invariants.py | ⚠️ SKIPPED | 0.00s |
 | test_ssz_kernel.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.51s |
+| test_utf8_encoding.py | ✅ PASSED | 0.50s |
 
 ### Validation
 
-**Tests:** 1 | **Passed:** 1 | **Rate:** 100.0%
+**Tests:** 1 | **Passed:** 0 | **Rate:** 0.0%
 
 | File | Status | Duration |
 |------|--------|----------|
-| run_ssz_validation.py | ✅ PASSED | 4.40s |
-
----
-
-## Failed Tests
-
-1 test(s) failed or encountered errors:
-
-### lino_qed_test.py
-
-**Category:** root_level  
-**Status:** FAILED  
-**Error:**
-```
-", line 197, in <module>
-    sys.exit(main())
-  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\lino_qed_test.py", line 141, in main
-    "timestamp": now_str(),
-  File "H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\lino_qed_test.py", line 41, in now_str
-    return datetime.datetime.now(datetime.datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
-
-```
+| run_ssz_validation.py | ⚠️ SKIPPED | 0.00s |
 
 ---
 
 ## Next Steps
 
-**Action Required:**
-- Review 2 failed/timeout/error test(s)
-- Check error messages above
-- Fix issues and re-run: `python run_complete_test_suite.py`
+**✅ All Clear:**
+- All tests passed successfully
+- Repository is in good state
+- Ready for deployment/release
 
 ---
 

@@ -1,0 +1,42 @@
+name: Smoke Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: false  # Don't pull LFS files (too large for CI)
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-order astroquery astropy pyarrow
+
+      - name: Run comprehensive smoke tests
+        env:
+          PYTHONPATH: .
+        run: |
+          # Run new comprehensive smoke test suite (6 tests, ~5 seconds)
+          python smoke_test_all.py
+          
+      - name: Run covariant smoke test
+        env:
+          PYTHONPATH: .
+        run: |
+          # Run covariant metric smoke test (~1 second)
+          python ssz_covariant_smoketest_verbose_lino_casu.py

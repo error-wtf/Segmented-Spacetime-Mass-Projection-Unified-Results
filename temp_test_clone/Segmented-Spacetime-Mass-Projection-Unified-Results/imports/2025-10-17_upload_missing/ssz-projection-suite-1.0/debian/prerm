@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+echo "Removing SSZ Projection Suite..."
+
+#DEBHELPER#
+
+exit 0

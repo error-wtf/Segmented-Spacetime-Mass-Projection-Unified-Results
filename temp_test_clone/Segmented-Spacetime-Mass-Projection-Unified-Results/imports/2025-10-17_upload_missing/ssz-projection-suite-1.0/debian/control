@@ -1,0 +1,21 @@
+Source: ssz-projection-suite
+Section: science
+Priority: optional
+Maintainer: Carmen Wrede und Lino Casu <research@ssz-projection.org>
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools
+Standards-Version: 4.6.0
+Homepage: https://github.com/ssz-research/segmented-spacetime
+
+Package: ssz-projection-suite
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3 (>= 3.7)
+Description: Anti-Capitalist Segmented Spacetime Analysis Suite
+ A comprehensive scientific computing package for testing segmented spacetime
+ theory against General Relativity using 127 black holes and compact objects.
+ .
+ This package demonstrates statistically significant improvements of segmented
+ spacetime theory over classical General Relativity in strong gravitational
+ field regimes.
+ .
+ Released under Anti-Capitalist Software License (v 1.4).
+ Fighting capitalism through open science and worker solidarity.

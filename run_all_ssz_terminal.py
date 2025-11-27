@@ -282,7 +282,7 @@ reports_ain1 = agent_out / "reports"
 mass_validation_csv = reports_ain1 / "mass_validation.csv"
 redshift_medians_json = reports_ain1 / "redshift_medians.json"
 redshift_paired_json  = reports_ain1 / "redshift_paired_stats.json"
-bound_energy_txt      = reports_ain1 / "bound_energy.txt"
+bound_energy_txt      = reports_ain1 / "bound_energy.txt"  # NOTE: bound_energy.py ist echte Bound Energy (Paper-Herleitung)
 
 # ---------------------------------------
 # Banner + Provenance
@@ -736,6 +736,7 @@ if bound_energy_txt.exists():
     try:
         txt = bound_energy_txt.read_text(encoding="utf-8")
         # example: "E_bound = 5.97e-16 J | f_thr = 9.01e+14 Hz | lambda = 3.32e-10 m"
+        # NOTE: Dies ist echte Bound Energy aus bound_energy.py (Paper-Herleitung α·m_bound)
         mE = re.search(r"E_bound\s*=\s*([0-9.eE+\-]+)\s*J", txt)
         mf = re.search(r"f_thr\s*=\s*([0-9.eE+\-]+)\s*Hz", txt)
         ml = re.search(r"lambda\s*=\s*([0-9.eE+\-]+)\s*m", txt)

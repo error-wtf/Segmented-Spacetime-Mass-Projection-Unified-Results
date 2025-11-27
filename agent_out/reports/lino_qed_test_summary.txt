@@ -1,0 +1,29 @@
+=== Local emitter vs. detector – non-circular parameter check ===
+f_emit [Hz] : 138394255537000.0
+f_obs  [Hz] : 134920458147000.0
+N_emit      : 1.102988010497717
+N0 (Earth)  : 1.0000000028
+alpha_beta  : 0.25
+k (m_bound) : 0
+alpha_em    : 0.0074852375199283897534546032733326760732415663262885282325833493464954318674641378
+alpha_det   : 0.0072973525692838009972851054723806635679725607012964885313901711576038178315559206
+m_bound_em  : 9.1093837015000000000000000E-31 kg
+m_bound_det : 9.10938370150000000000E-31 kg
+lhs=f_emit/f_obs                      : 1.0257470026244292071274239711835893429594818495572863243250990915270272321898507
+rhs=(alpha_em*m_em)/(alpha_det*m_det) : 1.0257470019244292500000000000000000000000000000000000000000000000000000000000000
+abs diff                              : 6.999999571274239711835893429594818495572863243250990915270272321898507E-10
+rel diff (wrt lhs)                    : 6.8242944443067950032120269968947880290803894163369056282508379963409609830999882E-10
+
+EXPLANATION (read before nitpicking):
+- This is a DEMO/TEST: illustrative checks, not the core pipeline and not a measurement.
+- alpha_fs is FIXED to the CODATA value; it is never fitted or inverted from data.
+- Observations are used ONLY to form residuals; there is no optimizer or least-squares anywhere.
+- lhs = f_emit / f_obs
+- rhs = (alpha_em * m_bound_emit) / (alpha_det * m_bound_det)
+- abs diff  = |lhs - rhs|
+- rel diff (wrt lhs) = |lhs - rhs| / |lhs|
+- 'alpha_em' and 'alpha_det' are local MODEL factors; they are NOT the fine-structure constant.
+- Any 'alpha_local' label in legacy prints denotes eta = h*f/(m_e*c^2), an energy ratio (dimensionless).
+- The oft-quoted '1e-18' refers to a NUMERICAL reproduction residual vs. CODATA, not experimental precision.
+- Partial coupling here: alpha_em/alpha_det = 1 + beta*(N_emit - N0) with beta = 0.25.
+- Setting beta = 0 recovers constant alpha_fs (no variation).

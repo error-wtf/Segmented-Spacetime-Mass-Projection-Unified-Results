@@ -1,6 +1,6 @@
 # SSZ Test Suite - Scientific Interpretations
 
-**Generated:** 2025-11-13 23:35:44
+**Generated:** 2025-11-27 01:34:00
 
 This report compiles all scientific interpretations extracted from test outputs.
 
@@ -110,45 +110,15 @@ Physical Interpretation:
 
 ```
   Physical interpretations: 0
-  Average doc score: 72.0
-  Doc files: 53
-
-```
-
----
-
-### test_horizon_hawking_predictions.py
-
-```
-Physical Interpretation:
-  • Finite horizon radius (not point singularity)
-  • Well-defined surface area at characteristic scale
-  • φ-based geometric structure (4φ spiral turns)
-================================================================================
-
-```
-
----
-
-### run_ssz_validation.py
-
-```
-  - SSZ_SCIENTIFIC_INTERPRETATIONS.md (0.02 MB)
-  - SSZ_VALIDATION_SUMMARY.md (0.00 MB)
-  - TEST_INTERPRETATIONS.md (0.00 MB)
-  - theory_validation_chaos.png (0.06 MB)
-  - theory_validation_dilation.png (0.08 MB)
-  - theory_validation_results.json (0.00 MB)
-  - theory_validation_stability.png (0.06 MB)
-  - unified_validation (0.00 MB)
-  - validation.json (0.00 MB)
+  Average doc score: 71.8
+  Doc files: 59
 
 ```
 
 ---
 
 
-**Total Interpretations:** 11
+**Total Interpretations:** 9
 
 ---
 

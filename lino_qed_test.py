@@ -22,7 +22,18 @@ from decimal import Decimal as D, getcontext
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
-import argparse, datetime, json, random, sys
+import argparse, datetime, json, random, sys, os
+
+# UTF-8 encoding for Windows (prevents UnicodeEncodeError)
+os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except AttributeError:
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
 
 # Präzision
 getcontext().prec = 80
@@ -38,7 +49,12 @@ REPORT_DIR = OUTDIR / "reports"
 DATA_DIR   = OUTDIR / "data"
 
 def now_str() -> str:
-    return datetime.datetime.now(datetime.datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        # Python 3.11+
+        return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    except AttributeError:
+        # Python 3.10 and earlier
+        return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def ensure_dirs() -> None:
     for d in (OUTDIR, REPORT_DIR, DATA_DIR):

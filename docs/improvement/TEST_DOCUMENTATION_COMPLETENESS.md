@@ -1,15 +1,15 @@
 # Test Documentation Completeness Report
 
-**Generated:** 2025-10-29 19:50:39
+**Generated:** 2025-11-27 01:33:49
 **Test Files Analyzed:** 20
-**Test Docs Analyzed:** 49
+**Test Docs Analyzed:** 59
 
 ---
 
 ## 📊 Test Code Documentation
 
 - **Total Test Files:** 20
-- **Docstrings:** 147 (7.3 avg/file)
+- **Docstrings:** 146 (7.3 avg/file)
 - **Comments:** 321 (16.1 avg/file)
 - **Physical Interpretations:** 0
 - **Assert Statements:** 317
@@ -18,11 +18,11 @@
 
 | Category | Coverage |
 |----------|----------|
-| Test Purpose | `[██░░░░░░░░]` 26.4% |
+| Test Purpose | `[██░░░░░░░░]` 25.7% |
 | Physics Concepts | `[░░░░░░░░░░]` 2.8% |
 | Expected Results | `[██░░░░░░░░]` 20.0% |
 | Interpretation | `[░░░░░░░░░░]` 0.8% |
-| References | `[█░░░░░░░░░]` 17.1% |
+| References | `[█░░░░░░░░░]` 17.9% |
 
 ## 🏆 Best Documented Tests
 
@@ -41,50 +41,60 @@
 
 ## 📄 Test Documentation Files
 
-- **Total Doc Files:** 49
-- **Test Lists:** 70
-- **Results Sections:** 359
-- **Physics Explanations:** 774
+- **Total Doc Files:** 59
+- **Test Lists:** 71
+- **Results Sections:** 388
+- **Physics Explanations:** 839
 
 ### Documentation Files
 
-- **COMPLETE_REPOSITORY_TEST_REPORT.md** (10.6 KB) - 0 tests listed
-- **COMPREHENSIVE_SCRIPT_TEST_PLAN.md** (3.5 KB) - 1 tests listed
+- **31_OF_31_TESTS_PASSED_FINAL.md** (6.5 KB) - 0 tests listed
+- **ALLE_PIPELINES_GETESTET_2025-11-27.md** (9.1 KB) - 0 tests listed
+- **ALL_PIPELINES_TESTED_OUTPUTS_GENERATED.md** (9.4 KB) - 0 tests listed
+- **COLAB_TEST_CHECKLIST.md** (10.9 KB) - 0 tests listed
+- **COMPLETE_REPOSITORY_TEST_REPORT.md** (11.0 KB) - 0 tests listed
+- **COMPREHENSIVE_SCRIPT_TEST_PLAN.md** (3.7 KB) - 1 tests listed
 - **COMPREHENSIVE_TESTING_GUIDE.md** (25.8 KB) - 8 tests listed
 - **COMPREHENSIVE_TESTS_SUMMARY.md** (11.7 KB) - 0 tests listed
-- **CRITICAL_TEST_ISSUES.md** (8.9 KB) - 6 tests listed
+- **CRITICAL_TEST_ISSUES.md** (9.2 KB) - 6 tests listed
 - **CROSS_PLATFORM_TESTING.md** (6.5 KB) - 0 tests listed
-- **DOUBLE_CHECK_VALIDATION_TESTS.md** (7.6 KB) - 0 tests listed
+- **DOUBLE_CHECK_VALIDATION_TESTS.md** (7.9 KB) - 0 tests listed
 - **FINAL_REPOSITORY_TEST_REPORT.md** (11.5 KB) - 0 tests listed
 - **HAWKING_SPECTRUM_TEST_INTERPRETATION.md** (5.2 KB) - 4 tests listed
 - **HAWKING_TOOLKIT_PLATFORM_TEST.md** (8.9 KB) - 0 tests listed
-- **HOW_TO_UPDATE_PAIRED_TEST_ANALYSIS.md** (14.6 KB) - 0 tests listed
-- **IMPORTANT_TEST_ARCHITECTURE.md** (7.0 KB) - 2 tests listed
-- **INSTALL_TEST_CHANGES_SUMMARY.md** (7.5 KB) - 0 tests listed
+- **HOW_TO_UPDATE_PAIRED_TEST_ANALYSIS.md** (15.2 KB) - 0 tests listed
+- **IMPORTANT_TEST_ARCHITECTURE.md** (7.4 KB) - 2 tests listed
+- **INSTALL_TEST_CHANGES_SUMMARY.md** (7.8 KB) - 0 tests listed
 - **INSTALL_TEST_SIMPLIFICATION_PROPOSAL.md** (8.8 KB) - 1 tests listed
-- **LINUX_TEST_FAILURE_ANALYSIS.md** (4.8 KB) - 6 tests listed
+- **LINUX_TEST_FAILURE_ANALYSIS.md** (5.0 KB) - 6 tests listed
 - **LINUX_TEST_PLAN.md** (13.3 KB) - 0 tests listed
-- **LINUX_TEST_STATUS.md** (5.7 KB) - 7 tests listed
-- **PAIRED_TEST_ANALYSIS_COMPLETE.md** (78.4 KB) - 0 tests listed
-- **PAIRED_TEST_FAILURE_ANALYSIS.md** (5.6 KB) - 1 tests listed
+- **LINUX_TEST_STATUS.md** (5.9 KB) - 7 tests listed
+- **PAIRED_TEST_ANALYSIS_COMPLETE.md** (77.0 KB) - 0 tests listed
+- **PAIRED_TEST_FAILURE_ANALYSIS.md** (5.8 KB) - 1 tests listed
 - **PERFECT_PAIRED_TEST_GUIDE.md** (17.0 KB) - 0 tests listed
 - **PHYSICS_TESTS_COMPLETE_LIST.md** (11.6 KB) - 0 tests listed
+- **PIPELINE_INTEGRATION_TEST_COMPLETE.md** (8.5 KB) - 0 tests listed
+- **PIPELINE_TESTS_FIX.md** (9.2 KB) - 1 tests listed
 - **PLATFORM_TEST_RESULTS.md** (9.0 KB) - 0 tests listed
 - **PYTEST_CRASH_FIX.md** (6.9 KB) - 0 tests listed
 - **QUICK_TEST_COMMANDS.md** (4.8 KB) - 0 tests listed
 - **RUN_TESTS_QUICK.md** (6.3 KB) - 0 tests listed
-- **SCRIPT_TEST_RESULTS.md** (7.9 KB) - 0 tests listed
+- **SCRIPT_TEST_RESULTS.md** (8.2 KB) - 0 tests listed
 - **SILENT_TESTS.md** (4.0 KB) - 0 tests listed
-- **SMOKE_TESTS_COMPLETE.md** (6.3 KB) - 0 tests listed
-- **STRATIFIED_PAIRED_TEST_RESULTS.md** (9.4 KB) - 0 tests listed
+- **SMOKE_TESTS_COMPLETE.md** (6.5 KB) - 0 tests listed
+- **STRATIFIED_PAIRED_TEST_RESULTS.md** (9.1 KB) - 0 tests listed
 - **TESTING_COMPLETE_GUIDE.md** (12.6 KB) - 17 tests listed
 - **TESTING_PAPER_EXPORTS.md** (11.0 KB) - 0 tests listed
-- **TEST_COLAB_CLONE.md** (9.2 KB) - 0 tests listed
-- **TEST_FAILURES_ANALYSIS.md** (6.5 KB) - 2 tests listed
-- **TEST_METHODOLOGY_COMPLETE.md** (14.8 KB) - 1 tests listed
-- **TEST_SUITE_README.md** (7.0 KB) - 0 tests listed
+- **TEST_COLAB_CLONE.md** (9.6 KB) - 0 tests listed
+- **TEST_COUNT_CORRECTION.md** (2.4 KB) - 0 tests listed
+- **TEST_FAILURES_ANALYSIS.md** (6.7 KB) - 2 tests listed
+- **TEST_METHODOLOGY_COMPLETE.md** (15.2 KB) - 1 tests listed
+- **TEST_SEGWAVE_CORE_FIX_NEEDED.md** (1.9 KB) - 0 tests listed
+- **TEST_SUITE_README.md** (7.3 KB) - 0 tests listed
+- **TEST_SUITE_STATUS.md** (0.4 KB) - 0 tests listed
 - **TEST_SUITE_VERIFICATION.md** (8.3 KB) - 0 tests listed
 - **TEST_SUITE_VERIFICATION_EN.md** (8.2 KB) - 0 tests listed
+- **TOE_MISSING_TESTS_ROADMAP.md** (9.1 KB) - 0 tests listed
 - **VERBOSE_TESTS_COMPLETE.md** (6.1 KB) - 0 tests listed
 - **VERBOSE_TESTS_GUIDE.md** (7.4 KB) - 0 tests listed
 - **VERBOSE_TESTS_PROGRESS.md** (3.7 KB) - 0 tests listed

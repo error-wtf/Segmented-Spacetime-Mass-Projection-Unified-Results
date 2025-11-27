@@ -1,0 +1,25 @@
+Source: segmented-spacetime-suite-extended
+Section: science
+Priority: optional
+Maintainer: Carmen Wrede & Lino Casu <mail@error.wtf>
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools, python3-wheel, pybuild-plugin-pyproject
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: segmented-spacetime-suite-extended
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends},
+ python3, python3-numpy, python3-scipy, python3-pandas, python3-astropy,
+ python3-matplotlib, python3-yaml, python3-requests, python3-tqdm, python3-pytest
+Recommends: python3-pyarrow, python3-rich
+Description: Segmented-Spacetime Suite (extended)
+ Complete analysis pipeline for segmented spacetime cosmology.
+ Includes:
+  - Ring temperature → velocity predictions
+  - EHT shadow comparison (χ² tests)
+  - Redshift robustness analysis (Bootstrap/Jackknife)
+  - Full test suite with automated reports
+  - Anti-Capitalist Software License (v 1.4)
+ .
+ Runs the full pipeline, prints all reports and license at the end.
+ Optional data autofetch to avoid bundling multi-GB datasets.

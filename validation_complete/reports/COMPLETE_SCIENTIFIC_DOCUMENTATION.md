@@ -40,6 +40,7 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ### Executive Summary
 - **[5-Page Overview](SSZ_EXECUTIVE_SUMMARY.md)** - Quick introduction
+- **[Full Validation Report](FULL_VALIDATION_REPORT.md)** - Complete validation including BH bomb tests
 - **[Complete Report (60+ pages)](SSZ_COMPLETE_FINAL_REPORT.md)** - Full theory
 - **[Validation Report](SSZ_COMPLETE_VALIDATION_REPORT.md)** - Test results
 
@@ -49,6 +50,27 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 - **[Mathematical Formulas](docs/theory/02_MATHEMATICAL_FORMULAS.md)** - All equations
 - **[Test Results](docs/theory/16_TEST_RESULTS.md)** - Validation summary
 - **[Scientific Verification](docs/theory/SCIENTIFIC_VERIFICATION.md)** - Proof of correctness
+
+### Code Documentation
+- **[Complete Code Documentation](CODE_DOCUMENTATION.md)** - All 100+ Python scripts documented
+  - Validation scripts (8) - ALL FUNCTIONAL
+  - Test scripts (15) - 22/22 PASS
+  - Analysis scripts (10+) - ALL FUNCTIONAL
+  - Utility scripts (5) - ALL FUNCTIONAL
+
+### Usage Guides
+- **[Usage Guide & FAQ](USAGE_FAQ.md)** - Complete usage instructions
+  - Quick Start (5 minutes)
+  - Installation (Windows/Linux/Colab)
+  - Running validations
+  - FAQ (20+ questions)
+  - Troubleshooting
+  - Reproduction protocol
+- **[Script Guides](SCRIPT_GUIDES.md)** - Detailed script usage
+  - Every validation script
+  - Every test script
+  - Every analysis script
+  - Reproduction instructions per script
 
 ### Today's Updates (2025-10-29)
 - **[Documentation Update](DOCUMENTATION_UPDATE_2025-10-29.md)** - Latest changes

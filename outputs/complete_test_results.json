@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-13T23:27:34.888078",
+  "timestamp": "2025-11-27T01:31:53.429680",
   "categories": {
     "root_level": [
       {
@@ -16,7 +16,7 @@
         "file": "conftest.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.16s",
+        "duration": "0.14s",
         "returncode": 0,
         "stdout_length": 0,
         "stderr_length": 0,
@@ -26,7 +26,7 @@
         "file": "extend_all_tests.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.19s",
+        "duration": "0.16s",
         "returncode": 0,
         "stdout_length": 1316,
         "stderr_length": 0,
@@ -36,7 +36,7 @@
         "file": "final_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.18s",
+        "duration": "0.15s",
         "returncode": 0,
         "stdout_length": 493,
         "stderr_length": 0,
@@ -46,7 +46,7 @@
         "file": "generate_test_data.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.30s",
+        "duration": "0.28s",
         "returncode": 0,
         "stdout_length": 412,
         "stderr_length": 0,
@@ -56,7 +56,7 @@
         "file": "investigate_paired_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "2.12s",
+        "duration": "1.94s",
         "returncode": 0,
         "stdout_length": 6222,
         "stderr_length": 0,
@@ -75,19 +75,18 @@
       {
         "file": "lino_qed_test.py",
         "category": "root_level",
-        "status": "FAILED",
-        "duration": "0.53s",
-        "returncode": 1,
-        "stdout_length": 1583,
-        "stderr_length": 647,
-        "interpretation": "Numerically fine demo, corrected interpretation. With partial coupling (or\nconstant alpha), the check aligns with observations and remains non-circular.\n",
-        "error": "\", line 197, in <module>\n    sys.exit(main())\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\lino_qed_test.py\", line 141, in main\n    \"timestamp\": now_str(),\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\lino_qed_test.py\", line 41, in now_str\n    return datetime.datetime.now(datetime.datetime.UTC).strftime(\"%Y-%m-%dT%H:%M:%SZ\")\nAttributeError: type object 'datetime.datetime' has no attribute 'UTC'\n"
+        "status": "PASSED",
+        "duration": "0.50s",
+        "returncode": 0,
+        "stdout_length": 3505,
+        "stderr_length": 0,
+        "interpretation": "Numerically fine demo, corrected interpretation. With partial coupling (or\nconstant alpha), the check aligns with observations and remains non-circular.\n"
       },
       {
         "file": "perfect_paired_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "3.28s",
+        "duration": "3.14s",
         "returncode": 0,
         "stdout_length": 3021,
         "stderr_length": 0,
@@ -116,9 +115,12 @@
       {
         "file": "run_bomb_tests.py",
         "category": "root_level",
-        "status": "TIMEOUT",
-        "duration": "300s",
-        "error": "Exceeded 300s timeout"
+        "status": "SKIPPED",
+        "duration": "0.00s",
+        "returncode": null,
+        "stdout_length": 0,
+        "stderr_length": 0,
+        "interpretation": "CLI tool requiring command-line arguments"
       },
       {
         "file": "run_comprehensive_tests.py",
@@ -134,9 +136,9 @@
         "file": "segspacetime_quick_tests.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "2.35s",
+        "duration": "1.44s",
         "returncode": 0,
-        "stdout_length": 686,
+        "stdout_length": 659,
         "stderr_length": 0,
         "interpretation": null
       },
@@ -144,7 +146,7 @@
         "file": "segspace_enhanced_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "1.61s",
+        "duration": "1.98s",
         "returncode": 0,
         "stdout_length": 731,
         "stderr_length": 0,
@@ -154,7 +156,7 @@
         "file": "segspace_enhanced_test_better.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "1.68s",
+        "duration": "1.45s",
         "returncode": 0,
         "stdout_length": 997,
         "stderr_length": 0,
@@ -164,7 +166,7 @@
         "file": "segspace_enhanced_test_better_final.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "1.68s",
+        "duration": "1.58s",
         "returncode": 0,
         "stdout_length": 30376,
         "stderr_length": 0,
@@ -174,7 +176,7 @@
         "file": "segspace_final_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "2.09s",
+        "duration": "2.01s",
         "returncode": 0,
         "stdout_length": 198,
         "stderr_length": 0,
@@ -194,7 +196,7 @@
         "file": "smoke_test_all.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "10.49s",
+        "duration": "8.83s",
         "returncode": 0,
         "stdout_length": 4817,
         "stderr_length": 0,
@@ -234,7 +236,7 @@
         "file": "ssz_stability_animation.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "52.19s",
+        "duration": "44.64s",
         "returncode": 0,
         "stdout_length": 473,
         "stderr_length": 0,
@@ -244,7 +246,7 @@
         "file": "ssz_stability_three_figures.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "4.61s",
+        "duration": "5.42s",
         "returncode": 0,
         "stdout_length": 831,
         "stderr_length": 0,
@@ -284,7 +286,7 @@
         "file": "stratified_paired_test.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "13.39s",
+        "duration": "11.90s",
         "returncode": 0,
         "stdout_length": 4263,
         "stderr_length": 0,
@@ -294,7 +296,7 @@
         "file": "test_c1_segments.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.17s",
+        "duration": "0.14s",
         "returncode": 0,
         "stdout_length": 1505,
         "stderr_length": 0,
@@ -304,7 +306,7 @@
         "file": "test_c2_curvature_proxy.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.18s",
+        "duration": "0.13s",
         "returncode": 0,
         "stdout_length": 1446,
         "stderr_length": 0,
@@ -314,7 +316,7 @@
         "file": "test_c2_segments_strict.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.17s",
+        "duration": "0.15s",
         "returncode": 0,
         "stdout_length": 1258,
         "stderr_length": 0,
@@ -334,7 +336,7 @@
         "file": "test_energy_conditions.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.64s",
+        "duration": "0.14s",
         "returncode": 0,
         "stdout_length": 1983,
         "stderr_length": 0,
@@ -344,7 +346,7 @@
         "file": "test_grid_convergence.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.71s",
+        "duration": "0.72s",
         "returncode": 0,
         "stdout_length": 1851,
         "stderr_length": 0,
@@ -364,7 +366,7 @@
         "file": "test_phi_impact.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "4.86s",
+        "duration": "3.78s",
         "returncode": 0,
         "stdout_length": 2277,
         "stderr_length": 0,
@@ -374,7 +376,7 @@
         "file": "test_ppn_exact.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.15s",
+        "duration": "0.14s",
         "returncode": 0,
         "stdout_length": 921,
         "stderr_length": 0,
@@ -394,7 +396,7 @@
         "file": "test_utf8_encoding.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.64s",
+        "duration": "0.55s",
         "returncode": 0,
         "stdout_length": 544,
         "stderr_length": 0,
@@ -404,7 +406,7 @@
         "file": "test_vfall_duality.py",
         "category": "root_level",
         "status": "PASSED",
-        "duration": "0.21s",
+        "duration": "0.20s",
         "returncode": 0,
         "stdout_length": 2505,
         "stderr_length": 0,
@@ -416,17 +418,17 @@
         "file": "check_test_documentation.py",
         "category": "scripts",
         "status": "PASSED",
-        "duration": "4.52s",
+        "duration": "3.84s",
         "returncode": 0,
-        "stdout_length": 878,
+        "stdout_length": 824,
         "stderr_length": 0,
-        "interpretation": "  Physical interpretations: 0\n  Average doc score: 72.0\n  Doc files: 53\n"
+        "interpretation": "  Physical interpretations: 0\n  Average doc score: 71.8\n  Doc files: 59\n"
       },
       {
         "file": "conftest.py",
         "category": "scripts",
         "status": "PASSED",
-        "duration": "0.20s",
+        "duration": "0.14s",
         "returncode": 0,
         "stdout_length": 0,
         "stderr_length": 0,
@@ -465,12 +467,12 @@
       {
         "file": "test_data_validation.py",
         "category": "scripts",
-        "status": "PASSED",
-        "duration": "2.47s",
-        "returncode": 0,
-        "stdout_length": 6215,
+        "status": "SKIPPED",
+        "duration": "0.00s",
+        "returncode": null,
+        "stdout_length": 0,
         "stderr_length": 0,
-        "interpretation": null
+        "interpretation": "CLI tool requiring command-line arguments"
       },
       {
         "file": "test_gaia_required_columns.py",
@@ -486,21 +488,21 @@
         "file": "test_hawking_spectrum_continuum.py",
         "category": "scripts",
         "status": "PASSED",
-        "duration": "3.16s",
+        "duration": "2.60s",
         "returncode": 0,
         "stdout_length": 1877,
-        "stderr_length": 236,
+        "stderr_length": 209,
         "interpretation": null
       },
       {
         "file": "test_horizon_hawking_predictions.py",
         "category": "scripts",
-        "status": "PASSED",
-        "duration": "2.81s",
-        "returncode": 0,
-        "stdout_length": 6346,
+        "status": "SKIPPED",
+        "duration": "0.00s",
+        "returncode": null,
+        "stdout_length": 0,
         "stderr_length": 0,
-        "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n"
+        "interpretation": "CLI tool requiring command-line arguments"
       },
       {
         "file": "test_plot_ssz_maps.py",
@@ -525,12 +527,12 @@
       {
         "file": "test_ssz_invariants.py",
         "category": "scripts",
-        "status": "PASSED",
-        "duration": "1.73s",
-        "returncode": 0,
+        "status": "SKIPPED",
+        "duration": "0.00s",
+        "returncode": null,
         "stdout_length": 0,
         "stderr_length": 0,
-        "interpretation": null
+        "interpretation": "CLI tool requiring command-line arguments"
       },
       {
         "file": "test_ssz_kernel.py",
@@ -546,7 +548,7 @@
         "file": "test_utf8_encoding.py",
         "category": "scripts",
         "status": "PASSED",
-        "duration": "0.51s",
+        "duration": "0.50s",
         "returncode": 0,
         "stdout_length": 0,
         "stderr_length": 0,
@@ -557,38 +559,26 @@
       {
         "file": "run_ssz_validation.py",
         "category": "validation",
-        "status": "PASSED",
-        "duration": "4.40s",
-        "returncode": 0,
-        "stdout_length": 2646,
+        "status": "SKIPPED",
+        "duration": "0.00s",
+        "returncode": null,
+        "stdout_length": 0,
         "stderr_length": 0,
-        "interpretation": "  - SSZ_SCIENTIFIC_INTERPRETATIONS.md (0.02 MB)\n  - SSZ_VALIDATION_SUMMARY.md (0.00 MB)\n  - TEST_INTERPRETATIONS.md (0.00 MB)\n  - theory_validation_chaos.png (0.06 MB)\n  - theory_validation_dilation.png (0.08 MB)\n  - theory_validation_results.json (0.00 MB)\n  - theory_validation_stability.png (0.06 MB)\n  - unified_validation (0.00 MB)\n  - validation.json (0.00 MB)\n"
+        "interpretation": "CLI tool requiring command-line arguments"
       }
     ]
   },
   "summary": {
     "total_tests": 56,
-    "total_run": 36,
-    "passed": 34,
-    "failed": 1,
-    "timeout": 1,
+    "total_run": 31,
+    "passed": 31,
+    "failed": 0,
+    "timeout": 0,
     "error": 0,
-    "skipped": 20,
-    "success_rate": "94.4%"
+    "skipped": 25,
+    "success_rate": "100.0%"
   },
-  "failures": [
-    {
-      "file": "lino_qed_test.py",
-      "category": "root_level",
-      "status": "FAILED",
-      "duration": "0.53s",
-      "returncode": 1,
-      "stdout_length": 1583,
-      "stderr_length": 647,
-      "interpretation": "Numerically fine demo, corrected interpretation. With partial coupling (or\nconstant alpha), the check aligns with observations and remains non-circular.\n",
-      "error": "\", line 197, in <module>\n    sys.exit(main())\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\lino_qed_test.py\", line 141, in main\n    \"timestamp\": now_str(),\n  File \"H:\\WINDSURF\\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\\lino_qed_test.py\", line 41, in now_str\n    return datetime.datetime.now(datetime.datetime.UTC).strftime(\"%Y-%m-%dT%H:%M:%SZ\")\nAttributeError: type object 'datetime.datetime' has no attribute 'UTC'\n"
-    }
-  ],
+  "failures": [],
   "interpretations": [
     {
       "file": "extend_all_tests.py",
@@ -624,15 +614,7 @@
     },
     {
       "file": "check_test_documentation.py",
-      "interpretation": "  Physical interpretations: 0\n  Average doc score: 72.0\n  Doc files: 53\n"
-    },
-    {
-      "file": "test_horizon_hawking_predictions.py",
-      "interpretation": "Physical Interpretation:\n  • Finite horizon radius (not point singularity)\n  • Well-defined surface area at characteristic scale\n  • φ-based geometric structure (4φ spiral turns)\n================================================================================\n"
-    },
-    {
-      "file": "run_ssz_validation.py",
-      "interpretation": "  - SSZ_SCIENTIFIC_INTERPRETATIONS.md (0.02 MB)\n  - SSZ_VALIDATION_SUMMARY.md (0.00 MB)\n  - TEST_INTERPRETATIONS.md (0.00 MB)\n  - theory_validation_chaos.png (0.06 MB)\n  - theory_validation_dilation.png (0.08 MB)\n  - theory_validation_results.json (0.00 MB)\n  - theory_validation_stability.png (0.06 MB)\n  - unified_validation (0.00 MB)\n  - validation.json (0.00 MB)\n"
+      "interpretation": "  Physical interpretations: 0\n  Average doc score: 71.8\n  Doc files: 59\n"
     }
   ]
 }

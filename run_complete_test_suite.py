@@ -35,8 +35,10 @@ CLI_TOOLS = {
     # Basic CLI tools
     'phi_test.py',
     'phi_bic_test.py',
-    'bound_energy.py',
-    'bound_energy_plot.py',
+    'bound_energy.py',  # ← Paper-locked, echte Bound Energy (mit --selftest testbar)
+    'redshift_segment_density.py',  # ← Redshift & Segmentdichte diagnostic (KEIN Bound Energy)
+    'redshift_segment_density_plot.py',  # ← Multi-Object Redshift Plot
+    'redshift_ratio_multi_object_plot_with_deltaM.py',  # ← Redshift ratio with Δ(M) correction
     'tune_phi_for_87_percent.py',
     'generate_animated_overview.py',
     'blackhole_animation.py',

@@ -242,19 +242,23 @@ each case. All round-trip mass inversion tests (T1 in the suite) pass within the
 Gravitational   Redshift   &   Frequency   Tests:  Another   set   of   validations   checks   that   the   segmented
 
 spacetime model can predict gravitational redshifts consistent with observations and with GR where
-( bound_energy_english.py )   compares   the   model’s
+appropriate. 
 
-appropriate.   The  bound-energy   demo 
+**NOTE (2025-11-27):** Das Script bound_energy_english.py (DEPRECATED) wurde umbenannt zu redshift_segment_density.py,
+da es KEINE echte Bound Energy berechnet, sondern nur Redshift & Segmentdichte.
+Für echte Bound Energy siehe bound_energy.py (Paper-locked mode).
+
+**Aktuelle Scripts:**
+- ✅ redshift_segment_density.py (Redshift & Segmentdichte Diagnostics)
+- ✅ redshift_segment_density_plot.py (Multi-Object Redshift Plot)
+- ✅ redshift_ratio_multi_object_plot_with_deltaM.py (Redshift Ratio mit Δ(M) Korrektur)
+
+Das redshift demo   ( redshift_segment_density.py )   compares   the   model's 
 
 predicted segment density shift to the classical GR redshift for S2 star near Sagittarius A. It finds N_seg
 
 ≈ z_GR* (the segment-based “extra redshift” equals the GR gravitational redshift) to high precision
 The script prints: “Segment density (N_seg): X, GR redshift (z_gr): X”, and notes they are nearly identical
-
-22
-
-.
-
 (within 1×10^−6) for the given values
 appear (no exotic physics), the segmented model does not introduce spurious deviations. Furthermore,
 
@@ -464,7 +468,6 @@ than  r_s  (or   the   ΔM   correction   compensates),   so   the   model   avo
 segment radius being behind the horizon. The  deviations remain small: e.g., the largest Δ% used in
 
 mass tests was ~1.96%
-
 , and the largest redshift residual improvements are on the order of 10^−4
 .   These   are   within   current   observational   uncertainties   for   strong-field   tests.   Furthermore,   by
 
@@ -514,9 +517,18 @@ SR, and GR×SR on curated datasets, outputting statistics and plots
 42
 
 of the mass reconstruction, with and without the Δ(M) correction, even writing CSV files of results for
-( bound_energy_english.py )   computes   the
+further analysis.
 
-.   A  bound   energy   demo 
+**NOTE (2025-11-27):** Das ursprünglich als "bound energy demo" bezeichnete Script (bound_energy_english.py - DEPRECATED)
+berechnet KEINE echte Bound Energy, sondern nur Redshift & Segmentdichte.
+Es wurde umbenannt zu redshift_segment_density.py für wissenschaftliche Ehrlichkeit.
+
+**Aktuelle Scripts für Redshift Diagnostics:**
+- redshift_segment_density.py
+- redshift_segment_density_plot.py  
+- redshift_ratio_multi_object_plot_with_deltaM.py
+
+Eine Redshift-Demonstration ( redshift_segment_density.py )   computes   the 
 
 external   audit
 
@@ -748,17 +760,27 @@ fddbf688142a996d37cc645175f6c2ef5742c735/segspace_final_test.py
 
 45
 
-bound_energy_english.py
+**Redshift & Segment Density Diagnostics (aktualisiert 2025-11-27):**
 
-https://github.com/LinoCasu/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/
+1. **redshift_segment_density.py** (ehemals bound_energy_english.py - DEPRECATED)
+   - Berechnet: Redshift z_gr, Segmentdichte N_seg, Energieverhältnis epsilon_local
+   - Status: Wissenschaftlich korrekt benannt
 
-fddbf688142a996d37cc645175f6c2ef5742c735/bound_energy_english.py
+2. **redshift_segment_density_plot.py** (ehemals bound_energy_plot.py - DEPRECATED)
+   - Multi-Object Redshift Vergleiche und Plots
+   - Status: Wissenschaftlich korrekt benannt
+
+3. **redshift_ratio_multi_object_plot_with_deltaM.py** (neu refaktorisiert)
+   - Redshift Ratio mit φ/2-BLC Δ(M) Korrektur
+   - Status: Wissenschaftlich korrekt benannt
+
+**WICHTIG:** Diese Scripts berechnen KEINE Bound Energy!
+Für echte Bound Energy siehe: bound_energy.py
 
 25
 
 26
 
-27
 
 28
 

@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+export PYBUILD_NAME=ssz-projection-suite
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+	# Install data files with correct permissions
+	install -d debian/ssz-projection-suite/usr/share/ssz-projection-suite/data
+	install -m 644 data/real_data_full_expanded.csv debian/ssz-projection-suite/usr/share/ssz-projection-suite/data/
+	install -m 644 data/sources.json debian/ssz-projection-suite/usr/share/ssz-projection-suite/data/
+	install -m 644 data/LICENSE debian/ssz-projection-suite/usr/share/ssz-projection-suite/data/
+	# Install executable with correct permissions
+	install -d debian/ssz-projection-suite/usr/bin
+	install -m 755 bin/ssz-projection debian/ssz-projection-suite/usr/bin/
+
+override_dh_auto_test:
+	# Skip tests
+	@echo "Skipping tests for initial release"
+
+override_dh_fixperms:
+	dh_fixperms
+	# Ensure correct permissions
+	chmod 755 debian/ssz-projection-suite/usr/bin/ssz-projection || true

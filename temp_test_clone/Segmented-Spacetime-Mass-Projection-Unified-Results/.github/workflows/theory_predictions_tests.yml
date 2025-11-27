@@ -1,0 +1,153 @@
+name: SSZ Theory Predictions Tests
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - 'scripts/tests/test_horizon_hawking_predictions.py'
+      - 'scripts/tests/test_data_validation.py'
+      - 'scripts/data_loaders/**'
+      - 'out/*.csv'
+      - '.github/workflows/theory_predictions_tests.yml'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate-data:
+    name: Data Validation
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+      fail-fast: false
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas scipy matplotlib
+    
+    - name: Run data validation tests
+      run: python scripts/tests/test_data_validation.py
+    
+    - name: Upload validation report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: validation-report-${{ matrix.os }}-py${{ matrix.python-version }}
+        path: reports/
+        retention-days: 7
+
+  theory-predictions:
+    name: Theory Predictions Tests
+    needs: validate-data
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.10', '3.11']
+      fail-fast: false
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas scipy matplotlib
+    
+    - name: Generate test data (if missing)
+      run: |
+        if [ ! -f "out/phi_step_debug_full.csv" ]; then
+          echo "Generating test data..."
+          python run_all_ssz_terminal.py
+        fi
+      shell: bash
+      continue-on-error: true
+    
+    - name: Run Theory Predictions Tests
+      run: python scripts/tests/test_horizon_hawking_predictions.py
+      continue-on-error: true
+    
+    - name: Upload test reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: theory-reports-${{ matrix.os }}-py${{ matrix.python-version }}
+        path: |
+          reports/hawking_proxy_fit.md
+          reports/SSZ_THEORY_PREDICTIONS_REAL_DATA_SUMMARY.md
+          reports/info_preservation_by_source.csv
+        retention-days: 14
+
+  cross-platform-check:
+    name: Cross-Platform Compatibility
+    needs: theory-predictions
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas scipy matplotlib
+    
+    - name: Generate test data
+      run: python run_all_ssz_terminal.py
+      continue-on-error: true
+    
+    - name: Run cross-platform validator
+      run: python test_theory_predictions_cross_platform.py
+
+  summary:
+    name: Test Summary
+    needs: [validate-data, theory-predictions, cross-platform-check]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Check validation results
+      run: |
+        echo "=== SSZ Theory Predictions Test Summary ==="
+        echo "Data Validation: ${{ needs.validate-data.result }}"
+        echo "Theory Tests: ${{ needs.theory-predictions.result }}"
+        echo "Cross-Platform: ${{ needs.cross-platform-check.result }}"
+    
+    - name: Report status
+      if: needs.validate-data.result == 'success' && needs.theory-predictions.result == 'success'
+      run: |
+        echo "✅ All SSZ Theory Predictions tests passed!"
+        echo "Ready for production deployment."

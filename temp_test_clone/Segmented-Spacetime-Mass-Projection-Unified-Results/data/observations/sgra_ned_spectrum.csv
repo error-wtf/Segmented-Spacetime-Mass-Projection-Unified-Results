@@ -1,0 +1,4 @@
+source,frequency_Hz,flux_density_Jy,flux_error_Jy,M_solar,r_emit_m,instrument,observation_date
+Sgr A*,5500000000.0,7.38,0.738,4150000.0,38000000000.0,2017ApJ...838..139S,unknown
+Sgr A*,22000000000.0,0.17,0.017,4150000.0,38000000000.0,2007AJ....133.2487P,unknown
+Sgr A*,22000000000.0,0.2,0.020000000000000004,4150000.0,38000000000.0,2007AJ....133.2487P,unknown

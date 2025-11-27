@@ -1,0 +1,14 @@
+{
+  "source": "M87*",
+  "M_solar": 6.5e9,
+  "r_emit_m": 1.2e13,
+  "r_s_m": 1.92e13,
+  "r_phi_m": 2.88e13,
+  "kappa_seg_per_m": 1.872e3,
+  "T_seg_K": 7.593e-18,
+  "notes": "SSZ parameters for M87* - Template values for demonstration",
+  "references": [
+    "EHT Collaboration et al. (2019), ApJL 875, L1",
+    "Casu & Wrede (2025), Segmented Spacetime Theory"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "object_name": "G79.29+0.46",
+  "common_name": "LBV Nebula G79.29+0.46",
+  "category": "star_forming_region",
+  "n_rings": 10,
+  "data_file": "G79_29+0_46_CO_NH3_rings.csv",
+  
+  "observation": {
+    "instruments": ["IRAM 30m", "VLA"],
+    "tracers": ["CO(1-0)", "CO(2-1)", "CO(3-2)", "NH3(1,1)", "NH3(2,2)", "CII", "HI"],
+    "observation_date": "2010-2012",
+    "spatial_resolution": "0.1 pc"
+  },
+  
+  "source_paper": {
+    "title": "Ammonia observations in the LBV nebula G79.29+0.46",
+    "authors": ["Di Francesco et al."],
+    "year": 2010,
+    "doi": "10.1088/0004-637X/719/1/451",
+    "ads_bibcode": "2010ApJ...719..451D",
+    "local_reference": "papers/validation/Ammonia_observations_in_the_LBV_nebula_G7929046_Di.pdf.md"
+  },
+  
+  "physical_properties": {
+    "distance_kpc": 8.5,
+    "temperature_range_K": [20, 78],
+    "density_range_cm3": [2500, 20000],
+    "velocity_range_kms": [1.0, 14.5],
+    "radius_range_pc": [0.30, 1.90]
+  },
+  
+  "data_quality": {
+    "peer_reviewed": true,
+    "verified": true,
+    "completeness": "excellent",
+    "notes": "10-ring system with clear temperature gradient and expansion signature. Multiple molecular tracers provide robust constraints."
+  },
+  
+  "usage_notes": {
+    "suitable_for_tests": ["ring_growth", "temperature_gradient", "velocity_profile", "multi_tracer_consistency"],
+    "physics_assumptions": ["molecular_gas", "expanding_shell", "post_shock_cooling"],
+    "caveats": ["Outer rings (8-10) blend with diffuse ISM", "Ring 1 shows shocked conditions"]
+  },
+  
+  "metadata_version": "1.0",
+  "created_date": "2025-10-19",
+  "last_updated": "2025-10-19"
+}

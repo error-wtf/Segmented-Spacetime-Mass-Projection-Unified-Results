@@ -1,13 +1,13 @@
 # SSZ Suite - Complete Full Output Log
 
-**Generated:** 2025-11-14 01:22:07
+**Generated:** 2025-11-27 01:49:19
 
 This file contains the COMPLETE unfiltered output from all test phases.
 All stdout and stderr output is captured here.
 
 ## Summary
 
-- **Total Duration:** 257.5s (4.3 min)
+- **Total Duration:** 227.5s (3.8 min)
 - **Test Suites:** 23
 - **Passed:** 23/23
 - **Failed:** 0/23
@@ -26,7 +26,7 @@ This includes all print statements, test results, and error messages.
 SSZ PROJECTION SUITE - FULL TEST & ANALYSIS WORKFLOW
 ====================================================================================================
 
-Started: 2025-11-14 01:17:57
+Started: 2025-11-27 01:45:38
 Python: 3.10.11
 Working Directory: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 
@@ -99,7 +99,7 @@ Physical Interpretation:
 ✓ SSZ metric passes PPN exactness test
 ================================================================================
 
-  [OK] PPN Exact Tests (took 0.3s)
+  [OK] PPN Exact Tests (took 0.1s)
 [RUNNING] Dual Velocity Tests
   Command: python test_vfall_duality.py
 
@@ -145,7 +145,7 @@ Physical Interpretation:
 ✓ Dual velocity invariant test PASSED
 ======================================================================================
 
-  [OK] Dual Velocity Tests (took 0.5s)
+  [OK] Dual Velocity Tests (took 0.2s)
 [RUNNING] Energy Conditions Tests
   Command: python test_energy_conditions.py
 
@@ -192,7 +192,7 @@ Physical Interpretation:
 ✓ Energy conditions test PASSED (r ≥ 5r_s)
 ================================================================================
 
-  [OK] Energy Conditions Tests (took 0.3s)
+  [OK] Energy Conditions Tests (took 0.1s)
 [RUNNING] C1 Segments Tests
   Command: python test_c1_segments.py
 
@@ -239,7 +239,7 @@ Physical Interpretation:
 ✓ C1 continuity test PASSED
 ================================================================================
 
-  [OK] C1 Segments Tests (took 0.2s)
+  [OK] C1 Segments Tests (took 0.1s)
 [RUNNING] C2 Segments Strict Tests
   Command: python test_c2_segments_strict.py
 
@@ -278,7 +278,7 @@ Physical Interpretation:
 ✓ C2 strict (analytic) test PASSED
 ================================================================================
 
-  [OK] C2 Segments Strict Tests (took 0.2s)
+  [OK] C2 Segments Strict Tests (took 0.1s)
 [RUNNING] C2 Curvature Proxy Tests
   Command: python test_c2_curvature_proxy.py
 
@@ -322,7 +322,7 @@ Physical Interpretation:
 ✓ C2 + curvature proxy test PASSED
 ================================================================================
 
-  [OK] C2 Curvature Proxy Tests (took 0.2s)
+  [OK] C2 Curvature Proxy Tests (took 0.1s)
 [RUNNING] UTF-8 Encoding Tests
   Command: python test_utf8_encoding.py
 ======================================================================
@@ -358,7 +358,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 20 items
 
 tests/test_segwave_core.py::TestQFactor::test_temperature_only_basic 
@@ -377,6 +377,7 @@ Physical Interpretation:
   • q_k < 1 indicates cooling between rings
   • Energy ratio = 80.0% of previous ring
   • Velocity will scale as q_k^(-α/2)
+  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings
 ================================================================================
 PASSED
 tests/test_segwave_core.py::TestQFactor::test_temperature_with_beta 
@@ -678,8 +679,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================= 20 passed in 3.35s ==============================
-  [OK] SegWave Core Math Tests (took 8.2s)
+============================= 20 passed in 2.25s ==============================
+  [OK] SegWave Core Math Tests (took 6.8s)
 [RUNNING] SegWave CLI & Dataset Tests
   Command: python -m pytest tests/test_segwave_cli.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -687,7 +688,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 16 items
 
 tests/test_segwave_cli.py::TestCLIBasic::test_help_flag PASSED
@@ -707,8 +708,8 @@ tests/test_segwave_cli.py::TestBundledDatasets::test_load_sources_config_functio
 tests/test_segwave_cli.py::TestBundledDatasets::test_g79_cli_smoke_run PASSED
 tests/test_segwave_cli.py::TestBundledDatasets::test_cygx_cli_smoke_run PASSED
 
-============================= 16 passed in 34.44s =============================
-  [OK] SegWave CLI & Dataset Tests (took 39.2s)
+============================= 16 passed in 27.87s =============================
+  [OK] SegWave CLI & Dataset Tests (took 32.3s)
 [RUNNING] MD Print Tool Tests
   Command: python -m pytest tests/test_print_all_md.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -716,7 +717,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 6 items
 
 tests/test_print_all_md.py::test_print_all_md_basic PASSED
@@ -726,8 +727,8 @@ tests/test_print_all_md.py::test_print_all_md_size_limit PASSED
 tests/test_print_all_md.py::test_print_all_md_no_files PASSED
 tests/test_print_all_md.py::test_print_all_md_custom_includes PASSED
 
-============================== 6 passed in 3.07s ==============================
-  [OK] MD Print Tool Tests (took 8.6s)
+============================== 6 passed in 2.16s ==============================
+  [OK] MD Print Tool Tests (took 6.5s)
 
 ────────────────────────────────────────────────────────────────────────────────
 📊 PHASE STATISTICS: PHASE 2: SEGWAVE TESTS
@@ -748,7 +749,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 11 items
 
 tests/test_ring_datasets.py::test_ring_dataset_completeness[data/observations/G79_29+0_46_CO_NH3_rings.csv-10-Star-forming Region] 
@@ -962,8 +963,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================= 11 passed in 1.61s ==============================
-  [OK] Multi-Ring Dataset Validation Tests (took 6.4s)
+============================= 11 passed in 6.87s ==============================
+  [OK] Multi-Ring Dataset Validation Tests (took 11.6s)
 
 ────────────────────────────────────────────────────────────────────────────────
 📊 PHASE STATISTICS: PHASE 3: MULTI-RING VALIDATION
@@ -984,7 +985,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 4 items
 
 scripts/tests/test_ssz_kernel.py::test_gamma_bounds_and_monotonic 
@@ -1081,8 +1082,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 4 passed in 0.53s ==============================
-  [OK] SSZ Kernel Tests (took 6.4s)
+============================== 4 passed in 0.49s ==============================
+  [OK] SSZ Kernel Tests (took 9.1s)
 [RUNNING] SSZ Invariants Tests
   Command: python -m pytest scripts/tests/test_ssz_invariants.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -1090,7 +1091,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 6 items
 
 scripts/tests/test_ssz_invariants.py::test_segment_growth_is_monotonic 
@@ -1153,8 +1154,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 6 passed in 1.14s ==============================
-  [OK] SSZ Invariants Tests (took 7.0s)
+============================== 6 passed in 0.71s ==============================
+  [OK] SSZ Invariants Tests (took 5.9s)
 [RUNNING] Segmenter Tests
   Command: python -m pytest scripts/tests/test_segmenter.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -1162,7 +1163,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 2 items
 
 scripts/tests/test_segmenter.py::test_segments_cover_all_points 
@@ -1175,7 +1176,7 @@ Requested rings: 16
 Segmentation Results:
   Points covered: 5000/5000
   Ring IDs: 0 to 6
-  Segment IDs: 0 to 13
+  Segment IDs: 0 to 12
 
 Physical Interpretation:
   • Complete coverage: all 5000 points assigned
@@ -1207,8 +1208,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 2 passed in 0.54s ==============================
-  [OK] Segmenter Tests (took 6.4s)
+============================== 2 passed in 0.43s ==============================
+  [OK] Segmenter Tests (took 6.1s)
 [RUNNING] Cosmo Fields Tests
   Command: python -m pytest scripts/tests/test_cosmo_fields.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -1216,7 +1217,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 1 item
 
 scripts/tests/test_cosmo_fields.py::test_cosmo_fields_added 
@@ -1253,8 +1254,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 1 passed in 0.50s ==============================
-  [OK] Cosmo Fields Tests (took 6.8s)
+============================== 1 passed in 0.49s ==============================
+  [OK] Cosmo Fields Tests (took 5.8s)
 [RUNNING] Cosmo Multibody Tests
   Command: python -m pytest scripts/tests/test_cosmo_multibody.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -1262,7 +1263,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 3 items
 
 scripts/tests/test_cosmo_multibody.py::test_sigma_additive_mass 
@@ -1343,8 +1344,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 3 passed in 2.16s ==============================
-  [OK] Cosmo Multibody Tests (took 8.5s)
+============================== 3 passed in 1.84s ==============================
+  [OK] Cosmo Multibody Tests (took 7.4s)
 [RUNNING] Data Validation Tests
   Command: python -m pytest scripts/tests/test_data_validation.py -s -v --tb=short --cache-clear
 ============================= test session starts =============================
@@ -1352,7 +1353,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 11 items
 
 scripts/tests/test_data_validation.py::test_phi_debug_data_exists 
@@ -1486,8 +1487,8 @@ TEST 11: CROSS-PLATFORM VALIDATOR EXISTS
 ================================================================================
 PASSED
 
-============================= 11 passed in 0.53s ==============================
-  [OK] Data Validation Tests (took 6.3s)
+============================= 11 passed in 0.52s ==============================
+  [OK] Data Validation Tests (took 6.0s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 5: COSMOS TESTS
@@ -1500,7 +1501,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 1 item
 
 tests/cosmos/test_multi_body_sigma.py::test_two_body_sigma_superposition 
@@ -1532,8 +1533,8 @@ Physical Interpretation:
 ================================================================================
 PASSED
 
-============================== 1 passed in 2.97s ==============================
-  [OK] Cosmos Multi-Body Sigma Tests (took 7.8s)
+============================== 1 passed in 3.42s ==============================
+  [OK] Cosmos Multi-Body Sigma Tests (took 7.9s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 6: COMPLETE SSZ ANALYSIS
@@ -1590,225 +1591,226 @@ CSV mtime    : 2025-11-13T14:26:52.466842
      Size: 1.88 GB
 
 --- Running C:\Program Files\Python310\python.exe E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\segspace_all_in_one_extended.py all ---
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  SEGSPACE ALL-IN-ONE (FINAL v2) – START
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  DETERMINISM SETUP
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] [OK] NumPy seeded
-[ECHO 2025-11-14 01:19:53] [OK] Decimal precision = 200
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  SAFETY PREFLIGHT
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] [OK] ensured: agent_out
-[ECHO 2025-11-14 01:19:53] [OK] ensured: agent_out\data
-[ECHO 2025-11-14 01:19:53] [OK] ensured: agent_out\figures
-[ECHO 2025-11-14 01:19:53] [OK] ensured: agent_out\reports
-[ECHO 2025-11-14 01:19:53] [OK] ensured: agent_out\logs
-[ECHO 2025-11-14 01:19:53] [SAFE] All writes restricted to outdir subtree.
-[ECHO 2025-11-14 01:19:53] [OK] wrote JSON: agent_out\MANIFEST.json
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  WORKFLOW: MASS VALIDATION
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] Invert mass from r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 with M0=9.10938356E-31
-[ECHO 2025-11-14 01:19:53] [Newton] Converged at 0 | residual=-1E-256
-[ECHO 2025-11-14 01:19:53]       Elektron | M_true=9.10938356E-31 kg | r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 m | M_rec=9.10938356E-31 kg | rel=0
-[ECHO 2025-11-14 01:19:53] Invert mass from r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 with M0=7.342E+22
-[ECHO 2025-11-14 01:19:53] [Newton] Converged at 0 | residual=1E-204
-[ECHO 2025-11-14 01:19:53]           Mond | M_true=7.342E+22 kg | r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 m | M_rec=7.342E+22 kg | rel=0
-[ECHO 2025-11-14 01:19:53] Invert mass from r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 with M0=5.97219E+24
-[ECHO 2025-11-14 01:19:53] [Newton] Converged at 0 | residual=0E-202
-[ECHO 2025-11-14 01:19:53]           Erde | M_true=5.97219E+24 kg | r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 m | M_rec=5.97219E+24 kg | rel=0
-[ECHO 2025-11-14 01:19:53] Invert mass from r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 with M0=1.98847E+30
-[ECHO 2025-11-14 01:19:53] [Newton] Converged at 0 | residual=0E-196
-[ECHO 2025-11-14 01:19:53]          Sonne | M_true=1.98847E+30 kg | r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 m | M_rec=1.98847E+30 kg | rel=0
-[ECHO 2025-11-14 01:19:53] Invert mass from r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 with M0=8.54445559E+36
-[ECHO 2025-11-14 01:19:53] [Newton] Converged at 0 | residual=0E-189
-[ECHO 2025-11-14 01:19:53] Sagittarius A* | M_true=8.54445559E+36 kg | r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 m | M_rec=8.54445559E+36 kg | rel=0
-[ECHO 2025-11-14 01:19:53] [OK] wrote CSV: agent_out\reports\mass_validation.csv
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  WORKFLOW: REDSHIFT EVAL
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] Loading CSV: data\real_data_emission_lines.csv
-[ECHO 2025-11-14 01:19:53] [OK] loaded rows: 143
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  EVALUATE REDSHIFT
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] [PAIRED] Seg better in 73/143 pairs (p~0.867)
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] [NOTE] Stratified analysis reveals this result reflects CANCELLATION of opposite effects:
-[ECHO 2025-11-14 01:19:53]   - Photon sphere (r=2-3 r_s, 45 obs): SEG DOMINATES with 82% win rate (p<0.0001)
-[ECHO 2025-11-14 01:19:53]   - Very close (r<2 r_s, 29 obs): SEG FAILS with 0% win rate (29 straight losses!)
-[ECHO 2025-11-14 01:19:53]   - High velocity (v>5% c, 21 obs): SEG EXCELS with 86% win rate (p=0.0015)
-[ECHO 2025-11-14 01:19:53]   - These opposing regimes cancel to give ~51% overall (p~0.867)
-[ECHO 2025-11-14 01:19:53]   - SEG is a PHOTON SPHERE theory (optimal at r=2-3 r_s), not universally superior
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] [CRITICAL] All results WITH phi corrections (Delta(M) = A*exp(-alpha*rs) + B):
-[ECHO 2025-11-14 01:19:53]   - Parameters: A=98.01, B=1.96, Alpha=2.72e+04
-[ECHO 2025-11-14 01:19:53]   - WITHOUT phi: SEG would have 0/143 wins (0%) - GR×SR always wins!
-[ECHO 2025-11-14 01:19:53]   - WITH phi: SEG has 73/143 wins (51%) - competitive with GR×SR
-[ECHO 2025-11-14 01:19:53]   - Phi brings +51 percentage points improvement
-[ECHO 2025-11-14 01:19:53]   - See PHI_CORRECTION_IMPACT_ANALYSIS.md for complete phi impact analysis
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]   See STRATIFIED_PAIRED_TEST_RESULTS.md for complete regime-specific analysis
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] [OK] wrote JSON: agent_out\reports\redshift_medians.json
-[ECHO 2025-11-14 01:19:53] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
-[ECHO 2025-11-14 01:19:53] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53]  WORKFLOW: BOUND ENERGY & α
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
-[ECHO 2025-11-14 01:19:53] [OK] wrote text: agent_out\reports\bound_energy.txt
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] DOUBLE-CHECK VALIDATION - Critical Values Verification
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ✓ φ (Golden Ratio) = 1.6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374847540880753868917521266338622235369317931800607667263544333890865959395829056383226613199282902679
-[ECHO 2025-11-14 01:19:53]   Expected: ≈ 1.618033988749
-[ECHO 2025-11-14 01:19:53]   Deviation: 8.95e-13
-[ECHO 2025-11-14 01:19:53]   ✓ PASS: φ value correct
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ✓ Δ(M) φ-based correction parameters:
-[ECHO 2025-11-14 01:19:53]   A (pre-exponential) = 98.01
-[ECHO 2025-11-14 01:19:53]   α (exponential decay) = 2.7177e+04
-[ECHO 2025-11-14 01:19:53]   B (constant offset) = 1.96
-[ECHO 2025-11-14 01:19:53]   ✓ PASS: Parameters match φ-based calibration
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ✓ φ/2 natural boundary = 0.809016994374947424102293417
-[ECHO 2025-11-14 01:19:53]   Expected: ≈ 0.809 (or when scaled: φ/2 × 2 ≈ 1.618 r_s)
-[ECHO 2025-11-14 01:19:53]   ✓ PASS: Natural boundary correct
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ✓ Critical findings verification:
-[ECHO 2025-11-14 01:19:53]   Expected: 82% wins at photon sphere WITH φ
-[ECHO 2025-11-14 01:19:53]   Expected: 0% wins at r<2 even WITH φ
-[ECHO 2025-11-14 01:19:53]   Expected: 51% overall WITH φ vs 0% WITHOUT φ
-[ECHO 2025-11-14 01:19:53]   ✓ These values are validated by stratified analysis
-[ECHO 2025-11-14 01:19:53]   ✓ See STRATIFIED_PAIRED_TEST_RESULTS.md for full validation
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ✓ DOUBLE-CHECK COMPLETE: All critical values verified
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] COMPREHENSIVE PIPELINE INTERPRETATION
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] This pipeline executed three core validation workflows:
-[ECHO 2025-11-14 01:19:53]   1. Mass Validation: Roundtrip reconstruction of masses from segmented radii
-[ECHO 2025-11-14 01:19:53]   2. Redshift Evaluation: Paired comparison of SEG vs GR×SR on emission-line data
-[ECHO 2025-11-14 01:19:53]   3. Bound Energy: Computation of alpha fine-structure energy threshold
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ───────────────────────────────────────────────────────────────────────────
-[ECHO 2025-11-14 01:19:53] KEY FINDINGS:
-[ECHO 2025-11-14 01:19:53] ───────────────────────────────────────────────────────────────────────────
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] 1. MASS VALIDATION:
-[ECHO 2025-11-14 01:19:53]    ✓ Successful roundtrip reconstruction for all test objects
-[ECHO 2025-11-14 01:19:53]    ✓ Validates phi/2-based natural boundary formula
-[ECHO 2025-11-14 01:19:53]    ✓ Delta(M) mass-dependent corrections working as designed
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] 2. REDSHIFT EVALUATION:
-[ECHO 2025-11-14 01:19:53]    • Overall: 73/143 pairs (51%), p = 0.867 [Not statistically significant]
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    CRITICAL - PHI CORRECTIONS ACTIVE:
-[ECHO 2025-11-14 01:19:53]    ─────────────────────────────────────
-[ECHO 2025-11-14 01:19:53]    All results WITH phi-based Delta(M) corrections (A*exp(-alpha*rs) + B)
-[ECHO 2025-11-14 01:19:53]    WITHOUT phi: 0/143 wins (0%) - GR×SR always wins
-[ECHO 2025-11-14 01:19:53]    WITH phi: 73/143 wins (51%) - competitive with GR×SR
-[ECHO 2025-11-14 01:19:53]    Phi impact: +51 percentage points (from total failure to parity)
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    REGIME-SPECIFIC PERFORMANCE (Stratified Analysis WITH Phi):
-[ECHO 2025-11-14 01:19:53]    ──────────────────────────────────────────────────────
-[ECHO 2025-11-14 01:19:53]    ✓ PHOTON SPHERE (r=2-3 r_s, 45 obs):
-[ECHO 2025-11-14 01:19:53]      SEG DOMINATES with 82% win rate (p<0.0001) WITH phi
-[ECHO 2025-11-14 01:19:53]      → WITHOUT phi: ~5-10% win rate (FAILS)
-[ECHO 2025-11-14 01:19:53]      → Phi impact: +72-77 percentage points!
-[ECHO 2025-11-14 01:19:53]      → This is SEG's OPTIMAL regime where phi-based corrections excel
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    ✗ VERY CLOSE (r<2 r_s, 29 obs):
-[ECHO 2025-11-14 01:19:53]      SEG FAILS with 0% win rate (29 straight losses!) even WITH phi
-[ECHO 2025-11-14 01:19:53]      → WITHOUT phi: Also 0% (no difference)
-[ECHO 2025-11-14 01:19:53]      → Current Delta(M) approximations break down too close to horizon
-[ECHO 2025-11-14 01:19:53]      → Need improved phi formula for r<2 r_s
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    ✓ HIGH VELOCITY (v>5% c, 21 obs):
-[ECHO 2025-11-14 01:19:53]      SEG EXCELS with 86% win rate (p=0.0015) WITH phi
-[ECHO 2025-11-14 01:19:53]      → WITHOUT phi: ~10% win rate (FAILS)
-[ECHO 2025-11-14 01:19:53]      → Phi impact: +76 percentage points!
-[ECHO 2025-11-14 01:19:53]      → SEG handles SR+GR coupling better than simple multiplication
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    ≈ WEAK FIELD (r>10 r_s, 40 obs):
-[ECHO 2025-11-14 01:19:53]      SEG comparable, 37% win rate (p=0.1539)
-[ECHO 2025-11-14 01:19:53]      → WITHOUT phi: ~35% (minimal difference)
-[ECHO 2025-11-14 01:19:53]      → Classical GR×SR already accurate in weak field
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    INTERPRETATION:
-[ECHO 2025-11-14 01:19:53]    ──────────────
-[ECHO 2025-11-14 01:19:53]    The overall p=0.867 reflects CANCELLATION of opposite effects:
-[ECHO 2025-11-14 01:19:53]    • Photon sphere dominance (+37 wins) vs Very close failure (-29 losses)
-[ECHO 2025-11-14 01:19:53]    • Result: SEG is a PHOTON SPHERE theory, not universally superior
-[ECHO 2025-11-14 01:19:53]    • Optimal regime: r = 2-3 r_s (photon sphere region)
-[ECHO 2025-11-14 01:19:53]    • Also strong at high velocities (SR+GR coupling)
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53]    SCIENTIFIC SIGNIFICANCE:
-[ECHO 2025-11-14 01:19:53]    ───────────────────────
-[ECHO 2025-11-14 01:19:53]    ✓ Precisely defines SEG's applicability domain
-[ECHO 2025-11-14 01:19:53]    ✓ Identifies where improvements needed (r<2 r_s)
-[ECHO 2025-11-14 01:19:53]    ✓ Validates φ-based geometry: performance peaks at φ/2 boundary region!
-[ECHO 2025-11-14 01:19:53]      → φ = (1+√5)/2 ≈ 1.618 is GEOMETRIC FOUNDATION (not fitting parameter)
-[ECHO 2025-11-14 01:19:53]      → Natural boundary r_φ = (φ/2)r_s ≈ 1.618 r_s near photon sphere (1.5-3 r_s)
-[ECHO 2025-11-14 01:19:53]      → 82% wins confirms φ-spiral geometry prediction!
-[ECHO 2025-11-14 01:19:53]    ✓ Honest reporting of both strengths AND weaknesses
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] 3. BOUND ENERGY THRESHOLD:
-[ECHO 2025-11-14 01:19:53]    ✓ Alpha fine-structure constant computed to high precision
-[ECHO 2025-11-14 01:19:53]    ✓ Energy/frequency/wavelength thresholds documented
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ───────────────────────────────────────────────────────────────────────────
-[ECHO 2025-11-14 01:19:53] OVERALL CONCLUSION:
-[ECHO 2025-11-14 01:19:53] ───────────────────────────────────────────────────────────────────────────
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] SEG WITH PHI CORRECTIONS demonstrates:
-[ECHO 2025-11-14 01:19:53]   ✓ Strong performance in photon sphere regime (82% WITH phi vs ~5-10% without)
-[ECHO 2025-11-14 01:19:53]   ✓ Excellent SR+GR coupling at high velocities (86% WITH phi vs ~10% without)
-[ECHO 2025-11-14 01:19:53]   ✓ Valid mass reconstruction via phi/2 formula
-[ECHO 2025-11-14 01:19:53]   ✓ Overall competitiveness (51% WITH phi vs 0% without)
-[ECHO 2025-11-14 01:19:53]   ⚠ Needs improvement very close to horizon (0% even WITH phi → better formula needed)
-[ECHO 2025-11-14 01:19:53]   ≈ Comparable to classical models in weak field (~37% vs ~35%)
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] CRITICAL INSIGHT: φ (golden ratio) = 1.618 is the GEOMETRIC FOUNDATION
-[ECHO 2025-11-14 01:19:53] φ-based geometry (NOT arbitrary corrections!) enables ALL successes:
-[ECHO 2025-11-14 01:19:53]   • φ-spiral geometry → self-similar scaling (like galaxies, hurricanes)
-[ECHO 2025-11-14 01:19:53]   • Natural boundary r_φ = (φ/2)r_s ≈ 1.618 r_s emerges from geometry
-[ECHO 2025-11-14 01:19:53]   • φ-derived Δ(M) = A*exp(-α*rs) + B from segment scaling principle
-[ECHO 2025-11-14 01:19:53]   • Dimensionless φ → universal scaling across 3 orders of magnitude in mass
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] EMPIRICAL VALIDATION OF φ-GEOMETRY:
-[ECHO 2025-11-14 01:19:53]   • Photon sphere (near φ/2): +72-77 pp from φ-based geometry
-[ECHO 2025-11-14 01:19:53]   • High velocity: +76 pp from φ-based geometry
-[ECHO 2025-11-14 01:19:53]   • Overall: +51 pp from φ-based geometry (0% without → 51% with)
-[ECHO 2025-11-14 01:19:53]   • Performance PEAKS where theory predicts (φ/2 boundary region)!
-[ECHO 2025-11-14 01:19:53]   • Without φ-based geometry: Total failure (0% win rate)
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] This is exemplary science: clearly defined strengths, acknowledged weaknesses,
-[ECHO 2025-11-14 01:19:53] transparent reporting, AND understanding WHAT makes the model work.
-[ECHO 2025-11-14 01:19:53] The stratified analysis transforms 'null result' (p=0.867) into precise knowledge
-[ECHO 2025-11-14 01:19:53] of WHERE SEG excels (photon sphere near φ/2, high v), WHERE it needs improvement (r<2),
-[ECHO 2025-11-14 01:19:53] and WHAT makes it work (φ-based geometry as fundamental foundation).
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] For complete analysis see:
-[ECHO 2025-11-14 01:19:53]   • PHI_FUNDAMENTAL_GEOMETRY.md - Why φ is the GEOMETRIC FOUNDATION
-[ECHO 2025-11-14 01:19:53]   • STRATIFIED_PAIRED_TEST_RESULTS.md - Full stratified breakdown & φ/2 validation
-[ECHO 2025-11-14 01:19:53]   • PHI_CORRECTION_IMPACT_ANALYSIS.md - Complete φ-geometry impact analysis
-[ECHO 2025-11-14 01:19:53]   • PAIRED_TEST_ANALYSIS_COMPLETE.md - Investigation methodology
-[ECHO 2025-11-14 01:19:53]   • TEST_METHODOLOGY_COMPLETE.md - Theory→test validation chain
-[ECHO 2025-11-14 01:19:53]   • reports/full-output.md - Detailed test logs
-[ECHO 2025-11-14 01:19:53] 
-[ECHO 2025-11-14 01:19:53] ================================================================================
-[ECHO 2025-11-14 01:19:53] 
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  SEGSPACE ALL-IN-ONE (FINAL v2) – START
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  DETERMINISM SETUP
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] [OK] NumPy seeded
+[ECHO 2025-11-27 01:47:26] [OK] Decimal precision = 200
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  SAFETY PREFLIGHT
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] [OK] ensured: agent_out
+[ECHO 2025-11-27 01:47:26] [OK] ensured: agent_out\data
+[ECHO 2025-11-27 01:47:26] [OK] ensured: agent_out\figures
+[ECHO 2025-11-27 01:47:26] [OK] ensured: agent_out\reports
+[ECHO 2025-11-27 01:47:26] [OK] ensured: agent_out\logs
+[ECHO 2025-11-27 01:47:26] [SAFE] All writes restricted to outdir subtree.
+[ECHO 2025-11-27 01:47:26] [OK] wrote JSON: agent_out\MANIFEST.json
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  WORKFLOW: MASS VALIDATION
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] Invert mass from r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 with M0=9.10938356E-31
+[ECHO 2025-11-27 01:47:26] [Newton] Converged at 0 | residual=-1E-256
+[ECHO 2025-11-27 01:47:26]       Elektron | M_true=9.10938356E-31 kg | r_obs=1.0945634625413836795736636983851130109193420637640166677567311016291260750689407100197427388210594562769023502931847628771294766692446794739157260103963186314273107212114432823332077867788285998792881E-57 m | M_rec=9.10938356E-31 kg | rel=0
+[ECHO 2025-11-27 01:47:26] Invert mass from r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 with M0=7.342E+22
+[ECHO 2025-11-27 01:47:26] [Newton] Converged at 0 | residual=1E-204
+[ECHO 2025-11-27 01:47:26]           Mond | M_true=7.342E+22 kg | r_obs=0.000093112782431423285923554186742162695999575222823121001173829046011377758450638394621052218232426366185228085916399665644877327085290642845116819920129001194490841441353642423259204924846221800210026544 m | M_rec=7.342E+22 kg | rel=0
+[ECHO 2025-11-27 01:47:26] Invert mass from r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 with M0=5.97219E+24
+[ECHO 2025-11-27 01:47:26] [Newton] Converged at 0 | residual=0E-202
+[ECHO 2025-11-27 01:47:26]           Erde | M_true=5.97219E+24 kg | r_obs=0.0072911742760279982761951503539759022318687772664031979787670187787422384625548383893235035436166244671126127622122557062485685553203542950871985039837794149665955885473692338858358955005024357004507269 m | M_rec=5.97219E+24 kg | rel=0
+[ECHO 2025-11-27 01:47:26] Invert mass from r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 with M0=1.98847E+30
+[ECHO 2025-11-27 01:47:26] [Newton] Converged at 0 | residual=0E-196
+[ECHO 2025-11-27 01:47:26]          Sonne | M_true=1.98847E+30 kg | r_obs=2431.4938230200168113032706246644281202657960784712108525787226988286950118758537737437686887847201382320063167986296334704211779364667138182219478502620016245222958552596653591685556273031828445457360 m | M_rec=1.98847E+30 kg | rel=0
+[ECHO 2025-11-27 01:47:26] Invert mass from r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 with M0=8.54445559E+36
+[ECHO 2025-11-27 01:47:26] [Newton] Converged at 0 | residual=0E-189
+[ECHO 2025-11-27 01:47:26] Sagittarius A* | M_true=8.54445559E+36 kg | r_obs=10468059481.387632361874563126523908489999471271833524809177593163441352061320762366465610048635507347034277955899067228996176315915142129933309308353120473514781225626670483802708208783004432377111047 m | M_rec=8.54445559E+36 kg | rel=0
+[ECHO 2025-11-27 01:47:26] [OK] wrote CSV: agent_out\reports\mass_validation.csv
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  WORKFLOW: REDSHIFT EVAL
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] Loading CSV: data\real_data_emission_lines.csv
+[ECHO 2025-11-27 01:47:26] [OK] loaded rows: 143
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  EVALUATE REDSHIFT
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] [PAIRED] Seg better in 73/143 pairs (p~0.867)
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] [NOTE] Stratified analysis reveals this result reflects CANCELLATION of opposite effects:
+[ECHO 2025-11-27 01:47:26]   - Photon sphere (r=2-3 r_s, 45 obs): SEG DOMINATES with 82% win rate (p<0.0001)
+[ECHO 2025-11-27 01:47:26]   - Very close (r<2 r_s, 29 obs): SEG FAILS with 0% win rate (29 straight losses!)
+[ECHO 2025-11-27 01:47:26]   - High velocity (v>5% c, 21 obs): SEG EXCELS with 86% win rate (p=0.0015)
+[ECHO 2025-11-27 01:47:26]   - These opposing regimes cancel to give ~51% overall (p~0.867)
+[ECHO 2025-11-27 01:47:26]   - SEG is a PHOTON SPHERE theory (optimal at r=2-3 r_s), not universally superior
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] [CRITICAL] All results WITH phi corrections (Delta(M) = A*exp(-alpha*rs) + B):
+[ECHO 2025-11-27 01:47:26]   - Parameters: A=98.01, B=1.96, Alpha=2.72e+04
+[ECHO 2025-11-27 01:47:26]   - WITHOUT phi: SEG would have 0/143 wins (0%) - GR×SR always wins!
+[ECHO 2025-11-27 01:47:26]   - WITH phi: SEG has 73/143 wins (51%) - competitive with GR×SR
+[ECHO 2025-11-27 01:47:26]   - Phi brings +51 percentage points improvement
+[ECHO 2025-11-27 01:47:26]   - See PHI_CORRECTION_IMPACT_ANALYSIS.md for complete phi impact analysis
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]   See STRATIFIED_PAIRED_TEST_RESULTS.md for complete regime-specific analysis
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] [OK] wrote JSON: agent_out\reports\redshift_medians.json
+[ECHO 2025-11-27 01:47:26] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
+[ECHO 2025-11-27 01:47:26] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26]  WORKFLOW: ELECTRON BOUND ENERGY (α·m_e·c²)
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
+[ECHO 2025-11-27 01:47:26] [NOTE] Dies ist echte Bound Energy (E = α·m_e·c²), nicht Redshift!
+[ECHO 2025-11-27 01:47:26] [OK] wrote text: agent_out\reports\bound_energy.txt
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] DOUBLE-CHECK VALIDATION - Critical Values Verification
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ✓ φ (Golden Ratio) = 1.6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374847540880753868917521266338622235369317931800607667263544333890865959395829056383226613199282902679
+[ECHO 2025-11-27 01:47:26]   Expected: ≈ 1.618033988749
+[ECHO 2025-11-27 01:47:26]   Deviation: 8.95e-13
+[ECHO 2025-11-27 01:47:26]   ✓ PASS: φ value correct
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ✓ Δ(M) φ-based correction parameters:
+[ECHO 2025-11-27 01:47:26]   A (pre-exponential) = 98.01
+[ECHO 2025-11-27 01:47:26]   α (exponential decay) = 2.7177e+04
+[ECHO 2025-11-27 01:47:26]   B (constant offset) = 1.96
+[ECHO 2025-11-27 01:47:26]   ✓ PASS: Parameters match φ-based calibration
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ✓ φ/2 natural boundary = 0.809016994374947424102293417
+[ECHO 2025-11-27 01:47:26]   Expected: ≈ 0.809 (or when scaled: φ/2 × 2 ≈ 1.618 r_s)
+[ECHO 2025-11-27 01:47:26]   ✓ PASS: Natural boundary correct
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ✓ Critical findings verification:
+[ECHO 2025-11-27 01:47:26]   Expected: 82% wins at photon sphere WITH φ
+[ECHO 2025-11-27 01:47:26]   Expected: 0% wins at r<2 even WITH φ
+[ECHO 2025-11-27 01:47:26]   Expected: 51% overall WITH φ vs 0% WITHOUT φ
+[ECHO 2025-11-27 01:47:26]   ✓ These values are validated by stratified analysis
+[ECHO 2025-11-27 01:47:26]   ✓ See STRATIFIED_PAIRED_TEST_RESULTS.md for full validation
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ✓ DOUBLE-CHECK COMPLETE: All critical values verified
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] COMPREHENSIVE PIPELINE INTERPRETATION
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] This pipeline executed three core validation workflows:
+[ECHO 2025-11-27 01:47:26]   1. Mass Validation: Roundtrip reconstruction of masses from segmented radii
+[ECHO 2025-11-27 01:47:26]   2. Redshift Evaluation: Paired comparison of SEG vs GR×SR on emission-line data
+[ECHO 2025-11-27 01:47:26]   3. Bound Energy: Computation of alpha fine-structure energy threshold
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ───────────────────────────────────────────────────────────────────────────
+[ECHO 2025-11-27 01:47:26] KEY FINDINGS:
+[ECHO 2025-11-27 01:47:26] ───────────────────────────────────────────────────────────────────────────
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] 1. MASS VALIDATION:
+[ECHO 2025-11-27 01:47:26]    ✓ Successful roundtrip reconstruction for all test objects
+[ECHO 2025-11-27 01:47:26]    ✓ Validates phi/2-based natural boundary formula
+[ECHO 2025-11-27 01:47:26]    ✓ Delta(M) mass-dependent corrections working as designed
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] 2. REDSHIFT EVALUATION:
+[ECHO 2025-11-27 01:47:26]    • Overall: 73/143 pairs (51%), p = 0.867 [Not statistically significant]
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    CRITICAL - PHI CORRECTIONS ACTIVE:
+[ECHO 2025-11-27 01:47:26]    ─────────────────────────────────────
+[ECHO 2025-11-27 01:47:26]    All results WITH phi-based Delta(M) corrections (A*exp(-alpha*rs) + B)
+[ECHO 2025-11-27 01:47:26]    WITHOUT phi: 0/143 wins (0%) - GR×SR always wins
+[ECHO 2025-11-27 01:47:26]    WITH phi: 73/143 wins (51%) - competitive with GR×SR
+[ECHO 2025-11-27 01:47:26]    Phi impact: +51 percentage points (from total failure to parity)
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    REGIME-SPECIFIC PERFORMANCE (Stratified Analysis WITH Phi):
+[ECHO 2025-11-27 01:47:26]    ──────────────────────────────────────────────────────
+[ECHO 2025-11-27 01:47:26]    ✓ PHOTON SPHERE (r=2-3 r_s, 45 obs):
+[ECHO 2025-11-27 01:47:26]      SEG DOMINATES with 82% win rate (p<0.0001) WITH phi
+[ECHO 2025-11-27 01:47:26]      → WITHOUT phi: ~5-10% win rate (FAILS)
+[ECHO 2025-11-27 01:47:26]      → Phi impact: +72-77 percentage points!
+[ECHO 2025-11-27 01:47:26]      → This is SEG's OPTIMAL regime where phi-based corrections excel
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    ✗ VERY CLOSE (r<2 r_s, 29 obs):
+[ECHO 2025-11-27 01:47:26]      SEG FAILS with 0% win rate (29 straight losses!) even WITH phi
+[ECHO 2025-11-27 01:47:26]      → WITHOUT phi: Also 0% (no difference)
+[ECHO 2025-11-27 01:47:26]      → Current Delta(M) approximations break down too close to horizon
+[ECHO 2025-11-27 01:47:26]      → Need improved phi formula for r<2 r_s
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    ✓ HIGH VELOCITY (v>5% c, 21 obs):
+[ECHO 2025-11-27 01:47:26]      SEG EXCELS with 86% win rate (p=0.0015) WITH phi
+[ECHO 2025-11-27 01:47:26]      → WITHOUT phi: ~10% win rate (FAILS)
+[ECHO 2025-11-27 01:47:26]      → Phi impact: +76 percentage points!
+[ECHO 2025-11-27 01:47:26]      → SEG handles SR+GR coupling better than simple multiplication
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    ≈ WEAK FIELD (r>10 r_s, 40 obs):
+[ECHO 2025-11-27 01:47:26]      SEG comparable, 37% win rate (p=0.1539)
+[ECHO 2025-11-27 01:47:26]      → WITHOUT phi: ~35% (minimal difference)
+[ECHO 2025-11-27 01:47:26]      → Classical GR×SR already accurate in weak field
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    INTERPRETATION:
+[ECHO 2025-11-27 01:47:26]    ──────────────
+[ECHO 2025-11-27 01:47:26]    The overall p=0.867 reflects CANCELLATION of opposite effects:
+[ECHO 2025-11-27 01:47:26]    • Photon sphere dominance (+37 wins) vs Very close failure (-29 losses)
+[ECHO 2025-11-27 01:47:26]    • Result: SEG is a PHOTON SPHERE theory, not universally superior
+[ECHO 2025-11-27 01:47:26]    • Optimal regime: r = 2-3 r_s (photon sphere region)
+[ECHO 2025-11-27 01:47:26]    • Also strong at high velocities (SR+GR coupling)
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26]    SCIENTIFIC SIGNIFICANCE:
+[ECHO 2025-11-27 01:47:26]    ───────────────────────
+[ECHO 2025-11-27 01:47:26]    ✓ Precisely defines SEG's applicability domain
+[ECHO 2025-11-27 01:47:26]    ✓ Identifies where improvements needed (r<2 r_s)
+[ECHO 2025-11-27 01:47:26]    ✓ Validates φ-based geometry: performance peaks at φ/2 boundary region!
+[ECHO 2025-11-27 01:47:26]      → φ = (1+√5)/2 ≈ 1.618 is GEOMETRIC FOUNDATION (not fitting parameter)
+[ECHO 2025-11-27 01:47:26]      → Natural boundary r_φ = (φ/2)r_s ≈ 1.618 r_s near photon sphere (1.5-3 r_s)
+[ECHO 2025-11-27 01:47:26]      → 82% wins confirms φ-spiral geometry prediction!
+[ECHO 2025-11-27 01:47:26]    ✓ Honest reporting of both strengths AND weaknesses
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] 3. BOUND ENERGY THRESHOLD:
+[ECHO 2025-11-27 01:47:26]    ✓ Alpha fine-structure constant computed to high precision
+[ECHO 2025-11-27 01:47:26]    ✓ Energy/frequency/wavelength thresholds documented
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ───────────────────────────────────────────────────────────────────────────
+[ECHO 2025-11-27 01:47:26] OVERALL CONCLUSION:
+[ECHO 2025-11-27 01:47:26] ───────────────────────────────────────────────────────────────────────────
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] SEG WITH PHI CORRECTIONS demonstrates:
+[ECHO 2025-11-27 01:47:26]   ✓ Strong performance in photon sphere regime (82% WITH phi vs ~5-10% without)
+[ECHO 2025-11-27 01:47:26]   ✓ Excellent SR+GR coupling at high velocities (86% WITH phi vs ~10% without)
+[ECHO 2025-11-27 01:47:26]   ✓ Valid mass reconstruction via phi/2 formula
+[ECHO 2025-11-27 01:47:26]   ✓ Overall competitiveness (51% WITH phi vs 0% without)
+[ECHO 2025-11-27 01:47:26]   ⚠ Needs improvement very close to horizon (0% even WITH phi → better formula needed)
+[ECHO 2025-11-27 01:47:26]   ≈ Comparable to classical models in weak field (~37% vs ~35%)
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] CRITICAL INSIGHT: φ (golden ratio) = 1.618 is the GEOMETRIC FOUNDATION
+[ECHO 2025-11-27 01:47:26] φ-based geometry (NOT arbitrary corrections!) enables ALL successes:
+[ECHO 2025-11-27 01:47:26]   • φ-spiral geometry → self-similar scaling (like galaxies, hurricanes)
+[ECHO 2025-11-27 01:47:26]   • Natural boundary r_φ = (φ/2)r_s ≈ 1.618 r_s emerges from geometry
+[ECHO 2025-11-27 01:47:26]   • φ-derived Δ(M) = A*exp(-α*rs) + B from segment scaling principle
+[ECHO 2025-11-27 01:47:26]   • Dimensionless φ → universal scaling across 3 orders of magnitude in mass
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] EMPIRICAL VALIDATION OF φ-GEOMETRY:
+[ECHO 2025-11-27 01:47:26]   • Photon sphere (near φ/2): +72-77 pp from φ-based geometry
+[ECHO 2025-11-27 01:47:26]   • High velocity: +76 pp from φ-based geometry
+[ECHO 2025-11-27 01:47:26]   • Overall: +51 pp from φ-based geometry (0% without → 51% with)
+[ECHO 2025-11-27 01:47:26]   • Performance PEAKS where theory predicts (φ/2 boundary region)!
+[ECHO 2025-11-27 01:47:26]   • Without φ-based geometry: Total failure (0% win rate)
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] This is exemplary science: clearly defined strengths, acknowledged weaknesses,
+[ECHO 2025-11-27 01:47:26] transparent reporting, AND understanding WHAT makes the model work.
+[ECHO 2025-11-27 01:47:26] The stratified analysis transforms 'null result' (p=0.867) into precise knowledge
+[ECHO 2025-11-27 01:47:26] of WHERE SEG excels (photon sphere near φ/2, high v), WHERE it needs improvement (r<2),
+[ECHO 2025-11-27 01:47:26] and WHAT makes it work (φ-based geometry as fundamental foundation).
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] For complete analysis see:
+[ECHO 2025-11-27 01:47:26]   • PHI_FUNDAMENTAL_GEOMETRY.md - Why φ is the GEOMETRIC FOUNDATION
+[ECHO 2025-11-27 01:47:26]   • STRATIFIED_PAIRED_TEST_RESULTS.md - Full stratified breakdown & φ/2 validation
+[ECHO 2025-11-27 01:47:26]   • PHI_CORRECTION_IMPACT_ANALYSIS.md - Complete φ-geometry impact analysis
+[ECHO 2025-11-27 01:47:26]   • PAIRED_TEST_ANALYSIS_COMPLETE.md - Investigation methodology
+[ECHO 2025-11-27 01:47:26]   • TEST_METHODOLOGY_COMPLETE.md - Theory→test validation chain
+[ECHO 2025-11-27 01:47:26]   • reports/full-output.md - Detailed test logs
+[ECHO 2025-11-27 01:47:26] 
+[ECHO 2025-11-27 01:47:26] ================================================================================
+[ECHO 2025-11-27 01:47:26] 
 
 --- Running C:\Program Files\Python310\python.exe E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\ssz_covariant_smoketest_verbose_lino_casu.py ---
 ======================================================================================
@@ -2090,7 +2092,7 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
 collecting ... collected 78 items
 
 tests/cosmos/test_multi_body_sigma.py::test_two_body_sigma_superposition 
@@ -2369,6 +2371,7 @@ Physical Interpretation:
   • q_k < 1 indicates cooling between rings
   • Energy ratio = 80.0% of previous ring
   • Velocity will scale as q_k^(-α/2)
+  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings
 ================================================================================
 PASSED
 tests/test_segwave_core.py::TestQFactor::test_temperature_with_beta 
@@ -3224,7 +3227,7 @@ Anti-Capitalist Software License (v 1.4)
 
 
 
-============================= 78 passed in 37.63s =============================
+============================= 78 passed in 30.49s =============================
   Running scripts/tests/ directory...
 
 --- Running C:\Program Files\Python310\python.exe -m pytest E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\scripts\tests -s -v --tb=short ---
@@ -3233,8 +3236,9 @@ platform win32 -- Python 3.10.11, pytest-8.4.2, pluggy-1.6.0 -- C:\Program Files
 cachedir: .pytest_cache
 rootdir: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results
 configfile: pyproject.toml
-plugins: anyio-4.9.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
-collecting ... collected 47 items
+plugins: anyio-4.11.0, dash-3.2.0, langsmith-0.3.44, docker-3.1.2, timeout-2.4.0
+collecting ... Important:  Gaia archive will be unavailable due to scheduled maintenance from 28-11-2025 15h to 2-12-2025 12h (CET)
+collected 47 items
 
 scripts/tests/test_cosmo_fields.py::test_cosmo_fields_added 
 ================================================================================
@@ -3574,7 +3578,7 @@ Sources with ≥3 data points: 5
 Invertibility Metrics:
   Non-zero Jacobian: 5/5 (100.0%)
   Monotonic mapping: 5/5 (100.0%)
-  Mean |Jacobian|:   8.1606e-01
+  Mean |Jacobian|:   8.1674e-01
   Median |Jacobian|: 1.0000e+00
 
 Physical Interpretation:
@@ -3620,7 +3624,7 @@ Sources analyzed: 5
 
 Reconstruction Metrics:
   Stable Jacobian: 5/5 (100.0%)
-  Mean |Jacobian|: 8.1606e-01
+  Mean |Jacobian|: 8.1674e-01
   Mean reconstruction error: 4.6941e-17
   Median reconstruction error: 0.0000e+00
 
@@ -3682,7 +3686,7 @@ Requested rings: 16
 Segmentation Results:
   Points covered: 5000/5000
   Ring IDs: 0 to 6
-  Segment IDs: 0 to 11
+  Segment IDs: 0 to 12
 
 Physical Interpretation:
   • Complete coverage: all 5000 points assigned
@@ -3876,7 +3880,7 @@ scripts/tests/test_hawking_spectrum_continuum.py::test_hawking_spectrum_continuu
     x = (h_planck * nu) / (k_boltzmann * T)
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-================== 46 passed, 1 skipped, 1 warning in 7.73s ===================
+================== 46 passed, 1 skipped, 1 warning in 6.47s ===================
 
 --- Running C:\Program Files\Python310\python.exe E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\phi_test.py --in E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\real_data_full.csv --outdir E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\out --f-emit f_emit_Hz --f-obs f_obs_Hz ---
 [OK] rows used: 427
@@ -4764,7 +4768,7 @@ Interpretation:
 ================================================================================
 Ring Temperature → Velocity Prediction (Section 4.6)
 ================================================================================
-Timestamp: 2025-11-14T01:21:40.046861
+Timestamp: 2025-11-27T01:48:55.142842
 Input file: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\data\observations\G79_29+0_46_CO_NH3_rings.csv
 Number of rings: 10
 Baseline velocity v0: 12.500 km/s
@@ -4799,7 +4803,7 @@ Velocity ratio (v_N / v_0):       1.975x
 ================================================================================
 Ring Temperature → Velocity Prediction (Section 4.6)
 ================================================================================
-Timestamp: 2025-11-14T01:21:41.932479
+Timestamp: 2025-11-27T01:48:56.956253
 Input file: E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\data\observations\CygnusX_DiamondRing_CII_rings.csv
 Number of rings: 3
 Baseline velocity v0: 1.300 km/s
@@ -5276,13 +5280,13 @@ Traceback (most recent call last):
   File "E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results\scripts\preprocess\io_utils.py", line 55, in ensure_both_formats
     raise FileNotFoundError(f"Neither CSV nor Parquet found for base path {base}")
 FileNotFoundError: Neither CSV nor Parquet found for base path data\raw\sdss\2025-10-17_gaia_ssz_v1\sdss_catalog
-2025-11-14 01:20:52,739 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251114_012052.log
-2025-11-14 01:20:52,903 [INFO] TEST_GAIA: GAIA smoke rows=5000
-2025-11-14 01:20:52,912 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251114_012052.log
-2025-11-14 01:20:52,924 [INFO] TEST_SDSS: SDSS smoke rows=5000
-2025-11-14 01:20:52,926 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251114_012052.log
-2025-11-14 01:20:52,927 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
-  [OK] Full SSZ Terminal Analysis (took 116.1s)
+2025-11-27 01:48:16,350 [INFO] TEST_GAIA: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251127_014816.log
+2025-11-27 01:48:16,497 [INFO] TEST_GAIA: GAIA smoke rows=5000
+2025-11-27 01:48:16,503 [INFO] TEST_SDSS: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251127_014816.log
+2025-11-27 01:48:16,513 [INFO] TEST_SDSS: SDSS smoke rows=5000
+2025-11-27 01:48:16,516 [INFO] TEST_PLANCK: Logger initialized -> data\logs\tests_2025-10-17_gaia_ssz_real_20251127_014816.log
+2025-11-27 01:48:16,517 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\planck\COM_PowerSpect_CMB-TT-full_R3.01.txt
+  [OK] Full SSZ Terminal Analysis (took 96.5s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 6.5: PRODUCTION-READY ANALYSIS TOOLS (OCT 2025)
@@ -5439,7 +5443,7 @@ correct, and eliminates the artificial 0/0 singularity.
 © 2025 Carmen Wrede, Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 ================================================================================
-  [OK] Rapidity Equilibrium Analysis (0/0 solution demo) (took 2.2s)
+  [OK] Rapidity Equilibrium Analysis (0/0 solution demo) (took 1.6s)
 [RUNNING] Perfect Paired Test (All Findings Framework)
   Command: python perfect_paired_test.py --csv data\real_data_full.csv --output out\perfect_paired_results.csv
 ================================================================================
@@ -5541,7 +5545,7 @@ Implements ALL findings from:
   - EQUILIBRIUM_RADIUS_SOLUTION.md
   - RAPIDITY_IMPLEMENTATION.md
 ================================================================================
-  [OK] Perfect Paired Test (All Findings Framework) (took 3.2s)
+  [OK] Perfect Paired Test (All Findings Framework) (took 2.9s)
   [INFO] perfect_seg_analysis.py is interactive tool (not run in batch)
 
 ----------------------------------------------------------------------------------------------------
@@ -5608,7 +5612,7 @@ Sources with ≥3 data points: 5
 Invertibility Metrics:
   Non-zero Jacobian: 5/5 (100.0%)
   Monotonic mapping: 5/5 (100.0%)
-  Mean |Jacobian|:   8.1606e-01
+  Mean |Jacobian|:   8.1674e-01
   Median |Jacobian|: 1.0000e+00
 
 Physical Interpretation:
@@ -5689,7 +5693,7 @@ Sources analyzed: 5
 
 Reconstruction Metrics:
   Stable Jacobian: 5/5 (100.0%)
-  Mean |Jacobian|: 8.1606e-01
+  Mean |Jacobian|: 8.1674e-01
   Mean reconstruction error: 4.6941e-17
   Median reconstruction error: 0.0000e+00
 
@@ -5725,7 +5729,7 @@ Test PASSES by design when data requirements not met.
 ALL PREDICTION TESTS PASSED ✅
 EXTENDED ANALYSIS COMPLETE ✅
 ================================================================================
-  [OK] SSZ Theory Predictions (4 Tests) (took 3.7s)
+  [OK] SSZ Theory Predictions (4 Tests) (took 2.5s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 8: EXAMPLE ANALYSIS RUNS
@@ -5770,7 +5774,7 @@ VALIDATION METRICS:
 
 
 [OK] SSZ-Rings completed successfully
-  [OK] G79 Example Run (took 2.8s)
+  [OK] G79 Example Run (took 2.9s)
 [RUNNING] Cygnus X Example Run
   Command: python -m cli.ssz_rings --csv data\observations\CygnusX_DiamondRing_CII_rings.csv --v0 1.3 --alpha 1.0 --out-table reports/cygx_test.csv --out-report reports/cygx_test.txt
 Loading data from: data\observations\CygnusX_DiamondRing_CII_rings.csv
@@ -5808,7 +5812,7 @@ VALIDATION METRICS:
 
 
 [OK] SSZ-Rings completed successfully
-  [OK] Cygnus X Example Run (took 3.4s)
+  [OK] Cygnus X Example Run (took 2.2s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 9: PAPER EXPORT TOOLS
@@ -5908,7 +5912,7 @@ Erstellte Dateien:
   - reports/PAPER_EXPORTS_MANIFEST.json
 
 
-  [OK] Paper Export Tools Demo (took 4.4s)
+  [OK] Paper Export Tools Demo (took 5.4s)
 
 ----------------------------------------------------------------------------------------------------
 PHASE 10: FINAL VALIDATION - PERFECTION ANALYSIS
@@ -6210,7 +6214,7 @@ Next Steps:
 ================================================================================
 ✅ FINAL VALIDATION COMPLETE
 ================================================================================
-  [OK] Final Validation - 100% Perfection Analysis (took 0.1s)
+  [OK] Final Validation - 100% Perfection Analysis (took 0.2s)
 
 ====================================================================================================
 SUMMARY REPORT
@@ -6220,33 +6224,33 @@ Total Phases: 23
 Passed: 23
 Failed: 0
 Success Rate: 100.0%
-Total Test Time: 201.4s
-Total Suite Time: 257.5s
+Total Test Time: 181.5s
+Total Suite Time: 227.5s
 
 Detailed Results:
-  [PASS] PPN Exact Tests                          (0.3s)
-  [PASS] Dual Velocity Tests                      (0.5s)
-  [PASS] Energy Conditions Tests                  (0.3s)
-  [PASS] C1 Segments Tests                        (0.2s)
-  [PASS] C2 Segments Strict Tests                 (0.2s)
-  [PASS] C2 Curvature Proxy Tests                 (0.2s)
-  [PASS] SegWave Core Math Tests                  (8.2s)
-  [PASS] Multi-Ring Validation Tests              (6.4s)
-  [PASS] SSZ Kernel Tests                         (6.4s)
-  [PASS] SSZ Invariants Tests                     (7.0s)
-  [PASS] Segmenter Tests                          (6.4s)
-  [PASS] Cosmo Fields Tests                       (6.8s)
-  [PASS] Cosmo Multibody Tests                    (8.5s)
-  [PASS] Data Validation Tests                    (6.3s)
-  [PASS] Cosmos Multi-Body Sigma Tests            (7.8s)
-  [PASS] SSZ Complete Analysis                    (116.1s)
-  [PASS] Rapidity Equilibrium Analysis (0/0 solution demo) (2.2s)
-  [PASS] Perfect Paired Test (All Findings Framework) (3.2s)
-  [PASS] SSZ Theory Predictions                   (3.7s)
-  [PASS] G79 Analysis                             (2.8s)
-  [PASS] Cygnus X Analysis                        (3.4s)
-  [PASS] Paper Export Tools                       (4.4s)
-  [PASS] Final Validation                         (0.1s)
+  [PASS] PPN Exact Tests                          (0.1s)
+  [PASS] Dual Velocity Tests                      (0.2s)
+  [PASS] Energy Conditions Tests                  (0.1s)
+  [PASS] C1 Segments Tests                        (0.1s)
+  [PASS] C2 Segments Strict Tests                 (0.1s)
+  [PASS] C2 Curvature Proxy Tests                 (0.1s)
+  [PASS] SegWave Core Math Tests                  (6.8s)
+  [PASS] Multi-Ring Validation Tests              (11.6s)
+  [PASS] SSZ Kernel Tests                         (9.1s)
+  [PASS] SSZ Invariants Tests                     (5.9s)
+  [PASS] Segmenter Tests                          (6.1s)
+  [PASS] Cosmo Fields Tests                       (5.8s)
+  [PASS] Cosmo Multibody Tests                    (7.4s)
+  [PASS] Data Validation Tests                    (6.0s)
+  [PASS] Cosmos Multi-Body Sigma Tests            (7.9s)
+  [PASS] SSZ Complete Analysis                    (96.5s)
+  [PASS] Rapidity Equilibrium Analysis (0/0 solution demo) (1.6s)
+  [PASS] Perfect Paired Test (All Findings Framework) (2.9s)
+  [PASS] SSZ Theory Predictions                   (2.5s)
+  [PASS] G79 Analysis                             (2.9s)
+  [PASS] Cygnus X Analysis                        (2.2s)
+  [PASS] Paper Export Tools                       (5.4s)
+  [PASS] Final Validation                         (0.2s)
 
 Summary written to: reports\RUN_SUMMARY.md
 
@@ -6264,29 +6268,29 @@ ECHOING REPORTS & SUMMARIES
 
 ## Test Suite Breakdown
 
-- ✅ PASS **PPN Exact Tests** (0.3s)
-- ✅ PASS **Dual Velocity Tests** (0.5s)
-- ✅ PASS **Energy Conditions Tests** (0.3s)
-- ✅ PASS **C1 Segments Tests** (0.2s)
-- ✅ PASS **C2 Segments Strict Tests** (0.2s)
-- ✅ PASS **C2 Curvature Proxy Tests** (0.2s)
-- ✅ PASS **SegWave Core Math Tests** (8.2s)
-- ✅ PASS **Multi-Ring Validation Tests** (6.4s)
-- ✅ PASS **SSZ Kernel Tests** (6.4s)
-- ✅ PASS **SSZ Invariants Tests** (7.0s)
-- ✅ PASS **Segmenter Tests** (6.4s)
-- ✅ PASS **Cosmo Fields Tests** (6.8s)
-- ✅ PASS **Cosmo Multibody Tests** (8.5s)
-- ✅ PASS **Data Validation Tests** (6.3s)
-- ✅ PASS **Cosmos Multi-Body Sigma Tests** (7.8s)
-- ✅ PASS **SSZ Complete Analysis** (116.1s)
-- ✅ PASS **Rapidity Equilibrium Analysis (0/0 solution demo)** (2.2s)
-- ✅ PASS **Perfect Paired Test (All Findings Framework)** (3.2s)
-- ✅ PASS **SSZ Theory Predictions** (3.7s)
-- ✅ PASS **G79 Analysis** (2.8s)
-- ✅ PASS **Cygnus X Analysis** (3.4s)
-- ✅ PASS **Paper Export Tools** (4.4s)
-- ✅ PASS **Final Validation** (0.1s)
+- ✅ PASS **PPN Exact Tests** (0.1s)
+- ✅ PASS **Dual Velocity Tests** (0.2s)
+- ✅ PASS **Energy Conditions Tests** (0.1s)
+- ✅ PASS **C1 Segments Tests** (0.1s)
+- ✅ PASS **C2 Segments Strict Tests** (0.1s)
+- ✅ PASS **C2 Curvature Proxy Tests** (0.1s)
+- ✅ PASS **SegWave Core Math Tests** (6.8s)
+- ✅ PASS **Multi-Ring Validation Tests** (11.6s)
+- ✅ PASS **SSZ Kernel Tests** (9.1s)
+- ✅ PASS **SSZ Invariants Tests** (5.9s)
+- ✅ PASS **Segmenter Tests** (6.1s)
+- ✅ PASS **Cosmo Fields Tests** (5.8s)
+- ✅ PASS **Cosmo Multibody Tests** (7.4s)
+- ✅ PASS **Data Validation Tests** (6.0s)
+- ✅ PASS **Cosmos Multi-Body Sigma Tests** (7.9s)
+- ✅ PASS **SSZ Complete Analysis** (96.5s)
+- ✅ PASS **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.6s)
+- ✅ PASS **Perfect Paired Test (All Findings Framework)** (2.9s)
+- ✅ PASS **SSZ Theory Predictions** (2.5s)
+- ✅ PASS **G79 Analysis** (2.9s)
+- ✅ PASS **Cygnus X Analysis** (2.2s)
+- ✅ PASS **Paper Export Tools** (5.4s)
+- ✅ PASS **Final Validation** (0.2s)
 
 ---
 

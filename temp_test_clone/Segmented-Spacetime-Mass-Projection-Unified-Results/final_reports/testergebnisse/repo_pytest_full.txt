@@ -1,0 +1,13 @@
+### CMD ###
+H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\.venv\Scripts\python.exe -m pytest -q --disable-warnings --maxfail=999 --junitxml=H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\testergebnisse\2025-10-17_gaia_ssz_real\repo_pytest_full.xml
+
+### STDOUT ###
+............................                                             [100%]
+- generated xml file: H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\testergebnisse\2025-10-17_gaia_ssz_real\repo_pytest_full.xml -
+
+
+### STDERR ###
+
+
+### RETURN CODE ###
+0

@@ -54,17 +54,56 @@ g^{(1)}_{\mu\nu}(r), & r > r_{\text{seg}} \\
 
 If \(\gamma_{\text{seg}}(r)\) varies smoothly, the interface forms a **logarithmic spiral transition**—the mathematical representation of the “Normal Clock” geometry.
 
-### 2.3 Broken Reciprocity
-Inside–outside observers experience **asymmetric time flow**:
+### 2.3 Causality, Reciprocity, and Information Flow
 
+**CRITICAL DISTINCTION (Casu & Wrede 2025):**
+
+1. **Causality is intact in both directions**  
+   Radiation from g^(1) entering g^(2) appears blueshifted inside the slow domain.  
+   Radiation leaving g^(2) appears redshifted when observed from g^(1).  
+   → Causal contact exists **two-way at field level**.
+
+2. **Reciprocity of clock comparison is broken**  
+   Observers in g^(1) and g^(2) use distinct proper-time parameters τ₁ and τ₂.  
+   There is **no common time axis** → they cannot perform symmetric clock synchronization.
+
+3. **Information asymmetry**  
+   Interaction is **two-way at field level**, but **one-way at clock reconstruction level**:  
+   - g^(1) observers can send signals into g^(2), but  
+   - all information they receive back is **filtered through** γ_seg(r).  
+   - g^(1) **cannot reconstruct** the internal τ₂-time history of g^(2), only its projection.
+
+**Mathematical summary:**
 \[
 \begin{aligned}
-\text{For outer observer: } & \dot\tau_{\text{in}} < \dot\tau_{\text{out}} \Rightarrow E_{\text{in}}\downarrow, \nu_{\text{in}}\downarrow \\
-\text{For inner observer: } & \dot\tau_{\text{out}} > \dot\tau_{\text{in}} \Rightarrow E_{\text{out}}\uparrow, \nu_{\text{out}}\uparrow
+\text{For outer observer (g}^{(1)}\text{): } & \dot\tau_{\text{in}} < \dot\tau_{\text{out}} \Rightarrow E_{\text{in}}\downarrow, \nu_{\text{in}}\downarrow \\
+\text{For inner observer (g}^{(2)}\text{): } & \dot\tau_{\text{out}} > \dot\tau_{\text{in}} \Rightarrow E_{\text{out}}\uparrow, \nu_{\text{out}}\uparrow
 \end{aligned}
 \]
 
 This asymmetry causes **frequency redistribution** across the interface (redshift outward, blueshift inward).
+
+### 2.4 Quantum Measurement and the g^(2) ⊂ g^(1) Embedding
+
+**Key point:** g^(2) is not an ontologically separate spacetime, but a **nested sub-metric** inside g^(1).
+
+**Quantum structure:**
+- A laboratory in g^(1) constructs measurement operators with the g^(1) time parameter τ₁.
+- These operators **never access** the internal τ₂ directly.
+- They only measure the **γ_seg-filtered projection** of g^(2) states back into g^(1).
+
+**Projection rules:**
+\[
+\begin{aligned}
+T_{\text{obs},g^{(1)}}(r) &= \frac{T_{\text{internal},g^{(2)}}(r)}{\gamma_{\text{seg}}(r)}, \\
+\nu_{\text{obs},g^{(1)}}(r) &= \nu_{\text{internal},g^{(2)}}(r) \cdot \gamma_{\text{seg}}(r), \\
+u_{\text{obs},g^{(1)}}(r) &= \frac{u_{\text{internal},g^{(2)}}(r)}{\gamma_{\text{seg}}^4(r)}.
+\end{aligned}
+\]
+
+**Consequence:**  
+QM does not "fail to reach" g^(2), but it only sees an **effective, coarse-grained version** after the signal has crossed the γ_seg interface.  
+The internal slow-time evolution in g^(2) remains **inaccessible** to g^(1) observers.
 
 ---
 
@@ -153,43 +192,46 @@ Slow time (high curvature) → cold, dense → radio/mm
 Fast time (low curvature) → hot, diffuse → optical/IR
 Momentum ∝ γ_seg^-1 | Energy ∝ γ_seg^-1 | Expansion velocity ∝ γ_seg^-1/2
 
-du hast recht — das **Summary** am Ende war zu knapp. Hier ist eine **vollständige, eigenständige Zusammenfassung**, die Lino direkt ins Repo packen kann. Ich ergänze außerdem eine **Windsurf-Loop-Skizze** und eine **Beispiel-Config**.
+---
+
+# Complete Implementation Summary
+
+## A) Core Principle
+
+**Segmented Spacetime** describes gravitation as **spatially varying temporal density** γ_seg(x,t) = dτ/dt with 0 < γ_seg ≤ 1.
+
+- **Inner segments:** slower time, higher curvature, **colder & denser**
+- **Outer segments:** faster time, lower curvature, **hotter & more diffuse**
+
+**Nested metric:**
+\[
+g_{\mu\nu}^{(2)} = \gamma_{\text{seg}}^{2}\, g_{\mu\nu}^{(1)}, \qquad g^{(2)} \subset g^{(1)}
+\]
+
+**Potential and gradient:**
+\[
+\Phi(r) \propto -\int \frac{1-\gamma_{\text{seg}}(r)}{r^{2}}\,dr, \qquad \frac{d\gamma_{\text{seg}}}{dr} < 0
+\]
+
+**First-order scalings:**
+\[
+t_{\text{local}} = \gamma_{\text{seg}}\,t, \quad
+v_{\text{exp}} \propto \gamma_{\text{seg}}^{-1/2}, \quad
+E_{\text{eff}} \propto \gamma_{\text{seg}}^{-1}, \quad
+p_{\text{obs}} = \frac{M v_{\text{exp}}^{2}}{R}
+\]
+
+**Observable signatures (G79.29+0.46):**
+
+1. Velocity excess Δv ~ 5 km/s above wind-bubble models
+2. **Thermal inversion:** cold (20–80 K) gas coexisting inside ionized region
+3. **Radio–molecule overlap:** CO, NH₃ emission interior to IR shell
+
+→ All consistent with **time-density gradient** rather than pure radiation/shock layering.
 
 ---
 
-# Complete Summary (drop-in)
-
-## A) Kernprinzip (1-Seiter)
-
-**Segmentierte Raumzeit** beschreibt Gravitation als **räumlich variierende zeitliche Dichte** (\gamma_{\text{seg}}(x,t)=d\tau/dt) mit (0<\gamma_{\text{seg}}\le 1).
-Innere Segmente: **langsamere Zeit**, höhere Krümmung, **kälter & dichter**; äußere Segmente: **schnellere Zeit**, geringere Krümmung, **heißer & diffuser**.
-
-* **Verschachtelte Metrik:**
-  [
-  g_{\mu\nu}^{(2)}=\gamma_{\text{seg}}^{2},g_{\mu\nu}^{(1)},\qquad g^{(2)}\subset g^{(1)}.
-  ]
-* **Potenzial/Gradient:**
-  [
-  \Phi(r)\propto-\int\frac{1-\gamma_{\text{seg}}(r)}{r^{2}},dr,\qquad \frac{d\gamma_{\text{seg}}}{dr}<0.
-  ]
-* **Skalierungen (erste Ordnung):**
-  [
-  t_{\text{local}}=\gamma_{\text{seg}},t,\quad
-  v_{\text{exp}}\propto \gamma_{\text{seg}}^{-1/2},\quad
-  E_{\text{eff}}\propto \gamma_{\text{seg}}^{-1},\quad
-  p_{\text{obs}}=\frac{M v_{\text{exp}}^{2}}{R}.
-  ]
-
-**Beobachtbare Signaturen (G79.29+0.46):**
-
-* (\Delta v\sim 5~\mathrm{km,s^{-1}}) über Wind-Bubble-Modellen.
-* **Thermische Inversion:** kalt (20–80 K) **innen** koexistent mit ionisiertem Gas.
-* **Radio–Molekül-Overlap** (CO, NH(_3)) **innen** der IR-Schale.
-  → alles konsistent mit **Zeitdichte-Gradient** statt reinem Strahlungs-/Schock-Layering.
-
----
-
-## B) Beobachtungs-Mapping (Zonen)
+## B) Observational Mapping (Zones)
 
 | Zone      | Tracer                        |                         (T) | Zeitfluss                                 |
 | --------- | ----------------------------- | --------------------------: | ----------------------------------------- |

@@ -1,0 +1,12 @@
+scripts usr/share/segspace/
+ci usr/share/segspace/
+configs usr/share/segspace/
+models usr/share/segspace/
+experiments usr/share/segspace/
+out usr/share/segspace/
+agent_out usr/share/segspace/
+vfall_out usr/share/segspace/
+reports usr/share/segspace/
+final_reports usr/share/segspace/
+testergebnisse usr/share/segspace/
+data usr/share/segspace/
