@@ -149,7 +149,10 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 **One command install:**
 
 ```bash
-# Windows
+# Windows (Option 1 - Recommended)
+.\install.bat
+
+# Windows (Option 2 - PowerShell)
 .\install.ps1
 
 # Linux/macOS/WSL
@@ -158,6 +161,9 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 
 **Duration:** ~2 minutes  
 **What it does:** Env + deps + tests
+
+> ⚠️ **IMPORTANT:** Always run `.\CLEAR_CACHE.bat` (or `.sh`) before tests!  
+> See [PYTEST_CACHE_PROBLEM_SOLUTION.md](PYTEST_CACHE_PROBLEM_SOLUTION.md)
 
 </td>
 </tr>
@@ -525,19 +531,24 @@ Both results validate model:
 ### Quick Install
 
 <details>
-<summary><b>Windows (PowerShell)</b></summary>
+<summary><b>Windows</b></summary>
 
 ```powershell
-# Clone repository
+# Clone and enter
 git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results.git
 cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
-# One-command install
-.\install.ps1
+# One-command install (choose one):
+.\install.bat      # Recommended (no admin rights, no Execution Policy issues)
+# OR
+.\install.ps1      # PowerShell version (more features)
 
 # Activate environment
 .\.venv\Scripts\activate
 
+# IMPORTANT: Clear cache before running tests!
+.\CLEAR_CACHE.bat
+```
 # Verify
 python perfect_paired_test.py
 ```
@@ -553,11 +564,14 @@ git clone https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unifi
 cd Segmented-Spacetime-Mass-Projection-Unified-Results
 
 # One-command install
-chmod +x install.sh
+chmod +x install.sh CLEAR_CACHE.sh
 ./install.sh
 
 # Activate environment
 source .venv/bin/activate
+
+# IMPORTANT: Clear cache before running tests!
+./CLEAR_CACHE.sh
 
 # Verify
 python perfect_paired_test.py
