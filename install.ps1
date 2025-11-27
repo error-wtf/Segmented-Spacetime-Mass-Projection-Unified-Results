@@ -46,13 +46,35 @@ python run_ssz_validation.py
 if ($LASTEXITCODE -eq 0) {
     Write-Host "  ✓ Validation passed!" -ForegroundColor Green
 } else {
-    Write-Host "  ⚠ Validation had issues (exit code: $LASTEXITCODE)" -ForegroundColor Yellow
+    Write-Host "  Validation had issues (exit code: $LASTEXITCODE)" -ForegroundColor Yellow
 }
 
 # Summary
 Write-Host ""
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host "INSTALLATION COMPLETE" -ForegroundColor Cyan
+Write-Host "="*80 -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Need help? Check out:"
+Write-Host "  • README.md"
+Write-Host "  • INSTALL_README.md"
+Write-Host "  • TEST_SUITE_README.md"
+Write-Host ""
+Write-Host "="*80 -ForegroundColor Yellow
+Write-Host "  IMPORTANT: PYTEST CACHE WARNING" -ForegroundColor Yellow
+Write-Host "="*80 -ForegroundColor Yellow
+Write-Host ""
+Write-Host "ALWAYS run .\CLEAR_CACHE.bat BEFORE running tests!" -ForegroundColor Red
+Write-Host ""
+Write-Host "Why? Pytest caches old file versions and can cause false test failures." -ForegroundColor White
+Write-Host "The cache must be cleared to ensure tests use the current code." -ForegroundColor White
+Write-Host ""
+Write-Host "Correct workflow:" -ForegroundColor Green
+Write-Host "  1. .\CLEAR_CACHE.bat       # Clear cache first" -ForegroundColor Cyan
+Write-Host "  2. python run_full_suite.py  # Then run tests" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "See PYTEST_CACHE_PROBLEM_SOLUTION.md for details." -ForegroundColor White
+Write-Host ""
 Write-Host "="*80 -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Available Commands:" -ForegroundColor Yellow
