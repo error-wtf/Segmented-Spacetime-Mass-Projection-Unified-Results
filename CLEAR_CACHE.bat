@@ -14,28 +14,26 @@ if %errorlevel% equ 0 (
 ) else (
     echo   ^> No Python processes running
 )
-echo.
 
-REM 2. Delete __pycache__ directories
-echo [2/4] Deleting __pycache__ directories...
+echo [2/5] Deleting .pytest_cache directories...
+for /d /r . %%d in (.pytest_cache) do @if exist "%%d" (
+    echo   ^> Deleting: %%d
+    rd /s /q "%%d" 2>nul
+)
+
+echo [3/5] Deleting __pycache__ directories...
 for /d /r . %%d in (__pycache__) do @if exist "%%d" (
     echo   ^> Deleting: %%d
     rd /s /q "%%d" 2>nul
 )
-echo   ^> Done
-echo.
 
-REM 3. Delete .pyc files
-echo [3/4] Deleting .pyc files...
+echo [4/5] Deleting .pyc files...
 del /s /q *.pyc 2>nul
-echo   ^> Done
-echo.
 
-REM 4. Delete .pyo files
-echo [4/4] Deleting .pyo files...
-del /s /q *.pyo 2>nul
-echo   ^> Done
-echo.
+echo [5/5] Deleting test-specific caches...
+if exist "tests\.pytest_cache" rd /s /q "tests\.pytest_cache" 2>nul
+if exist "tests\cosmos\.pytest_cache" rd /s /q "tests\cosmos\.pytest_cache" 2>nul
+if exist "scripts\tests\.pytest_cache" rd /s /q "scripts\tests\.pytest_cache" 2>nul
 
 REM 5. Delete pytest cache
 echo [5/5] Deleting pytest cache directories...
