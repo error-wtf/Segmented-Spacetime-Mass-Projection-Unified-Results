@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-11-27 01:49:19
+**Date:** 2025-11-27 02:14:45
 
 ## Overview
 
@@ -10,8 +10,8 @@
 - **Passed:** 23
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 181.5s
-- **Total Suite Time:** 227.5s
+- **Total Test Time:** 183.8s
+- **Total Suite Time:** 229.4s
 
 ## Physics Test Results
 
@@ -21,23 +21,23 @@
 - **C1 Segments Tests:** ✅ PASS (0.1s)
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (6.8s)
-- **Multi-Ring Validation Tests:** ✅ PASS (11.6s)
-- **SSZ Kernel Tests:** ✅ PASS (9.1s)
-- **SSZ Invariants Tests:** ✅ PASS (5.9s)
-- **Segmenter Tests:** ✅ PASS (6.1s)
-- **Cosmo Fields Tests:** ✅ PASS (5.8s)
-- **Cosmo Multibody Tests:** ✅ PASS (7.4s)
-- **Data Validation Tests:** ✅ PASS (6.0s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (7.9s)
-- **SSZ Complete Analysis:** ✅ PASS (96.5s)
+- **SegWave Core Math Tests:** ✅ PASS (6.7s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.0s)
+- **SSZ Kernel Tests:** ✅ PASS (6.1s)
+- **SSZ Invariants Tests:** ✅ PASS (6.3s)
+- **Segmenter Tests:** ✅ PASS (6.2s)
+- **Cosmo Fields Tests:** ✅ PASS (6.5s)
+- **Cosmo Multibody Tests:** ✅ PASS (7.8s)
+- **Data Validation Tests:** ✅ PASS (6.2s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (7.3s)
+- **SSZ Complete Analysis:** ✅ PASS (106.4s)
 - **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.6s)
 - **Perfect Paired Test (All Findings Framework):** ✅ PASS (2.9s)
 - **SSZ Theory Predictions:** ✅ PASS (2.5s)
-- **G79 Analysis:** ✅ PASS (2.9s)
+- **G79 Analysis:** ✅ PASS (2.8s)
 - **Cygnus X Analysis:** ✅ PASS (2.2s)
-- **Paper Export Tools:** ✅ PASS (5.4s)
-- **Final Validation:** ✅ PASS (0.2s)
+- **Paper Export Tools:** ✅ PASS (5.2s)
+- **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
 > Multi-Ring Validation Tests (11 tests) validate real astronomical datasets.
