@@ -88,7 +88,7 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 
 ## 🌟 NEW: Theory of Everything
 
-**[→ 5-Page Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** | **[→ Complete 60+ Page Report](SSZ_COMPLETE_FINAL_REPORT.md)** | **[→ 11-Step Validation](UNIFIED_VALIDATION_README.md)**
+**[→ 5-Page Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** | **[→ Complete 60+ Page Report](SSZ_COMPLETE_FINAL_REPORT.md)** | **[→ 11-Step Validation](UNIFIED_VALIDATION_README.md)** | **[→ ToE Validation Status](TOE_VALIDATION_STATUS.md)**
 
 **SSZ unifies THREE fundamental aspects of reality through discrete φ-based geometry:**
 
