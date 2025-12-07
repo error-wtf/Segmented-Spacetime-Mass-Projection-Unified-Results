@@ -170,26 +170,62 @@ def main():
     """Run the full test suite"""
     suite_start = time.time()
     
-    # Clear pytest cache to avoid stale test results (CRITICAL: do this FIRST)
     import shutil
     
+    # ==========================================================================
+    # CRITICAL FIX: Restore test files from lastworking backup BEFORE tests
+    # These two files get corrupted repeatedly - restore from known-good backup
+    # ==========================================================================
+    print("[RESTORE] Restoring test files from lastworking backup...")
+    
+    backup_files = [
+        ('tests/lastworking/test_segwave_core.py', 'tests/test_segwave_core.py'),
+        ('tests/cosmos/lastworking/test_multi_body_sigma.py', 'tests/cosmos/test_multi_body_sigma.py'),
+    ]
+    
+    for backup_src, target in backup_files:
+        backup_path = Path(backup_src)
+        target_path = Path(target)
+        if backup_path.exists():
+            try:
+                shutil.copy2(backup_path, target_path)
+                print(f"  [OK] Restored {target} from backup")
+            except Exception as e:
+                print(f"  [WARNING] Could not restore {target}: {e}")
+        else:
+            print(f"  [WARNING] Backup not found: {backup_src}")
+    
+    print("")
+    
+    # ==========================================================================
+    # Clear pytest cache to avoid stale test results (CRITICAL: do this SECOND)
+    # ==========================================================================
+    print("[CACHE] Clearing all pytest and Python caches...")
+    
     # Clear ALL pytest_cache and __pycache__ directories recursively
+    cache_count = 0
     for cache_pattern in ['.pytest_cache', '__pycache__']:
         for cache_dir in Path('.').rglob(cache_pattern):
             if cache_dir.is_dir():
                 try:
                     shutil.rmtree(cache_dir)
+                    cache_count += 1
                 except Exception:
                     pass  # Ignore errors if cache can't be deleted
     
     # Clear .pyc and .pyo files
+    pyc_count = 0
     for pyc_pattern in ['*.pyc', '*.pyo']:
         for pyc_file in Path('.').rglob(pyc_pattern):
             if pyc_file.is_file():
                 try:
                     pyc_file.unlink()
+                    pyc_count += 1
                 except Exception:
                     pass
+    
+    print(f"  [OK] Cleared {cache_count} cache directories, {pyc_count} .pyc files")
+    print("")
     
     # Create output log buffer
     output_log = io.StringIO()

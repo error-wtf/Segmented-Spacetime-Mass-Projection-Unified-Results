@@ -1,6 +1,6 @@
 # SSZ Suite - Summary Output
 
-**Generated:** 2025-12-07 05:36:03
+**Generated:** 2025-12-07 06:02:07
 
 ---
 
@@ -10,8 +10,8 @@
 - **Passed:** 25
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 180.9s
-- **Total Suite Time:** 222.8s
+- **Total Test Time:** 184.3s
+- **Total Suite Time:** 233.5s
 
 ## Test Details
 
@@ -21,23 +21,23 @@
 - ✅ **C1 Segments Tests** (0.1s)
 - ✅ **C2 Segments Strict Tests** (0.1s)
 - ✅ **C2 Curvature Proxy Tests** (0.1s)
-- ✅ **SegWave Core Math Tests** (6.2s)
-- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.4s)
+- ✅ **SegWave Core Math Tests** (6.7s)
+- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.5s)
 - ✅ **Perfect Energy Formulas Demo** (1.3s)
-- ✅ **Multi-Ring Validation Tests** (5.3s)
-- ✅ **SSZ Kernel Tests** (5.3s)
-- ✅ **SSZ Invariants Tests** (5.8s)
-- ✅ **Segmenter Tests** (5.8s)
-- ✅ **Cosmo Fields Tests** (5.3s)
-- ✅ **Cosmo Multibody Tests** (6.6s)
-- ✅ **Data Validation Tests** (5.4s)
-- ✅ **Cosmos Multi-Body Sigma Tests** (6.4s)
-- ✅ **SSZ Complete Analysis** (110.6s)
+- ✅ **Multi-Ring Validation Tests** (5.1s)
+- ✅ **SSZ Kernel Tests** (5.7s)
+- ✅ **SSZ Invariants Tests** (6.0s)
+- ✅ **Segmenter Tests** (5.6s)
+- ✅ **Cosmo Fields Tests** (5.7s)
+- ✅ **Cosmo Multibody Tests** (6.9s)
+- ✅ **Data Validation Tests** (5.5s)
+- ✅ **Cosmos Multi-Body Sigma Tests** (7.6s)
+- ✅ **SSZ Complete Analysis** (106.2s)
 - ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.2s)
-- ✅ **Perfect Paired Test (All Findings Framework)** (2.9s)
-- ✅ **SSZ Theory Predictions** (2.3s)
-- ✅ **G79 Analysis** (2.6s)
-- ✅ **Cygnus X Analysis** (2.1s)
+- ✅ **Perfect Paired Test (All Findings Framework)** (4.1s)
+- ✅ **SSZ Theory Predictions** (4.1s)
+- ✅ **G79 Analysis** (3.9s)
+- ✅ **Cygnus X Analysis** (2.5s)
 - ✅ **Paper Export Tools** (4.8s)
 - ✅ **Final Validation** (0.1s)
 
