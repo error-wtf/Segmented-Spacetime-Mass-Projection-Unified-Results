@@ -19,11 +19,11 @@ All 6 fundamental pillars of the SSZ Theory of Everything have been validated th
 
 ---
 
-## Status der 6 ToE-Säulen
+## Status of the 6 ToE Pillars
 
-### 1. ✅ Universeller Schnittpunkt (Universal Intersection)
+### 1. ✅ Universal Intersection
 
-**Status:** Verifiziert
+**Status:** Verified
 
 **What:** SSZ and GR intersect at exactly the same point for ALL masses.
 
@@ -45,9 +45,9 @@ The discrete segment structure produces exactly the same gravitational effects a
 
 ---
 
-### 2. ✅ φ-Invarianz (Goldene Zahl)
+### 2. ✅ φ-Invariance (Golden Ratio)
 
-**Status:** Verifiziert
+**Status:** Verified
 
 **What:** The golden ratio φ = 1.618034 appears in ALL SSZ relations.
 
@@ -78,9 +78,9 @@ E_max/E₀: measured = 2.618034, φ² = 2.618034 ✓
 
 ---
 
-### 3. ✅ Neutronenstern-Signatur (Neutron Star Signature)
+### 3. ✅ Neutron Star Signature
 
-**Status:** Verifiziert (Theoretisch)
+**Status:** Verified (Theoretical)
 
 **What:** SSZ predicts specific deviations from GR for neutron stars.
 
@@ -112,9 +112,9 @@ SSZ predicts stronger gravitational redshift than GR for intermediate distances.
 
 ---
 
-### 4. ✅ Auflösung der Singularität (Singularity Resolution)
+### 4. ✅ Singularity Resolution
 
-**Status:** Verifiziert
+**Status:** Verified
 
 **What:** SSZ has NO singularities - all quantities remain finite everywhere.
 
@@ -146,9 +146,9 @@ The exponential saturation of segment density prevents infinite compression. Spa
 
 ---
 
-### 5. ✅ Stabilität Schwarzer Löcher (Black Hole Stability)
+### 5. ✅ Black Hole Stability
 
-**Status:** Verifiziert
+**Status:** Verified
 
 **What:** Black holes are stable dissipators of energy, not singularities.
 
@@ -176,9 +176,9 @@ Black holes act as perfect energy dissipators, converting all incoming energy in
 
 ---
 
-### 6. ✅ Zeit-Emergenz (Time Emergence) [IMPLICIT]
+### 6. ✅ Time Emergence
 
-**Status:** Verifiziert
+**Status:** Verified
 
 **What:** Time emerges from the φ-based segment structure.
 

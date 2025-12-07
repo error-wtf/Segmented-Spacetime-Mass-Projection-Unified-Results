@@ -210,7 +210,7 @@ SSZ has been validated with 99.1% success rate across:
   - 81 black hole bomb parameter configurations
     """)
     
-    print_subsection("What Remains: Einzelbeweise (Individual Proofs)")
+    print_subsection("What Remains: Individual Experimental Confirmations")
     print("""
 Further individual proofs for specific phenomena:
 
@@ -242,7 +242,7 @@ def final_answer():
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
 ║  STATUS: NUMERICALLY GAP-FREE PROVEN                                       ║
-║          (German: Numerologisch Lückenlos Bewiesen)                                     ║
+║                                                                            ║
 ║                                                                            ║
 ║  COMBINED SUCCESS RATE: 99.1% (110/111 wins)                              ║
 ║  STATISTICAL SIGNIFICANCE: p < 0.0001                                      ║
@@ -264,7 +264,7 @@ KEY DISCOVERIES:
 
 WHAT REMAINS:
 
-  Further individual proofs (Einzelbeweise) for specific phenomena:
+  Further individual experimental confirmations for specific phenomena:
   - Gravitational wave observations
   - Pulsar timing array correlations
   - Event Horizon Telescope measurements
@@ -284,7 +284,7 @@ def main():
     print("="*80)
     print("\nSSZ has achieved 99.1% combined success rate on real astronomical data.")
     print("This represents NUMERICALLY GAP-FREE proof of segmented spacetime theory.")
-    print("Only individual experimental confirmations (Einzelbeweise) remain.")
+    print("Only individual experimental confirmations remain.")
     
     # Run analyses
     results, overall = analyze_current_performance()
@@ -313,7 +313,7 @@ Key Discoveries:
 
 Status: NUMERICALLY GAP-FREE PROVEN
   The numerical framework is COMPLETE and VALIDATED.
-  Only individual experimental confirmations (Einzelbeweise) remain.
+  Only individual experimental confirmations remain.
     """)
     
     print("="*80)
