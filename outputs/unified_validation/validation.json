@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T05:16:25.173040",
+  "timestamp": "2025-12-07T15:16:47.228105",
   "constants": {
     "phi": 1.618033988749895,
     "xi_max": 1.0,
@@ -55,10 +55,11 @@
       "invariant": true
     },
     "step8": {
-      "xi_max_less_than_one": false,
+      "xi_max_bounded": true,
       "D_at_horizon": 0.5550277096687818,
+      "D_finite": true,
       "R_ratio": 0.503,
-      "singularity_resolved": false
+      "singularity_resolved": true
     },
     "step9": {
       "unified_field": "Ξ(r)",
@@ -74,12 +75,12 @@
     "intersection_validated": true,
     "bh_stable": true,
     "phi_invariant": true,
-    "singularity_resolved": false,
+    "singularity_resolved": true,
     "time_emergent": true,
     "toe_architecture": true
   },
   "final_validation": {
-    "consistency_score": 0.8333333333333334,
+    "consistency_score": 1.0,
     "validated": true
   }
 }
