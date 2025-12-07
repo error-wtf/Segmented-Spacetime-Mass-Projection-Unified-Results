@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-12-07 06:02:07
+**Date:** 2025-12-07 06:11:54
 
 ## Overview
 
@@ -10,35 +10,35 @@
 - **Passed:** 25
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 184.3s
-- **Total Suite Time:** 233.5s
+- **Total Test Time:** 192.9s
+- **Total Suite Time:** 235.8s
 
 ## Physics Test Results
 
 - **PPN Exact Tests:** ✅ PASS (0.1s)
-- **Dual Velocity Tests:** ✅ PASS (0.2s)
+- **Dual Velocity Tests:** ✅ PASS (0.4s)
 - **Energy Conditions Tests:** ✅ PASS (0.1s)
 - **C1 Segments Tests:** ✅ PASS (0.1s)
-- **C2 Segments Strict Tests:** ✅ PASS (0.1s)
+- **C2 Segments Strict Tests:** ✅ PASS (0.2s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
-- **SegWave Core Math Tests:** ✅ PASS (6.7s)
+- **SegWave Core Math Tests:** ✅ PASS (7.2s)
 - **Energy Formulas Minimal Test (4 validation objects):** ✅ PASS (0.5s)
-- **Perfect Energy Formulas Demo:** ✅ PASS (1.3s)
-- **Multi-Ring Validation Tests:** ✅ PASS (5.1s)
-- **SSZ Kernel Tests:** ✅ PASS (5.7s)
-- **SSZ Invariants Tests:** ✅ PASS (6.0s)
-- **Segmenter Tests:** ✅ PASS (5.6s)
-- **Cosmo Fields Tests:** ✅ PASS (5.7s)
-- **Cosmo Multibody Tests:** ✅ PASS (6.9s)
-- **Data Validation Tests:** ✅ PASS (5.5s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (7.6s)
-- **SSZ Complete Analysis:** ✅ PASS (106.2s)
-- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.2s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (4.1s)
-- **SSZ Theory Predictions:** ✅ PASS (4.1s)
-- **G79 Analysis:** ✅ PASS (3.9s)
-- **Cygnus X Analysis:** ✅ PASS (2.5s)
-- **Paper Export Tools:** ✅ PASS (4.8s)
+- **Perfect Energy Formulas Demo:** ✅ PASS (1.4s)
+- **Multi-Ring Validation Tests:** ✅ PASS (6.5s)
+- **SSZ Kernel Tests:** ✅ PASS (6.3s)
+- **SSZ Invariants Tests:** ✅ PASS (6.7s)
+- **Segmenter Tests:** ✅ PASS (6.0s)
+- **Cosmo Fields Tests:** ✅ PASS (5.8s)
+- **Cosmo Multibody Tests:** ✅ PASS (7.1s)
+- **Data Validation Tests:** ✅ PASS (5.3s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (6.6s)
+- **SSZ Complete Analysis:** ✅ PASS (115.1s)
+- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.6s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (3.0s)
+- **SSZ Theory Predictions:** ✅ PASS (2.5s)
+- **G79 Analysis:** ✅ PASS (2.8s)
+- **Cygnus X Analysis:** ✅ PASS (2.3s)
+- **Paper Export Tools:** ✅ PASS (5.1s)
 - **Final Validation:** ✅ PASS (0.1s)
 
 > **Note:** Technical tests (UTF-8, CLI, MD Print) run silently in background.
