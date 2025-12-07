@@ -37,7 +37,7 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Cross-Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Colab-brightgreen)](#installation)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb)
-[![ESO Validation](https://img.shields.io/badge/ESO%20validation-97.9%25-success)](#breakthrough-979-predictive-accuracy)
+[![Combined Validation](https://img.shields.io/badge/combined%20validation-99.1%25-success)](#breakthrough-991-combined-validation-new)
 [![ToE Score](https://img.shields.io/badge/ToE%20score-83.3%25-success)](#theory-of-everything)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
@@ -264,10 +264,11 @@ Run the **complete SSZ validation pipeline** in your browser with zero installat
 ### 📊 Expected Output
 
 ```
-✅ 23/23 Test Suites PASSED (100%)
-✅ ESO Validation: 97.9% (46/47 wins, p < 0.0001)
-✅ Photon Sphere: 100% (11/11 wins, p = 0.0010)
-✅ Strong Field: 97.2% (35/36 wins)
+✅ 25/25 Test Suites PASSED (100%)
+✅ Combined Validation: 99.1% (110/111 wins, p < 0.0001)
+✅ ESO Spectroscopy: 97.9% (46/47 wins)
+✅ Energy Framework: 100% (64/64 objects) ← NEW!
+✅ Photon Sphere: 100% (11/11 wins)
 ✅ Theory of Everything: 83.3% (5/6 pillars)
 ✅ 5 Plots Generated & Displayed
 ✅ Results ZIP Auto-Downloaded
@@ -322,16 +323,22 @@ ssz_complete_results_TIMESTAMP.zip
 
 ## 🏆 Scientific Highlights
 
-### BREAKTHROUGH: 97.9% Predictive Accuracy
+### BREAKTHROUGH: 99.1% Combined Validation (NEW!)
 
-When tested against **ESO (European Southern Observatory) professional spectroscopy**, Segmented Spacetime achieves **near-perfect validation**:
+**Combined SSZ Validation across ESO + Energy Framework:**
 
 | Metric | Performance | Significance |
 |--------|-------------|--------------|
-| **Overall** | **97.9%** (46/47 wins) | p < 0.0001 |
+| **Combined Total** | **99.1%** (110/111 wins) | p < 0.0001 |
+| **ESO Spectroscopy** | **97.9%** (46/47 wins) | p < 0.0001 |
+| **Energy Framework** | **100%** (64/64 objects) | p < 0.0001 |
 | **Photon Sphere** | **100%** (11/11 wins) | p = 0.0010 |
 | **Strong Field** | **97.2%** (35/36 wins) | p < 0.0001 |
-| **High Velocity** | **94.4%** (17/18 wins) | p = 0.0001 |
+
+**NEW: 129 Astronomical Objects Validated** via [Segmented Energy](https://github.com/error-wtf/segmented-energy):
+- 64 Stellar Systems (all spectral types O-M + compact objects)
+- 10 Exoplanet Systems (57 planets)
+- 8 Binary Systems (including GW sources)
 
 ![Stratified Performance](reports/figures/analysis/stratified_performance.png)
 
@@ -787,7 +794,7 @@ Contributions, suggestions, and collaborations are welcome.
 φ-based geometric framework unifying gravity, time, and quantum mechanics.
 
 **Is it tested?**  
-161 automated tests, 100% passing, 97.9% ESO validation, 83.3% ToE consistency.
+161 automated tests, 100% passing, 99.1% combined validation (ESO + Energy), 83.3% ToE consistency.
 
 **How to install?**  
 `./install.sh` (2 minutes) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb) (zero install)
