@@ -1,6 +1,6 @@
 # SSZ Suite Run Summary - Physics Tests
 
-**Date:** 2025-12-07 04:53:44
+**Date:** 2025-12-07 05:16:15
 
 ## Overview
 
@@ -10,8 +10,8 @@
 - **Passed:** 25
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 191.3s
-- **Total Suite Time:** 233.5s
+- **Total Test Time:** 182.1s
+- **Total Suite Time:** 233.6s
 
 ## Physics Test Results
 
@@ -22,22 +22,22 @@
 - **C2 Segments Strict Tests:** ✅ PASS (0.1s)
 - **C2 Curvature Proxy Tests:** ✅ PASS (0.1s)
 - **SegWave Core Math Tests:** ✅ PASS (6.3s)
-- **Energy Formulas Minimal Test (4 validation objects):** ✅ PASS (0.5s)
-- **Perfect Energy Formulas Demo:** ✅ PASS (1.4s)
-- **Multi-Ring Validation Tests:** ✅ PASS (5.3s)
-- **SSZ Kernel Tests:** ✅ PASS (5.2s)
-- **SSZ Invariants Tests:** ✅ PASS (6.0s)
-- **Segmenter Tests:** ✅ PASS (5.9s)
-- **Cosmo Fields Tests:** ✅ PASS (5.5s)
-- **Cosmo Multibody Tests:** ✅ PASS (6.9s)
-- **Data Validation Tests:** ✅ PASS (5.6s)
-- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (8.7s)
-- **SSZ Complete Analysis:** ✅ PASS (115.3s)
-- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (1.5s)
-- **Perfect Paired Test (All Findings Framework):** ✅ PASS (2.9s)
-- **SSZ Theory Predictions:** ✅ PASS (2.7s)
-- **G79 Analysis:** ✅ PASS (2.4s)
-- **Cygnus X Analysis:** ✅ PASS (2.4s)
+- **Energy Formulas Minimal Test (4 validation objects):** ✅ PASS (0.4s)
+- **Perfect Energy Formulas Demo:** ✅ PASS (1.3s)
+- **Multi-Ring Validation Tests:** ✅ PASS (5.1s)
+- **SSZ Kernel Tests:** ✅ PASS (5.3s)
+- **SSZ Invariants Tests:** ✅ PASS (5.8s)
+- **Segmenter Tests:** ✅ PASS (5.8s)
+- **Cosmo Fields Tests:** ✅ PASS (5.4s)
+- **Cosmo Multibody Tests:** ✅ PASS (6.6s)
+- **Data Validation Tests:** ✅ PASS (5.4s)
+- **Cosmos Multi-Body Sigma Tests:** ✅ PASS (6.7s)
+- **SSZ Complete Analysis:** ✅ PASS (103.5s)
+- **Rapidity Equilibrium Analysis (0/0 solution demo):** ✅ PASS (2.7s)
+- **Perfect Paired Test (All Findings Framework):** ✅ PASS (4.1s)
+- **SSZ Theory Predictions:** ✅ PASS (3.1s)
+- **G79 Analysis:** ✅ PASS (5.6s)
+- **Cygnus X Analysis:** ✅ PASS (2.2s)
 - **Paper Export Tools:** ✅ PASS (5.8s)
 - **Final Validation:** ✅ PASS (0.1s)
 

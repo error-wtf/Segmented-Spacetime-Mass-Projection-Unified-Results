@@ -66,6 +66,12 @@ def load_json(path: Path):
 def figure_stabilization_heatmap(df: pd.DataFrame) -> None:
     subset = df[df['K_segments'] == 64]
     omegas = sorted(subset['Omega0'].unique())
+    
+    # Check if we have data to plot
+    if len(omegas) == 0:
+        print("[WARNING] No data available for K_segments=64, skipping heatmap")
+        return
+    
     fig, axes = plt.subplots(1, len(omegas), figsize=(5 * len(omegas), 4), sharey=True)
     if len(omegas) == 1:
         axes = [axes]
