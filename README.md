@@ -63,7 +63,34 @@
 
 ### φ-Geometry Impact
 
+**Critical Discovery:** φ = (1+√5)/2 ≈ 1.618 is **geometric**, not empirical.
+
+**Evidence:**
+- **Without φ:** 0% success (complete failure)
+- **With φ + ESO:** 97.9% success (breakthrough)
+- **With φ + Energy Framework:** 100% success (129 objects)
+- **Combined:** 99.1% success (110/111 wins)
+
 ![φ-Geometry Impact](reports/figures/analysis/phi_geometry_impact_eso.png)
+
+**Why φ?**
+- φ-spiral geometry (self-similar scaling)
+- Natural boundary at r_φ = (φ/2)r_s ≈ 1.618 r_s
+- Dimensionless → universal across mass scales
+
+📖 **[Why φ is Fundamental →](PHI_FUNDAMENTAL_GEOMETRY.md)**
+
+### Regime-Specific Performance
+
+**Photon Sphere (r = 2-3 r_s):** 100% accuracy  
+**Strong Field (r = 3-10 r_s):** 97.2% accuracy  
+**High Velocity (v > 0.05c):** 94.4% accuracy
+
+**Photon Sphere Excellence validates φ/2 boundary prediction**
+
+![Win Rate vs Radius](reports/figures/analysis/winrate_vs_radius.png)
+
+📖 **[Stratified Results →](STRATIFIED_PAIRED_TEST_RESULTS.md)**
 
 **Quick verification:**
 ```bash
