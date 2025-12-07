@@ -24,6 +24,11 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
   - LBV nebula G79.29+0.46 application
   - Molecular zone predictions
   - Temperature inversion validation
+
+- **⚡ [Segmented Energy](https://github.com/error-wtf/segmented-energy)** ← **NEW!**
+  - N-segment energy discretization
+  - 129 astronomical objects validated
+  - Astropy implementation with full unit support
  
   ---
 
@@ -75,6 +80,11 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
   - LBV nebula G79.29+0.46 application
   - Molecular zone predictions
   - Temperature inversion validation
+
+- **⚡ [Segmented Energy](https://github.com/error-wtf/segmented-energy)** ← **NEW!**
+  - N-segment energy discretization
+  - 129 astronomical objects validated
+  - Astropy implementation with full unit support
 
 ## 🌟 NEW: Theory of Everything
 
