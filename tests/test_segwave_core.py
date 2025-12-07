@@ -43,15 +43,7 @@ class TestQFactor:
         print("Q-FACTOR: Temperature Ratio (beta=1)")
         print("="*80)
         print(f"Configuration:")
-        pr    
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Temperature Only Basic")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
-    print("="*80)
-    int(f"  Current ring: T_curr = {T_curr:.1f} K")
+        print(f"  Current ring: T_curr = {T_curr:.1f} K")
         print(f"  Previous ring: T_prev = {T_prev:.1f} K")
         print(f"  Beta parameter: beta = {beta:.1f}")
         print(f"\nQ-Factor Calculation:")
@@ -212,14 +204,6 @@ class TestVelocityProfile:
     print("="*80)
     print(f"Physical Meaning:")
     print("  • Velocity propagates as v_k = v_(k-1) × q_k^(-alpha/2)")
-    print("="*80)
-        
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Two Shells Alpha One")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • Velocity propagates as v_k = v_{k-1} × q_k^(-α/2)")
     print("="*80)
     def test_two_shells_alpha_one(self):
         """Test two shells with α=1
