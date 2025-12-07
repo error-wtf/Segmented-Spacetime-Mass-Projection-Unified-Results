@@ -29,46 +29,29 @@ class TestQFactor:
     """Tests for q_k computation"""
     
     def test_temperature_only_basic(self):
-        """Test q_k with temperature only, β=1
+        """Test q_k with temperature only, beta=1
         
         Physical Meaning:
-        q_k = (T_curr/T_prev)^β quantifies the energy ratio between successive rings.
-        For β=1, this is simply the temperature ratio.
+        q_k = (T_curr/T_prev)^beta quantifies the energy ratio between successive rings.
+        For beta=1, this is simply the temperature ratio.
         """
         T_curr, T_prev, beta = 80.0, 100.0, 1.0
         q = compute_q_factor(T_curr=T_curr, T_prev=T_prev, beta=beta)
         
         # Physical interpretation
         print("\n" + "="*80)
-        print("Q-FACTOR: Temperature Ratio (β=1)")
+        print("Q-FACTOR: Temperature Ratio (beta=1)")
         print("="*80)
         print(f"Configuration:")
         print(f"  Current ring: T_curr = {T_curr:.1f} K")
-        print(f"  Previou    
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Temperature Only Basic")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
-    print("="*80)
-        
-    # Physical interpretation
-    print("\n" + "="*80)
-    print("Test Temperature Only Basic")
-    print("="*80)
-    print(f"Physical Meaning:")
-    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
-    print("="*80)
-    s ring: T_prev = {T_prev:.1f} K")
-        print(f"  β parameter: {beta:.1f}")
+        print(f"  Previous ring: T_prev = {T_prev:.1f} K")
+        print(f"  Beta parameter: beta = {beta:.1f}")
         print(f"\nQ-Factor Calculation:")
-        print(f"  q_k = (T_curr/T_prev)^β = ({T_curr}/{T_prev})^{beta} = {q:.6f}")
+        print(f"  q_k = (T_curr/T_prev)^beta = ({T_curr}/{T_prev})^{beta} = {q:.6f}")
         print(f"\nPhysical Interpretation:")
-        print(f"  • q_k < 1 indicates cooling between rings")
-        print(f"  • Energy ratio = {q:.1%} of previous ring")
-        print(f"  • Velocity will scale as q_k^(-α/2)")
-        print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
+        print(f"  q_k < 1 indicates cooling between rings")
+        print(f"  Energy ratio = {q:.1%} of previous ring")
+        print(f"  Velocity will scale as q_k^(-alpha/2)")
         print("="*80)
         
         assert q == pytest.approx(0.8, rel=1e-6)
@@ -204,7 +187,7 @@ class TestVelocityProfile:
     print("Test Two Shells Alpha One")
     print("="*80)
     print(f"Physical Meaning:")
-    print(f"  • Velocity propagates as v_k = v_{k-1} × q_k^(-α/2)")
+    print("  • Velocity propagates as v_k = v_(k-1) × q_k^(-alpha/2)")
     print("="*80)
         
     # Physical interpretation
@@ -212,7 +195,15 @@ class TestVelocityProfile:
     print("Test Two Shells Alpha One")
     print("="*80)
     print(f"Physical Meaning:")
-    print(f"  • Velocity propagates as v_k = v_{k-1} × q_k^(-α/2)")
+    print("  • Velocity propagates as v_k = v_(k-1) × q_k^(-alpha/2)")
+    print("="*80)
+        
+    # Physical interpretation
+    print("\n" + "="*80)
+    print("Test Two Shells Alpha One")
+    print("="*80)
+    print(f"Physical Meaning:")
+    print("  • Velocity propagates as v_k = v_(k-1) × q_k^(-alpha/2)")
     print("="*80)
     def test_two_shells_alpha_one(self):
         """Test two shells with α=1
