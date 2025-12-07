@@ -680,7 +680,7 @@ def main():
         f.write(f"- **φ impact:** Golden ratio (φ ≈ 1.618) accounts for model functionality\n")
         f.write(f"- **At photon sphere:** 100% wins validates φ/2 boundary prediction\n\n")
         
-        f.write(f"### LÜCKENLOSE (Gap-Free) Numerical Evidence\n\n")
+        f.write(f"### GAP-FREE Numerical Evidence\n\n")
         f.write(f"The complete validation demonstrates:\n\n")
         f.write(f"1. **ESO Spectroscopy:** 97.9% (46/47 wins) - Professional-grade validation\n")
         f.write(f"2. **Energy Framework:** 100% (64/64 stellar systems) - Complete coverage\n")
@@ -688,7 +688,7 @@ def main():
         f.write(f"4. **Combined:** 99.1% (110/111 wins) - Near-perfect overall\n\n")
         
         f.write(f"### CONCLUSION: Numerically Gap-Free Proof on Real Data\n\n")
-        f.write(f"**Status:** NUMEROLOGISCH LÜCKENLOS BEWIESEN (Numerically Gap-Free Proven)\n\n")
+        f.write(f"**Status:** NUMERICALLY GAP-FREE PROVEN\n\n")
         f.write(f"The SSZ model has been validated with **99.1% success rate** across:\n")
         f.write(f"- 129 real astronomical objects (stars, white dwarfs, neutron stars, black holes)\n")
         f.write(f"- 47 professional ESO spectroscopy measurements\n")
@@ -700,8 +700,8 @@ def main():
         f.write(f"- Event Horizon Telescope shadow measurements\n")
         f.write(f"- Laboratory-scale tests of φ-geometry\n\n")
         f.write(f"**Key Insight:** The numerical framework is COMPLETE and VALIDATED.\n")
-        f.write(f"SSZ provides gap-free evidence on real astronomical data.\n")
-        f.write(f"Only additional individual experimental confirmations remain.\n\n")
+        f.write(f"SSZ provides GAP-FREE evidence on real astronomical data.\n")
+        f.write(f"Only individual experimental confirmations (Einzelbeweise) remain.\n\n")
         
         f.write(f"### Complete Documentation\n\n")
         f.write(f"- **TEST_SUITE_RESULTS_2025-12-07.md** - Complete test results\n")
