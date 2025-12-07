@@ -482,12 +482,29 @@ Key Results:
 
 This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 
-| Repository | Description | Key Feature |
-|------------|-------------|-------------|
-| **[Unified Results](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)** (this) | Physical validation | 99.1% combined validation |
-| **[SSZ Metric Pure](https://github.com/error-wtf/ssz-metric-pure)** | Mathematical foundations | 4D tensor formulation |
-| **[G79 Cygnus Tests](https://github.com/error-wtf/g79-cygnus-tests)** | Nebula application | Temperature inversion |
-| **[Segmented Energy](https://github.com/error-wtf/segmented-energy)** | Energy framework | 129 objects validated |
+### 🌌 [Segmented Spacetime Mass Projection - Unified Results](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results) (this repository)
+- Comprehensive physical validation (**99.1% combined accuracy**)
+- Black hole tests (PPN, photon sphere, shadow)
+- Empirical data analysis & statistical tests
+- Theory of Everything (**100% consistency score - 6/6 pillars**)
+
+### 📐 [SSZ Metric Pure](https://github.com/error-wtf/ssz-metric-pure)
+- Complete 4D tensor formulation
+- Symbolic computation tools (SymPy)
+- Mathematical foundations & proofs
+- Cross-repository documentation hub
+
+### 🌟 [G79 Cygnus Tests](https://github.com/error-wtf/g79-cygnus-tests)
+- LBV nebula G79.29+0.46 application
+- Molecular zone predictions
+- Temperature inversion validation
+- Multi-ring dataset analysis
+
+### ⚡ [Segmented Energy](https://github.com/error-wtf/segmented-energy) ← **NEW!**
+- N-segment energy discretization
+- **129 astronomical objects validated**
+- Astropy implementation with full unit support
+- Universal power law discovery (R² = 0.997)
 
 ---
 
