@@ -27,12 +27,15 @@
 3. [🌌 Theory of Everything](#-theory-of-everything) - 6 pillars, 100% validated
 4. [⚡ Energy Framework](#-energy-framework--universal-power-law) - New discoveries
 5. [🚀 Quick Start](#-quick-start) - Get running in 2 minutes
-6. [💻 Installation](#-installation) - All platforms
-7. [🧪 Testing](#-testing) - 161 automated tests
-8. [📚 Documentation](#-complete-documentation) - Papers, guides, API
-9. [🔗 Related Repositories](#-related-ssz-repositories) - SSZ Research Suite
-10. [❓ FAQ](#-faq) - Common questions
-11. [📜 License & Citation](#-license--citation)
+6. [☁️ Google Colab](#%EF%B8%8F-google-colab---complete-pipeline) - Zero-install browser validation
+7. [💻 Installation](#-installation) - All platforms
+8. [🧪 Testing](#-testing) - 161 automated tests
+9. [📚 Documentation](#-complete-documentation) - Papers, guides, API
+10. [🔗 Related Repositories](#-related-ssz-repositories) - SSZ Research Suite
+11. [📌 Cross-Repository Docs](#-cross-repository-documentation) - Connected analysis
+12. [📝 GAIA/SDSS Note](#-gaia--sdss-real-data-note) - Data documentation
+13. [❓ FAQ](#-faq) - Common questions
+14. [📜 License & Citation](#-license--citation)
 
 ---
 
@@ -57,6 +60,10 @@
 3. **Singularities Resolved:** Finite curvature everywhere (D(r_s) = 0.555)
 4. **Black Holes Stable:** Exponential energy dissipation (η = ∞)
 5. **Time is Emergent:** Arises from φ-based segment resonances
+
+### φ-Geometry Impact
+
+![φ-Geometry Impact](reports/figures/analysis/phi_geometry_impact_eso.png)
 
 **Quick verification:**
 ```bash
@@ -259,6 +266,8 @@ python energy_formulas_minimal_test.py
 - ✅ 5 Publication-ready plots
 - ✅ Auto-downloaded results ZIP
 
+**Issues?** See [COLAB_COMPLETE_SETUP_GUIDE.md](COLAB_COMPLETE_SETUP_GUIDE.md)
+
 ### 💻 Local Installation (2 minutes)
 
 ```bash
@@ -278,6 +287,70 @@ cd Segmented-Spacetime-Mass-Projection-Unified-Results
 python perfect_paired_test.py
 # Expected: "SEG wins: 46/47 (97.9%)"
 ```
+
+---
+
+## ☁️ Google Colab - Complete Pipeline
+
+### One-Click Validation Suite
+
+Run the **complete SSZ validation pipeline** in your browser with zero installation:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results/blob/main/SSZ_Colab_Complete.ipynb)
+
+### What You Get
+
+| Feature | Description |
+|---------|-------------|
+| **Git LFS Setup** | Automatic installation for large files |
+| **Repository Clone** | Full codebase + 427 observations (~100 MB) |
+| **Dependencies** | All Python packages auto-installed |
+| **Cache Clearing** | Fresh bytecode for 100% pass rate |
+| **23 Test Suites** | Complete physics validation |
+| **ESO Validation** | 97.9% accuracy verification |
+| **5 Visualizations** | Generated and displayed inline |
+| **Results Archive** | Auto-downloads ZIP with everything |
+
+### Timeline
+
+| Step | Duration | What Happens |
+|------|----------|--------------|
+| **1. LFS Setup** | ~2 min | Install Git Large File Storage |
+| **2. Clone** | ~2 min | Download repository + large files |
+| **3. Dependencies** | ~2 min | Install Python packages |
+| **4. Cache Clear** | ~1 min | Remove old bytecode (critical!) |
+| **5. Test Suite** | ~20 min | Run 23 test suites + analysis |
+| **6. Plot Generation** | ~2 min | Create 5 key visualizations |
+| **7. Archive & Download** | ~1 min | ZIP creation + auto-download |
+| **Total** | **~25 min** | Complete validation |
+
+### Results ZIP Contents
+
+```
+ssz_complete_results_TIMESTAMP.zip
+├── reports/
+│   ├── RUN_SUMMARY.md           # Executive summary
+│   ├── full-output.md           # Complete log (287 KB)
+│   └── summary-output.md        # Compact summary
+├── reports/figures/analysis/
+│   ├── stratified_performance.png
+│   ├── phi_geometry_impact.png
+│   ├── winrate_vs_radius.png
+│   ├── stratification_robustness.png
+│   └── performance_heatmap.png
+└── All JSON metadata files
+```
+
+### Requirements
+
+- Google Account (free)
+- Modern browser (Chrome, Firefox, Safari)
+- ~25 minutes of time
+- Stable internet connection
+
+**No Python installation needed. No dependencies. No configuration.**
+
+📖 **[Colab Setup Guide →](COLAB_COMPLETE_SETUP_GUIDE.md)**
 
 ---
 
@@ -442,16 +515,43 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 
 ---
 
-## 📝 Additional Notes
+## 📌 Cross-Repository Documentation
 
-### GAIA/SDSS Data Note
+Comprehensive analysis documents connecting all SSZ repositories:
 
-We attempted to run SSZ on GAIA/SDSS catalogs but found:
-- Missing required columns
-- Different semantics than documented
-- Magnitude/distance inconsistencies
+| Document | Description |
+|----------|-------------|
+| **[Mathematical Foundations](https://github.com/error-wtf/ssz-metric-pure/blob/main/01_MATHEMATICAL_FOUNDATIONS.md)** | SSZ mathematical framework |
+| **[Physics Concepts](https://github.com/error-wtf/ssz-metric-pure/blob/main/02_PHYSICS_CONCEPTS.md)** | Physical interpretation |
+| **[Script Architecture](https://github.com/error-wtf/ssz-metric-pure/blob/main/03_SCRIPT_ARCHITECTURE.md)** | Implementation architecture |
+| **[Findings: Unified Results](https://github.com/error-wtf/ssz-metric-pure/blob/main/04_FINDINGS_UNIFIED_RESULTS.md)** | This repository's validation |
+| **[Findings: SSZ Metric Pure](https://github.com/error-wtf/ssz-metric-pure/blob/main/05_FINDINGS_SSZ_METRIC_PURE.md)** | Metric Pure results |
+| **[Findings: G79 Cygnus Tests](https://github.com/error-wtf/ssz-metric-pure/blob/main/06_FINDINGS_G79_CYGNUS_TESTS.md)** | G79 nebula analysis |
 
-The pipeline code is preserved but tests are skipped. See [full explanation](FAQ.md#data--results).
+---
+
+## 📝 GAIA / SDSS Real-Data Note
+
+We initially attempted to run the SSZ pipeline directly on the provided GAIA (and GAIA+SDSS) catalogues. However, the released tables did not match the assumptions of our analysis:
+
+- **Missing columns:** Several columns required by the pipeline were completely missing
+- **Different semantics:** Some fields had different semantics than documented
+- **Scale inconsistencies:** Key quantities (e.g. magnitudes and distances) were off by orders of magnitude compared to our internal consistency checks
+
+Because of this, any attempt to "fill in" the missing columns or rescale the data would have turned the test into a meaningless exercise. We decided instead to:
+
+1. **Keep the GAIA/SDSS pipeline code** in the repository for transparency
+2. **Mark the corresponding test as skipped** in the automated suite
+3. **Explicitly document** that the real GAIA/SDSS tables in their current form are not suitable for a fair SSZ vs. GR comparison
+
+The single skipped test in the full test run therefore reflects this design decision: it documents that we did try to interface with the real GAIA data, but rejected ad-hoc fixes once it became clear that the catalogues do not match the required structure or physical scales.
+
+**Important:** This does NOT affect our validation results. The 99.1% combined validation is based on:
+- **ESO Archive data** (47 professional spectroscopy observations) - ✅ Complete and validated
+- **Energy Framework** (129 astronomical objects) - ✅ Complete and validated
+- **Multi-ring datasets** (G79, Cygnus X) - ✅ Complete and validated
+
+📖 **[Full explanation →](FAQ.md#data--results)**
 
 ---
 
