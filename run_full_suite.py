@@ -338,6 +338,28 @@ def main():
     print_phase_summary("PHASE 2: SEGWAVE TESTS", results)
     
     # =============================================================================
+    # PHASE 2.5: Energy Framework Tests
+    # =============================================================================
+    print_header("PHASE 2.5: ENERGY FRAMEWORK TESTS", "-")
+    
+    energy_tests = [
+        (["python", "test_energies_minimal.py"],
+         "Energy Formulas Minimal Test (4 validation objects)", 30),
+        (["python", "perfect_energy_formulas.py"],
+         "Perfect Energy Formulas Demo", 10),
+    ]
+    
+    for cmd, desc, timeout in energy_tests:
+        if Path(cmd[1]).exists():
+            success, elapsed = run_command(cmd, desc, timeout, check=False)
+            results[desc] = {"success": success, "time": elapsed}
+        else:
+            print(f"  [SKIP] {desc} (file not found: {cmd[1]})")
+    
+    # Print energy framework statistics
+    print_phase_summary("PHASE 2.5: ENERGY FRAMEWORK TESTS", results)
+    
+    # =============================================================================
     # PHASE 3: Multi-Ring Dataset Validation Tests (tests/ directory)
     # =============================================================================
     print_header("PHASE 3: MULTI-RING VALIDATION TESTS", "-")
