@@ -1,6 +1,6 @@
 # SSZ Suite - Summary Output
 
-**Generated:** 2025-12-07 06:52:43
+**Generated:** 2025-12-07 14:17:09
 
 ---
 
@@ -10,8 +10,8 @@
 - **Passed:** 25
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 204.6s
-- **Total Suite Time:** 253.7s
+- **Total Test Time:** 179.1s
+- **Total Suite Time:** 220.0s
 
 ## Test Details
 
@@ -20,26 +20,26 @@
 - ✅ **Energy Conditions Tests** (0.1s)
 - ✅ **C1 Segments Tests** (0.1s)
 - ✅ **C2 Segments Strict Tests** (0.1s)
-- ✅ **C2 Curvature Proxy Tests** (0.2s)
-- ✅ **SegWave Core Math Tests** (7.5s)
-- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.6s)
-- ✅ **Perfect Energy Formulas Demo** (1.1s)
-- ✅ **Multi-Ring Validation Tests** (6.6s)
-- ✅ **SSZ Kernel Tests** (6.4s)
-- ✅ **SSZ Invariants Tests** (6.6s)
-- ✅ **Segmenter Tests** (6.5s)
-- ✅ **Cosmo Fields Tests** (6.6s)
-- ✅ **Cosmo Multibody Tests** (8.2s)
-- ✅ **Data Validation Tests** (6.5s)
-- ✅ **Cosmos Multi-Body Sigma Tests** (8.5s)
-- ✅ **SSZ Complete Analysis** (120.4s)
-- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.5s)
+- ✅ **C2 Curvature Proxy Tests** (0.1s)
+- ✅ **SegWave Core Math Tests** (6.2s)
+- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.4s)
+- ✅ **Perfect Energy Formulas Demo** (1.3s)
+- ✅ **Multi-Ring Validation Tests** (5.0s)
+- ✅ **SSZ Kernel Tests** (7.4s)
+- ✅ **SSZ Invariants Tests** (5.4s)
+- ✅ **Segmenter Tests** (5.4s)
+- ✅ **Cosmo Fields Tests** (5.2s)
+- ✅ **Cosmo Multibody Tests** (8.1s)
+- ✅ **Data Validation Tests** (5.4s)
+- ✅ **Cosmos Multi-Body Sigma Tests** (6.6s)
+- ✅ **SSZ Complete Analysis** (106.2s)
+- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.3s)
 - ✅ **Perfect Paired Test (All Findings Framework)** (2.9s)
-- ✅ **SSZ Theory Predictions** (2.7s)
+- ✅ **SSZ Theory Predictions** (2.2s)
 - ✅ **G79 Analysis** (2.5s)
-- ✅ **Cygnus X Analysis** (2.4s)
-- ✅ **Paper Export Tools** (6.1s)
-- ✅ **Final Validation** (0.2s)
+- ✅ **Cygnus X Analysis** (2.0s)
+- ✅ **Paper Export Tools** (4.7s)
+- ✅ **Final Validation** (0.1s)
 
 ---
 

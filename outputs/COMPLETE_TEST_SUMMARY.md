@@ -1,6 +1,6 @@
 # Complete SSZ Test Suite - Summary Report
 
-**Generated:** 2025-12-07 05:18:57
+**Generated:** 2025-12-07 14:19:52
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -18,8 +18,8 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | Metric | Count | Percentage |
 |--------|-------|------------|
-| **Total Tests** | 59 | 100% |
-| **Passed** | 34 | 57.6% |
+| **Total Tests** | 60 | 100% |
+| **Passed** | 35 | 58.3% |
 | **Failed** | 0 | 0.0% |
 | **Timeout** | 0 | 0.0% |
 | **Error** | 0 | 0.0% |
@@ -32,53 +32,54 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 ### Root Level
 
-**Tests:** 44 | **Passed:** 30 | **Rate:** 68.2%
+**Tests:** 45 | **Passed:** 31 | **Rate:** 68.9%
 
 | File | Status | Duration |
 |------|--------|----------|
 | calculation_test.py | ⚠️ SKIPPED | 0.00s |
-| conftest.py | ✅ PASSED | 0.13s |
-| extend_all_tests.py | ✅ PASSED | 0.17s |
-| final_test.py | ✅ PASSED | 0.15s |
-| generate_test_data.py | ✅ PASSED | 0.23s |
-| investigate_paired_test.py | ✅ PASSED | 1.96s |
+| conftest.py | ✅ PASSED | 0.12s |
+| extend_all_tests.py | ✅ PASSED | 0.15s |
+| final_test.py | ✅ PASSED | 0.14s |
+| generate_test_data.py | ✅ PASSED | 0.24s |
+| investigate_paired_test.py | ✅ PASSED | 1.84s |
 | lagrangian_tests.py | ⚠️ SKIPPED | 0.00s |
-| lino_qed_test.py | ✅ PASSED | 0.53s |
-| perfect_paired_test.py | ✅ PASSED | 3.12s |
-| perfect_paired_test_detailed.py | ✅ PASSED | 1.34s |
+| lino_qed_test.py | ✅ PASSED | 1.58s |
+| perfect_paired_test.py | ✅ PASSED | 2.38s |
+| perfect_paired_test_detailed.py | ✅ PASSED | 1.26s |
 | phi_bic_test.py | ⚠️ SKIPPED | 0.00s |
 | phi_test.py | ⚠️ SKIPPED | 0.00s |
 | run_bomb_tests.py | ⚠️ SKIPPED | 0.00s |
 | run_comprehensive_tests.py | ⚠️ SKIPPED | 0.00s |
-| segspacetime_quick_tests.py | ✅ PASSED | 1.61s |
-| segspace_enhanced_test.py | ✅ PASSED | 1.28s |
-| segspace_enhanced_test_better.py | ✅ PASSED | 1.37s |
-| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.79s |
-| segspace_final_test.py | ✅ PASSED | 1.41s |
+| segspacetime_quick_tests.py | ✅ PASSED | 1.34s |
+| segspace_enhanced_test.py | ✅ PASSED | 1.29s |
+| segspace_enhanced_test_better.py | ✅ PASSED | 1.89s |
+| segspace_enhanced_test_better_final.py | ✅ PASSED | 1.35s |
+| segspace_final_test.py | ✅ PASSED | 1.39s |
 | segspace_pairtest_vs_sr.py | ⚠️ SKIPPED | 0.00s |
-| smoke_test_all.py | ✅ PASSED | 7.32s |
+| smoke_test_all.py | ✅ PASSED | 9.16s |
 | ssz_blackhole_bomb_template.py | ⚠️ SKIPPED | 0.00s |
-| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.15s |
+| ssz_covariant_smoketest_verbose_lino_casu.py | ✅ PASSED | 0.14s |
 | ssz_interactive_gui.py | ⚠️ SKIPPED | 0.00s |
-| ssz_stability_animation.py | ✅ PASSED | 41.83s |
-| ssz_stability_three_figures.py | ✅ PASSED | 4.65s |
+| ssz_stability_animation.py | ✅ PASSED | 40.32s |
+| ssz_stability_three_figures.py | ✅ PASSED | 4.66s |
 | ssz_test_suite.py | ⚠️ SKIPPED | 0.00s |
 | ssz_theory_segmented.py | ⚠️ SKIPPED | 0.00s |
 | ssz_unified_suite.py | ⚠️ SKIPPED | 0.00s |
-| stratified_paired_test.py | ✅ PASSED | 11.48s |
+| stratified_paired_test.py | ✅ PASSED | 10.84s |
 | test_c1_segments.py | ✅ PASSED | 0.12s |
-| test_c2_curvature_proxy.py | ✅ PASSED | 0.12s |
+| test_c2_curvature_proxy.py | ✅ PASSED | 0.25s |
 | test_c2_segments_strict.py | ✅ PASSED | 0.12s |
 | test_clone_and_verify.py | ⚠️ SKIPPED | 0.00s |
-| test_energies_minimal.py | ✅ PASSED | 0.45s |
+| test_energies_minimal.py | ✅ PASSED | 0.46s |
+| test_energy_1000.py | ✅ PASSED | 1.26s |
 | test_energy_conditions.py | ✅ PASSED | 0.12s |
-| test_grid_convergence.py | ✅ PASSED | 0.77s |
+| test_grid_convergence.py | ✅ PASSED | 0.42s |
 | test_output_script.py | ✅ PASSED | 0.12s |
-| test_phi_impact.py | ✅ PASSED | 3.48s |
-| test_ppn_exact.py | ✅ PASSED | 0.23s |
-| test_solutions_100_percent.py | ✅ PASSED | 0.46s |
+| test_phi_impact.py | ✅ PASSED | 3.86s |
+| test_ppn_exact.py | ✅ PASSED | 0.12s |
+| test_solutions_100_percent.py | ✅ PASSED | 0.43s |
 | test_theory_predictions_cross_platform.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.48s |
+| test_utf8_encoding.py | ✅ PASSED | 0.47s |
 | test_vfall_duality.py | ✅ PASSED | 0.17s |
 
 ### Scripts
@@ -87,20 +88,20 @@ All tests, validations, and analysis scripts in the repository were executed.
 
 | File | Status | Duration |
 |------|--------|----------|
-| check_test_documentation.py | ✅ PASSED | 3.44s |
+| check_test_documentation.py | ✅ PASSED | 3.03s |
 | conftest.py | ✅ PASSED | 0.12s |
 | test_cosmo_fields.py | ⚠️ SKIPPED | 0.00s |
 | test_cosmo_multibody.py | ⚠️ SKIPPED | 0.00s |
 | test_data_fetch.py | ⚠️ SKIPPED | 0.00s |
 | test_data_validation.py | ⚠️ SKIPPED | 0.00s |
 | test_gaia_required_columns.py | ⚠️ SKIPPED | 0.00s |
-| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.91s |
+| test_hawking_spectrum_continuum.py | ✅ PASSED | 2.42s |
 | test_horizon_hawking_predictions.py | ⚠️ SKIPPED | 0.00s |
 | test_plot_ssz_maps.py | ⚠️ SKIPPED | 0.00s |
 | test_segmenter.py | ⚠️ SKIPPED | 0.00s |
 | test_ssz_invariants.py | ⚠️ SKIPPED | 0.00s |
 | test_ssz_kernel.py | ⚠️ SKIPPED | 0.00s |
-| test_utf8_encoding.py | ✅ PASSED | 0.85s |
+| test_utf8_encoding.py | ✅ PASSED | 0.51s |
 
 ### Validation
 
