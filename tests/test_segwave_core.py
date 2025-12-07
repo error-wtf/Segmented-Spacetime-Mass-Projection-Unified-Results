@@ -44,7 +44,23 @@ class TestQFactor:
         print("="*80)
         print(f"Configuration:")
         print(f"  Current ring: T_curr = {T_curr:.1f} K")
-        print(f"  Previous ring: T_prev = {T_prev:.1f} K")
+        print(f"  Previou    
+    # Physical interpretation
+    print("\n" + "="*80)
+    print("Test Temperature Only Basic")
+    print("="*80)
+    print(f"Physical Meaning:")
+    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
+    print("="*80)
+        
+    # Physical interpretation
+    print("\n" + "="*80)
+    print("Test Temperature Only Basic")
+    print("="*80)
+    print(f"Physical Meaning:")
+    print(f"  • q_k = (T_curr/T_prev)^β quantifies energy ratio between rings")
+    print("="*80)
+    s ring: T_prev = {T_prev:.1f} K")
         print(f"  β parameter: {beta:.1f}")
         print(f"\nQ-Factor Calculation:")
         print(f"  q_k = (T_curr/T_prev)^β = ({T_curr}/{T_prev})^{beta} = {q:.6f}")
@@ -182,6 +198,22 @@ class TestVelocityProfile:
         assert df['v_pred'].iloc[0] == pytest.approx(v0, rel=1e-6)
         assert df['q_k'].iloc[0] == pytest.approx(1.0, rel=1e-6)
     
+        
+    # Physical interpretation
+    print("\n" + "="*80)
+    print("Test Two Shells Alpha One")
+    print("="*80)
+    print(f"Physical Meaning:")
+    print(f"  • Velocity propagates as v_k = v_{k-1} × q_k^(-α/2)")
+    print("="*80)
+        
+    # Physical interpretation
+    print("\n" + "="*80)
+    print("Test Two Shells Alpha One")
+    print("="*80)
+    print(f"Physical Meaning:")
+    print(f"  • Velocity propagates as v_k = v_{k-1} × q_k^(-α/2)")
+    print("="*80)
     def test_two_shells_alpha_one(self):
         """Test two shells with α=1
         

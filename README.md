@@ -36,9 +36,9 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 [![ToE Score](https://img.shields.io/badge/ToE%20score-83.3%25-success)](#theory-of-everything)
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 
-**Latest Release:** v2.0.0 (2025-10-28) - Theory of Everything Release  
+**Latest Release:** v2.1.0 (2025-12-07) - Energy Framework & Power Law Discovery  
 **Authors:** Carmen Wrede & Lino Casu  
-**New:** Auto-venv activation | 12 smoke tests | Colab verified | [→ Today's Work](TODAYS_WORK_2025-10-28_COMPLETE.md)
+**New:** Universal power law (R²=0.997) | Perfect energy formulas | Master analysis script | [→ Energy Update](ENERGY_FRAMEWORK_UPDATE_2025-12-07.md)
 
 > **📊 [→ SESSION ANALYSIS & COMPLETION REPORT](SESSION_ANALYSIS_2025-10-28.md)** - Complete session timeline, validation results, technical improvements, and publication-ready status assessment
 
@@ -87,6 +87,21 @@ This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
 - **Quantum** (discrete structure, natural cutoff)
 
 **Validated:** 83.3% ToE Consistency Score across 45+ automated tests
+
+---
+
+## ⚡ NEW: Energy Framework & Universal Power Law
+
+**[→ Complete Findings](docs/FINDINGS_COMPLETE.md)** | **[→ Mathematical Foundations](docs/MATHEMATICAL_FOUNDATIONS.md)** | **[→ Physics Interpretation](docs/PHYSICS_INTERPRETATION.md)** | **[→ Perfect Formulas](perfect_energy_formulas.py)**
+
+**Discovery: Universal power law E_obs/E_rest = 1 + 0.32(r_s/R)^0.98 (R² = 0.997)**
+
+- **Perfect Formula:** E_obs = E_rest × γ_SR × γ_GR/SSZ (no triple counting!)
+- **E_rest as baseline:** Validated across 6 orders of magnitude + **external independent test ✓**
+- **Master script:** `FINAL_MASTER_ENERGY_ANALYSIS.py` (**AUTO-MODE: 10,000 objects, no input!**)
+- **Testable:** SSZ deviations ~1% in strong field (NICER precision)
+
+**Key insight:** "Observed energy is not additional energy. It is the same energy seen through a distorted clock and ruler."
 
 ---
 

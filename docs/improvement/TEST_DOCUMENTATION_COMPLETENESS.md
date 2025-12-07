@@ -1,8 +1,8 @@
 # Test Documentation Completeness Report
 
-**Generated:** 2025-11-27 02:03:37
+**Generated:** 2025-12-07 03:42:36
 **Test Files Analyzed:** 20
-**Test Docs Analyzed:** 61
+**Test Docs Analyzed:** 62
 
 ---
 
@@ -41,10 +41,10 @@
 
 ## 📄 Test Documentation Files
 
-- **Total Doc Files:** 61
+- **Total Doc Files:** 62
 - **Test Lists:** 74
-- **Results Sections:** 392
-- **Physics Explanations:** 840
+- **Results Sections:** 398
+- **Physics Explanations:** 866
 
 ### Documentation Files
 
@@ -97,6 +97,7 @@
 - **TEST_SUITE_VERIFICATION.md** (8.3 KB) - 0 tests listed
 - **TEST_SUITE_VERIFICATION_EN.md** (8.2 KB) - 0 tests listed
 - **TOE_MISSING_TESTS_ROADMAP.md** (9.1 KB) - 0 tests listed
+- **VALIDATION_EXTERNAL_TEST.md** (10.2 KB) - 0 tests listed
 - **VERBOSE_TESTS_COMPLETE.md** (6.1 KB) - 0 tests listed
 - **VERBOSE_TESTS_GUIDE.md** (7.4 KB) - 0 tests listed
 - **VERBOSE_TESTS_PROGRESS.md** (3.7 KB) - 0 tests listed
