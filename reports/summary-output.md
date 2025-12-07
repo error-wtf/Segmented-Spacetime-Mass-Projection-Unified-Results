@@ -1,6 +1,6 @@
 # SSZ Suite - Summary Output
 
-**Generated:** 2025-12-07 14:34:16
+**Generated:** 2025-12-07 14:56:47
 
 ---
 
@@ -10,8 +10,8 @@
 - **Passed:** 25
 - **Failed:** 0
 - **Success Rate:** 100.0%
-- **Total Test Time:** 187.8s
-- **Total Suite Time:** 244.6s
+- **Total Test Time:** 187.0s
+- **Total Suite Time:** 228.7s
 
 ## Test Details
 
@@ -21,25 +21,25 @@
 - ✅ **C1 Segments Tests** (0.1s)
 - ✅ **C2 Segments Strict Tests** (0.1s)
 - ✅ **C2 Curvature Proxy Tests** (0.1s)
-- ✅ **SegWave Core Math Tests** (7.7s)
-- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.6s)
-- ✅ **Perfect Energy Formulas Demo** (1.1s)
-- ✅ **Multi-Ring Validation Tests** (6.6s)
-- ✅ **SSZ Kernel Tests** (6.7s)
-- ✅ **SSZ Invariants Tests** (6.7s)
-- ✅ **Segmenter Tests** (6.5s)
-- ✅ **Cosmo Fields Tests** (6.9s)
-- ✅ **Cosmo Multibody Tests** (7.4s)
-- ✅ **Data Validation Tests** (5.1s)
-- ✅ **Cosmos Multi-Body Sigma Tests** (6.8s)
-- ✅ **SSZ Complete Analysis** (109.3s)
-- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.3s)
-- ✅ **Perfect Paired Test (All Findings Framework)** (2.7s)
-- ✅ **SSZ Theory Predictions** (2.2s)
+- ✅ **SegWave Core Math Tests** (8.6s)
+- ✅ **Energy Formulas Minimal Test (4 validation objects)** (0.4s)
+- ✅ **Perfect Energy Formulas Demo** (1.2s)
+- ✅ **Multi-Ring Validation Tests** (5.2s)
+- ✅ **SSZ Kernel Tests** (5.5s)
+- ✅ **SSZ Invariants Tests** (5.7s)
+- ✅ **Segmenter Tests** (5.5s)
+- ✅ **Cosmo Fields Tests** (5.3s)
+- ✅ **Cosmo Multibody Tests** (6.5s)
+- ✅ **Data Validation Tests** (5.3s)
+- ✅ **Cosmos Multi-Body Sigma Tests** (6.4s)
+- ✅ **SSZ Complete Analysis** (112.7s)
+- ✅ **Rapidity Equilibrium Analysis (0/0 solution demo)** (1.6s)
+- ✅ **Perfect Paired Test (All Findings Framework)** (3.0s)
+- ✅ **SSZ Theory Predictions** (2.8s)
 - ✅ **G79 Analysis** (2.5s)
-- ✅ **Cygnus X Analysis** (2.0s)
-- ✅ **Paper Export Tools** (4.6s)
-- ✅ **Final Validation** (0.1s)
+- ✅ **Cygnus X Analysis** (2.5s)
+- ✅ **Paper Export Tools** (5.4s)
+- ✅ **Final Validation** (0.3s)
 
 ---
 
