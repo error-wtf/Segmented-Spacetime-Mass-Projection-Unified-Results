@@ -158,58 +158,64 @@ def plot_data_quality_impact():
 def plot_phi_geometry_impact_eso():
     """
     Shows φ-geometry impact: 0% without → 99.1% Combined Validation
-    Updated 2025-12-07
+    Updated 2025-12-07 - Fixed overlapping text
     """
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(14, 9))
     
-    categories = ['WITHOUT\nφ-Geometry\n(Complete failure)', 
-                  'WITH φ-Geometry\n+ ESO Data\n(97.9%)', 
-                  'WITH φ-Geometry\n+ Energy Framework\n(100%)']
+    categories = ['WITHOUT\nφ-Geometry', 
+                  'WITH φ-Geometry\n+ ESO Data', 
+                  'WITH φ-Geometry\n+ Energy Framework']
     win_rates = [0.0, 97.9, 100.0]
     colors = [COLORS['failure'], COLORS['eso_primary'], COLORS['eso_perfect']]
     
+    # Narrower bars to leave more space
     bars = ax.bar(categories, win_rates, color=colors, alpha=0.85, 
-                  edgecolor='black', linewidth=2, width=0.6)
+                  edgecolor='black', linewidth=2, width=0.5)
     
-    # Add value labels
-    for bar, rate in zip(bars, win_rates):
+    # Add value labels INSIDE bars for high values, outside for low
+    for i, (bar, rate) in enumerate(zip(bars, win_rates)):
         height = bar.get_height()
-        label = f'{rate:.1f}%'
         if rate == 0:
-            label += '\n(0 wins)'
+            # Label below for 0%
+            ax.text(bar.get_x() + bar.get_width()/2, 5, '0.0%\n(0 wins)',
+                    ha='center', va='bottom', fontsize=11, fontweight='bold')
         elif rate == 97.9:
-            label += '\n(46/47 wins)'
+            # Label inside bar
+            ax.text(bar.get_x() + bar.get_width()/2, height - 15, '97.9%\n(46/47)',
+                    ha='center', va='top', fontsize=11, fontweight='bold', color='white')
         else:
-            label += '\n(64/64 systems)'
-        ax.text(bar.get_x() + bar.get_width()/2, height + 2, label,
-                ha='center', va='bottom', fontsize=12, fontweight='bold')
+            # Label inside bar
+            ax.text(bar.get_x() + bar.get_width()/2, height - 15, '100.0%\n(64/64)',
+                    ha='center', va='top', fontsize=11, fontweight='bold', color='white')
     
-    # Add arrows showing transitions
-    ax.annotate('', xy=(1, 97.9), xytext=(0, 0),
+    # Arrow from 0 to ESO - positioned lower to avoid overlap
+    ax.annotate('', xy=(1, 70), xytext=(0, 10),
                 arrowprops=dict(arrowstyle='->', lw=3, color=COLORS['gold']))
-    ax.text(0.5, 49, 'φ = (1+√5)/2\nGeometric Foundation',
-            ha='center', va='center', fontsize=11, fontweight='bold',
+    ax.text(0.5, 35, 'φ = (1+√5)/2',
+            ha='center', va='center', fontsize=10, fontweight='bold',
             color=COLORS['gold'],
             bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.9))
     
-    ax.annotate('', xy=(2, 100), xytext=(1, 97.9),
+    # Arrow from ESO to Energy - positioned to avoid text
+    ax.annotate('', xy=(2, 85), xytext=(1, 85),
                 arrowprops=dict(arrowstyle='->', lw=2, color='darkgreen'))
-    ax.text(1.5, 90, 'Energy Framework\n129 objects',
-            ha='center', va='center', fontsize=10, fontweight='bold',
-            color='darkgreen')
+    ax.text(1.5, 75, '+129 objects',
+            ha='center', va='center', fontsize=9, fontweight='bold',
+            color='darkgreen',
+            bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
     
-    # Styling
+    # Styling - extended Y axis for more space
     ax.set_ylabel('Overall Win Rate (%)', fontsize=14, fontweight='bold')
-    ax.set_title('φ-Geometry is Fundamental:\nTransition from Failure to Breakthrough with Appropriate Data',
-                 fontsize=16, fontweight='bold', pad=20)
-    ax.set_ylim(-5, 110)
+    ax.set_title('φ-Geometry is Fundamental:\nTransition from Failure to Breakthrough',
+                 fontsize=16, fontweight='bold', pad=15)
+    ax.set_ylim(-5, 130)  # Extended to make room for top box
+    ax.set_yticks([0, 20, 40, 60, 80, 100])
     ax.grid(axis='y', alpha=0.3, linestyle=':', linewidth=0.8)
     
-    # Add interpretation box
-    ax.text(0.5, 0.98, 'COMBINED VALIDATION: 99.1% (110/111 wins)\n'
-            'φ-Geometry is FUNDAMENTAL: 0% without → 99.1% with',
-            transform=ax.transAxes, ha='center', va='top',
-            fontsize=12, fontweight='bold', bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.9))
+    # Combined validation box at TOP - outside plot area
+    ax.text(0.5, 120, 'COMBINED: 99.1% (110/111 wins)',
+            ha='center', va='center', fontsize=13, fontweight='bold',
+            bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.9, pad=0.5))
     
     plt.tight_layout()
     plt.savefig(output_dir / 'phi_geometry_impact_eso.png', dpi=300, bbox_inches='tight')
