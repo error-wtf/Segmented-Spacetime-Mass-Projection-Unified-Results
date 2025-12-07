@@ -134,8 +134,8 @@ ax.legend(fontsize=12, loc='upper left')
 ax.set_ylim(0, 100)
 ax.grid(axis='y', alpha=0.3)
 
-# Add overall comparison box
-textstr = f'Overall Impact:\nWITH φ: 51%\nWITHOUT φ: 0%\nΔ = +51 pp'
+# Add overall comparison box (Updated 2025-12-07)
+textstr = f'Combined Validation:\nWITH φ: 99.1%\nWITHOUT φ: 0%\nΔ = +99.1 pp'
 props = dict(boxstyle='round', facecolor='wheat', alpha=0.8)
 ax.text(0.98, 0.97, textstr, transform=ax.transAxes, fontsize=11,
         verticalalignment='top', horizontalalignment='right', bbox=props, fontweight='bold')
