@@ -20,6 +20,29 @@
 
 ---
 
+## 📊 Quick Links: Reports & Outputs
+
+> **START HERE** - All key results in one place:
+
+| Report | Description | Size |
+|--------|-------------|------|
+| **[📋 RUN_SUMMARY.md](reports/RUN_SUMMARY.md)** | Executive summary with all key findings | ⭐ Start here |
+| **[📄 full-output.md](reports/full-output.md)** | Complete unfiltered test output | 287 KB |
+| **[📝 summary-output.md](reports/summary-output.md)** | Compact test results | 1.3 KB |
+| **[✅ COMPLETE_VALIDATION_SUMMARY.md](outputs/COMPLETE_VALIDATION_SUMMARY.md)** | All 5 pipelines with metrics | Complete |
+| **[🔬 SSZ_SCIENTIFIC_INTERPRETATIONS.md](outputs/SSZ_SCIENTIFIC_INTERPRETATIONS.md)** | Physics interpretations | Detailed |
+| **[📊 TEST_REPORTS_INDEX.md](reports/TEST_REPORTS_INDEX.md)** | Index of all test reports | Navigation |
+
+**Key Documents:**
+| Document | Description |
+|----------|-------------|
+| **[🎯 Executive Summary](SSZ_EXECUTIVE_SUMMARY.md)** | 5-page ToE overview |
+| **[📖 Complete Report](SSZ_COMPLETE_FINAL_REPORT.md)** | 60+ page full report |
+| **[✓ ToE Validation Status](TOE_VALIDATION_STATUS.md)** | 6 pillars validation |
+| **[📈 Plots Overview](PLOTS_OVERVIEW.md)** | All generated plots |
+
+---
+
 ## 📑 Table of Contents
 
 1. [🏆 Scientific Highlights](#-scientific-highlights) - Breakthrough results & validation
