@@ -17,10 +17,6 @@ from datetime import datetime
 
 # UTF-8 setup (Windows compatibility)
 os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
-
-# Force non-interactive matplotlib backend for all subprocesses
-# This prevents plt.show() from blocking the pipeline
-os.environ['MPLBACKEND'] = 'Agg'
 if sys.platform == 'win32':
     try:
         sys.stdout.reconfigure(encoding='utf-8', errors='replace')
