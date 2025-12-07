@@ -220,7 +220,7 @@ SSZ has been validated against **176 real astronomical objects** from profession
 |--------|------------|--------------|---------------|
 | **ESO GRAVITY** | λ/Δλ > 10,000 | Complete | Local gravitational |
 | **ESO XSHOOTER** | λ/Δλ ~ 5,000 | Complete | Local gravitational |
-| **Energy Framework** | N/A (theoretical) | Complete | N/A |
+| **Energy Framework** | Astropy precision | Complete | N-segment discretization |
 | **Planck CMB** | ℓ_max = 2500 | Complete | Cosmological |
 
 ---
