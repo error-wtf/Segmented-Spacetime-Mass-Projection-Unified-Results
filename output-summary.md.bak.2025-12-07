@@ -1,47 +1,44 @@
 # Test- & Pipeline-Zusammenfassung
 
-- Generiert: `2025-12-07 14:00:00`
-- Repo: `E:\clone\Segmented-Spacetime-Mass-Projection-Unified-Results`
-- Run-ID: `2025-12-07_complete_validation`
+- Generiert: `2025-10-28 07:09:35`
+- Repo: `H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00`
+- Run-ID: `figures`
 
 ## Suite / Schritte
-- **run_id**: `2025-12-07_complete_validation`
-- **Start** : `2025-12-07 02:35`
-- **Ende**  : `2025-12-07 03:52`
-- **Status**: **✅ 100% SUCCESS**
+- **run_id**: `2025-10-17_gaia_ssz_real`
+- **Start** : `?`
+- **Ende**  : `?`
+- **Status**: **?**
 
 **Schritte:**
-  - `autofetch` → **✅ PASS**
-  - `ssz_pipeline` → **✅ PASS**
-  - `ssz_terminal_all` → **✅ PASS**
-  - `nightly_bundle_replay` → **✅ PASS**
-  - `tests` → **✅ 63/63 PASS (100%)**
-  - `visualize` → **✅ PASS**
-  - `ring_temperature_analysis` → **✅ PASS**
-  - `summary` → **✅ PASS**
-  - `final_reports` → **✅ PASS**
+  - `autofetch` → **?**
+  - `ssz_pipeline` → **?**
+  - `ssz_terminal_all` → **?**
+  - `nightly_bundle_replay` → **?**
+  - `tests` → **?**
+  - `visualize` → **?**
+  - `ring_temperature_analysis` → **?**
+  - `summary` → **?**
+  - `final_reports` → **?**
 
 
 ## PyTest – Repository gesamt
-**✅ 63/63 Tests PASSED (100%)**
+_JUnit-Ergebnis (repo) nicht gefunden._
 
 ## PyTest – scripts/tests
-**✅ All physics and technical tests PASSED**
+_JUnit-Ergebnis (scripts) nicht gefunden._
 
 ## SSZ / GAIA Reports
 - **Bound Energy**: `E_bound=5.974419644760417875984776719304208912E-16`  
-_Quelle_: `agent_out/reports/bound_energy.txt`
+_Quelle_: `H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\agent_out\reports\bound_energy.txt`
 
-### Redshift-Auswertung (Updated 2025-12-07)
-- **Combined Success Rate**: 99.1% (110/111 wins)
-- **ESO Spectroscopy**: 97.9% (46/47 wins)
-- **Energy Framework**: 100% (64/64 stellar systems, 129 objects)
-- **Statistical Significance**: p < 0.0001
+### Redshift-Auswertung
+- **Medians |Δz|**: Seg=None, GR=None, SR=None, GR×SR=None
+- **Paired**: Seg besser in **None/None** Paaren (p≈None)
 
 ### Mass Validation
-- Datei: `agent_out/reports/mass_validation.csv`
-- Zeilen gesamt (ohne Header): **5** (Elektron, Mond, Erde, Sonne, Sagittarius A*)
-- **Alle rel_err = 0** (perfekte Rekonstruktion)
+- Datei: `H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\agent_out\reports\mass_validation.csv`
+- Zeilen gesamt (ohne Header): **5**
 
 _Vorschau (erste Zeilen):_
 | object | M_true_kg | r_obs_m | M_rec_kg | rel_err |
@@ -54,7 +51,7 @@ _Vorschau (erste Zeilen):_
 
 
 ## Enhanced Debug (Kennzahlen)
-- Datei: `out/_enhanced_debug.csv`
+- Datei: `H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out\_enhanced_debug.csv`
 - Zeilen (ohne Header): **427**
 _Vorschau:_
 | case | category | M_solar | a_m | e | P_year | T0_year | f_true_deg | z | f_emit_Hz | f_obs_Hz | lambda_emit_nm | lambda_obs_nm | v_los_mps | v_tot_mps | z_geom_hint | N0 | source | r_emit_m | n_round | z_obs | z_source | r_eff_m | r_note | v_tot_original | v_tot_corrected | v_correction_method | v_los_mps_eff | z_gr | z_sr | z_grsr | z_seg | dz_seg | dz_gr | dz_sr | dz_grsr | strong | rs_m | deltaM_percent | log10M_norm | sanity_flags |
@@ -67,7 +64,7 @@ _Vorschau:_
 
 
 ## Explain Debug (Vorschau)
-- Datei: `out/_explain_debug.csv`
+- Datei: `H:\WINDSURF\Segmented-Spacetime-Mass-Projection-Unified-Results_bak_2025-10-17_17-03-00\out\_explain_debug.csv`
 - Zeilen (ohne Header): **9**
 _Vorschau:_
 | case | category | z_data | r_eff_source | r_eff_m | v_pred_source | v_pred_mps | strong_pred | z_pred | dz_seg_pred | z_GR | dz_GR | z_SR | dz_SR | z_comb | dz_comb | N_seg | delta_Nseg_zgr | pass_recon | notes |
