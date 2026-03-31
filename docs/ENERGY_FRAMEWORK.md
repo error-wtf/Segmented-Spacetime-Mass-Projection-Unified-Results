@@ -96,10 +96,10 @@ CORRECT: Local speed of light is always c; the COORDINATE speed changes
 
 ## Relation to Other Sections
 
-- [Radial Scaling Gauge](radial_scaling.md) — E' = s*E definition
-- [Scaling Factor s(r)](../02_FOUNDATIONS/scaling_factor.md) — s = 1+Xi
-- [Group Velocity](group_velocity.md) — how EM waves propagate
-- [Redshift](redshift.md) — energy loss = redshift formula
+- [Radial Scaling Gauge](https://github.com/error-wtf/ssz-complete-documentation/blob/main/05_ELECTROMAGNETISM/radial_scaling.md) — E' = s*E definition
+- [Scaling Factor s(r)](https://github.com/error-wtf/ssz-complete-documentation/blob/main/02_FOUNDATIONS/scaling_factor.md) — s = 1+Xi
+- [Group Velocity](https://github.com/error-wtf/ssz-complete-documentation/blob/main/05_ELECTROMAGNETISM/group_velocity.md) — how EM waves propagate
+- [Redshift](https://github.com/error-wtf/ssz-complete-documentation/blob/main/05_ELECTROMAGNETISM/redshift.md) — energy loss = redshift formula
 
 
 ---
@@ -182,7 +182,7 @@ The SEC violation creates a **measurable deviation** from GR for compact objects
 
 ## Relation to Other Sections
 
-- [Segment Density Xi](segment_density.md) — source of effective stress-energy
-- [Singularities Resolved](../06_STRONG_FIELD/singularities.md) — consequence of SEC violation
-- [Neutron Star Redshift](../07_VALIDATION/neutron_star_redshift.md) — measurable consequence
-- [Falsification Criteria](../08_FALSIFICATION/falsification_criteria.md) — how to test this
+- [Segment Density Xi](https://github.com/error-wtf/ssz-complete-documentation/blob/main/02_FOUNDATIONS/segment_density.md) — source of effective stress-energy
+- [Singularities Resolved](https://github.com/error-wtf/ssz-complete-documentation/blob/main/06_STRONG_FIELD/singularities.md) — consequence of SEC violation
+- [Neutron Star Redshift](https://github.com/error-wtf/ssz-complete-documentation/blob/main/07_VALIDATION/neutron_star_redshift.md) — measurable consequence
+- [Falsification Criteria](https://github.com/error-wtf/ssz-complete-documentation/blob/main/08_FALSIFICATION/falsification_criteria.md) — how to test this
