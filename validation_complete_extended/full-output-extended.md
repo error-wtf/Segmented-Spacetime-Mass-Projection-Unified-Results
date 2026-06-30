@@ -17,7 +17,7 @@ WISSENSCHAFTLICHE VALIDIERUNG DER SSZ THEORIE-DOKUMENTATION
 
 [TEST 1] FORMEL-KORREKTHEIT
 --------------------------------------------------------------------------------
-  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r/r_s))
+  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
   Bei r = 2r_s:
     Xi(2r_s) = 0.960682
     D(2r_s) = 0.510027
@@ -32,12 +32,12 @@ WISSENSCHAFTLICHE VALIDIERUNG DER SSZ THEORIE-DOKUMENTATION
 
 [TEST 3] UNIVERSAL INTERSECTION
 --------------------------------------------------------------------------------
-  Berechnet: r*/r_s = 1.386562
-  Publiziert: r*/r_s = 1.386562
+  Berechnet: r*/r_s = 1.594811
+  Publiziert: r*/r_s = 1.594811
   Abweichung: 0.00000038
 
-  Berechnet: D* = 0.528007
-  Publiziert: D* = 0.528007
+  Berechnet: D* = 0.610710
+  Publiziert: D* = 0.610710
   Abweichung: 0.00000012
   [OK] PASS (< 1e-5)
 
@@ -95,7 +95,7 @@ WISSENSCHAFTLICHE VALIDIERUNG DER SSZ THEORIE-DOKUMENTATION
 
 [TEST 1] FORMEL-KORREKTHEIT
 --------------------------------------------------------------------------------
-  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r/r_s))
+  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
   Bei r = 2r_s:
     Xi(2r_s) = 0.960682
     D(2r_s) = 0.510027
@@ -110,12 +110,12 @@ WISSENSCHAFTLICHE VALIDIERUNG DER SSZ THEORIE-DOKUMENTATION
 
 [TEST 3] UNIVERSAL INTERSECTION
 --------------------------------------------------------------------------------
-  Berechnet: r*/r_s = 1.386562
-  Publiziert: r*/r_s = 1.386562
+  Berechnet: r*/r_s = 1.594811
+  Publiziert: r*/r_s = 1.594811
   Abweichung: 0.00000038
 
-  Berechnet: D* = 0.528007
-  Publiziert: D* = 0.528007
+  Berechnet: D* = 0.610710
+  Publiziert: D* = 0.610710
   Abweichung: 0.00000012
   [OK] PASS (< 1e-5)
 
@@ -29542,8 +29542,8 @@ Started: 2025-10-29 18:57:43
 
 [STEP 2/11] Universal Intersection Proof
 --------------------------------------------------------------------------------
-  r*/r_s = 1.386562 (target: 1.386562)
-  D* = 0.528007 (target: 0.528007)
+  r*/r_s = 1.594811 (target: 1.594811)
+  D* = 0.610710 (target: 0.610710)
   Deviation r: 3.80e-07
   Deviation D: 1.20e-07
   ✓ Validated: True
@@ -29655,8 +29655,8 @@ Started: 2025-10-29 18:57:43
 
 [STEP 2/11] Universal Intersection Proof
 --------------------------------------------------------------------------------
-  r*/r_s = 1.386562 (target: 1.386562)
-  D* = 0.528007 (target: 0.528007)
+  r*/r_s = 1.594811 (target: 1.594811)
+  D* = 0.610710 (target: 0.610710)
   Deviation r: 3.80e-07
   Deviation D: 1.20e-07
   ✓ Validated: True
@@ -29787,7 +29787,7 @@ NumPy version: 2.2.6
 --------------------------------------------------------------------------------
   L2 norm: 3.767754e-01 (threshold: 5.000000e-01)
   Intersection exists: True
-  r*/r_s: 1.386562 (expected: 1.386562)
+  r*/r_s: 1.594811 (expected: 1.594811)
   Bracket error: 3.803513e-07
   Status: ✓ PASS
 
@@ -29870,7 +29870,7 @@ NumPy version: 2.2.6
 --------------------------------------------------------------------------------
   L2 norm: 3.767754e-01 (threshold: 5.000000e-01)
   Intersection exists: True
-  r*/r_s: 1.386562 (expected: 1.386562)
+  r*/r_s: 1.594811 (expected: 1.594811)
   Bracket error: 3.803513e-07
   Status: ✓ PASS
 

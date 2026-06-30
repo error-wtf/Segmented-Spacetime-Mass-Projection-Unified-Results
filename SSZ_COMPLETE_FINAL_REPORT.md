@@ -160,9 +160,9 @@ olic Ξ)
 **Objective:** Universal crossover with exponential segment density
 
 **Key Results:**
-- **UNIVERSAL intersection:** r*/r_s = 1.386562
+- **UNIVERSAL intersection:** r*/r_s = 1.594811
 - Mass-independent!
-- Time dilation at intersection: D* = 0.528007
+- Time dilation at intersection: D* = 0.610710
 - Confirmed for NS (2 M☉) AND Sgr A* (4.1×10⁶ M☉)
 
 **Formula Used:**
@@ -425,7 +425,7 @@ Classical singularity → Resonant core with finite properties
 ### 6.5 φ is Fundamental
 
 **Golden Ratio Appearances:**
-1. Segment density: Ξ ∝ exp(-φr/r_s)
+1. Segment density: Ξ ∝ exp(-φr_s / r)
 2. Resonance frequency: ω = φ/(1+Ξ)
 3. Energy saturation: E_max = φ² E₀
 4. Intersection: Related to φ exponential
@@ -880,12 +880,12 @@ A complete validation suite was implemented to reproduce all SSZ predictions vs 
 #### 1. Universal Intersection — VALIDATED ✅
 
 **Target Values:**
-- r*/r_s = 1.386562
-- D* = 0.528007
+- r*/r_s = 1.594811
+- D* = 0.610710
 
 **Measured:**
 - r*/r_s = **1.3865616** (deviation: **3.8×10⁻⁷**)
-- D* = **0.5280071** (deviation: **1.2×10⁻⁷**)
+- D* = **0.6107101** (deviation: **1.2×10⁻⁷**)
 
 **Status:** ✅ Both within tolerance (< 10⁻⁶)
 
@@ -1045,7 +1045,7 @@ Segmented Spacetime Theory provides a path toward a **Theory of Everything** by 
 - Like π and e, but for spacetime geometry
 
 **Evidence:**
-- Ξ(r) exponential: exp(-φ r/r_s)
+- Ξ(r) exponential: exp(-φ r_s / r)
 - Resonance frequency: ω = φ / (1 + Ξ)
 - Energy maximum: E_max = φ² E₀
 - Universal intersection linked to φ

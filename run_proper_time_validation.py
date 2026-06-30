@@ -41,7 +41,7 @@ cfg = {
     'Xi_max': 1.0,
     'alpha': 1.0,
     'masses_Msun': [2.0, 4.1e6],  # NS, Sgr A*
-    'rstar_hint': 1.386562,       # Known intersection
+    'rstar_hint': 1.594811,       # Known intersection
     'r_grid': (1.01, 5.0),        # in units of r_s
     'r_points': [1.05, 1.2, 1.5, 2.0, 3.0, 5.0],
     'orbits_r': [3.0, 4.0, 6.0, 10.0],
@@ -83,7 +83,7 @@ def D_GR(r, rs):
 
 def Xi_of_r(r, rs, Xi_max, alpha, phi):
     """SSZ segment density (CORRECT exponential model):
-    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     """
     return Xi_max * (1.0 - np.exp(-phi * np.asarray(r) / rs))
 

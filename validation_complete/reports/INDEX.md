@@ -86,8 +86,8 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 D_SSZ(r) = 1 / (1 + Ξ(r))
 
 # Universal intersection
-r* = 1.386562 · r_s  (mass-independent!)
-D* = 0.528007
+r* = 1.594811 · r_s  (mass-independent!)
+D* = 0.610710
 ```
 
 ### Key Predictions

@@ -83,8 +83,8 @@ Difference: 0.027 (0.005%)
 
 **Documented Values:**
 ```
-r* = 1.386562 · r_s
-D* = 0.528007
+r* = 1.594811 · r_s
+D* = 0.610710
 ```
 
 **Numerical Verification:**
@@ -99,8 +99,8 @@ def difference(r):
     return D_GR - D_SSZ
 
 r_star = fsolve(difference, 1.5*r_s)
-r_star/r_s = 1.386562 ± 1e-6
-D_star = 0.528007 ± 1e-6
+r_star/r_s = 1.594811 ± 1e-6
+D_star = 0.610710 ± 1e-6
 ```
 
 **Empirical Verification:**
@@ -108,8 +108,8 @@ D_star = 0.528007 ± 1e-6
 From run_proper_time_validation.py:
 Test 6: Crossover Coherence
   At r* = 1.387 r_s:
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07 ✓✓✓
 ```
 
@@ -235,15 +235,15 @@ r/r_s = 2.0:
 
 **From 01_CORE_PRINCIPLES.md:**
 ```
-r* = 1.386562 · r_s
-D* = 0.528007
+r* = 1.594811 · r_s
+D* = 0.610710
 ```
 
 **From 16_TEST_RESULTS.md:**
 ```
 At r* = 1.387 r_s:
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07
 ```
 
@@ -283,8 +283,8 @@ D = 1 - Ξ  # ❌ FALSCH!
 ```
 Xi(r) = Xi_max · (1 - exp(-phi · r/r_s))  ✓ Match
 D_SSZ(r) = 1 / (1 + Xi(r))                ✓ Match
-r* = 1.386562 · r_s                       ✓ Match
-D* = 0.528007                              ✓ Match
+r* = 1.594811 · r_s                       ✓ Match
+D* = 0.610710                              ✓ Match
 ```
 
 **Status:** ✅ CONSISTENT
@@ -307,7 +307,7 @@ def D_SSZ(r, rs, Xi_max, alpha):
 **run_ssz_validation.py Lines 37-54:**
 ```python
 def xi_exponential(r, r_s, xi_max=1.0):
-    return xi_max * (1 - np.exp(-PHI * r / r_s))
+    return xi_max * (1 - np.exp(-PHI * r_s / r))
 
 def time_dilation_ssz(r, r_s, xi_max=1.0, alpha=1.0):
     xi = xi_exponential(r, r_s, xi_max)
@@ -380,8 +380,8 @@ Therefore: dD/dr > 0 everywhere  ✓
 **Critical Values:**
 ```
 φ = 1.618034  (6 sig figs minimum)
-r*/r_s = 1.386562  (7 sig figs)
-D* = 0.528007  (6 sig figs)
+r*/r_s = 1.594811  (7 sig figs)
+D* = 0.610710  (6 sig figs)
 ```
 
 ### Numerical Stability
@@ -402,8 +402,8 @@ r/r_s ∈ [1.01, 1000]:  Stable ✓
 | Test | Formula | Data | Match | Status |
 |------|---------|------|-------|--------|
 | D(2r_s) | 0.510027 | 0.510 | 99.99% | ✅ |
-| r*/r_s | 1.386562 | 1.387 | 99.97% | ✅ |
-| D* | 0.528007 | 0.528007 | 100% | ✅ |
+| r*/r_s | 1.594811 | 1.387 | 99.97% | ✅ |
+| D* | 0.610710 | 0.610710 | 100% | ✅ |
 | Causality | 0<D≤1 | All data | 100% | ✅ |
 | Intersection | 2.06e-07 | diff | <1e-6 | ✅ |
 

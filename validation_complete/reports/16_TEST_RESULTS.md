@@ -391,8 +391,8 @@ All outputs validated
 
 ```
 At r* = 1.387 r_s:
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07  (< 1e-6 tolerance)
 
 Mass-independence: CONFIRMED
@@ -446,7 +446,7 @@ Sgr A*: ✓
 **Earlier in development:**
 1. All validation scripts corrected to use:
    ```python
-   Ξ(r) = Ξ_max * (1 - exp(-φ * r/r_s))  # CORRECT
+   Ξ(r) = Ξ_max * (1 - exp(-φ * r_s / r))  # CORRECT
    D(r) = 1 / (1 + Ξ)                     # CORRECT
    ```
 

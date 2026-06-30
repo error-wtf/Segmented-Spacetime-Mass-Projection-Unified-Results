@@ -48,9 +48,9 @@ def schwarzschild_rs(M):
 
 def xi_exponential(r, r_s, xi_max=1.0):
     """Segment density field (CORRECT exponential form)
-    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     """
-    return xi_max * (1 - np.exp(-PHI * r / r_s))
+    return xi_max * (1 - np.exp(-PHI * r_s / r))
 
 def time_dilation_ssz(r, r_s, xi_max=1.0, alpha=1.0):
     """SSZ time dilation (CORRECT): D = 1 / (1 + Xi)"""
@@ -113,8 +113,8 @@ r_over_rs = intersection['r_over_rs']
 D_star = intersection['D_star']
 
 # Validate against targets
-r_target = 1.386562
-D_target = 0.528007
+r_target = 1.594811
+D_target = 0.610710
 r_ok = abs(r_over_rs - r_target) < 1e-6
 D_ok = abs(D_star - D_target) < 1e-6
 
@@ -281,7 +281,7 @@ print("-" * 80)
 
 # Verify φ appears in all major relations
 phi_checks = {
-    'xi_exponential': phi,  # In Ξ(r) = Ξ_max(1 - exp(-φ r/r_s))
+    'xi_exponential': phi,  # In Ξ(r) = Ξ_max(1 - exp(-φ r_s / r))
     'omega_resonance': phi,  # In ω(r) = φ / (1 + Ξ)
     'energy_max': phi**2,  # E_max = φ² E₀
     'intersection_link': phi  # In r* equation

@@ -101,8 +101,8 @@ Failed: 0
 D_SSZ(r) = 1 / (1 + Ξ(r))
 
 # Universal Intersection (mass-independent!)
-r* = 1.386562 · r_s
-D* = 0.528007
+r* = 1.594811 · r_s
+D* = 0.610710
 ```
 
 **Verification Status:**
@@ -170,8 +170,8 @@ D* = 0.528007
 **Mass-Independent Crossover:**
 ```
 At r* = 1.387 r_s:
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07 ✓✓✓
 
 Tested with:

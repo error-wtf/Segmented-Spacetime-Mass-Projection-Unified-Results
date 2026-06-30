@@ -44,8 +44,8 @@ $$
 - Schwarzschild radius: 5.906679e+03 m (5.91 km)
 - **Intersection found:**
   - r* = 8.189974e+03 m
-  - r*/r_s = 1.386562
-  - D* = 0.528007
+  - r*/r_s = 1.594811
+  - D* = 0.610710
 
 ### Sgr A* (4.1×10⁶ M☉)
 
@@ -53,8 +53,8 @@ $$
 - Schwarzschild radius: 1.210869e+10 m (12108691.47 km)
 - **Intersection found:**
   - r* = 1.678945e+10 m
-  - r*/r_s = 1.386562
-  - D* = 0.528007
+  - r*/r_s = 1.594811
+  - D* = 0.610710
 
 ---
 

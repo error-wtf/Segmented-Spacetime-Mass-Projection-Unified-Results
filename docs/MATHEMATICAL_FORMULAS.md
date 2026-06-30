@@ -96,8 +96,8 @@ D_GR(r) = √(1 - r_s/r)
 
 **Universal Intersection:**
 ```
-At r* = 1.386562 · r_s:
-  D_SSZ(r*) = D_GR(r*) = 0.528007
+At r* = 1.594811 · r_s:
+  D_SSZ(r*) = D_GR(r*) = 0.610710
   Ξ(r*) = 0.893914
 ```
 

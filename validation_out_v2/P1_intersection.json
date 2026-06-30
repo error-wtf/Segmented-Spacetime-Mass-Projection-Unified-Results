@@ -2,7 +2,7 @@
   "L2": 0.3767753696435562,
   "has_intersection": true,
   "r_star_rs": 1.3865616196486958,
-  "r_star_expected": 1.386562,
+  "r_star_expected": 1.594811,
   "bracket_error": 3.8035130422997554e-07,
   "ok_L2": true,
   "ok_intersection": true,

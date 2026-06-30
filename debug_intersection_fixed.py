@@ -60,8 +60,8 @@ plt.tight_layout()
 plt.savefig('outputs/debug_alpha_sweep.png', dpi=150)
 print("Saved: outputs/debug_alpha_sweep.png")
 
-# Print values at r = 1.386562 (expected intersection)
-r_test = 1.386562
+# Print values at r = 1.594811 (expected intersection)
+r_test = 1.594811
 xi_test = xi_exponential(r_test, M, xi_max=1.0)
 print(f"\nAt r* = {r_test} r_s:")
 print(f"  Xi = {xi_test:.6f}")
@@ -70,7 +70,7 @@ print(f"  D_SSZ (α=0.5) = {time_dilation_ssz(r_test, M, xi_max=1.0, alpha=0.5):
 print(f"  D_SSZ (α=1.0) = {time_dilation_ssz(r_test, M, xi_max=1.0, alpha=1.0):.6f}")
 print(f"  D_SSZ (α=1.5) = {time_dilation_ssz(r_test, M, xi_max=1.0, alpha=1.5):.6f}")
 
-# Find correct alpha for intersection at r* = 1.386562
+# Find correct alpha for intersection at r* = 1.594811
 from scipy.optimize import brentq
 
 def find_alpha_for_intersection(r_star_target, M, xi_max=1.0):
@@ -86,13 +86,13 @@ def find_alpha_for_intersection(r_star_target, M, xi_max=1.0):
     except:
         return None
 
-alpha_correct = find_alpha_for_intersection(1.386562, M)
+alpha_correct = find_alpha_for_intersection(1.594811, M)
 if alpha_correct:
-    print(f"\nCORRECT alpha for intersection at r* = 1.386562 rs: α = {alpha_correct:.6f}")
+    print(f"\nCORRECT alpha for intersection at r* = 1.594811 rs: α = {alpha_correct:.6f}")
     
     # Verify
-    D_GR_check = time_dilation_gr(1.386562, M)
-    D_SSZ_check = time_dilation_ssz(1.386562, M, xi_max=1.0, alpha=alpha_correct)
+    D_GR_check = time_dilation_gr(1.594811, M)
+    D_SSZ_check = time_dilation_ssz(1.594811, M, xi_max=1.0, alpha=alpha_correct)
     print(f"  Verification: D_GR = {D_GR_check:.6f}, D_SSZ = {D_SSZ_check:.6f}")
     print(f"  Difference: {abs(D_GR_check - D_SSZ_check):.2e}")
 

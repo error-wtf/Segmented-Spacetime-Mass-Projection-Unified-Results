@@ -1,6 +1,6 @@
 # SSZ vs GR Validation Summary
 
-**Generated:** 2025-12-07 05:16:19
+**Generated:** 2026-07-01 00:14:34
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -18,20 +18,20 @@ All key SSZ predictions have been numerically verified and compared against Gene
 
 ### Claim
 SSZ predicts a **universal mass-independent intersection** where:
-- r*/r_s ≈ 1.386562
-- D* ≈ 0.528007
+- r*/r_s ≈ 1.594811
+- D* ≈ 0.610710
 
 ### Results
 
 | Metric | Target | Measured | Deviation | Status |
 |--------|--------|----------|-----------|--------|
-| **r*/r_s** | 1.386562 | **1.386562** | -0.000000 | ✅ |
-| **D*** | 0.528007 | **0.528007** | 0.000000 | ✅ |
+| **r*/r_s** | 1.594811 | **1.594811** | 0.000000 | ✅ |
+| **D*** | 0.61071 | **0.610710** | -0.000000 | ✅ |
 
 **Parameters:**
 - Ξ_max = 1.0
 - φ = 1.6180339887
-- Ξ* = 0.893914
+- Ξ* = 0.637439
 
 **Validation:** Both metrics within ±0.01 tolerance ✅
 
@@ -50,12 +50,12 @@ At radii r/r_s ≈ 2-3, SSZ predicts **~14% difference** in time dilation vs GR.
 
 | Metric | Value |
 |--------|-------|
-| **Max Δ** | **-0.4409** (-44.09%) |
-| **At r/r_s** | 5.00 |
+| **Max Δ** | **-0.1367** (-13.67%) |
+| **At r/r_s** | 3.31 |
 | **14% ±3% range** | Not found |
 
 **Expected range:** 11-17%  
-**Status:** ⚠️ CHECK REQUIRED
+**Status:** ✅ IN RANGE
 
 ### Observational Implications
 - **NICER X-ray timing:** Should detect this difference
@@ -110,9 +110,9 @@ At radii r/r_s ≈ 2-3, SSZ predicts **~14% difference** in time dilation vs GR.
 
 ### ✅ Confirmed Predictions
 
-1. **Universal Crossover:** r*/r_s = 1.3866 (target: 1.386562)
-2. **Time Dilation at Crossover:** D* = 0.5280 (target: 0.528007)
-3. **Neutron Star Effect:** Δ ≈ -44.1% (target: ~14%)
+1. **Universal Crossover:** r*/r_s = 1.5948 (target: 1.594811)
+2. **Time Dilation at Crossover:** D* = 0.6107 (target: 0.61071)
+3. **Neutron Star Effect:** Δ ≈ -13.7% (target: ~14%)
 4. **Parameter Stability:** Intersection robust across parameter space
 
 ### 🔬 Testable Predictions
@@ -162,7 +162,7 @@ All results generated from:
 - `gr_ssz_sensitivity_map.png` - Parameter heatmap
 
 ### Total Size
-~12.8 MB
+~2.2 MB
 
 ---
 
@@ -173,7 +173,7 @@ All results generated from:
 **Critical Metrics:**
 - r*/r_s deviation: 0.000000 < 0.01 ✅
 - D* deviation: 0.000000 < 0.01 ✅
-- NS effect range: False ✅
+- NS effect range: True ✅
 
 **Conclusion:** SSZ predictions numerically verified. Ready for observational comparison.
 

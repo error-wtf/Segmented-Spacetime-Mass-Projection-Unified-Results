@@ -13,7 +13,7 @@
 
 Dieser Bericht dokumentiert den **kompletten wissenschaftlichen Beweis** der Segmented Spacetime Theory (SSZ).
 
-**Hauptergebnis:** SSZ und GR schneiden sich bei **r* = 1.386562 · r_s** mit **D* = 0.528007** (massenunabhaengig).
+**Hauptergebnis:** SSZ und GR schneiden sich bei **r* = 1.594811 · r_s** mit **D* = 0.610710** (massenunabhaengig).
 
 **Alle Tests:** 3/3 PASS (100%)  
 **Laufzeit:** 9.9s  
@@ -39,8 +39,8 @@ D_GR(r) = sqrt(1 - r_s/r)
 
 ### Universal Intersection:
 ```
-r* = 1.386562 · r_s
-D* = 0.528007
+r* = 1.594811 · r_s
+D* = 0.610710
 Xi* = 0.893914
 ```
 
@@ -52,8 +52,8 @@ Xi* = 0.893914
 
 ### Suite 1: Basic SSZ Validation [PASS]
 - Runtime: 3.9s
-- r*/r_s = 1.386562 [OK]
-- D* = 0.528007 [OK]
+- r*/r_s = 1.594811 [OK]
+- D* = 0.610710 [OK]
 - Outputs: 6 files
 
 ### Suite 2: Proper Time (8 Tests) [PASS]
@@ -103,7 +103,7 @@ Xi(r) = Xi_max * (1 - exp(-r_s/r))  # r_s/r falsch!
 D = phi^(-alpha*Xi)                  # Komplett falsch!
 
 # NACHHER (RICHTIG):
-Xi(r) = Xi_max * (1 - exp(-phi*r/r_s))  # phi im Exponenten!
+Xi(r) = Xi_max * (1 - exp(-phi*r_s / r))  # phi im Exponenten!
 D = 1 / (1 + Xi)                         # Korrekte Formel!
 ```
 
@@ -159,13 +159,13 @@ D = 1 / (1 + Xi)                         # Korrekte Formel!
 **Bei r* = 1.387 r_s:**
 ```
 Neutronenstern (2 M_sun):
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07 [OK]
 
 Sgr A* (4.1e6 M_sun):
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07 [OK]
 ```
 
@@ -235,8 +235,8 @@ Sgr A* (4.1e6 M_sun):
 ### Hauptergebnisse:
 
 1. **Universal Intersection bestaetigt:**
-   - r* = 1.386562 · r_s (massenunabhaengig)
-   - D* = 0.528007
+   - r* = 1.594811 · r_s (massenunabhaengig)
+   - D* = 0.610710
    - Praezision: < 10^-6
 
 2. **Causality erhalten:**

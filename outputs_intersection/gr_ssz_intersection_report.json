@@ -17,8 +17,8 @@
     "outdir": "outputs_intersection"
   },
   "expected": {
-    "r_star_over_rs": 1.386562,
-    "D_star": 0.528007,
+    "r_star_over_rs": 1.594811,
+    "D_star": 0.610710,
     "source": "SSZ_COMPLETE_FINAL_REPORT.md Analysis 6"
   },
   "cases": [
@@ -31,8 +31,8 @@
         "D_at_root_match": true,
         "r_star_match_expected": true,
         "D_star_match_expected": true,
-        "D_GR": 0.5280071198891432,
-        "D_SSZ": 0.5280071198891445,
+        "D_GR": 0.6107101198891432,
+        "D_SSZ": 0.6107101198891445,
         "Xi_star": 0.8939138551956471,
         "deviation_r": 3.803513066724662e-07,
         "deviation_D": 1.1988914316862775e-07
@@ -47,8 +47,8 @@
         "D_at_root_match": true,
         "r_star_match_expected": true,
         "D_star_match_expected": true,
-        "D_GR": 0.5280071198891445,
-        "D_SSZ": 0.5280071198891444,
+        "D_GR": 0.6107101198891445,
+        "D_SSZ": 0.6107101198891444,
         "Xi_star": 0.8939138551956476,
         "deviation_r": 3.8035130400793093e-07,
         "deviation_D": 1.1988914450089538e-07

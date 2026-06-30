@@ -29,8 +29,8 @@ All 6 fundamental pillars of the SSZ Theory of Everything have been validated th
 
 **Values:**
 ```
-r*/r_s = 1.386562 (mass-independent!)
-D* = 0.528007
+r*/r_s = 1.594811 (mass-independent!)
+D* = 0.610710
 Deviation: < 1e-6
 ```
 

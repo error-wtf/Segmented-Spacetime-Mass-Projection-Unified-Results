@@ -347,7 +347,7 @@ not on M! Therefore r*/r_s = constant.
 
 **Numerical Solution (Ξ_max = 0.8, φ ≈ 1.618):**
 ```
-r*/r_s ≈ 1.386562
+r*/r_s ≈ 1.594811
 ```
 
 **Measured from Data:**

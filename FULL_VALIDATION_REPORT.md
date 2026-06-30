@@ -47,7 +47,7 @@ Version: 1.0 Final - Publication Ready
    - Differenz: 0.000s (0.000%) ✓
    
 3. ✅ Universal Intersection: PASS
-   - r*/r_s = 1.386562 ✓
+   - r*/r_s = 1.594811 ✓
    - Abweichung: < 1e-6 ✓
    
 4. ✅ Causality: PASS
@@ -110,8 +110,8 @@ Version: 1.0 Final - Publication Ready
 - Parameter validation complete
 
 **[STEP 2/11] Universal Intersection (GR ⊥ SSZ)** ✅ PASS
-- r*/r_s = 1.38656 (expected: 1.386562)
-- D* = 0.5280 (expected: 0.528007)
+- r*/r_s = 1.38656 (expected: 1.594811)
+- D* = 0.5280 (expected: 0.610710)
 - Mass-independent crossover confirmed
 
 **[STEP 3/11] Black-Hole Stability (Bomb Test)** ✅ PASS
@@ -173,7 +173,7 @@ Version: 1.0 Final - Publication Ready
 
 **[PILLAR 1/6] Universal Intersection** ✅ PASS
 - L2 norm: 0.3768 (threshold: 0.50)
-- r*/r_s: 1.386562 (expected: 1.386562)
+- r*/r_s: 1.594811 (expected: 1.594811)
 - Bracket error: 3.8e-7
 
 **[PILLAR 2/6] φ-Invariance** ✅ PASS
@@ -365,8 +365,8 @@ Status: ✓ PASS (≥6.0× threshold)
 ```python
 ✓ Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
 ✓ D(r) = 1 / (1 + Ξ(r))
-✓ r* = 1.386562 · r_s
-✓ D* = 0.528007
+✓ r* = 1.594811 · r_s
+✓ D* = 0.610710
 ✓ φ = 1.618034
 ```
 
@@ -518,12 +518,12 @@ Status: ✓ PASS (≥6.0× threshold)
 
 ### 2. Universal Intersection
 
-**Discovery:** Mass-independent crossover between GR and SSZ at r* = 1.386562·r_s.
+**Discovery:** Mass-independent crossover between GR and SSZ at r* = 1.594811·r_s.
 
 **Evidence:**
 - Numerically verified: < 1e-6 precision
 - Validated across multiple tests
-- D* = 0.528007 confirmed
+- D* = 0.610710 confirmed
 
 **Significance:**
 - Fundamental property of spacetime

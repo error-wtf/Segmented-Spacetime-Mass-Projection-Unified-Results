@@ -608,8 +608,8 @@ Scientific: Visualization (not validation)
 ```python
 ✅ Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
 ✅ D(r) = 1 / (1 + Ξ(r))
-✅ r* = 1.386562 · r_s
-✅ D* = 0.528007
+✅ r* = 1.594811 · r_s
+✅ D* = 0.610710
 ✅ φ = (1 + √5) / 2 = 1.618034
 ```
 

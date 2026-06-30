@@ -161,7 +161,7 @@ Dimensionsanalyse:
 - ✓ **Schwarzschild-Radius** r_s = 2GM/c²
 - ✓ **Lorentz-Faktor** γ_SR = 1/√(1-v²/c²)
 - ✓ **GR Time Dilation** D_GR = √(1-r_s/r)
-- ✓ **SSZ Segment Density** Ξ = ξ_max(1-e^(-φr/r_s))
+- ✓ **SSZ Segment Density** Ξ = ξ_max(1-e^(-φr_s / r))
 - ✓ **SSZ Time Dilation** D_SSZ = 1/(1+Ξ)
 - ✓ **Universal Intersection** r*/r_s = 1.387, D* = 0.528
 - ✓ **Redshift** z = 1/D - 1

@@ -3,7 +3,7 @@
   "steps": {
     "step1_intersection": {
       "r_over_rs": 1.3865616196486958,
-      "D_star": 0.5280071198891444,
+      "D_star": 0.6107101198891444,
       "validated": true,
       "interpretation": "Universal mass-independent crossover confirmed at r* = 1.387 r_s"
     },

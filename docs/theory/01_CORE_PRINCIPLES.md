@@ -98,13 +98,13 @@ dτ/dt = D(r) = 1 / (1 + Ξ(r))
 **Statement:** SSZ and GR intersect at a universal, mass-independent point r*.
 
 **Consequences:**
-- r* = 1.386562 · r_s for ALL masses
-- D* = 0.528007 universal value
+- r* = 1.594811 · r_s for ALL masses
+- D* = 0.610710 universal value
 - Connects discrete and continuous theories
 
 **Mathematical Expression:**
 ```
-D_GR(r*) = D_SSZ(r*) = 0.528007
+D_GR(r*) = D_SSZ(r*) = 0.610710
 ∀ masses M
 ```
 
@@ -174,7 +174,7 @@ r_s = 2GM/c²
 
 ### 5. Universal Intersection r*
 
-**Value:** r* = 1.386562 · r_s
+**Value:** r* = 1.594811 · r_s
 
 **Physical Meaning:**
 - Point where SSZ = GR exactly
@@ -304,8 +304,8 @@ r_s = 2GM/c²
 D(r) = 1 / (1 + Ξ(r))
 
 # 4. Universal intersection
-r* = 1.386562 · r_s
-D* = 0.528007
+r* = 1.594811 · r_s
+D* = 0.610710
 ```
 
 **That's it!** Everything else follows from these four relations.

@@ -25,7 +25,7 @@ G = 6.674e-11   # Gravitational constant [m³/(kg·s²)]
 
 def xi_of_r(r, r_s, xi_max=XI_MAX, phi=PHI):
     """Segment density - CORRECT formula"""
-    return xi_max * (1 - np.exp(-phi * r / r_s))
+    return xi_max * (1 - np.exp(-phi * r_s / r))
 
 def D_SSZ(r, r_s, xi_max=XI_MAX):
     """SSZ time dilation - CORRECT formula"""
@@ -51,7 +51,7 @@ def main():
     Xi_calc = xi_of_r(r_test, r_s)
     D_calc = D_SSZ(r_test, r_s)
     
-    print(f"  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r/r_s))")
+    print(f"  Formel: Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))")
     print(f"  Bei r = 2r_s:")
     print(f"    Xi(2r_s) = {Xi_calc:.6f}")
     print(f"    D(2r_s) = {D_calc:.6f}")
@@ -105,8 +105,8 @@ def main():
     r_star_normalized = r_star / r_s
     
     # Published values
-    r_star_pub = 1.386562
-    D_star_pub = 0.528007
+    r_star_pub = 1.594811
+    D_star_pub = 0.610710
     
     r_diff = abs(r_star_normalized - r_star_pub)
     D_diff = abs(D_star - D_star_pub)

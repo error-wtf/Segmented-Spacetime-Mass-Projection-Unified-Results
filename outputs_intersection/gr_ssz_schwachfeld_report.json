@@ -10,8 +10,8 @@
     "outdir": "outputs_intersection"
   },
   "expected": {
-    "r_star_over_rs": 1.386562,
-    "D_star": 0.528007
+    "r_star_over_rs": 1.594811,
+    "D_star": 0.610710
   },
   "cases": [
     {

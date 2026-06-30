@@ -222,7 +222,7 @@ python run_ssz_unified_validation.py
 **Step 2: Universal Intersection**
 - Find r* where SSZ = GR
 - Verify mass-independence
-- Expected: r*/r_s ≈ 1.386562
+- Expected: r*/r_s ≈ 1.594811
 
 **Step 3: Black-Hole Stability (BOMB TEST)**
 - Superradiant instability test
@@ -707,8 +707,8 @@ python run_toe_validation_v2.py
 
 # Expected (bit-exact):
 # - All 6 pillars PASS
-# - r*/r_s = 1.386562
-# - D* = 0.528007
+# - r*/r_s = 1.594811
+# - D* = 0.610710
 # - φ = 1.618034
 # - BH gain reduction = 6.55×
 ```

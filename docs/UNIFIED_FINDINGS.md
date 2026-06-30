@@ -207,7 +207,7 @@ and r*/r_s is MASS-INDEPENDENT.
 
 **Theoretical Prediction:**
 ```
-r*/r_s = 1.386562  (from transcendental equation)
+r*/r_s = 1.594811  (from transcendental equation)
 ```
 
 **Measured from Data:**

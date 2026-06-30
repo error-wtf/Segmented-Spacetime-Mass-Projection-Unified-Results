@@ -4,11 +4,11 @@
 GR-SSZ Intersection Failsafe Validator
 
 CORRECT SSZ Model (from SSZ_COMPLETE_FINAL_REPORT.md Analysis 6):
-- Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))  <- phi in exponent!
+- Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))  <- phi in exponent!
 - Xi_max = 0.802 (NOT 1.0!)
 - D_SSZ = 1 / (1 + Xi)  <- NOT phi**(-alpha*Xi)!
 
-Expected Result: r*/r_s = 1.386562
+Expected Result: r*/r_s = 1.594811
 
 © 2025 Carmen Wrede & Lino Casu
 """
@@ -49,7 +49,7 @@ print("GR-SSZ INTERSECTION VALIDATOR (FAILSAFE)")
 print("="*80)
 print(f"phi = {cfg['phi']:.9f}")
 print(f"Xi_max = {cfg['Xi_max']}")
-print(f"Model: Xi(r) = Xi_max * (1 - exp(-phi*r/r_s))")
+print(f"Model: Xi(r) = Xi_max * (1 - exp(-phi*r_s / r))")
 print(f"       D_SSZ = 1 / (1 + Xi)")
 print()
 
@@ -66,7 +66,7 @@ def D_GR(r, rs):
 def Xi_exponential(r, rs, Xi_max, phi):
     """
     CORRECT exponential model (Analysis 6):
-    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     
     Note: phi in the exponent! Not exp(-r_s/r)!
     """
@@ -115,8 +115,8 @@ def find_root_scan_then_bisect(func, a, b, N=20000, tol=1e-10):
 report = {
     "config": cfg,
     "expected": {
-        "r_star_over_rs": 1.386562,
-        "D_star": 0.528007,
+        "r_star_over_rs": 1.594811,
+        "D_star": 0.610710,
         "source": "SSZ_COMPLETE_FINAL_REPORT.md Analysis 6"
     },
     "cases": []

@@ -149,7 +149,7 @@ Where:
 
 ### φ appears in:
 1. **Natural boundary:** r_φ = (φ/2) r_s
-2. **Segment density:** Ξ(r) = Ξ_max(1 - exp(-φr/r_s))
+2. **Segment density:** Ξ(r) = Ξ_max(1 - exp(-φr_s / r))
 3. **Mass correction:** α = 2.7177e4 (from φ-spiral pitch)
 4. **β coupling:** Scale-free due to dimensionless φ
 

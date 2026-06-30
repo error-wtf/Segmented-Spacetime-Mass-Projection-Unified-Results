@@ -102,7 +102,7 @@ PILLARS = [
 
 def xi_ssz(r, r_s=R_S, xi_max=XI_MAX):
     """SSZ segment density - CORRECT formula"""
-    return xi_max * (1 - np.exp(-PHI * r / r_s))
+    return xi_max * (1 - np.exp(-PHI * r_s / r))
 
 def D_SSZ(r, r_s=R_S, xi_max=XI_MAX):
     """SSZ time dilation - CORRECT formula"""
@@ -160,7 +160,7 @@ def validate_intersection():
             pass
     
     # Expected value
-    r_star_expected = 1.386562
+    r_star_expected = 1.594811
     bracket_error = abs(r_star - r_star_expected) if not np.isnan(r_star) else np.inf
     
     ok_L2 = L2 <= THRESHOLDS['intersection_L2_max']
@@ -210,7 +210,7 @@ def validate_phi_invariance():
     # Test 1: φ from exponential fit
     r = np.linspace(0.1, 5.0, 100)
     xi = xi_ssz(r, R_S, XI_MAX)
-    # Should match: xi = XI_MAX * (1 - exp(-PHI * r / R_S))
+    # Should match: xi = XI_MAX * (1 - exp(-PHI * r_s / r))
     
     # Test 2: φ from energy ratio
     # E_max / E_0 = φ²

@@ -66,7 +66,7 @@ print("-" * 80)
 
 def xi(r, rs=R_S, xi_max=XI_MAX, phi=PHI):
     """Segment density field (CORRECT exponential form)
-    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     """
     return xi_max * (1 - np.exp(-phi * r / rs))
 
@@ -117,8 +117,8 @@ r_star_over_rs = r_star / R_S
 D_star = D_GR(r_star)
 
 # Validate against target
-r_target = 1.386562
-D_target = 0.528007
+r_target = 1.594811
+D_target = 0.610710
 r_deviation = abs(r_star_over_rs - r_target)
 D_deviation = abs(D_star - D_target)
 

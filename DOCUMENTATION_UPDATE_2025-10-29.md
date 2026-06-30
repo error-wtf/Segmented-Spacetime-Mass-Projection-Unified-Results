@@ -76,8 +76,8 @@ D_SSZ(r) = 1 / (1 + Ξ(r))
 
 ### Universal Intersection:
 ```
-r* = 1.386562 · r_s  (mass-independent!)
-D* = 0.528007
+r* = 1.594811 · r_s  (mass-independent!)
+D* = 0.610710
 Ξ* = 0.893914
 ```
 
@@ -132,8 +132,8 @@ D* = 0.528007
 #### Test 6: Crossover Coherence ⭐
 ```
 At r* = 1.387 r_s:
-  D_GR(r*) = 0.528007
-  D_SSZ(r*) = 0.528007
+  D_GR(r*) = 0.610710
+  D_SSZ(r*) = 0.610710
   diff = 2.06e-07 ✓✓✓
 
 Mass-independence confirmed!

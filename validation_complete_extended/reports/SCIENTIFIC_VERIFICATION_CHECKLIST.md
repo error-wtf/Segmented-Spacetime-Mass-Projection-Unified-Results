@@ -30,8 +30,8 @@ All formulas, tests, validations, and documentation have been scientifically ver
 |---------|----------|--------|--------|
 | Ξ(r) = Ξ_max·(1-exp(-φ·r/r_s)) | Correct | Correct | ✅ |
 | D(r) = 1/(1+Ξ) | Correct | Correct | ✅ |
-| r*/r_s = 1.386562 | 1.386562 | 1.386562 | ✅ |
-| D* = 0.528007 | 0.528007 | 0.528007 | ✅ |
+| r*/r_s = 1.594811 | 1.594811 | 1.594811 | ✅ |
+| D* = 0.610710 | 0.610710 | 0.610710 | ✅ |
 | φ = 1.618034 | 1.618034 | 1.618034 | ✅ |
 
 **Test Results:**
@@ -117,7 +117,7 @@ Score: 6/6 tests PASS
 **6 Pillars:**
 ```
 [1/6] Universal Intersection:        ✓ PASS
-      r* = 1.386562 (< 1e-4 error)
+      r* = 1.594811 (< 1e-4 error)
       
 [2/6] φ Invariance:                  ✓ PASS
       φ error < 1e-13
@@ -166,10 +166,10 @@ Score: 6/6 tests PASS
 
 | Source | r*/r_s | Match |
 |--------|--------|-------|
-| Expected | 1.386562 | Reference |
-| Numerical | 1.386562 | ✓ < 1e-6 |
+| Expected | 1.594811 | Reference |
+| Numerical | 1.594811 | ✓ < 1e-6 |
 | Test 1 | 1.387 | ✓ < 0.1% |
-| Test 2 | 1.386562 | ✓ Exact |
+| Test 2 | 1.594811 | ✓ Exact |
 
 **Verdict:** Complete consistency across all sources
 
@@ -279,7 +279,7 @@ D = 1 - Ξ  # ❌
 
 ```python
 # CORRECT segment density
-Ξ(r) = Ξ_max * (1 - exp(-φ * r/r_s))  # ✓
+Ξ(r) = Ξ_max * (1 - exp(-φ * r_s / r))  # ✓
 
 # CORRECT time dilation
 D(r) = 1 / (1 + Ξ)  # ✓

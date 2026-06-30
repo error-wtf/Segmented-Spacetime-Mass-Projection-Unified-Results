@@ -98,7 +98,7 @@ Spacetime is discrete – Time is emergent – φ is universal – SSZ forms ToE
 
 ### STEP 2: Universal Intersection Proof
 **Finds:** r* where D_GR = D_SSZ  
-**Target:** r*/r_s = 1.386562 ± 1e-6  
+**Target:** r*/r_s = 1.594811 ± 1e-6  
 **Output:** Intersection plot + difference curve
 
 ### STEP 3: Black-Hole Stability

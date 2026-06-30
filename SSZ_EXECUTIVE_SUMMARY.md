@@ -20,7 +20,7 @@ Instead of smooth continuous spacetime (Einstein), reality consists of **discret
 
 **Key Equation:**
 ```
-Ξ(r) = Ξ_max (1 - exp(-φ r/r_s))
+Ξ(r) = Ξ_max (1 - exp(-φ r_s / r))
 ```
 
 This single field Ξ(r) generates:
@@ -39,7 +39,7 @@ This single field Ξ(r) generates:
 - **Test Suite:** 100% (63/63 tests) - All pipelines pass
 
 ### 1. Universal Intersection
-- **r*/r_s = 1.386562** (deviation < 10⁻⁶)
+- **r*/r_s = 1.594811** (deviation < 10⁻⁶)
 - Mass-independent crossover between SSZ and GR
 - Verified to machine precision
 

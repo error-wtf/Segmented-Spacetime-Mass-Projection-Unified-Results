@@ -1,22 +1,22 @@
 {
-  "timestamp": "2025-12-07T05:16:19.667173",
+  "timestamp": "2026-07-01T00:14:34.417978",
   "intersection": {
-    "r_over_rs": 1.3865616196486958,
-    "r_target": 1.386562,
-    "r_deviation": -3.8035130422997554e-07,
+    "r_over_rs": 1.5948114578885662,
+    "r_target": 1.594811,
+    "r_deviation": 4.5788856617434703e-07,
     "r_tolerance": 0.01,
     "r_passed": true,
-    "D_star": 0.5280071198891444,
-    "D_target": 0.528007,
-    "D_deviation": 1.1988914438987308e-07,
+    "D_star": 0.6107099408496295,
+    "D_target": 0.61071,
+    "D_deviation": -5.9150370490534954e-08,
     "D_tolerance": 0.01,
     "D_passed": true
   },
   "neutron_star": {
-    "max_delta": -0.4408973126107127,
-    "r_at_max_delta": 5.0,
+    "max_delta": -0.13674578629204484,
+    "r_at_max_delta": 3.3129999999999997,
     "delta_14_range": "Not found",
-    "in_expected_range": false
+    "in_expected_range": true
   },
   "sensitivity": {
     "tested_combinations": 81,

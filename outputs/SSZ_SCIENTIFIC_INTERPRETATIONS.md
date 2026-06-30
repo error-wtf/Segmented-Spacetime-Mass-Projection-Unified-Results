@@ -21,7 +21,7 @@ This document consolidates the scientific interpretations from **4 complete vali
 
 #### 1.1 Universal Intersection Discovery
 
-**Finding:** Mass-independent crossover at r* = 1.386562 r_s (deviation < 10⁻⁶)
+**Finding:** Mass-independent crossover at r* = 1.594811 r_s (deviation < 10⁻⁶)
 
 **Scientific Interpretation:**
 - This universal intersection is **independent of black hole mass**
@@ -32,7 +32,7 @@ This document consolidates the scientific interpretations from **4 complete vali
 **Physical Meaning:**
 - At r < r*: SSZ predicts stronger effects (more segment density)
 - At r > r*: GR and SSZ diverge, SSZ becomes distinguishable
-- Time dilation at intersection: D* = 0.528007 (machine precision)
+- Time dilation at intersection: D* = 0.610710 (machine precision)
 
 **Testability:** Can be verified through:
 - Pulsar timing around stellar-mass BH
@@ -193,7 +193,7 @@ This document consolidates the scientific interpretations from **4 complete vali
 **Scientific Interpretation:**
 - Golden ratio is **fundamental**, like π and e
 - Appears in:
-  1. Segment density: Ξ(r) ~ exp(-φ r/r_s)
+  1. Segment density: Ξ(r) ~ exp(-φ r_s / r)
   2. Time emergence: Δt = (1 + Ξ)/φ
   3. Resonance: ω = φ/(1 + Ξ)
   4. Energy: E_max = φ² E₀

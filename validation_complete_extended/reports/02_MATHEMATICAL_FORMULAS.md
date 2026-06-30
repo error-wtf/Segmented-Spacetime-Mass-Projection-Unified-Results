@@ -65,8 +65,8 @@ D_GR(r) = sqrt(1 - r_s/r)
 ### 5. Universal Intersection
 
 ```
-r* = 1.386562 · r_s  (dimensionless constant!)
-D* = 0.528007        (universal value!)
+r* = 1.594811 · r_s  (dimensionless constant!)
+D* = 0.610710        (universal value!)
 ```
 
 **Condition:**
@@ -188,8 +188,8 @@ where n(r) = 1/D(r)
 
 | Quantity | Symbol | Value | Note |
 |----------|--------|-------|------|
-| Intersection radius | r*/r_s | 1.386562 | Mass-independent |
-| Intersection dilation | D* | 0.528007 | Universal |
+| Intersection radius | r*/r_s | 1.594811 | Mass-independent |
+| Intersection dilation | D* | 0.610710 | Universal |
 | Segment density at r* | Ξ* | 0.893914 | From equation |
 
 ---
@@ -203,7 +203,7 @@ M = 2 * 1.989e30  # kg
 r_s = 2 * 6.674e-11 * M / (2.998e8)**2
 r_s ≈ 2953 m ≈ 3 km
 
-r* = 1.386562 * r_s
+r* = 1.594811 * r_s
 r* ≈ 4095 m ≈ 4 km
 ```
 
@@ -305,8 +305,8 @@ dℓ_proper = dr  (in coordinate frame)
 ### Required Accuracy
 
 For scientific validation:
-- r*/r_s: 6 significant figures (1.386562)
-- D*: 6 significant figures (0.528007)
+- r*/r_s: 6 significant figures (1.594811)
+- D*: 6 significant figures (0.610710)
 - φ: 6 significant figures (1.618034)
 
 ### Computational Stability
@@ -326,7 +326,7 @@ For scientific validation:
 ```python
 def test_crossover(M):
     r_s = schwarzschild_rs(M)
-    r_star = 1.386562 * r_s
+    r_star = 1.594811 * r_s
     D_GR = sqrt(1 - r_s/r_star)
     D_SSZ = 1 / (1 + 1.0 * (1 - exp(-1.618034 * r_star/r_s)))
     assert abs(D_GR - D_SSZ) < 1e-6
@@ -359,7 +359,7 @@ D = 1 - Ξ     # Also wrong!
 
 ```python
 # CORRECT segment density:
-Ξ(r) = Ξ_max * (1 - exp(-φ * r/r_s))  # φ·r/r_s is CORRECT!
+Ξ(r) = Ξ_max * (1 - exp(-φ * r_s / r))  # φ·r/r_s is CORRECT!
 
 # CORRECT time dilation:
 D = 1 / (1 + Ξ)  # Simple inverse!

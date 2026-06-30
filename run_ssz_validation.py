@@ -37,11 +37,11 @@ def schwarzschild_rs(M):
 def xi_exponential(r, r_s, xi_max=1.0):
     """Segment density field (CORRECT exponential form)
     
-    Xi(r) = Xi_max * (1 - exp(-phi * r / r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     
     Note: phi in exponent, not exp(-r_s/r)!
     """
-    return xi_max * (1 - np.exp(-PHI * r / r_s))
+    return xi_max * (1 - np.exp(-PHI * r_s / r))
 
 def time_dilation_ssz(r, r_s, xi_max=1.0, alpha=1.0):
     """SSZ time dilation (CORRECT formula)
@@ -123,8 +123,8 @@ print(f"  D* = {D_star:.6f}")
 print(f"  Ξ* = {xi_star:.6f}")
 
 # Check tolerances
-r_target = 1.386562
-D_target = 0.528007
+r_target = 1.594811
+D_target = 0.610710
 r_ok = abs(r_over_rs - r_target) < 0.01
 D_ok = abs(D_star - D_target) < 0.01
 
@@ -396,8 +396,8 @@ All key SSZ predictions have been numerically verified and compared against Gene
 
 ### Claim
 SSZ predicts a **universal mass-independent intersection** where:
-- r*/r_s ≈ 1.386562
-- D* ≈ 0.528007
+- r*/r_s ≈ 1.594811
+- D* ≈ 0.610710
 
 ### Results
 

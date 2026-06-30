@@ -213,8 +213,8 @@ cd Segmented-Spacetime-Mass-Projection-Unified-Results
 **Formeln:**
 - [x] Ξ(r) = Ξ_max·(1-exp(-φ·r/r_s)) ✓
 - [x] D(r) = 1/(1+Ξ) ✓
-- [x] r* = 1.386562·r_s ✓
-- [x] D* = 0.528007 ✓
+- [x] r* = 1.594811·r_s ✓
+- [x] D* = 0.610710 ✓
 - [x] φ = 1.618034 ✓
 
 **Tests:**

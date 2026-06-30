@@ -69,8 +69,8 @@ def diff_D(r, rs, Xi_max, alpha):
 report = {
     "config": cfg,
     "expected": {
-        "r_star_over_rs": 1.386562,
-        "D_star": 0.528007
+        "r_star_over_rs": 1.594811,
+        "D_star": 0.610710
     },
     "cases": []
 }
