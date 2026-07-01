@@ -287,7 +287,7 @@ D:\
 
 **All Formulas Verified:**
 ```python
-✅ Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+✅ Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ✅ D(r) = 1 / (1 + Ξ(r))
 ✅ r* = 1.594811 · r_s
 ✅ D* = 0.610710

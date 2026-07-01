@@ -19,7 +19,7 @@
 
 ## 2. Segment Density Ξ(r)
 
-**Formel:** `Ξ(r) = ξ_max × (1 - exp(-φ × r/r_s))`
+**Formel:** `Ξ(r) = ξ_max × (1 - exp(-φ × r_s / r))`
 
 | r/r_s | Suite Ξ | Wolfram Ξ | Δ |
 |-------|---------|-----------|---|

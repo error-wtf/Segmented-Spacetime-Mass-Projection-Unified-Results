@@ -95,7 +95,7 @@ Dimensionsanalyse:
 **Status:** ✓ OK
 
 ### SSZ Segment Density
-**Formel:** `Ξ(r) = ξ_max × (1 - exp(-φ × r/r_s))`  
+**Formel:** `Ξ(r) = ξ_max × (1 - exp(-φ × r_s / r))`  
 **Wolfram:** `1 - exp(-φ) = 0.8017` (bei r=r_s)  
 **Status:** ✓ OK
 

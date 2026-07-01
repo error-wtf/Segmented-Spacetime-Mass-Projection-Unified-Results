@@ -54,7 +54,7 @@ The discrete segment structure produces exactly the same gravitational effects a
 **Verified Appearances:**
 ```python
 # 1. Segment density exponential
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 
 # 2. Temporal resonance
 ω(r) contains φ factor

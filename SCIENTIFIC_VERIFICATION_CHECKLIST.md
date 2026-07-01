@@ -28,7 +28,7 @@ All formulas, tests, validations, and documentation have been scientifically ver
 
 | Formula | Expected | Actual | Status |
 |---------|----------|--------|--------|
-| Ξ(r) = Ξ_max·(1-exp(-φ·r/r_s)) | Correct | Correct | ✅ |
+| Ξ(r) = Ξ_max·(1-exp(-φ·r_s / r)) | Correct | Correct | ✅ |
 | D(r) = 1/(1+Ξ) | Correct | Correct | ✅ |
 | r*/r_s = 1.594811 | 1.594811 | 1.594811 | ✅ |
 | D* = 0.610710 | 0.610710 | 0.610710 | ✅ |

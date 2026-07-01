@@ -323,7 +323,7 @@ python segment_redshift_addon.py --segment-redshift --nu-em 1e18 --r-em 2.0 --r-
 **Zweck:** Time Dilation Vergleich GR vs. SSZ
 
 **Formeln:**
-- `Xi(r) = xi_max·(1 - exp(-PHI·r/r_s))` (φ im Exponenten!)
+- `Xi(r) = xi_max·(1 - exp(-PHI·r_s / r))` (φ im Exponenten!)
 - `D_SSZ(r) = 1/(1 + Xi(r))` (Singularity-free)
 - `D_GR(r) = √(1 - r_s/r)` (Singular at r_s)
 

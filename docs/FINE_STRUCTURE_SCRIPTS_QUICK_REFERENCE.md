@@ -64,7 +64,7 @@ N_seg = f_emit/f_obs - N₀
 ### **6. SSZ Time Dilation**
 ```
 D_SSZ(r) = 1 / (1 + Xi(r))
-Xi(r) = xi_max·(1 - exp(-φ·r/r_s))
+Xi(r) = xi_max·(1 - exp(-φ·r_s / r))
 ```
 
 ---

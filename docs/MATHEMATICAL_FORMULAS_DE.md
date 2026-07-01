@@ -69,7 +69,7 @@ M_☉ = 1.98847 × 10^30 kg                    Sonnenmasse
 
 **Exponentielles Sättigungsmodell:**
 ```
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ```
 
 **Wobei:**

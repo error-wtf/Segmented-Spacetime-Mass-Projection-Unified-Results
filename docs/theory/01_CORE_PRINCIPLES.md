@@ -61,7 +61,7 @@ Spacetime = ⋃ σᵢ  (union of discrete segments)
 
 **Mathematical Expression:**
 ```
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ```
 
 ### Axiom 3: φ-Based Geometry
@@ -298,7 +298,7 @@ This is true for **ALL masses** - from neutron stars to supermassive black holes
 r_s = 2GM/c²
 
 # 2. Segment density
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 
 # 3. Time dilation
 D(r) = 1 / (1 + Ξ(r))

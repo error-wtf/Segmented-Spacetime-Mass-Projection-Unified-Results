@@ -23,7 +23,7 @@ This document verifies that ALL formulas in the theory documentation are:
 
 **Documented Formula:**
 ```
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ```
 
 **Verification:**
@@ -94,7 +94,7 @@ import scipy.optimize
 
 def difference(r):
     D_GR = sqrt(1 - r_s/r)
-    Ξ = 1.0 * (1 - exp(-1.618034 * r/r_s))
+    Ξ = 1.0 * (1 - exp(-1.618034 * r_s / r))
     D_SSZ = 1 / (1 + Ξ)
     return D_GR - D_SSZ
 
@@ -281,7 +281,7 @@ D = 1 - Ξ  # ❌ FALSCH!
 
 **SSZ_COMPLETE_VALIDATION_REPORT.md Section 1:**
 ```
-Xi(r) = Xi_max · (1 - exp(-phi · r/r_s))  ✓ Match
+Xi(r) = Xi_max · (1 - exp(-phi · r_s / r))  ✓ Match
 D_SSZ(r) = 1 / (1 + Xi(r))                ✓ Match
 r* = 1.594811 · r_s                       ✓ Match
 D* = 0.610710                              ✓ Match
@@ -348,7 +348,7 @@ D(∞) = 1 / (1 + 1.0) = 0.5 < 1  ✓
 dD/dr = d/dr[1/(1+Ξ)]
       = -1/(1+Ξ)² · dΞ/dr
 
-dΞ/dr = Ξ_max · φ/r_s · exp(-φ·r/r_s) > 0
+dΞ/dr = Ξ_max · φ/r_s · exp(-φ·r_s / r) > 0
 
 Therefore: dD/dr > 0 everywhere  ✓
 ```
@@ -360,7 +360,7 @@ Therefore: dD/dr > 0 everywhere  ✓
 **Requirement:** C∞ smooth
 
 **Verification:**
-- Ξ(r) contains exp(-φ·r/r_s) which is C∞
+- Ξ(r) contains exp(-φ·r_s / r) which is C∞
 - D(r) = 1/(1+Ξ) is C∞ where Ξ ≠ -1
 - Ξ(r) ≥ 0 always, so 1+Ξ ≥ 1 > 0
 

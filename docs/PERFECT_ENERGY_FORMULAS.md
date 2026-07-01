@@ -13,7 +13,7 @@
 Ξ_weak(r) = r_s / (2r)
 ```
 
-**Strong Field** (r/r_s < 1.8):
+**Strong Field** (r_s/r < 1.8):
 ```
 Ξ_strong(r) = 1 - exp(-φ × r_s / r)
 ```

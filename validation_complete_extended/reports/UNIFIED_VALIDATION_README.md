@@ -85,7 +85,7 @@ Spacetime is discrete – Time is emergent – φ is universal – SSZ forms ToE
 
 ### STEP 1: Model Initialization
 **Implements:**
-- Ξ(r) = Ξ_max (1 − exp(−φ r / r_s))
+- Ξ(r) = Ξ_max (1 − exp(−φ r_s / r))
 - Δt = (1 + Ξ)/φ
 - ω(r) = φ / (1 + Ξ)
 - D_GR = sqrt(1 − r_s/r)

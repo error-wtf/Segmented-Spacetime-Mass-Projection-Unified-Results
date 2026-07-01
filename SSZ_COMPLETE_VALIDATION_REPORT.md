@@ -25,7 +25,7 @@ Dieser Bericht dokumentiert den **kompletten wissenschaftlichen Beweis** der Seg
 
 ### Segmentdichte:
 ```
-Xi(r) = Xi_max · (1 - exp(-phi · r/r_s))
+Xi(r) = Xi_max · (1 - exp(-phi · r_s / r))
 ```
 - Xi_max = 1.0
 - phi = 1.618034 (Goldener Schnitt)

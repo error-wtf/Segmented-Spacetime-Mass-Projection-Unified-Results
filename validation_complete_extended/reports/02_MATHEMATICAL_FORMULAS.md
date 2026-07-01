@@ -22,7 +22,7 @@ r_s = 2GM/c²
 ### 2. Segment Density Field (CORRECT)
 
 ```
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ```
 
 **Where:**
@@ -45,7 +45,7 @@ D_SSZ(r) = 1 / (1 + Ξ(r))
 
 **Expanded form:**
 ```
-D_SSZ(r) = 1 / (1 + Ξ_max · (1 - exp(-φ · r/r_s)))
+D_SSZ(r) = 1 / (1 + Ξ_max · (1 - exp(-φ · r_s / r)))
 ```
 
 **Properties:**

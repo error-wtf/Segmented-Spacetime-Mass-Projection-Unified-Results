@@ -16,7 +16,7 @@
 
 ### 1.2 Segment Density Ξ(r)
 ```
-Ξ(r) = Ξ_max · (1 - exp(-φ · r/r_s))
+Ξ(r) = Ξ_max · (1 - exp(-φ · r_s / r))
 ```
 Where:
 - Ξ_max = 1.0 (maximum saturation)
