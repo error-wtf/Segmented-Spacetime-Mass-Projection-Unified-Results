@@ -34,7 +34,7 @@
 
 ## Conclusion
 
-All 6 ToE pillars validated with consistency score 100.0%.
+All 6 ToE pillars validated with consistency score 83.3%.
 SSZ provides a unified framework connecting:
 - Gravity (from segment density)
 - Time (emergent from φ-structure)

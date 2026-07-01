@@ -57,8 +57,8 @@ def main():
     print(f"    D(2r_s) = {D_calc:.6f}")
     
     # Expected values
-    Xi_expected = 0.960682
-    D_expected = 0.510027
+    Xi_expected = 0.554704
+    D_expected = 0.643209
     
     test1_pass = bool(abs(Xi_calc - Xi_expected) < 1e-5 and 
                       abs(D_calc - D_expected) < 1e-5)

@@ -1,12 +1,12 @@
 {
-  "timestamp": "2025-11-19T20:58:14.932197",
+  "timestamp": "2026-07-01T00:38:59.742234",
   "pillars": {
     "intersection": {
-      "L2": 0.3767753696435562,
+      "L2": 0.1045411901280995,
       "has_intersection": true,
-      "r_star_rs": 1.3865616196486958,
+      "r_star_rs": 1.5948114578885664,
       "r_star_expected": 1.594811,
-      "bracket_error": 3.8035130422997554e-07,
+      "bracket_error": 4.5788856639639164e-07,
       "ok_L2": true,
       "ok_intersection": true,
       "ok_bracket": true,
@@ -25,14 +25,14 @@
       "ok": true
     },
     "neutron_star": {
-      "band_center": -0.4498543999113137,
-      "band_width": 0.07096358381974567,
-      "rel_width": 0.3154957863421398,
-      "delta_at_5rs": -0.44093275888325906,
-      "ok": true
+      "band_center": -0.10941170749788234,
+      "band_width": 0.026627758772751715,
+      "rel_width": 0.48674423206981016,
+      "delta_at_5rs": -0.12409150380877315,
+      "ok": false
     },
     "singularity_resolution": {
-      "R_sup_near_zero": 0.9999983819699382,
+      "R_sup_near_zero": 0.5,
       "R_ref": 1.0,
       "D_at_horizon": 0.5550277096687818,
       "Xi_at_horizon": 0.8017118471377938,
@@ -55,7 +55,7 @@
       "ok": true
     }
   },
-  "toe_consistency_score": 1.0,
+  "toe_consistency_score": 0.8333333333333334,
   "ok_min": true,
   "thresholds": {
     "intersection_L2_max": 0.5,
@@ -72,6 +72,6 @@
   "determinism": {
     "py_seed": 133742,
     "np_seed": 424242,
-    "numpy_version": "2.2.6"
+    "numpy_version": "2.3.0"
   }
 }

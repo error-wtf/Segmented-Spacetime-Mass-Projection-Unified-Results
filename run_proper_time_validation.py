@@ -85,7 +85,7 @@ def Xi_of_r(r, rs, Xi_max, alpha, phi):
     """SSZ segment density (CORRECT exponential model):
     Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     """
-    return Xi_max * (1.0 - np.exp(-phi * np.asarray(r) / rs))
+    return Xi_max * (1.0 - np.exp(-phi * rs / np.asarray(r)))
 
 def D_SSZ(r, rs, Xi_max, alpha):
     """SSZ time dilation: D = 1/(1 + Xi)"""

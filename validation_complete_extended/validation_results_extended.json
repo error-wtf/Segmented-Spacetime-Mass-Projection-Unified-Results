@@ -1,45 +1,9 @@
 {
-  "timestamp": "2025-10-29T18:57:50.888333",
+  "timestamp": "2026-07-01T00:40:20.950488",
   "results": [
     {
       "step": "verify_formulas",
       "name": "Formula Verification",
-      "success": true,
-      "exit_code": 0,
-      "critical": true,
-      "category": "validation",
-      "runtime": null
-    },
-    {
-      "step": "test_suite",
-      "name": "Complete Test Suite (22 tests)",
-      "success": false,
-      "exit_code": 1,
-      "critical": false,
-      "category": "validation",
-      "runtime": null
-    },
-    {
-      "step": "toe_unified",
-      "name": "ToE Unified Validation (11 steps)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true,
-      "category": "validation",
-      "runtime": null
-    },
-    {
-      "step": "toe_v2",
-      "name": "ToE Validation v2 (6 pillars)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true,
-      "category": "validation",
-      "runtime": null
-    },
-    {
-      "step": "bomb_tests",
-      "name": "Black Hole Bomb Tests (7 scripts)",
       "success": false,
       "exit_code": 1,
       "critical": true,
@@ -48,44 +12,36 @@
     }
   ],
   "statistics": {
-    "total": 5,
-    "passed": 3,
-    "failed": 2,
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
     "skipped": 0,
     "critical_failed": 1,
-    "success_rate": 60.0
+    "success_rate": 0.0
   },
   "error_summary": {
-    "total_errors": 2,
+    "total_errors": 1,
     "by_type": {
-      "ScriptFailure": 2
+      "ScriptFailure": 1
     },
     "by_step": {
-      "Complete Test Suite (22 tests)": 1,
-      "Black Hole Bomb Tests (7 scripts)": 1
+      "Formula Verification": 1
     },
     "errors": [
       {
-        "timestamp": "2025-10-29T18:57:41.351440",
-        "step": "Complete Test Suite (22 tests)",
+        "timestamp": "2026-07-01T00:40:20.872390",
+        "step": "Formula Verification",
         "type": "ScriptFailure",
         "message": "Exit code: 1",
-        "traceback": "Traceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_gaia_ssz_pipeline.py\", line 420, in <module>\n    main()\n  File \"E:\\clone\\doublecheck\\run_gaia_ssz_pipeline.py\", line 289, in main\n    sdss_paths = ensure_both_formats(sdss_base, prefer_parquet=prefer_parquet)\n  File \"E:\\clone\\doublecheck\\scripts\\preprocess\\io_utils.py\", line 55, in ensure_both_formats\n    raise FileNotFoundError(f\"Neither CSV nor Parquet found for base path {base}\")\nFileNotFoundError: Neither CSV nor Parquet found for base path data\\raw\\sdss\\2025-10-17_gaia_ssz_v1\\sdss_catalog\n2025-10-29 18:56:37,888 [INFO] TEST_GAIA: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185637.log\n2025-10-29 18:56:38,045 [INFO] TEST_GAIA: GAIA smoke rows=5000\n2025-10-29 18:56:38,051 [INFO] TEST_SDSS: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185638.log\n2025-10-29 18:56:38,062 [INFO] TEST_SDSS: SDSS smoke rows=5000\n2025-10-29 18:56:38,065 [INFO] TEST_PLANCK: Logger initialized -> data\\logs\\tests_2025-10-17_gaia_ssz_real_20251029_185638.log\n2025-10-29 18:56:38,066 [INFO] TEST_PLANCK: Planck CMB power spectrum present -> data\\planck\\COM_PowerSpect_CMB-TT-full_R3.01.txt\n"
-      },
-      {
-        "timestamp": "2025-10-29T18:57:49.972440",
-        "step": "Black Hole Bomb Tests (7 scripts)",
-        "type": "ScriptFailure",
-        "message": "Exit code: 1",
-        "traceback": "Traceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 26, in run_script\n    print(f\"\\u2705 {script_path.name} completed successfully\")\n  File \"C:\\Program Files\\Python310\\lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2705' in position 0: character maps to <undefined>\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 85, in <module>\n    success = main()\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 62, in main\n    success = run_script(script_path)\n  File \"E:\\clone\\doublecheck\\run_bomb_tests.py\", line 35, in run_script\n    print(f\"\\u274c {script_path.name} error: {e}\")\n  File \"C:\\Program Files\\Python310\\lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u274c' in position 0: character maps to <undefined>\n"
+        "traceback": null
       }
     ]
   },
   "overall_pass": false,
   "outputs": {
-    "plots": 38,
-    "reports": 338,
+    "plots": 40,
+    "reports": 399,
     "data": 17,
-    "logs": 5
+    "logs": 1
   }
 }

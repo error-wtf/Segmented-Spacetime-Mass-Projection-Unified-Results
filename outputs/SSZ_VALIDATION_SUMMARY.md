@@ -1,6 +1,6 @@
 # SSZ vs GR Validation Summary
 
-**Generated:** 2026-07-01 00:14:34
+**Generated:** 2026-07-01 01:59:40
 
 © 2025 Carmen Wrede & Lino Casu
 
@@ -52,7 +52,7 @@ At radii r/r_s ≈ 2-3, SSZ predicts **~14% difference** in time dilation vs GR.
 |--------|-------|
 | **Max Δ** | **-0.1367** (-13.67%) |
 | **At r/r_s** | 3.31 |
-| **14% ±3% range** | Not found |
+| **14% ±3% range** | [2.21, 5.00] |
 
 **Expected range:** 11-17%  
 **Status:** ✅ IN RANGE

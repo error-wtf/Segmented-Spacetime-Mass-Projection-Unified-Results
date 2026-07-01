@@ -1,15 +1,15 @@
 {
-  "timestamp": "2025-12-07T05:16:20.784480",
+  "timestamp": "2026-07-01T01:59:24.153485",
   "steps": {
     "step1_intersection": {
-      "r_over_rs": 1.3865616196486958,
-      "D_star": 0.6107101198891444,
+      "r_over_rs": 1.5948114578885662,
+      "D_star": 0.6107099408496295,
       "validated": true,
       "interpretation": "Universal mass-independent crossover confirmed at r* = 1.387 r_s"
     },
     "step2_saturation": {
       "xi_max": 1.0,
-      "xi_saturates": true,
+      "xi_saturates": false,
       "d_horizon": 0.5550277096687818,
       "interpretation": "Segment density saturates below 1.0 → curvature and time dilation remain finite"
     },
@@ -21,7 +21,7 @@
       "interpretation": "Energy dissipates exponentially → No BH explosions possible"
     },
     "step4_time_emergence": {
-      "slowdown_factor": 1.1080980172650094,
+      "slowdown_factor": 1.5647492912325405,
       "interpretation": "Time is emergent from φ-based segment resonances → not fundamental"
     },
     "step5_chaos": {
@@ -29,8 +29,8 @@
       "interpretation": "Time becomes chaotic when amplification exceeds coupling threshold"
     },
     "step6_neutron_star": {
-      "max_delta_percent": -44.08973126107127,
-      "r_at_max": 5.0,
+      "max_delta_percent": -13.67447978731316,
+      "r_at_max": 3.3030303030303028,
       "interpretation": "Observable NS signature: increased redshift and period lengthening"
     },
     "step7_phi_fundamental": {
@@ -44,14 +44,14 @@
     "spacetime_discrete": true,
     "time_emergent": true,
     "phi_universal": true,
-    "singularities_resolved": true,
+    "singularities_resolved": false,
     "black_holes_stable": false,
     "quantum_gravity_hint": "Segment-based quantization of spacetime",
     "unification_path": "φ-geometry unifies gravity, time, and quantum structure"
   },
   "final_validation": {
     "intersection_verified": true,
-    "saturation_confirmed": true,
+    "saturation_confirmed": false,
     "stability_proven": false,
     "time_emergent": true,
     "chaos_mapped": true,

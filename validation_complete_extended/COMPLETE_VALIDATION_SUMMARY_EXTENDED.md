@@ -1,14 +1,14 @@
 # Extended Validation Summary
 
-**Date:** 2025-10-29 18:57:50  
+**Date:** 2026-07-01 00:40:20  
 **Status:** ❌ FAIL  
-**Success Rate:** 60.0%
+**Success Rate:** 0.0%
 
 ## Overview
 
-- Total Steps: 5
-- Passed: 3
-- Failed: 2
+- Total Steps: 1
+- Passed: 0
+- Failed: 1
 - Skipped: 0
 - Critical Failures: 1
 
@@ -17,26 +17,22 @@
 
 ### Validation
 
-- Total: 5
-- Passed: 3/5
+- Total: 1
+- Passed: 0/1
 
-- ✅ **Formula Verification** **(CRITICAL)**
-- ❌ **Complete Test Suite (22 tests)**
-- ✅ **ToE Unified Validation (11 steps)** **(CRITICAL)**
-- ✅ **ToE Validation v2 (6 pillars)** **(CRITICAL)**
-- ❌ **Black Hole Bomb Tests (7 scripts)** **(CRITICAL)**
+- ❌ **Formula Verification** **(CRITICAL)**
 
 
 ## Outputs Generated
 
-- **Plots:** 38 files
-- **Reports:** 338 files
+- **Plots:** 40 files
+- **Reports:** 399 files
 - **Data:** 17 files
-- **Logs:** 5 individual logs
+- **Logs:** 1 individual logs
 
 ## Error Summary
 
-- **Total Errors:** 2
+- **Total Errors:** 1
 - **Error Log:** `error_log.txt`
 
 ## Files
@@ -50,10 +46,10 @@
 
 ### Directories
 
-- `plots/` - All generated plots (38 files)
-- `reports/` - All reports and summaries (338 files)
+- `plots/` - All generated plots (40 files)
+- `reports/` - All reports and summaries (399 files)
 - `data/` - All CSV data files (17 files)
-- `logs/` - Individual step logs (5 files)
+- `logs/` - Individual step logs (1 files)
 
 ---
 

@@ -1,8 +1,8 @@
 # ToE Validation — SSZ v2 (Deterministic)
 
-**Date:** 2025-11-19 22:44:44
+**Date:** 2026-07-01 01:59:41
 **Version:** 2.0
-**ToE Consistency Score:** 1.000 / 1.0
+**ToE Consistency Score:** 0.833 / 1.0
 **Minimum Required:** 0.8
 **Status:** ✅ PASS
 
@@ -15,7 +15,7 @@
 **Status:** ✅ Verifiziert
 
 ### 3. Neutronenstern-Signatur
-**Status:** ✅ Verifiziert
+**Status:** ❌ Fail
 
 ### 4. Auflösung der Singularität
 **Status:** ✅ Verifiziert

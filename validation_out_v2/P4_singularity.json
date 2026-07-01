@@ -1,5 +1,5 @@
 {
-  "R_sup_near_zero": 0.9999983819699382,
+  "R_sup_near_zero": 0.5,
   "R_ref": 1.0,
   "D_at_horizon": 0.5550277096687818,
   "Xi_at_horizon": 0.8017118471377938,

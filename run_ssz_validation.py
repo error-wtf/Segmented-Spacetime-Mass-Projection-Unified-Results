@@ -186,7 +186,7 @@ r_at_max_delta = r_ns_arr[max_delta_idx] / rs
 
 # Find region with delta ≈ 0.14
 target_delta = 0.14
-idx_14 = np.where(np.abs(delta - target_delta) < 0.03)[0]
+idx_14 = np.where(np.abs(np.abs(delta) - target_delta) < 0.03)[0]
 if len(idx_14) > 0:
     r_14_min = r_ns_arr[idx_14[0]] / rs
     r_14_max = r_ns_arr[idx_14[-1]] / rs

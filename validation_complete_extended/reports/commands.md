@@ -102,6 +102,8 @@ python segspace_all_in_one.py bound-energy --pairs freq_pairs.csv \
   --out bound_energy_out --plot
 ```
 
+**NOTE (2025-11-27):** Der `bound-energy` Workflow in `segspace_all_in_one.py` berechnet **echte Bound Energy** gemäß Paper-Herleitung (α·m_bound). Dies ist NICHT zu verwechseln mit den DEPRECATED Scripts `bound_energy_english.py` und `bound_energy_plot.py`, welche nur Redshift & Segmentdichte berechnen. Siehe `BOUND_ENERGY_SCRIPTS_CLARIFICATION.md` für Details.
+
 ---
 
 **1. Overall metrics**
@@ -538,10 +540,12 @@ python segspace_all_in_one_extended.py all
 [ECHO 2025-08-19 22:59:33] [OK] wrote JSON: agent_out\reports\redshift_paired_stats.json
 [ECHO 2025-08-19 22:59:33] [INFO] For per-row debug, run the v1 'all' once to create redshift_debug.csv
 [ECHO 2025-08-19 22:59:33] ================================================================================
-[ECHO 2025-08-19 22:59:33]  WORKFLOW: BOUND ENERGY & α
+[ECHO 2025-08-19 22:59:33]  WORKFLOW: BOUND ENERGY & α (ECHTE Paper-Herleitung!)
 [ECHO 2025-08-19 22:59:33] ================================================================================
 [ECHO 2025-08-19 22:59:33] E_bound = 5.974419644760417875984776719304208912E-16 J | f_thr = 901653545693357604.42934289177487939997133896929841589437443550156196278724878878621591411917062182023533209952508577048493819522873599519618729059184500182208303363646097227026792042037164366574054457 Hz | lambda = 3.3249185280967785186671459606021200884228391918132440568069436865448902415820676436940925894268308481998848894269007623165075313810641323231543134855826262282543282567767447862605669503849310419973091E-10 m
 [ECHO 2025-08-19 22:59:33] [OK] wrote text: agent_out\reports\bound_energy.txt
+[NOTE 2025-11-27] Dies ist echte Bound Energy (E = α·m_bound·c²) aus der Paper-Herleitung,
+                   NICHT zu verwechseln mit Redshift-Berechnungen!
 ```
 
 ---

@@ -22,7 +22,7 @@ R_S = 1.0
 
 def xi_ssz(r, h=None):
     """Segment density - resolution-dependent if grid-based"""
-    return XI_MAX * (1 - np.exp(-PHI * r_s / r))
+    return XI_MAX * (1 - np.exp(-PHI * R_S / r))
 
 def D_SSZ(r, h=None):
     """SSZ time dilation"""

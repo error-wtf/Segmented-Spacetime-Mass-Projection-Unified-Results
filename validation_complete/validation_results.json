@@ -1,62 +1,20 @@
 {
-  "timestamp": "2025-11-19T20:58:26.205941",
+  "timestamp": "2026-07-01T00:39:06.705739",
   "results": [
     {
       "step": "verify_formulas",
       "name": "Formula Verification",
-      "success": true,
-      "exit_code": 0,
+      "success": false,
+      "exit_code": 1,
       "critical": true
-    },
-    {
-      "step": "test_suite",
-      "name": "Complete Test Suite (22 tests)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true
-    },
-    {
-      "step": "toe_unified",
-      "name": "ToE Unified Validation (11 steps)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true
-    },
-    {
-      "step": "toe_v2",
-      "name": "ToE Validation v2 (6 pillars)",
-      "success": true,
-      "exit_code": 0,
-      "critical": true
-    },
-    {
-      "step": "grid_convergence",
-      "name": "Grid Convergence Test (F-16)",
-      "success": true,
-      "exit_code": 0,
-      "critical": false
-    },
-    {
-      "step": "proper_time",
-      "name": "Proper Time Validation",
-      "success": true,
-      "exit_code": 0,
-      "critical": false
-    },
-    {
-      "step": "theory_validation",
-      "name": "Theory Validation",
-      "success": true,
-      "exit_code": 0,
-      "critical": false
     }
   ],
   "statistics": {
-    "total": 7,
-    "passed": 7,
-    "failed": 0,
-    "critical_failed": 0,
-    "success_rate": 100.0
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "critical_failed": 1,
+    "success_rate": 0.0
   },
-  "overall_pass": true
+  "overall_pass": false
 }

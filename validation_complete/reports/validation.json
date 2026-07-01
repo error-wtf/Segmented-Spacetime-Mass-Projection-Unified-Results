@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-19T20:58:08.903518",
+  "timestamp": "2026-07-01T00:38:46.304552",
   "constants": {
     "phi": 1.618033988749895,
     "xi_max": 1.0,
@@ -18,10 +18,10 @@
     },
     "step2": {
       "r_star_over_rs": 1.3865616196487338,
-      "D_star": 0.610710119889163,
-      "r_deviation": 3.803512662603481e-07,
-      "D_deviation": 1.198891630416199e-07,
-      "validated": true
+      "D_star": 0.528007119889163,
+      "r_deviation": 0.20824938035126617,
+      "D_deviation": 0.08270288011083693,
+      "validated": false
     },
     "step3": {
       "eta": "inf",
@@ -55,10 +55,11 @@
       "invariant": true
     },
     "step8": {
-      "xi_max_less_than_one": false,
+      "xi_max_bounded": true,
       "D_at_horizon": 0.5550277096687818,
+      "D_finite": true,
       "R_ratio": 0.503,
-      "singularity_resolved": false
+      "singularity_resolved": true
     },
     "step9": {
       "unified_field": "Ξ(r)",
@@ -71,10 +72,10 @@
     }
   },
   "toe_score": {
-    "intersection_validated": true,
+    "intersection_validated": false,
     "bh_stable": true,
     "phi_invariant": true,
-    "singularity_resolved": false,
+    "singularity_resolved": true,
     "time_emergent": true,
     "toe_architecture": true
   },
